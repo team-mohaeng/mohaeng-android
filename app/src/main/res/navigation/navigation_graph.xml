@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools = "http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/frameFragment"
+        android:name="org.journey.android.FrameFragment"
+        android:label="fragment_frame"
+        tools:layout="@layout/fragment_frame" />
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="org.journey.android.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_frameFragment"
+            app:destination="@id/frameFragment" />
+    </fragment>
+</navigation>
