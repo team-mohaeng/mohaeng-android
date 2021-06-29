@@ -8,4 +8,13 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <color name="journey_pink">#F37C9F</color>
+    <color name="journey_pink1">#FFD4DC</color>
+    <color name="journey_pink2">#FFACC4</color>
+    <color name="journey_gray">#DBDBDB</color>
+    <color name="journey_gray1">#F9F9F9</color>
+    <color name="journey_gray2">#878787</color>
+    <color name="journey_black">#000000</color>
+    <color name="journey_blue">#F0FBFF</color>
+    <color name="journey_blue1">#B8E7F4</color>
 </resources>
