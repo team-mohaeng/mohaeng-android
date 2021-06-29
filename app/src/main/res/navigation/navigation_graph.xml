@@ -7,16 +7,30 @@
 
     <fragment
         android:id="@+id/frameFragment"
-        android:name="org.journey.android.FrameFragment"
+        android:name="org.journey.android.frame.FrameFragment"
         android:label="fragment_frame"
         tools:layout="@layout/fragment_frame" />
     <fragment
         android:id="@+id/splashFragment"
-        android:name="org.journey.android.SplashFragment"
+        android:name="org.journey.android.splash.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action
-            android:id="@+id/action_splashFragment_to_frameFragment"
-            app:destination="@id/frameFragment" />
+            android:id="@+id/action_splashFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="org.journey.android.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="org.journey.android.main.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" />
 </navigation>

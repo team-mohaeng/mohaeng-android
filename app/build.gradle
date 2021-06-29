@@ -68,4 +68,8 @@ dependencies {
     //Activity-ktx
     implementation "androidx.activity:activity-ktx:${Versions.activity_ktx_version}"
 
+    // RxJava
+    implementation "io.reactivex.rxjava2:rxjava:${Versions.rxjava_version}"
+    implementation "io.reactivex.rxjava2:rxandroid:${Versions.rxandroid_version}"
+
 }
