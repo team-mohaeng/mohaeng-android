@@ -22,7 +22,7 @@
   <tr>
     <td>
     <br>
-    Login&Signup<br>
+    Login Signup<br>
     Journey Main<br>
 		Journey PushAlarm<br>
 		Journey Community<br>
