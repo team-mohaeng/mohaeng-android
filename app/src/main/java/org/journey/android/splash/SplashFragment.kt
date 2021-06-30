@@ -23,7 +23,7 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>() {
 
         binding.buttonSplashJourney.setOnClickListener {
             Navigation.findNavController(binding.root)
-                .navigate(R.id.action_splashFragment_to_frameFragment)
+                .navigate(R.id.action_splashFragment_to_loginFragment)
         }
     }
 

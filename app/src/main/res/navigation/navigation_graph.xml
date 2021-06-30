@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools = "http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_graph"
-    app:startDestination="@id/splashFragment">
+    app:startDestination="@id/frameFragment">
 
     <fragment
         android:id="@+id/frameFragment"
         android:name="org.journey.android.frame.FrameFragment"
         android:label="fragment_frame"
-        tools:layout="@layout/fragment_frame" />
+        tools:layout="@layout/fragment_frame" >
+        <action
+            android:id="@+id/action_frameFragment_to_splashFragment"
+            app:destination="@id/splashFragment" />
+    </fragment>
     <fragment
         android:id="@+id/splashFragment"
         android:name="org.journey.android.splash.SplashFragment"
         android:label="fragment_splash"
-        tools:layout="@layout/fragment_splash" >
+        tools:layout="@layout/fragment_splash">
         <action
             android:id="@+id/action_splashFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
@@ -23,7 +27,7 @@
         android:id="@+id/loginFragment"
         android:name="org.journey.android.login.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
+        tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
