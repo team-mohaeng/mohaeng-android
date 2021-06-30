@@ -10,4 +10,7 @@ object Versions {
     const val lifecycle_version = "2.3.1"
 
     const val dagger_version = "2.35.1"
+
+    const val retrofit_version = "2.9.0"
+    const val okhttp_version = "4.9.0"
 }
