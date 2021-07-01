@@ -2,6 +2,8 @@
     <string name="app_name">JourneyAndroid</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="msg_token_fmt" translatable="false">토큰: %s</string>
+    <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
 
     <string name="main_greeting">Hi,쟈기~ 오늘도 안녕하니?\n끈적한 우리 관계를 위해</string>
 </resources>
