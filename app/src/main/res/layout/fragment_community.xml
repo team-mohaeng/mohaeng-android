@@ -1,29 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:id="@+id/constraintlayout_frame_community"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/journey_pink3"
-    tools:context=".community.CommunityFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:id="@+id/textview_diary"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:fontFamily="@font/spoqahansansneoregular"
-        android:gravity="right"
-        android:text="내 서랍장"
-        android:textColor="@color/journey_black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.898"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_gravity="right" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintlayout_frame_community"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/journey_pink3"
+        tools:context=".community.CommunityFragment">
+
+        <TextView
+            android:id="@+id/textview_diary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:fontFamily="@font/spoqahansansneoregular"
+            android:gravity="right"
+            android:text="내 서랍장"
+            android:textColor="@color/journey_black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.898"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textview_happiness_community"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="56dp"
+            android:fontFamily="@font/spoqahansansneobold"
+            android:text="소확행 구경하기"
+            android:textColor="@color/journey_black"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textview_happiness_explanation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="47dp"
+            android:fontFamily="@font/spoqahansansneoregular"
+            android:text="@string/happiness_explanation"
+            android:textColor="@color/journey_black"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textview_happiness_community" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_happiness_write"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/ic_rectangle280"
+            android:drawableLeft="@drawable/ic_rectangle334"
+            android:drawablePadding="4dp"
+            android:fontFamily="@font/spoqahansansneobold"
+            android:gravity="left|center"
+            android:paddingLeft="14dp"
+            android:text="소확행 작성하기"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textview_happiness_explanation" />
+
+        <ScrollView
+            android:id="@+id/scrollview_community"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/view_community" />
+        <View
+            android:id="@+id/view_community"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/community_view_background"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/button_happiness_write" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

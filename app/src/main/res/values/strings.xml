@@ -6,4 +6,5 @@
     <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
 
     <string name="main_greeting">Hi,쟈기~ 오늘도 안녕하니?\n끈적한 우리 관계를 위해</string>
+    <string name = "happiness_explanation">오늘의 챌린지를 성공하고\n나의 소확행도 공유해보자</string>
 </resources>
