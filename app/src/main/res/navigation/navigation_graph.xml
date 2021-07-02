@@ -36,5 +36,21 @@
         android:id="@+id/mainFragment"
         android:name="org.journey.android.main.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_communityFragment"
+            app:destination="@id/communityFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_challengeFragment2"
+            app:destination="@id/challengeFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/communityFragment"
+        android:name="org.journey.android.community.CommunityFragment"
+        android:label="fragment_community"
+        tools:layout="@layout/fragment_community" />
+    <fragment
+        android:id="@+id/challengeFragment2"
+        android:name="org.journey.android.challenge.ChallengeFragment"
+        android:label="ChallengeFragment" />
 </navigation>
