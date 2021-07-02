@@ -6,4 +6,6 @@
     <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
 
     <string name="main_greeting">Hi,쟈기~ 오늘도 안녕하니?\n끈적한 우리 관계를 위해</string>
+
+    <string name= "challenge_message_journey">손을 씻는 것은 청결에 있어서 가장 기본적이지만\n잊기 쉬운 일이쟈니. 깨끗해진 너의 손으로 쟈니를\n섬세하게 다뤄줘.</string>
 </resources>
