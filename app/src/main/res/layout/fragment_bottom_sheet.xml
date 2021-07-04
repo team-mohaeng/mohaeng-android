@@ -1,66 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginHorizontal="16dp"
-    android:background="@drawable/community_view_background"
-    app:behavior_peekHeight="200dp"
-    app:behavior_hideable="false"
-    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
-    <View
-        android:id="@+id/view_community"
+<layout>
+    <data>
+        <variable
+            name="viewmodel"
+            type="org.journey.android.community.CommunityViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="16dp"
         android:background="@drawable/community_view_background"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:behavior_peekHeight="200dp"
+        app:behavior_hideable="false"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+        <View
+            android:id="@+id/view_community"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/community_view_background"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
-    <TextView
-        android:id="@+id/textview_total_user"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/total_user_format"
-        android:textSize="16sp"
-        android:layout_marginTop="32dp"
-        android:textColor="@color/journey_black"
-        android:fontFamily="@font/spoqahansansneobold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/view_community"/>
+        <TextView
+            android:id="@+id/textview_total_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{@string/total_user_format(viewmodel.title)}"
+            android:textSize="16sp"
+            android:layout_marginTop="32dp"
+            android:textColor="@color/journey_black"
+            android:fontFamily="@font/spoqahansansneobold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/view_community"/>
 
-    <TextView
-        android:id="@+id/textview_update"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/spoqahansansneoregular"
-        android:text="최신순"
-        android:textColor="@color/journey_black"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textview_total_user"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.8"
-        app:layout_constraintStart_toEndOf="@id/textview_total_user" />
+        <TextView
+            android:id="@+id/textview_update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/spoqahansansneoregular"
+            android:text="최신순"
+            android:textColor="@color/journey_black"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textview_total_user"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.8"
+            app:layout_constraintStart_toEndOf="@id/textview_total_user" />
 
-    <CheckBox
-        android:id="@+id/checkbox_update"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/journey_pink4"
-        app:layout_constraintStart_toEndOf="@id/textview_update"
-        app:layout_constraintBottom_toBottomOf="@id/textview_update"
-        app:layout_constraintTop_toTopOf="@id/textview_update"/>
+        <CheckBox
+            android:id="@+id/checkbox_update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/journey_pink4"
+            app:layout_constraintStart_toEndOf="@id/textview_update"
+            app:layout_constraintBottom_toBottomOf="@id/textview_update"
+            app:layout_constraintTop_toTopOf="@id/textview_update"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview_community_record"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textview_update"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        tools:listitem="@layout/item_community_record" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview_community_record"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textview_update"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            tools:listitem="@layout/item_community_record" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

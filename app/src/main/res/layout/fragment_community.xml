@@ -74,8 +74,5 @@
             app:layout_constraintTop_toBottomOf="@id/textview_happiness_explanation" />
 
 
-
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
