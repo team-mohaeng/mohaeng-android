@@ -5,7 +5,6 @@ import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
 class JourneyApplication: Application(){
-    override fun onCreate() {
-        super.onCreate()
-    }
+
+
 }

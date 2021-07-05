@@ -42,7 +42,7 @@
             app:destination="@id/communityFragment" />
         <action
             android:id="@+id/action_mainFragment_to_challengeFragment2"
-            app:destination="@id/challengeFragment2" />
+            app:destination="@id/challengeFragment" />
     </fragment>
     <fragment
         android:id="@+id/communityFragment"
@@ -50,7 +50,8 @@
         android:label="fragment_community"
         tools:layout="@layout/fragment_community" />
     <fragment
-        android:id="@+id/challengeFragment2"
+        android:id="@+id/challengeFragment"
         android:name="org.journey.android.challenge.ChallengeFragment"
-        android:label="ChallengeFragment" />
+        android:label="ChallengeFragment"
+        tools:layout="@layout/fragment_challenge"/>
 </navigation>

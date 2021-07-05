@@ -6,6 +6,9 @@
     <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
 
     <string name="main_greeting">Hi,쟈기~ 오늘도 안녕하니?\n끈적한 우리 관계를 위해</string>
+    <string name="happiness_explanation">오늘의 챌린지를 성공하고\n나의 소확행도 공유해보자</string>
+    <string name="total_user_format">오늘은 %d명의 쟈기들이\n행복을 기록했쟈니</string>
+    <string name="community_record_contents">맛있는 피자에 시원한\n맥주 먹고 선선한 날\n씨에 산책했어요.</string>
     <string name= "challenge_message_journey">손을 씻는 것은 청결에 있어서 가장 기본적이지만\n잊기 쉬운 일이쟈니. 깨끗해진 너의 손으로 쟈니를\n섬세하게 다뤄줘.</string>
-    <string name = "happiness_explanation">오늘의 챌린지를 성공하고\n나의 소확행도 공유해보자</string>
+
 </resources>
