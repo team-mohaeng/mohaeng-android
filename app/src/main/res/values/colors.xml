@@ -11,10 +11,14 @@
     <color name="journey_pink">#F37C9F</color>
     <color name="journey_pink1">#FFD4DC</color>
     <color name="journey_pink2">#FFACC4</color>
+    <color name="journey_pink3">#FCCEDB</color>
     <color name="journey_gray">#DBDBDB</color>
     <color name="journey_gray1">#F9F9F9</color>
     <color name="journey_gray2">#878787</color>
     <color name="journey_gray3">#828A93</color>
+    <color name="journey_gray4">#F0F0F0</color>
+    <color name="journey_gray5">#FAFAFA</color>
+    <color name="journey_gray6">#F1F1F1</color>
     <color name="journey_black">#000000</color>
     <color name="journey_blue">#F0FBFF</color>
     <color name="journey_blue1">#B8E7F4</color>

@@ -91,4 +91,6 @@ dependencies {
     //OkHttp Logging Interceptor
     implementation "com.squareup.okhttp3:logging-interceptor:${Versions.okhttp_version}"
 
+    //Dot Indicator
+    implementation 'com.tbuonomo:dotsindicator:4.2'
 }

@@ -5,6 +5,8 @@ import android.os.Bundle
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import org.journey.android.R
+import org.journey.android.community.DiaryFirstFragment
+import org.journey.android.community.DiaryViewPagerFragment
 import org.journey.android.databinding.ActivityMainBinding
 
 
@@ -16,6 +18,12 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initNavController()
+
+        //////////////////////////////////////////////// 커밋전에 지워야 될 것
+       supportFragmentManager.beginTransaction()
+            .replace(R.id.testview, DiaryViewPagerFragment())
+            .commit()
+        /////////////////////////////////////////////////
     }
 
     private fun initNavController(){
