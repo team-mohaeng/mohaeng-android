@@ -40,7 +40,6 @@ class DiaryFirstFragment : Fragment(){
         var textviewNowDate = diaryFirstView.findViewById(R.id.textview_now_date) as TextView
         textviewNowDate.setText(firstViewToday)
 
-        //////////////////////////////////////////////////////////////////////////////////////오늘 날짜 , 요일 출력
         val imageButtonFeelOne = diaryFirstView.findViewById(R.id.imagebutton_feel_one) as ImageButton
         val imageButtonFeelTwo = diaryFirstView.findViewById(R.id.imagebutton_feel_two) as ImageButton
         val imageButtonFeelThree = diaryFirstView.findViewById(R.id.imagebutton_feel_three) as ImageButton
@@ -98,7 +97,6 @@ class DiaryFirstFragment : Fragment(){
             textViewGoodDay.isSelected=false
         }
 
-        //////////////////////////////////////////////////////////////////////////////////////////눌렀을 때 색상 바뀌게
 
         return diaryFirstView
     }

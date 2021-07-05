@@ -48,10 +48,19 @@
         android:id="@+id/communityFragment"
         android:name="org.journey.android.community.CommunityFragment"
         android:label="fragment_community"
-        tools:layout="@layout/fragment_community" />
+        tools:layout="@layout/fragment_community" >
+        <action
+            android:id="@+id/action_communityFragment_to_diaryFirstFragment"
+            app:destination="@id/diaryFirstFragment" />
+    </fragment>
     <fragment
         android:id="@+id/challengeFragment"
         android:name="org.journey.android.challenge.ChallengeFragment"
         android:label="ChallengeFragment"
         tools:layout="@layout/fragment_challenge"/>
+    <fragment
+        android:id="@+id/diaryFirstFragment"
+        android:name="org.journey.android.community.DiaryFirstFragment"
+        android:label="DiaryFirstFragment"
+        tools:layout="@layout/fragment_diary_first"/>
 </navigation>
