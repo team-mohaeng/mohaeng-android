@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
-
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
     <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginVertical="12dp"
         android:layout_marginHorizontal="14dp"
-        android:layout_marginVertical="22dp">
+        android:background="@drawable/item_record_radius">
 
         <TextView
             android:id="@+id/textview_tag_first"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="14dp"
             android:fontFamily="@font/spoqahansansneoregular"
             android:text="#맥주"
+            android:layout_marginTop="20dp"
             android:textSize="14sp"
+            android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -27,6 +29,7 @@
             android:layout_marginLeft="4dp"
             android:fontFamily="@font/spoqahansansneoregular"
             android:text="#여름"
+            android:textColor="@color/white"
             android:textSize="14sp"
             app:layout_constraintStart_toEndOf="@id/textview_tag_first"
             app:layout_constraintTop_toTopOf="@id/textview_tag_first" />
@@ -35,10 +38,13 @@
             android:id="@+id/textview_record_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="14dp"
             android:layout_marginTop="15dp"
             android:fontFamily="@font/spoqahansansneoregular"
             android:text="@string/community_record_contents"
             android:textSize="15sp"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textview_tag_first" />
 
@@ -47,9 +53,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="55dp"
+            android:layout_marginLeft="14dp"
             android:fontFamily="@font/spoqahansansneoregular"
             android:text="시원스쿨"
+            android:layout_marginBottom="20dp"
             android:textSize="10sp"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textview_record_content" />
 
@@ -69,14 +79,14 @@
             android:id="@+id/textview_count_prefer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="76"
+            android:layout_marginLeft="4dp"
             android:textSize="10sp"
-            android:layout_marginLeft="2dp"
+            android:text="22"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/button_user_prefer"
             app:layout_constraintTop_toTopOf="@id/button_user_prefer"
             app:layout_constraintBottom_toBottomOf="@id/button_user_prefer"/>
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
