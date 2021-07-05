@@ -1,4 +1,4 @@
-package org.journey.android.community
+package org.journey.android.community.diary
 
 import android.os.Bundle
 import android.text.Editable
@@ -14,9 +14,6 @@ import org.journey.android.R
 import java.util.*
 
 class DiarySecondFragment : Fragment(){
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val diarySecondView = inflater.inflate(R.layout.fragment_diary_second, null)
@@ -42,7 +39,7 @@ class DiarySecondFragment : Fragment(){
         val secondViewToday = secondNowYear + "년 " + secondNowMonth + "월 " + secondNowDate + "일 " + secondNowDayOfWeekToString(secondNowDayOfWeek) +"요일"
 
         var textviewNowDate = diarySecondView.findViewById(R.id.textview_now_date_second) as TextView
-        textviewNowDate.setText(secondViewToday)
+        textviewNowDate.text = secondViewToday
 
         val edittextUserInputText = diarySecondView.findViewById(R.id.edittext_content_happiness) as EditText
         val textviewCountString = diarySecondView.findViewById(R.id.textview_count_string) as TextView

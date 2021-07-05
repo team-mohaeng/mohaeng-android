@@ -1,4 +1,4 @@
-package org.journey.android.community
+package org.journey.android.community.diary
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,15 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
-import com.thuonomo.viewpagerdotsindicator.WormDotsIndicator
-
+import com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
 import org.journey.android.R
+
 
 class DiaryViewPagerFragment : Fragment(){
     lateinit var viewPager : ViewPager2
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_diary_viewpager_adapter, null)

@@ -29,4 +29,5 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@+id/viewpager_diary" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
