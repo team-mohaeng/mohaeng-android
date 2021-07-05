@@ -1,14 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".community.CommunityFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <data>
+        <variable
+            name="data"
+            type="org.journey.android.frame.FrameViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintlayout_frame_community"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="@color/journey_pink3"
+        tools:context=".community.CommunityFragment">
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/textview_diary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:fontFamily="@font/spoqahansansneoregular"
+            android:gravity="right"
+            android:text="내 서랍장"
+            android:textColor="@color/journey_black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.898"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textview_happiness_community"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="56dp"
+            android:fontFamily="@font/spoqahansansneobold"
+            android:text="소확행 구경하기"
+            android:textColor="@color/journey_black"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textview_happiness_explanation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="47dp"
+            android:fontFamily="@font/spoqahansansneoregular"
+            android:text="@string/happiness_explanation"
+            android:textColor="@color/journey_black"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textview_happiness_community" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_happiness_write"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/ic_rectangle280"
+            android:drawableLeft="@drawable/ic_rectangle334"
+            android:drawablePadding="4dp"
+            android:fontFamily="@font/spoqahansansneobold"
+            android:gravity="left|center"
+            android:paddingLeft="14dp"
+            android:text="소확행 작성하기"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textview_happiness_explanation" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
