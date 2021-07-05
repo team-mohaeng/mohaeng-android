@@ -43,7 +43,6 @@ class DiarySecondFragment : Fragment(){
 
         var textviewNowDate = diarySecondView.findViewById(R.id.textview_now_date_second) as TextView
         textviewNowDate.setText(secondViewToday)
-        ///////////////////////////////////////////////////////////////////////////////////////////////오늘 날짜 출력
 
         val edittextUserInputText = diarySecondView.findViewById(R.id.edittext_content_happiness) as EditText
         val textviewCountString = diarySecondView.findViewById(R.id.textview_count_string) as TextView
@@ -68,7 +67,6 @@ class DiarySecondFragment : Fragment(){
                     buttonCompelete.isSelected=false
             }
         })
-        /////////////////////////////////////////////////////////////소확행 글자수 세기 기능 + 글자수가 1글자 이상이면 작성 완료 버튼 활성화
 
         return diarySecondView
     }

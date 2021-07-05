@@ -22,16 +22,6 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.lifecycleOwner = this
-        binding.constraintlayoutFrameCommunity.setOnTouchListener(object : OnSwipeTouchListener(this@CommunityFragment){
-            @SuppressLint("ClickableViewAccessibility")
-            override fun onSwipeDown() {
-                super.onSwipeDown()
-            }
-
-        })
     }
-
-
-
 }
 
