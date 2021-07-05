@@ -21,7 +21,6 @@ class DiarySecondFragment : Fragment(){
                               savedInstanceState: Bundle?): View? {
         val diarySecondView = inflater.inflate(R.layout.fragment_diary_second, null)
 
-        //////////////////////////////////////////////////////////////////////////////////////////////////
         val secondInstance = Calendar.getInstance()
         val secondNowYear = secondInstance.get(Calendar.YEAR).toString()
         val secondNowMonth = (secondInstance.get(Calendar.MONTH)+1).toString()

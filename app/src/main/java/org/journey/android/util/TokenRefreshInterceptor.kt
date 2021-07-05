@@ -12,6 +12,5 @@ class TokenRefreshInterceptor : Interceptor {
             reQuestBuilder.addHeader("refresh token", it)
         }
         return chain.proceed(reQuestBuilder.build())
-
     }
 }
