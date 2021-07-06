@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".course.CourseFragment">
+
+    <ImageButton
+        android:id="@+id/imagebutton_course_back"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="36dp"
+        android:background="@color/journey_pink2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textview_course"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:fontFamily="@font/spoqahansansneoregular"
+        android:text="코스둘러보기"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageview_course_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:src="@drawable/ic_dummyimg"
+        app:layout_constraintEnd_toStartOf="@+id/textview_course_title"
+        app:layout_constraintTop_toTopOf="@+id/textview_course_current" />
+
+    <TextView
+        android:id="@+id/textview_course_current"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="47dp"
+        android:fontFamily="@font/spoqahansansneoregular"
+        android:text="현재 진행중인 코스"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview_course" />
+
+    <TextView
+        android:id="@+id/textview_course_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/spoqahansansneobold"
+        android:text="뽀득뽀득 세균 퇴치"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview_course_current" />
+
+    <TextView
+        android:id="@+id/textview_course_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="18dp"
+        android:background="@drawable/course_round_pink"
+        android:fontFamily="@font/spoqahansansneoregular"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="6dp"
+        android:text="2일차"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textview_course_title"
+        android:layout_marginBottom="18dp"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintlayout_course_process"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:background="@color/journey_gray1"
+        app:layout_constraintTop_toBottomOf="@+id/textview_course_title"
+        tools:layout_editor_absoluteX="18dp">
+
+        <ImageView
+            android:id="@+id/imageview_process_first"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:src="@drawable/ic_course_first"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ImageView
+            android:id="@+id/imageview_process_circle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="33dp"
+            android:layout_marginEnd="3dp"
+            android:src="@drawable/ic_dummyimg"
+            app:layout_constraintEnd_toEndOf="@+id/imageview_process_first"
+            app:layout_constraintTop_toTopOf="@+id/imageview_process_first" />
+
+        <TextView
+            android:id="@+id/textview_process_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/spoqahansansneobold"
+            android:text="1일차"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toStartOf="@+id/imageview_process_circle"
+            app:layout_constraintTop_toTopOf="@+id/imageview_process_circle" />
+
+        <TextView
+            android:id="@+id/textview_process_complete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:background="@drawable/button_round"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="5dp"
+            android:text="06.28 완료"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@+id/textview_process_day"
+            app:layout_constraintTop_toTopOf="@+id/textview_process_day" />
+
+        <TextView
+            android:id="@+id/textview_process_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="알콜스왑으로 핸드폰 닦기"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/textview_process_day"
+            app:layout_constraintTop_toBottomOf="@+id/textview_process_complete" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview_course"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textview_process_content"
+            tools:listitem="@layout/item_course_right" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
