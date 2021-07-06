@@ -17,10 +17,5 @@ class RewardFragment : BaseFragment<FragmentRewardBinding>() {
       return FragmentRewardBinding.inflate(inflater, container,false)
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-    }
-
 
 }
