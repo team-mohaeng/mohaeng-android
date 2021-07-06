@@ -1,4 +1,4 @@
-package org.journey.android.community
+package org.journey.android.community.diary
 
 import android.os.Bundle
 import android.text.Editable
@@ -14,9 +14,6 @@ import org.journey.android.R
 import java.util.*
 
 class DiarySecondFragment : Fragment(){
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val diarySecondView = inflater.inflate(R.layout.fragment_diary_second, null)
@@ -42,8 +39,7 @@ class DiarySecondFragment : Fragment(){
         val secondViewToday = secondNowYear + "년 " + secondNowMonth + "월 " + secondNowDate + "일 " + secondNowDayOfWeekToString(secondNowDayOfWeek) +"요일"
 
         var textviewNowDate = diarySecondView.findViewById(R.id.textview_now_date_second) as TextView
-        textviewNowDate.setText(secondViewToday)
-        ///////////////////////////////////////////////////////////////////////////////////////////////오늘 날짜 출력
+        textviewNowDate.text = secondViewToday
 
         val edittextUserInputText = diarySecondView.findViewById(R.id.edittext_content_happiness) as EditText
         val textviewCountString = diarySecondView.findViewById(R.id.textview_count_string) as TextView
@@ -68,7 +64,6 @@ class DiarySecondFragment : Fragment(){
                     buttonCompelete.isSelected=false
             }
         })
-        /////////////////////////////////////////////////////////////소확행 글자수 세기 기능 + 글자수가 1글자 이상이면 작성 완료 버튼 활성화
 
         return diarySecondView
     }

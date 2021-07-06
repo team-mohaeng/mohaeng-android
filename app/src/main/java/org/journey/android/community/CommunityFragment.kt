@@ -11,7 +11,7 @@ import org.journey.android.databinding.FragmentCommunityBinding
 import org.journey.android.util.OnSwipeTouchListener
 
 class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
-
+    val bottomSheetFragment = BottomSheetFragment()
     override fun getFragmentBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
@@ -22,16 +22,8 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.lifecycleOwner = this
-        binding.constraintlayoutFrameCommunity.setOnTouchListener(object : OnSwipeTouchListener(this@CommunityFragment){
-            @SuppressLint("ClickableViewAccessibility")
-            override fun onSwipeDown() {
-                super.onSwipeDown()
-            }
 
-        })
+
     }
-
-
-
 }
 

@@ -1,4 +1,4 @@
-package org.journey.android.community
+package org.journey.android.community.diary
 
 import android.os.Bundle
 import android.view.*
@@ -10,9 +10,6 @@ import org.journey.android.R
 import java.util.*
 
 class DiaryFirstFragment : Fragment(){
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -38,7 +35,7 @@ class DiaryFirstFragment : Fragment(){
         val firstViewToday = firstNowYear + "년 " + firstNowMonth + "월 " + firstNowDate + "일 " + firstNowDayOfWeekToString(firstNowDayOfWeek) +"요일"
 
         var textviewNowDate = diaryFirstView.findViewById(R.id.textview_now_date) as TextView
-        textviewNowDate.setText(firstViewToday)
+        textviewNowDate.text = firstViewToday
 
         val imageButtonFeelOne = diaryFirstView.findViewById(R.id.imagebutton_feel_one) as ImageButton
         val imageButtonFeelTwo = diaryFirstView.findViewById(R.id.imagebutton_feel_two) as ImageButton
@@ -48,20 +45,20 @@ class DiaryFirstFragment : Fragment(){
         val textViewSosoDay = diaryFirstView.findViewById(R.id.textview_soso_day) as TextView
         val textViewGoodDay = diaryFirstView.findViewById(R.id.textview_good_day) as TextView
 
-        textViewBadDay?.setOnClickListener{
+        textViewBadDay.setOnClickListener{
             textViewBadDay.isSelected=false
         }
 
-        textViewSosoDay?.setOnClickListener{
+        textViewSosoDay.setOnClickListener{
             textViewSosoDay.isSelected=false
         }
 
-        textViewGoodDay?.setOnClickListener{
+        textViewGoodDay.setOnClickListener{
             textViewGoodDay.isSelected=false
         }
 
 
-        imageButtonFeelOne?.setOnClickListener {
+        imageButtonFeelOne.setOnClickListener {
             if(imageButtonFeelTwo.isSelected==true)
                 imageButtonFeelTwo.isSelected=false
             if(imageButtonFeelThree.isSelected==true)
@@ -73,7 +70,7 @@ class DiaryFirstFragment : Fragment(){
             textViewGoodDay.isSelected=true
         }
 
-        imageButtonFeelTwo?.setOnClickListener {
+        imageButtonFeelTwo.setOnClickListener {
             if(imageButtonFeelOne.isSelected==true)
                 imageButtonFeelOne.isSelected=false
             if(imageButtonFeelThree.isSelected==true)
@@ -85,7 +82,7 @@ class DiaryFirstFragment : Fragment(){
             textViewGoodDay.isSelected=true
         }
 
-        imageButtonFeelThree?.setOnClickListener {
+        imageButtonFeelThree.setOnClickListener {
             if(imageButtonFeelOne.isSelected==true)
                 imageButtonFeelOne.isSelected=false
             if(imageButtonFeelTwo.isSelected==true)
