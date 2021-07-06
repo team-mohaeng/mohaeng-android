@@ -1,8 +1,6 @@
-package org.journey.android
+package org.journey.android.login.model
 
 import io.reactivex.Single
-import org.journey.android.login.RequestLogin
-import org.journey.android.login.ResponseLogin
 import retrofit2.http.Body
 import retrofit2.http.POST
 
