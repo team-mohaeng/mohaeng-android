@@ -14,8 +14,8 @@ class RewardAdapter : ListAdapter<RewardData, RewardAdapter.RewardViewHolder>(Re
             RecyclerView.ViewHolder(binding.root) {
                 fun onBind(rewardData: RewardData){
                     binding.textviewPercentNumber.text = rewardData.percent
-                    binding.textviewPercent.text = rewardData.percent_unit
-                    binding.textviewChallengePercent.text = rewardData.reward_content
+                    binding.textviewPercent.text = rewardData.percentUnit
+                    binding.textviewChallengePercent.text = rewardData.rewardContent
                 }
             }
 
