@@ -1,4 +1,4 @@
-package org.journey.android.login
+package org.journey.android.login.model
 
 data class RequestLogin(
     val email: String?,
