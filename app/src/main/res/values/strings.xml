@@ -11,4 +11,5 @@
     <string name="community_record_contents">맛있는 피자에 시원한\n맥주 먹고 선선한 날\n씨에 산책했어요.</string>
     <string name="challenge_message_journey">손을 씻는 것은 청결에 있어서 가장 기본적이지만\n잊기 쉬운 일이쟈니. 깨끗해진 너의 손으로 쟈니를\n섬세하게 다뤄줘.</string>
     <string name = "reward_challenge_percent">총 증가시킨\n쟈니와의 애정도</string>
+    <string name="reward_challenge_date">챌린지 연속 성공\n최장 일수</string>
 </resources>
