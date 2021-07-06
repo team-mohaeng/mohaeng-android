@@ -39,9 +39,17 @@
 
 ## 📕 Coding Convention
 
+📌  [Journey Coding Convention](https://github.com/team-journey/journey-android/wiki/Coding-Convention)
+
 ## 📙 Commit , branch Convention
+
+📌[Journey Commit, branch Convention](https://github.com/team-journey/journey-android/wiki/Commit-Message-and-Branch-Convention)
 
 ## 📗 Package Convention
 
+📌 [Journey Package Convention](https://github.com/team-journey/journey-android/wiki/Package-Convention)
+
 ## 📘 Kanban board 
+
+📌[Journey Kanban board](https://www.notion.so/AND-cf17a9d32246486e899e4eb2be8a1396)
 
