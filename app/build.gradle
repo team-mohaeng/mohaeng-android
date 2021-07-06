@@ -94,4 +94,8 @@ dependencies {
 
     //Dot Indicator
     implementation 'com.tbuonomo:dotsindicator:4.2'
+
+    //Circle ImageView
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
 }
