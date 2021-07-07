@@ -1,20 +1,29 @@
 package org.journey.android.community
 
+import android.annotation.SuppressLint
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
-import org.journey.android.R
+import org.journey.android.base.BaseFragment
+import org.journey.android.databinding.FragmentCommunityBinding
+import org.journey.android.util.OnSwipeTouchListener
 
-class CommunityFragment : Fragment() {
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_community, container, false)
+class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
+    val bottomSheetFragment = BottomSheetFragment()
+    override fun getFragmentBinding(
+        inflater: LayoutInflater,
+        container: ViewGroup?
+    ): FragmentCommunityBinding {
+        return FragmentCommunityBinding.inflate(inflater, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.lifecycleOwner = this
+
+
+    }
 }
+
