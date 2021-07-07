@@ -25,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="org.journey.android.login.LoginFragment"
+        android:name="org.journey.android.login.view.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login">
         <action
@@ -42,15 +42,34 @@
             app:destination="@id/communityFragment" />
         <action
             android:id="@+id/action_mainFragment_to_challengeFragment2"
-            app:destination="@id/challengeFragment2" />
+            app:destination="@id/challengeFragment" />
     </fragment>
     <fragment
         android:id="@+id/communityFragment"
         android:name="org.journey.android.community.CommunityFragment"
         android:label="fragment_community"
-        tools:layout="@layout/fragment_community" />
+        tools:layout="@layout/fragment_community" >
+        <action
+            android:id="@+id/action_communityFragment_to_diaryFirstFragment"
+            app:destination="@id/diaryFirstFragment" />
+    </fragment>
     <fragment
-        android:id="@+id/challengeFragment2"
+        android:id="@+id/challengeFragment"
         android:name="org.journey.android.challenge.ChallengeFragment"
-        android:label="ChallengeFragment" />
+        android:label="ChallengeFragment"
+        tools:layout="@layout/fragment_challenge"/>
+    <fragment
+        android:id="@+id/diaryFirstFragment"
+        android:name="org.journey.android.community.diary.DiaryFirstFragment"
+        android:label="DiaryFirstFragment"
+        tools:layout="@layout/fragment_diary_first">
+        <action
+            android:id="@+id/action_diaryFirstFragment_to_diarySecondFragment"
+            app:destination="@id/diarySecondFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/diarySecondFragment"
+        android:name="org.journey.android.community.diary.DiarySecondFragment"
+        android:label="DiarySecondFragment"
+        tools:layout="@layout/fragment_diary_second"/>
 </navigation>
