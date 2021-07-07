@@ -11,6 +11,8 @@
         android:id="@+id/constraintlayout_challenge_gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="132dp"
+        android:layout_marginBottom="60dp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -19,8 +21,8 @@
 
         <ImageView
             android:id="@+id/imageview_journey_gone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="230dp"
+            android:layout_height="264dp"
             android:background="@drawable/ic_challenge_journey"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -30,24 +32,23 @@
             android:id="@+id/textview_challenge_gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="33dp"
+            android:layout_marginTop="32dp"
             android:fontFamily="@font/spoqahansansneoregular"
-            android:lineSpacingExtra="10dp"
             android:gravity="center"
-            android:text="쟈니는 처음이지? \n코스부터 선택하고 와"
+            android:lineSpacingExtra="4dp"
+            android:text="쟈니는 처음이지?\n코스부터 선택하고 와라라라라랄"
             android:textColor="@color/black"
-            android:textSize="16sp"
+            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageview_journey_gone" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_challenge_course"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="13dp"
+            android:layout_marginTop="40dp"
             android:background="@drawable/button_round"
-            android:backgroundTint="@color/journey_pink"
             android:fontFamily="@font/spoqahansansneobold"
             android:minWidth="0dp"
             android:minHeight="0dp"
@@ -55,7 +56,7 @@
             android:paddingVertical="8dp"
             android:text="코스 선택하기"
             android:textColor="@color/white"
-            android:textSize="20sp"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -64,7 +65,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintlayout_challenge_ongoing"
+        android:id="@+id/constraintlayout_challenge_third"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="visible"
