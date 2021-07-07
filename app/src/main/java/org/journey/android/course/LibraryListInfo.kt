@@ -5,5 +5,5 @@ data class LibraryListInfo(
     val libraryTitle: String,
     val libraryContent: String,
     val libraryImg: String,
-    val libraryState: Boolean
+    val libraryComplete: Boolean
 )

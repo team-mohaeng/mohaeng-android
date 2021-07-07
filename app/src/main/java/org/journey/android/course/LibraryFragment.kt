@@ -47,35 +47,35 @@ class LibraryFragment : Fragment() {
                     libraryTitle = "뽀득뽀득 세균 퇴치",
                     libraryContent = "나 쟈니가 인간세계에 처음 도착했을 때 사람들이 청결에 대해 은근히 무심한 것이 신기했쟈니. 내가 사는 별에서는 상상도 할 수 없쟈니.",
                     libraryImg = "https://file.mk.co.kr/meet/neds/2020/05/image_readtop_2020_536855_15904607324214665.jpg",
-                    libraryState = true
+                    libraryComplete = false
                 ),
                 LibraryListInfo(
                     libraryTerm = "7일 코스",
                     libraryTitle = "뽀득뽀득 세균 퇴치",
                     libraryContent = "나 쟈니가 인간세계에 처음 도착했을 때 사람들이 청결에 대해 은근히 무심한 것이 신기했쟈니. 내가 사는 별에서는 상상도 할 수 없쟈니.",
                     libraryImg = "https://file.mk.co.kr/meet/neds/2020/05/image_readtop_2020_536855_15904607324214665.jpg",
-                    libraryState = true
+                    libraryComplete = false
                 ),
                 LibraryListInfo(
                     libraryTerm = "7일 코스",
                     libraryTitle = "뽀득뽀득 세균 퇴치",
                     libraryContent = "나 쟈니가 인간세계에 처음 도착했을 때 사람들이 청결에 대해 은근히 무심한 것이 신기했쟈니. 내가 사는 별에서는 상상도 할 수 없쟈니.",
                     libraryImg = "https://file.mk.co.kr/meet/neds/2020/05/image_readtop_2020_536855_15904607324214665.jpg",
-                    libraryState = false
+                    libraryComplete = true
                 ),
                 LibraryListInfo(
                     libraryTerm = "7일 코스",
                     libraryTitle = "뽀득뽀득 세균 퇴치",
                     libraryContent = "나 쟈니가 인간세계에 처음 도착했을 때 사람들이 청결에 대해 은근히 무심한 것이 신기했쟈니. 내가 사는 별에서는 상상도 할 수 없쟈니.",
                     libraryImg = "https://file.mk.co.kr/meet/neds/2020/05/image_readtop_2020_536855_15904607324214665.jpg",
-                    libraryState = false
+                    libraryComplete = true
                 ),
                 LibraryListInfo(
                     libraryTerm = "7일 코스",
                     libraryTitle = "뽀득뽀득 세균 퇴치",
                     libraryContent = "나 쟈니가 인간세계에 처음 도착했을 때 사람들이 청결에 대해 은근히 무심한 것이 신기했쟈니. 내가 사는 별에서는 상상도 할 수 없쟈니.",
                     libraryImg = "https://file.mk.co.kr/meet/neds/2020/05/image_readtop_2020_536855_15904607324214665.jpg",
-                    libraryState = false
+                    libraryComplete = true
                 )
 
             )

@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import org.journey.android.R
+import org.journey.android.databinding.ItemCourseFirstBinding
 import org.journey.android.databinding.ItemCourseLeftBinding
 import org.journey.android.databinding.ItemCourseRightBinding
 
@@ -13,6 +14,14 @@ class CourseListAdapter :RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when(viewType) {
+            0 -> {
+                val binding = ItemCourseFirstBinding.inflate(
+                    LayoutInflater.from(parent.context),
+                    parent,
+                    false
+                )
+                CourseFirstViewHolder(binding)
+            }
             1 -> {
                 val binding = ItemCourseRightBinding.inflate(
                     LayoutInflater.from(parent.context),
@@ -41,6 +50,10 @@ class CourseListAdapter :RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         // holder.onBind(repoList[position])
 
         when(courseList[position].type) {
+            0 -> {
+                (holder as CourseFirstViewHolder).onBind(courseList[position])
+                holder.setIsRecyclable(false)
+            }
             1 -> {
                 (holder as CourseRightViewHolder).onBind(courseList[position])
                 holder.setIsRecyclable(false)
@@ -49,6 +62,27 @@ class CourseListAdapter :RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 (holder as CourseLeftViewHolder).onBind(courseList[position])
                 holder.setIsRecyclable(false)
             }
+        }
+    }
+
+    class CourseFirstViewHolder(
+        private val binding: ItemCourseFirstBinding
+    ) : RecyclerView.ViewHolder(binding.root) {
+        fun onBind(CourseListInfo: CourseListInfo){
+            binding.textviewProcessDay.text = CourseListInfo.courseDay
+            binding.textviewProcessContent.text = CourseListInfo.courseContent
+
+            if(CourseListInfo.courseComplete.isNotEmpty()){
+                binding.textviewProcessComplete.visibility = View.VISIBLE
+                binding.textviewProcessComplete.text = CourseListInfo.courseComplete
+            }
+            else
+                binding.textviewProcessComplete.visibility = View.INVISIBLE
+
+            if(CourseListInfo.courseCurrent)
+                binding.imageviewProcessFirst.setImageResource(R.drawable.ic_course_first)
+            else
+                binding.imageviewProcessFirst.setImageResource(R.drawable.ic_course_first)
         }
     }
 
@@ -90,7 +124,7 @@ class CourseListAdapter :RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
 
             if(CourseListInfo.courseCurrent)
-                binding.imageviewLeftRoad.setImageResource(R.drawable.ic_course_gray_left)
+                binding.imageviewLeftRoad.setImageResource(R.drawable.ic_course_pink_left)
             else
                 binding.imageviewLeftRoad.setImageResource(R.drawable.ic_course_gray_left)
         }

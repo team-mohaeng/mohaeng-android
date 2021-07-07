@@ -41,6 +41,13 @@ class CourseFragment : Fragment() {
         courseListAdapter.courseList.addAll(
             listOf<CourseListInfo>(
                 CourseListInfo(
+                    courseDay = "1일차",
+                    courseContent = "알콜스왑으로 핸드폰 닦기",
+                    courseComplete = "06.28 완료",
+                    courseCurrent = true,
+                    type = 0
+                ),
+                CourseListInfo(
                     courseDay = "2일차",
                     courseContent = "알콜스왑으로 핸드폰 닦기",
                     courseComplete = "06.28 완료",
