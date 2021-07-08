@@ -106,7 +106,7 @@ class LibraryListAdapter :RecyclerView.Adapter<LibraryListAdapter.LibraryListVie
                         okButton.visibility = View.VISIBLE
 
                         val dialogTitle = mDialogView.findViewById<TextView>(R.id.textview_dialog_title)
-                        dialogTitle.setText("나와의 여정을 떠나볼래?")
+                        dialogTitle.text = "나와의 여정을 떠나볼래?"
                         alertDialog.show()
 
 
@@ -123,7 +123,7 @@ class LibraryListAdapter :RecyclerView.Adapter<LibraryListAdapter.LibraryListVie
                         okButton.visibility = View.GONE
 
                         val dialogTitle = mDialogView.findViewById<TextView>(R.id.textview_dialog_title)
-                        dialogTitle.setText("쟈기, 지금 포기하는거야?")
+                        dialogTitle.text = "쟈기, 지금 포기하는거야?"
                         alertDialog.show()
 
                         val noButton = mDialogView.findViewById<AppCompatButton>(R.id.button_dialog_no)
@@ -151,9 +151,9 @@ class LibraryListAdapter :RecyclerView.Adapter<LibraryListAdapter.LibraryListVie
 
                     alertDialog.show()
                     val dialogTitle = mDialogView.findViewById<TextView>(R.id.textview_dialog_title)
-                    dialogTitle.setText("(이미 완료한 코스)")
+                    dialogTitle.text = "(이미 완료한 코스)"
 
-                    okButton.setText("닫기!")
+                    okButton.text = "닫기!"
                     okButton.setOnClickListener {
                         alertDialog.dismiss()
                         Toast.makeText(ctxt, "닫기! 클릭", Toast.LENGTH_SHORT).show()
