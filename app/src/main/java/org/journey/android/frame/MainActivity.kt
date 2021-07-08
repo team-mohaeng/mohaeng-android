@@ -21,6 +21,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         initNavController()
 
+        //check
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.testview, ChallengeFragment())
+            .commit()
+
         FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
             if (!task.isSuccessful) {
                 Log.w(
