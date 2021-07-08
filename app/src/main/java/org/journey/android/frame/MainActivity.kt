@@ -36,10 +36,6 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        //check
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.testview, ChallengeFragment())
-            .commit()
     }
 
     private fun initNavController() {
