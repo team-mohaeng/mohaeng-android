@@ -27,4 +27,11 @@
     <color name="journey_black">#000000</color>
     <color name="journey_blue">#F0FBFF</color>
     <color name="journey_blue1">#B8E7F4</color>
+
+    <color name="journey_gray_a">#585858</color>
+    <color name="journey_gray_b">#f5f5f5</color>
+    <color name="journey_gray_c">#e7e7e7</color>
+    <color name="journey_gray_d">#424242</color>
+    <color name="journey_pink_a">#ff87a5</color>
+
 </resources>
