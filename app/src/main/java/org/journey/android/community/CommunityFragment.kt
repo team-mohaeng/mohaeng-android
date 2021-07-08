@@ -1,17 +1,17 @@
 package org.journey.android.community
 
+import android.annotation.SuppressLint
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.LifecycleEventObserver
-import org.journey.android.R
 import org.journey.android.base.BaseFragment
 import org.journey.android.databinding.FragmentCommunityBinding
+import org.journey.android.util.OnSwipeTouchListener
 
 class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
-
+    val bottomSheetFragment = BottomSheetFragment()
     override fun getFragmentBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
@@ -23,8 +23,7 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
         super.onViewCreated(view, savedInstanceState)
         binding.lifecycleOwner = this
 
+
     }
-
-
-
 }
+

@@ -1,4 +1,4 @@
-package org.journey.android.community
+package org.journey.android.community.diary
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -9,7 +9,6 @@ class DiaryViewPagerAdapter(
     override fun getItemCount(): Int {
        return items.size
     }
-
     override fun createFragment(position: Int): Fragment {
         return items[position]
     }

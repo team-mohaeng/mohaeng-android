@@ -22,11 +22,25 @@
     <color name="journey_gray5">#FAFAFA</color>
     <color name="journey_gray6">#F1F1F1</color>
     <color name="journey_gray7">#FAFAFA</color>
-    <color name="journey_gray8">#ACACAC</color>
+    <color name ="journey_gray8">#D0D5DB</color>
+    <color name="journey_gray9">#F5F5F5</color>
+    <color name="journey_gray10">#585858</color>
+
     <color name="journey_black">#000000</color>
     <color name="journey_black2">#353535</color>
     <color name="journey_black3">#202020</color>
     <color name="journey_black4">#424242</color>
     <color name="journey_blue">#F0FBFF</color>
     <color name="journey_blue1">#B8E7F4</color>
+
+    <color name="journey_gray_a">#585858</color>
+    <color name="journey_gray_b">#f5f5f5</color>
+    <color name="journey_gray_c">#e7e7e7</color>
+    <color name="journey_gray_d">#424242</color>
+    <color name="journey_gray_e">#383838</color>
+    <color name="journey_gray_f">#ACACAC</color>
+    <color name="journey_pink_a">#ff87a5</color>
+    <color name="journey_pink_b">#ff578f</color>
+    <color name="journey_pink_c">#ff87a5</color>
+
 </resources>

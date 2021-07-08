@@ -1,4 +1,4 @@
-package org.journey.android.community
+package org.journey.android.community.diary
 
 import android.content.Context
 import android.content.Intent
@@ -24,14 +24,10 @@ import java.util.*
 import java.util.jar.Manifest
 
 class DiarySecondFragment : Fragment(){
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val diarySecondView = inflater.inflate(R.layout.fragment_diary_second, null)
 
-        //////////////////////////////////////////////////////////////////////////////////////////////////
         val secondInstance = Calendar.getInstance()
         val secondNowYear = secondInstance.get(Calendar.YEAR).toString()
         val secondNowMonth = (secondInstance.get(Calendar.MONTH)+1).toString()
@@ -53,8 +49,7 @@ class DiarySecondFragment : Fragment(){
         val secondViewToday = secondNowYear + "년 " + secondNowMonth + "월 " + secondNowDate + "일 " + secondNowDayOfWeekToString(secondNowDayOfWeek) +"요일"
 
         var textviewNowDate = diarySecondView.findViewById(R.id.textview_now_date_second) as TextView
-        textviewNowDate.setText(secondViewToday)
-        ///////////////////////////////////////////////////////////////////////////////////////////////오늘 날짜 출력
+        textviewNowDate.text = secondViewToday
 
         val PERMISSION_REQUEST_CODE = 201
         val REQ_GALLERY = 202
@@ -103,7 +98,6 @@ class DiarySecondFragment : Fragment(){
                     buttonCompelete.isSelected=false
             }
         })
-        /////////////////////////////////////////////////////////////소확행 글자수 세기 기능 + 글자수가 1글자 이상이면 작성 완료 버튼 활성화
 
         return diarySecondView
     }

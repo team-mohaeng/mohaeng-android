@@ -2,13 +2,10 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".frame.MainActivity">
-
-
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/navigation_host_fragment"
@@ -23,20 +20,5 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
             app:navGraph="@navigation/navigation_graph" />
-
-
-        ///////////////////////////////////////////////////////// 커밋전에 지워야 될 것
-
-        <FrameLayout
-            android:id="@+id/testview"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-        </FrameLayout>
-        ///////////////////////////////////////////////////////////
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
