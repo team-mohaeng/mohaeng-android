@@ -7,14 +7,18 @@
 
     <string name="main_greeting">Hi,쟈기~ 오늘도 안녕하니?\n끈적한 우리 관계를 위해</string>
 
-    <string name="challenge_message_journey">손을 씻는 것은 청결에 있어서 가장 기본적이지만\n잊기 쉬운 일이쟈니. 깨끗해진 너의 손으로 쟈니를\n섬세하게 다뤄줘.</string>
     <string name="happiness_explanation">오늘의 챌린지를 성공하고\n나의 소확행도 공유해보자</string>
     <string name="library_content_dummy">나 쟈니가 인간세계에 처음 도착했을 때 사람들이\n청결에 대해 은근히 무심한 것이 신기했쟈니. 내\n가 사는 별에서는 상상도 할 수 없쟈니.</string>
     <string name="library_dialog">쟈기, 새로운 코스를 시작했구나?\n나와 찐득한 여정을 떠나보자.</string>
 
     <string name="total_user_format">오늘은 %d명의 쟈기들이\n행복을 기록했쟈니</string>
     <string name="community_record_contents">맛있는 피자에 시원한\n맥주 먹고 선선한 날\n씨에 산책했어요.</string>
+
+    <string name="challenge_message_journey">손을 씻는 것은 청결에 있어서 가장 기본적이지만 잊기 쉬운 일이쟈니. 깨끗해진 너의 손으로 쟈니를 섬세하게 다뤄줘.</string>
     <string name = "reward_challenge_percent">총 증가시킨\n쟈니와의 애정도</string>
     <string name="reward_challenge_date">챌린지 연속 성공\n최장 일수</string>
+    <string name="challenge_explain">아이콘을 터치해 인증을 모두 완료하세요!\n자정이 넘으면 미션이 끝납니다</string>
+    <string name="challenge_complete">챌린지를 성공해서 소확행을 작성할 수 있어.\n나와 함께 쓰러갈래, 쟈기?</string>
+
 
 </resources>

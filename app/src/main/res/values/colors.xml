@@ -32,6 +32,9 @@
     <color name="journey_gray_b">#f5f5f5</color>
     <color name="journey_gray_c">#e7e7e7</color>
     <color name="journey_gray_d">#424242</color>
+    <color name="journey_gray_e">#383838</color>
     <color name="journey_pink_a">#ff87a5</color>
+    <color name="journey_pink_b">#ff578f</color>
+    <color name="journey_pink_c">#ff87a5</color>
 
 </resources>
