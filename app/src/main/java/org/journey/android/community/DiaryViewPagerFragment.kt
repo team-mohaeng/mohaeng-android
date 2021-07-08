@@ -30,7 +30,6 @@ class DiaryViewPagerFragment : Fragment(){
         viewPager.isUserInputEnabled = false
 
 
-
         return view
     }
 }

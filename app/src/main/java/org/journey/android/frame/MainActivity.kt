@@ -3,14 +3,24 @@ package org.journey.android.frame
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
+import android.widget.Button
+import android.widget.NumberPicker
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.widget.AppCompatButton
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.google.android.gms.tasks.OnCompleteListener
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.firebase.messaging.Constants.MessageNotificationKeys.TAG
 import com.google.firebase.messaging.FirebaseMessaging
 import org.journey.android.R
 import org.journey.android.community.DiaryFirstFragment
-import org.journey.android.community.DiaryViewPagerFragment
+import org.journey.android.community.DiarySecondFragment
+import org.journey.android.community.PrivateDetailFragment
+import org.journey.android.community.PrivateFragment
 import org.journey.android.databinding.ActivityMainBinding
 
 
@@ -37,6 +47,13 @@ class MainActivity : AppCompatActivity() {
                 Log.d("fbPractice.Success", msg)
             }
         })
+//////////////////////////////////////////////////////////////////
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.testview, DiarySecondFragment())
+            .commit()
+
+
+        ///////////////////////////////////////////////////////
     }
 
     private fun initNavController() {

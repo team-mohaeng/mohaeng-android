@@ -53,6 +53,17 @@
         android:layout_marginTop="2dp"
         />
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_picture_upload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_diary_button_picture_upload"
+        android:layout_marginTop="28dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview_how_are_you_today"
+        />
+
     <EditText
         android:id="@+id/edittext_content_happiness"
         android:layout_width="match_parent"
@@ -65,10 +76,10 @@
         android:lines="5"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textview_how_are_you_today"
+        app:layout_constraintTop_toBottomOf="@+id/button_picture_upload"
         android:layout_marginLeft="24dp"
         android:layout_marginRight="24dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="28dp"
         android:paddingLeft="11.55dp"
         android:paddingTop="11.55dp"
         android:maxLength="40"
@@ -95,7 +106,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:hint="#태그추가"
+        android:hint="#해시태그를 입력해주세요."
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/edittext_content_happiness"
@@ -115,7 +126,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginLeft="24dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="42dp"
         android:layout_marginRight="24dp"
         android:background="@drawable/diary_button_selector"
         android:fontFamily="@font/spoqahansansneobold"
@@ -128,7 +139,62 @@
         app:cornerRadius="30dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/edittext_hashtag" />
+        app:layout_constraintTop_toBottomOf="@+id/chipgroup_hashtag"/>
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipgroup_hashtag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edittext_hashtag"
+        android:layout_marginTop="8dp"
+        >
+
+        <com.google.android.material.chip.Chip
+            style="@style/Widget.MaterialComponents.Chip.Entry"
+            android:id="@+id/chip_hashtag_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="6dp"
+            android:text="#키"
+            />
+
+        <com.google.android.material.chip.Chip
+            style="@style/Widget.MaterialComponents.Chip.Entry"
+            android:id="@+id/chip_hashtag_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="6dp"
+            android:text="#키"
+            />
+
+        <com.google.android.material.chip.Chip
+            style="@style/Widget.MaterialComponents.Chip.Entry"
+            android:id="@+id/chip_hashtag_three"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="6dp"
+            android:text="#키"
+            />
+
+        <com.google.android.material.chip.Chip
+            style="@style/Widget.MaterialComponents.Chip.Entry"
+            android:id="@+id/chip_hashtag_four"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="6dp"
+            android:text="#키"
+            />
+
+        <com.google.android.material.chip.Chip
+            style="@style/Widget.MaterialComponents.Chip.Entry"
+            android:id="@+id/chip_hashtag_five"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="#키"
+            />
+    </com.google.android.material.chip.ChipGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
