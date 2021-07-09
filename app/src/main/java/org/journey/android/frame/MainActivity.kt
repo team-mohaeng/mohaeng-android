@@ -9,6 +9,8 @@ import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.messaging.FirebaseMessaging
 import org.journey.android.R
 import org.journey.android.challenge.ChallengeFragment
+import org.journey.android.community.CommunityFragment
+import org.journey.android.course.CourseFragment
 import org.journey.android.databinding.ActivityMainBinding
 
 
@@ -20,11 +22,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initNavController()
-
-        //check
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.testview, ChallengeFragment())
-            .commit()
 
         FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
             if (!task.isSuccessful) {

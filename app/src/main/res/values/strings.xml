@@ -20,5 +20,9 @@
     <string name="challenge_explain">아이콘을 터치해 인증을 모두 완료하세요!\n자정이 넘으면 미션이 끝납니다</string>
     <string name="challenge_complete">챌린지를 성공해서 소확행을 작성할 수 있어.\n나와 함께 쓰러갈래, 쟈기?</string>
 
+    <string name="happiness_popcontent_ver1">이번에 수행할 코스도 안 정했쟈니.\n코스를 선택해서\n오늘의 챌린지를 수행해봐</string>
+    <string name="happiness_popcontent_ver2">소확행을 기록하려면\n오늘의 챌린지를 컴플리트-해야해\n이따 다시 찾아오라구?</string>
+    <string name="happiness_popcontent_ver3">오늘 소확행은 이미 작성했던데,\n나에게 그렇게 할 말이 많니?\n아쉽지만 내일 또 쓰러 와~</string>
+
 
 </resources>
