@@ -16,7 +16,6 @@ class LibraryFragment : Fragment() {
 
     private lateinit var libraryListAdapter: LibraryListAdapter
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
