@@ -100,6 +100,10 @@
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="parent"
+            android:max="100"
+            android:progress="25"
+            android:progressBackgroundTint="@color/journey_pink8"
+            android:progressTint="@color/journey_pink6"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textview_our_concentration" />
 
