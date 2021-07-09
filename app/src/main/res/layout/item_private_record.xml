@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/journey_gray3"
+    android:layout_marginHorizontal="8dp"
+    android:layout_marginVertical="8dp"
+    >
+
+    <TextView
+        android:id="@+id/textview_private_hashtag_one"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="#맥주"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:fontFamily="@font/spoqahansansneomedium"
+        android:layout_marginVertical="25dp"
+        android:layout_marginLeft="14dp"
+        />
+
+    <TextView
+        android:id="@+id/textview_private_hashtag_two"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="#여름"
+        app:layout_constraintStart_toEndOf="@id/textview_private_hashtag_one"
+        app:layout_constraintTop_toTopOf="@id/textview_private_hashtag_one"
+        android:layout_marginLeft="4dp"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:fontFamily="@font/spoqahansansneomedium"
+        />
+
+    <TextView
+        android:id="@+id/textview_private_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginHorizontal="14dp"
+        android:fontFamily="@font/spoqahansansneomedium"
+        android:text="@string/community_record_contents"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textview_private_hashtag_one"
+        />
+
+    <TextView
+        android:id="@+id/textview_private_nickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="시원스쿨"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textview_private_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="22dp"
+        android:layout_marginTop="55dp"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        android:layout_marginStart="14dp"
+        android:fontFamily="@font/spoqahansansneomedium"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_image_private"
+        android:layout_width="14dp"
+        android:layout_height="14dp"
+        android:layout_marginLeft="55dp"
+        android:background="@drawable/ic_button_prefer"
+        app:layout_constraintBottom_toBottomOf="@id/textview_private_nickname"
+        app:layout_constraintEnd_toStartOf="@+id/textview_private_like_count"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@+id/textview_private_nickname"
+        app:layout_constraintTop_toTopOf="@id/textview_private_nickname" />
+
+    <TextView
+        android:id="@+id/textview_private_like_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:fontFamily="@font/spoqahansansneomedium"
+        android:text="76"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@id/button_image_private"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button_image_private"
+        app:layout_constraintTop_toTopOf="@id/button_image_private" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -46,7 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:layout_marginRight="30dp"
-        android:text="2021.07.31 ~ 2021.08.07"
+        android:text="2021.08.07"
         android:textColor="@color/journey_black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
