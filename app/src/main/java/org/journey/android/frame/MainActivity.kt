@@ -3,19 +3,11 @@ package org.journey.android.frame
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.widget.Button
-import android.widget.NumberPicker
-import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.widget.AppCompatButton
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.messaging.FirebaseMessaging
 import org.journey.android.R
-import org.journey.android.community.diary.DiaryFirstFragment
-import org.journey.android.community.diary.DiaryViewPagerFragment
 import org.journey.android.databinding.ActivityMainBinding
 
 

@@ -1,4 +1,4 @@
-package org.journey.android.community.diary
+package org.journey.android.diary
 
 import android.content.Context
 import android.content.Intent
