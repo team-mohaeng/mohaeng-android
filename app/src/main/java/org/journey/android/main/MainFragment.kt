@@ -18,5 +18,8 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.textviewConcentrationPercent.setOnClickListener {
+            binding.progressbarConcentration.incrementProgressBy(25)
+        }
     }
 }

@@ -38,6 +38,12 @@ class ChallengeFragment : Fragment() {
     private var stampNumber = 3
     // 완료한 미션 개수를 저장하는 변수
     private var stampComplete = 0
+    // 코스 완료 여부 알려주는 변수
+    private var courseEnd = false
+    // 코스 전체 챌린지 개수
+    private var courseDays = 1
+    // 현재 코스 번호
+    private var courseNumber = 1
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -75,6 +81,7 @@ class ChallengeFragment : Fragment() {
             val windowEnd = alertDialogEnd.window
             windowEnd?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
+            val dialogTitleEnd = mDialogViewEnd.findViewById<TextView>(R.id.textview_dialog_title)
             val writeButtonEnd = mDialogViewEnd.findViewById<AppCompatButton>(R.id.button_dialog_write)
             val laterButtonEnd = mDialogViewEnd.findViewById<AppCompatButton>(R.id.button_dialog_later)
             val imageEnd = mDialogViewEnd.findViewById<ImageView>(R.id.imageview_dialog_image)
@@ -96,8 +103,6 @@ class ChallengeFragment : Fragment() {
             val dialogTitle = mDialogView.findViewById<TextView>(R.id.textview_dialog_title)
             val dialogButtons = mDialogView.findViewById<ConstraintLayout>(R.id.constraintlayout_dialog_buttons)
             val okButton = mDialogView.findViewById<AppCompatButton>(R.id.button_dialog_ok)
-//            val noButton = mDialogView.findViewById<AppCompatButton>(R.id.button_dialog_no)
-//            val changeButton = mDialogView.findViewById<AppCompatButton>(R.id.button_dialog_change)
 
 
             // 인증하기 버튼 클릭 이벤트
@@ -116,23 +121,44 @@ class ChallengeFragment : Fragment() {
                     btnStamp.setImageResource(R.drawable.stamp_selected)
                     stampComplete = stampComplete + 1
                     Log.d("stamp 확인", stampComplete.toString())
+
+                    if(courseDays == courseNumber){
+                        courseEnd = true
+                    }
                     
                     // 스탬프 다  인증 완료하면 완료 팝업 등
                     if(stampComplete == stampNumber){
-                        writeButtonEnd.setOnClickListener {
-                            alertDialogEnd.dismiss()
-                            Toast.makeText(this.context, "작성할게! 클릭", Toast.LENGTH_SHORT).show()
+                        if(courseEnd){
+                            dialogTitleEnd.text = "뽀득뽀득 세균 퇴치\n" + " 코스 완료"
+                            writeButtonEnd.setOnClickListener {
+                                alertDialogEnd.dismiss()
+                                Toast.makeText(this.context, "작성할게! 클릭", Toast.LENGTH_SHORT).show()
+                            }
+                            laterButtonEnd.setOnClickListener {
+                                alertDialogEnd.dismiss()
+                                Toast.makeText(this.context, "나중에 클릭", Toast.LENGTH_SHORT).show()
+                            }
+                            lateinit var mAnim1: Animation
+                            mAnim1 = AnimationUtils.loadAnimation(ctxt, R.anim.challenge_image_animation)
+                            mAnim1.setInterpolator(ctxt, android.R.anim.accelerate_interpolator)
+                            alertDialogEnd.show()
+                            imageEnd?.startAnimation(mAnim1)
                         }
-                        laterButtonEnd.setOnClickListener {
-                            alertDialogEnd.dismiss()
-                            Toast.makeText(this.context, "나중에 클릭", Toast.LENGTH_SHORT).show()
+                        else{
+                            writeButtonEnd.setOnClickListener {
+                                alertDialogEnd.dismiss()
+                                Toast.makeText(this.context, "작성할게! 클릭", Toast.LENGTH_SHORT).show()
+                            }
+                            laterButtonEnd.setOnClickListener {
+                                alertDialogEnd.dismiss()
+                                Toast.makeText(this.context, "나중에 클릭", Toast.LENGTH_SHORT).show()
+                            }
+                            lateinit var mAnim1: Animation
+                            mAnim1 = AnimationUtils.loadAnimation(ctxt, R.anim.challenge_image_animation)
+                            mAnim1.setInterpolator(ctxt, android.R.anim.accelerate_interpolator)
+                            alertDialogEnd.show()
+                            imageEnd?.startAnimation(mAnim1)
                         }
-                        lateinit var mAnim1: Animation
-                        mAnim1 = AnimationUtils.loadAnimation(ctxt, R.anim.challenge_image_animation)
-                        mAnim1.setInterpolator(ctxt, android.R.anim.accelerate_interpolator)
-                        alertDialogEnd.show()
-                        imageEnd?.startAnimation(mAnim1)
-
                     }
                 }
                 btnStamp.isEnabled = false

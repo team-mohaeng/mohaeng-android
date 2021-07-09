@@ -1,4 +1,4 @@
-package org.journey.android.community
+package org.journey.android.diary
 
 import android.app.Dialog
 import android.os.Bundle
@@ -6,19 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.NumberPicker
 import androidx.fragment.app.Fragment
-import com.bumptech.glide.Glide
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import org.journey.android.R
 import org.journey.android.databinding.FragmentPrivateDetailBinding
 
 class PrivateDetailFragment: Fragment() {
 
     private lateinit var  binding : FragmentPrivateDetailBinding
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View?{
         binding = FragmentPrivateDetailBinding.inflate(inflater, container, false)
