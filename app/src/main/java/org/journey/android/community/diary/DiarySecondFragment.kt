@@ -1,17 +1,27 @@
 package org.journey.android.community.diary
 
+import android.content.Context
+import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
+import android.provider.MediaStore
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.PermissionRequest
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.widget.AppCompatButton
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import org.journey.android.R
 import java.util.*
+import java.util.jar.Manifest
 
 class DiarySecondFragment : Fragment(){
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -40,6 +50,30 @@ class DiarySecondFragment : Fragment(){
 
         var textviewNowDate = diarySecondView.findViewById(R.id.textview_now_date_second) as TextView
         textviewNowDate.text = secondViewToday
+
+        val PERMISSION_REQUEST_CODE = 201
+        val REQ_GALLERY = 202
+
+        val selectImageButton = diarySecondView.findViewById(R.id.button_picture_upload) as AppCompatButton
+        selectImageButton.setOnClickListener{
+            var writePermission = ContextCompat.checkSelfPermission(requireContext(), android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+            var readPermission = ContextCompat.checkSelfPermission(requireContext(), android.Manifest.permission.READ_EXTERNAL_STORAGE)
+            if (writePermission == PackageManager.PERMISSION_DENIED || readPermission == PackageManager.PERMISSION_DENIED)
+            {
+                ActivityCompat.requestPermissions(requireActivity(), arrayOf(android.Manifest.permission.WRITE_EXTERNAL_STORAGE, android.Manifest.permission.READ_EXTERNAL_STORAGE), PERMISSION_REQUEST_CODE)
+            }
+            else
+            {
+                var intent = Intent(Intent.ACTION_PICK)
+                intent.data = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+                intent.type = "image/*"
+                startActivityForResult(intent, REQ_GALLERY)
+            }
+        }
+
+
+
+        /////////////////////////////////////////////////////////////////////////////////////////////갤러리에서 사진 가져오기
 
         val edittextUserInputText = diarySecondView.findViewById(R.id.edittext_content_happiness) as EditText
         val textviewCountString = diarySecondView.findViewById(R.id.textview_count_string) as TextView

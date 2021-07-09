@@ -26,7 +26,6 @@ class DiaryViewPagerFragment : Fragment(){
         viewPager.adapter = diaryAdapter
         wormDotsIndicator.setViewPager2(viewPager)
         viewPager.isUserInputEnabled = false
-
         return view
     }
 }

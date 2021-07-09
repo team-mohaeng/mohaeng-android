@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginHorizontal="18dp"
+    android:layout_marginBottom="68dp">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_private_delete"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/ic_button_prefer"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_private_detail_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        >
+
+        <TextView
+            android:id="@+id/textview_private_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/spoqahansansneomedium"
+            android:text="내 소확행 자세히 보기"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ImageView
+        android:id="@+id/imageview_private_detail_back"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:src="@drawable/ic_button_prefer"
+        app:layout_constraintBottom_toTopOf="@id/bottom_layout"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="@id/imageview_private_detail_back"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_private_detail_title"
+        app:layout_constraintVertical_chainStyle="spread"
+        app:layout_constraintVertical_weight="23"
+        />
+
+    <ImageView
+        android:id="@+id/imageview_private_detail_front"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_private_image_front_placeholder"
+        android:translationZ="2dp"
+        app:layout_constraintBottom_toBottomOf="@id/imageview_private_detail_back"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageview_private_detail_back" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottom_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/private_detail_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageview_private_detail_back"
+        app:layout_constraintVertical_chainStyle="spread"
+        app:layout_constraintVertical_weight="30">
+
+        <TextView
+            android:id="@+id/textview_private_detail_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/spoqahansansneomedium"
+            android:text="0000.00.00 (월)"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@id/textview_private_detail_nickname"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            android:layout_marginBottom="40dp"
+            />
+
+        <TextView
+            android:id="@+id/textview_private_detail_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/spoqahansansneobold"
+            android:text="시원스쿨"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            android:layout_marginBottom="36dp"
+            app:layout_constraintBottom_toTopOf="@id/textview_private_detail_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textview_private_detail_date" />
+
+        <TextView
+            android:id="@+id/textview_private_detail_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/spoqahansansneomedium"
+            android:text="@string/private_record_contents"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@id/textview_private_detail_hashtag"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textview_private_detail_nickname" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_private_detail_like"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_marginLeft="64dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textview_private_detail_nickname"
+            app:layout_constraintLeft_toRightOf="@+id/textview_private_detail_nickname"
+            app:layout_constraintTop_toTopOf="@+id/textview_private_detail_nickname" />
+
+        <TextView
+            android:id="@+id/textview_private_detail_like_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:fontFamily="@font/spoqahansansneomedium"
+            android:text="76"
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="@+id/button_private_detail_like"
+            app:layout_constraintLeft_toRightOf="@id/button_private_detail_like"
+            app:layout_constraintTop_toTopOf="@+id/button_private_detail_like" />
+
+        <TextView
+            android:id="@+id/textview_private_detail_hashtag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/spoqahansansneomedium"
+            android:text="#산책 #맥주 #여름"
+            android:textColor="@color/journey_pink6"
+            android:textSize="14sp"
+            android:layout_marginTop="48dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textview_private_detail_content" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
