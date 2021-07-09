@@ -14,10 +14,7 @@ import androidx.navigation.fragment.NavHostFragment
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.messaging.FirebaseMessaging
 import org.journey.android.R
-import org.journey.android.community.PrivateFragment
-import org.journey.android.community.diary.DiaryFirstFragment
 import org.journey.android.community.diary.DiarySecondFragment
-import org.journey.android.community.diary.DiaryViewPagerFragment
 import org.journey.android.databinding.ActivityMainBinding
 
 

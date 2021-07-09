@@ -36,13 +36,16 @@
         android:id="@+id/mainFragment"
         android:name="org.journey.android.main.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" >
+        tools:layout="@layout/fragment_main">
         <action
             android:id="@+id/action_mainFragment_to_communityFragment"
             app:destination="@id/communityFragment" />
         <action
             android:id="@+id/action_mainFragment_to_challengeFragment2"
             app:destination="@id/challengeFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_rewardFragment"
+            app:destination="@id/rewardFragment" />
     </fragment>
     <fragment
         android:id="@+id/communityFragment"
@@ -71,5 +74,10 @@
         android:id="@+id/diarySecondFragment"
         android:name="org.journey.android.community.diary.DiarySecondFragment"
         android:label="DiarySecondFragment"
-        tools:layout="@layout/fragment_diary_second"/>
+        tools:layout="@layout/fragment_diary_second" />
+    <fragment
+        android:id="@+id/rewardFragment"
+        android:name="org.journey.android.reward.RewardFragment"
+        android:label="RewardFragment"
+        tools:layout="@layout/fragment_reward" />
 </navigation>
