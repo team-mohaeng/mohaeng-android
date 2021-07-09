@@ -23,9 +23,8 @@
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        >
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/textview_private_detail"
@@ -50,8 +49,7 @@
         app:layout_constraintRight_toRightOf="@id/imageview_private_detail_back"
         app:layout_constraintTop_toBottomOf="@id/toolbar_private_detail_title"
         app:layout_constraintVertical_chainStyle="spread"
-        app:layout_constraintVertical_weight="23"
-        />
+        app:layout_constraintVertical_weight="23" />
 
     <ImageView
         android:id="@+id/imageview_private_detail_front"
@@ -81,6 +79,7 @@
             android:id="@+id/textview_private_detail_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
             android:fontFamily="@font/spoqahansansneomedium"
             android:text="0000.00.00 (월)"
             android:textColor="@color/white"
@@ -89,19 +88,17 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_chainStyle="packed"
-            android:layout_marginBottom="40dp"
-            />
+            app:layout_constraintVertical_chainStyle="packed" />
 
         <TextView
             android:id="@+id/textview_private_detail_nickname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="36dp"
             android:fontFamily="@font/spoqahansansneobold"
             android:text="시원스쿨"
             android:textColor="@color/white"
             android:textSize="22sp"
-            android:layout_marginBottom="36dp"
             app:layout_constraintBottom_toTopOf="@id/textview_private_detail_content"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -146,11 +143,11 @@
             android:id="@+id/textview_private_detail_hashtag"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
             android:fontFamily="@font/spoqahansansneomedium"
             android:text="#산책 #맥주 #여름"
             android:textColor="@color/journey_pink6"
             android:textSize="14sp"
-            android:layout_marginTop="48dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"

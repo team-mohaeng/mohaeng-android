@@ -1,4 +1,4 @@
-package org.journey.android.community.diary
+package org.journey.android.diary
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment

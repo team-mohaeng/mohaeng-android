@@ -1,4 +1,4 @@
-package org.journey.android.community
+package org.journey.android.diary
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -19,7 +19,7 @@ class PrivateAdapter: RecyclerView.Adapter<PrivateAdapter.PrivateViewHolder>(){
         return PrivateViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: PrivateAdapter.PrivateViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: PrivateViewHolder, position: Int) {
         holder.onBind(privateDiaryList[position])
     }
 

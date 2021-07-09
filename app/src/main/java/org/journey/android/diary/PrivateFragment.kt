@@ -1,19 +1,12 @@
-package org.journey.android.community
+package org.journey.android.diary
 
-import android.app.DatePickerDialog
-import android.app.Dialog
-import android.app.ProgressDialog.show
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.DatePicker
 import android.widget.NumberPicker
 import androidx.core.view.isVisible
-import androidx.databinding.adapters.CalendarViewBindingAdapter.setDate
-import androidx.databinding.adapters.ViewGroupBindingAdapter.setListener
-import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -24,9 +17,6 @@ import java.util.*
 class PrivateFragment : Fragment(){
 
     private lateinit var  binding : FragmentPrivateBinding
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View?{
         val privateView = inflater.inflate(R.layout.fragment_private, null)
@@ -47,7 +37,7 @@ class PrivateFragment : Fragment(){
             privateNowMonth="0$privateNowMonth"
         val nowSelectedDate = privateNowYear + "년 " + privateNowMonth+"월"
 
-        binding.buttonPrivateTimePicker.setText(nowSelectedDate)
+        binding.buttonPrivateTimePicker.text = nowSelectedDate
 
         binding.buttonPrivateTimePicker.setOnClickListener()
         {
@@ -76,7 +66,7 @@ class PrivateFragment : Fragment(){
                     string_selected_month = "0$selected_month"
 
                 val selected_year_month = (selectDialogYear.value).toString().substring(2,4)+"년 "+string_selected_month+"월"
-                binding.buttonPrivateTimePicker.setText(selected_year_month)
+                binding.buttonPrivateTimePicker.text = selected_year_month
                 if (selectDateDialog != null)
                 {selectDateDialog.dismiss()
                     selectDateDialog.cancel()}
