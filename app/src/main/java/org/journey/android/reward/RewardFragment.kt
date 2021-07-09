@@ -19,7 +19,6 @@ class RewardFragment : BaseFragment<FragmentRewardBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         showReward()
-
     }
     private fun showReward(){
         rewardAdapter = RewardAdapter()
@@ -40,5 +39,4 @@ class RewardFragment : BaseFragment<FragmentRewardBinding>() {
         )
         rewardAdapter.notifyDataSetChanged()
     }
-
 }
