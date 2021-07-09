@@ -100,7 +100,6 @@
         app:layout_constraintVertical_bias="1.0" />
 
 
-
     <EditText
         android:id="@+id/edittext_hashtag"
         android:layout_width="match_parent"
@@ -115,10 +114,10 @@
         android:layout_marginRight="24dp"
         android:layout_marginTop="11.55dp"
         android:paddingTop="14dp"
-        android:paddingLeft="24dp"
+        android:maxLength="7"
         android:paddingBottom="17dp"
         android:background="@drawable/hashtag_edittext_selector"
-        android:maxLength="7"
+        android:paddingLeft="24dp"
         />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -140,44 +139,42 @@
         app:cornerRadius="30dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollview_chips"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/scrollview_chips" />
 
-<HorizontalScrollView
-    android:id="@+id/scrollview_chips"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:layout_constraintLeft_toLeftOf="parent"
-    app:layout_constraintRight_toRightOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/edittext_hashtag"
-    android:layout_marginHorizontal="28dp"
-    >
-    <com.google.android.material.chip.ChipGroup
-        android:id="@+id/chipgroup_hashtag"
-        style="@style/HashTagChipStyle"
+    <HorizontalScrollView
+        android:id="@+id/scrollview_chips"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="28dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edittext_hashtag">
 
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipgroup_hashtag"
+            style="@style/HashTagChipStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edittext_hashtag">
 
-    </com.google.android.material.chip.ChipGroup>
-</HorizontalScrollView>
+
+        </com.google.android.material.chip.ChipGroup>
+    </HorizontalScrollView>
 
     <TextView
         android:id="@+id/textview_hash_tag_sharp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="@id/edittext_hashtag"
-        app:layout_constraintBottom_toBottomOf="@id/edittext_hashtag"
-        android:textSize="12sp"
-        android:text="#"
-        android:textColor="@color/journey_black"
         android:layout_marginLeft="35dp"
         android:layout_marginBottom="4dp"
-         />
+        android:text="#"
+        android:textColor="@color/journey_black"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/edittext_hashtag"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@id/edittext_hashtag" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

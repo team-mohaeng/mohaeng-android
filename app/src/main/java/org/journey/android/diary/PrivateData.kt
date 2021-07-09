@@ -1,4 +1,4 @@
-package org.journey.android.community
+package org.journey.android.diary
 
 data class PrivateData(
     val textViewHashTagOne: String,

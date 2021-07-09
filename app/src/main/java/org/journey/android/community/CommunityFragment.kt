@@ -19,12 +19,7 @@ import org.journey.android.databinding.FragmentCommunityBinding
 import org.journey.android.util.OnSwipeTouchListener
 
 class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
-    val bottomSheetFragment = BottomSheetFragment()
 
-    // 소확행 상태를 저장하는 변수
-    // 0: 코스 선택 x
-    // 1: 오늘의 챌린지 수행 x
-    // 2: 이미 소확행 기록
     var happinessStatus = 0
     override fun getFragmentBinding(
         inflater: LayoutInflater,
@@ -40,7 +35,7 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
         setButtonEvent()
     }
 
-    fun setButtonEvent(){
+    fun setButtonEvent() {
         binding.buttonHappinessWrite.setOnClickListener {
             // Dialog만들기
             val mDialogView =
@@ -87,17 +82,15 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
                     Toast.makeText(this.context, "오늘의 챌린지로 이동하기 클릭", Toast.LENGTH_SHORT).show()
                 }
             } else if (happinessStatus == 2) {
-            dialogTitle.text = "소확행 이미 썼쟈니!"
-            okButton.text = "알았어"
-            dialogContent.text = getString(R.string.happiness_popcontent_ver3)
+                dialogTitle.text = "소확행 이미 썼쟈니!"
+                okButton.text = "알았어"
+                dialogContent.text = getString(R.string.happiness_popcontent_ver3)
 
-            okButton.setOnClickListener {
-                alertDialog.dismiss()
-                Toast.makeText(this.context, "알았어 클릭", Toast.LENGTH_SHORT).show()
+                okButton.setOnClickListener {
+                    alertDialog.dismiss()
+                    Toast.makeText(this.context, "알았어 클릭", Toast.LENGTH_SHORT).show()
+                }
             }
-        }
-
-
         }
     }
 }
