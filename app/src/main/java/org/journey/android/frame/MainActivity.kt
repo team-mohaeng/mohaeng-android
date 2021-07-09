@@ -16,6 +16,7 @@ import com.google.firebase.messaging.FirebaseMessaging
 import org.journey.android.R
 import org.journey.android.community.diary.DiarySecondFragment
 import org.journey.android.databinding.ActivityMainBinding
+import org.journey.android.login.view.LoginFragment
 
 
 class MainActivity : AppCompatActivity() {
@@ -41,11 +42,6 @@ class MainActivity : AppCompatActivity() {
                 Log.d("fbPractice.Success", msg)
             }
         })
-
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.testview, DiarySecondFragment())
-            .commit()
-
     }
 
     private fun initNavController() {
