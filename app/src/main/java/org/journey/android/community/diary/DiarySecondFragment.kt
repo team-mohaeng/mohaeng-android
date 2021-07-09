@@ -3,6 +3,8 @@ package org.journey.android.community.diary
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.os.Bundle
 import android.provider.MediaStore
 import android.text.Editable
@@ -19,6 +21,8 @@ import androidx.appcompat.widget.AppCompatButton
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.google.android.material.chip.Chip
+import com.google.android.material.chip.ChipGroup
 import org.journey.android.R
 import java.util.*
 import java.util.jar.Manifest
@@ -74,6 +78,53 @@ class DiarySecondFragment : Fragment(){
 
 
         /////////////////////////////////////////////////////////////////////////////////////////////갤러리에서 사진 가져오기
+        val hashTagChipGroup = diarySecondView.findViewById(R.id.chipgroup_hashtag) as ChipGroup
+        val edittextHashTag =  diarySecondView.findViewById(R.id.edittext_hashtag) as EditText
+
+
+        fun addChipToGroup(hashTag: String) {
+            if(hashTagChipGroup.childCount<5)
+            {
+                val chip = Chip(context)
+                chip.chipBackgroundColor = ColorStateList.valueOf(resources.getColor(R.color.journey_gray_e))
+                chip.setTextColor(ColorStateList.valueOf(resources.getColor(R.color.white)))
+                chip.text = hashTag
+                chip.textSize = 12F
+                chip.chipIcon = ContextCompat.getDrawable(requireContext(), R.drawable.ic_launcher_background)
+                chip.isChipIconVisible = false
+                chip.isCloseIconVisible = true
+                chip.closeIcon = ContextCompat.getDrawable(requireContext(), R.drawable.ic_diary_hash_tag_close)
+                chip.closeIconSize = 36F
+                chip.closeIconStartPadding = -10F
+                chip.closeIconEndPadding = 30F
+                chip.closeIconTint = ColorStateList.valueOf(resources.getColor(R.color.journey_pink))
+                chip.isClickable = true
+                chip.isCheckable = false
+                hashTagChipGroup.addView(chip as View)
+                chip.setOnCloseIconClickListener { hashTagChipGroup.removeView(chip as View) }
+            }
+        }
+
+        edittextHashTag.addTextChangedListener(object: TextWatcher {
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if(edittextHashTag.text.toString().endsWith(" ")==true)
+                {
+                    var str = edittextHashTag.toString()
+                    str = "#"+ edittextHashTag.text.toString()
+                    addChipToGroup(str)
+                    edittextHashTag.setText("")
+                }
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+            }
+        })
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////// 해시태그 칩 추가
 
         val edittextUserInputText = diarySecondView.findViewById(R.id.edittext_content_happiness) as EditText
         val textviewCountString = diarySecondView.findViewById(R.id.textview_count_string) as TextView

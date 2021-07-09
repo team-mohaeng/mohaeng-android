@@ -19,5 +19,4 @@
     <style name="AppModalStyle" parent="Widget.MaterialComponents.BottomSheet.Modal">
         <item name="android:background">@drawable/bottom_sheet_radius</item>
     </style>
-
 </resources>
