@@ -10,7 +10,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
+import android.view.animation.TranslateAnimation
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
@@ -31,7 +35,7 @@ class ChallengeFragment : Fragment() {
     // 챌린지 시작 여부 알려주는 변수
     private var hasCourse = true
     // 인증 개수 저장하는 변수
-    private var stampNumber = 2
+    private var stampNumber = 3
     // 완료한 미션 개수를 저장하는 변수
     private var stampComplete = 0
 
@@ -61,7 +65,23 @@ class ChallengeFragment : Fragment() {
             var height: Int = 0
             var width: Int = 0
 
-            // Dialog만들기
+            // 챌린지 완료 후 나타나는 Dialog만들기
+            val mDialogViewEnd = LayoutInflater.from(this.context).inflate(R.layout.challenge_custom_dialog, null)
+            val mBuilderEnd = AlertDialog.Builder(this.context)
+                .setView(mDialogViewEnd)
+            val alertDialogEnd = mBuilderEnd.create()
+
+            mDialogViewEnd.setBackgroundColor(Color.TRANSPARENT)
+            val windowEnd = alertDialogEnd.window
+            windowEnd?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+            val writeButtonEnd = mDialogViewEnd.findViewById<AppCompatButton>(R.id.button_dialog_write)
+            val laterButtonEnd = mDialogViewEnd.findViewById<AppCompatButton>(R.id.button_dialog_later)
+            val imageEnd = mDialogViewEnd.findViewById<ImageView>(R.id.imageview_dialog_image)
+
+
+            val ctxt = this.context
+            // Dialog 만들기
             val mDialogView = LayoutInflater.from(this.context).inflate(R.layout.course_custom_dialog, null)
             val mBuilder = AlertDialog.Builder(this.context)
                 .setView(mDialogView)
@@ -76,8 +96,9 @@ class ChallengeFragment : Fragment() {
             val dialogTitle = mDialogView.findViewById<TextView>(R.id.textview_dialog_title)
             val dialogButtons = mDialogView.findViewById<ConstraintLayout>(R.id.constraintlayout_dialog_buttons)
             val okButton = mDialogView.findViewById<AppCompatButton>(R.id.button_dialog_ok)
-            val noButton = mDialogView.findViewById<AppCompatButton>(R.id.button_dialog_no)
-            val changeButton = mDialogView.findViewById<AppCompatButton>(R.id.button_dialog_change)
+//            val noButton = mDialogView.findViewById<AppCompatButton>(R.id.button_dialog_no)
+//            val changeButton = mDialogView.findViewById<AppCompatButton>(R.id.button_dialog_change)
+
 
             // 인증하기 버튼 클릭 이벤트
             fun checkMission(btnStamp: ImageButton){
@@ -95,25 +116,23 @@ class ChallengeFragment : Fragment() {
                     btnStamp.setImageResource(R.drawable.stamp_selected)
                     stampComplete = stampComplete + 1
                     Log.d("stamp 확인", stampComplete.toString())
+                    
+                    // 스탬프 다  인증 완료하면 완료 팝업 등
                     if(stampComplete == stampNumber){
-
-                        dialogTitle.text = "오늘의 챌린지 완료"
-                        noButton.text = "작성할게!"
-                        changeButton.text = "나중에"
-
-                        noButton.setOnClickListener {
-                            alertDialog.dismiss()
+                        writeButtonEnd.setOnClickListener {
+                            alertDialogEnd.dismiss()
                             Toast.makeText(this.context, "작성할게! 클릭", Toast.LENGTH_SHORT).show()
                         }
-                        changeButton.setOnClickListener {
-                            alertDialog.dismiss()
+                        laterButtonEnd.setOnClickListener {
+                            alertDialogEnd.dismiss()
                             Toast.makeText(this.context, "나중에 클릭", Toast.LENGTH_SHORT).show()
                         }
+                        lateinit var mAnim1: Animation
+                        mAnim1 = AnimationUtils.loadAnimation(ctxt, R.anim.challenge_image_animation)
+                        mAnim1.setInterpolator(ctxt, android.R.anim.accelerate_interpolator)
+                        alertDialogEnd.show()
+                        imageEnd?.startAnimation(mAnim1)
 
-                        dialogButtons.visibility = View.VISIBLE
-                        okButton.visibility = View.GONE
-
-                        alertDialog.show()
                     }
                 }
                 btnStamp.isEnabled = false
@@ -185,18 +204,6 @@ class ChallengeFragment : Fragment() {
             
         }
 
-        // 챌린지 진행 중 스탬프 찍는 버튼 이벤트
-        /*
-        binding.imagebuttonStampFirst.setOnClickListener{
-            binding.imagebuttonStampFirst.setImageResource(R.drawable.stamp_selected)
-        }
-        binding.imagebuttonStampSecond.setOnClickListener {
-            binding.imagebuttonStampFirst.setImageResource(R.drawable.stamp_selected)
-        }
-        binding.imagebuttonStampThird.setOnClickListener{
-            binding.imagebuttonStampFirst.setImageResource(R.drawable.stamp_selected)
-        }
-*/
         // 챌린지 진행 중 현재 진행중인 코스로 이동하는 버튼
         binding.imagebuttonChallengeCourse.setOnClickListener {
             //Navigation.findNavController(binding.root)
