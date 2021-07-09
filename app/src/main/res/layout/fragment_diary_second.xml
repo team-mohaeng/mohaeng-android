@@ -20,9 +20,7 @@
             android:fontFamily="@font/spoqahansansneomedium"
             android:text="소확행 작성하기"
             android:textColor="@color/black"
-            android:textSize="16sp"
-            tools:layout_editor_absoluteX="152dp"
-            tools:layout_editor_absoluteY="17dp" />
+            android:textSize="16sp" />
     </androidx.appcompat.widget.Toolbar>
 
     <TextView
@@ -101,12 +99,14 @@
         app:layout_constraintTop_toTopOf="@id/edittext_content_happiness"
         app:layout_constraintVertical_bias="1.0" />
 
+
+
     <EditText
         android:id="@+id/edittext_hashtag"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:hint="#해시태그를 입력해주세요."
+        android:hint="해시태그를 입력해주세요."
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/edittext_content_happiness"
@@ -115,9 +115,10 @@
         android:layout_marginRight="24dp"
         android:layout_marginTop="11.55dp"
         android:paddingTop="14dp"
-        android:paddingLeft="12dp"
+        android:paddingLeft="24dp"
         android:paddingBottom="17dp"
         android:background="@drawable/hashtag_edittext_selector"
+        android:maxLength="7"
         />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -139,62 +140,44 @@
         app:cornerRadius="30dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chipgroup_hashtag"/>
+        app:layout_constraintTop_toBottomOf="@+id/scrollview_chips"
+        />
 
+<HorizontalScrollView
+    android:id="@+id/scrollview_chips"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/edittext_hashtag"
+    android:layout_marginHorizontal="28dp"
+    >
     <com.google.android.material.chip.ChipGroup
         android:id="@+id/chipgroup_hashtag"
-        android:layout_width="wrap_content"
+        style="@style/HashTagChipStyle"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edittext_hashtag"
-        android:layout_marginTop="8dp"
-        >
+        app:layout_constraintTop_toBottomOf="@+id/edittext_hashtag">
 
-        <com.google.android.material.chip.Chip
-            style="@style/Widget.MaterialComponents.Chip.Entry"
-            android:id="@+id/chip_hashtag_one"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="6dp"
-            android:text="#키"
-            />
 
-        <com.google.android.material.chip.Chip
-            style="@style/Widget.MaterialComponents.Chip.Entry"
-            android:id="@+id/chip_hashtag_two"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="6dp"
-            android:text="#키"
-            />
-
-        <com.google.android.material.chip.Chip
-            style="@style/Widget.MaterialComponents.Chip.Entry"
-            android:id="@+id/chip_hashtag_three"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="6dp"
-            android:text="#키"
-            />
-
-        <com.google.android.material.chip.Chip
-            style="@style/Widget.MaterialComponents.Chip.Entry"
-            android:id="@+id/chip_hashtag_four"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="6dp"
-            android:text="#키"
-            />
-
-        <com.google.android.material.chip.Chip
-            style="@style/Widget.MaterialComponents.Chip.Entry"
-            android:id="@+id/chip_hashtag_five"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="#키"
-            />
     </com.google.android.material.chip.ChipGroup>
+</HorizontalScrollView>
+
+    <TextView
+        android:id="@+id/textview_hash_tag_sharp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@id/edittext_hashtag"
+        app:layout_constraintBottom_toBottomOf="@id/edittext_hashtag"
+        android:textSize="12sp"
+        android:text="#"
+        android:textColor="@color/journey_black"
+        android:layout_marginLeft="35dp"
+        android:layout_marginBottom="4dp"
+         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

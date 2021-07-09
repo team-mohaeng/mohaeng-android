@@ -14,6 +14,7 @@ import androidx.navigation.fragment.NavHostFragment
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.messaging.FirebaseMessaging
 import org.journey.android.R
+import org.journey.android.community.diary.DiarySecondFragment
 import org.journey.android.databinding.ActivityMainBinding
 
 
@@ -40,6 +41,11 @@ class MainActivity : AppCompatActivity() {
                 Log.d("fbPractice.Success", msg)
             }
         })
+
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.testview, DiarySecondFragment())
+            .commit()
+
     }
 
     private fun initNavController() {
