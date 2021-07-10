@@ -9,6 +9,11 @@ import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.messaging.FirebaseMessaging
 import org.journey.android.R
 import org.journey.android.databinding.ActivityMainBinding
+import org.journey.android.diary.PrivateFragment
+import org.journey.android.findpw.FindPassWordOneFragment
+import org.journey.android.findpw.FindPassWordThreeFragment
+import org.journey.android.findpw.FindPassWordTwoFragment
+import org.journey.android.findpw.FindPassWordViewPagerFragment
 import org.journey.android.login.view.LoginFragment
 
 
@@ -36,6 +41,8 @@ class MainActivity : AppCompatActivity() {
             }
         })
     }
+
+
 
     private fun initNavController() {
         val navHostFragment =
