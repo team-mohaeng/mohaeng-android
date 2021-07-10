@@ -14,7 +14,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
         inflater: LayoutInflater,
         container: ViewGroup?
     ): FragmentMainBinding {
-        TODO("Not yet implemented")
+        return FragmentMainBinding.inflate(inflater, container, false)
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
