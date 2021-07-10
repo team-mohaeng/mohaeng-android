@@ -4,6 +4,7 @@ import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.ColorStateList
+import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.text.Editable
@@ -25,8 +26,8 @@ import org.journey.android.base.BaseFragment
 import org.journey.android.databinding.FragmentDiarySecondBinding
 import java.util.*
 
-class DiarySecondFragment(override val inflater: Any) : BaseFragment<FragmentDiarySecondBinding>() {
-
+class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
+    private var imageUri: Uri? = null
     override fun getFragmentBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
@@ -167,10 +168,23 @@ class DiarySecondFragment(override val inflater: Any) : BaseFragment<FragmentDia
         return diarySecondView
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        uploadGallery()
+    }
+
     // 갤러리 이미지 첨부
     fun uploadGallery() {
-
+        binding.buttonPictureUpload.setOnClickListener {
+            val gallery = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
+            startActivityForResult(gallery, PICK_IMAGE)
+        }
     }
+
+    companion object {
+        private const val PICK_IMAGE = 100
+    }
+
 }
 
 
