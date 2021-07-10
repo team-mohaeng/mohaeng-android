@@ -60,7 +60,11 @@
         android:id="@+id/challengeFragment"
         android:name="org.journey.android.challenge.ChallengeFragment"
         android:label="ChallengeFragment"
-        tools:layout="@layout/fragment_challenge"/>
+        tools:layout="@layout/fragment_challenge">
+        <action
+            android:id="@+id/action_challengeFragment_to_courseFragment"
+            app:destination="@id/courseFragment" />
+    </fragment>
     <fragment
         android:id="@+id/diaryFirstFragment"
         android:name="org.journey.android.diary.DiaryFirstFragment"
@@ -74,10 +78,33 @@
         android:id="@+id/diarySecondFragment"
         android:name="org.journey.android.diary.DiarySecondFragment"
         android:label="DiarySecondFragment"
-        tools:layout="@layout/fragment_diary_second" />
+        tools:layout="@layout/fragment_diary_second">
+        <action
+            android:id="@+id/action_diarySecondFragment_to_privateDetailFragment"
+            app:destination="@id/privateDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/rewardFragment"
         android:name="org.journey.android.reward.RewardFragment"
         android:label="RewardFragment"
         tools:layout="@layout/fragment_reward" />
+    <fragment
+        android:id="@+id/privateDetailFragment"
+        android:name="org.journey.android.diary.PrivateDetailFragment"
+        android:label="PrivateDetailFragment"
+        tools:layout="@layout/fragment_private_detail" />
+    <fragment
+        android:id="@+id/courseFragment"
+        android:name="org.journey.android.course.CourseFragment"
+        android:label="fragment_course"
+        tools:layout="@layout/fragment_course">
+        <action
+            android:id="@+id/action_courseFragment_to_libraryFragment"
+            app:destination="@id/libraryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/libraryFragment"
+        android:name="org.journey.android.course.LibraryFragment"
+        android:label="fragment_library"
+        tools:layout="@layout/fragment_library" />
 </navigation>
