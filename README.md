@@ -22,7 +22,7 @@
   <tr>
     <td>
     <br>
-    Login Signup<br>
+    Signup<br>
     Journey Main<br>
 		Journey PushAlarm<br>
 		Journey Community<br>
@@ -32,6 +32,7 @@
 	    Journey Course<br>
     </td>
     <td>
+	    Login<br>
     Journey Diary<br>
     </td>
   </tr>

@@ -8,6 +8,7 @@ import androidx.navigation.fragment.NavHostFragment
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.messaging.FirebaseMessaging
 import org.journey.android.R
+import org.journey.android.challenge.ChallengeFragment
 import org.journey.android.databinding.ActivityMainBinding
 import org.journey.android.diary.PrivateFragment
 import org.journey.android.findpw.FindPassWordOneFragment
@@ -25,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initNavController()
-
+        
         FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
             if (!task.isSuccessful) {
                 Log.w(
