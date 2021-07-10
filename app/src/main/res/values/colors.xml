@@ -44,5 +44,7 @@
     <color name="journey_gray_f">#ACACAC</color>
     <color name="journey_pink_a">#ff87a5</color>
     <color name="journey_pink_b">#ff578f</color>
+    <color name="journey_green_a">#14a03b</color>
+    <color name="journey_red_a">#ea0707</color>
 
 </resources>

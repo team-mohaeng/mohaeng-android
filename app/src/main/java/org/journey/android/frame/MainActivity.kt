@@ -10,7 +10,11 @@ import com.google.firebase.messaging.FirebaseMessaging
 import org.journey.android.R
 import org.journey.android.challenge.ChallengeFragment
 import org.journey.android.databinding.ActivityMainBinding
+import org.journey.android.diary.DiaryFirstFragment
+import org.journey.android.diary.DiaryViewPagerFragment
 import org.journey.android.login.view.LoginFragment
+import org.journey.android.signup.SignupFirstFragment
+import org.journey.android.signup.SignupViewPagerFragment
 
 
 class MainActivity : AppCompatActivity() {
@@ -21,7 +25,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initNavController()
-        
+        //check
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.testview, SignupViewPagerFragment())
+            .commit()
         FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
             if (!task.isSuccessful) {
                 Log.w(
