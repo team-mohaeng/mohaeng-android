@@ -1,6 +1,6 @@
 package org.journey.android.diary
 
-
+import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.ColorStateList
@@ -21,16 +21,28 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import org.journey.android.R
+import org.journey.android.base.BaseFragment
+import org.journey.android.databinding.FragmentDiarySecondBinding
 import java.util.*
 
-class DiarySecondFragment : Fragment(){
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+class DiarySecondFragment(override val inflater: Any) : BaseFragment<FragmentDiarySecondBinding>() {
+
+    override fun getFragmentBinding(
+        inflater: LayoutInflater,
+        container: ViewGroup?
+    ): FragmentDiarySecondBinding {
+        return FragmentDiarySecondBinding.inflate(inflater, container, false)
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         val diarySecondView = inflater.inflate(R.layout.fragment_diary_second, null)
 
         val secondInstance = Calendar.getInstance()
         val secondNowYear = secondInstance.get(Calendar.YEAR).toString()
-        val secondNowMonth = (secondInstance.get(Calendar.MONTH)+1).toString()
+        val secondNowMonth = (secondInstance.get(Calendar.MONTH) + 1).toString()
         val secondNowDate = secondInstance.get(Calendar.DATE).toString()
         val secondNowDayOfWeek = secondInstance.get(Calendar.DAY_OF_WEEK).toString()
         fun secondNowDayOfWeekToString(x:String?):String{
@@ -145,13 +157,24 @@ class DiarySecondFragment : Fragment(){
             override fun afterTextChanged(s: Editable?) {
                 var userInput = edittextUserInputText.text.toString()
                 textviewCountString.text = userInput.length.toString() + " /40자"
-                if(userInput.length>0)
-                    buttonCompelete.isSelected=true
-                else if(userInput.length==0)
-                    buttonCompelete.isSelected=false
+                if (userInput.length > 0)
+                    buttonCompelete.isSelected = true
+                else if (userInput.length == 0)
+                    buttonCompelete.isSelected = false
             }
         })
 
         return diarySecondView
     }
+
+    // 갤러리 이미지 첨부
+    fun uploadGallery() {
+
+    }
 }
+
+
+
+
+
+
