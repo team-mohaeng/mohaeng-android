@@ -10,6 +10,7 @@ import com.google.firebase.messaging.FirebaseMessaging
 import org.journey.android.R
 import org.journey.android.challenge.ChallengeFragment
 import org.journey.android.databinding.ActivityMainBinding
+import org.journey.android.login.view.LoginFragment
 
 
 class MainActivity : AppCompatActivity() {
