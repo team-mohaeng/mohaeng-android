@@ -16,10 +16,28 @@ class FrameFragment : BaseFragment<FragmentFrameBinding>() {
         inflater: LayoutInflater,
         container: ViewGroup?
     ): FragmentFrameBinding {
-        return FragmentFrameBinding.inflate(inflater,container,false)
+        return FragmentFrameBinding.inflate(inflater, container, false)
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        observeViewModel()
+    }
+
+    private fun observeViewModel() {
+        viewModel.pageIndex.observe(viewLifecycleOwner) { it ->
+            binding.viewpagerMain.currentItem = it
+            selectBottomNavigation(it)
+        }
+    }
+
+    private fun selectBottomNavigation(pageIndex: Int) {
+        binding.bottomNavigation.selectedItemId = when (pageIndex) {
+            0 -> R.id.homeFragment
+            1 -> R.id.challengeFragment
+            2 -> R.id.communityFragment
+            else -> throw RuntimeException("Juyae's Bottom Navigation Errrrror")
+        }
     }
 
 
