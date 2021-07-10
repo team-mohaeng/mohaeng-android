@@ -25,10 +25,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initNavController()
-        //check
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.testview, SignupViewPagerFragment())
-            .commit()
         FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
             if (!task.isSuccessful) {
                 Log.w(
