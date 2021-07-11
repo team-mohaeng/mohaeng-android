@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".signup.SignupFirstFragment"
+    android:paddingHorizontal="18dp">
+
+    <TextView
+        android:id="@+id/textview_signup_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/spoqahansansneoregular"
+        android:text="회원가입"
+        android:textColor="@color/journey_black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imagebutton_signup_back"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="36dp"
+        android:background="@color/journey_pink2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textview_email_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/spoqahansansneoregular"
+        android:text="사용 가능한 이메일입니다"
+        android:visibility="invisible"
+        android:textColor="@color/journey_green_a"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edittext_signup_email" />
+
+    <TextView
+        android:id="@+id/textview_signup_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:fontFamily="@font/spoqahansansneobold"
+        android:text="이메일을 입력해주세요"
+        android:textColor="@color/journey_black"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview_signup_title" />
+
+    <EditText
+        android:id="@+id/edittext_signup_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/spoqahansansneoregular"
+        android:hint="journey@naver.com"
+        android:backgroundTint="@color/journey_gray"
+        android:textColorHint="@color/journey_gray"
+        android:inputType="textEmailAddress"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview_signup_email" />
+
+    <TextView
+        android:id="@+id/textview_signup_pw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:fontFamily="@font/spoqahansansneobold"
+        android:text="비밀번호를 입력해주세요"
+        android:textColor="@color/journey_black"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edittext_signup_email" />
+
+    <EditText
+        android:id="@+id/edittext_signup_pw"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:hint="영문 숫자 포함 8~16자"
+        android:backgroundTint="@color/journey_gray"
+        android:textColorHint="@color/journey_gray"
+        android:inputType="textPassword"
+        android:maxLength="16"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview_signup_pw" />
+
+    <ImageButton
+        android:id="@+id/imagebutton_signup_pw"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="6dp"
+        android:background="@color/journey_pink_a"
+        app:layout_constraintEnd_toEndOf="@+id/edittext_signup_pw"
+        app:layout_constraintTop_toTopOf="@+id/edittext_signup_pw" />
+
+    <EditText
+        android:id="@+id/edittext_signup_pwcheck"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:hint="비밀번호 확인"
+        android:textColorHint="@color/journey_gray"
+        android:backgroundTint="@color/journey_gray"
+        android:inputType="textPassword"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edittext_signup_pw" />
+
+    <ImageButton
+        android:id="@+id/imagebutton_signup_pwcheck"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="6dp"
+        android:background="@color/journey_pink_a"
+        app:layout_constraintEnd_toEndOf="@+id/edittext_signup_pwcheck"
+        app:layout_constraintTop_toTopOf="@+id/edittext_signup_pwcheck" />
+
+    <TextView
+        android:id="@+id/textview_pw_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/spoqahansansneoregular"
+        android:text="사용 가능한 비밀번호입니다"
+        android:visibility="invisible"
+        android:textColor="@color/journey_green_a"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edittext_signup_pwcheck" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview_pw_status"
+        tools:layout_editor_absoluteX="18dp">
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_signup_next"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/signup_button_round"
+            android:fontFamily="@font/spoqahansansneobold"
+            android:text="계속하기"
+            android:enabled="false"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

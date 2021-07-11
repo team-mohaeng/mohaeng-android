@@ -16,6 +16,8 @@ import org.journey.android.findpw.FindPassWordThreeFragment
 import org.journey.android.findpw.FindPassWordTwoFragment
 import org.journey.android.findpw.FindPassWordViewPagerFragment
 import org.journey.android.login.view.LoginFragment
+import org.journey.android.signup.SignupFirstFragment
+import org.journey.android.signup.SignupViewPagerFragment
 
 
 class MainActivity : AppCompatActivity() {
@@ -26,7 +28,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initNavController()
-        
         FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
             if (!task.isSuccessful) {
                 Log.w(
