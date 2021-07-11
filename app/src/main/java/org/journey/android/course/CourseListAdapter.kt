@@ -8,6 +8,7 @@ import org.journey.android.R
 import org.journey.android.databinding.ItemCourseFirstBinding
 import org.journey.android.databinding.ItemCourseLeftBinding
 import org.journey.android.databinding.ItemCourseRightBinding
+import org.journey.android.databinding.ItemCourseSecondBinding
 
 class CourseListAdapter :RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     val courseList = mutableListOf<CourseListInfo>()
@@ -30,13 +31,21 @@ class CourseListAdapter :RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 )
                 CourseRightViewHolder(binding)
             }
-            else -> {
+            2 -> {
                 val binding = ItemCourseLeftBinding.inflate(
                     LayoutInflater.from(parent.context),
                     parent,
                     false
                 )
                 CourseLeftViewHolder(binding)
+            }
+            else -> {
+                val binding = ItemCourseSecondBinding.inflate(
+                    LayoutInflater.from(parent.context),
+                    parent,
+                    false
+                )
+                CourseSecondViewHolder(binding)
             }
         }
     }
@@ -58,8 +67,12 @@ class CourseListAdapter :RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 (holder as CourseRightViewHolder).onBind(courseList[position])
                 holder.setIsRecyclable(false)
             }
-            else -> {
+            2 -> {
                 (holder as CourseLeftViewHolder).onBind(courseList[position])
+                holder.setIsRecyclable(false)
+            }
+            else -> {
+                (holder as CourseSecondViewHolder).onBind(courseList[position])
                 holder.setIsRecyclable(false)
             }
         }
@@ -127,6 +140,27 @@ class CourseListAdapter :RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 binding.imageviewLeftRoad.setImageResource(R.drawable.ic_course_pink_left)
             else
                 binding.imageviewLeftRoad.setImageResource(R.drawable.ic_course_gray_left)
+        }
+    }
+
+    class CourseSecondViewHolder(
+        private val binding: ItemCourseSecondBinding
+    ) : RecyclerView.ViewHolder(binding.root) {
+        fun onBind(CourseListInfo: CourseListInfo){
+            binding.textviewSecondDay.text = CourseListInfo.courseDay
+            binding.textviewSecondContent.text = CourseListInfo.courseContent
+
+            if(CourseListInfo.courseComplete.isNotEmpty()){
+                binding.textviewSecondComplete.visibility = View.VISIBLE
+                binding.textviewSecondComplete.text = CourseListInfo.courseComplete
+            }
+            else
+                binding.textviewSecondComplete.visibility = View.INVISIBLE
+
+            if(CourseListInfo.courseCurrent)
+                binding.imageviewSecondRoad.setImageResource(R.drawable.ic_course_pink_right)
+            else
+                binding.imageviewSecondRoad.setImageResource(R.drawable.ic_course_gray_right)
         }
     }
 }

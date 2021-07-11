@@ -80,19 +80,29 @@
         app:layout_constraintTop_toTopOf="@+id/textview_course_title"
         android:layout_marginBottom="18dp"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview_course"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintlayout_course_recyclerview"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="17dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
         android:background="@color/journey_gray1"
-        android:orientation="vertical"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:paddingHorizontal="18dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textview_course_title"
-        tools:listitem="@layout/item_course_right" />
+        app:layout_constraintTop_toBottomOf="@+id/textview_course_day">
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview_course"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/item_course_right" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
