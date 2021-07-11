@@ -7,7 +7,6 @@ import androidx.security.crypto.MasterKeys
 
 object JourneyRepository {
     private const val PREF_KEY = "haskhey"
-    private const val NATIVE_APP_KEY = "appkey"
     private const val REFRESH_TOKEN_KEY = "refresh"
     private const val USER_TOKEN_KEY = "access"
 
@@ -22,10 +21,6 @@ object JourneyRepository {
             EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
             EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
         )
-        encryptedRepository
-            .edit()
-            .putString(NATIVE_APP_KEY, "7171285de2b4a7896ab049321ffc8ed6")
-            .apply()
     }
 
     private inline fun SharedPreferences.edit(operation: (SharedPreferences.Editor) -> Unit) {

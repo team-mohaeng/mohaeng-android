@@ -40,7 +40,7 @@
                     android:layout_height="match_parent"
                     android:fontFamily="@font/spoqahansansneoregular"
                     android:gravity="center"
-                    android:text="나의 업적"
+                    android:text="쟈기의 레포트"
                     android:textColor="@color/journey_black"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
