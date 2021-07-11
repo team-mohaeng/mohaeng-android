@@ -15,7 +15,7 @@
             android:layout_marginTop="24dp"
             android:background="@drawable/ic_rectangle334"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.8"
+            app:layout_constraintHorizontal_bias="0.82"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -107,6 +107,16 @@
             app:layout_constraintStart_toEndOf="@id/textview_our_concentration"
             app:layout_constraintTop_toTopOf="@id/textview_our_concentration" />
 
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/ic_questioncircle"
+            app:layout_constraintBottom_toBottomOf="@id/textview_concentration_percent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.85"
+            app:layout_constraintStart_toEndOf="@id/textview_concentration_percent"
+            app:layout_constraintTop_toTopOf="@+id/textview_concentration_percent" />
+
         <ProgressBar
             android:id="@+id/progressbar_concentration"
             style="@android:style/Widget.ProgressBar.Horizontal"
@@ -117,8 +127,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:max="100"
             android:progress="25"
-            android:progressBackgroundTint="@color/journey_pink8"
-            android:progressTint="@color/journey_pink6"
+            android:progressBackgroundTint="@color/journey_pink6"
+            android:progressDrawable="@drawable/ic_progressbar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textview_our_concentration" />
 
