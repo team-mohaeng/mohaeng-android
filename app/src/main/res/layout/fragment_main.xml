@@ -8,31 +8,46 @@
         android:layout_height="match_parent"
         tools:context=".main.MainFragment">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar_main"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_main_first"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/ic_rectangle334"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.8"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_main_next"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginLeft="12dp"
+            android:background="@drawable/ic_rectangle334"
+            app:layout_constraintStart_toEndOf="@id/button_main_first"
+            app:layout_constraintBottom_toBottomOf="@id/button_main_first"/>
 
         <TextView
             android:id="@+id/textview_main_greet"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="24dp"
+            android:layout_marginTop="35dp"
             android:fontFamily="@font/spoqahansansneoregular"
             android:text="@string/main_greeting"
             android:textColor="@color/journey_black"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/toolbar_main" />
+            app:layout_constraintTop_toBottomOf="@id/button_main_first" />
 
         <TextView
             android:id="@+id/textview_main_challenge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="24dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="20dp"
             android:fontFamily="@font/bmhanna11yrsotf"
             android:text="뽀득뽀득 세균 퇴치"
             android:textColor="@color/black"
@@ -44,7 +59,7 @@
             android:id="@+id/button_main_user"
             android:layout_width="88dp"
             android:layout_height="32dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="10dp"
             android:layout_marginLeft="24dp"
             android:drawableLeft="@drawable/ic_maincircle"
             android:drawablePadding="-4dp"
@@ -61,7 +76,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/ic_maingraphic"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="50dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/button_main_user" />
@@ -70,7 +85,7 @@
             android:id="@+id/textview_our_concentration"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="25dp"
             android:layout_marginTop="20dp"
             android:fontFamily="@font/spoqahansansneobold"
             android:text="너와 나의 농도"
