@@ -10,8 +10,11 @@ import com.google.firebase.messaging.FirebaseMessaging
 import org.journey.android.R
 import org.journey.android.challenge.ChallengeFragment
 import org.journey.android.databinding.ActivityMainBinding
-import org.journey.android.diary.DiaryFirstFragment
-import org.journey.android.diary.DiaryViewPagerFragment
+import org.journey.android.diary.PrivateFragment
+import org.journey.android.findpw.FindPassWordOneFragment
+import org.journey.android.findpw.FindPassWordThreeFragment
+import org.journey.android.findpw.FindPassWordTwoFragment
+import org.journey.android.findpw.FindPassWordViewPagerFragment
 import org.journey.android.login.view.LoginFragment
 import org.journey.android.signup.SignupFirstFragment
 import org.journey.android.signup.SignupViewPagerFragment
@@ -40,6 +43,8 @@ class MainActivity : AppCompatActivity() {
             }
         })
     }
+
+
 
     private fun initNavController() {
         val navHostFragment =
