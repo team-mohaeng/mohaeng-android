@@ -22,6 +22,12 @@
         <action
             android:id="@+id/action_frameFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_frameFragment_to_communityFragment"
+            app:destination="@id/communityFragment" />
+        <action
+            android:id="@+id/action_frameFragment_to_diaryFirstFragment"
+            app:destination="@id/diaryFirstFragment" />
     </fragment>
     <fragment
         android:id="@+id/splashFragment"

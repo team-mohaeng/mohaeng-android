@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import org.journey.android.R
 import org.journey.android.databinding.FragmentDiaryFirstBinding
 import org.journey.android.databinding.FragmentPrivateBinding
@@ -24,7 +25,7 @@ class DiaryFirstFragment : Fragment(){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        clickEvent()
         val firstInstance = Calendar.getInstance()
         val firstNowYear = firstInstance.get(Calendar.YEAR).toString()
         val firstNowMonth = (firstInstance.get(Calendar.MONTH)+1).toString()
@@ -88,14 +89,20 @@ class DiaryFirstFragment : Fragment(){
             if(binding.imagebuttonFeelOne.isSelected==true)
                 binding.imagebuttonFeelOne.isSelected=false
             if(binding.imagebuttonFeelOne.isSelected==true)
-                binding.imagebuttonFeelTwo.isSelected=false
-            binding.imagebuttonFeelThree.isSelected=true
-            binding.buttonCompelete.isSelected=true
-            binding.textviewBadDay.isSelected=true
-            binding.textviewSosoDay.isSelected=true
-            binding.textviewGoodDay.isSelected=false
+                binding.imagebuttonFeelTwo.isSelected = false
+            binding.imagebuttonFeelThree.isSelected = true
+            binding.buttonCompelete.isSelected = true
+            binding.textviewBadDay.isSelected = true
+            binding.textviewSosoDay.isSelected = true
+            binding.textviewGoodDay.isSelected = false
         }
 
 
+    }
+
+    fun clickEvent() {
+        binding.buttonCompelete.setOnClickListener {
+            findNavController().navigate(R.id.action_diaryFirstFragment_to_diarySecondFragment)
+        }
     }
 }

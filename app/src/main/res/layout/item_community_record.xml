@@ -68,7 +68,7 @@
             android:layout_width="14dp"
             android:layout_height="14dp"
             android:layout_marginLeft="55dp"
-            android:background="@drawable/ic_button_prefer"
+            android:background="@drawable/ic_icnheartfull"
             app:layout_constraintBottom_toBottomOf="@id/textview_user_id"
             app:layout_constraintEnd_toStartOf="@+id/textview_count_prefer"
             app:layout_constraintHorizontal_chainStyle="packed"
