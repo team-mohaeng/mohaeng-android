@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.res.ResourcesCompat
+import org.journey.android.R
 import org.journey.android.base.BaseFragment
 import org.journey.android.databinding.FragmentRewardBinding
 
@@ -28,12 +30,12 @@ class RewardFragment : BaseFragment<FragmentRewardBinding>() {
                 RewardData(
                     percent = "09",
                     percentUnit = "%",
-                    rewardContent = "@string/reward_challenge_percent"
+                    rewardContent = requireContext().getString(R.string.reward_challenge_percent)
                 ),
                 RewardData(
                     percent= "09",
                     percentUnit = "일",
-                    rewardContent = "@string/reward_challenge_date"
+                    rewardContent = requireContext().getString(R.string.reward_challenge_date)
                 )
             )
         )
