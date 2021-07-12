@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import org.journey.android.R
 import org.journey.android.databinding.FragmentFindPasswordTwoBinding
 
@@ -22,6 +23,13 @@ class FindPassWordTwoFragment:Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        clickEvent()
 
+    }
+
+    fun clickEvent() {
+        binding.buttonFindPasswordTwoNext.setOnClickListener {
+            findNavController().navigate(R.id.action_findPassWordTwoFragment_to_findPassWordThreeFragment)
+        }
     }
 }
