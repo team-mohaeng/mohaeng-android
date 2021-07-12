@@ -65,10 +65,10 @@ class LibraryListAdapter :RecyclerView.Adapter<LibraryListAdapter.LibraryListVie
 
             // 현재 진행중이라면
             if(libraryState){
-                binding.buttonLibraryChoice.setText("코스 변경하기")
+                binding.buttonLibraryChoice.text = "코스 변경하기"
             }
             else{
-                binding.buttonLibraryChoice.setText("코스 시작하기")
+                binding.buttonLibraryChoice.text = "코스 시작하기"
             }
 
             binding.textviewLibraryTitle.text = LibraryListInfo.libraryTitle
@@ -97,31 +97,33 @@ class LibraryListAdapter :RecyclerView.Adapter<LibraryListAdapter.LibraryListVie
 
                 // 완료한 코스가 아니라면
                 if(!LibraryListInfo.libraryComplete){
+                    val dialogButtons = mDialogView.findViewById<ConstraintLayout>(R.id.constraintlayout_dialog_buttons)
+                    dialogButtons.visibility = View.VISIBLE
+
+                    val okButton = mDialogView.findViewById<AppCompatButton>(R.id.button_dialog_ok)
+                    okButton.visibility = View.GONE
+
                     // 현재 진행중인 코스가 없다면
                     if(!libraryState){
-                        val dialogButtons = mDialogView.findViewById<ConstraintLayout>(R.id.constraintlayout_dialog_buttons)
-                        dialogButtons.visibility = View.GONE
-
-                        val okButton = mDialogView.findViewById<AppCompatButton>(R.id.button_dialog_ok)
-                        okButton.visibility = View.VISIBLE
-
                         val dialogTitle = mDialogView.findViewById<TextView>(R.id.textview_dialog_title)
-                        dialogTitle.text = "나와의 여정을 떠나볼래?"
+                        dialogTitle.text = "나와 여정을 떠나보겠어?"
                         alertDialog.show()
 
 
-                        okButton.setOnClickListener {
+                        val noButton = mDialogView.findViewById<AppCompatButton>(R.id.button_dialog_no)
+                        noButton.text = "좋아!"
+                        noButton.setOnClickListener {
                             alertDialog.dismiss()
                             Toast.makeText(ctxt, "좋아! 클릭", Toast.LENGTH_SHORT).show()
                         }
+
+                        val changeButton = mDialogView.findViewById<AppCompatButton>(R.id.button_dialog_change)
+                        changeButton.text = "다시 생각해볼게"
+                        changeButton.setOnClickListener {
+                            alertDialog.dismiss()
+                        }
                     }
                     else{
-                        val dialogButtons = mDialogView.findViewById<ConstraintLayout>(R.id.constraintlayout_dialog_buttons)
-                        dialogButtons.visibility = View.VISIBLE
-
-                        val okButton = mDialogView.findViewById<AppCompatButton>(R.id.button_dialog_ok)
-                        okButton.visibility = View.GONE
-
                         val dialogTitle = mDialogView.findViewById<TextView>(R.id.textview_dialog_title)
                         dialogTitle.text = "쟈기, 지금 포기하는거야?"
                         alertDialog.show()
@@ -129,36 +131,36 @@ class LibraryListAdapter :RecyclerView.Adapter<LibraryListAdapter.LibraryListVie
                         val noButton = mDialogView.findViewById<AppCompatButton>(R.id.button_dialog_no)
                         noButton.setOnClickListener {
                             alertDialog.dismiss()
-                            Toast.makeText(ctxt, "아니! 클릭", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(ctxt, "포기 안 해! 클릭", Toast.LENGTH_SHORT).show()
                         }
 
                         val changeButton = mDialogView.findViewById<AppCompatButton>(R.id.button_dialog_change)
                         changeButton.setOnClickListener {
                             alertDialog.dismiss()
-                            Toast.makeText(ctxt, "변경할래! 클릭", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(ctxt, "변경할래 클릭", Toast.LENGTH_SHORT).show()
                         }
                     }
 
 
                 }
                 // 완료한 코스라면
-                else{
-                    val dialogButtons = mDialogView.findViewById<ConstraintLayout>(R.id.constraintlayout_dialog_buttons)
-                    dialogButtons.visibility = View.GONE
-
-                    val okButton = mDialogView.findViewById<AppCompatButton>(R.id.button_dialog_ok)
-                    okButton.visibility = View.VISIBLE
-
-                    alertDialog.show()
-                    val dialogTitle = mDialogView.findViewById<TextView>(R.id.textview_dialog_title)
-                    dialogTitle.text = "(이미 완료한 코스)"
-
-                    okButton.text = "닫기!"
-                    okButton.setOnClickListener {
-                        alertDialog.dismiss()
-                        Toast.makeText(ctxt, "닫기! 클릭", Toast.LENGTH_SHORT).show()
-                    }
-                }
+//                else{
+//                    val dialogButtons = mDialogView.findViewById<ConstraintLayout>(R.id.constraintlayout_dialog_buttons)
+//                    dialogButtons.visibility = View.GONE
+//
+//                    val okButton = mDialogView.findViewById<AppCompatButton>(R.id.button_dialog_ok)
+//                    okButton.visibility = View.VISIBLE
+//
+//                    alertDialog.show()
+//                    val dialogTitle = mDialogView.findViewById<TextView>(R.id.textview_dialog_title)
+//                    dialogTitle.text = "(이미 완료한 코스)"
+//
+//                    okButton.text = "닫기!"
+//                    okButton.setOnClickListener {
+//                        alertDialog.dismiss()
+//                        Toast.makeText(ctxt, "닫기! 클릭", Toast.LENGTH_SHORT).show()
+//                    }
+//                }
             }
         }
     }

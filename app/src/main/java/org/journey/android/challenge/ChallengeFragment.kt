@@ -85,6 +85,21 @@ class ChallengeFragment : Fragment() {
             val writeButtonEnd = mDialogViewEnd.findViewById<AppCompatButton>(R.id.button_dialog_write)
             val laterButtonEnd = mDialogViewEnd.findViewById<AppCompatButton>(R.id.button_dialog_later)
             val imageEnd = mDialogViewEnd.findViewById<ImageView>(R.id.imageview_dialog_image)
+            
+            // 코스 완료 후 나타나는 dialog 만들기
+            val mDialogViewCourse = LayoutInflater.from(this.context).inflate(R.layout.challenge_course_dialog, null)
+            val mBuilderCourse = AlertDialog.Builder(this.context)
+                .setView(mDialogViewCourse)
+            val alertDialogCourse = mBuilderCourse.create()
+
+            mDialogViewCourse.setBackgroundColor(Color.TRANSPARENT)
+            val windowCourse = alertDialogCourse.window
+            windowCourse?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+            val dialogTitleCourse = mDialogViewCourse.findViewById<TextView>(R.id.textview_dialog_title)
+            val writeButtonCourse = mDialogViewCourse.findViewById<AppCompatButton>(R.id.button_dialog_write)
+            val laterButtonCourse = mDialogViewCourse.findViewById<AppCompatButton>(R.id.button_dialog_later)
+            val imageCourse = mDialogViewCourse.findViewById<ImageView>(R.id.imageview_dialog_image)
 
 
             val ctxt = this.context
@@ -129,20 +144,20 @@ class ChallengeFragment : Fragment() {
                     // 스탬프 다  인증 완료하면 완료 팝업 등
                     if(stampComplete == stampNumber){
                         if(courseEnd){
-                            dialogTitleEnd.text = "뽀득뽀득 세균 퇴치\n" + " 코스 완료"
-                            writeButtonEnd.setOnClickListener {
-                                alertDialogEnd.dismiss()
+                            dialogTitleCourse.text = "뽀득뽀득 세균 퇴치\n" + " 코스 완료"
+                            writeButtonCourse.setOnClickListener {
+                                alertDialogCourse.dismiss()
                                 Toast.makeText(this.context, "작성할게! 클릭", Toast.LENGTH_SHORT).show()
                             }
-                            laterButtonEnd.setOnClickListener {
-                                alertDialogEnd.dismiss()
+                            laterButtonCourse.setOnClickListener {
+                                alertDialogCourse.dismiss()
                                 Toast.makeText(this.context, "나중에 클릭", Toast.LENGTH_SHORT).show()
                             }
                             lateinit var mAnim1: Animation
                             mAnim1 = AnimationUtils.loadAnimation(ctxt, R.anim.challenge_image_animation)
                             mAnim1.setInterpolator(ctxt, android.R.anim.accelerate_interpolator)
-                            alertDialogEnd.show()
-                            imageEnd?.startAnimation(mAnim1)
+                            alertDialogCourse.show()
+                            imageCourse?.startAnimation(mAnim1)
                         }
                         else{
                             writeButtonEnd.setOnClickListener {

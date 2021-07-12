@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import org.journey.android.R
@@ -51,19 +52,21 @@ class SignupFirstFragment : Fragment() {
          }
 
          override fun afterTextChanged(s: Editable?) {
-            if(pwStatus && binding.edittextSignupEmail.text.toString().isNotEmpty()) {
-               binding.buttonSignupNext.isEnabled = true
-//               if(binding.edittextSignupEmail.text.toString().isNotEmpty())
-//                  binding.textviewEmailStatus.visibility = View.VISIBLE
-            }
-            else {
-               binding.buttonSignupNext.isEnabled = false
-            }
          }
       })
    }
    
    fun setBtnEvent(){
+      // editText에서 완료 클릭 시
+      binding.edittextSignupEmail.setOnEditorActionListener { v, actionId, event ->
+         var handled = false
+         if (actionId == EditorInfo.IME_ACTION_DONE) {
+            binding.constraintlayoutSignupPassword.visibility = View.VISIBLE
+            handled = true
+         }
+         handled
+      }
+
       binding.buttonSignupNext.setOnClickListener {
          emailStatus = true
          if(binding.edittextSignupEmail.text.toString().isNotEmpty())

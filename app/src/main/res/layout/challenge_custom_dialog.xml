@@ -3,11 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@color/journey_transparency">
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:background="@drawable/library_dialog"
         android:paddingTop="0dp"
         android:paddingBottom="24dp"
@@ -15,28 +18,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/imageview_dialog_image"
-            android:layout_width="234dp"
-            android:layout_height="232dp"
-            android:background="@color/journey_pink3"
-            android:translationY="-32dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <TextView
             android:id="@+id/textview_dialog_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="39dp"
+            android:layout_marginTop="239dp"
             android:fontFamily="@font/bmhanna11yrsotf"
-            android:text="쟈기, 지금 포기하는거야?"
+            android:text="오늘의 챌린지 완료"
             android:textColor="@color/journey_black"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageview_dialog_image" />
+            app:layout_constraintTop_toTopOf="parent" />
 
 
         <TextView
@@ -47,7 +40,7 @@
             android:layout_marginTop="35dp"
             android:layout_marginEnd="51dp"
             android:gravity="center"
-            android:text="@string/library_dialog"
+            android:text="@string/challenge_complete"
             android:textColor="@color/journey_gray_d"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -95,5 +88,13 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <ImageView
+        android:id="@+id/imageview_dialog_image"
+        android:layout_width="234dp"
+        android:layout_height="232dp"
+        android:background="@color/journey_pink3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
