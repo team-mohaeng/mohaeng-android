@@ -20,7 +20,7 @@ import org.journey.android.databinding.FragmentCommunityBinding
 import org.journey.android.util.OnSwipeTouchListener
 
 class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
-
+    val bottomSheetFragment = BottomSheetFragment()
     var happinessStatus = 0
     override fun getFragmentBinding(
         inflater: LayoutInflater,
@@ -34,6 +34,19 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
         binding.lifecycleOwner = this
         clickEvent()
         setButtonEvent()
+        setUIListener()
+    }
+
+    fun setUIListener() {
+        with(binding) {
+            constraintlayoutFrameCommunity.setOnTouchListener(
+                object : OnSwipeTouchListener(context) {
+                    override fun onSwipeUp() {
+                        bottomSheetFragment.show(childFragmentManager, "bottomsheet")
+                    }
+                }
+            )
+        }
     }
 
     fun setButtonEvent() {
