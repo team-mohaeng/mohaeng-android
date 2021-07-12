@@ -72,7 +72,7 @@
         android:layout_width="14dp"
         android:layout_height="14dp"
         android:layout_marginLeft="55dp"
-        android:background="@drawable/ic_button_prefer"
+        android:background="@drawable/ic_diary_private_heart"
         app:layout_constraintBottom_toBottomOf="@id/textview_private_nickname"
         app:layout_constraintEnd_toStartOf="@+id/textview_private_like_count"
         app:layout_constraintHorizontal_chainStyle="packed"
