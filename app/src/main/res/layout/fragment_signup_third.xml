@@ -14,7 +14,7 @@
         android:layout_marginTop="40dp"
         android:fontFamily="@font/spoqahansansneoregular"
         android:text="회원가입"
-        android:textColor="@color/journey_black"
+        android:textColor="@color/journey_black3"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,7 +25,7 @@
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_marginTop="36dp"
-        android:background="@color/journey_pink2"
+        android:background="@drawable/ic_signup_button_back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,8 +36,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
         android:fontFamily="@font/spoqahansansneobold"
-        android:text="사용할 닉네임을 입력해주세요"
-        android:textColor="@color/journey_black"
+        android:text="앞으로 쟈기를 뭐라고 불러야하지?"
+        android:textColor="@color/journey_black3"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textview_signup_title" />
@@ -47,25 +47,68 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
+        android:backgroundTint="@color/journey_gray"
         android:fontFamily="@font/spoqahansansneoregular"
         android:hint="한글 2~6자"
-        android:backgroundTint="@color/journey_gray"
+        android:textColor="@color/journey_black3"
+        android:maxLength="6"
         android:textColorHint="@color/journey_gray"
         android:textSize="16sp"
-        android:maxLength="6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textview_signup_nickname" />
 
     <TextView
-        android:id="@+id/textview_signup_comment"
+        android:id="@+id/textview_signup_first"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:gravity="center"
+        android:text="시작하기를 누르면 쟈니의 "
+        android:textColor="@color/journey_black3"
+        app:layout_constraintBottom_toTopOf="@+id/textview_signup_third"
+        app:layout_constraintEnd_toStartOf="@+id/textview_signup_second"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textview_signup_second"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/signup_comment"
+        android:textColor="@color/journey_black3"
+        app:layout_constraintBottom_toTopOf="@+id/textview_signup_fourth"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textview_signup_first" />
+
+    <TextView
+        android:id="@+id/textview_signup_third"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="57dp"
-        android:text="@string/signup_comment"
+        android:gravity="center"
+        android:text="@string/signup_comment2"
+        android:textStyle="bold"
+        android:textColor="@color/journey_black3"
+        app:layout_constraintBottom_toTopOf="@+id/button_signup_next"
+        app:layout_constraintEnd_toStartOf="@+id/textview_signup_fourth"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textview_signup_fourth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="57dp"
+        android:gravity="center"
+        android:text="에 동의하게 됩니다."
+        android:textColor="@color/journey_black3"
         app:layout_constraintBottom_toTopOf="@+id/button_signup_next"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textview_signup_third" />
 
     <TextView
         android:id="@+id/textview_nickname_status"
@@ -73,9 +116,9 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/spoqahansansneoregular"
         android:text="사용 가능한 닉네임입니다"
-        android:visibility="invisible"
         android:textColor="@color/journey_green_a"
         android:textSize="10sp"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edittext_signup_nickname" />
 

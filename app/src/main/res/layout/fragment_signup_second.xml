@@ -14,7 +14,7 @@
         android:layout_marginTop="40dp"
         android:fontFamily="@font/spoqahansansneoregular"
         android:text="회원가입"
-        android:textColor="@color/journey_black"
+        android:textColor="@color/journey_black3"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,9 +25,9 @@
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_marginTop="36dp"
-        android:background="@color/journey_pink2"
+        android:background="@drawable/ic_signup_button_back"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
 
     <TextView
@@ -36,8 +36,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
         android:fontFamily="@font/spoqahansansneobold"
-        android:text="성별을 선택해주세요"
-        android:textColor="@color/journey_black"
+        android:text="성별을 선택해주겠어?"
+        android:textColor="@color/journey_black3"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textview_signup_title" />
@@ -78,8 +78,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="70dp"
         android:fontFamily="@font/spoqahansansneobold"
-        android:text="출생연도를 입력해주세요"
-        android:textColor="@color/journey_black"
+        android:text="당신이 태어난 해가 궁금하군"
+        android:textColor="@color/journey_black3"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_gender_w" />
