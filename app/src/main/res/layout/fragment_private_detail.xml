@@ -9,13 +9,24 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_private_delete"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="20dp"
-        android:background="@drawable/ic_button_prefer"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_marginRight="12dp"
+        android:background="@drawable/ic_diary_private_button_delete"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/toolbar_private_detail_title"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_private_cancel"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_marginLeft="12dp"
+        android:background="@drawable/ic_diary_private_button_cancel"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/toolbar_private_detail_title"
+        />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_private_detail_title"
@@ -33,7 +44,7 @@
             android:layout_gravity="center"
             android:fontFamily="@font/spoqahansansneomedium"
             android:text="내 소확행 자세히 보기"
-            android:textColor="@color/black"
+            android:textColor="@color/journey_black3"
             android:textSize="16sp" />
 
 
@@ -139,11 +150,12 @@
             app:layout_constraintLeft_toRightOf="@id/button_private_detail_like"
             app:layout_constraintTop_toTopOf="@+id/button_private_detail_like" />
 
+
         <TextView
             android:id="@+id/textview_private_detail_hashtag"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="48dp"
+            android:layout_marginTop="36dp"
             android:fontFamily="@font/spoqahansansneomedium"
             android:text="#산책 #맥주 #여름"
             android:textColor="@color/journey_pink6"
@@ -151,7 +163,9 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textview_private_detail_content" />
+            app:layout_constraintTop_toBottomOf="@id/textview_private_detail_content"
+            android:visibility="invisible"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

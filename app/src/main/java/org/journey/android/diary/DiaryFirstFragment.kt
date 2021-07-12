@@ -7,13 +7,24 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import org.journey.android.R
+import org.journey.android.databinding.FragmentDiaryFirstBinding
+import org.journey.android.databinding.FragmentPrivateBinding
 import java.util.*
 
 class DiaryFirstFragment : Fragment(){
-
+    private lateinit var  binding : FragmentDiaryFirstBinding
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        val diaryFirstView = inflater.inflate(R.layout.fragment_diary_first, null)
+                              savedInstanceState: Bundle?): View?{
+        val privateView = inflater.inflate(R.layout.fragment_diary_first, null)
+
+        binding = FragmentDiaryFirstBinding.inflate(inflater, container, false)
+
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         val firstInstance = Calendar.getInstance()
         val firstNowYear = firstInstance.get(Calendar.YEAR).toString()
         val firstNowMonth = (firstInstance.get(Calendar.MONTH)+1).toString()
@@ -34,67 +45,57 @@ class DiaryFirstFragment : Fragment(){
         }
         val firstViewToday = firstNowYear + "년 " + firstNowMonth + "월 " + firstNowDate + "일 " + firstNowDayOfWeekToString(firstNowDayOfWeek) +"요일"
 
-        var textviewNowDate = diaryFirstView.findViewById(R.id.textview_now_date) as TextView
-        textviewNowDate.text = firstViewToday
+        binding.textviewNowDate.text = firstViewToday
 
-        val imageButtonFeelOne = diaryFirstView.findViewById(R.id.imagebutton_feel_one) as ImageButton
-        val imageButtonFeelTwo = diaryFirstView.findViewById(R.id.imagebutton_feel_two) as ImageButton
-        val imageButtonFeelThree = diaryFirstView.findViewById(R.id.imagebutton_feel_three) as ImageButton
-        val nextButton = diaryFirstView.findViewById(R.id.button_compelete) as Button
-        val textViewBadDay = diaryFirstView.findViewById(R.id.textview_bad_day) as TextView
-        val textViewSosoDay = diaryFirstView.findViewById(R.id.textview_soso_day) as TextView
-        val textViewGoodDay = diaryFirstView.findViewById(R.id.textview_good_day) as TextView
-
-        textViewBadDay.setOnClickListener{
-            textViewBadDay.isSelected=false
+        binding.textviewBadDay.setOnClickListener{
+            binding.textviewBadDay.isSelected=false
         }
 
-        textViewSosoDay.setOnClickListener{
-            textViewSosoDay.isSelected=false
+        binding.textviewSosoDay.setOnClickListener{
+            binding.textviewSosoDay.isSelected=false
         }
 
-        textViewGoodDay.setOnClickListener{
-            textViewGoodDay.isSelected=false
+        binding.textviewGoodDay.setOnClickListener{
+            binding.textviewGoodDay.isSelected=false
         }
 
 
-        imageButtonFeelOne.setOnClickListener {
-            if(imageButtonFeelTwo.isSelected==true)
-                imageButtonFeelTwo.isSelected=false
-            if(imageButtonFeelThree.isSelected==true)
-                imageButtonFeelThree.isSelected=false
-            imageButtonFeelOne.isSelected=true
-            nextButton.isSelected=true
-            textViewBadDay.isSelected=false
-            textViewSosoDay.isSelected=true
-            textViewGoodDay.isSelected=true
+        binding.imagebuttonFeelOne.setOnClickListener {
+            if(binding.imagebuttonFeelTwo.isSelected==true)
+                binding.imagebuttonFeelTwo.isSelected=false
+            if(binding.imagebuttonFeelThree.isSelected==true)
+                binding.imagebuttonFeelThree.isSelected=false
+            binding.imagebuttonFeelOne.isSelected=true
+            binding.buttonCompelete.isSelected=true
+            binding.textviewBadDay.isSelected=false
+            binding.textviewSosoDay.isSelected=true
+            binding.textviewGoodDay.isSelected=true
         }
 
-        imageButtonFeelTwo.setOnClickListener {
-            if(imageButtonFeelOne.isSelected==true)
-                imageButtonFeelOne.isSelected=false
-            if(imageButtonFeelThree.isSelected==true)
-                imageButtonFeelThree.isSelected=false
-            imageButtonFeelTwo.isSelected=true
-            nextButton.isSelected=true
-            textViewBadDay.isSelected=true
-            textViewSosoDay.isSelected=false
-            textViewGoodDay.isSelected=true
+        binding.imagebuttonFeelTwo.setOnClickListener {
+            if(binding.imagebuttonFeelOne.isSelected==true)
+                binding.imagebuttonFeelOne.isSelected=false
+            if(binding.imagebuttonFeelThree.isSelected==true)
+                binding.imagebuttonFeelThree.isSelected=false
+            binding.imagebuttonFeelTwo.isSelected=true
+            binding.buttonCompelete.isSelected=true
+            binding.textviewBadDay.isSelected=true
+            binding.textviewSosoDay.isSelected=false
+            binding.textviewGoodDay.isSelected=true
         }
 
-        imageButtonFeelThree.setOnClickListener {
-            if(imageButtonFeelOne.isSelected==true)
-                imageButtonFeelOne.isSelected=false
-            if(imageButtonFeelTwo.isSelected==true)
-                imageButtonFeelTwo.isSelected=false
-            imageButtonFeelThree.isSelected=true
-            nextButton.isSelected=true
-            textViewBadDay.isSelected=true
-            textViewSosoDay.isSelected=true
-            textViewGoodDay.isSelected=false
+        binding.imagebuttonFeelThree.setOnClickListener {
+            if(binding.imagebuttonFeelOne.isSelected==true)
+                binding.imagebuttonFeelOne.isSelected=false
+            if(binding.imagebuttonFeelOne.isSelected==true)
+                binding.imagebuttonFeelTwo.isSelected=false
+            binding.imagebuttonFeelThree.isSelected=true
+            binding.buttonCompelete.isSelected=true
+            binding.textviewBadDay.isSelected=true
+            binding.textviewSosoDay.isSelected=true
+            binding.textviewGoodDay.isSelected=false
         }
 
 
-        return diaryFirstView
     }
 }

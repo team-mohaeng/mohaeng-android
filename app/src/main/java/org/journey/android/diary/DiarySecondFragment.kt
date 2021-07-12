@@ -1,6 +1,7 @@
 package org.journey.android.diary
 
 import android.Manifest
+import android.app.Dialog
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.ColorStateList
@@ -24,6 +25,8 @@ import com.google.android.material.chip.ChipGroup
 import org.journey.android.R
 import org.journey.android.base.BaseFragment
 import org.journey.android.databinding.FragmentDiarySecondBinding
+import org.journey.android.databinding.FragmentPrivateBinding
+import org.journey.android.databinding.FragmentPrivateDetailBinding
 import java.util.*
 
 class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
@@ -35,11 +38,8 @@ class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
         return FragmentDiarySecondBinding.inflate(inflater, container, false)
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val diarySecondView = inflater.inflate(R.layout.fragment_diary_second, null)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         val secondInstance = Calendar.getInstance()
         val secondNowYear = secondInstance.get(Calendar.YEAR).toString()
@@ -61,14 +61,12 @@ class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
         }
         val secondViewToday = secondNowYear + "년 " + secondNowMonth + "월 " + secondNowDate + "일 " + secondNowDayOfWeekToString(secondNowDayOfWeek) +"요일"
 
-        var textviewNowDate = diarySecondView.findViewById(R.id.textview_now_date_second) as TextView
-        textviewNowDate.text = secondViewToday
+        binding.textviewNowDateSecond.text = secondViewToday
 
         val PERMISSION_REQUEST_CODE = 201
         val REQ_GALLERY = 202
 
-        val selectImageButton = diarySecondView.findViewById(R.id.button_picture_upload) as AppCompatButton
-        selectImageButton.setOnClickListener{
+        binding.buttonPictureUpload.setOnClickListener{
             var writePermission = ContextCompat.checkSelfPermission(
                 requireContext(),
                 android.Manifest.permission.WRITE_EXTERNAL_STORAGE
@@ -94,11 +92,9 @@ class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
             }
         }
 
-        val hashTagChipGroup = diarySecondView.findViewById(R.id.chipgroup_hashtag) as ChipGroup
-        val edittextHashTag = diarySecondView.findViewById(R.id.edittext_hashtag) as EditText
 
         fun addChipToGroup(hashTag: String) {
-            if (hashTagChipGroup.childCount < 5) {
+            if (binding.chipgroupHashtag.childCount < 5) {
                 val chip = Chip(context)
                 chip.chipBackgroundColor =
                     ColorStateList.valueOf(resources.getColor(R.color.journey_gray_e))
@@ -118,22 +114,39 @@ class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
                     ColorStateList.valueOf(resources.getColor(R.color.journey_pink))
                 chip.isClickable = true
                 chip.isCheckable = false
-                hashTagChipGroup.addView(chip as View)
-                chip.setOnCloseIconClickListener { hashTagChipGroup.removeView(chip as View) }
+                binding.chipgroupHashtag.addView(chip as View)
+                chip.setOnCloseIconClickListener { binding.chipgroupHashtag.removeView(chip as View) }
+            }
+            else if(binding.chipgroupHashtag.childCount==5)
+            {
+                val alertDialog = activity?.let { it1 -> Dialog(it1) }
+                val alertDialogInflater : LayoutInflater = LayoutInflater.from(activity)
+                val mView : View = alertDialogInflater.inflate(R.layout.diary_hashtag_count_dialog,null)
+
+                val buttonConfirm:Button = mView.findViewById(R.id.button_confirm)
+                if (alertDialog != null) {
+                    alertDialog.setContentView(mView)
+                    alertDialog.create()
+                    alertDialog.show()
+                }
+                buttonConfirm.setOnClickListener{
+                    if (alertDialog != null)
+                    {alertDialog.dismiss()
+                        alertDialog.cancel()}
+                }
             }
         }
 
-        edittextHashTag.addTextChangedListener(object : TextWatcher {
+        binding.edittextHashtag.addTextChangedListener(object : TextWatcher {
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if (edittextHashTag.text.toString().endsWith(" ") == true) {
-                    var str = edittextHashTag.toString()
-                    str = "#" + edittextHashTag.text.toString()
+                if (binding.edittextHashtag.text.toString().endsWith(" ")) {
+                    var str: String = "#" + binding.edittextHashtag.text.toString()
                     addChipToGroup(str)
-                    edittextHashTag.setText("")
+                    binding.edittextHashtag.setText("")
                 }
             }
 
@@ -141,35 +154,27 @@ class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
             }
         })
 
-        val edittextUserInputText = diarySecondView.findViewById(R.id.edittext_content_happiness) as EditText
-        val textviewCountString = diarySecondView.findViewById(R.id.textview_count_string) as TextView
-        val buttonCompelete = diarySecondView.findViewById(R.id.button_compelete) as Button
-        edittextUserInputText.addTextChangedListener(object: TextWatcher {
+        binding.edittextContentHappiness.addTextChangedListener(object: TextWatcher {
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-                textviewCountString.text = "0 /40자"
+                binding.textviewCountString.text = "0"
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                var userInput = edittextUserInputText.text.toString()
-                textviewCountString.text = userInput.length.toString() + " /40자"
+                var userInput = binding.edittextContentHappiness.text.toString()
+                binding.textviewCountString.text = userInput.length.toString()
             }
 
             override fun afterTextChanged(s: Editable?) {
-                var userInput = edittextUserInputText.text.toString()
-                textviewCountString.text = userInput.length.toString() + " /40자"
-                if (userInput.length > 0)
-                    buttonCompelete.isSelected = true
-                else if (userInput.length == 0)
-                    buttonCompelete.isSelected = false
+                var userInput = binding.edittextContentHappiness.text.toString()
+                binding.textviewCountString.text = userInput.length.toString()
+                if (userInput.isNotEmpty())
+                    binding.buttonCompelete.isSelected = true
+                else if (userInput.isEmpty())
+                    binding.buttonCompelete.isSelected = false
             }
         })
 
-        return diarySecondView
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
         uploadGallery()
     }
 
@@ -186,9 +191,3 @@ class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
     }
 
 }
-
-
-
-
-
-
