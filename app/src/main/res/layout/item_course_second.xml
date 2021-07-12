@@ -8,41 +8,41 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="0dp"
-        android:layout_marginEnd="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+
         <ImageView
-            android:id="@+id/imageview_left_road"
+            android:id="@+id/imageview_second_road"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="51dp"
+            android:layout_marginEnd="52dp"
             android:adjustViewBounds="true"
-            android:src="@drawable/ic_course_pink_left"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
+            android:src="@drawable/ic_course_pink_right"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
-            android:id="@+id/textview_left_day"
+            android:id="@+id/textview_second_day"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="86dp"
+            android:layout_marginStart="86dp"
             android:layout_marginBottom="8dp"
             android:fontFamily="@font/spoqahansansneobold"
-            android:text="3일차"
+            android:text="1일차"
             android:textColor="@color/black"
             android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/textview_left_content"
-            app:layout_constraintEnd_toEndOf="@+id/imageview_left_road" />
+            app:layout_constraintBottom_toTopOf="@+id/textview_second_content"
+            app:layout_constraintStart_toStartOf="@+id/imageview_second_road" />
 
         <TextView
-            android:id="@+id/textview_left_complete"
+            android:id="@+id/textview_second_complete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="32dp"
+            android:layout_marginStart="32dp"
             android:layout_marginBottom="8dp"
             android:background="@drawable/button_round"
             android:paddingHorizontal="12dp"
@@ -51,39 +51,30 @@
             android:textColor="@color/white"
             android:textSize="12sp"
             android:visibility="invisible"
-            app:layout_constraintBottom_toTopOf="@+id/textview_left_content"
-            app:layout_constraintEnd_toStartOf="@+id/textview_left_day" />
+            app:layout_constraintBottom_toTopOf="@+id/textview_second_content"
+            app:layout_constraintStart_toEndOf="@+id/textview_second_day" />
 
         <TextView
-            android:id="@+id/textview_left_content"
+            android:id="@+id/textview_second_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="9dp"
             android:text="알콜스왑으로 핸드폰 닦기"
             android:textColor="@color/black"
             android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@+id/imageview_left_road"
-            app:layout_constraintEnd_toEndOf="@+id/textview_left_day" />
+            app:layout_constraintBottom_toBottomOf="@+id/imageview_second_road"
+            app:layout_constraintStart_toStartOf="@+id/textview_second_day" />
 
         <ImageView
-            android:id="@+id/imageview_left_circle"
+            android:id="@+id/imageview_second_circle"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_marginStart="282dp"
+            android:layout_marginEnd="290dp"
             android:layout_marginBottom="3dp"
             android:src="@drawable/ic_dummyimg"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <!--
-        <View
-            android:layout_width="20dp"
-            android:layout_height="10dp"
-            android:layout_marginEnd="25dp"
-            android:background="@color/journey_pink_a"
-            android:translationY="-5dp"
-            app:layout_constraintEnd_toEndOf="@+id/imageview_left_road"
-            app:layout_constraintTop_toBottomOf="@+id/imageview_left_road" />
-            -->
+            app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

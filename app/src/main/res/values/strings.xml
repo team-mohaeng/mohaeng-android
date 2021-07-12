@@ -5,13 +5,13 @@
     <string name="msg_token_fmt" translatable="false">토큰: %s</string>
     <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
 
-    <string name="main_greeting">Hi,쟈기~ 오늘도 안녕하니?\n끈적한 우리 관계를 위해</string>
+    <string name="main_greeting">안녕,쟈기?\n오늘도 당신의 일상에 지독하게 엮어 보려 해</string>
 
     <string name="happiness_explanation">오늘의 챌린지를 성공하고\n나의 소확행도 공유해보자</string>
     <string name="library_content_dummy">나 쟈니가 인간세계에 처음 도착했을 때 사람들이\n청결에 대해 은근히 무심한 것이 신기했쟈니. 내\n가 사는 별에서는 상상도 할 수 없쟈니.</string>
     <string name="library_dialog">쟈기, 새로운 코스를 시작했구나?\n나와 찐득한 여정을 떠나보자.</string>
 
-    <string name="total_user_format">오늘은 %d명의 쟈기들이\n행복을 기록했쟈니</string>
+    <string name="total_user_format">오늘은 64명의 쟈기들이\n행복을 기록했쟈니</string>
     <string name="community_record_contents">맛있는 피자에 시원한\n맥주 먹고 선선한 날\n씨에 산책했어요.</string>
     <string name="private_record_contents">맛있는 피자에 시원한 맥주 먹고 선선한\n날씨에 산책했어요.</string>
     <string name="delete_record_contents">지금 삭제하면 다시 볼 수 없어.\n그래도 소확행을 삭제하겠어?</string>
@@ -27,6 +27,8 @@
     <string name="happiness_popcontent_ver1">이번에 수행할 코스도 안 정했쟈니.\n코스를 선택해서\n오늘의 챌린지를 수행해봐</string>
     <string name="happiness_popcontent_ver2">소확행을 기록하려면\n오늘의 챌린지를 컴플리트-해야해\n이따 다시 찾아오라구?</string>
     <string name="happiness_popcontent_ver3">오늘 소확행은 이미 작성했던데,\n나에게 그렇게 할 말이 많니?\n아쉽지만 내일 또 쓰러 와~</string>
+
+    <string name="signup_comment">시작하기를 누르면 쟈니의 <b>서비스 이용 약관</b>과\n개인정보 보호정책에 동의하게 됩니다.</string>
 
     <string name="findpw_send_message">등록된 이메일로\n인증번호를 보내드렸어요!</string>
 </resources>

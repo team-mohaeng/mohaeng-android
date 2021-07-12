@@ -8,7 +8,7 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/circleimage_reward"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/ic_flwgraphic"
         android:layout_marginLeft="22dp"
@@ -25,6 +25,7 @@
         android:text="7 일 코스"
         android:textColor="@color/journey_gray10"
         android:layout_marginLeft="21dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/spoqahansansneoregular"
         app:layout_constraintStart_toEndOf="@id/circleimage_reward"
         app:layout_constraintTop_toTopOf="@id/circleimage_reward"/>
@@ -44,13 +45,28 @@
         android:id="@+id/textview_course_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="13dp"
         android:layout_marginRight="30dp"
-        android:text="2021.08.07"
+        android:fontFamily="@font/spoqahansansneoregular"
+        android:text="2021.07.31"
         android:textColor="@color/journey_black"
+        app:layout_constraintBottom_toBottomOf="@+id/circleimage_reward"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@id/textview_course_subject"
         app:layout_constraintTop_toBottomOf="@id/textview_course_subject" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_reward_complete"
+        android:layout_width="27dp"
+        android:layout_height="12dp"
+        android:background="@drawable/ic_rec663"
+        android:layout_marginLeft="4dp"
+        android:text="완료"
+        android:textColor="@color/white"
+        android:textSize="8sp"
+        app:layout_constraintStart_toEndOf="@id/textview_course_date"
+        app:layout_constraintBottom_toBottomOf="@id/textview_course_date"
+        app:layout_constraintTop_toTopOf="@id/textview_course_date"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

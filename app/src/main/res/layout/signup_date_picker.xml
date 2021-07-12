@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <NumberPicker
+        android:id="@+id/numberpicker_year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/textview_date_picker_year"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/textview_date_picker_year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:fontFamily="@font/spoqahansansneomedium"
+        android:text="년"
+        android:textColor="@color/journey_black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/numberpicker_year"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/numberpicker_year"
+        app:layout_constraintTop_toTopOf="@id/numberpicker_year" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_signup_datepicker"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="48dp"
+        android:background="@drawable/private_date_picker_select_button"
+        android:fontFamily="@font/spoqahansansneobold"
+        android:paddingVertical="14dp"
+        android:stateListAnimator="@null"
+        android:text="선택"
+        android:textColor="@color/white"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/numberpicker_year" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

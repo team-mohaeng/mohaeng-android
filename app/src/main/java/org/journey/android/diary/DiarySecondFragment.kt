@@ -174,7 +174,6 @@ class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
                     binding.buttonCompelete.isSelected = false
             }
         })
-
         uploadGallery()
     }
 

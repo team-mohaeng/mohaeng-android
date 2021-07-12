@@ -25,10 +25,10 @@
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/button_pressed_back"
-                    android:layout_width="12dp"
-                    android:layout_height="12dp"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
                     android:layout_marginLeft="12dp"
-                    android:background="@drawable/ic_rectangle334"
+                    android:background="@drawable/ic_gnbicnback"
                     android:gravity="left"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -40,7 +40,7 @@
                     android:layout_height="match_parent"
                     android:fontFamily="@font/spoqahansansneoregular"
                     android:gravity="center"
-                    android:text="나의 업적"
+                    android:text="쟈기의 레포트"
                     android:textColor="@color/journey_black"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

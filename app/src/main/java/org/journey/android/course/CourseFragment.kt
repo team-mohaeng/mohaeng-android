@@ -52,7 +52,7 @@ class CourseFragment : Fragment() {
                     courseContent = "알콜스왑으로 핸드폰 닦기",
                     courseComplete = "06.28 완료",
                     courseCurrent = true,
-                    type = 1
+                    type = 3
                 ),
                 CourseListInfo(
                     courseDay = "3일차",
