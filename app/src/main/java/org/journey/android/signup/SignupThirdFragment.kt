@@ -12,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
+import androidx.navigation.fragment.findNavController
 import org.journey.android.R
 import org.journey.android.databinding.FragmentSignupThirdBinding
 
@@ -34,7 +35,7 @@ class SignupThirdFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        setClickEvent()
         setBtnEvent()
 
         binding.edittextSignupNickname.addTextChangedListener(object : TextWatcher {
@@ -49,13 +50,13 @@ class SignupThirdFragment : Fragment() {
 
                 if(binding.edittextSignupNickname.text.toString().matches(reg))
                 {
-                    binding.textviewNicknameStatus.setText("사용 가능한 비밀번호입니다")
+                    binding.textviewNicknameStatus.text = "사용 가능한 비밀번호입니다"
                     binding.textviewNicknameStatus.setTextColor(ContextCompat.getColor(requireContext(),R.color.journey_green_a))
                     binding.buttonSignupNext.isEnabled = true
                 }
                 else
                 {
-                    binding.textviewNicknameStatus.setText("사용 가능하지 않은 비밀번호입니다")
+                    binding.textviewNicknameStatus.text = "사용 가능하지 않은 비밀번호입니다"
                     binding.textviewNicknameStatus.setTextColor(ContextCompat.getColor(requireContext(),R.color.journey_red_a))
                     binding.buttonSignupNext.isEnabled = false
                 }
@@ -73,22 +74,34 @@ class SignupThirdFragment : Fragment() {
                 binding.textviewNicknameStatus.visibility = View.VISIBLE
             nicknameStatus = true
             if(nicknameStatus){
-                binding.textviewNicknameStatus.setText("사용 가능한 닉네임입니다")
+                binding.textviewNicknameStatus.text = "사용 가능한 닉네임입니다"
                 binding.textviewNicknameStatus.setTextColor(ContextCompat.getColor(requireContext(), R.color.journey_green_a))
             }
             else
             {
-                binding.textviewNicknameStatus.setText("사용 가능하지 않은 닉네임입니다")
+                binding.textviewNicknameStatus.text = "사용 가능하지 않은 닉네임입니다"
                 binding.textviewNicknameStatus.setTextColor(ContextCompat.getColor(requireContext(), R.color.journey_red_a))
             }
         }
         binding.textviewSignupSecond.setOnClickListener {
-            var intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/webhp?hl=ko&sa=X&ved=0ahUKEwj5najcwN3xAhXUeN4KHRFmCvEQPAgI"))
+            var intent = Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("https://www.google.com/webhp?hl=ko&sa=X&ved=0ahUKEwj5najcwN3xAhXUeN4KHRFmCvEQPAgI")
+            )
             startActivity(intent)
         }
         binding.textviewSignupThird.setOnClickListener {
-            var intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/webhp?hl=ko&sa=X&ved=0ahUKEwj5najcwN3xAhXUeN4KHRFmCvEQPAgI"))
+            var intent = Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("https://www.google.com/webhp?hl=ko&sa=X&ved=0ahUKEwj5najcwN3xAhXUeN4KHRFmCvEQPAgI")
+            )
             startActivity(intent)
+        }
+    }
+
+    fun setClickEvent() {
+        binding.buttonSignupNext.setOnClickListener {
+            findNavController().navigate(R.id.action_signupThirdFragment_to_frameFragment)
         }
     }
 

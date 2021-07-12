@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
+import androidx.navigation.fragment.findNavController
 import org.journey.android.R
 import org.journey.android.databinding.FragmentSignupFirstBinding
 
@@ -41,6 +42,7 @@ class SignupFirstFragment : Fragment() {
       checkPw()
       checkPwSame()
       showPw()
+      setClickEvent()
 
       binding.edittextSignupEmail.addTextChangedListener(object : TextWatcher {
 
@@ -74,12 +76,12 @@ class SignupFirstFragment : Fragment() {
 
 
          if(emailStatus){
-            binding.textviewEmailStatus.setText("사용 가능한 이메일입니다")
+            binding.textviewEmailStatus.text = "사용 가능한 이메일입니다"
             binding.textviewEmailStatus.setTextColor(ContextCompat.getColor(requireContext(),R.color.journey_green_a))
          }
          else
          {
-            binding.textviewEmailStatus.setText("사용 가능하지 않은 이메일입니다")
+            binding.textviewEmailStatus.text = "사용 가능하지 않은 이메일입니다"
             binding.textviewEmailStatus.setTextColor(ContextCompat.getColor(requireContext(),R.color.journey_red_a))
          }
       }
@@ -100,25 +102,21 @@ class SignupFirstFragment : Fragment() {
                binding.edittextSignupPw.text.toString().isNotEmpty()
             if(binding.edittextSignupPw.text.toString().matches(reg))
             {
-               binding.textviewPwStatus.setText("사용 가능한 비밀번호입니다")
+               binding.textviewPwStatus.text = "사용 가능한 비밀번호입니다"
                binding.textviewPwStatus.setTextColor(ContextCompat.getColor(requireContext(),R.color.journey_green_a))
                pwStatus = true
             }
             else
             {
-               binding.textviewPwStatus.setText("사용 가능하지 않은 비밀번호입니다")
+               binding.textviewPwStatus.text = "사용 가능하지 않은 비밀번호입니다"
                binding.textviewPwStatus.setTextColor(ContextCompat.getColor(requireContext(),R.color.journey_red_a))
                pwStatus = false
             }
          }
 
          override fun afterTextChanged(s: Editable?) {
-            if(pwStatus && binding.edittextSignupEmail.text.toString().isNotEmpty()) {
-               binding.buttonSignupNext.isEnabled = true
-            }
-            else {
-               binding.buttonSignupNext.isEnabled = false
-            }
+            binding.buttonSignupNext.isEnabled =
+               pwStatus && binding.edittextSignupEmail.text.toString().isNotEmpty()
          }
       })
    }
@@ -139,12 +137,12 @@ class SignupFirstFragment : Fragment() {
             {
                if(binding.edittextSignupPw.text.toString()==binding.edittextSignupPwcheck.text.toString())
                {
-                  binding.textviewPwStatus.setText("비밀번호가 일치합니다")
+                  binding.textviewPwStatus.text = "비밀번호가 일치합니다"
                   binding.textviewPwStatus.setTextColor(ContextCompat.getColor(requireContext(),R.color.journey_green_a))
 
                }
                else{
-                  binding.textviewPwStatus.setText("비밀번호가 일치하지않습니다")
+                  binding.textviewPwStatus.text = "비밀번호가 일치하지않습니다"
                   binding.textviewPwStatus.setTextColor(ContextCompat.getColor(requireContext(),R.color.journey_red_a))
                }
             }
@@ -171,14 +169,23 @@ class SignupFirstFragment : Fragment() {
             binding.edittextSignupPw.transformationMethod = PasswordTransformationMethod.getInstance()
       }
 
-      binding.imagebuttonSignupPwcheck.setOnClickListener{
+      binding.imagebuttonSignupPwcheck.setOnClickListener {
 
-         if(binding.edittextSignupPwcheck.transformationMethod == PasswordTransformationMethod.getInstance())
-            binding.edittextSignupPwcheck.transformationMethod = HideReturnsTransformationMethod.getInstance()
+         if (binding.edittextSignupPwcheck.transformationMethod == PasswordTransformationMethod.getInstance())
+            binding.edittextSignupPwcheck.transformationMethod =
+               HideReturnsTransformationMethod.getInstance()
          else
-            binding.edittextSignupPwcheck.transformationMethod = PasswordTransformationMethod.getInstance()
+            binding.edittextSignupPwcheck.transformationMethod =
+               PasswordTransformationMethod.getInstance()
       }
 
    }
+
+   fun setClickEvent() {
+      binding.buttonSignupNext.setOnClickListener {
+         findNavController().navigate(R.id.action_signupFirstFragment_to_signupSecondFragment)
+      }
+   }
+
 
 }
