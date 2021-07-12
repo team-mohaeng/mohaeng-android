@@ -28,6 +28,7 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
 
     private fun setAdapter(){
         binding.recyclerviewCommunityRecord.adapter = bottomSheetAdapter
+        bottomSheetAdapter.notifyDataSetChanged()
     }
 }
 
