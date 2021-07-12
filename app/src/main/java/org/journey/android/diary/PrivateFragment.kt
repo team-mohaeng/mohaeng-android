@@ -129,8 +129,6 @@ class PrivateFragment : Fragment(){
             binding.imageviewPrivateEmptyImage.isVisible=true
             binding.textviewPrivateEmptyContent.isVisible=true
         }
-
-
         privateAdapter.notifyDataSetChanged()
     }
 
