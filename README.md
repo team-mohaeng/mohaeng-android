@@ -28,8 +28,8 @@
 		Journey Community<br>
     </td>
     <td>
-    Journey Challenge<br>
-	    Journey Course<br>
+    Journey org.journey.android.main.dto.Challenge<br>
+	    Journey org.journey.android.main.dto.Course<br>
     </td>
     <td>
 	    Login<br>
