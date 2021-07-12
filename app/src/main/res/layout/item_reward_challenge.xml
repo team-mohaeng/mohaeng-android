@@ -4,7 +4,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="36dp"
+    android:layout_marginHorizontal="18dp"
     android:layout_marginLeft="0dp"
     android:background="@drawable/item_challenge_course">
 
@@ -12,8 +12,9 @@
         android:id="@+id/circleimage_percent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="12dp"
+        android:layout_marginHorizontal="24dp"
         android:layout_marginVertical="20dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/ic_flwgraphic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,7 +24,7 @@
         android:id="@+id/textview_percent_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="52dp"
         android:layout_marginTop="64dp"
         android:fontFamily="@font/bmhanna11yrsotf"
         android:gravity="center"
@@ -50,7 +51,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:fontFamily="@font/spoqahansansneoregular"
+        android:fontFamily="@font/spoqahansansneobold"
         android:text="@string/reward_challenge_percent"
         android:textColor="@color/journey_black"
         android:textSize="12sp"

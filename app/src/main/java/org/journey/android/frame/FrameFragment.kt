@@ -36,7 +36,7 @@ class FrameFragment : BaseFragment<FragmentFrameBinding>() {
     }
 
     private fun initViewPager() = binding.viewpagerMain.run {
-        offscreenPageLimit = 3
+        offscreenPageLimit = 2
         adapter = FrameAdapter(this@FrameFragment)
         registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
@@ -47,6 +47,7 @@ class FrameFragment : BaseFragment<FragmentFrameBinding>() {
     }
 
     private fun selectBottomNavigation(pageIndex: Int) {
+
         binding.bottomNavigation.selectedItemId = when (pageIndex) {
             0 -> R.id.mainFragment
             1 -> R.id.challengeFragment
@@ -56,7 +57,7 @@ class FrameFragment : BaseFragment<FragmentFrameBinding>() {
     }
 
     private fun initBottomNavigation() = binding.bottomNavigation.run {
-        setOnNavigationItemReselectedListener {
+        setOnNavigationItemSelectedListener {
             Log.e("pageIndex", viewModel.pageIndex.value.toString())
             viewModel.changePageIndex(
                 when (it.itemId) {
@@ -66,8 +67,8 @@ class FrameFragment : BaseFragment<FragmentFrameBinding>() {
                     else -> throw RuntimeException("Bottom Navigation Error")
                 }
             )
+            true
         }
     }
-
 
 }
