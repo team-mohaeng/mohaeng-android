@@ -19,6 +19,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.navigation.fragment.findNavController
 import org.journey.android.R
 import org.journey.android.course.ctxt
 import org.journey.android.databinding.FragmentChallengeBinding
@@ -242,19 +243,17 @@ class ChallengeFragment : Fragment() {
     fun setButtonEvent(){
         // 챌린지 시작 전 코스 라이브러리로 이동하는 버튼
         binding.buttonChallengeCourse.setOnClickListener {
-            
+            findNavController().navigate(R.id.action_frameFragment_to_libraryFragment)
         }
 
         // 챌린지 진행 중 현재 진행중인 코스로 이동하는 버튼
         binding.imagebuttonChallengeCourse.setOnClickListener {
-            //Navigation.findNavController(binding.root)
-            //    .navigate(R.id.course)
-
+            findNavController().navigate(R.id.action_frameFragment_to_courseFragment)
         }
 
         // 챌린지 진행 중 코스 라이브러리로 이동하는 버튼
         binding.imagebuttonChallengeBrowse.setOnClickListener {
-
+            findNavController().navigate(R.id.action_frameFragment_to_libraryFragment)
         }
     }
 
