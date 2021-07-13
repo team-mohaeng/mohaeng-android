@@ -27,13 +27,10 @@ object RetrofitObjects {
         .client(okHttpClient)
         .build()
 
-<<<<<<< HEAD
-=======
     private var mainInstance: MainService? = null
     fun getMainService(): MainService = mainInstance ?: synchronized(this) {
         mainInstance ?: baseRetrofit.create(MainService::class.java).apply {
             mainInstance = this
         }
     }
->>>>>>> 5f0721cdb6c1a14d6eed4f01296713a56f197112
 }
