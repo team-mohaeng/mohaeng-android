@@ -100,13 +100,13 @@ class SignupFirstFragment : Fragment() {
                binding.edittextSignupPw.text.toString().isNotEmpty()
             if(binding.edittextSignupPw.text.toString().matches(reg))
             {
-               binding.textviewPwStatus.setText("사용 가능한 비밀번호입니다")
+               binding.textviewPwStatus.text = "사용 가능한 비밀번호입니다"
                binding.textviewPwStatus.setTextColor(ContextCompat.getColor(requireContext(),R.color.journey_green_a))
                pwStatus = true
             }
             else
             {
-               binding.textviewPwStatus.setText("사용 가능하지 않은 비밀번호입니다")
+               binding.textviewPwStatus.text = "사용 가능하지 않은 비밀번호입니다"
                binding.textviewPwStatus.setTextColor(ContextCompat.getColor(requireContext(),R.color.journey_red_a))
                pwStatus = false
             }

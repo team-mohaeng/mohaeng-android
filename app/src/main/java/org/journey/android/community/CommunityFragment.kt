@@ -54,8 +54,6 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
             val dialogButtons =
                 mDialogView.findViewById<ConstraintLayout>(R.id.constraintlayout_dialog_buttons)
             val okButton = mDialogView.findViewById<AppCompatButton>(R.id.button_dialog_ok)
-            val noButton = mDialogView.findViewById<AppCompatButton>(R.id.button_dialog_no)
-            val changeButton = mDialogView.findViewById<AppCompatButton>(R.id.button_dialog_change)
             val dialogContent = mDialogView.findViewById<TextView>(R.id.textview_dialog_content)
 
             dialogButtons.visibility = View.GONE
@@ -64,7 +62,7 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
             alertDialog.show()
 
             if (happinessStatus == 0) {
-                dialogTitle.text = "코스를 선택해볼래?"
+                dialogTitle.text = "챌린지를 시작해보겠어?"
                 okButton.text = "코스 선택하러 가기"
                 dialogContent.text = getString(R.string.happiness_popcontent_ver1)
 
@@ -73,7 +71,7 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
                     Toast.makeText(this.context, "코스 선택하러 가기 클릭", Toast.LENGTH_SHORT).show()
                 }
             } else if (happinessStatus == 1) {
-                dialogTitle.text = "오늘의 챌린지를 수행해줘"
+                dialogTitle.text = "이런, 아직 작성할 수 없어!"
                 okButton.text = "오늘의 챌린지로 이동하기"
                 dialogContent.text = getString(R.string.happiness_popcontent_ver2)
 
@@ -82,7 +80,7 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
                     Toast.makeText(this.context, "오늘의 챌린지로 이동하기 클릭", Toast.LENGTH_SHORT).show()
                 }
             } else if (happinessStatus == 2) {
-                dialogTitle.text = "소확행 이미 썼쟈니!"
+                dialogTitle.text = "쟈기, 이미 작성했잖아!"
                 okButton.text = "알았어"
                 dialogContent.text = getString(R.string.happiness_popcontent_ver3)
 

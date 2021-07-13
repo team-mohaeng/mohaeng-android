@@ -14,6 +14,7 @@ import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import org.journey.android.databinding.ItemLibraryBinding
@@ -61,6 +62,10 @@ class LibraryListAdapter :RecyclerView.Adapter<LibraryListAdapter.LibraryListVie
             else{
                 binding.constraintlayoutLibrary.setBackgroundResource(R.drawable.library_round_gray)
                 binding.buttonLibraryChoice.setBackgroundResource(R.drawable.library_button_gray)
+                binding.textviewLibraryTitle.setTextColor(ContextCompat.getColor(ctxt,R.color.journey_gray_h))
+                binding.textviewLibraryContent.setTextColor(ContextCompat.getColor(ctxt,R.color.journey_gray_h))
+                binding.textviewLibraryTerm.setTextColor(ContextCompat.getColor(ctxt, R.color.journey_gray_f))
+                binding.buttonLibraryChoice.setTextColor(ContextCompat.getColor(ctxt, R.color.journey_gray_f))
             }
 
             // 현재 진행중이라면
