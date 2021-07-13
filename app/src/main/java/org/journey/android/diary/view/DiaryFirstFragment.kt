@@ -1,4 +1,4 @@
-package org.journey.android.diary
+package org.journey.android.diary.view
 
 import android.os.Bundle
 import android.view.*

@@ -1,4 +1,4 @@
-package org.journey.android.diary
+package org.journey.android.diary.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import org.journey.android.R
 import org.journey.android.databinding.FragmentPrivateBinding
+import org.journey.android.diary.PrivateAdapter
+import org.journey.android.diary.PrivateData
 import java.util.*
 
 class PrivateFragment : Fragment(){
