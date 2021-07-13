@@ -5,6 +5,6 @@ import retrofit2.http.Body
 import retrofit2.http.POST
 
 interface SignupApiService {
-    @POST("api/signup")
+    @POST("/api/signup")
     fun signup(@Body body: RequestSignup): Single<ResponseSignup>
 }
