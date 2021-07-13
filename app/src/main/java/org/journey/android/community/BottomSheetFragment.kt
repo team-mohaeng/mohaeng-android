@@ -18,13 +18,17 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
         savedInstanceState: Bundle?
     ): View? {
        _binding = FragmentBottomSheetBinding.inflate(inflater, container,false)
-        setAdapter()
         return binding.root
     }
-    private fun setAdapter(){
-        bottomSheetAdapter = BottomSheetAdapter(requireContext())
-        binding.recyclerviewCommunityRecord.adapter = bottomSheetAdapter
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setAdapter()
     }
 
+    private fun setAdapter(){
+        binding.recyclerviewCommunityRecord.adapter = bottomSheetAdapter
+        bottomSheetAdapter.notifyDataSetChanged()
+    }
 }
 

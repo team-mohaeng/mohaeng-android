@@ -13,13 +13,14 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.navigation.fragment.findNavController
 import org.journey.android.R
 import org.journey.android.base.BaseFragment
 import org.journey.android.databinding.FragmentCommunityBinding
 import org.journey.android.util.OnSwipeTouchListener
 
 class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
-
+    val bottomSheetFragment = BottomSheetFragment()
     var happinessStatus = 0
     override fun getFragmentBinding(
         inflater: LayoutInflater,
@@ -31,8 +32,21 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.lifecycleOwner = this
-
+        clickEvent()
         setButtonEvent()
+        setUIListener()
+    }
+
+    fun setUIListener() {
+        with(binding) {
+            constraintlayoutFrameCommunity.setOnTouchListener(
+                object : OnSwipeTouchListener(context) {
+                    override fun onSwipeUp() {
+                        bottomSheetFragment.show(childFragmentManager, "bottomsheet")
+                    }
+                }
+            )
+        }
     }
 
     fun setButtonEvent() {
@@ -89,6 +103,12 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
                     Toast.makeText(this.context, "알았어 클릭", Toast.LENGTH_SHORT).show()
                 }
             }
+        }
+    }
+
+    fun clickEvent() {
+        binding.textviewDiary.setOnClickListener {
+            findNavController().navigate(R.id.action_frameFragment_to_diaryFirstFragment)
         }
     }
 }

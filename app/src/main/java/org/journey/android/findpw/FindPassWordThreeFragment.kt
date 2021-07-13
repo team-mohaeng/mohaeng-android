@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import org.journey.android.R
 import org.journey.android.databinding.FragmentFindPasswordThreeBinding
 import java.util.regex.Pattern
@@ -32,7 +33,7 @@ class FindPassWordThreeFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        clickEvent()
         val reg = Regex("^(?=.*[A-Za-z])(?=.*[0-9]).{7,16}.$")
 
         binding.edittextInputNewPassword.addTextChangedListener(object : TextWatcher {
@@ -47,12 +48,12 @@ class FindPassWordThreeFragment: Fragment() {
                     binding.edittextInputNewPassword.text.toString().isNotEmpty()
                 if(binding.edittextInputNewPassword.text.toString().matches(reg))
                 {
-                    binding.textviewCheckAblePassword.setText("사용 가능한 비밀번호입니다")
+                    binding.textviewCheckAblePassword.text = "사용 가능한 비밀번호입니다"
                     binding.textviewCheckAblePassword.setTextColor(ContextCompat.getColor(requireContext(),R.color.journey_green_a))
                 }
                 else
                 {
-                    binding.textviewCheckAblePassword.setText("사용 가능하지 않은 비밀번호입니다")
+                    binding.textviewCheckAblePassword.text = "사용 가능하지 않은 비밀번호입니다"
                     binding.textviewCheckAblePassword.setTextColor(ContextCompat.getColor(requireContext(),R.color.journey_red_a))
                 }
             }
@@ -75,12 +76,12 @@ class FindPassWordThreeFragment: Fragment() {
                 {
                     if(binding.edittextInputNewPassword.text.toString()==binding.edittextInputNewPasswordConfirm.text.toString())
                     {
-                        binding.textviewCheckAblePassword.setText("비밀번호가 일치합니다")
+                        binding.textviewCheckAblePassword.text = "비밀번호가 일치합니다"
                         binding.textviewCheckAblePassword.setTextColor(ContextCompat.getColor(requireContext(),R.color.journey_green_a))
                         binding.buttonFindPasswordThreeNext.isSelected=true
                     }
                     else{
-                        binding.textviewCheckAblePassword.setText("비밀번호가 일치하지않습니다")
+                        binding.textviewCheckAblePassword.text = "비밀번호가 일치하지않습니다"
                         binding.textviewCheckAblePassword.setTextColor(ContextCompat.getColor(requireContext(),R.color.journey_red_a))
                         binding.buttonFindPasswordThreeNext.isSelected=false
                     }
@@ -101,14 +102,22 @@ class FindPassWordThreeFragment: Fragment() {
                 binding.edittextInputNewPassword.transformationMethod = PasswordTransformationMethod.getInstance()
         }
 
-        binding.buttonShowNewPasswordConfirm.setOnClickListener{
+        binding.buttonShowNewPasswordConfirm.setOnClickListener {
 
-            if(binding.edittextInputNewPasswordConfirm.transformationMethod == PasswordTransformationMethod.getInstance())
-                binding.edittextInputNewPasswordConfirm.transformationMethod = HideReturnsTransformationMethod.getInstance()
+            if (binding.edittextInputNewPasswordConfirm.transformationMethod == PasswordTransformationMethod.getInstance())
+                binding.edittextInputNewPasswordConfirm.transformationMethod =
+                    HideReturnsTransformationMethod.getInstance()
             else
-                binding.edittextInputNewPasswordConfirm.transformationMethod = PasswordTransformationMethod.getInstance()
+                binding.edittextInputNewPasswordConfirm.transformationMethod =
+                    PasswordTransformationMethod.getInstance()
         }
 
 
+    }
+
+    fun clickEvent() {
+        binding.buttonFindPasswordThreeNext.setOnClickListener {
+            findNavController().navigate(R.id.action_findPassWordThreeFragment_to_loginFragment)
+        }
     }
 }

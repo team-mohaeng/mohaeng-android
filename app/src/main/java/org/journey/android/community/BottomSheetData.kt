@@ -5,5 +5,5 @@ data class BottomSheetData(
     val second_tag : String,
     val diary : String,
     val user_id : String,
-    val user_prefer : Int
+    val user_prefer : String
 )
