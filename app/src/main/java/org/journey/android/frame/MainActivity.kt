@@ -21,6 +21,7 @@ import org.journey.android.login.view.LoginFragment
 import org.journey.android.signup.SignupFirstFragment
 import org.journey.android.signup.SignupViewPagerFragment
 
+var userToken: String = ""
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -41,6 +42,7 @@ class MainActivity : AppCompatActivity() {
             } else {
                 val token = task.result
                 val msg = getString(R.string.msg_token_fmt, token)
+                userToken = token.toString()
                 Log.d("fbPractice.Success", msg)
             }
         })

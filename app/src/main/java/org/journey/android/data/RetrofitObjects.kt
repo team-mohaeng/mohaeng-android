@@ -26,12 +26,4 @@ object RetrofitObjects {
         .client(okHttpClient)
         .build()
 
-    val diaryWriteService: DiaryWriteService = baseRetrofit.create(DiaryWriteService::class.java)
-
-    private var mainInstance: MainService? = null
-    fun getMainService(): MainService = mainInstance ?: synchronized(this) {
-        mainInstance ?: baseRetrofit.create(MainService::class.java).apply {
-            mainInstance = this
-        }
-    }
 }
