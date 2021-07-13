@@ -1,6 +1,5 @@
-package org.journey.android.diary
+package org.journey.android.diary.view
 
-import android.Manifest
 import android.app.Dialog
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -17,14 +16,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import androidx.appcompat.widget.AppCompatButton
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
 import com.google.android.material.chip.Chip
-import com.google.android.material.chip.ChipGroup
 import org.journey.android.R
 import org.journey.android.base.BaseFragment
 import org.journey.android.databinding.FragmentDiarySecondBinding
@@ -202,7 +196,6 @@ class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
                     alertDialogDiarySecondFragment.window?.setLayout(widthDiarySecondDisplay.toInt(), heightDiarySecondDisplay.toInt())
                 }
             }
-
     }
 
     // 갤러리 이미지 첨부

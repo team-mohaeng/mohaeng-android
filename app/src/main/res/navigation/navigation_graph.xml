@@ -37,6 +37,9 @@
         <action
             android:id="@+id/action_splashFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_splashFragment_to_frameFragment"
+            app:destination="@id/frameFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -90,7 +93,7 @@
     </fragment>
     <fragment
         android:id="@+id/diaryFirstFragment"
-        android:name="org.journey.android.diary.DiaryFirstFragment"
+        android:name="org.journey.android.diary.view.DiaryFirstFragment"
         android:label="DiaryFirstFragment"
         tools:layout="@layout/fragment_diary_first">
         <action
@@ -99,7 +102,7 @@
     </fragment>
     <fragment
         android:id="@+id/diarySecondFragment"
-        android:name="org.journey.android.diary.DiarySecondFragment"
+        android:name="org.journey.android.diary.view.DiarySecondFragment"
         android:label="DiarySecondFragment"
         tools:layout="@layout/fragment_diary_second">
         <action
@@ -117,7 +120,7 @@
     </fragment>
     <fragment
         android:id="@+id/privateDetailFragment"
-        android:name="org.journey.android.diary.PrivateDetailFragment"
+        android:name="org.journey.android.diary.view.PrivateDetailFragment"
         android:label="PrivateDetailFragment"
         tools:layout="@layout/fragment_private_detail" />
     <fragment

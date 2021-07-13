@@ -1,4 +1,4 @@
-package org.journey.android.diary
+package org.journey.android.diary.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,8 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
 import org.journey.android.R
-import org.journey.android.diary.DiaryFirstFragment
-import org.journey.android.diary.DiarySecondFragment
 import org.journey.android.diary.DiaryViewPagerAdapter
 
 

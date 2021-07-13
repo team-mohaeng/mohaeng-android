@@ -2,6 +2,8 @@ package org.journey.android.data
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import org.journey.android.diary.DiaryPrivateService
+import org.journey.android.diary.DiaryWriteService
 import org.journey.android.util.AuthInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
