@@ -2,6 +2,7 @@ package org.journey.android.data
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import org.journey.android.diary.DiaryPrivateService
 import org.journey.android.diary.DiaryWriteService
 import org.journey.android.util.AuthInterceptor
 import retrofit2.Retrofit
@@ -25,8 +26,6 @@ object RetrofitObjects {
         .addConverterFactory(GsonConverterFactory.create())
         .client(okHttpClient)
         .build()
-
-    val diaryWriteService: DiaryWriteService = baseRetrofit.create(DiaryWriteService::class.java)
 
     private var mainInstance: MainService? = null
     fun getMainService(): MainService = mainInstance ?: synchronized(this) {
