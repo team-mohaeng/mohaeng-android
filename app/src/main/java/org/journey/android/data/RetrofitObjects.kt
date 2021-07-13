@@ -2,6 +2,7 @@ package org.journey.android.data
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import org.journey.android.diary.DiaryPrivateService
 import org.journey.android.diary.DiaryWriteService
 import org.journey.android.util.AuthInterceptor
 import retrofit2.Retrofit
@@ -26,4 +27,13 @@ object RetrofitObjects {
         .client(okHttpClient)
         .build()
 
+<<<<<<< HEAD
+=======
+    private var mainInstance: MainService? = null
+    fun getMainService(): MainService = mainInstance ?: synchronized(this) {
+        mainInstance ?: baseRetrofit.create(MainService::class.java).apply {
+            mainInstance = this
+        }
+    }
+>>>>>>> 5f0721cdb6c1a14d6eed4f01296713a56f197112
 }

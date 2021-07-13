@@ -12,6 +12,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/imagebutton_course_back"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/ic_diary_back_page_button"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/textview_private_diary"
             android:layout_width="wrap_content"
@@ -60,7 +68,7 @@
         app:layout_constraintEnd_toStartOf="@+id/imagebutton_feel_two"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textview_how_are_you_today"
-        app:srcCompat="@drawable/journey_face_button_selector"
+        app:srcCompat="@drawable/journey_bad_face_button_selector"
         android:layout_marginTop="85dp"
         android:layout_marginLeft="18dp"
         android:background="@android:color/transparent"
@@ -74,7 +82,7 @@
         app:layout_constraintRight_toLeftOf="@+id/imagebutton_feel_three"
         app:layout_constraintTop_toTopOf="@+id/imagebutton_feel_one"
         app:layout_constraintBottom_toBottomOf="@+id/imagebutton_feel_one"
-        app:srcCompat="@drawable/journey_face_button_selector"
+        app:srcCompat="@drawable/journey_soso_face_button_selector"
         android:background="@android:color/transparent"
         />
 
@@ -86,7 +94,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imagebutton_feel_two"
         app:layout_constraintBottom_toBottomOf="@+id/imagebutton_feel_two"
-        app:srcCompat="@drawable/journey_face_button_selector"
+        app:srcCompat="@drawable/journey_good_face_button_selector"
         android:layout_marginRight="18dp"
         android:background="@android:color/transparent"
         />
