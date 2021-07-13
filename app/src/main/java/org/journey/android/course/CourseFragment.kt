@@ -1,12 +1,18 @@
 package org.journey.android.course
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import org.journey.android.R
+import org.journey.android.course.api.ServiceCreator
+import org.journey.android.course.data.ResponseCourseData
+import org.journey.android.data.RetrofitObjects
 import org.journey.android.databinding.FragmentCourseBinding
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class CourseFragment : Fragment() {
 
@@ -14,6 +20,7 @@ class CourseFragment : Fragment() {
     private val binding get() = _binding ?: error("View를 참조하기 위해 binding이 초기화되지 않았습니다.")
 
     private lateinit var courseListAdapter: CourseListAdapter
+    var datas = mutableListOf<CourseListInfo>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,6 +45,10 @@ class CourseFragment : Fragment() {
         courseListAdapter = CourseListAdapter()
         binding.recyclerviewCourse.adapter = courseListAdapter
 
+        // 서버 연결 o
+        loadDatas()
+
+        /*
         courseListAdapter.courseList.addAll(
             listOf<CourseListInfo>(
                 CourseListInfo(
@@ -95,6 +106,92 @@ class CourseFragment : Fragment() {
 
         // Adapter의 모든 데이터가 변했으니 다시 불러와라
         courseListAdapter.notifyDataSetChanged()
+         */
+    }
+
+    // 서버 연결
+    private fun loadDatas(){
+        ServiceCreator.courseService.getCourseData(
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiZXA0UmhZcmJUSE9uaHpBUldOVFNTMTpBUEE5MWJIS1pGdkJuUkV1dEEtYzQxSmN6dDBITzVJQkNyMFhzM0VadjFFcUZSVl9jY05semtDbFQtaWxmT3FGTUFWTmFPUFYxaVhIQjIybHhrcHZJRWNTNW4tMjQtZzY2SVR1d0o1aW9aWlJtYVd5R1Q3XzZiUDhlR1BOZHd2SkNwUWxZb1daQlhHVCJ9LCJpYXQiOjE2MjYwODk5OTZ9.fZoVLz1W-C9RNklV0ZPx6yZeysJWfiuOOPhoAlMtG5k"
+        ).enqueue(object : Callback<ResponseCourseData> {
+            override fun onFailure(call: Call<ResponseCourseData>, t: Throwable) {
+                Log.d("통신 실패", "${t}")
+            }
+
+            override fun onResponse(
+                call: Call<ResponseCourseData>,
+                response: Response<ResponseCourseData>
+            ) {
+                // 통신 성공
+                if (response.isSuccessful) {   // statusCode가 200-300 사이일 때, 응답 body 이용 가능
+                    if(true) {
+                        Log.d("서버 성공", "Course 성공")
+                        Log.d(response.body()!!.data.toString(),response.body()!!.data.toString())
+
+                        var courseDay: String
+                        var courseContent: String
+                        var courseComplete: String
+                        var courseCurrent: Boolean
+                        var type: Int
+
+                        var courseTitle = response.body()!!.data!!.course!!.title
+                        binding.textviewCourseTitle.text = courseTitle
+                        var challengeType = 1
+
+
+                        for (i in 0 until response.body()!!.data!!.course!!.challenges.size){
+
+                            Log.d("서버",response.body()!!.data!!.course!!.challenges[i]!!.toString())
+
+                            var month = response.body()!!.data!!.course!!.challenges[i]!!.month
+                            if(month.length == 1){
+                                month = "0" + month
+                            }
+
+                            courseDay = response.body()!!.data!!.course!!.challenges[i]!!.id.toString() + "일차"
+                            courseContent = response.body()!!.data!!.course!!.challenges[i]!!.title
+                            if(month.isNotEmpty()){
+                                courseComplete = month + "." + response.body()!!.data!!.course!!.challenges[i]!!.day + "완료"
+                                courseCurrent = true
+                            }
+                            else{
+                                courseComplete = ""
+                                courseCurrent = false
+                            }
+
+                            var courseId = response.body()!!.data!!.course!!.challenges[i]!!.id
+                            when(courseId){
+                                1 -> type = 0
+                                2 -> type = 3
+                                else -> type = courseId%2 +1
+                            }
+
+                            datas= mutableListOf<CourseListInfo>()
+                            datas.apply{
+                                add(
+                                    CourseListInfo(
+                                        courseDay = courseDay,
+                                        courseContent = courseContent,
+                                        courseComplete = courseComplete,
+                                        courseCurrent = courseCurrent,
+                                        type = type,
+                                        property = 1
+                                    ))}
+
+                            courseListAdapter.courseList.addAll(
+                                datas
+                            )
+
+                            // 데이터 변경되었으니 업데이트해라
+                            courseListAdapter.notifyDataSetChanged()
+                        }
+                    } else {
+                        Log.d("서버 실패", "${response.body()}")
+                    }
+                }
+            }
+
+        })
     }
 
 }

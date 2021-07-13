@@ -61,6 +61,26 @@ class ChallengeFragment : Fragment() {
 
         selectChallengeView()
         setButtonEvent()
+
+
+        initChallengeType(binding.imagebuttonFirstFirst)
+        initChallengeType(binding.imagebuttonSecondFirst)
+        initChallengeType(binding.imagebuttonSecondSecond)
+        initChallengeType(binding.imagebuttonThirdFirst)
+        initChallengeType(binding.imagebuttonThirdSecond)
+        initChallengeType(binding.imagebuttonThirdThird)
+
+    }
+
+    val challengeType = 0
+
+    fun initChallengeType(btnStamp: ImageButton){
+        when(challengeType){
+            0 -> btnStamp.setImageResource(R.drawable.stamp_health_no)
+            1 -> btnStamp.setImageResource(R.drawable.stamp_challenge_no)
+            2 -> btnStamp.setImageResource(R.drawable.stamp_detect_no)
+            3 -> btnStamp.setImageResource(R.drawable.stamp_memory_no)
+        }
     }
 
     // 챌린지 시작 여부에 따라 다른 뷰를 보여줌
@@ -134,7 +154,13 @@ class ChallengeFragment : Fragment() {
                 okButton.setOnClickListener {
                     alertDialog.dismiss()
                     Toast.makeText(this.context, "완료 클릭", Toast.LENGTH_SHORT).show()
-                    btnStamp.setImageResource(R.drawable.stamp_selected)
+
+                    when(challengeType){
+                        0 -> btnStamp.setImageResource(R.drawable.stamp_health)
+                        1 -> btnStamp.setImageResource(R.drawable.stamp_challenge)
+                        2 -> btnStamp.setImageResource(R.drawable.stamp_detect)
+                        3 -> btnStamp.setImageResource(R.drawable.stamp_memory)
+                    }
                     stampComplete = stampComplete + 1
                     Log.d("stamp 확인", stampComplete.toString())
 
@@ -187,7 +213,7 @@ class ChallengeFragment : Fragment() {
                 binding.constraintlayoutSubThird.visibility = View.GONE
 
                 height = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 140F, getResources().getDisplayMetrics()).toInt()
-                width = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 120F, getResources().getDisplayMetrics()).toInt()
+                width = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 140F, getResources().getDisplayMetrics()).toInt()
 
                 // 스탬프 누르면 인증 팝업 등장
                 binding.imagebuttonFirstFirst.setOnClickListener{
@@ -200,7 +226,7 @@ class ChallengeFragment : Fragment() {
                 binding.constraintlayoutSubSecond.visibility = View.VISIBLE
                 binding.constraintlayoutSubThird.visibility = View.GONE
 
-                height = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 140F, getResources().getDisplayMetrics()).toInt()
+                height = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 120F, getResources().getDisplayMetrics()).toInt()
                 width = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 120F, getResources().getDisplayMetrics()).toInt()
 
                 // 스탬프 누르면 인증 팝업 등장
@@ -215,8 +241,8 @@ class ChallengeFragment : Fragment() {
                 binding.constraintlayoutSubFirst.visibility = View.GONE
                 binding.constraintlayoutSubSecond.visibility = View.GONE
                 binding.constraintlayoutSubThird.visibility = View.VISIBLE
-                height = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 124F, getResources().getDisplayMetrics()).toInt()
-                width = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 106F, getResources().getDisplayMetrics()).toInt()
+                height = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 104F, getResources().getDisplayMetrics()).toInt()
+                width = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 104F, getResources().getDisplayMetrics()).toInt()
 
                 // 스탬프 누르면 인증 팝업 등장
                 binding.imagebuttonThirdFirst.setOnClickListener{
