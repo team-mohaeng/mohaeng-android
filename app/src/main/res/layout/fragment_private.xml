@@ -70,9 +70,9 @@
 
     <ImageView
         android:id="@+id/imageview_private_empty_image"
-        android:layout_width="160dp"
+        android:layout_width="135dp"
         android:layout_height="160dp"
-        app:srcCompat="@drawable/ic_button_prefer"
+        app:srcCompat="@drawable/diary_empty_happiness"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@id/recyclerview_private"
