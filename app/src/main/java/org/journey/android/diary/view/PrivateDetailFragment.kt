@@ -1,4 +1,4 @@
-package org.journey.android.diary
+package org.journey.android.diary.view
 
 import android.app.Dialog
 import android.graphics.Color

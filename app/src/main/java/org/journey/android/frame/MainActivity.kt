@@ -11,6 +11,8 @@ import org.journey.android.R
 import org.journey.android.challenge.ChallengeFragment
 import org.journey.android.databinding.ActivityMainBinding
 import org.journey.android.diary.*
+import org.journey.android.diary.view.DiarySecondFragment
+import org.journey.android.diary.view.PrivateFragment
 import org.journey.android.findpw.FindPassWordOneFragment
 import org.journey.android.findpw.FindPassWordThreeFragment
 import org.journey.android.findpw.FindPassWordTwoFragment
