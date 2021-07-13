@@ -3,6 +3,7 @@ package org.journey.android.course
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import org.journey.android.R
 import org.journey.android.databinding.ItemCourseFirstBinding
@@ -85,6 +86,23 @@ class CourseListAdapter :RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             binding.textviewProcessDay.text = CourseListInfo.courseDay
             binding.textviewProcessContent.text = CourseListInfo.courseContent
 
+            if(CourseListInfo.courseCurrent){
+                when(CourseListInfo.property){
+                    0 -> binding.imageviewProcessCircle.setImageResource(R.drawable.stamp_health)
+                    1 -> binding.imageviewProcessCircle.setImageResource(R.drawable.stamp_challenge)
+                    2 -> binding.imageviewProcessCircle.setImageResource(R.drawable.stamp_detect)
+                    3 -> binding.imageviewProcessCircle.setImageResource(R.drawable.stamp_memory)
+                }
+            }
+            else{
+                when(CourseListInfo.property){
+                    0 -> binding.imageviewProcessCircle.setImageResource(R.drawable.stamp_health_no)
+                    1 -> binding.imageviewProcessCircle.setImageResource(R.drawable.stamp_challenge_no)
+                    2 -> binding.imageviewProcessCircle.setImageResource(R.drawable.stamp_detect_no)
+                    3 -> binding.imageviewProcessCircle.setImageResource(R.drawable.stamp_memory_no)
+                }
+            }
+
             if(CourseListInfo.courseComplete.isNotEmpty()){
                 binding.textviewProcessComplete.visibility = View.VISIBLE
                 binding.textviewProcessComplete.text = CourseListInfo.courseComplete
@@ -106,6 +124,23 @@ class CourseListAdapter :RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             binding.textviewRightDay.text = CourseListInfo.courseDay
             binding.textviewRightContent.text = CourseListInfo.courseContent
 
+            if(CourseListInfo.courseCurrent){
+                when(CourseListInfo.property){
+                    0 -> binding.imageviewRightCircle.setImageResource(R.drawable.stamp_health)
+                    1 -> binding.imageviewRightCircle.setImageResource(R.drawable.stamp_challenge)
+                    2 -> binding.imageviewRightCircle.setImageResource(R.drawable.stamp_detect)
+                    3 -> binding.imageviewRightCircle.setImageResource(R.drawable.stamp_memory)
+                }
+            }
+            else{
+                when(CourseListInfo.property){
+                    0 -> binding.imageviewRightCircle.setImageResource(R.drawable.stamp_health_no)
+                    1 -> binding.imageviewRightCircle.setImageResource(R.drawable.stamp_challenge_no)
+                    2 -> binding.imageviewRightCircle.setImageResource(R.drawable.stamp_detect_no)
+                    3 -> binding.imageviewRightCircle.setImageResource(R.drawable.stamp_memory_no)
+                }
+            }
+
             if(CourseListInfo.courseComplete.isNotEmpty()){
                 binding.textviewRightComplete.visibility = View.VISIBLE
                 binding.textviewRightComplete.text = CourseListInfo.courseComplete
@@ -126,6 +161,23 @@ class CourseListAdapter :RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         fun onBind(CourseListInfo: CourseListInfo){
             binding.textviewLeftDay.text = CourseListInfo.courseDay
             binding.textviewLeftContent.text = CourseListInfo.courseContent
+
+            if(CourseListInfo.courseCurrent){
+                when(CourseListInfo.property){
+                    0 -> binding.imageviewLeftCircle.setImageResource(R.drawable.stamp_health)
+                    1 -> binding.imageviewLeftCircle.setImageResource(R.drawable.stamp_challenge)
+                    2 -> binding.imageviewLeftCircle.setImageResource(R.drawable.stamp_detect)
+                    3 -> binding.imageviewLeftCircle.setImageResource(R.drawable.stamp_memory)
+                }
+            }
+            else{
+                when(CourseListInfo.property){
+                    0 -> binding.imageviewLeftCircle.setImageResource(R.drawable.stamp_health_no)
+                    1 -> binding.imageviewLeftCircle.setImageResource(R.drawable.stamp_challenge_no)
+                    2 -> binding.imageviewLeftCircle.setImageResource(R.drawable.stamp_detect_no)
+                    3 -> binding.imageviewLeftCircle.setImageResource(R.drawable.stamp_memory_no)
+                }
+            }
 
             if(CourseListInfo.courseComplete.isNotEmpty()){
                 binding.textviewLeftComplete.visibility = View.VISIBLE
@@ -149,6 +201,23 @@ class CourseListAdapter :RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         fun onBind(CourseListInfo: CourseListInfo){
             binding.textviewSecondDay.text = CourseListInfo.courseDay
             binding.textviewSecondContent.text = CourseListInfo.courseContent
+
+            if(CourseListInfo.courseCurrent){
+                when(CourseListInfo.property){
+                    0 -> binding.imageviewSecondCircle.setImageResource(R.drawable.stamp_health)
+                    1 -> binding.imageviewSecondCircle.setImageResource(R.drawable.stamp_challenge)
+                    2 -> binding.imageviewSecondCircle.setImageResource(R.drawable.stamp_detect)
+                    3 -> binding.imageviewSecondCircle.setImageResource(R.drawable.stamp_memory)
+                }
+            }
+            else{
+                when(CourseListInfo.property){
+                    0 -> binding.imageviewSecondCircle.setImageResource(R.drawable.stamp_health_no)
+                    1 -> binding.imageviewSecondCircle.setImageResource(R.drawable.stamp_challenge_no)
+                    2 -> binding.imageviewSecondCircle.setImageResource(R.drawable.stamp_detect_no)
+                    3 -> binding.imageviewSecondCircle.setImageResource(R.drawable.stamp_memory_no)
+                }
+            }
 
             if(CourseListInfo.courseComplete.isNotEmpty()){
                 binding.textviewSecondComplete.visibility = View.VISIBLE
