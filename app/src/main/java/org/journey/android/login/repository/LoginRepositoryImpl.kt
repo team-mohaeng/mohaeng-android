@@ -6,9 +6,9 @@ import org.journey.android.login.model.RequestLogin
 import org.journey.android.login.model.ResponseLogin
 import javax.inject.Inject
 
-class LoginRepositoryImpl @Inject constructor(
-    private val dataSource: LoginDataSource
-): LoginRepository {
-    override fun login(requestLogin: RequestLogin): Single<ResponseLogin> =
-        dataSource.login(requestLogin)
-}
+//class LoginRepositoryImpl @Inject constructor(
+//    private val dataSource: LoginDataSource
+//): LoginRepository {
+//    override fun login(requestLogin: RequestLogin): Single<ResponseLogin> =
+//        dataSource.login(requestLogin)
+//}
