@@ -13,9 +13,9 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginTop="24dp"
-            android:background="@drawable/ic_rectangle334"
+            android:background="@drawable/ic_frame148"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.82"
+            app:layout_constraintHorizontal_bias="0.85"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,7 +25,7 @@
             android:layout_height="24dp"
             android:layout_marginTop="24dp"
             android:layout_marginLeft="12dp"
-            android:background="@drawable/ic_rectangle334"
+            android:background="@drawable/ic_frame147"
             app:layout_constraintStart_toEndOf="@id/button_main_first"
             app:layout_constraintBottom_toBottomOf="@id/button_main_first"/>
 
@@ -34,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="24dp"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="12dp"
             android:fontFamily="@font/spoqahansansneoregular"
             android:text="@string/main_greeting"
             android:textColor="@color/journey_black"
@@ -47,7 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="24dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="12dp"
             android:fontFamily="@font/bmhanna11yrsotf"
             android:text="뽀득뽀득 세균 퇴치"
             android:textColor="@color/black"
@@ -59,7 +59,7 @@
             android:id="@+id/button_main_user"
             android:layout_width="88dp"
             android:layout_height="32dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="8dp"
             android:layout_marginLeft="24dp"
             android:drawableLeft="@drawable/ic_maincircle"
             android:drawablePadding="-4dp"
@@ -75,9 +75,10 @@
             android:id="@+id/imageview_journey"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
             android:background="@drawable/ic_maingraphic"
-            android:layout_marginTop="50dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/button_main_user" />
 

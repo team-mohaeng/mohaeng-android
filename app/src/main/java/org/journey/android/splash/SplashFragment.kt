@@ -26,6 +26,4 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>() {
                 .navigate(R.id.action_splashFragment_to_loginFragment)
         }
     }
-
-
 }

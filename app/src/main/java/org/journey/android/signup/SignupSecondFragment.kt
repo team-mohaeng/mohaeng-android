@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.NumberPicker
 import androidx.core.content.ContextCompat
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import org.journey.android.R
 import org.journey.android.databinding.FragmentChallengeBinding
@@ -35,7 +36,7 @@ class SignupSecondFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        setClickEvent()
         binding.textviewYearInput.setOnClickListener{
             selectYear()
         }
@@ -48,12 +49,7 @@ class SignupSecondFragment : Fragment() {
 
             genderStatus = true
 
-            if(genderStatus && yearStatus) {
-                binding.buttonSignupNext.isEnabled = true
-            }
-            else {
-                binding.buttonSignupNext.isEnabled = false
-            }
+            binding.buttonSignupNext.isEnabled = genderStatus && yearStatus
         }
 
         binding.buttonGenderM.setOnClickListener {
@@ -64,12 +60,7 @@ class SignupSecondFragment : Fragment() {
 
             genderStatus = true
 
-            if(genderStatus && yearStatus) {
-                binding.buttonSignupNext.isEnabled = true
-            }
-            else {
-                binding.buttonSignupNext.isEnabled = false
-            }
+            binding.buttonSignupNext.isEnabled = genderStatus && yearStatus
         }
 
     }
@@ -91,7 +82,7 @@ class SignupSecondFragment : Fragment() {
         selectDialogYear.minValue=1900
         selectDialogYear.maxValue=2021
 
-        selectDialogYear.setValue(2021);
+        selectDialogYear.value = 2021
 
 
         selectDialogSave.setOnClickListener{
@@ -99,12 +90,7 @@ class SignupSecondFragment : Fragment() {
             binding.textviewYearInput.setTextColor(ContextCompat.getColor(this.requireContext(), R.color.journey_black))
             yearStatus = true
 
-            if(genderStatus && yearStatus) {
-                binding.buttonSignupNext.isEnabled = true
-            }
-            else {
-                binding.buttonSignupNext.isEnabled = false
-            }
+            binding.buttonSignupNext.isEnabled = genderStatus && yearStatus
 
             if (selectDateDialog != null) {
                 selectDateDialog.dismiss()
@@ -116,6 +102,12 @@ class SignupSecondFragment : Fragment() {
             selectDateDialog.setContentView(selectDateDialogView)
             selectDateDialog.create()
             selectDateDialog.show()
+        }
+    }
+
+    fun setClickEvent() {
+        binding.buttonSignupNext.setOnClickListener {
+            findNavController().navigate(R.id.action_signupSecondFragment_to_signupThirdFragment)
         }
     }
 

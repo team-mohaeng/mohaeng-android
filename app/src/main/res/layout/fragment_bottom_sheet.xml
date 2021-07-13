@@ -32,19 +32,20 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="120dp"
             android:fontFamily="@font/spoqahansansneoregular"
-            android:text="최신순"
+            android:text="최신 순"
             android:textColor="@color/journey_black"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@id/textview_total_user"
             app:layout_constraintStart_toEndOf="@id/textview_total_user"/>
 
-        <CheckBox
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/checkbox_select_update"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:background="@drawable/ic_frame107"
             app:layout_constraintBottom_toBottomOf="@id/textview_update"
             app:layout_constraintStart_toEndOf="@id/textview_update"
-            app:layout_constraintTop_toTopOf="@id/textview_update"/>
+            app:layout_constraintTop_toTopOf="@id/textview_update" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview_community_record"

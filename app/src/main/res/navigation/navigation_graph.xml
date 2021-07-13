@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_graph"
-    app:startDestination="@id/frameFragment">
+    app:startDestination="@id/splashFragment">
 
     <fragment
         android:id="@+id/frameFragment"
@@ -11,12 +11,23 @@
         android:label="fragment_frame"
         tools:layout="@layout/fragment_frame">
         <action
-            android:id="@+id/action_frameFragment_to_splashFragment"
-            app:destination="@id/splashFragment" />
-
-        <action
             android:id="@+id/action_frameFragment_to_rewardFragment"
             app:destination="@id/rewardFragment" />
+        <action
+            android:id="@+id/action_frameFragment_to_libraryFragment"
+            app:destination="@id/libraryFragment" />
+        <action
+            android:id="@+id/action_frameFragment_to_courseFragment"
+            app:destination="@id/courseFragment" />
+        <action
+            android:id="@+id/action_frameFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_frameFragment_to_communityFragment"
+            app:destination="@id/communityFragment" />
+        <action
+            android:id="@+id/action_frameFragment_to_diaryFirstFragment"
+            app:destination="@id/diaryFirstFragment" />
     </fragment>
     <fragment
         android:id="@+id/splashFragment"
@@ -32,6 +43,16 @@
         android:name="org.journey.android.login.view.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login">
+
+        <action
+            android:id="@+id/action_loginFragment_to_signupFirstFragment"
+            app:destination="@id/signupFirstFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_frameFragment"
+            app:destination="@id/frameFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_findPassWordOneFragment"
+            app:destination="@id/findPassWordOneFragment" />
         <action
             android:id="@+id/action_loginFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
@@ -113,4 +134,58 @@
         android:name="org.journey.android.course.LibraryFragment"
         android:label="fragment_library"
         tools:layout="@layout/fragment_library" />
+    <fragment
+        android:id="@+id/signupFirstFragment"
+        android:name="org.journey.android.signup.SignupFirstFragment"
+        android:label="fragment_signup_first"
+        tools:layout="@layout/fragment_signup_first" >
+        <action
+            android:id="@+id/action_signupFirstFragment_to_signupSecondFragment"
+            app:destination="@id/signupSecondFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signupSecondFragment"
+        android:name="org.journey.android.signup.SignupSecondFragment"
+        android:label="fragment_signup_second"
+        tools:layout="@layout/fragment_signup_second" >
+        <action
+            android:id="@+id/action_signupSecondFragment_to_signupThirdFragment"
+            app:destination="@id/signupThirdFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signupThirdFragment"
+        android:name="org.journey.android.signup.SignupThirdFragment"
+        android:label="fragment_signup_third"
+        tools:layout="@layout/fragment_signup_third" >
+        <action
+            android:id="@+id/action_signupThirdFragment_to_frameFragment"
+            app:destination="@id/frameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/findPassWordOneFragment"
+        android:name="org.journey.android.findpw.FindPassWordOneFragment"
+        android:label="FindPassWordOneFragment"
+        tools:layout="@layout/fragment_find_password_one">
+        <action
+            android:id="@+id/action_findPassWordOneFragment_to_findPassWordTwoFragment"
+            app:destination="@id/findPassWordTwoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/findPassWordTwoFragment"
+        android:name="org.journey.android.findpw.FindPassWordTwoFragment"
+        android:label="FindPassWordTwoFragment"
+        tools:layout="@layout/fragment_find_password_two">
+        <action
+            android:id="@+id/action_findPassWordTwoFragment_to_findPassWordThreeFragment"
+            app:destination="@id/findPassWordThreeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/findPassWordThreeFragment"
+        android:name="org.journey.android.findpw.FindPassWordThreeFragment"
+        android:label="FindPassWordThreeFragment"
+        tools:layout="@layout/fragment_find_password_three">
+        <action
+            android:id="@+id/action_findPassWordThreeFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
 </navigation>

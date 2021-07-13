@@ -22,17 +22,17 @@
   <tr>
     <td>
     <br>
-    Signup<br>
+Login<br>
     Journey Main<br>
 		Journey PushAlarm<br>
 		Journey Community<br>
     </td>
     <td>
-    Journey org.journey.android.main.dto.Challenge<br>
-	    Journey org.journey.android.main.dto.Course<br>
+	    Signup<br>
+    Journey Challenge<br>
+	    Journey Course<br>
     </td>
-    <td>
-	    Login<br>
+    <td> 
     Journey Diary<br>
     </td>
   </tr>

@@ -46,5 +46,8 @@
     <color name="journey_pink_b">#ff578f</color>
     <color name="journey_green_a">#14a03b</color>
     <color name="journey_red_a">#ea0707</color>
+    <color name="journey_transparency">#00000000</color>
+
+
 
 </resources>

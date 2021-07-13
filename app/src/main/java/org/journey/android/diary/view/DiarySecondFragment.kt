@@ -4,11 +4,14 @@ import android.app.Dialog
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.ColorStateList
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,7 +22,6 @@ import com.google.android.material.chip.Chip
 import org.journey.android.R
 import org.journey.android.base.BaseFragment
 import org.journey.android.databinding.FragmentDiarySecondBinding
-import org.journey.android.diary.RequestDiaryWriteData
 import java.util.*
 
 class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
@@ -112,10 +114,16 @@ class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
             }
             else if(binding.chipgroupHashtag.childCount==5)
             {
+                val displaymetrics = DisplayMetrics()
+                requireActivity().windowManager.defaultDisplay.getMetrics(displaymetrics)
+                val height = displaymetrics.heightPixels * 0.4
+                val width = displaymetrics.widthPixels * 0.9
                 val alertDialog = activity?.let { it1 -> Dialog(it1) }
                 val alertDialogInflater : LayoutInflater = LayoutInflater.from(activity)
                 val mView : View = alertDialogInflater.inflate(R.layout.diary_hashtag_count_dialog,null)
 
+                val window = alertDialog?.window
+                window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
                 val buttonConfirm:Button = mView.findViewById(R.id.button_confirm)
                 if (alertDialog != null) {
                     alertDialog.setContentView(mView)
@@ -169,14 +177,25 @@ class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
         })
         uploadGallery()
 
-//        val requestDiaryWriteData=RequestDiaryWriteData(
-////            moodImage = requireActivity().findViewById(R.id.)
-////            moodText =
-//            content = binding.edittextContentHappiness.text.toString(),
-////            hashtags = binding
-//            mainimage = "갤러리에서 가져온 사진 URL"
-//        )
+            binding.buttonCompelete.setOnClickListener{
+                val displaymetricsDiarySecondFragment = DisplayMetrics()
+                requireActivity().windowManager.defaultDisplay.getMetrics(displaymetricsDiarySecondFragment)
+                val heightDiarySecondDisplay = displaymetricsDiarySecondFragment.heightPixels
+                val widthDiarySecondDisplay = displaymetricsDiarySecondFragment.widthPixels * 0.9
+                val alertDialogDiarySecondFragment = activity?.let { it2 -> Dialog(it2) }
+                val alertDialogDiarySecondFragmentInflater : LayoutInflater = LayoutInflater.from(activity)
+                val mView : View = alertDialogDiarySecondFragmentInflater.inflate(R.layout.diary_compelete_dialog,null)
 
+                val windowTwo = alertDialogDiarySecondFragment?.window
+                windowTwo?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+                if (alertDialogDiarySecondFragment != null)
+                {
+                    alertDialogDiarySecondFragment.setContentView(mView)
+                    alertDialogDiarySecondFragment.create()
+                    alertDialogDiarySecondFragment.show()
+                    alertDialogDiarySecondFragment.window?.setLayout(widthDiarySecondDisplay.toInt(), heightDiarySecondDisplay.toInt())
+                }
+            }
     }
 
     // 갤러리 이미지 첨부
@@ -190,5 +209,7 @@ class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
     companion object {
         private const val PICK_IMAGE = 100
     }
+
+
 
 }

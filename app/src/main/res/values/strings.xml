@@ -28,7 +28,12 @@
     <string name="happiness_popcontent_ver2">소확행을 기록하려면\n오늘의 챌린지를 컴플리트-해야해\n이따 다시 찾아오라구?</string>
     <string name="happiness_popcontent_ver3">오늘 소확행은 이미 작성했던데,\n나에게 그렇게 할 말이 많니?\n아쉽지만 내일 또 쓰러 와~</string>
 
-    <string name="signup_comment">시작하기를 누르면 쟈니의 <b>서비스 이용 약관</b>과\n개인정보 보호정책에 동의하게 됩니다.</string>
+    <string name="signup_comment"><u><b>서비스 이용 약관</b></u>과</string>
+    <string name="signup_comment2"><u>개인정보 보호정책</u></string>
+    <string name="signup_email">안녕, 쟈기\n당신의 이메일을 입력해주겠어?</string>
+    <string name="signup_password">그대만의 비밀번호를 만들어줘</string>
 
     <string name="findpw_send_message">등록된 이메일로\n인증번호를 보내드렸어요!</string>
+    
+    <string name="diary_compelete_comment">당신의 행복이 하나 더 늘었군.\n다른 쟈기들과 함께하면 기쁨이 배가 될거야.\n함께 행복을 공유해보겠어?</string>
 </resources>

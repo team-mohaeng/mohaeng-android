@@ -12,65 +12,87 @@ import android.widget.EditText
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.graphics.drawable.DrawableCompat
 import androidx.core.view.isVisible
+import androidx.navigation.fragment.findNavController
 import org.journey.android.R
 import org.journey.android.base.BaseFragment
+import org.journey.android.databinding.FragmentLoginBinding
 import org.journey.android.databinding.FragmentSplashBinding
 
-class LoginFragment : BaseFragment<FragmentSplashBinding>() {
-
-    override fun getFragmentBinding(
-        inflater: LayoutInflater,
-        container: ViewGroup?
-    ): FragmentSplashBinding {
-        TODO("Not yet implemented")
-    }
+class LoginFragment : Fragment() {
+    lateinit var binding: FragmentLoginBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val loginView = inflater.inflate(R.layout.fragment_login, null)
-
-        val edittextInputEmail = loginView.findViewById(R.id.edittext_login_email) as EditText
-        val edittextInputPassword = loginView.findViewById(R.id.edittext_login_password) as EditText
-        val buttonDeleteEmail = loginView.findViewById(R.id.button_delete_email)as AppCompatButton
-        val buttonDeletePassword = loginView.findViewById(R.id.button_delete_password)as AppCompatButton
-
-        edittextInputEmail.addTextChangedListener(object: TextWatcher {
-
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-            }
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-               if(edittextInputEmail.text.toString().length>0)
-                   buttonDeleteEmail.isVisible=true
-            }
-            override fun afterTextChanged(s: Editable?) {
-            }
-        })
-
-        edittextInputPassword.addTextChangedListener(object: TextWatcher {
-
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-            }
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if(edittextInputPassword.text.toString().length>0)
-                    buttonDeletePassword.isVisible=true
-            }
-            override fun afterTextChanged(s: Editable?) {
-            }
-        })
-
-        buttonDeleteEmail.setOnClickListener{
-            edittextInputEmail.setText("")
-            buttonDeleteEmail.isVisible=false
-        }
-
-        buttonDeletePassword.setOnClickListener{
-            edittextInputPassword.setText("")
-            buttonDeletePassword.isVisible=false
-        }
-
-        return loginView
+        binding = FragmentLoginBinding.inflate(inflater, container, false)
+        return binding.root
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        clickEvent()
+        setLoginView()
+    }
+
+    fun clickEvent() {
+        binding.buttonLogin.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_frameFragment)
+        }
+        binding.buttonFindPassword.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_findPassWordOneFragment)
+        }
+        binding.buttonSignup.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_signupFirstFragment)
+        }
+    }
+
+    fun setLoginView() {
+
+        val edittextInputEmail = binding.edittextLoginEmail
+        val edittextInputPassword = binding.edittextLoginPassword
+        val buttonDeleteEmail = binding.buttonDeleteEmail
+        val buttonDeletePassword = binding.buttonDeletePassword
+
+        binding.edittextLoginEmail.addTextChangedListener(object : TextWatcher {
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (edittextInputEmail.text.toString().length > 0)
+                    buttonDeleteEmail.isVisible = true
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+            }
+        })
+        binding.edittextLoginPassword.addTextChangedListener(object : TextWatcher {
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (edittextInputPassword.text.toString().length > 0)
+                    buttonDeletePassword.isVisible = true
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+            }
+        })
+
+        binding.buttonDeleteEmail.setOnClickListener {
+            edittextInputEmail.setText("")
+            buttonDeleteEmail.isVisible = false
+        }
+
+        binding.buttonDeletePassword.setOnClickListener {
+            edittextInputPassword.setText("")
+            buttonDeletePassword.isVisible = false
+        }
+
+    }
+
+
 }
