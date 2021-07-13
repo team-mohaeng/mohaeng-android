@@ -6,7 +6,7 @@ data class ResponseLibraryData(
 )
 
 data class  CourseLibraryData(
-    val course: CoursesLibraryData?
+    val courses: List<CoursesLibraryData>
 )
 
 data class CoursesLibraryData(

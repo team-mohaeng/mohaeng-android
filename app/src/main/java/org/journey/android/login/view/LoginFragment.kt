@@ -22,6 +22,8 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+var usesrJwt : String = ""
+
 class LoginFragment : Fragment() {
     lateinit var binding: FragmentLoginBinding
 
@@ -72,6 +74,7 @@ class LoginFragment : Fragment() {
                     )
                     if (response.isSuccessful) {
                         Toast.makeText(context, "로그인 성공", Toast.LENGTH_SHORT).show()
+                        usesrJwt = response.body()!!.data!!.jwt
                         findNavController().navigate(R.id.action_loginFragment_to_frameFragment)
                     }
                 }
