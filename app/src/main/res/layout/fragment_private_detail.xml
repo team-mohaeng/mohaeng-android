@@ -133,29 +133,20 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_private_detail_like"
-            android:layout_width="14dp"
-            android:layout_height="14dp"
-            android:layout_marginRight="4dp"
+            android:layout_width="50dp"
+            android:layout_height="20dp"
+            android:paddingLeft="10dp"
             android:layout_marginBottom="20dp"
-            android:background="@drawable/ic_diary_private_heart"
+            android:background="@color/journey_transparency"
+            android:text="76"
+            android:textSize="12sp"
+            android:textColor="@color/white"
+            android:drawableLeft="@drawable/ic_diary_private_heart"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent" />
+            app:layout_constraintRight_toRightOf="parent">
 
-
-        <TextView
-            android:id="@+id/textview_private_detail_like_count"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="4dp"
-            android:fontFamily="@font/spoqahansansneomedium"
-            android:text="76"
-            android:textColor="@color/white"
-            android:textSize="10sp"
-            app:layout_constraintBottom_toBottomOf="@+id/button_private_detail_like"
-            app:layout_constraintLeft_toRightOf="@id/button_private_detail_like"
-            app:layout_constraintTop_toTopOf="@+id/button_private_detail_like" />
-
+        </androidx.appcompat.widget.AppCompatButton>
 
         <TextView
             android:id="@+id/textview_private_detail_hashtag"
