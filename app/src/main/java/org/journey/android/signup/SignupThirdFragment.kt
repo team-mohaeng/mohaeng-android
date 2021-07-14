@@ -101,7 +101,7 @@ class SignupThirdFragment : Fragment() {
 
     fun setClickEvent() {
         binding.buttonSignupNext.setOnClickListener {
-            findNavController().navigate(R.id.action_signupThirdFragment_to_frameFragment)
+            findNavController().navigate(R.id.action_signupThirdFragment_to_loginFragment)
         }
     }
 
