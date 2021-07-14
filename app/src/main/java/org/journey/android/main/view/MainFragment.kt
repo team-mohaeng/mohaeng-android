@@ -21,6 +21,7 @@ var userCourseStatus = 0
 
 class MainFragment : BaseFragment<FragmentMainBinding>() {
     var lovePercent = 0
+    var today: Int = 0
 
     override fun getFragmentBinding(
         inflater: LayoutInflater,
@@ -114,10 +115,9 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
                                 }
                             }
                             // 오늘이 몇일차인지 구하는 부분
-                            var today: Int = 0
                             for (i in 0 until response.body()!!.data!!.course!!.challenges.size) {
                                 if (response.body()!!.data!!.course!!.challenges[i].situation == 1) {
-                                    today = i
+                                    today = i+1
                                     binding.buttonMainUser.text = today.toString() + "일차"
                                     break
                                 }

@@ -51,4 +51,14 @@
     <color name="journey_transparency">#00000000</color>
     <color name="journey_orange">#FFDABD</color>
 
+    <color name="detect_back">#F7F5FB</color>
+    <color name="memory_back">#FFF7E4</color>
+    <color name="health_back">#FFF0E4</color>
+    <color name="challenge_back">#F3FDF0</color>
+    <color name="detect_button">#EAE2F7</color>
+    <color name="memory_button">#FFEFC8</color>
+    <color name="health_button">#FFDABD</color>
+    <color name="challenge_button">#DDF4D6</color>
+    <color name="gray_button">#EEEEEE</color>
+
 </resources>

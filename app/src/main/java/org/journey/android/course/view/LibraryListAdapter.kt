@@ -63,16 +63,42 @@ class LibraryListAdapter :RecyclerView.Adapter<LibraryListAdapter.LibraryListVie
             // libraryComplete가 false면 완료하지 않은 코스
             // false면 완료한 코스
             if(LibraryListInfo.libraryComplete != 2){
-                binding.constraintlayoutLibrary.setBackgroundResource(R.drawable.library_round_blue)
-                binding.buttonLibraryChoice.setBackgroundResource(R.drawable.library_button_blue)
                 when(LibraryListInfo.property){
-                    0 -> binding.imageviewLibrary.setImageResource(R.drawable.stamp_health)
-                    1 -> binding.imageviewLibrary.setImageResource(R.drawable.stamp_challenge)
-                    2 -> binding.imageviewLibrary.setImageResource(R.drawable.stamp_detect)
-                    3 -> binding.imageviewLibrary.setImageResource(R.drawable.stamp_memory)
+                    0 -> {
+                        binding.imageviewLibrary.setImageResource(R.drawable.stamp_health)
+                        binding.constraintlayoutLibrary.setBackgroundResource(R.drawable.library_round_health)
+                        binding.buttonLibraryChoice.setBackgroundResource(R.drawable.library_button_health)
+                        binding.textviewLibraryTerm.setBackgroundResource(R.drawable.library_day_health)
+                    }
+                    1 -> {
+                        binding.imageviewLibrary.setImageResource(R.drawable.stamp_memory)
+                        binding.constraintlayoutLibrary.setBackgroundResource(R.drawable.library_round_memory)
+                        binding.buttonLibraryChoice.setBackgroundResource(R.drawable.library_button_memory)
+                        binding.textviewLibraryTerm.setBackgroundResource(R.drawable.library_day_memory)
+                    }
+                    2 -> {
+                        binding.imageviewLibrary.setImageResource(R.drawable.stamp_detect)
+                        binding.constraintlayoutLibrary.setBackgroundResource(R.drawable.library_round_detect)
+                        binding.buttonLibraryChoice.setBackgroundResource(R.drawable.library_button_detect)
+                        binding.textviewLibraryTerm.setBackgroundResource(R.drawable.library_day_detect)
+                    }
+                    3 -> {
+                        binding.imageviewLibrary.setImageResource(R.drawable.stamp_challenge)
+                        binding.constraintlayoutLibrary.setBackgroundResource(R.drawable.library_round_challenge)
+                        binding.buttonLibraryChoice.setBackgroundResource(R.drawable.library_button_challenge)
+                        binding.textviewLibraryTerm.setBackgroundResource(R.drawable.library_day_challenge)
+                    }
                 }
             }
             else{
+                when(LibraryListInfo.property){
+                    0 -> binding.imageviewLibrary.setImageResource(R.drawable.library_health_gray)
+                    1 -> binding.imageviewLibrary.setImageResource(R.drawable.library_memory_gray)
+                    2 -> binding.imageviewLibrary.setImageResource(R.drawable.library_detect_gray)
+                    3 -> binding.imageviewLibrary.setImageResource(R.drawable.library_challenge_gray)
+                }
+                binding.textviewLibraryTerm.setBackgroundResource(R.drawable.library_day_gray)
+
                 binding.constraintlayoutLibrary.setBackgroundResource(R.drawable.library_round_gray)
                 binding.buttonLibraryChoice.setBackgroundResource(R.drawable.library_button_gray)
                 binding.textviewLibraryTitle.setTextColor(ContextCompat.getColor(ctxt,R.color.journey_gray_h))
