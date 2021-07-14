@@ -35,8 +35,9 @@
             android:layout_marginEnd="26dp"
             android:fontFamily="@font/spoqahansansneobold"
             android:text="7일 코스"
+            android:background="@drawable/library_day_challenge"
             android:textColor="@color/journey_gray_a"
-            android:textSize="14sp"
+            android:textSize="10sp"
             app:layout_constraintBottom_toBottomOf="@+id/textview_library_title"
             app:layout_constraintEnd_toEndOf="parent" />
 
