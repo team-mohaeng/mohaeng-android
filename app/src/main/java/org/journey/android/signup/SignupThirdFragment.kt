@@ -15,8 +15,8 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import org.journey.android.R
+import org.journey.android.data.JourneyRepository
 import org.journey.android.databinding.FragmentSignupThirdBinding
-import org.journey.android.login.view.usesrJwt
 import org.journey.android.signup.api.SignupCreator
 import org.journey.android.signup.data.RequestSignup
 import org.journey.android.signup.data.ResponseSignup
@@ -132,8 +132,11 @@ class SignupThirdFragment : Fragment() {
                     Log.d("server", binding.edittextSignupNickname.text.toString())
                     if (response.isSuccessful) {
                         Log.d("server", "success Signup")
-                        usesrJwt = response.body()!!.data!!.jwt
-                        findNavController().navigate(R.id.action_signupThirdFragment_to_frameFragment)
+                        JourneyRepository.userJwt = response.body()!!.data!!.jwt
+                        findNavController().navigate(R.id.action_signupThirdFragment_to_loginFragment)
+                    }
+                    else if(response.code() == 400){
+                        Toast.makeText(context, "이미 사용 중인 아이디입니다.", Toast.LENGTH_SHORT).show()
                     }
                 }
 
@@ -147,7 +150,7 @@ class SignupThirdFragment : Fragment() {
 
     fun setClickEvent() {
         binding.buttonSignupNext.setOnClickListener {
-            findNavController().navigate(R.id.action_signupThirdFragment_to_frameFragment)
+            findNavController().navigate(R.id.action_signupThirdFragment_to_loginFragment)
         }
     }
 

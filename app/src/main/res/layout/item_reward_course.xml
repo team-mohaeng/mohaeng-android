@@ -8,14 +8,14 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/circleimage_reward"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/ic_flwgraphic"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@drawable/challenge1"
         android:layout_marginLeft="22dp"
         android:layout_marginVertical="22dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent" />
 
     <TextView
         android:id="@+id/textview_course_term"

@@ -1,6 +1,5 @@
 package org.journey.android.main.dto
 
-import org.journey.android.main.dto.Challenge
 
 data class Course(
     val challenges: List<Challenge>,

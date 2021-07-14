@@ -161,8 +161,8 @@
         android:label="fragment_signup_third"
         tools:layout="@layout/fragment_signup_third" >
         <action
-            android:id="@+id/action_signupThirdFragment_to_frameFragment"
-            app:destination="@id/frameFragment" />
+            android:id="@+id/action_signupThirdFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/findPassWordOneFragment"
