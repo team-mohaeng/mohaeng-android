@@ -142,9 +142,9 @@ class CourseFragment : Fragment() {
                         var courseProperty = response.body()!!.data!!.course!!.property
                         when(1){
                             0 -> binding.imageviewCourseImage.setImageResource(R.drawable.stamp_health)
-                            1 -> binding.imageviewCourseImage.setImageResource(R.drawable.stamp_challenge)
+                            1 -> binding.imageviewCourseImage.setImageResource(R.drawable.stamp_memory)
                             2 -> binding.imageviewCourseImage.setImageResource(R.drawable.stamp_detect)
-                            3 -> binding.imageviewCourseImage.setImageResource(R.drawable.stamp_memory)
+                            3 -> binding.imageviewCourseImage.setImageResource(R.drawable.stamp_challenge)
                         }
 
                         // 오늘이 몇일차인지 구하는 부분

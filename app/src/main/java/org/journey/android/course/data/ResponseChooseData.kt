@@ -1,29 +1,25 @@
-package org.journey.android.main.dto
+package org.journey.android.course.data
 
-import org.journey.android.main.dto.Data
-
-data class ResponseMainModelItem(
+data class ResponseChooseData(
     val status: Int,
-    val data: MainData?
+    val data: ChooseDatasData?
 )
 
-data class MainData(
-    val situation: Int,
-    val affinity: Int,
-    val course: MainCourse?
+data class ChooseDatasData(
+    val course: ChooseCourseData?
 )
 
-data class MainCourse(
+data class ChooseCourseData(
     val id: Int,
     val situation: Int,
     val title: String,
     val description: String,
     val totalDays: Int,
     val property: Int,
-    val challenges: List<MainChallenge>
+    val challenges: List<ChooseChallengesData>
 )
 
-data class MainChallenge(
+data class ChooseChallengesData(
     val id: Int,
     val title: String,
     val situation: Int,
