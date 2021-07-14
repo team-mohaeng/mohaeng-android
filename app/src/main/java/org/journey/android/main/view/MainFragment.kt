@@ -17,8 +17,11 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+var userCourseStatus = 0
+
 class MainFragment : BaseFragment<FragmentMainBinding>() {
     var lovePercent = 0
+    var today: Int = 0
 
     override fun getFragmentBinding(
         inflater: LayoutInflater,
@@ -90,30 +93,33 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
                         setBackground()
 
                         // 코스를 진행하고 있지 않을 때
-                        if(response.body()!!.data!!.situation == 0){
+                        if(response.body()!!.data!!.situation == 0) {
                             binding.buttonMainUser.visibility = View.INVISIBLE
-                            binding.textviewMainGreet.text = "안녕, 쟈기?\n" + "오늘도 당신의 일상에 지독하게 엮어 보려 해"
+                            binding.textviewMainGreet.text =
+                                "안녕, 쟈기?\n" + "오늘도 당신의 일상에 지독하게 엮어 보려 해"
                             binding.textviewMainChallenge.text = "나와 함께해보겠어?"
+
+                            userCourseStatus = response.body()!!.data!!.situation
                         }
-                        else{
+                        else {
                             // 코스를 진행하고 있을 때
                             binding.buttonMainUser.visibility = View.VISIBLE
-                            for (i in 0 until response.body()!!.data!!.courses.size) {
-                                if (response.body()!!.data!!.courses[i].situation == 1) {
-                                    binding.textviewMainGreet.text =
-                                        response.body()!!.data!!.courses[i].description
-                                    binding.textviewMainChallenge.text =
-                                        response.body()!!.data!!.courses[i].title
+                            for (i in 0 until response.body()!!.data!!.course!!.challenges.size) {
+                                if (response.body()!!.data!!.course!!.situation == 1) {
+                                    userCourseStatus = response.body()!!.data!!.course!!.id
 
-                                    // 오늘이 몇일차인지 구하는 부분
-                                    var today: Int = 0
-                                    for (i in 0 until response.body()!!.data!!.courses[i].challenges.size) {
-                                        if (response.body()!!.data!!.courses[i].challenges[i].situation != 2) {
-                                            today = i
-                                            binding.buttonMainUser.text = today.toString() + "일차"
-                                            break
-                                        }
-                                    }
+                                    binding.textviewMainGreet.text =
+                                        response.body()!!.data!!.course!!.description
+                                    binding.textviewMainChallenge.text =
+                                        response.body()!!.data!!.course!!.title
+                                }
+                            }
+                            // 오늘이 몇일차인지 구하는 부분
+                            for (i in 0 until response.body()!!.data!!.course!!.challenges.size) {
+                                if (response.body()!!.data!!.course!!.challenges[i].situation == 1) {
+                                    today = i+1
+                                    binding.buttonMainUser.text = today.toString() + "일차"
+                                    break
                                 }
                             }
                         }

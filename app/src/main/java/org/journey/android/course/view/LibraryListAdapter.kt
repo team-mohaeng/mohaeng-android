@@ -4,6 +4,9 @@ import android.app.AlertDialog
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.media.Image
+import android.util.Log
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,6 +19,14 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import org.journey.android.databinding.ItemLibraryBinding
 import org.journey.android.R
+import org.journey.android.course.api.ServiceCreator
+import org.journey.android.course.data.ResponseChooseData
+import org.journey.android.course.data.ResponseLibraryData
+import org.journey.android.databinding.CourseCustomDialogBinding
+import org.journey.android.login.view.userJwt
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import org.journey.android.course.data.LibraryListInfo
 
 lateinit var ctxt : Context
@@ -52,16 +63,42 @@ class LibraryListAdapter :RecyclerView.Adapter<LibraryListAdapter.LibraryListVie
             // libraryComplete가 false면 완료하지 않은 코스
             // false면 완료한 코스
             if(LibraryListInfo.libraryComplete != 2){
-                binding.constraintlayoutLibrary.setBackgroundResource(R.drawable.library_round_blue)
-                binding.buttonLibraryChoice.setBackgroundResource(R.drawable.library_button_blue)
                 when(LibraryListInfo.property){
-                    0 -> binding.imageviewLibrary.setImageResource(R.drawable.stamp_health)
-                    1 -> binding.imageviewLibrary.setImageResource(R.drawable.stamp_challenge)
-                    2 -> binding.imageviewLibrary.setImageResource(R.drawable.stamp_detect)
-                    3 -> binding.imageviewLibrary.setImageResource(R.drawable.stamp_memory)
+                    0 -> {
+                        binding.imageviewLibrary.setImageResource(R.drawable.stamp_health)
+                        binding.constraintlayoutLibrary.setBackgroundResource(R.drawable.library_round_health)
+                        binding.buttonLibraryChoice.setBackgroundResource(R.drawable.library_button_health)
+                        binding.textviewLibraryTerm.setBackgroundResource(R.drawable.library_day_health)
+                    }
+                    1 -> {
+                        binding.imageviewLibrary.setImageResource(R.drawable.stamp_memory)
+                        binding.constraintlayoutLibrary.setBackgroundResource(R.drawable.library_round_memory)
+                        binding.buttonLibraryChoice.setBackgroundResource(R.drawable.library_button_memory)
+                        binding.textviewLibraryTerm.setBackgroundResource(R.drawable.library_day_memory)
+                    }
+                    2 -> {
+                        binding.imageviewLibrary.setImageResource(R.drawable.stamp_detect)
+                        binding.constraintlayoutLibrary.setBackgroundResource(R.drawable.library_round_detect)
+                        binding.buttonLibraryChoice.setBackgroundResource(R.drawable.library_button_detect)
+                        binding.textviewLibraryTerm.setBackgroundResource(R.drawable.library_day_detect)
+                    }
+                    3 -> {
+                        binding.imageviewLibrary.setImageResource(R.drawable.stamp_challenge)
+                        binding.constraintlayoutLibrary.setBackgroundResource(R.drawable.library_round_challenge)
+                        binding.buttonLibraryChoice.setBackgroundResource(R.drawable.library_button_challenge)
+                        binding.textviewLibraryTerm.setBackgroundResource(R.drawable.library_day_challenge)
+                    }
                 }
             }
             else{
+                when(LibraryListInfo.property){
+                    0 -> binding.imageviewLibrary.setImageResource(R.drawable.library_health_gray)
+                    1 -> binding.imageviewLibrary.setImageResource(R.drawable.library_memory_gray)
+                    2 -> binding.imageviewLibrary.setImageResource(R.drawable.library_detect_gray)
+                    3 -> binding.imageviewLibrary.setImageResource(R.drawable.library_challenge_gray)
+                }
+                binding.textviewLibraryTerm.setBackgroundResource(R.drawable.library_day_gray)
+
                 binding.constraintlayoutLibrary.setBackgroundResource(R.drawable.library_round_gray)
                 binding.buttonLibraryChoice.setBackgroundResource(R.drawable.library_button_gray)
                 binding.textviewLibraryTitle.setTextColor(ContextCompat.getColor(ctxt,R.color.journey_gray_h))
@@ -122,8 +159,9 @@ class LibraryListAdapter :RecyclerView.Adapter<LibraryListAdapter.LibraryListVie
                         val noButton = mDialogView.findViewById<AppCompatButton>(R.id.button_dialog_no)
                         noButton.text = "좋아!"
                         noButton.setOnClickListener {
+                            selectCourse(LibraryListInfo.courseId)
                             alertDialog.dismiss()
-                            Toast.makeText(ctxt, "좋아! 클릭", Toast.LENGTH_SHORT).show()
+                            //Toast.makeText(ctxt, "좋아! 클릭", Toast.LENGTH_SHORT).show()
                         }
 
                         val changeButton = mDialogView.findViewById<AppCompatButton>(R.id.button_dialog_change)
@@ -174,7 +212,35 @@ class LibraryListAdapter :RecyclerView.Adapter<LibraryListAdapter.LibraryListVie
 //                }
             }
         }
-    }
 
+        // 서버 연결
+        private fun selectCourse(id: Int) {
+            ServiceCreator.courseChooseService.putCourseData(
+                userJwt, id
+            ).enqueue(object : Callback<ResponseChooseData> {
+                override fun onFailure(call: Call<ResponseChooseData>, t: Throwable) {
+                    Log.d("통신 실패", "${t}")
+                }
+
+                override fun onResponse(
+                    call: Call<ResponseChooseData>,
+                    response: Response<ResponseChooseData>
+                ) {
+                    // 통신 성공
+                    if (response.isSuccessful) {   // statusCode가 200-300 사이일 때, 응답 body 이용 가능
+                        if (true) {
+                            Log.d("서버 성공", "Library 성공")
+                            Log.d(
+                                "서버", response.body()!!.data.toString()
+                            )
+                            Toast.makeText(ctxt, "코스 선택 완료", Toast.LENGTH_SHORT).show()
+                        } else {
+                            Log.d("서버 실패", "${response.body()}")
+                        }
+                    }
+                }
+            })
+        }
+    }
 
 }

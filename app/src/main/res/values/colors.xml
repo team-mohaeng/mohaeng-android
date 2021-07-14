@@ -16,6 +16,7 @@
     <color name="journey_pink6">#FF87A5</color>
     <color name="journey_pink7">#FF578F</color>
     <color name="journey_pink8">#FFD3E0</color>
+    <color name="journey_pink9">#FFD3E0</color>
     <color name="journey_gray">#DBDBDB</color>
     <color name="journey_gray1">#F9F9F9</color>
     <color name="journey_gray2">#878787</color>
@@ -49,5 +50,15 @@
     <color name="journey_red_a">#ea0707</color>
     <color name="journey_transparency">#00000000</color>
     <color name="journey_orange">#FFDABD</color>
+
+    <color name="detect_back">#F7F5FB</color>
+    <color name="memory_back">#FFF7E4</color>
+    <color name="health_back">#FFF0E4</color>
+    <color name="challenge_back">#F3FDF0</color>
+    <color name="detect_button">#EAE2F7</color>
+    <color name="memory_button">#FFEFC8</color>
+    <color name="health_button">#FFDABD</color>
+    <color name="challenge_button">#DDF4D6</color>
+    <color name="gray_button">#EEEEEE</color>
 
 </resources>
