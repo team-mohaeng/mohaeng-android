@@ -17,6 +17,7 @@ import androidx.navigation.fragment.findNavController
 import org.journey.android.R
 import org.journey.android.data.JourneyRepository
 import org.journey.android.databinding.FragmentSignupThirdBinding
+import org.journey.android.login.view.userJwt
 import org.journey.android.signup.api.SignupCreator
 import org.journey.android.signup.data.RequestSignup
 import org.journey.android.signup.data.ResponseSignup
@@ -132,7 +133,7 @@ class SignupThirdFragment : Fragment() {
                     Log.d("server", binding.edittextSignupNickname.text.toString())
                     if (response.isSuccessful) {
                         Log.d("server", "success Signup")
-                        JourneyRepository.userJwt = response.body()!!.data!!.jwt
+                        userJwt = response.body()!!.data!!.jwt
                         findNavController().navigate(R.id.action_signupThirdFragment_to_loginFragment)
                     }
                     else if(response.code() == 400){

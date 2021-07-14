@@ -12,6 +12,7 @@ import org.journey.android.course.data.ResponseCourseData
 import org.journey.android.data.JourneyRepository
 import org.journey.android.data.RetrofitObjects
 import org.journey.android.databinding.FragmentCourseBinding
+import org.journey.android.login.view.userJwt
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -114,7 +115,7 @@ class CourseFragment : Fragment() {
     // 서버 연결
     private fun loadDatas(){
         ServiceCreator.courseService.getCourseData(
-            JourneyRepository.userJwt
+            userJwt
             //"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiZXA0UmhZcmJUSE9uaHpBUldOVFNTMTpBUEE5MWJIS1pGdkJuUkV1dEEtYzQxSmN6dDBITzVJQkNyMFhzM0VadjFFcUZSVl9jY05semtDbFQtaWxmT3FGTUFWTmFPUFYxaVhIQjIybHhrcHZJRWNTNW4tMjQtZzY2SVR1d0o1aW9aWlJtYVd5R1Q3XzZiUDhlR1BOZHd2SkNwUWxZb1daQlhHVCJ9LCJpYXQiOjE2MjYwODk5OTZ9.fZoVLz1W-C9RNklV0ZPx6yZeysJWfiuOOPhoAlMtG5k"
         ).enqueue(object : Callback<ResponseCourseData> {
             override fun onFailure(call: Call<ResponseCourseData>, t: Throwable) {
