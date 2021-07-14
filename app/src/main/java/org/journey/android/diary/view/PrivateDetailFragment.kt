@@ -8,11 +8,14 @@ import android.util.DisplayMetrics
 import android.util.Log
 import android.view.*
 import android.widget.Button
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import org.journey.android.R
 import org.journey.android.databinding.FragmentPrivateDetailBinding
+import org.journey.android.diary.ResponseDiaryDislikeData
+import org.journey.android.diary.ResponseDiaryLikeData
 import org.journey.android.diary.dto.ResponseDiaryPrivateDetailData
 import org.journey.android.main.model.RetrofitService
 import retrofit2.Call
@@ -66,7 +69,7 @@ class PrivateDetailFragment: Fragment() {
                             privateDetailNowDate = privateDetailNowDate + data.day
                         privateDetailNowDate = privateDetailNowDate + "(" + "요일" + ")"
                         binding.textviewPrivateDetailDate.text = privateDetailNowDate
-                        binding.textviewPrivateDetailLikeCount.text=data.likeCount.toString()
+                        binding.buttonPrivateDetailLike.text=data.likeCount.toString()
 
                         Glide.with(view)
                             .load(data.mainImage)
@@ -163,6 +166,62 @@ class PrivateDetailFragment: Fragment() {
                 })
             }
         }
+
+        binding.buttonPrivateDetailLike.setOnClickListener{
+            if(binding.buttonPrivateDetailLike.isSelected==false)
+            {
+                val call:Call<ResponseDiaryLikeData> = RetrofitService.diaryLikeService
+                    .changeLike(51, "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiZXA0UmhZcmJUSE9uaHpBUldOVFNTMTpBUEE5MWJIS1pGdkJuUkV1dEEtYzQxSmN6dDBITzVJQkNyMFhzM0VadjFFcUZSVl9jY05semtDbFQtaWxmT3FGTUFWTmFPUFYxaVhIQjIybHhrcHZJRWNTNW4tMjQtZzY2SVR1d0o1aW9aWlJtYVd5R1Q3XzZiUDhlR1BOZHd2SkNwUWxZb1daQlhHVCJ9LCJpYXQiOjE2MjYwODk5OTZ9.fZoVLz1W-C9RNklV0ZPx6yZeysJWfiuOOPhoAlMtG5k")
+                call.enqueue(object:Callback<ResponseDiaryLikeData>{
+                    override fun onResponse(
+                        call: Call<ResponseDiaryLikeData>,
+                        response: Response<ResponseDiaryLikeData>
+                    ) {
+                        if(response.isSuccessful)
+                        {
+                            Toast.makeText(requireContext(),"Like!",Toast.LENGTH_SHORT).show()
+                            binding.buttonPrivateDetailLike.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_icnheartfull,0,0,0)
+                            binding.buttonPrivateDetailLike.text =(binding.buttonPrivateDetailLike.text.toString().toInt() + 1).toString()
+                            binding.buttonPrivateDetailLike.setTextColor(resources.getColor(R.color.journey_pink2))
+                            binding.buttonPrivateDetailLike.isSelected=true
+                        }
+                        else{
+                            Log.d("CT ERROR", "CT ERROR")
+                        }
+                    }
+                    override fun onFailure(call: Call<ResponseDiaryLikeData>, t: Throwable) {
+                        Log.d("NT ERROR", "NT ERROR")
+                    }
+                })
+            }
+            else{
+                val call:Call<ResponseDiaryDislikeData> = RetrofitService.diaryDislikeService
+                    .changeDislike(51, "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiZXA0UmhZcmJUSE9uaHpBUldOVFNTMTpBUEE5MWJIS1pGdkJuUkV1dEEtYzQxSmN6dDBITzVJQkNyMFhzM0VadjFFcUZSVl9jY05semtDbFQtaWxmT3FGTUFWTmFPUFYxaVhIQjIybHhrcHZJRWNTNW4tMjQtZzY2SVR1d0o1aW9aWlJtYVd5R1Q3XzZiUDhlR1BOZHd2SkNwUWxZb1daQlhHVCJ9LCJpYXQiOjE2MjYwODk5OTZ9.fZoVLz1W-C9RNklV0ZPx6yZeysJWfiuOOPhoAlMtG5k")
+                call.enqueue(object:Callback<ResponseDiaryDislikeData>{
+                    override fun onResponse(
+                        call: Call<ResponseDiaryDislikeData>,
+                        response: Response<ResponseDiaryDislikeData>
+                    ) {
+                        if(response.isSuccessful)
+                        {
+                            Toast.makeText(requireContext(),"Dislike!",Toast.LENGTH_SHORT).show()
+                            binding.buttonPrivateDetailLike.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_diary_private_heart,0,0,0)
+                            binding.buttonPrivateDetailLike.text =(binding.buttonPrivateDetailLike.text.toString().toInt() - 1).toString()
+                            binding.buttonPrivateDetailLike.setTextColor(resources.getColor(R.color.white))
+                            binding.buttonPrivateDetailLike.isSelected=false
+                        }
+                        else{
+                            Log.d("CT ERROR", "CT ERROR")
+                        }
+                    }
+                    override fun onFailure(call: Call<ResponseDiaryDislikeData>, t: Throwable) {
+                        Log.d("NT ERROR", "NT ERROR")
+                    }
+                })
+            }
+        }
+
+
     }
 
 

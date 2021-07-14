@@ -62,9 +62,9 @@ class DiaryFirstFragment : Fragment(){
 
 
         binding.imagebuttonFeelOne.setOnClickListener {
-            if(binding.imagebuttonFeelTwo.isSelected==true)
+            if(binding.imagebuttonFeelTwo.isSelected)
                 binding.imagebuttonFeelTwo.isSelected=false
-            if(binding.imagebuttonFeelThree.isSelected==true)
+            if(binding.imagebuttonFeelThree.isSelected)
                 binding.imagebuttonFeelThree.isSelected=false
             binding.imagebuttonFeelOne.isSelected=true
             binding.buttonCompelete.isSelected=true
@@ -74,9 +74,9 @@ class DiaryFirstFragment : Fragment(){
         }
 
         binding.imagebuttonFeelTwo.setOnClickListener {
-            if(binding.imagebuttonFeelOne.isSelected==true)
+            if(binding.imagebuttonFeelOne.isSelected)
                 binding.imagebuttonFeelOne.isSelected=false
-            if(binding.imagebuttonFeelThree.isSelected==true)
+            if(binding.imagebuttonFeelThree.isSelected)
                 binding.imagebuttonFeelThree.isSelected=false
             binding.imagebuttonFeelTwo.isSelected=true
             binding.buttonCompelete.isSelected=true
@@ -86,9 +86,9 @@ class DiaryFirstFragment : Fragment(){
         }
 
         binding.imagebuttonFeelThree.setOnClickListener {
-            if(binding.imagebuttonFeelOne.isSelected==true)
+            if(binding.imagebuttonFeelOne.isSelected)
                 binding.imagebuttonFeelOne.isSelected=false
-            if(binding.imagebuttonFeelOne.isSelected==true)
+            if(binding.imagebuttonFeelTwo.isSelected)
                 binding.imagebuttonFeelTwo.isSelected = false
             binding.imagebuttonFeelThree.isSelected = true
             binding.buttonCompelete.isSelected = true
@@ -102,7 +102,8 @@ class DiaryFirstFragment : Fragment(){
 
     fun clickEvent() {
         binding.buttonCompelete.setOnClickListener {
-            findNavController().navigate(R.id.action_diaryFirstFragment_to_diarySecondFragment)
+            if(binding.buttonCompelete.isSelected)
+                findNavController().navigate(R.id.action_diaryFirstFragment_to_diarySecondFragment)
         }
     }
 }

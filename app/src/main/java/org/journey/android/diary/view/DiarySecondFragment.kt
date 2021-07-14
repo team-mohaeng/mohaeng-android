@@ -6,6 +6,7 @@ import android.content.pm.PackageManager
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -18,6 +19,9 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.chip.Chip
 import org.journey.android.R
 import org.journey.android.base.BaseFragment
@@ -58,34 +62,6 @@ class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
 
         binding.textviewNowDateSecond.text = secondViewToday
 
-        val PERMISSION_REQUEST_CODE = 201
-        val REQ_GALLERY = 202
-
-        binding.buttonPictureUpload.setOnClickListener{
-            var writePermission = ContextCompat.checkSelfPermission(
-                requireContext(),
-                android.Manifest.permission.WRITE_EXTERNAL_STORAGE
-            )
-            var readPermission = ContextCompat.checkSelfPermission(
-                requireContext(),
-                android.Manifest.permission.READ_EXTERNAL_STORAGE
-            )
-            if (writePermission == PackageManager.PERMISSION_DENIED || readPermission == PackageManager.PERMISSION_DENIED) {
-                ActivityCompat.requestPermissions(
-                    requireActivity(),
-                    arrayOf(
-                        android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                        android.Manifest.permission.READ_EXTERNAL_STORAGE
-                    ),
-                    PERMISSION_REQUEST_CODE
-                )
-            } else {
-                var intent = Intent(Intent.ACTION_PICK)
-                intent.data = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
-                intent.type = "image/*"
-                startActivityForResult(intent, REQ_GALLERY)
-            }
-        }
 
 
         fun addChipToGroup(hashTag: String) {
@@ -201,8 +177,10 @@ class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
     // 갤러리 이미지 첨부
     fun uploadGallery() {
         binding.buttonPictureUpload.setOnClickListener {
-            val gallery = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
+            val gallery = Intent(Intent.ACTION_PICK)
+            gallery.data = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
             startActivityForResult(gallery, PICK_IMAGE)
+
         }
     }
 
