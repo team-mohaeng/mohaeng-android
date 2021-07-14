@@ -23,6 +23,8 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+var userJwt = ""
+
 class LoginFragment : Fragment() {
     lateinit var binding: FragmentLoginBinding
 
@@ -60,6 +62,7 @@ class LoginFragment : Fragment() {
                 userId = binding.edittextLoginEmail.text.toString(),
                 userPw = binding.edittextLoginPassword.text.toString(),
                 userToken = "userToken"
+
             )
         ).enqueue(
             object : Callback<ResponseLogin> {
@@ -70,7 +73,10 @@ class LoginFragment : Fragment() {
                     if (response.isSuccessful) {
                         Toast.makeText(context, "로그인 성공", Toast.LENGTH_SHORT).show()
 //                        JourneyRepository.userJwt = response.body()!!.data!!.jwt
+                        userJwt = response.body()!!.data!!.jwt
                         findNavController().navigate(R.id.action_loginFragment_to_frameFragment)
+                    } else {
+                        Toast.makeText(context, "로그인 실패", Toast.LENGTH_SHORT).show()
                     }
                 }
 

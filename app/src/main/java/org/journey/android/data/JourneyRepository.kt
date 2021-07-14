@@ -45,10 +45,10 @@ object JourneyRepository {
         set(value) = encryptedRepository.edit { it.putInt(PROGRESS_PERCENT, value) }
 
     var userJwt: String
-        get() = encryptedRepository.getString(USER_JWT, "") ?: ""
+        get() = encryptedRepository.getString(USER_JWT, userJwt) ?: userJwt
         set(value) = encryptedRepository.edit { it.putString(USER_JWT, value) }
 
     var userToken: String
-        get() = encryptedRepository.getString(USER_TOKEN, "") ?: ""
+        get() = encryptedRepository.getString(USER_TOKEN, userToken) ?: userToken
         set(value) = encryptedRepository.edit { it.putString(USER_TOKEN, value) }
 }

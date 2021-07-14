@@ -12,6 +12,7 @@ import org.journey.android.course.data.ResponseCourseData
 import org.journey.android.data.JourneyRepository
 import org.journey.android.data.RetrofitObjects
 import org.journey.android.databinding.FragmentCourseBinding
+import org.journey.android.login.view.userJwt
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -114,7 +115,7 @@ class CourseFragment : Fragment() {
     // 서버 연결
     private fun loadDatas(){
         ServiceCreator.courseService.getCourseData(
-            JourneyRepository.userJwt
+            userJwt
             //"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiZXA0UmhZcmJUSE9uaHpBUldOVFNTMTpBUEE5MWJIS1pGdkJuUkV1dEEtYzQxSmN6dDBITzVJQkNyMFhzM0VadjFFcUZSVl9jY05semtDbFQtaWxmT3FGTUFWTmFPUFYxaVhIQjIybHhrcHZJRWNTNW4tMjQtZzY2SVR1d0o1aW9aWlJtYVd5R1Q3XzZiUDhlR1BOZHd2SkNwUWxZb1daQlhHVCJ9LCJpYXQiOjE2MjYwODk5OTZ9.fZoVLz1W-C9RNklV0ZPx6yZeysJWfiuOOPhoAlMtG5k"
         ).enqueue(object : Callback<ResponseCourseData> {
             override fun onFailure(call: Call<ResponseCourseData>, t: Throwable) {
@@ -150,35 +151,36 @@ class CourseFragment : Fragment() {
                         // 오늘이 몇일차인지 구하는 부분
                         var today: Int = 0
                         for (i in 0 until response.body()!!.data!!.course!!.challenges.size){
-                            if(response.body()!!.data!!.course!!.challenges[i]!!.situation != 2){
+                            if (response.body()!!.data!!.course!!.challenges[i].situation != 2) {
                                 today = i
                                 binding.textviewCourseDay.text = today.toString() + "일차"
                                 break
                             }
                         }
 
-                        for (i in 0 until response.body()!!.data!!.course!!.challenges.size){
+                        for (i in 0 until response.body()!!.data!!.course!!.challenges.size) {
 
-                            Log.d("서버",response.body()!!.data!!.course!!.challenges[i]!!.toString())
+                            Log.d("서버", response.body()!!.data!!.course!!.challenges[i].toString())
 
-                            var month = response.body()!!.data!!.course!!.challenges[i]!!.month
-                            if(month.length == 1){
+                            var month = response.body()!!.data!!.course!!.challenges[i].month
+                            if (month.length == 1) {
                                 month = "0" + month
                             }
 
-                            courseDay = response.body()!!.data!!.course!!.challenges[i]!!.id.toString() + "일차"
-                            courseContent = response.body()!!.data!!.course!!.challenges[i]!!.title
-                            if(month.isNotEmpty()){
-                                courseComplete = month + "." + response.body()!!.data!!.course!!.challenges[i]!!.day + "완료"
+                            courseDay =
+                                response.body()!!.data!!.course!!.challenges[i].id.toString() + "일차"
+                            courseContent = response.body()!!.data!!.course!!.challenges[i].title
+                            if (month.isNotEmpty()) {
+                                courseComplete =
+                                    month + "." + response.body()!!.data!!.course!!.challenges[i].day + "완료"
                                 courseCurrent = true
-                            }
-                            else{
+                            } else {
                                 courseComplete = ""
                                 courseCurrent = false
                             }
 
-                            var courseId = response.body()!!.data!!.course!!.challenges[i]!!.id
-                            when(courseId){
+                            var courseId = response.body()!!.data!!.course!!.challenges[i].id
+                            when (courseId) {
                                 1 -> type = 0
                                 2 -> type = 3
                                 else -> type = courseId%2 +1

@@ -13,6 +13,7 @@ import org.journey.android.course.data.ResponseLibraryData
 import org.journey.android.data.JourneyRepository
 import org.journey.android.databinding.FragmentCourseBinding
 import org.journey.android.databinding.FragmentLibraryBinding
+import org.journey.android.login.view.userJwt
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -101,7 +102,7 @@ class LibraryFragment : Fragment() {
     // 서버 연결
     private fun loadDatas() {
         ServiceCreator.courseService.getLibraryData(
-            JourneyRepository.userJwt
+            userJwt
             //"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiZXA0UmhZcmJUSE9uaHpBUldOVFNTMTpBUEE5MWJIS1pGdkJuUkV1dEEtYzQxSmN6dDBITzVJQkNyMFhzM0VadjFFcUZSVl9jY05semtDbFQtaWxmT3FGTUFWTmFPUFYxaVhIQjIybHhrcHZJRWNTNW4tMjQtZzY2SVR1d0o1aW9aWlJtYVd5R1Q3XzZiUDhlR1BOZHd2SkNwUWxZb1daQlhHVCJ9LCJpYXQiOjE2MjYwODk5OTZ9.fZoVLz1W-C9RNklV0ZPx6yZeysJWfiuOOPhoAlMtG5k"
         ).enqueue(object : Callback<ResponseLibraryData> {
             override fun onFailure(call: Call<ResponseLibraryData>, t: Throwable) {
@@ -127,12 +128,12 @@ class LibraryFragment : Fragment() {
 
 
                         for (i in 0 until response.body()!!.data!!.courses.size) {
-                            var property = response.body()!!.data!!.courses[i]!!.property
-                            libraryTitle = response.body()!!.data!!.courses[i]!!.title
+                            var property = response.body()!!.data!!.courses[i].property
+                            libraryTitle = response.body()!!.data!!.courses[i].title
                             libraryTerm =
-                                response.body()!!.data!!.courses[i]!!.totalDays.toString() + "일 코스"
-                            libraryContent = response.body()!!.data!!.courses[i]!!.description
-                            libraryComplete = response.body()!!.data!!.courses[i]!!.situation
+                                response.body()!!.data!!.courses[i].totalDays.toString() + "일 코스"
+                            libraryContent = response.body()!!.data!!.courses[i].description
+                            libraryComplete = response.body()!!.data!!.courses[i].situation
 
 
 

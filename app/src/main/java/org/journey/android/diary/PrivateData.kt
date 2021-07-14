@@ -1,8 +1,8 @@
 package org.journey.android.diary
 
 data class PrivateData(
-    val textViewHashTagOne: String,
-    val textViewHashTagTwo: String,
+    val postId: Int,
+    val textViewHashTags: String,
     val textViewPrivateContent: String,
     val textViewPrivateNickName: String,
     val imageViewPrivate: String,
