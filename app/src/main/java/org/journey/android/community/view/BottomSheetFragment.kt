@@ -1,14 +1,16 @@
-package org.journey.android.community
+package org.journey.android.community.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import org.journey.android.community.BottomSheetAdapter
+import org.journey.android.community.BottomSheetData
 import org.journey.android.databinding.FragmentBottomSheetBinding
 
 class BottomSheetFragment : BottomSheetDialogFragment() {
-    private val bottomSheetAdapter : BottomSheetAdapter by lazy { BottomSheetAdapter()}
+    private val bottomSheetAdapter: BottomSheetAdapter by lazy { BottomSheetAdapter() }
     private var bottomSheetData = mutableListOf<BottomSheetData>()
     private var _binding : FragmentBottomSheetBinding ?= null
     private val binding get() = _binding!!

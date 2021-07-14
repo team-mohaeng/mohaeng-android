@@ -1,4 +1,4 @@
-package org.journey.android.challenge
+package org.journey.android.challenge.view
 
 import android.app.AlertDialog
 import android.graphics.Color
@@ -21,20 +21,21 @@ import androidx.appcompat.widget.AppCompatButton
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.fragment.findNavController
 import org.journey.android.R
+import org.journey.android.base.BaseFragment
 import org.journey.android.course.ctxt
 import org.journey.android.databinding.FragmentChallengeBinding
 
 
-
-class ChallengeFragment : Fragment() {
+class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
 
     private var _binding: FragmentChallengeBinding? = null
     // This property is only valid between onCreateView and
     // onDestroyView.
-    private val binding get() = _binding!!
+    //private val binding get() = _binding!!
 
     // 챌린지 시작 여부 알려주는 변수
     private var hasCourse = true
+
     // 인증 개수 저장하는 변수
     private var stampNumber = 3
     // 완료한 미션 개수를 저장하는 변수
@@ -218,56 +219,92 @@ class ChallengeFragment : Fragment() {
             }
 
             // 미션 개수에 따라 다르게 보여줌
-            if(stampNumber == 1){
+            if(stampNumber == 1) {
                 binding.constraintlayoutSubFirst.visibility = View.VISIBLE
                 binding.constraintlayoutSubSecond.visibility = View.GONE
                 binding.constraintlayoutSubThird.visibility = View.GONE
 
+                height = TypedValue.applyDimension(
+                    TypedValue.COMPLEX_UNIT_DIP,
+                    140F,
+                    resources.displayMetrics
+                ).toInt()
+                width = TypedValue.applyDimension(
+                    TypedValue.COMPLEX_UNIT_DIP,
+                    140F,
+                    resources.displayMetrics
+                ).toInt()
+
                 height = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 140F, getResources().getDisplayMetrics()).toInt()
                 width = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 120F, getResources().getDisplayMetrics()).toInt()
 
+
                 // 스탬프 누르면 인증 팝업 등장
-                binding.imagebuttonFirstFirst.setOnClickListener{
+                binding.imagebuttonFirstFirst.setOnClickListener {
                     checkMission(binding.imagebuttonFirstFirst)
                 }
 
             }
-            else if(stampNumber == 2){
+            else if(stampNumber == 2) {
                 binding.constraintlayoutSubFirst.visibility = View.GONE
                 binding.constraintlayoutSubSecond.visibility = View.VISIBLE
                 binding.constraintlayoutSubThird.visibility = View.GONE
 
+                height = TypedValue.applyDimension(
+                    TypedValue.COMPLEX_UNIT_DIP,
+                    120F,
+                    resources.displayMetrics
+                ).toInt()
+                width = TypedValue.applyDimension(
+                    TypedValue.COMPLEX_UNIT_DIP,
+                    120F,
+                    resources.displayMetrics
+                ).toInt()
+
                 height = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 140F, getResources().getDisplayMetrics()).toInt()
                 width = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 120F, getResources().getDisplayMetrics()).toInt()
 
+
                 // 스탬프 누르면 인증 팝업 등장
-                binding.imagebuttonSecondFirst.setOnClickListener{
+                binding.imagebuttonSecondFirst.setOnClickListener {
                     checkMission(binding.imagebuttonSecondFirst)
                 }
-                binding.imagebuttonSecondSecond.setOnClickListener{
+                binding.imagebuttonSecondSecond.setOnClickListener {
                     checkMission(binding.imagebuttonSecondSecond)
                 }
             }
-            else if(stampNumber == 3){
+            else if(stampNumber == 3) {
                 binding.constraintlayoutSubFirst.visibility = View.GONE
                 binding.constraintlayoutSubSecond.visibility = View.GONE
                 binding.constraintlayoutSubThird.visibility = View.VISIBLE
+
+                height = TypedValue.applyDimension(
+                    TypedValue.COMPLEX_UNIT_DIP,
+                    104F,
+                    resources.displayMetrics
+                ).toInt()
+                width = TypedValue.applyDimension(
+                    TypedValue.COMPLEX_UNIT_DIP,
+                    104F,
+                    resources.displayMetrics
+                ).toInt()
+
                 height = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 124F, getResources().getDisplayMetrics()).toInt()
                 width = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 106F, getResources().getDisplayMetrics()).toInt()
 
                 // 스탬프 누르면 인증 팝업 등장
-                binding.imagebuttonThirdFirst.setOnClickListener{
+                binding.imagebuttonThirdFirst.setOnClickListener {
                     checkMission(binding.imagebuttonThirdFirst)
                 }
-                binding.imagebuttonThirdSecond.setOnClickListener{
+                binding.imagebuttonThirdSecond.setOnClickListener {
                     checkMission(binding.imagebuttonThirdSecond)
                 }
-                binding.imagebuttonThirdThird.setOnClickListener{
+                binding.imagebuttonThirdThird.setOnClickListener {
                     checkMission(binding.imagebuttonThirdThird)
                 }
             }
-            binding.imageviewChallengeJourney.getLayoutParams().height=height
-            binding.imageviewChallengeJourney.getLayoutParams().width=width
+            binding.imageviewChallengeJourney.layoutParams.height = height
+            binding.imageviewChallengeJourney.layoutParams.width = width
             binding.imageviewChallengeJourney.requestLayout()
         }
         else{
@@ -297,6 +334,13 @@ class ChallengeFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun getFragmentBinding(
+        inflater: LayoutInflater,
+        container: ViewGroup?
+    ): FragmentChallengeBinding {
+        return FragmentChallengeBinding.inflate(inflater, container, false)
     }
 
 }

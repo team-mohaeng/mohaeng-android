@@ -9,9 +9,9 @@
         android:layout_marginHorizontal="10dp"
         android:background="@drawable/bottom_sheet_radius"
         app:behavior_hideable="false"
-        app:behavior_peekHeight = "200dp"
+        app:behavior_peekHeight="200dp"
         app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
-        tools:context=".community.BottomSheetFragment">
+        tools:context=".community.view.BottomSheetFragment">
 
         <TextView
             android:id="@+id/textview_total_user"

@@ -75,7 +75,7 @@
 
     <fragment
         android:id="@+id/communityFragment"
-        android:name="org.journey.android.community.CommunityFragment"
+        android:name="org.journey.android.community.view.CommunityFragment"
         android:label="fragment_community"
         tools:layout="@layout/fragment_community" >
         <action
@@ -84,7 +84,7 @@
     </fragment>
     <fragment
         android:id="@+id/challengeFragment"
-        android:name="org.journey.android.challenge.ChallengeFragment"
+        android:name="org.journey.android.challenge.view.ChallengeFragment"
         android:label="ChallengeFragment"
         tools:layout="@layout/fragment_challenge">
         <action
