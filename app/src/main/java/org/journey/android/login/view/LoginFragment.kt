@@ -14,6 +14,7 @@ import androidx.navigation.fragment.findNavController
 import org.journey.android.R
 import org.journey.android.data.JourneyRepository
 import org.journey.android.databinding.FragmentLoginBinding
+import org.journey.android.frame.userToken
 import org.journey.android.login.model.LoginCreator
 import org.journey.android.login.model.RequestLogin
 import org.journey.android.login.model.ResponseLogin
@@ -21,6 +22,8 @@ import org.journey.android.util.enqueueUtil
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+
+var userJwt = ""
 
 class LoginFragment : Fragment() {
     lateinit var binding: FragmentLoginBinding
@@ -58,7 +61,7 @@ class LoginFragment : Fragment() {
             RequestLogin(
                 userId = binding.edittextLoginEmail.text.toString(),
                 userPw = binding.edittextLoginPassword.text.toString(),
-                userToken = JourneyRepository.userToken
+                userToken = userToken
             )
         ).enqueue(
             object : Callback<ResponseLogin> {
@@ -68,8 +71,11 @@ class LoginFragment : Fragment() {
                 ) {
                     if (response.isSuccessful) {
                         Toast.makeText(context, "로그인 성공", Toast.LENGTH_SHORT).show()
-                        JourneyRepository.userJwt = response.body()!!.data!!.jwt
+                        userJwt = response.body()!!.data!!.jwt
                         findNavController().navigate(R.id.action_loginFragment_to_frameFragment)
+                    }
+                    else{
+                        Toast.makeText(context, "로그인 실패", Toast.LENGTH_SHORT).show()
                     }
                 }
 
