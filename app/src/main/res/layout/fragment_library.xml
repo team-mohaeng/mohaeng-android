@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
         android:fontFamily="@font/spoqahansansneoregular"
-        android:text="코스 둘러보기"
+        android:text="코스 목록"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -33,7 +33,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_library"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="18dp"
         android:layout_marginTop="52dp"
         android:layout_marginEnd="18dp"

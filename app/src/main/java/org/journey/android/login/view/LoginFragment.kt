@@ -1,22 +1,29 @@
 package org.journey.android.login.view
 
-import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
-import androidx.appcompat.widget.AppCompatButton
-import androidx.core.graphics.drawable.DrawableCompat
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import org.journey.android.R
-import org.journey.android.base.BaseFragment
+import org.journey.android.data.JourneyRepository
 import org.journey.android.databinding.FragmentLoginBinding
-import org.journey.android.databinding.FragmentSplashBinding
+import org.journey.android.frame.userToken
+import org.journey.android.login.model.LoginCreator
+import org.journey.android.login.model.RequestLogin
+import org.journey.android.login.model.ResponseLogin
+import org.journey.android.util.enqueueUtil
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+
+var userJwt = ""
 
 class LoginFragment : Fragment() {
     lateinit var binding: FragmentLoginBinding
@@ -34,11 +41,12 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         clickEvent()
         setLoginView()
+
     }
 
     fun clickEvent() {
         binding.buttonLogin.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_frameFragment)
+            setRetrofit()
         }
         binding.buttonFindPassword.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_findPassWordOneFragment)
@@ -46,6 +54,37 @@ class LoginFragment : Fragment() {
         binding.buttonSignup.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_signupFirstFragment)
         }
+    }
+
+    fun setRetrofit() {
+        LoginCreator.loginApiService.login(
+            RequestLogin(
+                userId = binding.edittextLoginEmail.text.toString(),
+                userPw = binding.edittextLoginPassword.text.toString(),
+                userToken = userToken
+            )
+        ).enqueue(
+            object : Callback<ResponseLogin> {
+                override fun onResponse(
+                    call: Call<ResponseLogin>,
+                    response: Response<ResponseLogin>
+                ) {
+                    if (response.isSuccessful) {
+                        Toast.makeText(context, "로그인 성공", Toast.LENGTH_SHORT).show()
+                        userJwt = response.body()!!.data!!.jwt
+                        findNavController().navigate(R.id.action_loginFragment_to_frameFragment)
+                    }
+                    else{
+                        Toast.makeText(context, "로그인 실패", Toast.LENGTH_SHORT).show()
+                    }
+                }
+
+                override fun onFailure(call: Call<ResponseLogin>, t: Throwable) {
+                    Log.d("서버실패", "${t}")
+                }
+
+            }
+        )
     }
 
     fun setLoginView() {

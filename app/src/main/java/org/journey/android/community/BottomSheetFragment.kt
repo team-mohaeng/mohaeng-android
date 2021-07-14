@@ -47,7 +47,7 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
                 first_tag = "#맥주",
                 second_tag = "#여름",
                 diary = "맛있는 피자에 시원한\n맥주 먹고 선선한 날\n씨에 산책했어요.",
-                user_id = "소스쿨",
+                user_id = "소정스쿨",
                 user_prefer = "23"
             ),
             BottomSheetData(

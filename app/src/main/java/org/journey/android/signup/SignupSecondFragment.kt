@@ -16,6 +16,9 @@ import org.journey.android.databinding.FragmentPrivateBinding
 import org.journey.android.databinding.FragmentSignupSecondBinding
 import java.util.*
 
+var userGender = 0
+var userYear = 0
+
 class SignupSecondFragment : Fragment() {
     private var _binding: FragmentSignupSecondBinding? = null
     // This property is only valid between onCreateView and
@@ -24,6 +27,8 @@ class SignupSecondFragment : Fragment() {
 
     var genderStatus = false
     var yearStatus = false
+    var gender = 0
+    var birthYear = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,6 +41,7 @@ class SignupSecondFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         setClickEvent()
         binding.textviewYearInput.setOnClickListener{
             selectYear()
@@ -48,6 +54,10 @@ class SignupSecondFragment : Fragment() {
             binding.buttonGenderM.setTextColor(ContextCompat.getColor(this.requireContext(), R.color.journey_gray))
 
             genderStatus = true
+            userGender = 1
+            val bundle = Bundle()
+            bundle.putInt("gender", 1)
+            SignupThirdFragment().arguments = bundle
 
             binding.buttonSignupNext.isEnabled = genderStatus && yearStatus
         }
@@ -59,6 +69,10 @@ class SignupSecondFragment : Fragment() {
             binding.buttonGenderW.setTextColor(ContextCompat.getColor(this.requireContext(), R.color.journey_gray))
 
             genderStatus = true
+            userGender = 0
+            val bundle = Bundle()
+            bundle.putInt("gender", 0)
+            SignupThirdFragment().arguments = bundle
 
             binding.buttonSignupNext.isEnabled = genderStatus && yearStatus
         }
@@ -86,6 +100,12 @@ class SignupSecondFragment : Fragment() {
 
 
         selectDialogSave.setOnClickListener{
+            userYear = selectDialogYear.value
+
+            val bundle = Bundle()
+            bundle.putInt("birthYear", userYear)
+            SignupThirdFragment().arguments = bundle
+
             binding.textviewYearInput.text = selectDialogYear.value.toString()
             binding.textviewYearInput.setTextColor(ContextCompat.getColor(this.requireContext(), R.color.journey_black))
             yearStatus = true

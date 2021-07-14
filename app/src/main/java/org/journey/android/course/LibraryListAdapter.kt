@@ -14,6 +14,7 @@ import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import org.journey.android.databinding.ItemLibraryBinding
@@ -54,17 +55,27 @@ class LibraryListAdapter :RecyclerView.Adapter<LibraryListAdapter.LibraryListVie
         fun onBind(LibraryListInfo: LibraryListInfo){
             // libraryComplete가 false면 완료하지 않은 코스
             // false면 완료한 코스
-            if(!LibraryListInfo.libraryComplete){
+            if(LibraryListInfo.libraryComplete != 2){
                 binding.constraintlayoutLibrary.setBackgroundResource(R.drawable.library_round_blue)
                 binding.buttonLibraryChoice.setBackgroundResource(R.drawable.library_button_blue)
+                when(LibraryListInfo.property){
+                    0 -> binding.imageviewLibrary.setImageResource(R.drawable.stamp_health)
+                    1 -> binding.imageviewLibrary.setImageResource(R.drawable.stamp_challenge)
+                    2 -> binding.imageviewLibrary.setImageResource(R.drawable.stamp_detect)
+                    3 -> binding.imageviewLibrary.setImageResource(R.drawable.stamp_memory)
+                }
             }
             else{
                 binding.constraintlayoutLibrary.setBackgroundResource(R.drawable.library_round_gray)
                 binding.buttonLibraryChoice.setBackgroundResource(R.drawable.library_button_gray)
+                binding.textviewLibraryTitle.setTextColor(ContextCompat.getColor(ctxt,R.color.journey_gray_h))
+                binding.textviewLibraryContent.setTextColor(ContextCompat.getColor(ctxt,R.color.journey_gray_h))
+                binding.textviewLibraryTerm.setTextColor(ContextCompat.getColor(ctxt, R.color.journey_gray_f))
+                binding.buttonLibraryChoice.setTextColor(ContextCompat.getColor(ctxt, R.color.journey_gray_f))
             }
 
             // 현재 진행중이라면
-            if(libraryState){
+            if(LibraryListInfo.libraryComplete == 1){
                 binding.buttonLibraryChoice.text = "코스 변경하기"
             }
             else{
@@ -74,9 +85,9 @@ class LibraryListAdapter :RecyclerView.Adapter<LibraryListAdapter.LibraryListVie
             binding.textviewLibraryTitle.text = LibraryListInfo.libraryTitle
             binding.textviewLibraryTerm.text = LibraryListInfo.libraryTerm
             binding.textviewLibraryContent.text = LibraryListInfo.libraryContent
-            Glide.with(itemView)
-                .load(LibraryListInfo.libraryImg)
-                .into(binding.imageviewLibrary)
+//            Glide.with(itemView)
+//                .load(LibraryListInfo.libraryImg)
+//                .into(binding.imageviewLibrary)
 
             // click 이벤트
             // 만약에 현재 진행중인 코스가 있다면 변경할래 팝업, 아니라면 코스시작 팝업
@@ -96,7 +107,7 @@ class LibraryListAdapter :RecyclerView.Adapter<LibraryListAdapter.LibraryListVie
                 window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
                 // 완료한 코스가 아니라면
-                if(!LibraryListInfo.libraryComplete){
+                if(LibraryListInfo.libraryComplete != 2){
                     val dialogButtons = mDialogView.findViewById<ConstraintLayout>(R.id.constraintlayout_dialog_buttons)
                     dialogButtons.visibility = View.VISIBLE
 

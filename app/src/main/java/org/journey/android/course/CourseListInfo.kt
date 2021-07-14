@@ -6,4 +6,5 @@ data class CourseListInfo(
     val courseComplete: String,
     val courseCurrent: Boolean,
     val type : Int,
+    val property : Int
 )
