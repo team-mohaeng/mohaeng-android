@@ -8,20 +8,8 @@ import androidx.navigation.fragment.NavHostFragment
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.messaging.FirebaseMessaging
 import org.journey.android.R
-import org.journey.android.challenge.ChallengeFragment
-import org.journey.android.data.JourneyRepository
 import org.journey.android.databinding.ActivityMainBinding
 import org.journey.android.diary.*
-import org.journey.android.diary.view.DiarySecondFragment
-import org.journey.android.diary.view.PrivateDetailFragment
-import org.journey.android.diary.view.PrivateFragment
-import org.journey.android.findpw.FindPassWordOneFragment
-import org.journey.android.findpw.FindPassWordThreeFragment
-import org.journey.android.findpw.FindPassWordTwoFragment
-import org.journey.android.findpw.FindPassWordViewPagerFragment
-import org.journey.android.login.view.LoginFragment
-import org.journey.android.signup.SignupFirstFragment
-import org.journey.android.signup.SignupViewPagerFragment
 
 var userToken = ""
 
@@ -44,6 +32,7 @@ class MainActivity : AppCompatActivity() {
             } else {
                 val token = task.result
                 val msg = getString(R.string.msg_token_fmt, token)
+                //JourneyRepository.userToken = token.toString()
                 userToken = token.toString()
                 Log.d("fbPractice.Success", msg)
             }

@@ -6,7 +6,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".main.MainFragment">
+        tools:context=".main.view.MainFragment">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_main_first"
@@ -75,7 +75,7 @@
             android:id="@+id/imageview_journey"
             android:layout_width="match_parent"
             android:layout_height="580dp"
-            android:background="@drawable/imagefour"
+            android:src="@drawable/imagefour"
             app:layout_constraintBottom_toTopOf="@id/textview_our_concentration"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -118,18 +118,30 @@
             app:layout_constraintStart_toEndOf="@id/textview_concentration_percent"
             app:layout_constraintTop_toTopOf="@+id/textview_concentration_percent" />
 
+        <ImageView
+            android:id="@+id/imageview_main_progress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_progressbar"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textview_our_concentration"/>
+
         <ProgressBar
             android:id="@+id/progressbar_concentration"
             style="@android:style/Widget.ProgressBar.Horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="14dp"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="16dp"
+            android:progressTint="@color/journey_pink6"
             app:layout_constraintEnd_toEndOf="parent"
             android:max="100"
             android:progress="25"
-            android:progressBackgroundTint="@color/journey_pink6"
-            android:progressDrawable="@drawable/ic_progressbar"
+            android:progressBackgroundTint="@color/journey_transparency"
+            android:indeterminateDrawable="@drawable/ic_progressbar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textview_our_concentration" />
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -30,9 +30,8 @@
         <ImageView
             android:id="@+id/imageview_dialog_image"
             android:layout_width="232dp"
-            android:layout_height="160dp"
+            android:layout_height="164dp"
             android:layout_marginTop="28dp"
-            android:background="@color/journey_pink3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textview_dialog_title" />

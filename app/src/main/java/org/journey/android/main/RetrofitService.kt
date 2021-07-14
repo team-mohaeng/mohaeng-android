@@ -1,7 +1,6 @@
 package org.journey.android.main
 
 import okhttp3.OkHttpClient
-import org.journey.android.diary.*
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
@@ -16,11 +15,4 @@ object RetrofitService {
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-
-    val diaryWriteService: DiaryWriteService = retrofit.create(DiaryWriteService::class.java)
-    val diaryPrivateDetailService : DiaryPrivateDetailService = retrofit.create(DiaryPrivateDetailService::class.java)
-    val diaryPrivateService : DiaryPrivateService = retrofit.create(DiaryPrivateService::class.java)
-    val diaryDeleteService : DiaryDeleteService = retrofit.create(DiaryDeleteService::class.java)
-    val diaryLikeService: DiaryLikeService = retrofit.create(DiaryLikeService::class.java)
-    val diaryDislikeService: DiaryDislikeService = retrofit.create(DiaryDislikeService::class.java)
 }
