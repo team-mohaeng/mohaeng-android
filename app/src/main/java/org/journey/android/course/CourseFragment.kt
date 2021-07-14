@@ -147,6 +147,16 @@ class CourseFragment : Fragment() {
                             3 -> binding.imageviewCourseImage.setImageResource(R.drawable.stamp_memory)
                         }
 
+                        // 오늘이 몇일차인지 구하는 부분
+                        var today: Int = 0
+                        for (i in 0 until response.body()!!.data!!.course!!.challenges.size){
+                            if(response.body()!!.data!!.course!!.challenges[i]!!.situation != 2){
+                                today = i
+                                binding.textviewCourseDay.text = today.toString() + "일차"
+                                break
+                            }
+                        }
+
                         for (i in 0 until response.body()!!.data!!.course!!.challenges.size){
 
                             Log.d("서버",response.body()!!.data!!.course!!.challenges[i]!!.toString())

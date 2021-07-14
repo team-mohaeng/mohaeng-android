@@ -17,6 +17,10 @@ import androidx.navigation.fragment.findNavController
 import org.journey.android.R
 import org.journey.android.databinding.FragmentSignupFirstBinding
 
+
+var userEmail = ""
+var userPw = ""
+
 class SignupFirstFragment : Fragment() {
    private var _binding: FragmentSignupFirstBinding? = null
    // This property is only valid between onCreateView and
@@ -38,11 +42,12 @@ class SignupFirstFragment : Fragment() {
    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
       super.onViewCreated(view, savedInstanceState)
 
+
       setBtnEvent()
       checkPw()
       checkPwSame()
       showPw()
-      setClickEvent()
+      //setClickEvent()
 
       binding.edittextSignupEmail.addTextChangedListener(object : TextWatcher {
 
@@ -59,6 +64,7 @@ class SignupFirstFragment : Fragment() {
    }
    
    fun setBtnEvent(){
+
       // editText에서 완료 클릭 시
       binding.edittextSignupEmail.setOnEditorActionListener { v, actionId, event ->
          var handled = false
@@ -70,6 +76,14 @@ class SignupFirstFragment : Fragment() {
       }
 
       binding.buttonSignupNext.setOnClickListener {
+         val bundle = Bundle()
+         bundle.putString("email", binding.edittextSignupEmail.text.toString())
+         bundle.putString("pw", binding.edittextSignupPw.text.toString())
+         SignupThirdFragment().arguments = bundle
+
+         userEmail = binding.edittextSignupEmail.text.toString()
+         userPw = binding.edittextSignupPw.text.toString()
+
          emailStatus = true
          if(binding.edittextSignupEmail.text.toString().isNotEmpty())
             binding.textviewEmailStatus.visibility = View.VISIBLE
@@ -84,6 +98,8 @@ class SignupFirstFragment : Fragment() {
             binding.textviewEmailStatus.text = "사용 가능하지 않은 이메일입니다"
             binding.textviewEmailStatus.setTextColor(ContextCompat.getColor(requireContext(),R.color.journey_red_a))
          }
+
+          findNavController().navigate(R.id.action_signupFirstFragment_to_signupSecondFragment)
       }
    }
 
@@ -186,6 +202,5 @@ class SignupFirstFragment : Fragment() {
          findNavController().navigate(R.id.action_signupFirstFragment_to_signupSecondFragment)
       }
    }
-
 
 }
