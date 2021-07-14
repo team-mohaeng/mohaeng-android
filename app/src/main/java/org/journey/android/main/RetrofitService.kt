@@ -21,4 +21,5 @@ object RetrofitService {
 
     val diaryWriteService: DiaryWriteService = retrofit.create(DiaryWriteService::class.java)
     val diaryPrivateService : DiaryPrivateService = retrofit.create(DiaryPrivateService::class.java)
+    val mainService : MainApi = retrofit.create(MainApi::class.java)
 }
