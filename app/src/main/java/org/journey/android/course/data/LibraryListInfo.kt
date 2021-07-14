@@ -5,5 +5,6 @@ data class LibraryListInfo(
     val libraryTitle: String,
     val libraryContent: String,
     val libraryComplete: Int,
-    val property: Int
+    val property: Int,
+    val courseId: Int
 )

@@ -1,25 +1,25 @@
-package org.journey.android.course.data
+package org.journey.android.challenge.data
 
-data class ResponseLibraryData(
+data class ResponseStampData(
     val status : Int,
-    val data : CourseLibraryData?
+    val data : StampDatasData?
 )
 
-data class  CourseLibraryData(
-    val courses: List<CoursesLibraryData>
+data class StampDatasData(
+    val course : StampCourseData?
 )
 
-data class CoursesLibraryData(
+data class StampCourseData(
     val id : Int,
     val situation : Int,
     val title : String,
     val description : String,
     val totalDays : Int,
     val property : Int,
-    val challenges : List<ChallengesLibraryData>
+    val challenges : List<StampChallengeData>
 )
 
-data class ChallengesLibraryData(
+data class StampChallengeData(
     val id : Int,
     val title : String,
     val situation : Int,

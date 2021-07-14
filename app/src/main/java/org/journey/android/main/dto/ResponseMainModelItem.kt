@@ -10,7 +10,7 @@ data class ResponseMainModelItem(
 data class MainData(
     val situation: Int,
     val affinity: Int,
-    val courses: List<MainCourse>
+    val course: MainCourse?
 )
 
 data class MainCourse(
@@ -19,7 +19,7 @@ data class MainCourse(
     val title: String,
     val description: String,
     val totalDays: Int,
-    val property: String,
+    val property: Int,
     val challenges: List<MainChallenge>
 )
 

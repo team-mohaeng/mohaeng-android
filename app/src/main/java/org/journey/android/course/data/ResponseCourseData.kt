@@ -15,7 +15,7 @@ data class CoursesData(
     val title : String,
     val description : String,
     val totalDays : Int,
-    val property : String,
+    val property : Int,
     val challenges : List<ChallengesData>
 )
 

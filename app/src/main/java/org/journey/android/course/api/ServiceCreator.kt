@@ -12,4 +12,6 @@ object ServiceCreator {
         .build()
 
     val courseService: CourseService = retrofit.create(CourseService::class.java)
+    val courseChooseService: CourseChooseService = retrofit.create(CourseChooseService::class.java)
+
 }

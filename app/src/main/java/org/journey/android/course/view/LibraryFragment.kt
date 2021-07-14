@@ -142,7 +142,8 @@ class LibraryFragment : Fragment() {
                                         libraryTitle = libraryTitle,
                                         libraryContent = libraryContent,
                                         libraryComplete = libraryComplete,
-                                        property = 1
+                                        property = 1,
+                                        courseId = response.body()!!.data!!.courses[i].id
                                     )
                                 )
                             }

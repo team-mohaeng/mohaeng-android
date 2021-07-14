@@ -4,6 +4,9 @@ import android.app.AlertDialog
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.media.Image
+import android.util.Log
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,6 +19,14 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import org.journey.android.databinding.ItemLibraryBinding
 import org.journey.android.R
+import org.journey.android.course.api.ServiceCreator
+import org.journey.android.course.data.ResponseChooseData
+import org.journey.android.course.data.ResponseLibraryData
+import org.journey.android.databinding.CourseCustomDialogBinding
+import org.journey.android.login.view.userJwt
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import org.journey.android.course.data.LibraryListInfo
 
 lateinit var ctxt : Context
@@ -122,8 +133,9 @@ class LibraryListAdapter :RecyclerView.Adapter<LibraryListAdapter.LibraryListVie
                         val noButton = mDialogView.findViewById<AppCompatButton>(R.id.button_dialog_no)
                         noButton.text = "좋아!"
                         noButton.setOnClickListener {
+                            selectCourse(LibraryListInfo.courseId)
                             alertDialog.dismiss()
-                            Toast.makeText(ctxt, "좋아! 클릭", Toast.LENGTH_SHORT).show()
+                            //Toast.makeText(ctxt, "좋아! 클릭", Toast.LENGTH_SHORT).show()
                         }
 
                         val changeButton = mDialogView.findViewById<AppCompatButton>(R.id.button_dialog_change)
@@ -174,7 +186,35 @@ class LibraryListAdapter :RecyclerView.Adapter<LibraryListAdapter.LibraryListVie
 //                }
             }
         }
-    }
 
+        // 서버 연결
+        private fun selectCourse(id: Int) {
+            ServiceCreator.courseChooseService.putCourseData(
+                userJwt,id
+            ).enqueue(object : Callback<ResponseChooseData> {
+                override fun onFailure(call: Call<ResponseChooseData>, t: Throwable) {
+                    Log.d("통신 실패", "${t}")
+                }
+
+                override fun onResponse(
+                    call: Call<ResponseChooseData>,
+                    response: Response<ResponseChooseData>
+                ) {
+                    // 통신 성공
+                    if (response.isSuccessful) {   // statusCode가 200-300 사이일 때, 응답 body 이용 가능
+                        if (true) {
+                            Log.d("서버 성공", "Library 성공")
+                            Log.d(
+                                "서버", response.body()!!.data.toString()
+                            )
+                            Toast.makeText(ctxt, "코스 선택 완료", Toast.LENGTH_SHORT).show()
+                        } else {
+                            Log.d("서버 실패", "${response.body()}")
+                        }
+                    }
+                }
+            })
+        }
+    }
 
 }
