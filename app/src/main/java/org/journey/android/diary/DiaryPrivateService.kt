@@ -6,9 +6,10 @@ import retrofit2.http.Header
 import retrofit2.http.Path
 
 interface DiaryPrivateService {
-    @GET("/api/smallSatisfaction/detail/{postId}")
+    @GET("/api/smallSatisfaction/myDrawer/{year}/{month}")
     fun getPrivateDiary(
-        @Path("postId") postId: Int,
+        @Path("year") year: Int,
+        @Path("month") month: Int,
         @Header("Bearer") jwt : String
     ) : Call<ResponseDiaryPrivateData>
 }
