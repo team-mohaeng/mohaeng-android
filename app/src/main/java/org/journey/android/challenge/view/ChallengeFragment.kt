@@ -1,4 +1,4 @@
-package org.journey.android.challenge
+package org.journey.android.challenge.view
 
 import android.app.AlertDialog
 import android.graphics.Color

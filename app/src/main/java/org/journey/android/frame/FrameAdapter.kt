@@ -2,8 +2,8 @@ package org.journey.android.frame
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import org.journey.android.challenge.ChallengeFragment
-import org.journey.android.community.CommunityFragment
+import org.journey.android.challenge.view.ChallengeFragment
+import org.journey.android.community.view.CommunityFragment
 import org.journey.android.main.MainFragment
 
 class FrameAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {

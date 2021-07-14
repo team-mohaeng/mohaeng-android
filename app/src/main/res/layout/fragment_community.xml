@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/journey_pink3"
-        tools:context=".community.CommunityFragment">
+        tools:context=".community.view.CommunityFragment">
 
         <TextView
             android:id="@+id/textview_diary"
