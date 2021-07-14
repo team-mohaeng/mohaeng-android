@@ -1,6 +1,7 @@
 package org.journey.android.main.model
 
 import okhttp3.OkHttpClient
+import org.journey.android.community.CommunityService
 import org.journey.android.diary.DiaryDislikeService
 import org.journey.android.diary.DiaryLikeService
 import org.journey.android.diary.service.DiaryDeleteService
@@ -32,4 +33,5 @@ object RetrofitService {
     val diaryLikeService: DiaryLikeService = RetrofitService.retrofit.create(DiaryLikeService::class.java)
     val diaryDislikeService: DiaryDislikeService = RetrofitService.retrofit.create(
         DiaryDislikeService::class.java)
+    val communityService: CommunityService = retrofit.create(CommunityService::class.java)
 }

@@ -64,9 +64,9 @@
 
     <ImageView
         android:id="@+id/imageview_private_detail_front"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_private_image_front_placeholder"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/ic_diary_journey_good_face"
         android:translationZ="2dp"
         app:layout_constraintBottom_toBottomOf="@id/imageview_private_detail_back"
         app:layout_constraintLeft_toLeftOf="parent"

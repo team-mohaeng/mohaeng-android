@@ -23,9 +23,8 @@
         android:id="@+id/imageView"
         android:layout_width="149dp"
         android:layout_height="132dp"
-        android:background="@color/journey_pink"
+        android:background="@drawable/diary_good_compelete"
         android:translationZ="1dp"
-        android:translationY="20dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="@id/third_constraint_layout"
         app:layout_constraintBottom_toTopOf="@id/second_constraint_layout"
@@ -37,6 +36,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/library_dialog"
         android:paddingBottom="24dp"
+        android:translationY="-28dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/third_constraint_layout"
@@ -64,6 +64,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textview_diary_compelete_content"
+            android:visibility="gone"
             />
 
         <TextView
