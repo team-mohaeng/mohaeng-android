@@ -13,8 +13,8 @@ import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import org.journey.android.R
 import org.journey.android.databinding.FragmentPrivateDetailBinding
-import org.journey.android.diary.ResponseDiaryPrivateDetailData
-import org.journey.android.main.RetrofitService
+import org.journey.android.diary.dto.ResponseDiaryPrivateDetailData
+import org.journey.android.main.model.RetrofitService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

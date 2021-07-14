@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
 import org.journey.android.R
-import org.journey.android.diary.DiaryViewPagerAdapter
 
 
 class DiaryViewPagerFragment : Fragment(){

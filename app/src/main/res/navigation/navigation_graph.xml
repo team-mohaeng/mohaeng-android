@@ -63,7 +63,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="org.journey.android.main.MainFragment"
+        android:name="org.journey.android.main.view.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main">
 
@@ -111,7 +111,7 @@
     </fragment>
     <fragment
         android:id="@+id/rewardFragment"
-        android:name="org.journey.android.reward.RewardFragment"
+        android:name="org.journey.android.reward.view.RewardFragment"
         android:label="RewardFragment"
         tools:layout="@layout/fragment_reward">
         <action
@@ -125,7 +125,7 @@
         tools:layout="@layout/fragment_private_detail" />
     <fragment
         android:id="@+id/courseFragment"
-        android:name="org.journey.android.course.CourseFragment"
+        android:name="org.journey.android.course.view.CourseFragment"
         android:label="fragment_course"
         tools:layout="@layout/fragment_course">
         <action
@@ -134,7 +134,7 @@
     </fragment>
     <fragment
         android:id="@+id/libraryFragment"
-        android:name="org.journey.android.course.LibraryFragment"
+        android:name="org.journey.android.course.view.LibraryFragment"
         android:label="fragment_library"
         tools:layout="@layout/fragment_library" />
     <fragment
@@ -157,7 +157,7 @@
     </fragment>
     <fragment
         android:id="@+id/signupThirdFragment"
-        android:name="org.journey.android.signup.SignupThirdFragment"
+        android:name="org.journey.android.signup.view.SignupThirdFragment"
         android:label="fragment_signup_third"
         tools:layout="@layout/fragment_signup_third" >
         <action
@@ -166,7 +166,7 @@
     </fragment>
     <fragment
         android:id="@+id/findPassWordOneFragment"
-        android:name="org.journey.android.findpw.FindPassWordOneFragment"
+        android:name="org.journey.android.findpw.view.FindPassWordOneFragment"
         android:label="FindPassWordOneFragment"
         tools:layout="@layout/fragment_find_password_one">
         <action
@@ -175,7 +175,7 @@
     </fragment>
     <fragment
         android:id="@+id/findPassWordTwoFragment"
-        android:name="org.journey.android.findpw.FindPassWordTwoFragment"
+        android:name="org.journey.android.findpw.view.FindPassWordTwoFragment"
         android:label="FindPassWordTwoFragment"
         tools:layout="@layout/fragment_find_password_two">
         <action
@@ -184,7 +184,7 @@
     </fragment>
     <fragment
         android:id="@+id/findPassWordThreeFragment"
-        android:name="org.journey.android.findpw.FindPassWordThreeFragment"
+        android:name="org.journey.android.findpw.view.FindPassWordThreeFragment"
         android:label="FindPassWordThreeFragment"
         tools:layout="@layout/fragment_find_password_three">
         <action
