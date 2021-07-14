@@ -33,16 +33,18 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
             findNavController().navigate(R.id.action_frameFragment_to_rewardFragment)
         }
     }
+    private fun setMainViewImage(backgroundImageDrawable: Int) {
+        //binding.imageviewJourney.
+    }
 
     private fun setBackground() {
         when (JourneyRepository.progressPercent) {
-            // in PROGRESSBAR_FIRST_RANGE -> R.drawable.
+            in PROGRESSBAR_FIRST_RANGE -> R.drawable.imagefirst
+            in PROGRESSBAR_SECOND_RANGE -> R.drawable.imagesecond
+            in PROGRESSBAR_THIRD_RANGE -> R.drawable.imagethird
+            in PROGRESSBAR_FOURTH_RANGE -> R.drawable.imagefour
+
         }
-
-    }
-
-    private fun setMainViewImage(backgroundImageDrawable: Int) {
-        //binding.imageviewJourney.setImageDrawable(getbackgroundImageDrawable)
     }
 
     companion object {
