@@ -6,11 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
+import kotlinx.coroutines.*
 import org.journey.android.R
 import org.journey.android.base.BaseFragment
 import org.journey.android.databinding.FragmentSplashBinding
+import kotlin.coroutines.CoroutineContext
 
-class SplashFragment : BaseFragment<FragmentSplashBinding>() {
+class SplashFragment : BaseFragment<FragmentSplashBinding>() , CoroutineScope{
+    override val coroutineContext: CoroutineContext
+        get() = Dispatchers.Main + Job()
 
     override fun getFragmentBinding(
         inflater: LayoutInflater,
@@ -21,10 +25,12 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        binding.buttonSplashJourney.setOnClickListener {
-            Navigation.findNavController(binding.root)
-                .navigate(R.id.action_splashFragment_to_loginFragment)
+        launch {
+            delay(2000)
+            withContext(Dispatchers.Main){
+                Navigation.findNavController(binding.root)
+                    .navigate(R.id.action_splashFragment_to_loginFragment)
+            }
         }
     }
 }

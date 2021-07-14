@@ -7,18 +7,42 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/journey_pink9"
     tools:context=".splash.SplashFragment">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button_splash_journey"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="스플래시 이미지"
+    <ImageView
+        android:id="@+id/imageview_splash"
+        android:layout_width="326dp"
+        android:layout_height="643dp"
+        android:background="@drawable/splashimage"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/textview_splash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="192dp"
+        android:background="@drawable/ic_text"
+        app:layout_constraintEnd_toEndOf="@+id/imageview_logo"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/imageview_logo"
+        android:layout_width="164dp"
+        android:layout_height="164dp"
+        android:layout_marginTop="548dp"
+        android:background="@drawable/image89"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.83"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

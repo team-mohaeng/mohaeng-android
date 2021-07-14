@@ -35,7 +35,6 @@ import retrofit2.Response
 
 class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
 
-    //private var _binding: FragmentChallengeBinding? = null
     // This property is only valid between onCreateView and
     // onDestroyView.
     //private val binding get() = _binding!!
