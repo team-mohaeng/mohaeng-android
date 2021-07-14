@@ -7,5 +7,5 @@ import retrofit2.http.Header
 
 interface MainApi {
     @GET("/api/home")
-    fun getChallengeList(@Header("jwt") jwt : String) : Single<ResponseMainModelItem>
+    fun getChallengeList(@Header("Bearer") jwt: String): Single<ResponseMainModelItem>
 }
