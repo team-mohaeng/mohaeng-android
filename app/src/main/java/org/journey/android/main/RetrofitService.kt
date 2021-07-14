@@ -1,7 +1,8 @@
 package org.journey.android.main
 
 import okhttp3.OkHttpClient
-import org.journey.android.data.RetrofitObjects
+import org.journey.android.diary.DiaryDeleteService
+import org.journey.android.diary.DiaryPrivateDetailService
 import org.journey.android.diary.DiaryPrivateService
 import org.journey.android.diary.DiaryWriteService
 import retrofit2.Retrofit
@@ -20,5 +21,7 @@ object RetrofitService {
             .build()
 
     val diaryWriteService: DiaryWriteService = retrofit.create(DiaryWriteService::class.java)
+    val diaryPrivateDetailService : DiaryPrivateDetailService = retrofit.create(DiaryPrivateDetailService::class.java)
     val diaryPrivateService : DiaryPrivateService = retrofit.create(DiaryPrivateService::class.java)
+    val diaryDeleteService : DiaryDeleteService = retrofit.create(DiaryDeleteService::class.java)
 }
