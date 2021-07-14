@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context="challenge.ChallengeFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintlayout_challenge_gone"
-            android:layout_width="match_parent"
+        android:id="@+id/constraintlayout_challenge_gone"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="132dp"
         android:layout_marginBottom="60dp"
@@ -130,6 +130,18 @@
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginBottom="8dp">
 
+                <ImageView
+                    android:id="@+id/imageview_back_first"
+                    android:layout_width="match_parent"
+                    android:layout_height="360dp"
+                    android:src="@drawable/challenge_back_first"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0" />
+
                 <TextView
                     android:id="@+id/textview_first_title"
                     android:layout_width="wrap_content"
@@ -160,10 +172,10 @@
                     android:id="@+id/imagebutton_first_first"
                     android:layout_width="140dp"
                     android:layout_height="140dp"
-                    android:adjustViewBounds="true"
-                    android:scaleType="fitCenter"
                     android:layout_marginTop="30dp"
+                    android:adjustViewBounds="true"
                     android:background="#00000000"
+                    android:scaleType="fitCenter"
                     android:src="@drawable/stamp_health_no"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -174,8 +186,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="39dp"
-                    android:gravity="center"
                     android:fontFamily="@font/spoqahansansneoregular"
+                    android:gravity="center"
                     android:text="@string/challenge_explain"
                     android:textColor="#767171"
                     android:textSize="12sp"
@@ -198,6 +210,18 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginBottom="8dp">
+
+                <ImageView
+                    android:id="@+id/imageview_back_second"
+                    android:layout_width="match_parent"
+                    android:layout_height="360dp"
+                    android:src="@drawable/challenge_back_second"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0" />
 
                 <TextView
                     android:id="@+id/textview_second_title"
@@ -281,6 +305,18 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/imageview_back_third"
+                    android:layout_width="match_parent"
+                    android:layout_height="360dp"
+                    android:src="@drawable/challenge_back_third"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0" />
 
                 <TextView
                     android:id="@+id/textview_third_title"
@@ -373,9 +409,9 @@
 
         <ImageView
             android:id="@+id/imageview_challenge_journey"
-            android:layout_width="106dp"
-            android:layout_height="124dp"
-            android:src="@drawable/ic_challenge_journey"
+            android:layout_width="120dp"
+            android:layout_height="140dp"
+            android:src="@drawable/challenge_journey"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintlayout_challenge_sub" />
 
