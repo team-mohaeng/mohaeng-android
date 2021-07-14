@@ -1,9 +1,14 @@
 package org.journey.android.challenge.data
 
+import org.journey.android.course.data.ChooseCourseData
+
 data class ResponseChallengeData(
     val status : Int,
-    val success : Boolean,
-    val data : List<CourseData>
+    val data : ChallengeDatasData?
+)
+
+data class  ChallengeDatasData(
+    val course: CourseData?
 )
 
 data class CourseData(
@@ -12,7 +17,7 @@ data class CourseData(
     val title : String,
     val description : String,
     val totalDays : Int,
-    val property : String,
+    val property : Int,
     val challenges : List<ChallengeData>
 )
 
