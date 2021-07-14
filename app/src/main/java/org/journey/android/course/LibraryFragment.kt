@@ -128,12 +128,12 @@ class LibraryFragment : Fragment() {
 
 
                         for (i in 0 until response.body()!!.data!!.courses.size) {
-                            var property = response.body()!!.data!!.courses[i]!!.property
-                            libraryTitle = response.body()!!.data!!.courses[i]!!.title
+                            var property = response.body()!!.data!!.courses[i].property
+                            libraryTitle = response.body()!!.data!!.courses[i].title
                             libraryTerm =
-                                response.body()!!.data!!.courses[i]!!.totalDays.toString() + "일 코스"
-                            libraryContent = response.body()!!.data!!.courses[i]!!.description
-                            libraryComplete = response.body()!!.data!!.courses[i]!!.situation
+                                response.body()!!.data!!.courses[i].totalDays.toString() + "일 코스"
+                            libraryContent = response.body()!!.data!!.courses[i].description
+                            libraryComplete = response.body()!!.data!!.courses[i].situation
 
 
 

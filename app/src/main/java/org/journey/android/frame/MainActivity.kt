@@ -44,14 +44,12 @@ class MainActivity : AppCompatActivity() {
             } else {
                 val token = task.result
                 val msg = getString(R.string.msg_token_fmt, token)
+                //JourneyRepository.userToken = token.toString()
                 userToken = token.toString()
                 Log.d("fbPractice.Success", msg)
             }
         })
     }
-
-
-
     private fun initNavController() {
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.navigation_host_fragment) as NavHostFragment

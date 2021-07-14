@@ -61,7 +61,8 @@ class LoginFragment : Fragment() {
             RequestLogin(
                 userId = binding.edittextLoginEmail.text.toString(),
                 userPw = binding.edittextLoginPassword.text.toString(),
-                userToken = userToken
+                userToken = "userToken"
+
             )
         ).enqueue(
             object : Callback<ResponseLogin> {
@@ -71,10 +72,10 @@ class LoginFragment : Fragment() {
                 ) {
                     if (response.isSuccessful) {
                         Toast.makeText(context, "로그인 성공", Toast.LENGTH_SHORT).show()
+//                        JourneyRepository.userJwt = response.body()!!.data!!.jwt
                         userJwt = response.body()!!.data!!.jwt
                         findNavController().navigate(R.id.action_loginFragment_to_frameFragment)
-                    }
-                    else{
+                    } else {
                         Toast.makeText(context, "로그인 실패", Toast.LENGTH_SHORT).show()
                     }
                 }

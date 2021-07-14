@@ -151,35 +151,36 @@ class CourseFragment : Fragment() {
                         // 오늘이 몇일차인지 구하는 부분
                         var today: Int = 0
                         for (i in 0 until response.body()!!.data!!.course!!.challenges.size){
-                            if(response.body()!!.data!!.course!!.challenges[i]!!.situation != 2){
+                            if (response.body()!!.data!!.course!!.challenges[i].situation != 2) {
                                 today = i
                                 binding.textviewCourseDay.text = today.toString() + "일차"
                                 break
                             }
                         }
 
-                        for (i in 0 until response.body()!!.data!!.course!!.challenges.size){
+                        for (i in 0 until response.body()!!.data!!.course!!.challenges.size) {
 
-                            Log.d("서버",response.body()!!.data!!.course!!.challenges[i]!!.toString())
+                            Log.d("서버", response.body()!!.data!!.course!!.challenges[i].toString())
 
-                            var month = response.body()!!.data!!.course!!.challenges[i]!!.month
-                            if(month.length == 1){
+                            var month = response.body()!!.data!!.course!!.challenges[i].month
+                            if (month.length == 1) {
                                 month = "0" + month
                             }
 
-                            courseDay = response.body()!!.data!!.course!!.challenges[i]!!.id.toString() + "일차"
-                            courseContent = response.body()!!.data!!.course!!.challenges[i]!!.title
-                            if(month.isNotEmpty()){
-                                courseComplete = month + "." + response.body()!!.data!!.course!!.challenges[i]!!.day + "완료"
+                            courseDay =
+                                response.body()!!.data!!.course!!.challenges[i].id.toString() + "일차"
+                            courseContent = response.body()!!.data!!.course!!.challenges[i].title
+                            if (month.isNotEmpty()) {
+                                courseComplete =
+                                    month + "." + response.body()!!.data!!.course!!.challenges[i].day + "완료"
                                 courseCurrent = true
-                            }
-                            else{
+                            } else {
                                 courseComplete = ""
                                 courseCurrent = false
                             }
 
-                            var courseId = response.body()!!.data!!.course!!.challenges[i]!!.id
-                            when(courseId){
+                            var courseId = response.body()!!.data!!.course!!.challenges[i].id
+                            when (courseId) {
                                 1 -> type = 0
                                 2 -> type = 3
                                 else -> type = courseId%2 +1
