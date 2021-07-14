@@ -31,10 +31,10 @@
 
     <ImageView
         android:id="@+id/imageview_course_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="54dp"
+        android:layout_height="54dp"
         android:layout_marginEnd="12dp"
-        android:src="@drawable/ic_dummyimg"
+        android:src="@drawable/course_rose"
         app:layout_constraintEnd_toStartOf="@+id/textview_course_title"
         app:layout_constraintTop_toTopOf="@+id/textview_course_current" />
 
