@@ -8,7 +8,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import org.journey.android.databinding.FragmentBottomSheetBinding
 
 class BottomSheetFragment : BottomSheetDialogFragment() {
-    private lateinit var bottomSheetAdapter: BottomSheetAdapter
+    private val bottomSheetAdapter : BottomSheetAdapter by lazy { BottomSheetAdapter()}
     private var bottomSheetData = mutableListOf<BottomSheetData>()
     private var _binding : FragmentBottomSheetBinding ?= null
     private val binding get() = _binding!!
