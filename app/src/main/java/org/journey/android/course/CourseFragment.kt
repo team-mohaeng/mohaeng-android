@@ -9,9 +9,9 @@ import android.view.ViewGroup
 import org.journey.android.R
 import org.journey.android.course.api.ServiceCreator
 import org.journey.android.course.data.ResponseCourseData
+import org.journey.android.data.JourneyRepository
 import org.journey.android.data.RetrofitObjects
 import org.journey.android.databinding.FragmentCourseBinding
-import org.journey.android.login.view.usesrJwt
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -114,8 +114,8 @@ class CourseFragment : Fragment() {
     // 서버 연결
     private fun loadDatas(){
         ServiceCreator.courseService.getCourseData(
-            //usesrJwt
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiZXA0UmhZcmJUSE9uaHpBUldOVFNTMTpBUEE5MWJIS1pGdkJuUkV1dEEtYzQxSmN6dDBITzVJQkNyMFhzM0VadjFFcUZSVl9jY05semtDbFQtaWxmT3FGTUFWTmFPUFYxaVhIQjIybHhrcHZJRWNTNW4tMjQtZzY2SVR1d0o1aW9aWlJtYVd5R1Q3XzZiUDhlR1BOZHd2SkNwUWxZb1daQlhHVCJ9LCJpYXQiOjE2MjYwODk5OTZ9.fZoVLz1W-C9RNklV0ZPx6yZeysJWfiuOOPhoAlMtG5k"
+            JourneyRepository.userJwt
+            //"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiZXA0UmhZcmJUSE9uaHpBUldOVFNTMTpBUEE5MWJIS1pGdkJuUkV1dEEtYzQxSmN6dDBITzVJQkNyMFhzM0VadjFFcUZSVl9jY05semtDbFQtaWxmT3FGTUFWTmFPUFYxaVhIQjIybHhrcHZJRWNTNW4tMjQtZzY2SVR1d0o1aW9aWlJtYVd5R1Q3XzZiUDhlR1BOZHd2SkNwUWxZb1daQlhHVCJ9LCJpYXQiOjE2MjYwODk5OTZ9.fZoVLz1W-C9RNklV0ZPx6yZeysJWfiuOOPhoAlMtG5k"
         ).enqueue(object : Callback<ResponseCourseData> {
             override fun onFailure(call: Call<ResponseCourseData>, t: Throwable) {
                 Log.d("통신 실패", "${t}")
@@ -145,6 +145,16 @@ class CourseFragment : Fragment() {
                             1 -> binding.imageviewCourseImage.setImageResource(R.drawable.stamp_challenge)
                             2 -> binding.imageviewCourseImage.setImageResource(R.drawable.stamp_detect)
                             3 -> binding.imageviewCourseImage.setImageResource(R.drawable.stamp_memory)
+                        }
+
+                        // 오늘이 몇일차인지 구하는 부분
+                        var today: Int = 0
+                        for (i in 0 until response.body()!!.data!!.course!!.challenges.size){
+                            if(response.body()!!.data!!.course!!.challenges[i]!!.situation != 2){
+                                today = i
+                                binding.textviewCourseDay.text = today.toString() + "일차"
+                                break
+                            }
                         }
 
                         for (i in 0 until response.body()!!.data!!.course!!.challenges.size){

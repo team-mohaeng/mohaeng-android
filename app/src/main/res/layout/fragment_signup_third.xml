@@ -52,6 +52,8 @@
         android:hint="한글 2~6자"
         android:textColor="@color/journey_black3"
         android:maxLength="6"
+        android:maxLines="1"
+        android:inputType="text"
         android:textColorHint="@color/journey_gray"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"

@@ -10,9 +10,9 @@ import org.journey.android.R
 import org.journey.android.course.api.ServiceCreator
 import org.journey.android.course.data.ResponseCourseData
 import org.journey.android.course.data.ResponseLibraryData
+import org.journey.android.data.JourneyRepository
 import org.journey.android.databinding.FragmentCourseBinding
 import org.journey.android.databinding.FragmentLibraryBinding
-import org.journey.android.login.view.usesrJwt
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -101,7 +101,7 @@ class LibraryFragment : Fragment() {
     // 서버 연결
     private fun loadDatas() {
         ServiceCreator.courseService.getLibraryData(
-            usesrJwt
+            JourneyRepository.userJwt
             //"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiZXA0UmhZcmJUSE9uaHpBUldOVFNTMTpBUEE5MWJIS1pGdkJuUkV1dEEtYzQxSmN6dDBITzVJQkNyMFhzM0VadjFFcUZSVl9jY05semtDbFQtaWxmT3FGTUFWTmFPUFYxaVhIQjIybHhrcHZJRWNTNW4tMjQtZzY2SVR1d0o1aW9aWlJtYVd5R1Q3XzZiUDhlR1BOZHd2SkNwUWxZb1daQlhHVCJ9LCJpYXQiOjE2MjYwODk5OTZ9.fZoVLz1W-C9RNklV0ZPx6yZeysJWfiuOOPhoAlMtG5k"
         ).enqueue(object : Callback<ResponseLibraryData> {
             override fun onFailure(call: Call<ResponseLibraryData>, t: Throwable) {
