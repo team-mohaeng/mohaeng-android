@@ -5,8 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import org.journey.android.community.BottomSheetAdapter
-import org.journey.android.community.BottomSheetData
+import org.journey.android.community.dto.BottomSheetData
 import org.journey.android.databinding.FragmentBottomSheetBinding
 
 class BottomSheetFragment : BottomSheetDialogFragment() {

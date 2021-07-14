@@ -27,7 +27,7 @@ import org.journey.android.challenge.data.ResponseStampData
 import org.journey.android.databinding.FragmentChallengeBinding
 import org.journey.android.login.view.userJwt
 import org.journey.android.main.RetrofitService
-import org.journey.android.main.userCourseStatus
+import org.journey.android.main.view.userCourseStatus
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -162,6 +162,21 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
 //                dialog_image.getLayoutParams().width=width_img
 //                dialog_image.requestLayout()
 
+//                var height_img = TypedValue.applyDimension(
+//                    TypedValue.COMPLEX_UNIT_DIP,
+//                    232F,
+//                    resources.displayMetrics
+//                ).toInt()
+//                var width_img = TypedValue.applyDimension(
+//                    TypedValue.COMPLEX_UNIT_DIP,
+//                    160F,
+//                    resources.displayMetrics
+//                ).toInt()
+//                dialog_image.layoutParams.height = height_img
+//                dialog_image.layoutParams.width = width_img
+//                dialog_image.requestLayout()
+
+
                 dialogTitle.text = "인증하기"
                 okButton.text = "완료"
                 dialog_ment.text = journeyMsg
@@ -245,8 +260,16 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
                     resources.displayMetrics
                 ).toInt()
 
-                height = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 140F, getResources().getDisplayMetrics()).toInt()
-                width = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 120F, getResources().getDisplayMetrics()).toInt()
+                height = TypedValue.applyDimension(
+                    TypedValue.COMPLEX_UNIT_DIP,
+                    140F,
+                    resources.displayMetrics
+                ).toInt()
+                width = TypedValue.applyDimension(
+                    TypedValue.COMPLEX_UNIT_DIP,
+                    120F,
+                    resources.displayMetrics
+                ).toInt()
 
 
                 // 스탬프 누르면 인증 팝업 등장
@@ -272,8 +295,16 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
                     resources.displayMetrics
                 ).toInt()
 
-                height = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 140F, getResources().getDisplayMetrics()).toInt()
-                width = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 120F, getResources().getDisplayMetrics()).toInt()
+                height = TypedValue.applyDimension(
+                    TypedValue.COMPLEX_UNIT_DIP,
+                    140F,
+                    resources.displayMetrics
+                ).toInt()
+                width = TypedValue.applyDimension(
+                    TypedValue.COMPLEX_UNIT_DIP,
+                    120F,
+                    resources.displayMetrics
+                ).toInt()
 
 
                 // 스탬프 누르면 인증 팝업 등장
@@ -302,8 +333,16 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
                     resources.displayMetrics
                 ).toInt()
 
-                height = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 124F, getResources().getDisplayMetrics()).toInt()
-                width = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 106F, getResources().getDisplayMetrics()).toInt()
+                height = TypedValue.applyDimension(
+                    TypedValue.COMPLEX_UNIT_DIP,
+                    124F,
+                    resources.displayMetrics
+                ).toInt()
+                width = TypedValue.applyDimension(
+                    TypedValue.COMPLEX_UNIT_DIP,
+                    106F,
+                    resources.displayMetrics
+                ).toInt()
 
                 // 스탬프 누르면 인증 팝업 등장
                 binding.imagebuttonThirdFirst.setOnClickListener {

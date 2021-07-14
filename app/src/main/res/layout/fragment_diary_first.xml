@@ -111,7 +111,7 @@
         app:layout_constraintRight_toLeftOf="@+id/textview_soso_day"
         app:layout_constraintTop_toTopOf="@id/textview_soso_day"
         app:layout_constraintBottom_toBottomOf="@id/textview_soso_day"
-        android:layout_marginRight="54dp"
+        android:layout_marginRight="48dp"
         />
 
 

@@ -106,4 +106,7 @@ dependencies {
 
     implementation 'org.xerial:sqlite-jdbc:3.34.0'
 
+    implementation 'jp.wasabeef:glide-transformations:4.3.0'
+    implementation 'jp.co.cyberagent.android:gpuimage:2.1.0'
+
 }
