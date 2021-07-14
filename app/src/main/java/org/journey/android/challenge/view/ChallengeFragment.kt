@@ -27,7 +27,7 @@ import org.journey.android.databinding.FragmentChallengeBinding
 
 class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
 
-    private var _binding: FragmentChallengeBinding? = null
+   // private var _binding: FragmentChallengeBinding? = null
     // This property is only valid between onCreateView and
     // onDestroyView.
     //private val binding get() = _binding!!
@@ -46,15 +46,6 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
     // 현재 코스 번호
     private var courseNumber = 1
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentChallengeBinding.inflate(inflater, container, false)
-        val view = binding.root
-        return view
-
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -362,10 +353,7 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
         }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
+
 
     override fun getFragmentBinding(
         inflater: LayoutInflater,

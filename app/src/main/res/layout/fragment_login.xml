@@ -10,9 +10,9 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_main_login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/ic_bggraphic"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:background="@drawable/loginimage"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
