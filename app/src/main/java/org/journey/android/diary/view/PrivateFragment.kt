@@ -14,9 +14,9 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import org.journey.android.R
 import org.journey.android.databinding.FragmentPrivateBinding
 import org.journey.android.diary.PrivateAdapter
-import org.journey.android.diary.PrivateData
-import org.journey.android.diary.ResponseDiaryPrivateData
-import org.journey.android.main.RetrofitService
+import org.journey.android.diary.dto.PrivateData
+import org.journey.android.diary.dto.ResponseDiaryPrivateData
+import org.journey.android.main.model.RetrofitService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

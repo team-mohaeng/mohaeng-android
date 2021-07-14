@@ -8,7 +8,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".reward.RewardFragment">
+        tools:context=".reward.view.RewardFragment">
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/toolbar_reward"

@@ -22,7 +22,6 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.fragment.findNavController
 import org.journey.android.R
 import org.journey.android.base.BaseFragment
-import org.journey.android.course.ctxt
 import org.journey.android.databinding.FragmentChallengeBinding
 
 
@@ -147,10 +146,18 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
             fun checkMission(btnStamp: ImageButton){
                 dialog_image.setImageResource(R.drawable.challenge_stamp_journey)
 
-                var height_img = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 232F, getResources().getDisplayMetrics()).toInt()
-                var width_img = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 160F, getResources().getDisplayMetrics()).toInt()
-                dialog_image.getLayoutParams().height=height_img
-                dialog_image.getLayoutParams().width=width_img
+                var height_img = TypedValue.applyDimension(
+                    TypedValue.COMPLEX_UNIT_DIP,
+                    232F,
+                    resources.displayMetrics
+                ).toInt()
+                var width_img = TypedValue.applyDimension(
+                    TypedValue.COMPLEX_UNIT_DIP,
+                    160F,
+                    resources.displayMetrics
+                ).toInt()
+                dialog_image.layoutParams.height = height_img
+                dialog_image.layoutParams.width = width_img
                 dialog_image.requestLayout()
 
                 dialogTitle.text = "인증하기"
@@ -235,8 +242,16 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
                     resources.displayMetrics
                 ).toInt()
 
-                height = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 140F, getResources().getDisplayMetrics()).toInt()
-                width = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 120F, getResources().getDisplayMetrics()).toInt()
+                height = TypedValue.applyDimension(
+                    TypedValue.COMPLEX_UNIT_DIP,
+                    140F,
+                    resources.displayMetrics
+                ).toInt()
+                width = TypedValue.applyDimension(
+                    TypedValue.COMPLEX_UNIT_DIP,
+                    120F,
+                    resources.displayMetrics
+                ).toInt()
 
 
                 // 스탬프 누르면 인증 팝업 등장
@@ -261,8 +276,16 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
                     resources.displayMetrics
                 ).toInt()
 
-                height = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 140F, getResources().getDisplayMetrics()).toInt()
-                width = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 120F, getResources().getDisplayMetrics()).toInt()
+                height = TypedValue.applyDimension(
+                    TypedValue.COMPLEX_UNIT_DIP,
+                    140F,
+                    resources.displayMetrics
+                ).toInt()
+                width = TypedValue.applyDimension(
+                    TypedValue.COMPLEX_UNIT_DIP,
+                    120F,
+                    resources.displayMetrics
+                ).toInt()
 
 
                 // 스탬프 누르면 인증 팝업 등장
@@ -289,8 +312,16 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
                     resources.displayMetrics
                 ).toInt()
 
-                height = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 124F, getResources().getDisplayMetrics()).toInt()
-                width = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 106F, getResources().getDisplayMetrics()).toInt()
+                height = TypedValue.applyDimension(
+                    TypedValue.COMPLEX_UNIT_DIP,
+                    124F,
+                    resources.displayMetrics
+                ).toInt()
+                width = TypedValue.applyDimension(
+                    TypedValue.COMPLEX_UNIT_DIP,
+                    106F,
+                    resources.displayMetrics
+                ).toInt()
 
                 // 스탬프 누르면 인증 팝업 등장
                 binding.imagebuttonThirdFirst.setOnClickListener {
