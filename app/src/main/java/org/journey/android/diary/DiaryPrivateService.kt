@@ -10,6 +10,6 @@ interface DiaryPrivateService {
     fun getPrivateDiary(
         @Path("year") year: Int,
         @Path("month") month: Int,
-        @Header("Bearer") jwt : String
+        @Header("Bearer") jwt: String
     ) : Call<ResponseDiaryPrivateData>
 }

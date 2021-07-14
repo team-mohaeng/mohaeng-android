@@ -39,17 +39,16 @@ class PrivateAdapter: RecyclerView.Adapter<PrivateAdapter.PrivateViewHolder>(){
 
     override fun getItemCount(): Int = privateDiaryList.size
 
-    class PrivateViewHolder (private val binding : ItemPrivateRecordBinding ) : RecyclerView.ViewHolder(binding.root){
-        fun onBind(privateData: PrivateData)
-        {
+    class PrivateViewHolder (private val binding : ItemPrivateRecordBinding ) : RecyclerView.ViewHolder(binding.root) {
+        fun onBind(privateData: PrivateData) {
             binding.textviewPrivateHashtags.text = privateData.textViewHashTags
             binding.textviewPrivateContent.text = privateData.textViewPrivateContent
             binding.textviewPrivateLikeCount.text = privateData.textViewLikeCount
             binding.textviewPrivateNickname.text = privateData.textViewPrivateNickName
             val multi = MultiTransformation<Bitmap>(
                 BlurTransformation(25),
-                ColorFilterTransformation(Color.argb(80,0,0,0)),
-                RoundedCornersTransformation(100,10)
+                ColorFilterTransformation(Color.argb(80, 0, 0, 0)),
+                RoundedCornersTransformation(100, 10)
             )
             Glide.with(itemView)
                 .load(privateData.imageViewPrivate)

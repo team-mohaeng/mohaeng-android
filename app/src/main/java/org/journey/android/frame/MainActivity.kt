@@ -44,6 +44,7 @@ class MainActivity : AppCompatActivity() {
             } else {
                 val token = task.result
                 val msg = getString(R.string.msg_token_fmt, token)
+                //JourneyRepository.userToken = token.toString()
                 userToken = token.toString()
                 Log.d("fbPractice.Success", msg)
             }

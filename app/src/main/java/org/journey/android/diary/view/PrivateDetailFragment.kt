@@ -32,28 +32,35 @@ class PrivateDetailFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val displaymetricsPrivateDetailFragment = DisplayMetrics()
-        requireActivity().windowManager.defaultDisplay.getMetrics(displaymetricsPrivateDetailFragment)
-        val heightPrivateDetailFragmentDisplay = displaymetricsPrivateDetailFragment.heightPixels * 0.5
-        val widthPrivateDetailFragmentDisplay = displaymetricsPrivateDetailFragment.widthPixels * 0.9
+        requireActivity().windowManager.defaultDisplay.getMetrics(
+            displaymetricsPrivateDetailFragment
+        )
+        val heightPrivateDetailFragmentDisplay =
+            displaymetricsPrivateDetailFragment.heightPixels * 0.5
+        val widthPrivateDetailFragmentDisplay =
+            displaymetricsPrivateDetailFragment.widthPixels * 0.9
         var postNumCurrentPage = 0
         val call: Call<ResponseDiaryPrivateDetailData> = RetrofitService.diaryPrivateDetailService
-            .getPrivateDetailDiary(32, "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiZXA0UmhZcmJUSE9uaHpBUldOVFNTMTpBUEE5MWJIS1pGdkJuUkV1dEEtYzQxSmN6dDBITzVJQkNyMFhzM0VadjFFcUZSVl9jY05semtDbFQtaWxmT3FGTUFWTmFPUFYxaVhIQjIybHhrcHZJRWNTNW4tMjQtZzY2SVR1d0o1aW9aWlJtYVd5R1Q3XzZiUDhlR1BOZHd2SkNwUWxZb1daQlhHVCJ9LCJpYXQiOjE2MjYwODk5OTZ9.fZoVLz1W-C9RNklV0ZPx6yZeysJWfiuOOPhoAlMtG5k")
-        call.enqueue(object : Callback<ResponseDiaryPrivateDetailData>{
+            .getPrivateDetailDiary(
+                32,
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiZXA0UmhZcmJUSE9uaHpBUldOVFNTMTpBUEE5MWJIS1pGdkJuUkV1dEEtYzQxSmN6dDBITzVJQkNyMFhzM0VadjFFcUZSVl9jY05semtDbFQtaWxmT3FGTUFWTmFPUFYxaVhIQjIybHhrcHZJRWNTNW4tMjQtZzY2SVR1d0o1aW9aWlJtYVd5R1Q3XzZiUDhlR1BOZHd2SkNwUWxZb1daQlhHVCJ9LCJpYXQiOjE2MjYwODk5OTZ9.fZoVLz1W-C9RNklV0ZPx6yZeysJWfiuOOPhoAlMtG5k"
+            )
+        call.enqueue(object : Callback<ResponseDiaryPrivateDetailData> {
             override fun onResponse(
                 call: Call<ResponseDiaryPrivateDetailData>,
                 responseDetail: Response<ResponseDiaryPrivateDetailData>
             ) {
-                if(responseDetail.isSuccessful){
+                if (responseDetail.isSuccessful) {
                     val data = responseDetail.body()?.data
                     if (data != null) {
                         postNumCurrentPage = data.postId
-                        binding.textviewPrivateDetailNickname.text=data.nickname
+                        binding.textviewPrivateDetailNickname.text = data.nickname
                         var privateDetailNowDate = data.year + "."
-                        privateDetailNowDate = if(data.month.toInt()<10)
+                        privateDetailNowDate = if (data.month.toInt() < 10)
                             privateDetailNowDate + "0" + data.month + "."
                         else
                             privateDetailNowDate + data.month + "."
-                        if(data.day.toInt()<10)
+                        if (data.day.toInt() < 10)
                             privateDetailNowDate = privateDetailNowDate + "0" + data.day
                         else
                             privateDetailNowDate = privateDetailNowDate + data.day
@@ -71,19 +78,17 @@ class PrivateDetailFragment: Fragment() {
 
 
                         val testHashtagString = data.hashtags.joinToString(" ")
-                        if(testHashtagString.isEmpty())
-                        {
-                            binding.textviewPrivateDetailHashtag.text=testHashtagString
-                        }
-
-                        else if(testHashtagString.length in 1..19)
-                        {
-                            val shortHashtagString = "\n"+testHashtagString
+                        if (testHashtagString.isEmpty()) {
+                            binding.textviewPrivateDetailHashtag.text = testHashtagString
+                        } else if (testHashtagString.length in 1..19) {
+                            val shortHashtagString = "\n" + testHashtagString
                             binding.textviewPrivateDetailHashtag.isVisible = true
                             binding.textviewPrivateDetailHashtag.text = shortHashtagString
-                        }
-                        else if(testHashtagString.length>19){
-                            val longHashtagString = testHashtagString.substring(0,18) + "\n" + testHashtagString.substring(19, testHashtagString.length-1)
+                        } else if (testHashtagString.length > 19) {
+                            val longHashtagString = testHashtagString.substring(
+                                0,
+                                18
+                            ) + "\n" + testHashtagString.substring(19, testHashtagString.length - 1)
                             binding.textviewPrivateDetailHashtag.isVisible = true
                             binding.textviewPrivateDetailHashtag.text = longHashtagString
                         }
@@ -114,10 +119,11 @@ class PrivateDetailFragment: Fragment() {
         binding.buttonPrivateDelete.setOnClickListener()
         {
             val deleteDialog = activity?.let { it1 -> Dialog(it1) }
-            val deleteDialogInflater : LayoutInflater = LayoutInflater.from(activity)
-            val mView : View = deleteDialogInflater.inflate(R.layout.private_delete_message_dialog,null)
-            val back : Button = mView.findViewById(R.id.button_do_not_delete)
-            val delete : Button = mView.findViewById(R.id.button_real_delete)
+            val deleteDialogInflater: LayoutInflater = LayoutInflater.from(activity)
+            val mView: View =
+                deleteDialogInflater.inflate(R.layout.private_delete_message_dialog, null)
+            val back: Button = mView.findViewById(R.id.button_do_not_delete)
+            val delete: Button = mView.findViewById(R.id.button_real_delete)
             val window = deleteDialog?.window
             window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
@@ -125,23 +131,28 @@ class PrivateDetailFragment: Fragment() {
                 deleteDialog.setContentView(mView)
                 deleteDialog.create()
                 deleteDialog.show()
-                deleteDialog.window?.setLayout(widthPrivateDetailFragmentDisplay.toInt(), heightPrivateDetailFragmentDisplay.toInt())
+                deleteDialog.window?.setLayout(
+                    widthPrivateDetailFragmentDisplay.toInt(),
+                    heightPrivateDetailFragmentDisplay.toInt()
+                )
             }
-            back.setOnClickListener{
-                if (deleteDialog != null)
-                {deleteDialog.dismiss()
-                    deleteDialog.cancel()}
+            back.setOnClickListener {
+                if (deleteDialog != null) {
+                    deleteDialog.dismiss()
+                    deleteDialog.cancel()
+                }
             }
             delete.setOnClickListener {
                 val call: Call<Unit> = RetrofitService.diaryDeleteService
-                    .deleteDiary(postNumCurrentPage, "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiZXA0UmhZcmJUSE9uaHpBUldOVFNTMTpBUEE5MWJIS1pGdkJuUkV1dEEtYzQxSmN6dDBITzVJQkNyMFhzM0VadjFFcUZSVl9jY05semtDbFQtaWxmT3FGTUFWTmFPUFYxaVhIQjIybHhrcHZJRWNTNW4tMjQtZzY2SVR1d0o1aW9aWlJtYVd5R1Q3XzZiUDhlR1BOZHd2SkNwUWxZb1daQlhHVCJ9LCJpYXQiOjE2MjYwODk5OTZ9.fZoVLz1W-C9RNklV0ZPx6yZeysJWfiuOOPhoAlMtG5k")
-                call.enqueue(object:Callback<Unit>{
+                    .deleteDiary(
+                        postNumCurrentPage,
+                        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiZXA0UmhZcmJUSE9uaHpBUldOVFNTMTpBUEE5MWJIS1pGdkJuUkV1dEEtYzQxSmN6dDBITzVJQkNyMFhzM0VadjFFcUZSVl9jY05semtDbFQtaWxmT3FGTUFWTmFPUFYxaVhIQjIybHhrcHZJRWNTNW4tMjQtZzY2SVR1d0o1aW9aWlJtYVd5R1Q3XzZiUDhlR1BOZHd2SkNwUWxZb1daQlhHVCJ9LCJpYXQiOjE2MjYwODk5OTZ9.fZoVLz1W-C9RNklV0ZPx6yZeysJWfiuOOPhoAlMtG5k"
+                    )
+                call.enqueue(object : Callback<Unit> {
                     override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
-                        if(response.isSuccessful)
-                        {
+                        if (response.isSuccessful) {
                             //현재 페이지 삭제후 이전 페이지(내 서랍장 페이지)로 이동
-                        }
-                        else{
+                        } else {
 
                         }
                     }

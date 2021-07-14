@@ -9,6 +9,6 @@ interface DiaryDeleteService {
     @DELETE("/api/smallSatisfaction/delete/{postId}")
     fun deleteDiary(
         @Path("postId") postId: Int,
-        @Header("Bearer") jwt : String
+        @Header("Bearer") jwt: String
     ): Call<Unit>
 }

@@ -9,6 +9,6 @@ interface DiaryWriteService {
     @POST("/api/smallSatisfaction/write")
     fun writeDiary(
         @Body body: RequestDiaryWriteData,
-        @Header("Bearer") jwt : String
+        @Header("Bearer") jwt: String
     ): Call<ResponseDiaryWriteData>
 }

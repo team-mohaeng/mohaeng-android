@@ -9,6 +9,6 @@ interface DiaryPrivateDetailService {
     @GET("/api/smallSatisfaction/detail/{postId}")
     fun getPrivateDetailDiary(
         @Path("postId") postId: Int,
-        @Header("Bearer") jwt : String
-    ) : Call<ResponseDiaryPrivateDetailData>
+        @Header("Bearer") jwt: String
+    ): Call<ResponseDiaryPrivateDetailData>
 }

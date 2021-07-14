@@ -3,11 +3,10 @@ package org.journey.android.diary
 data class ResponseDiaryPrivateData(
     val success: Boolean,
     val data: Data?
-){
+) {
     data class Data(
         val myDrawerSmallSatisfactions: List<MyDrawerSmallSatisfaction>?
-    )
-    {
+    ) {
         data class MyDrawerSmallSatisfaction(
             val content: String,
             val day: String,
