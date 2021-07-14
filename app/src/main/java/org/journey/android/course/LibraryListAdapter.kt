@@ -5,10 +5,13 @@ import android.content.Context
 import android.content.DialogInterface
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.media.Image
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
@@ -93,7 +96,6 @@ class LibraryListAdapter :RecyclerView.Adapter<LibraryListAdapter.LibraryListVie
             // 만약에 현재 진행중인 코스가 있다면 변경할래 팝업, 아니라면 코스시작 팝업
             // 완료한 코스라면 이미 완료했다는 팝업
             binding.buttonLibraryChoice.setOnClickListener {
-
                 // Dialog만들기
                 val mDialogView = LayoutInflater.from(ctxt).inflate(R.layout.course_custom_dialog, null)
                 val mBuilder = AlertDialog.Builder(ctxt)
@@ -118,6 +120,9 @@ class LibraryListAdapter :RecyclerView.Adapter<LibraryListAdapter.LibraryListVie
                     if(!libraryState){
                         val dialogTitle = mDialogView.findViewById<TextView>(R.id.textview_dialog_title)
                         dialogTitle.text = "나와 여정을 떠나보겠어?"
+                        val dialogImage = mDialogView.findViewById<ImageView>(R.id.imageview_dialog_image)
+                        dialogImage.setImageResource(R.drawable.library_course_start)
+
                         alertDialog.show()
 
 
@@ -137,6 +142,8 @@ class LibraryListAdapter :RecyclerView.Adapter<LibraryListAdapter.LibraryListVie
                     else{
                         val dialogTitle = mDialogView.findViewById<TextView>(R.id.textview_dialog_title)
                         dialogTitle.text = "쟈기, 지금 포기하는거야?"
+                        val dialogImage = mDialogView.findViewById<ImageView>(R.id.imageview_dialog_image)
+                        dialogImage.setImageResource(R.drawable.library_course_stop)
                         alertDialog.show()
 
                         val noButton = mDialogView.findViewById<AppCompatButton>(R.id.button_dialog_no)

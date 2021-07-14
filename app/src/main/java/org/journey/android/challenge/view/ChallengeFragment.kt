@@ -140,10 +140,19 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
             val dialogTitle = mDialogView.findViewById<TextView>(R.id.textview_dialog_title)
             val dialogButtons = mDialogView.findViewById<ConstraintLayout>(R.id.constraintlayout_dialog_buttons)
             val okButton = mDialogView.findViewById<AppCompatButton>(R.id.button_dialog_ok)
+            val dialog_image = mDialogView.findViewById<ImageView>(R.id.imageview_dialog_image)
 
 
             // 인증하기 버튼 클릭 이벤트
             fun checkMission(btnStamp: ImageButton){
+                dialog_image.setImageResource(R.drawable.challenge_stamp_journey)
+
+                var height_img = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 232F, getResources().getDisplayMetrics()).toInt()
+                var width_img = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 160F, getResources().getDisplayMetrics()).toInt()
+                dialog_image.getLayoutParams().height=height_img
+                dialog_image.getLayoutParams().width=width_img
+                dialog_image.requestLayout()
+
                 dialogTitle.text = "인증하기"
                 okButton.text = "완료"
 
@@ -171,6 +180,8 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
                     
                     // 스탬프 다  인증 완료하면 완료 팝업 등
                     if(stampComplete == stampNumber){
+
+
                         if(courseEnd){
                             dialogTitleCourse.text = "뽀득뽀득 세균 퇴치\n" + " 코스 완료"
                             writeButtonCourse.setOnClickListener {
@@ -224,6 +235,10 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
                     resources.displayMetrics
                 ).toInt()
 
+                height = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 140F, getResources().getDisplayMetrics()).toInt()
+                width = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 120F, getResources().getDisplayMetrics()).toInt()
+
+
                 // 스탬프 누르면 인증 팝업 등장
                 binding.imagebuttonFirstFirst.setOnClickListener {
                     checkMission(binding.imagebuttonFirstFirst)
@@ -246,6 +261,10 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
                     resources.displayMetrics
                 ).toInt()
 
+                height = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 140F, getResources().getDisplayMetrics()).toInt()
+                width = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 120F, getResources().getDisplayMetrics()).toInt()
+
+
                 // 스탬프 누르면 인증 팝업 등장
                 binding.imagebuttonSecondFirst.setOnClickListener {
                     checkMission(binding.imagebuttonSecondFirst)
@@ -258,6 +277,7 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
                 binding.constraintlayoutSubFirst.visibility = View.GONE
                 binding.constraintlayoutSubSecond.visibility = View.GONE
                 binding.constraintlayoutSubThird.visibility = View.VISIBLE
+
                 height = TypedValue.applyDimension(
                     TypedValue.COMPLEX_UNIT_DIP,
                     104F,
@@ -268,6 +288,9 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
                     104F,
                     resources.displayMetrics
                 ).toInt()
+
+                height = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 124F, getResources().getDisplayMetrics()).toInt()
+                width = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 106F, getResources().getDisplayMetrics()).toInt()
 
                 // 스탬프 누르면 인증 팝업 등장
                 binding.imagebuttonThirdFirst.setOnClickListener {
