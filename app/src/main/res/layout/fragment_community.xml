@@ -73,6 +73,73 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textview_happiness_explanation" />
 
+        <ImageView
+            android:id="@+id/imageview_graphic"
+            android:layout_width="168dp"
+            android:layout_height="170dp"
+            android:layout_marginLeft="68dp"
+            android:background="@drawable/graphichappy"
+            app:layout_constraintBottom_toTopOf="@id/view_browse"
+            app:layout_constraintStart_toEndOf="@id/button_happiness_write" />
+
+        <View
+            android:id="@+id/view_browse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/bottom_sheet_radius"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/button_happiness_write">
+
+        </View>
+
+        <TextView
+            android:id="@+id/textview_browse_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/spoqahansansneobold"
+            android:text="@string/total_user_format"
+            android:textColor="@color/journey_black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/view_browse" />
+
+        <TextView
+            android:id="@+id/textview_update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="140dp"
+            android:fontFamily="@font/spoqahansansneoregular"
+            android:text="최신 순"
+            android:textColor="@color/journey_black"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/textview_browse_user"
+            app:layout_constraintStart_toEndOf="@id/textview_browse_user" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/checkbox_select_update"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:background="@drawable/ic_frame107"
+            app:layout_constraintBottom_toBottomOf="@id/textview_update"
+            app:layout_constraintStart_toEndOf="@id/textview_update"
+            app:layout_constraintTop_toTopOf="@id/textview_update" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview_community_record"
+            android:layout_width="390dp"
+            android:layout_height="727dp"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textview_browse_user"
+            app:spanCount="2"
+            tools:listitem="@layout/item_community_record" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
