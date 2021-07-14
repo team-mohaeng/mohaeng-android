@@ -139,7 +139,7 @@
         tools:layout="@layout/fragment_library" />
     <fragment
         android:id="@+id/signupFirstFragment"
-        android:name="org.journey.android.signup.SignupFirstFragment"
+        android:name="org.journey.android.signup.view.SignupFirstFragment"
         android:label="fragment_signup_first"
         tools:layout="@layout/fragment_signup_first" >
         <action
@@ -148,7 +148,7 @@
     </fragment>
     <fragment
         android:id="@+id/signupSecondFragment"
-        android:name="org.journey.android.signup.SignupSecondFragment"
+        android:name="org.journey.android.signup.view.SignupSecondFragment"
         android:label="fragment_signup_second"
         tools:layout="@layout/fragment_signup_second" >
         <action
