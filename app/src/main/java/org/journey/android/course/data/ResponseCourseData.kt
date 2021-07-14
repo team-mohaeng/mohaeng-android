@@ -10,13 +10,13 @@ data class  CourseDatasData(
 )
 
 data class CoursesData(
-    val id : Int,
-    val situation : Int,
-    val title : String,
-    val description : String,
-    val totalDays : Int,
-    val property : Int,
-    val challenges : List<ChallengesData>
+    val id: Int,
+    val situation: Int,
+    val title: String,
+    val description: String,
+    val totalDays: Int,
+    val property: Int,
+    val challenges: List<ChallengesData>
 )
 
 data class ChallengesData(

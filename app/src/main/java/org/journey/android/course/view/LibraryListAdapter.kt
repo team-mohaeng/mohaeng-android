@@ -190,7 +190,7 @@ class LibraryListAdapter :RecyclerView.Adapter<LibraryListAdapter.LibraryListVie
         // 서버 연결
         private fun selectCourse(id: Int) {
             ServiceCreator.courseChooseService.putCourseData(
-                userJwt,id
+                userJwt, id
             ).enqueue(object : Callback<ResponseChooseData> {
                 override fun onFailure(call: Call<ResponseChooseData>, t: Throwable) {
                     Log.d("통신 실패", "${t}")

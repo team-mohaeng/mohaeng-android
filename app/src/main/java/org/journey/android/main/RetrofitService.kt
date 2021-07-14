@@ -12,9 +12,9 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitService {
-    private const val BASE_URL="http://3.36.55.247:5000"
+    private const val BASE_URL = "http://3.36.55.247:5000"
 
-    val retrofit : Retrofit =
+    val retrofit: Retrofit =
         Retrofit.Builder()
             .baseUrl(BASE_URL)
             .client(OkHttpClient())
@@ -23,7 +23,7 @@ object RetrofitService {
             .build()
 
     val diaryWriteService: DiaryWriteService = retrofit.create(DiaryWriteService::class.java)
-    val mainService : MainApi = retrofit.create(MainApi::class.java)
+    val mainService: MainApi = retrofit.create(MainApi::class.java)
     val diaryPrivateDetailService: DiaryPrivateDetailService =
         retrofit.create(DiaryPrivateDetailService::class.java)
     val diaryPrivateService: DiaryPrivateService = retrofit.create(DiaryPrivateService::class.java)

@@ -11,14 +11,14 @@ import retrofit2.http.Path
 interface ChallengeService {
     @GET("/api/challenges/{courseId}")
     fun getChallengeData(
-        @Header("Bearer") jwt : String,
-        @Path("courseId") courseId : Int
-    ) : Call<ResponseChallengeData>
+        @Header("Bearer") jwt: String,
+        @Path("courseId") courseId: Int
+    ): Call<ResponseChallengeData>
 
     @PUT("/api/challenges/{courseId}/{challengeId}")
     fun putChallengeData(
-        @Header("Bearer") jwt : String,
-        @Path("courseId") courseId : Int,
-        @Path("challengeId") challengeId : Int
-    ) : Call<ResponseStampData>
+        @Header("Bearer") jwt: String,
+        @Path("courseId") courseId: Int,
+        @Path("challengeId") challengeId: Int
+    ): Call<ResponseStampData>
 }

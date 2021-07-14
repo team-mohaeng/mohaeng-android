@@ -34,6 +34,8 @@ import retrofit2.Response
 
 
 class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
+    
+    //private var _binding: FragmentChallengeBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -44,20 +46,28 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
 
     // 인증 개수 저장하는 변수
     private var stampNumber = 3
+
     // 완료한 미션 개수를 저장하는 변수
     private var stampComplete = 0
+
     // 코스 완료 여부 알려주는 변수
     private var courseEnd = false
+
     // 코스 전체 챌린지 개수
     private var courseDays = 1
+
     // 현재 코스 번호
     private var courseNumber = 1
+
     // courseId
     private var userCourseId = 0
+
     // challengeId
     private var userChallengeId = 0
+
     // journey popup msg
     private var journeyMsg = ""
+
     // journey end popup msg
     private var journeyEndMsg = ""
 
@@ -90,8 +100,8 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
     }
 
     // 챌린지 시작 여부에 따라 다른 뷰를 보여줌
-    fun selectChallengeView(){
-        if(hasCourse != 0){
+    fun selectChallengeView() {
+        if (hasCourse != 0) {
             setRetrofit()
 
             binding.constraintlayoutChallengeGone.visibility = View.GONE
@@ -101,7 +111,8 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
             var width: Int = 0
 
             // 챌린지 완료 후 나타나는 Dialog만들기
-            val mDialogViewEnd = LayoutInflater.from(this.context).inflate(R.layout.challenge_custom_dialog, null)
+            val mDialogViewEnd =
+                LayoutInflater.from(this.context).inflate(R.layout.challenge_custom_dialog, null)
             val mBuilderEnd = AlertDialog.Builder(this.context)
                 .setView(mDialogViewEnd)
             val alertDialogEnd = mBuilderEnd.create()
@@ -152,7 +163,7 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
 
 
             // 인증하기 버튼 클릭 이벤트
-            fun checkMission(btnStamp: ImageButton){
+            fun checkMission(btnStamp: ImageButton) {
                 dialog_image.setImageResource(R.drawable.challenge_stamp_journey)
 
 //                var height_img = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 232F, getResources().getDisplayMetrics()).toInt()
@@ -392,7 +403,7 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
         return FragmentChallengeBinding.inflate(inflater, container, false)
     }
 
-    fun setRetrofit(){
+    fun setRetrofit() {
         RetrofitService.challengeService.getChallengeData(
             userJwt,
             //"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiZXA0UmhZcmJUSE9uaHpBUldOVFNTMTpBUEE5MWJIS1pGdkJuUkV1dEEtYzQxSmN6dDBITzVJQkNyMFhzM0VadjFFcUZSVl9jY05semtDbFQtaWxmT3FGTUFWTmFPUFYxaVhIQjIybHhrcHZJRWNTNW4tMjQtZzY2SVR1d0o1aW9aWlJtYVd5R1Q3XzZiUDhlR1BOZHd2SkNwUWxZb1daQlhHVCJ9LCJpYXQiOjE2MjYwODk5OTZ9.fZoVLz1W-C9RNklV0ZPx6yZeysJWfiuOOPhoAlMtG5k",
@@ -409,28 +420,32 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
                 // 통신 성공
                 if (response.isSuccessful) {   // statusCode가 200-300 사이일 때, 응답 body 이용 가능
                     if (true) {
-                        Log.d("서버 성공", "Challenge 성공"+ userCourseStatus)
+                        Log.d("서버 성공", "Challenge 성공" + userCourseStatus)
                         Log.d(
                             "서버", response.body()!!.toString()
                         )
 
-                        for (i in 0 until response.body()!!.data!!.course!!.challenges.size){
+                        for (i in 0 until response.body()!!.data!!.course!!.challenges.size) {
                             if (response.body()!!.data!!.course!!.challenges[i].situation == 1) {
-                                stampNumber = response.body()!!.data!!.course!!.challenges[i].totalStamp
-                                stampComplete = response.body()!!.data!!.course!!.challenges[i].currentStamp
+                                stampNumber =
+                                    response.body()!!.data!!.course!!.challenges[i].totalStamp
+                                stampComplete =
+                                    response.body()!!.data!!.course!!.challenges[i].currentStamp
                                 courseNumber = response.body()!!.data!!.course!!.totalDays
                                 courseDays = response.body()!!.data!!.course!!.challenges[i].id
                                 userCourseId = response.body()!!.data!!.course!!.id
                                 userChallengeId = response.body()!!.data!!.course!!.id
-                                journeyMsg = response.body()!!.data!!.course!!.challenges[i].userMents[0]
-                                journeyEndMsg = response.body()!!.data!!.course!!.challenges[i].userMents[1]
+                                journeyMsg =
+                                    response.body()!!.data!!.course!!.challenges[i].userMents[0]
+                                journeyEndMsg =
+                                    response.body()!!.data!!.course!!.challenges[i].userMents[1]
                                 challengeType = response.body()!!.data!!.course!!.property
                                 break
                             }
                         }
                     }
                 } else {
-                    Log.d("서버 실패"+ userCourseStatus, "${response.body()}")
+                    Log.d("서버 실패" + userCourseStatus, "${response.body()}")
                     Toast.makeText(
                         context,
                         "만료된 토큰입니다. 우리 아기 고앵이 토큰 하나 더 받아와 쪽-",
@@ -441,8 +456,8 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
         })
     }
 
-    fun setStampRetrofit(courseId: Int, challengeId: Int){
-       RetrofitService.challengeService.putChallengeData(
+    fun setStampRetrofit(courseId: Int, challengeId: Int) {
+        RetrofitService.challengeService.putChallengeData(
             userJwt,
             courseId,
             challengeId
@@ -464,7 +479,7 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
                         )
                     }
                 } else {
-                    Log.d("서버 실패"+ userCourseStatus, "${response.body()}")
+                    Log.d("서버 실패" + userCourseStatus, "${response.body()}")
                     Toast.makeText(
                         context,
                         "해당 id의 코스(챌린지)가 존재하지 않습니다",
@@ -474,5 +489,4 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
             }
         })
     }
-
 }

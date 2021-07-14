@@ -11,7 +11,7 @@ import retrofit2.http.Path
 interface CourseChooseService {
     @PUT("/api/courses/{id}")
     fun putCourseData(
-        @Header("Bearer") jwt : String,
-        @Path("id") id : Int
-    ) : Call<ResponseChooseData>
+        @Header("Bearer") jwt: String,
+        @Path("id") id: Int
+    ): Call<ResponseChooseData>
 }
