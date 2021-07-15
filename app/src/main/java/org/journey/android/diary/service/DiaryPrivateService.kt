@@ -9,8 +9,8 @@ import retrofit2.http.Path
 interface DiaryPrivateService {
     @GET("/api/smallSatisfaction/myDrawer/{year}/{month}")
     fun getPrivateDiary(
-        @Path("year") year: Int,
-        @Path("month") month: Int,
+        @Path("year") year: String,
+        @Path("month") month: String,
         @Header("Bearer") jwt: String
     ) : Call<ResponseDiaryPrivateData>
 }
