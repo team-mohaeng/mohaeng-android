@@ -11,6 +11,8 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment.findNavController
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import org.journey.android.R
 import org.journey.android.databinding.FragmentPrivateDetailBinding
@@ -154,9 +156,8 @@ class PrivateDetailFragment: Fragment() {
                 call.enqueue(object : Callback<Unit> {
                     override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
                         if (response.isSuccessful) {
-                            //현재 페이지 삭제후 이전 페이지(내 서랍장 페이지)로 이동
-                        } else {
 
+                        } else {
                         }
                     }
 
