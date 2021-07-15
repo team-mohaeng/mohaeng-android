@@ -20,6 +20,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 var userId = ""
+var userIdTemp = ""
 var userNumber = 0
 
 class FindPassWordOneFragment : Fragment() {
@@ -54,7 +55,9 @@ class FindPassWordOneFragment : Fragment() {
     }
 
     fun clickEvent() {
+
         userId = binding.edittextInputEmail.text.toString()
+
         binding.buttonFindPasswordOneNext.setOnClickListener {
 //            sendAuthEmailRetrofit()
             EmailCreator.emailApiService.findPW(
@@ -66,6 +69,7 @@ class FindPassWordOneFragment : Fragment() {
                 ) {
                     if(response.isSuccessful){
                         userNumber = response.body()!!.data!!.number
+                        userIdTemp=binding.edittextInputEmail.text.toString()
                         findNavController().navigate(R.id.action_findPassWordOneFragment_to_findPassWordTwoFragment)
                     }
                     else{

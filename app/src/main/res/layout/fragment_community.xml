@@ -12,7 +12,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintlayout_frame_community"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/journey_pink3"
         tools:context=".community.view.CommunityFragment">
 
@@ -129,9 +129,10 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview_community_record"
-            android:layout_width="390dp"
-            android:layout_height="727dp"
-            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:paddingVertical="12dp"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"

@@ -5,15 +5,24 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import org.journey.android.R
 import org.journey.android.databinding.FragmentFindPasswordThreeBinding
+import org.journey.android.findpw.dto.EmailCreator
+import org.journey.android.findpw.dto.RequestNewPasswordData
+import org.journey.android.findpw.dto.ResponseNewPasswordData
+import org.journey.android.login.view.userJwt
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class FindPassWordThreeFragment: Fragment() {
@@ -30,7 +39,6 @@ class FindPassWordThreeFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        clickEvent()
         val reg = Regex("^(?=.*[A-Za-z])(?=.*[0-9]).{7,16}.$")
 
         binding.edittextInputNewPassword.addTextChangedListener(object : TextWatcher {
@@ -109,12 +117,38 @@ class FindPassWordThreeFragment: Fragment() {
                     PasswordTransformationMethod.getInstance()
         }
 
-
-    }
-
-    fun clickEvent() {
         binding.buttonFindPasswordThreeNext.setOnClickListener {
-            findNavController().navigate(R.id.action_findPassWordThreeFragment_to_loginFragment)
+            if(binding.buttonFindPasswordThreeNext.isSelected)
+            {
+                val requestNewPasswordData = RequestNewPasswordData(
+                userId = userIdTemp,
+                userPw = binding.edittextInputNewPassword.text.toString()
+                )
+                val call: Call<ResponseNewPasswordData> = EmailCreator.newPasswordService
+                    .changePassword(requestNewPasswordData)
+                call.enqueue(object:Callback<ResponseNewPasswordData>{
+                    override fun onResponse(
+                        call: Call<ResponseNewPasswordData>,
+                        response: Response<ResponseNewPasswordData>
+                    ) {
+                        if(response.isSuccessful)
+                        {
+                            val data = response.body()?.data
+                            if (data != null) {
+                                userJwt=data.jwt
+                            }
+                            Toast.makeText(requireContext(), "비밀번호 변경 성공!", Toast.LENGTH_SHORT).show()
+                        }
+                        else{
+                            Log.d("findPW","실패")
+                        }
+                    }
+                    override fun onFailure(call: Call<ResponseNewPasswordData>, t: Throwable) {
+                        Log.d("findPW","실패2")
+                    }
+                })
+                findNavController().navigate(R.id.action_findPassWordThreeFragment_to_loginFragment)
+            }
         }
     }
 }
