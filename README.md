@@ -1,4 +1,12 @@
+#  쟈니 <img src="https://user-images.githubusercontent.com/28949235/125798720-ee361799-6821-4460-bd8d-7641254dfb80.png" align=left width=100>
+<br>
+<br>
 
+![쟈니보드흰버전](https://user-images.githubusercontent.com/28949235/125825984-5d6087d6-e8bd-4b4b-8ad8-004736141a6d.png)
+<details>
+	<summary><b>잃어버린 당신의 일상을 깨워줄 행복 메이트, 쟈니(Journey)</b><br></summary>
+	쟈니는 일상에서 중요하지만 잊고 살아가는 것들을 끊임없이 일깨워주는 ‘행복 찾기’ 서비스입니다.  재미있는 콘셉트의 캐릭터가 사용자의 일상에 쉽게 다가감으로써 행복을 찾아내는 습관이 생길 수 있도록 도와줍니다.  푸시 알림으로 일상의 안부 메시지를 받아보고, 하루 단위 랜덤 챌린지를 완수하여 나만의 소확행을 기록하고 공유해보세요 . 
+	</details>
 
 <h1 align="center">🌹 쉿 나의 아기고앵이로이드 🌹</h1>
 
