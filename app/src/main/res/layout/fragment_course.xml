@@ -23,7 +23,7 @@
             android:layout_height="20dp"
             android:layout_marginStart="18dp"
             android:layout_marginTop="36dp"
-            android:background="@color/journey_pink2"
+            android:background="@drawable/ic_gnbicnback"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="36dp"
             android:fontFamily="@font/spoqahansansneoregular"
-            android:text="현재 진행중인 코스"
+            android:text="진행중인 코스"
             android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"

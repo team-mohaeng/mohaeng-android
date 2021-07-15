@@ -49,7 +49,7 @@ class SignupThirdFragment : Fragment() {
 
         //setClickEvent()
         setBtnEvent()
-
+        popBackPage()
         binding.edittextSignupNickname.addTextChangedListener(object : TextWatcher {
             val reg = Regex("^(?![0-9])(?=.*[가-힣]).{1,6}.$")
 
@@ -151,6 +151,12 @@ class SignupThirdFragment : Fragment() {
     fun setClickEvent() {
         binding.buttonSignupNext.setOnClickListener {
             findNavController().navigate(R.id.action_signupThirdFragment_to_loginFragment)
+        }
+    }
+
+    fun popBackPage() {
+        binding.imagebuttonSignupBack.setOnClickListener {
+            findNavController().popBackStack()
         }
     }
 

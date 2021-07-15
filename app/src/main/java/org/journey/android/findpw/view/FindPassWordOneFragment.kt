@@ -18,8 +18,11 @@ import org.journey.android.util.enqueueUtil
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+
+var userId = ""
 var userIdTemp = ""
 var userNumber = 0
+
 class FindPassWordOneFragment : Fragment() {
     private lateinit var binding: FragmentFindPasswordOneBinding
     override fun onCreateView(
@@ -52,6 +55,9 @@ class FindPassWordOneFragment : Fragment() {
     }
 
     fun clickEvent() {
+
+        userId = binding.edittextInputEmail.text.toString()
+
         binding.buttonFindPasswordOneNext.setOnClickListener {
 //            sendAuthEmailRetrofit()
             EmailCreator.emailApiService.findPW(

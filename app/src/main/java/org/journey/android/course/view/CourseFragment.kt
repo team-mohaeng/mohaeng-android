@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import org.journey.android.R
 import org.journey.android.course.data.CourseListInfo
 import org.journey.android.course.api.ServiceCreator
@@ -43,10 +44,10 @@ class CourseFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        pressedBack()
 
         courseListAdapter = CourseListAdapter()
         binding.recyclerviewCourse.adapter = courseListAdapter
-
         // 서버 연결 o
         loadDatas()
 
@@ -111,8 +112,14 @@ class CourseFragment : Fragment() {
          */
     }
 
+    fun pressedBack() {
+        binding.imagebuttonCourseBack.setOnClickListener {
+            findNavController().popBackStack()
+        }
+    }
+
     // 서버 연결
-    private fun loadDatas(){
+    private fun loadDatas() {
         ServiceCreator.courseService.getCourseData(
             userJwt
             //"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiZXA0UmhZcmJUSE9uaHpBUldOVFNTMTpBUEE5MWJIS1pGdkJuUkV1dEEtYzQxSmN6dDBITzVJQkNyMFhzM0VadjFFcUZSVl9jY05semtDbFQtaWxmT3FGTUFWTmFPUFYxaVhIQjIybHhrcHZJRWNTNW4tMjQtZzY2SVR1d0o1aW9aWlJtYVd5R1Q3XzZiUDhlR1BOZHd2SkNwUWxZb1daQlhHVCJ9LCJpYXQiOjE2MjYwODk5OTZ9.fZoVLz1W-C9RNklV0ZPx6yZeysJWfiuOOPhoAlMtG5k"

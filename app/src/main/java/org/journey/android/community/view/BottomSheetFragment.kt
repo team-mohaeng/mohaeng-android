@@ -35,8 +35,6 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
     }
 
     private fun setAdapter(){
-
-
         val call: Call<ResponseCommunityData> = RetrofitService.communityService
             .getCommunityDiary("date",userJwt)
 
@@ -45,18 +43,26 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
                 call: Call<ResponseCommunityData>,
                 response: Response<ResponseCommunityData>
             ) {
+                Log.d("서버 성공", "community bottom")
+                Log.d("서버 성공", response.toString())
                 if(response.isSuccessful)
                 {
+                    Log.d("서버 성공", "community bottom")
+                    Log.d("서버 성공", response.body()?.data.toString())
                     val communityData = response.body()?.data
                     binding.recyclerviewCommunityRecord.adapter = bottomSheetAdapter
                     if (communityData != null) {
+
                         for(i in 0 until communityData.userCount!!) {
+
                             bottomSheetAdapter.bottomList.addAll(
                                 listOf<BottomSheetData>(
                                     BottomSheetData(
-                                        tags=communityData.community[i].hashtags.joinToString(" "),
-                                        second_tags=communityData.community[i].hashtags.joinToString(""),
-                                        diary=communityData.community[i].content,
+                                        tags = communityData.community[i].hashtags.joinToString(" "),
+                                        second_tags = communityData.community[i].hashtags.joinToString(
+                                            ""
+                                        ),
+                                        diary = communityData.community[i].content,
                                         user_id = communityData.community[i].nickname,
                                         user_prefer = communityData.community[i].likeCount,
                                         has_like = communityData.community[i].hasLike,
@@ -66,7 +72,8 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
                             )
                         }
                     }
-
+                    // 데이터 변경되었으니 업데이트해라
+                    bottomSheetAdapter.notifyDataSetChanged()
 
                 }
                 else{
