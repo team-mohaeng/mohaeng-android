@@ -101,6 +101,7 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
 
     // 챌린지 시작 여부에 따라 다른 뷰를 보여줌
     fun selectChallengeView() {
+        Log.d("challenge",hasCourse.toString())
         if (hasCourse != 0) {
             setRetrofit()
 
@@ -216,6 +217,12 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
                     // 스탬프 다  인증 완료하면 완료 팝업 등
                     if(stampComplete == stampNumber){
                         binding.textviewJourneyTalk.text = journeyEndMsg
+
+                        when(stampNumber){
+                            1 -> binding.imageviewBackFirst.visibility = View.VISIBLE
+                            2 -> binding.imageviewBackSecond.visibility = View.VISIBLE
+                            3 -> binding.imageviewBackThird.visibility = View.VISIBLE
+                        }
 
                         if(courseEnd){
                             dialogTitleCourse.text = "뽀득뽀득 세균 퇴치\n" + " 코스 완료"
