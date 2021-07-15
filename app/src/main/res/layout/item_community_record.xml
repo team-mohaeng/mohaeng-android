@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="12dp"
-        android:layout_marginHorizontal="14dp"
+        android:layout_height="208dp"
+        android:layout_marginVertical="6dp"
+        android:layout_marginHorizontal="6dp"
         android:background="@drawable/item_record_radius">
 
         <ImageView
@@ -17,11 +17,12 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
+            android:scaleType="fitXY"
             />
 
         <TextView
             android:id="@+id/textview_tags"
-            android:layout_width="wrap_content"
+            android:layout_width="156dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="14dp"
             android:fontFamily="@font/spoqahansansneoregular"
@@ -33,20 +34,8 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textview_second_tags"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="#여름"
-            android:textSize="14sp"
-            android:fontFamily="@font/spoqahansansneoregular"
-            android:layout_marginLeft="2dp"
-            android:textColor="@color/white"
-            app:layout_constraintStart_toEndOf="@id/textview_tags"
-            app:layout_constraintBottom_toBottomOf="@id/textview_tags"/>
-
-        <TextView
             android:id="@+id/textview_record_content"
-            android:layout_width="wrap_content"
+            android:layout_width="156dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="14dp"
             android:layout_marginTop="15dp"
