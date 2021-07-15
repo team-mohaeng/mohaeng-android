@@ -10,4 +10,5 @@ object EmailCreator {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
     val emailApiService: EmailApiService = retrofit.create(EmailApiService::class.java)
+    val newPasswordService : NewPasswordService = retrofit.create(NewPasswordService::class.java)
 }
