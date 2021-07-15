@@ -240,7 +240,7 @@ class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
 
     fun setRetrofit(){
         uploadGallery()
-
+/*
         val file = File(path)
         val requestFile = RequestBody.create("multipart/form-data".toMediaTypeOrNull(), file)
         val uploadFile = MultipartBody.Part.createFormData("mainImage", file.name, requestFile);
@@ -279,6 +279,8 @@ class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
             }
 
         })
+
+ */
     }
 
     companion object {
