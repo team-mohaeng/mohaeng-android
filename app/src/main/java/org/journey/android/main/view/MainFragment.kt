@@ -116,16 +116,16 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
 
                                     when (response.body()!!.data!!.course!!.property) {
                                         0 -> {
-                                            binding.buttonMainUser.setCompoundDrawablesWithIntrinsicBounds(R.drawable.course_health, 0, 0, 0)
+                                            binding.buttonMainUser.setCompoundDrawablesWithIntrinsicBounds(R.drawable.main_health, 0, 0, 0)
                                         }
                                         1 -> {
-                                            binding.buttonMainUser.setCompoundDrawablesWithIntrinsicBounds(R.drawable.course_mamoey,0,0,0)
+                                            binding.buttonMainUser.setCompoundDrawablesWithIntrinsicBounds(R.drawable.main_memory,0,0,0)
                                         }
                                         2 -> {
-                                            binding.buttonMainUser.setCompoundDrawablesWithIntrinsicBounds(R.drawable.course_detect,0,0,0)
+                                            binding.buttonMainUser.setCompoundDrawablesWithIntrinsicBounds(R.drawable.main_detect,0,0,0)
                                         }
                                         3 -> {
-                                            binding.buttonMainUser.setCompoundDrawablesWithIntrinsicBounds(R.drawable.course_challenge,0,0,0)
+                                            binding.buttonMainUser.setCompoundDrawablesWithIntrinsicBounds(R.drawable.main_challenge,0,0,0)
                                         }
                                     }
                                 }
