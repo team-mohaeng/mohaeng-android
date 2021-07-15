@@ -111,6 +111,9 @@
         <action
             android:id="@+id/action_diarySecondFragment_to_diaryFirstFragment"
             app:destination="@id/diaryFirstFragment" />
+        <action
+            android:id="@+id/action_diarySecondFragment_to_communityFragment"
+            app:destination="@id/communityFragment" />
     </fragment>
     <fragment
         android:id="@+id/rewardFragment"

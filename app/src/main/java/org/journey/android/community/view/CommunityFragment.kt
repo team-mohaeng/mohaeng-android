@@ -227,3 +227,4 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
         }
     }
 }
+
