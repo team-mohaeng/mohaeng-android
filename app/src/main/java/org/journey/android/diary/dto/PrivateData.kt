@@ -6,5 +6,6 @@ data class PrivateData(
     val textViewPrivateContent: String,
     val textViewPrivateNickName: String,
     val imageViewPrivate: String,
-    val textViewLikeCount: String
+    val textViewLikeCount: String,
+    val hasLike : Boolean
 )

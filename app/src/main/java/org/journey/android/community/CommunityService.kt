@@ -8,7 +8,7 @@ import retrofit2.http.Path
 interface CommunityService {
     @GET("/api/smallSatisfaction/community/{sort}")
     fun getCommunityDiary(
-        @Path("sort") sort: Int,
+        @Path("sort") sort: String,
         @Header("Bearer") jwt: String
     ): Call<ResponseCommunityData>
 }

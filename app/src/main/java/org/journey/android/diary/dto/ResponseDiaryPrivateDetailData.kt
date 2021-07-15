@@ -9,14 +9,15 @@ data class ResponseDiaryPrivateDetailData(
         val nickname: String,
         val postId: Int,
         val mainImage: String,
-        val moodImage: String,
+        val mood: Int,
         val hashtags: List<String>,
         val content: String,
         val likeCount: Int,
         val hasLike: Boolean,
         val year: String,
         val month: String,
-        val day: String
+        val day: String,
+        val week: String
     )
 }
 

@@ -16,6 +16,7 @@ import org.journey.android.R
 import org.journey.android.base.BaseFragment
 import org.journey.android.community.ResponseCommunityData
 import org.journey.android.databinding.FragmentCommunityBinding
+import org.journey.android.login.view.userJwt
 import org.journey.android.main.model.RetrofitService
 import org.journey.android.util.OnSwipeTouchListener
 import retrofit2.Call
@@ -40,9 +41,10 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
         setButtonEvent()
         setUIListener()
 
+
         //서버 연결해서 happinessStatus와 몇명이 소확행 피드에 올렸는지 받아옴
         val call: Call<ResponseCommunityData> = RetrofitService.communityService
-            .getCommunityDiary(1,"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiZXA0UmhZcmJUSE9uaHpBUldOVFNTMTpBUEE5MWJIS1pGdkJuUkV1dEEtYzQxSmN6dDBITzVJQkNyMFhzM0VadjFFcUZSVl9jY05semtDbFQtaWxmT3FGTUFWTmFPUFYxaVhIQjIybHhrcHZJRWNTNW4tMjQtZzY2SVR1d0o1aW9aWlJtYVd5R1Q3XzZiUDhlR1BOZHd2SkNwUWxZb1daQlhHVCJ9LCJpYXQiOjE2MjYwODk5OTZ9.fZoVLz1W-C9RNklV0ZPx6yZeysJWfiuOOPhoAlMtG5k")
+            .getCommunityDiary("date", userJwt)
 
         call.enqueue(object: Callback<ResponseCommunityData> {
             override fun onResponse(

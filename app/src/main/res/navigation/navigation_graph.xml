@@ -108,6 +108,9 @@
         <action
             android:id="@+id/action_diarySecondFragment_to_privateDetailFragment"
             app:destination="@id/privateDetailFragment" />
+        <action
+            android:id="@+id/action_diarySecondFragment_to_diaryFirstFragment"
+            app:destination="@id/diaryFirstFragment" />
     </fragment>
     <fragment
         android:id="@+id/rewardFragment"
@@ -190,5 +193,14 @@
         <action
             android:id="@+id/action_findPassWordThreeFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/privateFragment"
+        android:name="org.journey.android.diary.view.PrivateFragment"
+        android:label="PrivateFragment"
+        tools:layout="@layout/fragment_private">
+        <action
+            android:id="@+id/action_privateFragment_to_communityFragment"
+            app:destination="@id/communityFragment" />
     </fragment>
 </navigation>

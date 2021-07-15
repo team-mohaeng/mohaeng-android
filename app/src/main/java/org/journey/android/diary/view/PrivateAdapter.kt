@@ -56,6 +56,11 @@ class PrivateAdapter: RecyclerView.Adapter<PrivateAdapter.PrivateViewHolder>(){
                 .load(privateData.imageViewPrivate)
                 .apply(RequestOptions.bitmapTransform(multi))
                 .into(binding.imageviewRecyclerviewBackground)
+            if(privateData.hasLike)
+            {
+                binding.buttonImagePrivate.setTextColor(Color.parseColor(R.color.journey_pink2.toString()))
+                binding.buttonImagePrivate.setBackgroundResource(R.drawable.ic_icnheartfull)
+            }
         }
     }
 }

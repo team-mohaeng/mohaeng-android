@@ -19,6 +19,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
@@ -151,6 +152,7 @@ class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
                     binding.buttonCompelete.isSelected = false
             }
         })
+
         uploadGallery()
 
             binding.buttonCompelete.setOnClickListener{
@@ -171,6 +173,10 @@ class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
                     alertDialogDiarySecondFragment.show()
                     alertDialogDiarySecondFragment.window?.setLayout(widthDiarySecondDisplay.toInt(), heightDiarySecondDisplay.toInt())
                 }
+            }
+
+            binding.imagebuttonCourseBackSecond.setOnClickListener {
+                findNavController().navigate(R.id.action_diarySecondFragment_to_diaryFirstFragment)
             }
     }
 

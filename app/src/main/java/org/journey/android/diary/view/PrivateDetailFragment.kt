@@ -19,6 +19,7 @@ import org.journey.android.databinding.FragmentPrivateDetailBinding
 import org.journey.android.diary.ResponseDiaryDislikeData
 import org.journey.android.diary.ResponseDiaryLikeData
 import org.journey.android.diary.dto.ResponseDiaryPrivateDetailData
+import org.journey.android.login.view.userJwt
 import org.journey.android.main.model.RetrofitService
 import retrofit2.Call
 import retrofit2.Callback
@@ -36,6 +37,7 @@ class PrivateDetailFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        var journeyMood = 0
         val displaymetricsPrivateDetailFragment = DisplayMetrics()
         requireActivity().windowManager.defaultDisplay.getMetrics(
             displaymetricsPrivateDetailFragment
@@ -47,8 +49,8 @@ class PrivateDetailFragment: Fragment() {
         var postNumCurrentPage = 0
         val call: Call<ResponseDiaryPrivateDetailData> = RetrofitService.diaryPrivateDetailService
             .getPrivateDetailDiary(
-                32,
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiZXA0UmhZcmJUSE9uaHpBUldOVFNTMTpBUEE5MWJIS1pGdkJuUkV1dEEtYzQxSmN6dDBITzVJQkNyMFhzM0VadjFFcUZSVl9jY05semtDbFQtaWxmT3FGTUFWTmFPUFYxaVhIQjIybHhrcHZJRWNTNW4tMjQtZzY2SVR1d0o1aW9aWlJtYVd5R1Q3XzZiUDhlR1BOZHd2SkNwUWxZb1daQlhHVCJ9LCJpYXQiOjE2MjYwODk5OTZ9.fZoVLz1W-C9RNklV0ZPx6yZeysJWfiuOOPhoAlMtG5k"
+                1,
+                userJwt
             )
         call.enqueue(object : Callback<ResponseDiaryPrivateDetailData> {
             override fun onResponse(
@@ -69,17 +71,21 @@ class PrivateDetailFragment: Fragment() {
                             privateDetailNowDate = privateDetailNowDate + "0" + data.day
                         else
                             privateDetailNowDate = privateDetailNowDate + data.day
-                        privateDetailNowDate = privateDetailNowDate + "(" + "요일" + ")"
+                        privateDetailNowDate = privateDetailNowDate + "(" + data.week + ")"
                         binding.textviewPrivateDetailDate.text = privateDetailNowDate
                         binding.buttonPrivateDetailLike.text=data.likeCount.toString()
 
                         Glide.with(view)
                             .load(data.mainImage)
                             .into(binding.imageviewPrivateDetailBack)
-                        Glide.with(view)
-                            .load(data.moodImage)
-                            .circleCrop()
-                            .into(binding.imageviewPrivateDetailFront)
+
+                        journeyMood=data.mood
+                        if(journeyMood==0)
+                            binding.imageviewPrivateDetailFront.setImageResource(R.drawable.ic_diary_journey_bad_face)
+                        else if(journeyMood==1)
+                            binding.imageviewPrivateDetailFront.setImageResource(R.drawable.ic_diary_journey_soso_face)
+                        else if(journeyMood==2)
+                            binding.imageviewPrivateDetailFront.setImageResource(R.drawable.ic_diary_journey_good_face)
 
 
                         val testHashtagString = data.hashtags.joinToString(" ")
@@ -90,10 +96,7 @@ class PrivateDetailFragment: Fragment() {
                             binding.textviewPrivateDetailHashtag.isVisible = true
                             binding.textviewPrivateDetailHashtag.text = shortHashtagString
                         } else if (testHashtagString.length > 19) {
-                            val longHashtagString = testHashtagString.substring(
-                                0,
-                                18
-                            ) + "\n" + testHashtagString.substring(19, testHashtagString.length - 1)
+                            val longHashtagString = testHashtagString.substring(0, 18) + "\n" + testHashtagString.substring(19, testHashtagString.length - 1)
                             binding.textviewPrivateDetailHashtag.isVisible = true
                             binding.textviewPrivateDetailHashtag.text = longHashtagString
                         }
@@ -113,13 +116,11 @@ class PrivateDetailFragment: Fragment() {
                     Log.d("ClientTest", "Client Error")
                 }
             }
-
             override fun onFailure(call: Call<ResponseDiaryPrivateDetailData>, t: Throwable) {
                 Log.d("NetworkTest", "error:$t")
             }
         }
         )
-
 
         binding.buttonPrivateDelete.setOnClickListener()
         {
@@ -151,12 +152,12 @@ class PrivateDetailFragment: Fragment() {
                 val call: Call<Unit> = RetrofitService.diaryDeleteService
                     .deleteDiary(
                         postNumCurrentPage,
-                        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiZXA0UmhZcmJUSE9uaHpBUldOVFNTMTpBUEE5MWJIS1pGdkJuUkV1dEEtYzQxSmN6dDBITzVJQkNyMFhzM0VadjFFcUZSVl9jY05semtDbFQtaWxmT3FGTUFWTmFPUFYxaVhIQjIybHhrcHZJRWNTNW4tMjQtZzY2SVR1d0o1aW9aWlJtYVd5R1Q3XzZiUDhlR1BOZHd2SkNwUWxZb1daQlhHVCJ9LCJpYXQiOjE2MjYwODk5OTZ9.fZoVLz1W-C9RNklV0ZPx6yZeysJWfiuOOPhoAlMtG5k"
+                        userJwt
                     )
                 call.enqueue(object : Callback<Unit> {
                     override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
                         if (response.isSuccessful) {
-
+                            Toast.makeText(requireContext(), "삭제되었습니다",Toast.LENGTH_SHORT).show()
                         } else {
                         }
                     }
@@ -172,7 +173,7 @@ class PrivateDetailFragment: Fragment() {
             if(binding.buttonPrivateDetailLike.isSelected==false)
             {
                 val call:Call<ResponseDiaryLikeData> = RetrofitService.diaryLikeService
-                    .changeLike(51, "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiZXA0UmhZcmJUSE9uaHpBUldOVFNTMTpBUEE5MWJIS1pGdkJuUkV1dEEtYzQxSmN6dDBITzVJQkNyMFhzM0VadjFFcUZSVl9jY05semtDbFQtaWxmT3FGTUFWTmFPUFYxaVhIQjIybHhrcHZJRWNTNW4tMjQtZzY2SVR1d0o1aW9aWlJtYVd5R1Q3XzZiUDhlR1BOZHd2SkNwUWxZb1daQlhHVCJ9LCJpYXQiOjE2MjYwODk5OTZ9.fZoVLz1W-C9RNklV0ZPx6yZeysJWfiuOOPhoAlMtG5k")
+                    .changeLike(1, userJwt)
                 call.enqueue(object:Callback<ResponseDiaryLikeData>{
                     override fun onResponse(
                         call: Call<ResponseDiaryLikeData>,
@@ -197,7 +198,7 @@ class PrivateDetailFragment: Fragment() {
             }
             else{
                 val call:Call<ResponseDiaryDislikeData> = RetrofitService.diaryDislikeService
-                    .changeDislike(51, "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiZXA0UmhZcmJUSE9uaHpBUldOVFNTMTpBUEE5MWJIS1pGdkJuUkV1dEEtYzQxSmN6dDBITzVJQkNyMFhzM0VadjFFcUZSVl9jY05semtDbFQtaWxmT3FGTUFWTmFPUFYxaVhIQjIybHhrcHZJRWNTNW4tMjQtZzY2SVR1d0o1aW9aWlJtYVd5R1Q3XzZiUDhlR1BOZHd2SkNwUWxZb1daQlhHVCJ9LCJpYXQiOjE2MjYwODk5OTZ9.fZoVLz1W-C9RNklV0ZPx6yZeysJWfiuOOPhoAlMtG5k")
+                    .changeDislike(1, userJwt)
                 call.enqueue(object:Callback<ResponseDiaryDislikeData>{
                     override fun onResponse(
                         call: Call<ResponseDiaryDislikeData>,
