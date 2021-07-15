@@ -234,7 +234,7 @@ class LibraryListAdapter :RecyclerView.Adapter<LibraryListAdapter.LibraryListVie
                             Log.d(
                                 "서버", response.body()!!.data.toString()
                             )
-                            userCourseStatus = response.body()!!.data.course.id
+                            userCourseStatus = response.body()!!.data!!.course!!.id
                             Toast.makeText(ctxt, "코스 선택 완료", Toast.LENGTH_SHORT).show()
                         } else {
                             Log.d("서버 실패", "${response.body()}")

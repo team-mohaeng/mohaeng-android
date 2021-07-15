@@ -536,9 +536,12 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
                         Log.d(
                             "서버", response.body()!!.data.toString()
                         )
-                        setRetrofit(response.body()!!.data!!.course!!.id)
-                        userCourseId = response.body()!!.data!!.course!!.id
-                        hasCourse = response.body()!!.data!!.course!!.situation
+                        if(response.body()!!.data!!.course!= null){
+                            setRetrofit(response.body()!!.data!!.course!!.id)
+                            userCourseId = response.body()!!.data!!.course!!.id
+                            hasCourse = response.body()!!.data!!.course!!.situation
+                        }
+
                         selectChallengeView()
                         setButtonEvent()
                     }
