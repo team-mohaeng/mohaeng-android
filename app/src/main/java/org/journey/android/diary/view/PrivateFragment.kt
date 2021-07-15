@@ -61,8 +61,8 @@ class PrivateFragment : Fragment(){
 
         val call: Call<ResponseDiaryPrivateData> = RetrofitService.diaryPrivateService
             .getPrivateDiary(
-                privateInstance.get(Calendar.YEAR),
-                privateInstance.get(Calendar.MONTH) + 1,
+                privateInstance.get(Calendar.YEAR).toString(),
+                privateNowMonth,
                 userJwt
             )
         call.enqueue(object : Callback<ResponseDiaryPrivateData> {
@@ -127,8 +127,6 @@ class PrivateFragment : Fragment(){
             selectDialogMonth.maxValue = 12
 
             selectDialogSave.setOnClickListener {
-                selectDialogYear.value = privateInstance.get(Calendar.YEAR)
-                selectDialogYear.value = privateInstance.get(Calendar.MONTH)
                 val selected_month = selectDialogMonth.value
                 var string_selected_month = selected_month.toString()
                 if (selected_month < 10)
@@ -145,8 +143,8 @@ class PrivateFragment : Fragment(){
 
                 val call: Call<ResponseDiaryPrivateData> = RetrofitService.diaryPrivateService
                     .getPrivateDiary(
-                        selectDialogYear.value,
-                        selectDialogMonth.value,
+                        selectDialogYear.value.toString(),
+                        string_selected_month,
                         userJwt
                     )
                 call.enqueue(object : Callback<ResponseDiaryPrivateData> {
