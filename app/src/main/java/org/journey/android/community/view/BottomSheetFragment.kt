@@ -16,7 +16,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class BottomSheetFragment : BottomSheetDialogFragment() {
-    private val bottomSheetAdapter: BottomSheetAdapter by lazy { BottomSheetAdapter() }
+    lateinit var bottomSheetAdapter : BottomSheetAdapter
     private var bottomSheetData = mutableListOf<BottomSheetData>()
     private var _binding : FragmentBottomSheetBinding ?= null
     private val binding get() = _binding!!
@@ -54,6 +54,7 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
                                 listOf<BottomSheetData>(
                                     BottomSheetData(
                                         tags=communityData.community[i].hashtags.joinToString(" "),
+                                        second_tags=communityData.community[i].hashtags.joinToString(""),
                                         diary=communityData.community[i].content,
                                         user_id = communityData.community[i].nickname,
                                         user_prefer = communityData.community[i].likeCount,
