@@ -39,7 +39,7 @@ class SignupSecondFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        popBackPage()
         setClickEvent()
         binding.textviewYearInput.setOnClickListener{
             selectYear()
@@ -126,6 +126,12 @@ class SignupSecondFragment : Fragment() {
     fun setClickEvent() {
         binding.buttonSignupNext.setOnClickListener {
             findNavController().navigate(R.id.action_signupSecondFragment_to_signupThirdFragment)
+        }
+    }
+
+    fun popBackPage() {
+        binding.imagebuttonSignupBack.setOnClickListener {
+            findNavController().popBackStack()
         }
     }
 

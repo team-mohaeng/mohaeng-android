@@ -47,6 +47,7 @@ class SignupFirstFragment : Fragment() {
       checkPw()
       checkPwSame()
       showPw()
+      popBack()
       //setClickEvent()
 
       binding.edittextSignupEmail.addTextChangedListener(object : TextWatcher {
@@ -195,6 +196,12 @@ class SignupFirstFragment : Fragment() {
                PasswordTransformationMethod.getInstance()
       }
 
+   }
+
+   fun popBack() {
+      binding.imagebuttonSignupBack.setOnClickListener {
+         findNavController().popBackStack()
+      }
    }
 
    fun setClickEvent() {
