@@ -72,7 +72,6 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
             override fun onFailure(call: Call<ResponseCommunityData>, t: Throwable) {
 
             }
-        })
     }
     private fun initRecyclerView() {
         bottomSheetAdapter =
