@@ -70,10 +70,6 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
             }
 
         })
-
-
-
-
     }
 
 
