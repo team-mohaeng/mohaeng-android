@@ -28,6 +28,9 @@
         <action
             android:id="@+id/action_frameFragment_to_diaryFirstFragment"
             app:destination="@id/diaryFirstFragment" />
+        <action
+            android:id="@+id/action_frameFragment_to_privateFragment"
+            app:destination="@+id/privateFragment"/>
     </fragment>
     <fragment
         android:id="@+id/splashFragment"
@@ -77,10 +80,13 @@
         android:id="@+id/communityFragment"
         android:name="org.journey.android.community.view.CommunityFragment"
         android:label="fragment_community"
-        tools:layout="@layout/fragment_community" >
+        tools:layout="@layout/fragment_community">
         <action
             android:id="@+id/action_communityFragment_to_diaryFirstFragment"
             app:destination="@id/diaryFirstFragment" />
+        <action
+            android:id="@+id/action_communityFragment_to_frameFragment"
+            app:destination="@id/frameFragment" />
     </fragment>
     <fragment
         android:id="@+id/challengeFragment"

@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import org.journey.android.course.data.LibraryListInfo
 import org.journey.android.course.api.ServiceCreator
 import org.journey.android.course.data.ResponseLibraryData
@@ -42,7 +43,7 @@ class LibraryFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        pressedBack()
         libraryListAdapter = LibraryListAdapter()
         binding.recyclerviewLibrary.adapter = libraryListAdapter
 
@@ -95,6 +96,12 @@ class LibraryFragment : Fragment() {
         libraryListAdapter.notifyDataSetChanged()
        
          */
+    }
+
+    fun pressedBack(){
+        binding.imagebuttonLibraryBack.setOnClickListener {
+            findNavController().popBackStack()
+        }
     }
     // 서버 연결
     private fun loadDatas() {

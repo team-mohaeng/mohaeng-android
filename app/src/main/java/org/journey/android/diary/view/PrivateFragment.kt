@@ -36,6 +36,7 @@ class PrivateFragment : Fragment(){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        pressedBack()
 
         val privateInstance = Calendar.getInstance()
         val privateNowYear = privateInstance.get(Calendar.YEAR).toString().substring(2, 4)
@@ -209,6 +210,12 @@ class PrivateFragment : Fragment(){
             findNavController().navigate(R.id.action_privateFragment_to_communityFragment)
         }
 
+    }
+
+    fun pressedBack(){
+        binding.imagebuttonCommunityBackPrivate.setOnClickListener {
+            findNavController().popBackStack()
+        }
     }
 
 }

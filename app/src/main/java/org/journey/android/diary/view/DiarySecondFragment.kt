@@ -50,7 +50,7 @@ class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        pressedBack()
         val secondInstance = Calendar.getInstance()
         val secondNowYear = secondInstance.get(Calendar.YEAR).toString()
         val secondNowMonth = (secondInstance.get(Calendar.MONTH) + 1).toString()
@@ -233,6 +233,10 @@ class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
             path = gallery.data.toString()
         }
     }
+    fun pressedBack(){
+        binding.imagebuttonCourseBackSecond.setOnClickListener {
+            findNavController().popBackStack()
+        }}
 
     fun setRetrofit(){
         uploadGallery()

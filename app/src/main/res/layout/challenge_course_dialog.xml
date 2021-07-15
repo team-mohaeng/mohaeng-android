@@ -93,7 +93,7 @@
         android:id="@+id/imageview_dialog_image"
         android:layout_width="234dp"
         android:layout_height="232dp"
-        android:background="@color/journey_pink3"
+        android:background="@drawable/graphicgrats"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

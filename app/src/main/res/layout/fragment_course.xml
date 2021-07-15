@@ -23,7 +23,7 @@
             android:layout_height="20dp"
             android:layout_marginStart="18dp"
             android:layout_marginTop="36dp"
-            android:background="@drawable/ic_gnbicnback"
+            android:background="@drawable/ic_diary_back_page_button"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

@@ -20,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/bmhanna11yrsotf"
-            android:text="쟈기, 지금 포기하는거야?"
+            android:text="챌린지를 시작해보겠어?"
             android:textColor="@color/journey_black"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -32,6 +32,7 @@
             android:layout_width="232dp"
             android:layout_height="164dp"
             android:layout_marginTop="28dp"
+            android:background="@drawable/startchallenge"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textview_dialog_title" />

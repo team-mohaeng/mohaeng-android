@@ -89,7 +89,7 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
 
     fun setUIListener() {
         with(binding) {
-            constraintlayoutFrameCommunity.setOnTouchListener(
+            viewBrowse.setOnTouchListener(
                 object : OnSwipeTouchListener(context) {
                     override fun onSwipeUp() {
                         bottomSheetFragment.show(childFragmentManager, "bottomsheet")
@@ -145,6 +145,7 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
                 okButton.setOnClickListener {
                     alertDialog.dismiss()
                     Toast.makeText(this.context, "코스 선택하러 가기 클릭", Toast.LENGTH_SHORT).show()
+                    findNavController().navigate(R.id.action_communityFragment_to_frameFragment)
                 }
             } else if (happinessStatus == 1) {
                 dialogTitle.text = "이런, 아직 작성할 수 없어!"
@@ -223,7 +224,7 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
 
     fun clickEvent() {
         binding.textviewDiary.setOnClickListener {
-            findNavController().navigate(R.id.action_frameFragment_to_diaryFirstFragment)
+            findNavController().navigate(R.id.action_frameFragment_to_privateFragment)
         }
     }
 }
