@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginHorizontal="18dp"
+    android:layout_marginBottom="68dp">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_community_detail_back"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="12dp"
+        android:background="@drawable/ic_diary_back_page_button"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/toolbar_community_detail_title"
+        />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_community_detail_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ImageView
+        android:id="@+id/imageview_community_detail_main"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:src="@drawable/ic_button_prefer"
+        app:layout_constraintBottom_toTopOf="@id/bottom_community_detail_layout"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="@id/imageview_community_detail_main"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_community_detail_title"
+        app:layout_constraintVertical_chainStyle="spread"
+        app:layout_constraintVertical_weight="23" />
+
+    <ImageView
+        android:id="@+id/imageview_community_detail_mood"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/ic_diary_journey_good_face"
+        android:translationZ="2dp"
+        app:layout_constraintBottom_toBottomOf="@id/imageview_community_detail_main"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageview_community_detail_main" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottom_community_detail_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/private_detail_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageview_community_detail_main"
+        app:layout_constraintVertical_chainStyle="spread"
+        app:layout_constraintVertical_weight="30">
+
+        <TextView
+            android:id="@+id/textview_community_detail_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:layout_marginBottom="40dp"
+            android:fontFamily="@font/spoqahansansneomedium"
+            android:text="0000.00.00 (월)"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/textview_community_detail_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/spoqahansansneobold"
+            android:text="시원스쿨"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toTopOf="@+id/textview_community_detail_content"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textview_community_detail_date"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/textview_community_detail_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/spoqahansansneomedium"
+            android:text="@string/private_record_contents"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintBottom_toTopOf="@+id/textview_community_detail_hashtag"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textview_community_detail_nickname" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_community_detail_like"
+            android:layout_width="50dp"
+            android:layout_height="20dp"
+            android:paddingLeft="10dp"
+            android:layout_marginBottom="20dp"
+            android:background="@color/journey_transparency"
+            android:text="76"
+            android:textSize="12sp"
+            android:textColor="@color/white"
+            android:drawableLeft="@drawable/ic_diary_private_heart"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+        </androidx.appcompat.widget.AppCompatButton>
+
+        <TextView
+            android:id="@+id/textview_community_detail_hashtag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:fontFamily="@font/spoqahansansneomedium"
+            android:text="#산책 #맥주 #여름"
+            android:textColor="@color/journey_pink6"
+            android:textSize="14sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/button_community_detail_like"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
