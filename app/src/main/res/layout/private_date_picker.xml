@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:paddingVertical="20dp">
 
     <NumberPicker
         android:id="@+id/numberpicker_year"
@@ -11,6 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="72dp"
         app:layout_constraintBottom_toTopOf="@id/button_date_picker_select"
+        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/textview_date_picker_year"
         app:layout_constraintTop_toTopOf="parent"></NumberPicker>
@@ -33,12 +35,13 @@
         android:id="@+id/numberpicker_month"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="72dp"
+        android:layout_marginLeft="50dp"
         android:layout_marginRight="12dp"
         app:layout_constraintLeft_toRightOf="@id/textview_date_picker_year"
         app:layout_constraintRight_toLeftOf="@id/textview_date_picker_month"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.503">
+        app:layout_constraintTop_toTopOf="@id/textview_date_picker_year"
+        app:layout_constraintBottom_toBottomOf="@id/textview_date_picker_year"
+        >
 
     </NumberPicker>
 
@@ -65,6 +68,7 @@
         android:fontFamily="@font/spoqahansansneobold"
         android:paddingVertical="14dp"
         android:stateListAnimator="@null"
+        android:layout_marginTop="16dp"
         android:text="선택"
         android:textColor="@color/white"
         app:layout_constraintLeft_toLeftOf="parent"

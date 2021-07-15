@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.NumberPicker
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import org.journey.android.R
@@ -16,6 +17,7 @@ import org.journey.android.databinding.FragmentPrivateBinding
 import org.journey.android.diary.PrivateAdapter
 import org.journey.android.diary.dto.PrivateData
 import org.journey.android.diary.dto.ResponseDiaryPrivateData
+import org.journey.android.login.view.userJwt
 import org.journey.android.main.model.RetrofitService
 import retrofit2.Call
 import retrofit2.Callback
@@ -28,10 +30,7 @@ class PrivateFragment : Fragment(){
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View?{
         val privateView = inflater.inflate(R.layout.fragment_private, null)
-
         binding = FragmentPrivateBinding.inflate(inflater, container, false)
-
-
         return binding.root
     }
 
@@ -63,7 +62,7 @@ class PrivateFragment : Fragment(){
             .getPrivateDiary(
                 privateInstance.get(Calendar.YEAR),
                 privateInstance.get(Calendar.MONTH) + 1,
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiZXA0UmhZcmJUSE9uaHpBUldOVFNTMTpBUEE5MWJIS1pGdkJuUkV1dEEtYzQxSmN6dDBITzVJQkNyMFhzM0VadjFFcUZSVl9jY05semtDbFQtaWxmT3FGTUFWTmFPUFYxaVhIQjIybHhrcHZJRWNTNW4tMjQtZzY2SVR1d0o1aW9aWlJtYVd5R1Q3XzZiUDhlR1BOZHd2SkNwUWxZb1daQlhHVCJ9LCJpYXQiOjE2MjYwODk5OTZ9.fZoVLz1W-C9RNklV0ZPx6yZeysJWfiuOOPhoAlMtG5k"
+                userJwt
             )
         call.enqueue(object : Callback<ResponseDiaryPrivateData> {
             override fun onResponse(
@@ -95,7 +94,8 @@ class PrivateFragment : Fragment(){
                                             textViewHashTags = dataPrivate.myDrawerSmallSatisfactions[i].hashtags.joinToString(
                                                 " "
                                             ),
-                                            imageViewPrivate = dataPrivate.myDrawerSmallSatisfactions[i].mainImage
+                                            imageViewPrivate = dataPrivate.myDrawerSmallSatisfactions[i].mainImage,
+                                            hasLike = dataPrivate.myDrawerSmallSatisfactions[i].hasLike
                                         )
                                     )
                                 )
@@ -146,7 +146,7 @@ class PrivateFragment : Fragment(){
                     .getPrivateDiary(
                         selectDialogYear.value,
                         selectDialogMonth.value,
-                        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiZXA0UmhZcmJUSE9uaHpBUldOVFNTMTpBUEE5MWJIS1pGdkJuUkV1dEEtYzQxSmN6dDBITzVJQkNyMFhzM0VadjFFcUZSVl9jY05semtDbFQtaWxmT3FGTUFWTmFPUFYxaVhIQjIybHhrcHZJRWNTNW4tMjQtZzY2SVR1d0o1aW9aWlJtYVd5R1Q3XzZiUDhlR1BOZHd2SkNwUWxZb1daQlhHVCJ9LCJpYXQiOjE2MjYwODk5OTZ9.fZoVLz1W-C9RNklV0ZPx6yZeysJWfiuOOPhoAlMtG5k"
+                        userJwt
                     )
                 call.enqueue(object : Callback<ResponseDiaryPrivateData> {
                     override fun onResponse(
@@ -178,7 +178,8 @@ class PrivateFragment : Fragment(){
                                                     textViewHashTags = dataPrivate.myDrawerSmallSatisfactions[i].hashtags.joinToString(
                                                         " "
                                                     ),
-                                                    imageViewPrivate = dataPrivate.myDrawerSmallSatisfactions[i].mainImage
+                                                    imageViewPrivate = dataPrivate.myDrawerSmallSatisfactions[i].mainImage,
+                                                    hasLike = dataPrivate.myDrawerSmallSatisfactions[i].hasLike
                                                 )
                                             )
                                         )
@@ -204,6 +205,9 @@ class PrivateFragment : Fragment(){
             }
         }
 
+        binding.imagebuttonCommunityBackPrivate.setOnClickListener{
+            findNavController().navigate(R.id.action_privateFragment_to_communityFragment)
+        }
 
     }
 
