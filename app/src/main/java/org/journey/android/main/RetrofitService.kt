@@ -7,6 +7,7 @@ import org.journey.android.diary.service.DiaryPrivateDetailService
 import org.journey.android.diary.service.DiaryPrivateService
 import org.journey.android.diary.service.DiaryWriteService
 import org.journey.android.main.model.MainApi
+import org.journey.android.reward.api.RewardService
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
@@ -30,5 +31,7 @@ object RetrofitService {
     val diaryDeleteService: DiaryDeleteService = retrofit.create(DiaryDeleteService::class.java)
 
     val challengeService: ChallengeService = retrofit.create(ChallengeService::class.java)
+    val rewardService: RewardService = retrofit.create(RewardService::class.java)
+
 
 }

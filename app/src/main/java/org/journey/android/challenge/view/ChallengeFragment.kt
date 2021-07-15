@@ -445,7 +445,7 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
                                 journeyMsg =
                                     response.body()!!.data!!.course!!.challenges[i].userMents[0]
                                 journeyEndMsg =
-                                    response.body()!!.data!!.course!!.challenges[i].userMents[1]
+                                    response.body()!!.data!!.course!!.challenges[i].userMents[0]
                                 challengeType = response.body()!!.data!!.course!!.property
                                 break
                             }
