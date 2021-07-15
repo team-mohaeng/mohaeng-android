@@ -33,6 +33,8 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+// 챌린지 시작 여부 알려주는 변수
+var hasCourse = userCourseStatus
 
 class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
     
@@ -42,8 +44,6 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
     // onDestroyView.
     //private val binding get() = _binding!!
 
-    // 챌린지 시작 여부 알려주는 변수
-    private var hasCourse = userCourseStatus
 
     // 인증 개수 저장하는 변수
     private var stampNumber = 3

@@ -19,6 +19,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import org.journey.android.databinding.ItemLibraryBinding
 import org.journey.android.R
+import org.journey.android.challenge.view.hasCourse
 import org.journey.android.course.api.ServiceCreator
 import org.journey.android.course.data.ResponseChooseData
 import org.journey.android.course.data.ResponseLibraryData
@@ -31,7 +32,7 @@ import org.journey.android.course.data.LibraryListInfo
 import org.journey.android.main.view.userCourseStatus
 
 lateinit var ctxt : Context
-var libraryState: Boolean = true
+var libraryState = hasCourse
 
 class LibraryListAdapter :RecyclerView.Adapter<LibraryListAdapter.LibraryListViewHolder>() {
     val libraryList = mutableListOf<LibraryListInfo>()
@@ -46,7 +47,7 @@ class LibraryListAdapter :RecyclerView.Adapter<LibraryListAdapter.LibraryListVie
         ctxt = parent.context
         // 현재 코스를 진행중인지 아닌지 저장
         // false : 진행중 X
-        libraryState= false
+        //libraryState= false
 
         return LibraryListViewHolder(binding)
     }
@@ -147,8 +148,9 @@ class LibraryListAdapter :RecyclerView.Adapter<LibraryListAdapter.LibraryListVie
                     val okButton = mDialogView.findViewById<AppCompatButton>(R.id.button_dialog_ok)
                     okButton.visibility = View.GONE
 
+                    Log.d("course", libraryState.toString())
                     // 현재 진행중인 코스가 없다면
-                    if(!libraryState){
+                    if(libraryState == 1){
                         val dialogTitle = mDialogView.findViewById<TextView>(R.id.textview_dialog_title)
                         dialogTitle.text = "나와 여정을 떠나보겠어?"
                         val dialogImage = mDialogView.findViewById<ImageView>(R.id.imageview_dialog_image)
