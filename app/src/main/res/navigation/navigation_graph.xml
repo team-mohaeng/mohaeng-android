@@ -28,6 +28,9 @@
         <action
             android:id="@+id/action_frameFragment_to_diaryFirstFragment"
             app:destination="@id/diaryFirstFragment" />
+        <action
+            android:id="@+id/action_frameFragment_to_privateFragment"
+            app:destination="@+id/privateFragment"/>
     </fragment>
     <fragment
         android:id="@+id/splashFragment"

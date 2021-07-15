@@ -19,10 +19,10 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_private_cancel"
-        android:layout_width="44dp"
-        android:layout_height="44dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:layout_marginLeft="12dp"
-        android:background="@drawable/ic_diary_private_button_cancel"
+        android:background="@drawable/ic_diary_back_page_button"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/toolbar_private_detail_title"
@@ -36,17 +36,6 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/textview_private_detail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/spoqahansansneomedium"
-            android:text="내 소확행 자세히 보기"
-            android:textColor="@color/journey_black3"
-            android:textSize="16sp" />
-
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -163,6 +152,5 @@
             app:layout_constraintRight_toRightOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

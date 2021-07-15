@@ -26,6 +26,7 @@ class DiaryFirstFragment : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         clickEvent()
+        pressedBack()
         val firstInstance = Calendar.getInstance()
         val firstNowYear = firstInstance.get(Calendar.YEAR).toString()
         val firstNowMonth = (firstInstance.get(Calendar.MONTH)+1).toString()
@@ -96,9 +97,12 @@ class DiaryFirstFragment : Fragment(){
             binding.textviewSosoDay.isSelected = true
             binding.textviewGoodDay.isSelected = false
         }
-
-
     }
+
+    fun pressedBack(){
+        binding.imagebuttonCourseBack.setOnClickListener {
+            findNavController().popBackStack()
+    }}
 
     fun clickEvent() {
         binding.buttonCompelete.setOnClickListener {
