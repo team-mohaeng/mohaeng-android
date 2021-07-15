@@ -14,15 +14,12 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/button_private_back"
-            android:layout_width="44dp"
-            android:layout_height="44dp"
-            android:layout_marginLeft="12dp"
-            android:background="@drawable/ic_diary_private_button_back"
+            android:id="@+id/imagebutton_community_back_private"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/ic_diary_back_page_button"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="@id/toolbar_private_title"
-            />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textview_private_diary"
