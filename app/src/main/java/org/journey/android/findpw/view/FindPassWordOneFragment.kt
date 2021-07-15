@@ -18,7 +18,8 @@ import org.journey.android.util.enqueueUtil
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-
+var userId = ""
+var userNumber = 0
 class FindPassWordOneFragment : Fragment() {
     private lateinit var binding: FragmentFindPasswordOneBinding
     override fun onCreateView(
@@ -51,6 +52,7 @@ class FindPassWordOneFragment : Fragment() {
     }
 
     fun clickEvent() {
+        userId=binding.edittextInputEmail.text.toString()
         binding.buttonFindPasswordOneNext.setOnClickListener {
 //            sendAuthEmailRetrofit()
             EmailCreator.emailApiService.findPW(
@@ -61,14 +63,13 @@ class FindPassWordOneFragment : Fragment() {
                     response: Response<ResponsePasswordData>
                 ) {
                     if(response.isSuccessful){
-                        response.body()!!.data!!.number
+                        userNumber = response.body()!!.data!!.number
                         findNavController().navigate(R.id.action_findPassWordOneFragment_to_findPassWordTwoFragment)
                     }
                     else{
                         Toast.makeText(context, "유저가 존재하지 않습니다.",Toast.LENGTH_SHORT).show()
                     }
                 }
-
                 override fun onFailure(call: Call<ResponsePasswordData>, t: Throwable) {
                     Log.d("통신 실패", "${t}")
                 }
