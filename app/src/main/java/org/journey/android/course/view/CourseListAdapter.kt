@@ -88,18 +88,18 @@ class CourseListAdapter :RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
             if(CourseListInfo.courseCurrent){
                 when(CourseListInfo.property){
-                    0 -> binding.imageviewProcessCircle.setImageResource(R.drawable.stamp_health)
-                    1 -> binding.imageviewProcessCircle.setImageResource(R.drawable.stamp_challenge)
-                    2 -> binding.imageviewProcessCircle.setImageResource(R.drawable.stamp_detect)
-                    3 -> binding.imageviewProcessCircle.setImageResource(R.drawable.stamp_memory)
+                    0 -> binding.imageviewProcessCircle.setImageResource(R.drawable.course_health)
+                    1 -> binding.imageviewProcessCircle.setImageResource(R.drawable.course_mamoey)
+                    2 -> binding.imageviewProcessCircle.setImageResource(R.drawable.course_detect)
+                    3 -> binding.imageviewProcessCircle.setImageResource(R.drawable.course_challenge)
                 }
             }
             else{
                 when(CourseListInfo.property){
-                    0 -> binding.imageviewProcessCircle.setImageResource(R.drawable.stamp_health_no)
-                    1 -> binding.imageviewProcessCircle.setImageResource(R.drawable.stamp_challenge_no)
-                    2 -> binding.imageviewProcessCircle.setImageResource(R.drawable.stamp_detect_no)
-                    3 -> binding.imageviewProcessCircle.setImageResource(R.drawable.stamp_memory_no)
+                    0 -> binding.imageviewProcessCircle.setImageResource(R.drawable.course_health_gray)
+                    1 -> binding.imageviewProcessCircle.setImageResource(R.drawable.course_memory_gray)
+                    2 -> binding.imageviewProcessCircle.setImageResource(R.drawable.course_detect_gray)
+                    3 -> binding.imageviewProcessCircle.setImageResource(R.drawable.course_challenge_gray)
                 }
             }
 
@@ -126,18 +126,18 @@ class CourseListAdapter :RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
             if(CourseListInfo.courseCurrent){
                 when(CourseListInfo.property){
-                    0 -> binding.imageviewRightCircle.setImageResource(R.drawable.stamp_health)
-                    1 -> binding.imageviewRightCircle.setImageResource(R.drawable.stamp_challenge)
-                    2 -> binding.imageviewRightCircle.setImageResource(R.drawable.stamp_detect)
-                    3 -> binding.imageviewRightCircle.setImageResource(R.drawable.stamp_memory)
+                    0 -> binding.imageviewRightCircle.setImageResource(R.drawable.course_health)
+                    1 -> binding.imageviewRightCircle.setImageResource(R.drawable.course_mamoey)
+                    2 -> binding.imageviewRightCircle.setImageResource(R.drawable.course_detect)
+                    3 -> binding.imageviewRightCircle.setImageResource(R.drawable.course_challenge)
                 }
             }
             else{
                 when(CourseListInfo.property){
-                    0 -> binding.imageviewRightCircle.setImageResource(R.drawable.stamp_health_no)
-                    1 -> binding.imageviewRightCircle.setImageResource(R.drawable.stamp_challenge_no)
-                    2 -> binding.imageviewRightCircle.setImageResource(R.drawable.stamp_detect_no)
-                    3 -> binding.imageviewRightCircle.setImageResource(R.drawable.stamp_memory_no)
+                    0 -> binding.imageviewRightCircle.setImageResource(R.drawable.course_health_gray)
+                    1 -> binding.imageviewRightCircle.setImageResource(R.drawable.course_memory_gray)
+                    2 -> binding.imageviewRightCircle.setImageResource(R.drawable.course_detect_gray)
+                    3 -> binding.imageviewRightCircle.setImageResource(R.drawable.course_challenge_gray)
                 }
             }
 
@@ -164,18 +164,18 @@ class CourseListAdapter :RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
             if(CourseListInfo.courseCurrent){
                 when(CourseListInfo.property){
-                    0 -> binding.imageviewLeftCircle.setImageResource(R.drawable.stamp_health)
-                    1 -> binding.imageviewLeftCircle.setImageResource(R.drawable.stamp_challenge)
-                    2 -> binding.imageviewLeftCircle.setImageResource(R.drawable.stamp_detect)
-                    3 -> binding.imageviewLeftCircle.setImageResource(R.drawable.stamp_memory)
+                    0 -> binding.imageviewLeftCircle.setImageResource(R.drawable.course_health)
+                    1 -> binding.imageviewLeftCircle.setImageResource(R.drawable.course_mamoey)
+                    2 -> binding.imageviewLeftCircle.setImageResource(R.drawable.course_detect)
+                    3 -> binding.imageviewLeftCircle.setImageResource(R.drawable.course_challenge)
                 }
             }
             else{
                 when(CourseListInfo.property){
-                    0 -> binding.imageviewLeftCircle.setImageResource(R.drawable.stamp_health_no)
-                    1 -> binding.imageviewLeftCircle.setImageResource(R.drawable.stamp_challenge_no)
-                    2 -> binding.imageviewLeftCircle.setImageResource(R.drawable.stamp_detect_no)
-                    3 -> binding.imageviewLeftCircle.setImageResource(R.drawable.stamp_memory_no)
+                    0 -> binding.imageviewLeftCircle.setImageResource(R.drawable.course_health_gray)
+                    1 -> binding.imageviewLeftCircle.setImageResource(R.drawable.course_memory_gray)
+                    2 -> binding.imageviewLeftCircle.setImageResource(R.drawable.course_detect_gray)
+                    3 -> binding.imageviewLeftCircle.setImageResource(R.drawable.course_challenge_gray)
                 }
             }
 
@@ -204,18 +204,18 @@ class CourseListAdapter :RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
             if(CourseListInfo.courseCurrent){
                 when(CourseListInfo.property){
-                    0 -> binding.imageviewSecondCircle.setImageResource(R.drawable.stamp_health)
-                    1 -> binding.imageviewSecondCircle.setImageResource(R.drawable.stamp_challenge)
-                    2 -> binding.imageviewSecondCircle.setImageResource(R.drawable.stamp_detect)
-                    3 -> binding.imageviewSecondCircle.setImageResource(R.drawable.stamp_memory)
+                    0 -> binding.imageviewSecondCircle.setImageResource(R.drawable.course_health)
+                    1 -> binding.imageviewSecondCircle.setImageResource(R.drawable.course_mamoey)
+                    2 -> binding.imageviewSecondCircle.setImageResource(R.drawable.course_detect)
+                    3 -> binding.imageviewSecondCircle.setImageResource(R.drawable.course_challenge)
                 }
             }
             else{
                 when(CourseListInfo.property){
-                    0 -> binding.imageviewSecondCircle.setImageResource(R.drawable.stamp_health_no)
-                    1 -> binding.imageviewSecondCircle.setImageResource(R.drawable.stamp_challenge_no)
-                    2 -> binding.imageviewSecondCircle.setImageResource(R.drawable.stamp_detect_no)
-                    3 -> binding.imageviewSecondCircle.setImageResource(R.drawable.stamp_memory_no)
+                    0 -> binding.imageviewSecondCircle.setImageResource(R.drawable.course_health_gray)
+                    1 -> binding.imageviewSecondCircle.setImageResource(R.drawable.course_memory_gray)
+                    2 -> binding.imageviewSecondCircle.setImageResource(R.drawable.course_detect_gray)
+                    3 -> binding.imageviewSecondCircle.setImageResource(R.drawable.course_challenge_gray)
                 }
             }
 

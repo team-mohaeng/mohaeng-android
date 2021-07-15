@@ -28,6 +28,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import org.journey.android.course.data.LibraryListInfo
+import org.journey.android.main.view.userCourseStatus
 
 lateinit var ctxt : Context
 var libraryState: Boolean = true
@@ -65,25 +66,25 @@ class LibraryListAdapter :RecyclerView.Adapter<LibraryListAdapter.LibraryListVie
             if(LibraryListInfo.libraryComplete != 2){
                 when(LibraryListInfo.property){
                     0 -> {
-                        binding.imageviewLibrary.setImageResource(R.drawable.stamp_health)
+                        binding.imageviewLibrary.setImageResource(R.drawable.course_health)
                         binding.constraintlayoutLibrary.setBackgroundResource(R.drawable.library_round_health)
                         binding.buttonLibraryChoice.setBackgroundResource(R.drawable.library_button_health)
                         binding.textviewLibraryTerm.setBackgroundResource(R.drawable.library_day_health)
                     }
                     1 -> {
-                        binding.imageviewLibrary.setImageResource(R.drawable.stamp_memory)
+                        binding.imageviewLibrary.setImageResource(R.drawable.course_mamoey)
                         binding.constraintlayoutLibrary.setBackgroundResource(R.drawable.library_round_memory)
                         binding.buttonLibraryChoice.setBackgroundResource(R.drawable.library_button_memory)
                         binding.textviewLibraryTerm.setBackgroundResource(R.drawable.library_day_memory)
                     }
                     2 -> {
-                        binding.imageviewLibrary.setImageResource(R.drawable.stamp_detect)
+                        binding.imageviewLibrary.setImageResource(R.drawable.course_detect)
                         binding.constraintlayoutLibrary.setBackgroundResource(R.drawable.library_round_detect)
                         binding.buttonLibraryChoice.setBackgroundResource(R.drawable.library_button_detect)
                         binding.textviewLibraryTerm.setBackgroundResource(R.drawable.library_day_detect)
                     }
                     3 -> {
-                        binding.imageviewLibrary.setImageResource(R.drawable.stamp_challenge)
+                        binding.imageviewLibrary.setImageResource(R.drawable.course_challenge)
                         binding.constraintlayoutLibrary.setBackgroundResource(R.drawable.library_round_challenge)
                         binding.buttonLibraryChoice.setBackgroundResource(R.drawable.library_button_challenge)
                         binding.textviewLibraryTerm.setBackgroundResource(R.drawable.library_day_challenge)
@@ -233,6 +234,7 @@ class LibraryListAdapter :RecyclerView.Adapter<LibraryListAdapter.LibraryListVie
                             Log.d(
                                 "서버", response.body()!!.data.toString()
                             )
+                            userCourseStatus = 1
                             Toast.makeText(ctxt, "코스 선택 완료", Toast.LENGTH_SHORT).show()
                         } else {
                             Log.d("서버 실패", "${response.body()}")
