@@ -39,6 +39,7 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
 
         val call: Call<ResponseCommunityData> = RetrofitService.communityService
             .getCommunityDiary("date",userJwt)
+
         call.enqueue(object : Callback<ResponseCommunityData>{
             override fun onResponse(
                 call: Call<ResponseCommunityData>,
@@ -49,13 +50,15 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
                     val communityData = response.body()?.data
                     binding.recyclerviewCommunityRecord.adapter = bottomSheetAdapter
                     if (communityData != null) {
-                        for(i in 0 until communityData.userCount!!) {
+                        for (i in 0 until communityData.userCount) {
                             bottomSheetAdapter.bottomList.addAll(
                                 listOf<BottomSheetData>(
                                     BottomSheetData(
-                                        tags=communityData.community[i].hashtags.joinToString(" "),
-                                        second_tags=communityData.community[i].hashtags.joinToString(""),
-                                        diary=communityData.community[i].content,
+                                        tags = communityData.community[i].hashtags.joinToString(" "),
+                                        second_tags = communityData.community[i].hashtags.joinToString(
+                                            ""
+                                        ),
+                                        diary = communityData.community[i].content,
                                         user_id = communityData.community[i].nickname,
                                         user_prefer = communityData.community[i].likeCount,
                                         has_like = communityData.community[i].hasLike,

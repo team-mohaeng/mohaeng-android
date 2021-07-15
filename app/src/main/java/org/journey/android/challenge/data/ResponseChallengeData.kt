@@ -22,14 +22,15 @@ data class CourseData(
 )
 
 data class ChallengeData(
-    val id : Int,
-    val title : String,
-    val situation : Int,
-    val description : String,
-    val year : String,
-    val month : String,
-    val day : String,
-    val currentStamp : Int,
-    val totalStamp : Int,
-    val userMents : List<String>
+    val id: Int,
+    val title: String,
+    val situation: Int,
+    val description: String,
+    val successDescription: String,
+    val year: String,
+    val month: String,
+    val day: String,
+    val currentStamp: Int,
+    val totalStamp: Int,
+    val userMents: List<String>
 )

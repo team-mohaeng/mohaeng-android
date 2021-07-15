@@ -61,8 +61,7 @@ class LoginFragment : Fragment() {
             RequestLogin(
                 userId = binding.edittextLoginEmail.text.toString(),
                 userPw = binding.edittextLoginPassword.text.toString(),
-                userToken = "userToken"
-
+                userToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7fSwiaWF0IjoxNjI2MzMyMzkyfQ.lzqwiG-7w6PPQtw-arpjmrc6qEGOO3vi6UoWCtUP6oo"
             )
         ).enqueue(
             object : Callback<ResponseLogin> {
