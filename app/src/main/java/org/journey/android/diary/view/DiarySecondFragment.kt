@@ -2,11 +2,9 @@ package org.journey.android.diary.view
 
 import android.app.Dialog
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -19,13 +17,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
-import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
-import com.bumptech.glide.load.engine.GlideException
-import com.bumptech.glide.request.RequestListener
-import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.chip.Chip
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import org.journey.android.R
 import org.journey.android.base.BaseFragment
 import org.journey.android.databinding.FragmentDiarySecondBinding
@@ -36,6 +33,7 @@ import org.journey.android.main.model.RetrofitService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.io.File
 import java.util.*
 
 class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
@@ -180,7 +178,7 @@ class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
                 val alertDialogDiarySecondFragment = activity?.let { it2 -> Dialog(it2) }
                 val alertDialogDiarySecondFragmentInflater : LayoutInflater = LayoutInflater.from(activity)
                 val mView : View = alertDialogDiarySecondFragmentInflater.inflate(R.layout.diary_compelete_dialog,null)
-                val moodImage = mView.findViewById(R.id.imageview_diary_compelete_dialog_image) as ImageView
+                val moodImage = mView.findViewById(R.id.imageview_diary_compelete_dialog_top) as ImageView
 
                 if(moodNum==0)
                 {
@@ -216,38 +214,39 @@ class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
                         alertDialogDiarySecondFragment.cancel()
                     }
                 }
-
-
-                val requestDiaryWriteData = RequestDiaryWriteData(
-                    mood = moodNum,
-                    content = binding.edittextContentHappiness.text.toString(),
-                    hashtags = hashTagsList,
-                    mainImage = "https://journey-server.s3.amazonaws.com/images/origin/1626342664393.png",
-                    isPrivate = checkPrivate
-                )
-                val call: Call<ResponseDiaryWriteData> = RetrofitService.diaryWriteService
-                    .writeDiary(requestDiaryWriteData, userJwt)
-
-                call.enqueue(object : Callback<ResponseDiaryWriteData>{
-                    override fun onResponse(
-                        call: Call<ResponseDiaryWriteData>,
-                        response: Response<ResponseDiaryWriteData>
-                    ) {
-                        if(response.isSuccessful)
-                        {
-                            Log.d("Compelete Diary", "Compelete Success")
-                        }
-
-                        else{
-                            Log.d("Compelete Diary", "Compelete Fail")
-                        }
-                    }
-
-                    override fun onFailure(call: Call<ResponseDiaryWriteData>, t: Throwable) {
-                        Log.d("Compelete Diary", "Compelete Fail2")
-                    }
-
-                })
+//                val hashlist : List<String> = listOf("1","2","3")
+//                var file = File("/storage/emulated/0/Download/filename.pdf")
+//                val requestFile = RequestBody.create("application/pdf".toMediaTypeOrNull(), file)
+//                val body = MultipartBody.Part.createFormData("file", file.name, requestFile)
+//
+//                val requestDiaryWriteData = RequestDiaryWriteData(
+//                    content = "안녕",
+//                    mainImage = "",
+//                    mood = "1",
+//                    hashtags = hashlist,
+//                    isPrivate = true
+//                )
+//
+//                val call: Call<ResponseDiaryWriteData> = RetrofitService.diaryWriteService
+//                    .writeDiary(requestDiaryWriteData, userJwt)
+//                call.enqueue(object : Callback<ResponseDiaryWriteData>{
+//                    override fun onResponse(
+//                        call: Call<ResponseDiaryWriteData>,
+//                        response: Response<ResponseDiaryWriteData>
+//                    ) {
+//                        if(response.isSuccessful)
+//                        {
+//                            Log.d("Compelete", "Compelete Success")
+//                        }
+//                        else{
+//                            Log.d("Compelete", "Compelete Fail")
+//                        }
+//                    }
+//                    override fun onFailure(call: Call<ResponseDiaryWriteData>, t: Throwable) {
+//                        Log.d("Compelete", "$t")
+//                    }
+//
+//                })
             }
 
             binding.imagebuttonCourseBackSecond.setOnClickListener {

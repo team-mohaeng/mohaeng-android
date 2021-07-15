@@ -20,7 +20,7 @@
 
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageview_diary_compelete_dialog_top"
         android:layout_width="149dp"
         android:layout_height="132dp"
         android:background="@drawable/diary_good_compelete"
