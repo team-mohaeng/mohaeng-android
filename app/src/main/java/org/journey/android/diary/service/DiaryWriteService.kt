@@ -1,6 +1,6 @@
 package org.journey.android.diary.service
 
-import org.journey.android.diary.ResponseDiaryWriteData
+import org.journey.android.diary.dto.ResponseDiaryWriteData
 import org.journey.android.diary.dto.RequestDiaryWriteData
 import retrofit2.Call
 import retrofit2.http.Body

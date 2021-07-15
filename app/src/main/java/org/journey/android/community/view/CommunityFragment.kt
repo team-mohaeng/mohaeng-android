@@ -4,6 +4,7 @@ import android.app.AlertDialog
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,6 +31,8 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
     val bottomSheetFragment = BottomSheetFragment()
     var happinessStatus = 0
     var todayUploader = 0
+    var sortContent = "date"
+
     override fun getFragmentBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
@@ -42,8 +45,9 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
         binding.lifecycleOwner = this
         clickEvent()
         setButtonEvent()
-        setUIListener()
+        //setUIListener()
         initRecyclerView()
+        setAdapter()
 
 
         //서버 연결해서 happinessStatus와 몇명이 소확행 피드에 올렸는지 받아옴
@@ -55,16 +59,15 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
                 call: Call<ResponseCommunityData>,
                 response: Response<ResponseCommunityData>
             ) {
-                if(response.isSuccessful)
-                {
+                if (response.isSuccessful) {
                     val data = response.body()?.data
                     if (data != null) {
                         happinessStatus = data.hasSmallSatisfaction
                         todayUploader = data.userCount
-                        binding.textviewBrowseUser.text = getString(R.string.total_user_format, todayUploader)
+                        binding.textviewBrowseUser.text =
+                            getString(R.string.total_user_format, todayUploader)
                     }
-                }
-                else{
+                } else {
 
                 }
             }
@@ -72,6 +75,7 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
             override fun onFailure(call: Call<ResponseCommunityData>, t: Throwable) {
 
             }
+        })
     }
     private fun initRecyclerView() {
         bottomSheetAdapter =
@@ -96,6 +100,18 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
     }
 
     fun setButtonEvent() {
+        binding.textviewUpdate.setOnClickListener{
+            if(binding.textviewUpdate.text == "최신 순"){
+                binding.textviewUpdate.text = "좋아요 순"
+                sortContent = "like"
+            }
+            else{
+                binding.textviewUpdate.text = "최신 순"
+                sortContent = "date"
+            }
+            setAdapter()
+        }
+
         binding.buttonHappinessWrite.setOnClickListener {
             // Dialog만들기
             val mDialogView =
@@ -152,10 +168,62 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
         }
     }
 
+    private fun setAdapter(){
+        val call: Call<ResponseCommunityData> = RetrofitService.communityService
+            .getCommunityDiary(sortContent,userJwt)
+
+        call.enqueue(object : Callback<ResponseCommunityData>{
+            override fun onResponse(
+                call: Call<ResponseCommunityData>,
+                response: Response<ResponseCommunityData>
+            ) {
+                if(response.isSuccessful)
+                {
+                    Log.d("서버 성공", "community bottom")
+                    Log.d("서버 성공", response.body()?.data.toString())
+                    val communityData = response.body()?.data
+                    binding.recyclerviewCommunityRecord.adapter = bottomSheetAdapter
+                    if (communityData != null) {
+
+//                        for(i in 0 until communityData.userCount!!) {
+                        for(i in 0 until communityData.community.size) {
+                            Log.d("서버 성공", communityData.community[i].toString())
+                            bottomSheetAdapter.bottomList.addAll(
+                                listOf<BottomSheetData>(
+                                    BottomSheetData(
+                                        tags=communityData.community[i].hashtags.joinToString(" "),
+                                        second_tags=communityData.community[i].hashtags.joinToString(""),
+                                        diary=communityData.community[i].content,
+                                        user_id = communityData.community[i].nickname,
+                                        user_prefer = communityData.community[i].likeCount,
+                                        has_like = communityData.community[i].hasLike,
+                                        main_image = communityData.community[i].mainImage
+                                    )
+                                )
+                            )
+                        }
+                    }
+                    // 데이터 변경되었으니 업데이트해라
+                    bottomSheetAdapter.notifyDataSetChanged()
+
+                }
+                else{
+                    Log.d("Community","Community CE")
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseCommunityData>, t: Throwable) {
+                Log.d("Community","Community NE")
+            }
+
+        }
+        )
+        bottomSheetAdapter.notifyDataSetChanged()
+    }
+
     fun clickEvent() {
         binding.textviewDiary.setOnClickListener {
             findNavController().navigate(R.id.action_frameFragment_to_diaryFirstFragment)
         }
     }
 }
-

@@ -13,10 +13,12 @@ import android.provider.MediaStore
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.DisplayMetrics
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
@@ -27,6 +29,13 @@ import com.google.android.material.chip.Chip
 import org.journey.android.R
 import org.journey.android.base.BaseFragment
 import org.journey.android.databinding.FragmentDiarySecondBinding
+import org.journey.android.diary.dto.RequestDiaryWriteData
+import org.journey.android.diary.dto.ResponseDiaryWriteData
+import org.journey.android.login.view.userJwt
+import org.journey.android.main.model.RetrofitService
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.util.*
 
 class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
@@ -37,6 +46,9 @@ class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
     ): FragmentDiarySecondBinding {
         return FragmentDiarySecondBinding.inflate(inflater, container, false)
     }
+
+    var hashTagsList : MutableList<String> = mutableListOf()
+    var checkPrivate = false
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -86,8 +98,12 @@ class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
                     ColorStateList.valueOf(resources.getColor(R.color.journey_pink))
                 chip.isClickable = true
                 chip.isCheckable = false
+                hashTagsList.add(chip.text.toString())
                 binding.chipgroupHashtag.addView(chip as View)
-                chip.setOnCloseIconClickListener { binding.chipgroupHashtag.removeView(chip as View) }
+                chip.setOnCloseIconClickListener {
+                    binding.chipgroupHashtag.removeView(chip as View)
+                    hashTagsList.remove(chip.text.toString())
+                }
             }
             else if(binding.chipgroupHashtag.childCount==5)
             {
@@ -156,6 +172,7 @@ class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
         uploadGallery()
 
             binding.buttonCompelete.setOnClickListener{
+
                 val displaymetricsDiarySecondFragment = DisplayMetrics()
                 requireActivity().windowManager.defaultDisplay.getMetrics(displaymetricsDiarySecondFragment)
                 val heightDiarySecondDisplay = displaymetricsDiarySecondFragment.heightPixels
@@ -163,6 +180,20 @@ class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
                 val alertDialogDiarySecondFragment = activity?.let { it2 -> Dialog(it2) }
                 val alertDialogDiarySecondFragmentInflater : LayoutInflater = LayoutInflater.from(activity)
                 val mView : View = alertDialogDiarySecondFragmentInflater.inflate(R.layout.diary_compelete_dialog,null)
+                val moodImage = mView.findViewById(R.id.imageview_diary_compelete_dialog_image) as ImageView
+
+                if(moodNum==0)
+                {
+                    moodImage.setBackgroundResource(R.drawable.diary_bad_compelete)
+                }
+                else if(moodNum==1)
+                {
+                    moodImage.setBackgroundResource(R.drawable.diary_soso_compelete)
+                }
+                else if(moodNum==2)
+                {
+                    moodImage.setBackgroundResource(R.drawable.diary_good_compelete)
+                }
 
                 val windowTwo = alertDialogDiarySecondFragment?.window
                 windowTwo?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
@@ -172,7 +203,51 @@ class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
                     alertDialogDiarySecondFragment.create()
                     alertDialogDiarySecondFragment.show()
                     alertDialogDiarySecondFragment.window?.setLayout(widthDiarySecondDisplay.toInt(), heightDiarySecondDisplay.toInt())
+                    val shareButton = mView.findViewById(R.id.button_diary_compelete_share) as Button
+                    val privateButton = mView.findViewById(R.id.button_diary_compelete_save) as Button
+                    shareButton.setOnClickListener {
+                        checkPrivate=false
+                        findNavController().navigate(R.id.action_diarySecondFragment_to_communityFragment)
+                        alertDialogDiarySecondFragment.cancel()
+                    }
+                    privateButton.setOnClickListener {
+                        checkPrivate=true
+                        findNavController().navigate(R.id.action_diarySecondFragment_to_communityFragment)
+                        alertDialogDiarySecondFragment.cancel()
+                    }
                 }
+
+
+                val requestDiaryWriteData = RequestDiaryWriteData(
+                    mood = moodNum,
+                    content = binding.edittextContentHappiness.text.toString(),
+                    hashtags = hashTagsList,
+                    mainImage = "https://journey-server.s3.amazonaws.com/images/origin/1626342664393.png",
+                    isPrivate = checkPrivate
+                )
+                val call: Call<ResponseDiaryWriteData> = RetrofitService.diaryWriteService
+                    .writeDiary(requestDiaryWriteData, userJwt)
+
+                call.enqueue(object : Callback<ResponseDiaryWriteData>{
+                    override fun onResponse(
+                        call: Call<ResponseDiaryWriteData>,
+                        response: Response<ResponseDiaryWriteData>
+                    ) {
+                        if(response.isSuccessful)
+                        {
+                            Log.d("Compelete Diary", "Compelete Success")
+                        }
+
+                        else{
+                            Log.d("Compelete Diary", "Compelete Fail")
+                        }
+                    }
+
+                    override fun onFailure(call: Call<ResponseDiaryWriteData>, t: Throwable) {
+                        Log.d("Compelete Diary", "Compelete Fail2")
+                    }
+
+                })
             }
 
             binding.imagebuttonCourseBackSecond.setOnClickListener {

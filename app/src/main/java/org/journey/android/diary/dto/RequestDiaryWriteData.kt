@@ -1,10 +1,9 @@
 package org.journey.android.diary.dto
 
 data class RequestDiaryWriteData(
-    val moodImage : String,
-    val moodText : String,
+    val mood : Int,
     val content : String,
-    val hashtags : Array<String>,
-    val mainimage : String,
+    val hashtags : List<String>,
+    val mainImage : String,
     val isPrivate : Boolean
 )

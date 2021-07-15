@@ -12,6 +12,7 @@ import org.journey.android.databinding.FragmentDiaryFirstBinding
 import org.journey.android.databinding.FragmentPrivateBinding
 import java.util.*
 
+var moodNum = 0
 class DiaryFirstFragment : Fragment(){
     private lateinit var  binding : FragmentDiaryFirstBinding
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -71,6 +72,7 @@ class DiaryFirstFragment : Fragment(){
             binding.textviewBadDay.isSelected=false
             binding.textviewSosoDay.isSelected=true
             binding.textviewGoodDay.isSelected=true
+            moodNum=0
         }
 
         binding.imagebuttonFeelTwo.setOnClickListener {
@@ -83,6 +85,7 @@ class DiaryFirstFragment : Fragment(){
             binding.textviewBadDay.isSelected=true
             binding.textviewSosoDay.isSelected=false
             binding.textviewGoodDay.isSelected=true
+            moodNum=1
         }
 
         binding.imagebuttonFeelThree.setOnClickListener {
@@ -95,6 +98,7 @@ class DiaryFirstFragment : Fragment(){
             binding.textviewBadDay.isSelected = true
             binding.textviewSosoDay.isSelected = true
             binding.textviewGoodDay.isSelected = false
+            moodNum=2
         }
 
 
