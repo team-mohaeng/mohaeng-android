@@ -44,7 +44,7 @@ class BottomSheetAdapter(val listener: OnItemClickListener) : ListAdapter<Bottom
             RecyclerView.ViewHolder(binding.root){
                 fun bind(bottomSheetData: BottomSheetData){
                     binding.textviewTags.text = bottomSheetData.tags
-                    binding.textviewSecondTags.text= bottomSheetData.second_tags
+                    //binding.textviewSecondTags.text= bottomSheetData.second_tags
                     binding.textviewRecordContent.text = bottomSheetData.diary
                     binding.textviewUserId.text = bottomSheetData.user_id
                     binding.textviewCountPrefer.text = bottomSheetData.user_prefer.toString()
