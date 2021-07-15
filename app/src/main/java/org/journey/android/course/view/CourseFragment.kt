@@ -140,7 +140,8 @@ class CourseFragment : Fragment() {
                         var courseTitle = response.body()!!.data!!.course!!.title
                         binding.textviewCourseTitle.text = courseTitle
                         var courseProperty = response.body()!!.data!!.course!!.property
-                        when(1){
+
+                        when(courseProperty){
                             0 -> binding.imageviewCourseImage.setImageResource(R.drawable.stamp_health)
                             1 -> binding.imageviewCourseImage.setImageResource(R.drawable.stamp_memory)
                             2 -> binding.imageviewCourseImage.setImageResource(R.drawable.stamp_detect)
@@ -151,7 +152,7 @@ class CourseFragment : Fragment() {
                         var today: Int = 0
                         for (i in 0 until response.body()!!.data!!.course!!.challenges.size){
                             if (response.body()!!.data!!.course!!.challenges[i].situation != 2) {
-                                today = i
+                                today = i+1
                                 binding.textviewCourseDay.text = today.toString() + "일차"
                                 break
                             }
@@ -194,7 +195,7 @@ class CourseFragment : Fragment() {
                                         courseComplete = courseComplete,
                                         courseCurrent = courseCurrent,
                                         type = type,
-                                        property = 1
+                                        property = courseProperty
                                     )
                                 )
                             }
