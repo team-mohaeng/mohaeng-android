@@ -38,7 +38,8 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
 
 
         val call: Call<ResponseCommunityData> = RetrofitService.communityService
-            .getCommunityDiary("date", userJwt)
+            .getCommunityDiary("date",userJwt)
+
         call.enqueue(object : Callback<ResponseCommunityData>{
             override fun onResponse(
                 call: Call<ResponseCommunityData>,
