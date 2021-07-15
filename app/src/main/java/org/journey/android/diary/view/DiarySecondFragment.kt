@@ -74,7 +74,6 @@ class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
         binding.textviewNowDateSecond.text = secondViewToday
 
 
-
         fun addChipToGroup(hashTag: String) {
             if (binding.chipgroupHashtag.childCount < 5) {
                 val chip = Chip(context)
@@ -167,101 +166,115 @@ class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
             }
         })
 
-        uploadGallery()
+        setRetrofit()
 
-            binding.buttonCompelete.setOnClickListener{
+        binding.buttonCompelete.setOnClickListener{
 
-                val displaymetricsDiarySecondFragment = DisplayMetrics()
-                requireActivity().windowManager.defaultDisplay.getMetrics(displaymetricsDiarySecondFragment)
-                val heightDiarySecondDisplay = displaymetricsDiarySecondFragment.heightPixels
-                val widthDiarySecondDisplay = displaymetricsDiarySecondFragment.widthPixels * 0.9
-                val alertDialogDiarySecondFragment = activity?.let { it2 -> Dialog(it2) }
-                val alertDialogDiarySecondFragmentInflater : LayoutInflater = LayoutInflater.from(activity)
-                val mView : View = alertDialogDiarySecondFragmentInflater.inflate(R.layout.diary_compelete_dialog,null)
-                val moodImage = mView.findViewById(R.id.imageview_diary_compelete_dialog_top) as ImageView
+            val displaymetricsDiarySecondFragment = DisplayMetrics()
+            requireActivity().windowManager.defaultDisplay.getMetrics(displaymetricsDiarySecondFragment)
+            val heightDiarySecondDisplay = displaymetricsDiarySecondFragment.heightPixels
+            val widthDiarySecondDisplay = displaymetricsDiarySecondFragment.widthPixels * 0.9
+            val alertDialogDiarySecondFragment = activity?.let { it2 -> Dialog(it2) }
+            val alertDialogDiarySecondFragmentInflater : LayoutInflater = LayoutInflater.from(activity)
+            val mView : View = alertDialogDiarySecondFragmentInflater.inflate(R.layout.diary_compelete_dialog,null)
+            val moodImage = mView.findViewById(R.id.imageview_diary_compelete_dialog_top) as ImageView
 
-                if(moodNum==0)
-                {
-                    moodImage.setBackgroundResource(R.drawable.diary_bad_compelete)
-                }
-                else if(moodNum==1)
-                {
-                    moodImage.setBackgroundResource(R.drawable.diary_soso_compelete)
-                }
-                else if(moodNum==2)
-                {
-                    moodImage.setBackgroundResource(R.drawable.diary_good_compelete)
-                }
-
-                val windowTwo = alertDialogDiarySecondFragment?.window
-                windowTwo?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-                if (alertDialogDiarySecondFragment != null)
-                {
-                    alertDialogDiarySecondFragment.setContentView(mView)
-                    alertDialogDiarySecondFragment.create()
-                    alertDialogDiarySecondFragment.show()
-                    alertDialogDiarySecondFragment.window?.setLayout(widthDiarySecondDisplay.toInt(), heightDiarySecondDisplay.toInt())
-                    val shareButton = mView.findViewById(R.id.button_diary_compelete_share) as Button
-                    val privateButton = mView.findViewById(R.id.button_diary_compelete_save) as Button
-                    shareButton.setOnClickListener {
-                        checkPrivate=false
-                        findNavController().navigate(R.id.action_diarySecondFragment_to_communityFragment)
-                        alertDialogDiarySecondFragment.cancel()
-                    }
-                    privateButton.setOnClickListener {
-                        checkPrivate=true
-                        findNavController().navigate(R.id.action_diarySecondFragment_to_communityFragment)
-                        alertDialogDiarySecondFragment.cancel()
-                    }
-                }
-//                val hashlist : List<String> = listOf("1","2","3")
-//                var file = File("/storage/emulated/0/Download/filename.pdf")
-//                val requestFile = RequestBody.create("application/pdf".toMediaTypeOrNull(), file)
-//                val body = MultipartBody.Part.createFormData("file", file.name, requestFile)
-//
-//                val requestDiaryWriteData = RequestDiaryWriteData(
-//                    content = "안녕",
-//                    mainImage = "",
-//                    mood = "1",
-//                    hashtags = hashlist,
-//                    isPrivate = true
-//                )
-//
-//                val call: Call<ResponseDiaryWriteData> = RetrofitService.diaryWriteService
-//                    .writeDiary(requestDiaryWriteData, userJwt)
-//                call.enqueue(object : Callback<ResponseDiaryWriteData>{
-//                    override fun onResponse(
-//                        call: Call<ResponseDiaryWriteData>,
-//                        response: Response<ResponseDiaryWriteData>
-//                    ) {
-//                        if(response.isSuccessful)
-//                        {
-//                            Log.d("Compelete", "Compelete Success")
-//                        }
-//                        else{
-//                            Log.d("Compelete", "Compelete Fail")
-//                        }
-//                    }
-//                    override fun onFailure(call: Call<ResponseDiaryWriteData>, t: Throwable) {
-//                        Log.d("Compelete", "$t")
-//                    }
-//
-//                })
+            if(moodNum==0)
+            {
+                moodImage.setBackgroundResource(R.drawable.diary_bad_compelete)
             }
+            else if(moodNum==1)
+            {
+                moodImage.setBackgroundResource(R.drawable.diary_soso_compelete)
+            }
+            else if(moodNum==2)
+            {
+                moodImage.setBackgroundResource(R.drawable.diary_good_compelete)
+            }
+
+            val windowTwo = alertDialogDiarySecondFragment?.window
+            windowTwo?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            if (alertDialogDiarySecondFragment != null)
+            {
+                alertDialogDiarySecondFragment.setContentView(mView)
+                alertDialogDiarySecondFragment.create()
+                alertDialogDiarySecondFragment.show()
+                alertDialogDiarySecondFragment.window?.setLayout(widthDiarySecondDisplay.toInt(), heightDiarySecondDisplay.toInt())
+                val shareButton = mView.findViewById(R.id.button_diary_compelete_share) as Button
+                val privateButton = mView.findViewById(R.id.button_diary_compelete_save) as Button
+                shareButton.setOnClickListener {
+                    checkPrivate=false
+                    findNavController().navigate(R.id.action_diarySecondFragment_to_communityFragment)
+                    alertDialogDiarySecondFragment.cancel()
+                }
+                privateButton.setOnClickListener {
+                    checkPrivate=true
+                    findNavController().navigate(R.id.action_diarySecondFragment_to_communityFragment)
+                    alertDialogDiarySecondFragment.cancel()
+                }
+            }
+
 
             binding.imagebuttonCourseBackSecond.setOnClickListener {
                 findNavController().navigate(R.id.action_diarySecondFragment_to_diaryFirstFragment)
             }
     }
 
+
+    }
+    var path = ""
     // 갤러리 이미지 첨부
     fun uploadGallery() {
         binding.buttonPictureUpload.setOnClickListener {
             val gallery = Intent(Intent.ACTION_PICK)
             gallery.data = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
             startActivityForResult(gallery, PICK_IMAGE)
-
+            Log.d("사진사진",gallery.data.toString())
+            path = gallery.data.toString()
         }
+    }
+
+    fun setRetrofit(){
+        uploadGallery()
+
+        val file = File(path)
+        val requestFile = RequestBody.create("multipart/form-data".toMediaTypeOrNull(), file)
+        val uploadFile = MultipartBody.Part.createFormData("mainImage", file.name, requestFile);
+
+
+        val hashlist : List<String> = listOf("1","2","3")
+//                var file = File("/storage/emulated/0/Download/filename.pdf")
+//                val requestFile = RequestBody.create("application/pdf".toMediaTypeOrNull(), file)
+//                val body = MultipartBody.Part.createFormData("file", file.name, requestFile)
+
+        val requestDiaryWriteData = RequestDiaryWriteData(
+            content = "안녕",
+            mainImage = path,
+            mood = "1",
+            hashtags = hashlist,
+            isPrivate = true
+        )
+
+        val call: Call<ResponseDiaryWriteData> = RetrofitService.diaryWriteService
+            .writeDiary(userJwt, "hi", uploadFile, "1", listOf("1","2","3"), true)
+        call.enqueue(object : Callback<ResponseDiaryWriteData>{
+            override fun onResponse(
+                call: Call<ResponseDiaryWriteData>,
+                response: Response<ResponseDiaryWriteData>
+            ) {
+                if(response.isSuccessful)
+                {
+                    Log.d("Compelete", "Compelete Success")
+                }
+                else{
+                    Log.d("Compelete", "Compelete Fail")
+                }
+            }
+            override fun onFailure(call: Call<ResponseDiaryWriteData>, t: Throwable) {
+                Log.d("Compelete", "$t")
+            }
+
+        })
     }
 
     companion object {
