@@ -33,6 +33,18 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/textview_second_tags"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="#여름"
+            android:textSize="14sp"
+            android:fontFamily="@font/spoqahansansneoregular"
+            android:layout_marginLeft="2dp"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toEndOf="@id/textview_tags"
+            app:layout_constraintBottom_toBottomOf="@id/textview_tags"/>
+
+        <TextView
             android:id="@+id/textview_record_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

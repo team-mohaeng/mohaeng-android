@@ -15,6 +15,7 @@ import androidx.navigation.fragment.findNavController
 import org.journey.android.R
 import org.journey.android.base.BaseFragment
 import org.journey.android.community.ResponseCommunityData
+import org.journey.android.community.dto.BottomSheetData
 import org.journey.android.databinding.FragmentCommunityBinding
 import org.journey.android.login.view.userJwt
 import org.journey.android.main.model.RetrofitService
@@ -24,6 +25,8 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
+    lateinit var bottomSheetAdapter : BottomSheetAdapter
+    var bottomSheetData = mutableListOf<BottomSheetData>()
     val bottomSheetFragment = BottomSheetFragment()
     var happinessStatus = 0
     var todayUploader = 0
@@ -40,6 +43,7 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
         clickEvent()
         setButtonEvent()
         setUIListener()
+        initRecyclerView()
 
 
         //서버 연결해서 happinessStatus와 몇명이 소확행 피드에 올렸는지 받아옴
@@ -68,8 +72,14 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
             override fun onFailure(call: Call<ResponseCommunityData>, t: Throwable) {
 
             }
-
-        })
+    }
+    private fun initRecyclerView() {
+        bottomSheetAdapter =
+            BottomSheetAdapter(object  : BottomSheetAdapter.OnItemClickListener{
+                override fun itemClickListener(view: View, position: Int) {
+                    findNavController().navigate(R.id.action_communityFragment_to_diaryFirstFragment)
+                }
+            })
     }
 
 
