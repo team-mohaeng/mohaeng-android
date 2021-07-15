@@ -32,8 +32,9 @@ class RewardFragment : BaseFragment<FragmentRewardBinding>() {
         inflater: LayoutInflater,
         container: ViewGroup?
     ): FragmentRewardBinding {
-      return FragmentRewardBinding.inflate(inflater, container,false)
+        return FragmentRewardBinding.inflate(inflater, container, false)
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 //        showReward()
@@ -52,7 +53,7 @@ class RewardFragment : BaseFragment<FragmentRewardBinding>() {
                     rewardContent = requireContext().getString(R.string.reward_challenge_percent)
                 ),
                 RewardData(
-                    percent= successDay,
+                    percent = successDay,
                     percentUnit = "일",
                     rewardContent = requireContext().getString(R.string.reward_challenge_date)
                 )
@@ -60,6 +61,7 @@ class RewardFragment : BaseFragment<FragmentRewardBinding>() {
         )
         rewardAdapter.notifyDataSetChanged()
     }
+
     /*
     private fun showCompleteCourse(){
         completeCourseAdapter = CompleteCourseAdapter()
@@ -97,13 +99,13 @@ class RewardFragment : BaseFragment<FragmentRewardBinding>() {
     }
 
      */
-    private fun goBackMain(){
+    private fun goBackMain() {
         binding.buttonPressedBack.setOnClickListener {
             findNavController().popBackStack()
         }
     }
 
-    private fun loadDatas(){
+    private fun loadDatas() {
         RetrofitService.rewardService.getRewardData(
             userJwt
         ).enqueue(object : Callback<ResponseRewardData> {
@@ -123,27 +125,31 @@ class RewardFragment : BaseFragment<FragmentRewardBinding>() {
                             "서버", response.body()!!.data.toString()
                         )
                         lovePercent = response.body()!!.data!!.totalIncreasedAffinity.toString()
-                        if(lovePercent.length == 1){
-                            lovePercent = "0" + response.body()!!.data!!.totalIncreasedAffinity.toString()
+                        if (lovePercent.length == 1) {
+                            lovePercent =
+                                "0" + response.body()!!.data!!.totalIncreasedAffinity.toString()
                         }
                         successDay = response.body()!!.data!!.maxSuccessCount.toString()
-                        if(successDay.length == 1){
+                        if (successDay.length == 1) {
                             successDay = "0" + response.body()!!.data!!.maxSuccessCount.toString()
                         }
 
                         for (i in 0 until response.body()!!.data!!.courses.size) {
                             var property = response.body()!!.data!!.courses[i].property
-                            var year = response.body()!!.data!!.courses[i].challenges[response.body()!!.data!!.courses[i]!!.challenges.size -1].year
-                            var month = response.body()!!.data!!.courses[i].challenges[response.body()!!.data!!.courses[i]!!.challenges.size -1].month
-                            var day = response.body()!!.data!!.courses[i].challenges[response.body()!!.data!!.courses[i]!!.challenges.size -1].day
+                            var year =
+                                response.body()!!.data!!.courses[i].challenges[response.body()!!.data!!.courses[i].challenges.size - 1].year
+                            var month =
+                                response.body()!!.data!!.courses[i].challenges[response.body()!!.data!!.courses[i].challenges.size - 1].month
+                            var day =
+                                response.body()!!.data!!.courses[i].challenges[response.body()!!.data!!.courses[i].challenges.size - 1].day
                             var date = year + "." + month + "." + day
 
                             datas = mutableListOf<CompleteCourseData>()
                             datas.apply {
                                 add(
                                     CompleteCourseData(
-                                        courseDate = response.body()!!.data!!.courses[i]!!.totalDays.toString() + "일차",
-                                        courseName = response.body()!!.data!!.courses[i]!!.title.toString(),
+                                        courseDate = response.body()!!.data!!.courses[i].totalDays.toString() + "일차",
+                                        courseName = response.body()!!.data!!.courses[i].title.toString(),
                                         courseComplete = date,
                                         property = property
                                     )

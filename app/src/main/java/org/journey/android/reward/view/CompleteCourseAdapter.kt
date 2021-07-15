@@ -31,12 +31,12 @@ class CompleteCourseAdapter :
 
     class CompleteCourseViewHolder(val binding : ItemRewardCourseBinding):
         RecyclerView.ViewHolder(binding.root){
-        fun onBind(completeCourseData: CompleteCourseData){
+        fun onBind(completeCourseData: CompleteCourseData) {
             binding.textviewCourseTerm.text = completeCourseData.courseDate
             binding.textviewCourseSubject.text = completeCourseData.courseName
             binding.textviewCourseDate.text = completeCourseData.courseComplete
 
-            when(completeCourseData.property){
+            when (completeCourseData.property) {
                 0 -> {
                     binding.circleimageReward.setImageResource(R.drawable.course_health)
                     binding.constraintlayoutRewardCourse.setBackgroundResource(R.drawable.library_round_health)

@@ -37,10 +37,10 @@
         android:id="@+id/imageview_logo"
         android:layout_width="164dp"
         android:layout_height="164dp"
-        android:layout_marginTop="548dp"
+        android:layout_marginTop="572dp"
         android:background="@drawable/image89"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.83"
+        app:layout_constraintHorizontal_bias="0.89"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
