@@ -27,6 +27,7 @@ import org.journey.android.challenge.data.ResponseStampData
 import org.journey.android.databinding.FragmentChallengeBinding
 import org.journey.android.login.view.userJwt
 import org.journey.android.main.RetrofitService
+import org.journey.android.main.dto.ResponseMainModelItem
 import org.journey.android.main.view.userCourseStatus
 import retrofit2.Call
 import retrofit2.Callback
@@ -65,18 +66,22 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
     // challengeId
     private var userChallengeId = 0
 
-    // journey popup msg
+    // journey msg
     private var journeyMsg = ""
 
-    // journey end popup msg
+    // journey end msg
     private var journeyEndMsg = ""
+
+    // popup msg array
+    private lateinit var userMents : List<String>
+
+    // challenge situation
+    var challengeStatus = 0
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        selectChallengeView()
-        setButtonEvent()
+        setRetrofitMain()
 
 
         initChallengeType(binding.imagebuttonFirstFirst)
@@ -101,12 +106,15 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
 
     // 챌린지 시작 여부에 따라 다른 뷰를 보여줌
     fun selectChallengeView() {
-        Log.d("challenge",hasCourse.toString())
-        if (hasCourse != 0) {
-            setRetrofit()
+        //setRetrofit(courseId)
+
+        Log.d("challenge_course",hasCourse.toString())
+        if (hasCourse!=0) {
 
             binding.constraintlayoutChallengeGone.visibility = View.GONE
             binding.constraintlayoutChallengeOngoing.visibility = View.VISIBLE
+
+            binding.textviewJourneyTalk.text = journeyMsg
 
             var height: Int = 0
             var width: Int = 0
@@ -165,32 +173,12 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
 
             // 인증하기 버튼 클릭 이벤트
             fun checkMission(btnStamp: ImageButton) {
+                //setRetrofit()
                 dialog_image.setImageResource(R.drawable.challenge_stamp_journey)
-
-//                var height_img = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 232F, getResources().getDisplayMetrics()).toInt()
-//                var width_img = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 160F, getResources().getDisplayMetrics()).toInt()
-//                dialog_image.getLayoutParams().height=height_img
-//                dialog_image.getLayoutParams().width=width_img
-//                dialog_image.requestLayout()
-
-//                var height_img = TypedValue.applyDimension(
-//                    TypedValue.COMPLEX_UNIT_DIP,
-//                    232F,
-//                    resources.displayMetrics
-//                ).toInt()
-//                var width_img = TypedValue.applyDimension(
-//                    TypedValue.COMPLEX_UNIT_DIP,
-//                    160F,
-//                    resources.displayMetrics
-//                ).toInt()
-//                dialog_image.layoutParams.height = height_img
-//                dialog_image.layoutParams.width = width_img
-//                dialog_image.requestLayout()
-
 
                 dialogTitle.text = "인증하기"
                 okButton.text = "완료"
-                dialog_ment.text = journeyMsg
+                dialog_ment.text = userMents[stampComplete]
 
                 dialogButtons.visibility = View.GONE
                 okButton.visibility = View.VISIBLE
@@ -198,8 +186,8 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
                 alertDialog.show()
 
                 okButton.setOnClickListener {
+                    setStampRetrofit(userCourseId, userChallengeId)
                     alertDialog.dismiss()
-                    Toast.makeText(this.context, "완료 클릭", Toast.LENGTH_SHORT).show()
 
                     when(challengeType){
                         0 -> btnStamp.setImageResource(R.drawable.stamp_health)
@@ -213,11 +201,13 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
                     if(courseDays == courseNumber){
                         courseEnd = true
                     }
-                    
+
                     // 스탬프 다  인증 완료하면 완료 팝업 등
                     if(stampComplete == stampNumber){
                         binding.textviewJourneyTalk.text = journeyEndMsg
-
+                        binding.textviewFirstExplain.text = "오늘의 챌린지 성공!\n" + "내일 새로운 챌린지로 다시 만나요!"
+                        binding.textviewSecondExplain.text = "오늘의 챌린지 성공!\n" + "내일 새로운 챌린지로 다시 만나요!"
+                        binding.textviewThirdExplain.text = "오늘의 챌린지 성공!\n" + "내일 새로운 챌린지로 다시 만나요!"
                         when(stampNumber){
                             1 -> binding.imageviewBackFirst.visibility = View.VISIBLE
                             2 -> binding.imageviewBackSecond.visibility = View.VISIBLE
@@ -256,12 +246,26 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
                             imageEnd?.startAnimation(mAnim1)
                         }
                     }
+                    else{
+                        binding.textviewFirstExplain.text = "아이콘을 터치해 인증을 완료할 수 있어요\n" + "자정 전까지 오늘의 챌린지를 성공해보세요!"
+                        binding.textviewSecondExplain.text = "아이콘을 터치해 인증을 완료할 수 있어요\n" + "자정 전까지 오늘의 챌린지를 성공해보세요!"
+                        binding.textviewThirdExplain.text = "아이콘을 터치해 인증을 완료할 수 있어요\n" + "자정 전까지 오늘의 챌린지를 성공해보세요!"
+                    }
                 }
                 btnStamp.isEnabled = false
             }
 
             // 미션 개수에 따라 다르게 보여줌
             if(stampNumber == 1) {
+                when(stampComplete){
+                    0->{
+                        setStampNo(binding.imagebuttonFirstFirst)
+                    }
+                    1->{
+                        setStampYes(binding.imagebuttonFirstFirst)
+                    }
+                }
+
                 binding.constraintlayoutSubFirst.visibility = View.VISIBLE
                 binding.constraintlayoutSubSecond.visibility = View.GONE
                 binding.constraintlayoutSubThird.visibility = View.GONE
@@ -290,13 +294,28 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
 
 
                 // 스탬프 누르면 인증 팝업 등장
-                binding.imagebuttonFirstFirst.setOnClickListener {
-                    checkMission(binding.imagebuttonFirstFirst)
-                    setStampRetrofit(userCourseId, userChallengeId)
+                if(challengeStatus == 1){
+                    binding.imagebuttonFirstFirst.setOnClickListener {
+                        checkMission(binding.imagebuttonFirstFirst)
+                    }
                 }
-
             }
             else if(stampNumber == 2) {
+                when(stampComplete){
+                    0->{
+                        setStampNo(binding.imagebuttonSecondFirst)
+                        setStampNo(binding.imagebuttonSecondSecond)
+                    }
+                    1->{
+                        setStampYes(binding.imagebuttonSecondFirst)
+                        setStampNo(binding.imagebuttonSecondSecond)
+                    }
+                    2->{
+                        setStampYes(binding.imagebuttonSecondFirst)
+                        setStampYes(binding.imagebuttonSecondSecond)
+                    }
+                }
+
                 binding.constraintlayoutSubFirst.visibility = View.GONE
                 binding.constraintlayoutSubSecond.visibility = View.VISIBLE
                 binding.constraintlayoutSubThird.visibility = View.GONE
@@ -325,16 +344,39 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
 
 
                 // 스탬프 누르면 인증 팝업 등장
-                binding.imagebuttonSecondFirst.setOnClickListener {
-                    checkMission(binding.imagebuttonSecondFirst)
-                    setStampRetrofit(userCourseId, userChallengeId)
-                }
-                binding.imagebuttonSecondSecond.setOnClickListener {
-                    checkMission(binding.imagebuttonSecondSecond)
-                    setStampRetrofit(userCourseId, userChallengeId)
+                if(challengeStatus == 1) {
+                    binding.imagebuttonSecondFirst.setOnClickListener {
+                        checkMission(binding.imagebuttonSecondFirst)
+                    }
+                    binding.imagebuttonSecondSecond.setOnClickListener {
+                        checkMission(binding.imagebuttonSecondSecond)
+                    }
                 }
             }
             else if(stampNumber == 3) {
+                when(stampComplete){
+                    0->{
+                        setStampNo(binding.imagebuttonThirdFirst)
+                        setStampNo(binding.imagebuttonThirdSecond)
+                        setStampNo(binding.imagebuttonThirdThird)
+                    }
+                    1->{
+                        setStampYes(binding.imagebuttonThirdFirst)
+                        setStampNo(binding.imagebuttonThirdSecond)
+                        setStampNo(binding.imagebuttonThirdThird)
+                    }
+                    2->{
+                        setStampYes(binding.imagebuttonThirdFirst)
+                        setStampYes(binding.imagebuttonThirdSecond)
+                        setStampNo(binding.imagebuttonThirdThird)
+                    }
+                    3->{
+                        setStampYes(binding.imagebuttonThirdFirst)
+                        setStampYes(binding.imagebuttonThirdSecond)
+                        setStampYes(binding.imagebuttonThirdThird)
+                    }
+                }
+
                 binding.constraintlayoutSubFirst.visibility = View.GONE
                 binding.constraintlayoutSubSecond.visibility = View.GONE
                 binding.constraintlayoutSubThird.visibility = View.VISIBLE
@@ -362,17 +404,16 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
                 ).toInt()
 
                 // 스탬프 누르면 인증 팝업 등장
-                binding.imagebuttonThirdFirst.setOnClickListener {
-                    checkMission(binding.imagebuttonThirdFirst)
-                    setStampRetrofit(userCourseId, userChallengeId)
-                }
-                binding.imagebuttonThirdSecond.setOnClickListener {
-                    checkMission(binding.imagebuttonThirdSecond)
-                    setStampRetrofit(userCourseId, userChallengeId)
-                }
-                binding.imagebuttonThirdThird.setOnClickListener {
-                    checkMission(binding.imagebuttonThirdThird)
-                    setStampRetrofit(userCourseId, userChallengeId)
+                if(challengeStatus == 1) {
+                    binding.imagebuttonThirdFirst.setOnClickListener {
+                        checkMission(binding.imagebuttonThirdFirst)
+                    }
+                    binding.imagebuttonThirdSecond.setOnClickListener {
+                        checkMission(binding.imagebuttonThirdSecond)
+                    }
+                    binding.imagebuttonThirdThird.setOnClickListener {
+                        checkMission(binding.imagebuttonThirdThird)
+                    }
                 }
             }
             binding.imageviewChallengeJourney.layoutParams.height = height
@@ -410,11 +451,11 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
         return FragmentChallengeBinding.inflate(inflater, container, false)
     }
 
-    fun setRetrofit() {
+    fun setRetrofit(courseId: Int) {
         RetrofitService.challengeService.getChallengeData(
             userJwt,
             //"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiZXA0UmhZcmJUSE9uaHpBUldOVFNTMTpBUEE5MWJIS1pGdkJuUkV1dEEtYzQxSmN6dDBITzVJQkNyMFhzM0VadjFFcUZSVl9jY05semtDbFQtaWxmT3FGTUFWTmFPUFYxaVhIQjIybHhrcHZJRWNTNW4tMjQtZzY2SVR1d0o1aW9aWlJtYVd5R1Q3XzZiUDhlR1BOZHd2SkNwUWxZb1daQlhHVCJ9LCJpYXQiOjE2MjYwODk5OTZ9.fZoVLz1W-C9RNklV0ZPx6yZeysJWfiuOOPhoAlMtG5k",
-            userCourseStatus
+            courseId
         ).enqueue(object : Callback<ResponseChallengeData> {
             override fun onFailure(call: Call<ResponseChallengeData>, t: Throwable) {
                 Log.d("통신 실패", "${t}")
@@ -433,7 +474,7 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
                         )
 
                         for (i in 0 until response.body()!!.data!!.course!!.challenges.size) {
-                            if (response.body()!!.data!!.course!!.challenges[i].situation == 1) {
+                            if (response.body()!!.data!!.course!!.challenges[i].situation != 0) {
                                 stampNumber =
                                     response.body()!!.data!!.course!!.challenges[i].totalStamp
                                 stampComplete =
@@ -441,15 +482,27 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
                                 courseNumber = response.body()!!.data!!.course!!.totalDays
                                 courseDays = response.body()!!.data!!.course!!.challenges[i].id
                                 userCourseId = response.body()!!.data!!.course!!.id
-                                userChallengeId = response.body()!!.data!!.course!!.id
+                                userChallengeId = response.body()!!.data!!.course!!.challenges[i].id
                                 journeyMsg =
-                                    response.body()!!.data!!.course!!.challenges[i].userMents[0]
+                                    response.body()!!.data!!.course!!.challenges[i].description
                                 journeyEndMsg =
-                                    response.body()!!.data!!.course!!.challenges[i].userMents[0]
+                                    response.body()!!.data!!.course!!.challenges[i].successDescription
                                 challengeType = response.body()!!.data!!.course!!.property
+                                userMents = response.body()!!.data!!.course!!.challenges[i].userMents
+                                challengeStatus = response.body()!!.data!!.course!!.challenges[i].situation
+
+                                binding.textviewFirstTitle.text = response.body()!!.data!!.course!!.challenges[i].title
+                                binding.textviewSecondTitle.text = response.body()!!.data!!.course!!.challenges[i].title
+                                binding.textviewThirdTitle.text = response.body()!!.data!!.course!!.challenges[i].title
+
+                                binding.textviewFirstContent.text = response.body()!!.data!!.course!!.title
+                                binding.textviewSecondContent.text = response.body()!!.data!!.course!!.title
+                                binding.textviewThirdContent.text = response.body()!!.data!!.course!!.title
                                 break
                             }
                         }
+
+                        selectChallengeView()
                     }
                 } else {
                     Log.d("서버 실패" + userCourseStatus, "${response.body()}")
@@ -458,6 +511,41 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
                         "만료된 토큰입니다. 우리 아기 고앵이 토큰 하나 더 받아와 쪽-",
                         Toast.LENGTH_SHORT
                     ).show()
+                }
+            }
+        })
+    }
+
+    fun setRetrofitMain(){
+        org.journey.android.main.model.RetrofitService.mainService.getMainData(
+            userJwt
+        ).enqueue(object : Callback<ResponseMainModelItem> {
+
+            override fun onFailure(call: Call<ResponseMainModelItem>, t: Throwable) {
+                Log.d("통신 실패", "${t}")
+            }
+
+            override fun onResponse(
+                call: Call<ResponseMainModelItem>,
+                response: Response<ResponseMainModelItem>
+            ) {
+                // 통신 성공
+                if (response.isSuccessful) {   // statusCode가 200-300 사이일 때, 응답 body 이용 가능
+                    if (true) {
+                        Log.d("서버 성공", "Home 성공")
+                        Log.d(
+                            "서버", response.body()!!.data.toString()
+                        )
+                        setRetrofit(response.body()!!.data!!.course!!.id)
+                        userCourseId = response.body()!!.data!!.course!!.id
+                        hasCourse = response.body()!!.data!!.course!!.situation
+                        selectChallengeView()
+                        setButtonEvent()
+                    }
+                }
+                else {
+                    Log.d("서버 실패", "${response.body()}")
+                    Toast.makeText(context, "만료된 토큰입니다. 우리 아기 고앵이 토큰 하나 더 받아와 쪽-", Toast.LENGTH_SHORT).show()
                 }
             }
         })
@@ -486,7 +574,7 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
                         )
                     }
                 } else {
-                    Log.d("서버 실패" + userCourseStatus, "${response.body()}")
+                    Log.d("서버 실패 "+userCourseId, "${response.body()}")
                     Toast.makeText(
                         context,
                         "해당 id의 코스(챌린지)가 존재하지 않습니다",
@@ -495,5 +583,23 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
                 }
             }
         })
+    }
+
+    private fun setStampNo(btn: ImageButton){
+        when(challengeType){
+            0 -> btn.setImageResource(R.drawable.stamp_health_no)
+            1 -> btn.setImageResource(R.drawable.stamp_memory_no)
+            2 -> btn.setImageResource(R.drawable.stamp_detect_no)
+            3 -> btn.setImageResource(R.drawable.stamp_challenge_no)
+        }
+    }
+
+    private fun setStampYes(btn: ImageButton){
+        when(challengeType){
+            0 -> btn.setImageResource(R.drawable.stamp_health)
+            1 -> btn.setImageResource(R.drawable.stamp_memory)
+            2 -> btn.setImageResource(R.drawable.stamp_detect)
+            3 -> btn.setImageResource(R.drawable.stamp_challenge)
+        }
     }
 }
