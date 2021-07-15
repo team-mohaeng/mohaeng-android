@@ -1,11 +1,10 @@
 package org.journey.android.community.view
 
-import android.annotation.SuppressLint
 import android.graphics.Bitmap
 import android.graphics.Color
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -19,7 +18,7 @@ import org.journey.android.community.dto.BottomSheetData
 import org.journey.android.community.dto.BottomSheetDiffCallback
 import org.journey.android.databinding.ItemCommunityRecordBinding
 
-class BottomSheetAdapter : ListAdapter<BottomSheetData, BottomSheetAdapter.BottomSheetViewHolder>(
+class BottomSheetAdapter(val listener: OnItemClickListener) : ListAdapter<BottomSheetData, BottomSheetAdapter.BottomSheetViewHolder>(
     BottomSheetDiffCallback
 ) {
     val bottomList = mutableListOf<BottomSheetData>()
@@ -45,6 +44,7 @@ class BottomSheetAdapter : ListAdapter<BottomSheetData, BottomSheetAdapter.Botto
             RecyclerView.ViewHolder(binding.root){
                 fun bind(bottomSheetData: BottomSheetData){
                     binding.textviewTags.text = bottomSheetData.tags
+                    binding.textviewSecondTags.text= bottomSheetData.second_tags
                     binding.textviewRecordContent.text = bottomSheetData.diary
                     binding.textviewUserId.text = bottomSheetData.user_id
                     binding.textviewCountPrefer.text = bottomSheetData.user_prefer.toString()
@@ -67,5 +67,9 @@ class BottomSheetAdapter : ListAdapter<BottomSheetData, BottomSheetAdapter.Botto
                         .into(binding.imageviewCommunityItemBackground)
                 }
             }
+
+    interface OnItemClickListener{
+        fun itemClickListener(view : View, position: Int)
+    }
 
 }
