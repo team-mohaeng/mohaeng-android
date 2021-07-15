@@ -9,6 +9,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import org.journey.android.community.ResponseCommunityData
 import org.journey.android.community.dto.BottomSheetData
 import org.journey.android.databinding.FragmentBottomSheetBinding
+import org.journey.android.login.view.userJwt
 import org.journey.android.main.model.RetrofitService
 import retrofit2.Call
 import retrofit2.Callback
@@ -37,7 +38,7 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
 
 
         val call: Call<ResponseCommunityData> = RetrofitService.communityService
-            .getCommunityDiary(1,"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiZXA0UmhZcmJUSE9uaHpBUldOVFNTMTpBUEE5MWJIS1pGdkJuUkV1dEEtYzQxSmN6dDBITzVJQkNyMFhzM0VadjFFcUZSVl9jY05semtDbFQtaWxmT3FGTUFWTmFPUFYxaVhIQjIybHhrcHZJRWNTNW4tMjQtZzY2SVR1d0o1aW9aWlJtYVd5R1Q3XzZiUDhlR1BOZHd2SkNwUWxZb1daQlhHVCJ9LCJpYXQiOjE2MjYwODk5OTZ9.fZoVLz1W-C9RNklV0ZPx6yZeysJWfiuOOPhoAlMtG5k")
+            .getCommunityDiary("date", userJwt)
         call.enqueue(object : Callback<ResponseCommunityData>{
             override fun onResponse(
                 call: Call<ResponseCommunityData>,
