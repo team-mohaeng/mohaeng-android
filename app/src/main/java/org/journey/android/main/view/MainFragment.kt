@@ -17,6 +17,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+
 var userCourseStatus = 0
 
 class MainFragment : BaseFragment<FragmentMainBinding>() {
@@ -112,7 +113,23 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
                                         response.body()!!.data!!.course!!.description
                                     binding.textviewMainChallenge.text =
                                         response.body()!!.data!!.course!!.title
+
+                                    when (response.body()!!.data!!.course!!.property) {
+                                        0 -> {
+                                            binding.buttonMainUser.setCompoundDrawablesWithIntrinsicBounds(R.drawable.course_health, 0, 0, 0)
+                                        }
+                                        1 -> {
+                                            binding.buttonMainUser.setCompoundDrawablesWithIntrinsicBounds(R.drawable.course_mamoey,0,0,0)
+                                        }
+                                        2 -> {
+                                            binding.buttonMainUser.setCompoundDrawablesWithIntrinsicBounds(R.drawable.course_detect,0,0,0)
+                                        }
+                                        3 -> {
+                                            binding.buttonMainUser.setCompoundDrawablesWithIntrinsicBounds(R.drawable.course_challenge,0,0,0)
+                                        }
+                                    }
                                 }
+
                             }
                             // 오늘이 몇일차인지 구하는 부분
                             for (i in 0 until response.body()!!.data!!.course!!.challenges.size) {
