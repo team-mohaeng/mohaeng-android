@@ -89,7 +89,7 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
 
     fun setUIListener() {
         with(binding) {
-            constraintlayoutFrameCommunity.setOnTouchListener(
+            viewBrowse.setOnTouchListener(
                 object : OnSwipeTouchListener(context) {
                     override fun onSwipeUp() {
                         bottomSheetFragment.show(childFragmentManager, "bottomsheet")
@@ -223,7 +223,7 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
 
     fun clickEvent() {
         binding.textviewDiary.setOnClickListener {
-            findNavController().navigate(R.id.action_frameFragment_to_diaryFirstFragment)
+            findNavController().navigate(R.id.action_frameFragment_to_privateFragment)
         }
     }
 }

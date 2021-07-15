@@ -1,4 +1,4 @@
-package org.journey.android.diary
+package org.journey.android.diary.dto
 
 data class ResponseDiaryDislikeData (
     val status : Int,

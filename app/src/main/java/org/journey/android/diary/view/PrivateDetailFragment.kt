@@ -11,13 +11,11 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.NavHostFragment.findNavController
-import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import org.journey.android.R
 import org.journey.android.databinding.FragmentPrivateDetailBinding
-import org.journey.android.diary.ResponseDiaryDislikeData
-import org.journey.android.diary.ResponseDiaryLikeData
+import org.journey.android.diary.dto.ResponseDiaryDislikeData
+import org.journey.android.diary.dto.ResponseDiaryLikeData
 import org.journey.android.diary.dto.ResponseDiaryPrivateDetailData
 import org.journey.android.login.view.userJwt
 import org.journey.android.main.model.RetrofitService

@@ -63,7 +63,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/ic_rectangle280"
-            android:drawableLeft="@drawable/ic_rectangle334"
+            android:drawableLeft="@drawable/image_77"
             android:drawablePadding="4dp"
             android:fontFamily="@font/spoqahansansneobold"
             android:gravity="left|center"
