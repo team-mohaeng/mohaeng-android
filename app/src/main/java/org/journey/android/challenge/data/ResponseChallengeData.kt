@@ -26,6 +26,7 @@ data class ChallengeData(
     val title : String,
     val situation : Int,
     val description : String,
+    val successDescription : String,
     val year : String,
     val month : String,
     val day : String,
