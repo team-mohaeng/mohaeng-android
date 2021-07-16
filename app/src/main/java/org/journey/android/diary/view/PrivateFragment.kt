@@ -24,8 +24,9 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.util.*
 
-class PrivateFragment : Fragment(){
+var detailPostId = 0
 
+class PrivateFragment : Fragment(){
     private lateinit var  binding : FragmentPrivateBinding
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View?{
@@ -85,6 +86,7 @@ class PrivateFragment : Fragment(){
                         binding.textviewPrivateEmptyContent.isVisible = false
                         if (dataPrivate != null) {
                             for (i in 0 until countContent!!) {
+                                detailPostId = dataPrivate.myDrawerSmallSatisfactions[i].postId
                                 privateAdapter.privateDiaryList.addAll(
                                     listOf<PrivateData>(
                                         PrivateData(

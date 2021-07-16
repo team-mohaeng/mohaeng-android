@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -65,8 +66,13 @@ class BottomSheetAdapter(val listener: OnItemClickListener) : ListAdapter<Bottom
                         .load(bottomSheetData.main_image)
                         .apply(RequestOptions.bitmapTransform(multiEffect))
                         .into(binding.imageviewCommunityItemBackground)
+
+                    itemView.setOnClickListener {
+                        itemView.findNavController().navigate(R.id.action_communityFragment_to_communityDetailFragment)
+                    }
                 }
             }
+
 
     interface OnItemClickListener{
         fun itemClickListener(view : View, position: Int)
