@@ -88,6 +88,8 @@
             android:id="@+id/action_communityFragment_to_frameFragment"
             app:destination="@id/frameFragment" />
         <action
+            android:id="@+id/action_communityFragment_to_challengeFragment"
+            app:destination="@id/challengeFragment"
             android:id="@+id/action_communityFragment_to_communityDetailFragment"
             app:destination="@id/communityDetailFragment" />
     </fragment>
@@ -99,6 +101,9 @@
         <action
             android:id="@+id/action_challengeFragment_to_courseFragment"
             app:destination="@id/courseFragment" />
+        <action
+            android:id="@+id/action_challengeFragment_to_diaryFirstFragment"
+            app:destination="@id/diaryFirstFragment" />
     </fragment>
     <fragment
         android:id="@+id/diaryFirstFragment"

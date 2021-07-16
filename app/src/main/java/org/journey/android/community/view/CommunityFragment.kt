@@ -15,6 +15,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.fragment.findNavController
 import org.journey.android.R
 import org.journey.android.base.BaseFragment
+import org.journey.android.challenge.view.challengeStatus
 import org.journey.android.community.ResponseCommunityData
 import org.journey.android.community.dto.BottomSheetData
 import org.journey.android.databinding.FragmentCommunityBinding
@@ -30,7 +31,8 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
     lateinit var bottomSheetAdapter : BottomSheetAdapter
     var bottomSheetData = mutableListOf<BottomSheetData>()
     val bottomSheetFragment = BottomSheetFragment()
-    var happinessStatus = 0
+    var happinessStatus: Int = 0
+
     var todayUploader = 0
     var sortContent = "date"
 
@@ -44,6 +46,8 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.lifecycleOwner = this
+
+        happinessStatus = challengeStatus
         clickEvent()
         setButtonEvent()
         //setUIListener()
@@ -53,7 +57,7 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
 
         //서버 연결해서 happinessStatus와 몇명이 소확행 피드에 올렸는지 받아옴
         val call: Call<ResponseCommunityData> = RetrofitService.communityService
-            .getCommunityDiary("date", userJwt)
+            .getCommunityDiary(sortContent, userJwt)
 
         call.enqueue(object: Callback<ResponseCommunityData> {
             override fun onResponse(
@@ -155,7 +159,8 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
 
                 okButton.setOnClickListener {
                     alertDialog.dismiss()
-                    Toast.makeText(this.context, "오늘의 챌린지로 이동하기 클릭", Toast.LENGTH_SHORT).show()
+                    //Toast.makeText(this.context, "오늘의 챌린지로 이동하기 클릭", Toast.LENGTH_SHORT).show()
+                    findNavController().navigate(R.id.action_communityFragment_to_challengeFragment)
                 }
             } else if (happinessStatus == 2) {
                 dialogTitle.text = "쟈기, 이미 작성했잖아!"
