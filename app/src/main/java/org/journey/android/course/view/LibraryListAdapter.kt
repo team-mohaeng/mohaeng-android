@@ -150,7 +150,7 @@ class LibraryListAdapter :RecyclerView.Adapter<LibraryListAdapter.LibraryListVie
 
                     Log.d("course", libraryState.toString())
                     // 현재 진행중인 코스가 없다면
-                    if(libraryState == 1){
+                    if(libraryState != 1){
                         val dialogTitle = mDialogView.findViewById<TextView>(R.id.textview_dialog_title)
                         dialogTitle.text = "나와 여정을 떠나보겠어?"
                         val dialogImage = mDialogView.findViewById<ImageView>(R.id.imageview_dialog_image)
