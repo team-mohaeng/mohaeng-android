@@ -1,168 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<layout>
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar_private_title"
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent">
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/imagebutton_course_back"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:background="@drawable/ic_diary_back_page_button"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_private_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/imagebutton_course_back"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/ic_diary_back_page_button"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textview_private_diary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/spoqahansansneomedium"
+                android:text="소확행 작성하기"
+                android:textColor="@color/journey_black3"
+                android:textSize="16sp" />
+
+        </androidx.appcompat.widget.Toolbar>
+
 
         <TextView
-            android:id="@+id/textview_private_diary"
+            android:id="@+id/textview_now_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/spoqahansansneomedium"
-            android:text="소확행 작성하기"
+            android:text="0000년 00월 00일 (월)"
             android:textColor="@color/journey_black3"
-            android:textSize="16sp" />
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_private_title"
+            android:fontFamily="@font/spoqahansansneomedium"
+            android:layout_marginTop="52dp"
+            android:textSize="14sp" />
 
-    </androidx.appcompat.widget.Toolbar>
+        <TextView
+            android:id="@+id/textview_how_are_you_today"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="당신의 오늘은 어땠나요?"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textview_now_date"
+            android:textColor="@color/journey_black3"
+            android:fontFamily="@font/spoqahansansneobold"
+            android:textSize="20sp"
+            android:layout_marginTop="2dp" />
 
+        <ImageButton
+            android:id="@+id/imagebutton_feel_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@+id/imagebutton_feel_two"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textview_how_are_you_today"
+            app:srcCompat="@drawable/journey_bad_face_button_selector"
+            android:layout_marginTop="85dp"
+            android:layout_marginLeft="18dp"
+            android:background="@android:color/transparent" />
 
-    <TextView
-        android:id="@+id/textview_now_date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="0000년 00월 00일 (월)"
-        android:textColor="@color/journey_black3"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_private_title"
-        android:fontFamily="@font/spoqahansansneomedium"
-        android:layout_marginTop="52dp"
-        android:textSize="14sp"
-        />
+        <ImageButton
+            android:id="@+id/imagebutton_feel_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toRightOf="@+id/imagebutton_feel_one"
+            app:layout_constraintRight_toLeftOf="@+id/imagebutton_feel_three"
+            app:layout_constraintTop_toTopOf="@+id/imagebutton_feel_one"
+            app:layout_constraintBottom_toBottomOf="@+id/imagebutton_feel_one"
+            app:srcCompat="@drawable/journey_soso_face_button_selector"
+            android:background="@android:color/transparent" />
 
-    <TextView
-        android:id="@+id/textview_how_are_you_today"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="당신의 오늘은 어땠나요?"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textview_now_date"
-        android:textColor="@color/journey_black3"
-        android:fontFamily="@font/spoqahansansneobold"
-        android:textSize="20sp"
-        android:layout_marginTop="2dp"
-        />
-
-    <ImageButton
-        android:id="@+id/imagebutton_feel_one"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toStartOf="@+id/imagebutton_feel_two"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textview_how_are_you_today"
-        app:srcCompat="@drawable/journey_bad_face_button_selector"
-        android:layout_marginTop="85dp"
-        android:layout_marginLeft="18dp"
-        android:background="@android:color/transparent"
-        />
-
-    <ImageButton
-        android:id="@+id/imagebutton_feel_two"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintLeft_toRightOf="@+id/imagebutton_feel_one"
-        app:layout_constraintRight_toLeftOf="@+id/imagebutton_feel_three"
-        app:layout_constraintTop_toTopOf="@+id/imagebutton_feel_one"
-        app:layout_constraintBottom_toBottomOf="@+id/imagebutton_feel_one"
-        app:srcCompat="@drawable/journey_soso_face_button_selector"
-        android:background="@android:color/transparent"
-        />
-
-    <ImageButton
-        android:id="@+id/imagebutton_feel_three"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintLeft_toRightOf="@+id/imagebutton_feel_two"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imagebutton_feel_two"
-        app:layout_constraintBottom_toBottomOf="@+id/imagebutton_feel_two"
-        app:srcCompat="@drawable/journey_good_face_button_selector"
-        android:layout_marginRight="18dp"
-        android:background="@android:color/transparent"
-        />
+        <ImageButton
+            android:id="@+id/imagebutton_feel_three"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toRightOf="@+id/imagebutton_feel_two"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imagebutton_feel_two"
+            app:layout_constraintBottom_toBottomOf="@+id/imagebutton_feel_two"
+            app:srcCompat="@drawable/journey_good_face_button_selector"
+            android:layout_marginRight="18dp"
+            android:background="@android:color/transparent" />
 
 
-    <TextView
-        android:id="@+id/textview_bad_day"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/spoqahansansneomedium"
-        android:text="그저그런 하루"
-        android:textColor="@drawable/journey_face_text_selector"
-        android:textSize="10sp"
-        app:layout_constraintRight_toLeftOf="@+id/textview_soso_day"
-        app:layout_constraintTop_toTopOf="@id/textview_soso_day"
-        app:layout_constraintBottom_toBottomOf="@id/textview_soso_day"
-        android:layout_marginRight="48dp"
-        />
+        <TextView
+            android:id="@+id/textview_bad_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/spoqahansansneomedium"
+            android:text="그저그런 하루"
+            android:textColor="@drawable/journey_face_text_selector"
+            android:textSize="10sp"
+            app:layout_constraintRight_toLeftOf="@+id/textview_soso_day"
+            app:layout_constraintTop_toTopOf="@id/textview_soso_day"
+            app:layout_constraintBottom_toBottomOf="@id/textview_soso_day"
+            android:layout_marginRight="48dp" />
 
 
-    <TextView
-        android:id="@+id/textview_soso_day"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/spoqahansansneomedium"
-        android:text="나름 괜찮은 하루"
-        android:textColor="@drawable/journey_face_text_selector"
-        android:textSize="10sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imagebutton_feel_two"
-        android:layout_marginTop="32dp"
-        />
+        <TextView
+            android:id="@+id/textview_soso_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/spoqahansansneomedium"
+            android:text="나름 괜찮은 하루"
+            android:textColor="@drawable/journey_face_text_selector"
+            android:textSize="10sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imagebutton_feel_two"
+            android:layout_marginTop="32dp" />
 
-    <TextView
-        android:id="@+id/textview_good_day"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/spoqahansansneomedium"
-        android:text="인류애 넘치는 하루"
-        android:textColor="@drawable/journey_face_text_selector"
-        android:textSize="10sp"
-        app:layout_constraintLeft_toRightOf="@+id/textview_soso_day"
-        app:layout_constraintTop_toTopOf="@+id/textview_soso_day"
-        app:layout_constraintBottom_toBottomOf="@+id/textview_soso_day"
-        android:layout_marginLeft="39dp"
-        />
+        <TextView
+            android:id="@+id/textview_good_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/spoqahansansneomedium"
+            android:text="인류애 넘치는 하루"
+            android:textColor="@drawable/journey_face_text_selector"
+            android:textSize="10sp"
+            app:layout_constraintLeft_toRightOf="@+id/textview_soso_day"
+            app:layout_constraintTop_toTopOf="@+id/textview_soso_day"
+            app:layout_constraintBottom_toBottomOf="@+id/textview_soso_day"
+            android:layout_marginLeft="39dp" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button_compelete"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="560dp"
-        android:background="@drawable/diary_button_selector"
-        android:fontFamily="@font/spoqahansansneobold"
-        android:paddingTop="14.18dp"
-        android:paddingBottom="14.18dp"
-        android:stateListAnimator="@null"
-        android:text="다음"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        app:cornerRadius="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_compelete"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="560dp"
+            android:background="@drawable/diary_button_selector"
+            android:fontFamily="@font/spoqahansansneobold"
+            android:paddingTop="14.18dp"
+            android:paddingBottom="14.18dp"
+            android:stateListAnimator="@null"
+            android:text="다음"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:cornerRadius="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
