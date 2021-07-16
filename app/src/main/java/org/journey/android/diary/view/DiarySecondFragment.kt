@@ -231,6 +231,8 @@ class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
             startActivityForResult(gallery, PICK_IMAGE)
             Log.d("사진사진",gallery.data.toString())
             path = gallery.data.toString()
+
+            binding.buttonPictureUpload.setBackgroundResource(R.drawable.picture_dummy)
         }
     }
     fun pressedBack(){
