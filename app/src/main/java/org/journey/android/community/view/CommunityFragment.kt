@@ -26,6 +26,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+var postNum =0
 class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
     lateinit var bottomSheetAdapter : BottomSheetAdapter
     var bottomSheetData = mutableListOf<BottomSheetData>()
@@ -203,7 +204,8 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
                                         user_id = communityData.community[i].nickname,
                                         user_prefer = communityData.community[i].likeCount,
                                         has_like = communityData.community[i].hasLike,
-                                        main_image = communityData.community[i].mainImage
+                                        main_image = communityData.community[i].mainImage,
+                                        postId = communityData.community[i].postId
                                     )
                                 )
                             )
