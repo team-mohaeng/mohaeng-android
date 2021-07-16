@@ -199,8 +199,7 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
                                         user_id = communityData.community[i].nickname,
                                         user_prefer = communityData.community[i].likeCount,
                                         has_like = communityData.community[i].hasLike,
-                                        main_image = communityData.community[i].mainImage,
-                                        postId = communityData.community[i].postId
+                                        main_image = communityData.community[i].mainImage
                                     )
                                 )
                             )
