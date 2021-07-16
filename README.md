@@ -65,7 +65,8 @@
 | [OkHttp](https://square.github.io/okhttp/)                   | 서버 통신에서 토큰 Interceptor 등 Util 기능 제작에 활용 |
 | [Firebase](https://firebase.google.com/)                     | 푸쉬 알람 구현에 활용                                             |
 | [Hilt](https://developer.android.com/jetpack/androidx/releases/hilt) | 의존성 주입                        |
-| [Glide](https://github.com/bumptech/glide)                   | URL 형식의 이미지          |       
+| [Glide](https://github.com/bumptech/glide)                   | URL 형식의 이미지          |
+| [TedImagePicker](https://github.com/ParkSangGwon/TedImagePicker) | 갤러리에서 이미지를 가져오기 위해 사용                  |
 </details>
 
 
