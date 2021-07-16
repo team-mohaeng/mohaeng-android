@@ -26,7 +26,6 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-var postNum =0
 class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
     lateinit var bottomSheetAdapter : BottomSheetAdapter
     var bottomSheetData = mutableListOf<BottomSheetData>()
@@ -191,7 +190,6 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
                     val communityData = response.body()?.data
                     binding.recyclerviewCommunityRecord.adapter = bottomSheetAdapter
                     if (communityData != null) {
-
 //                        for(i in 0 until communityData.userCount!!) {
                         for(i in 0 until communityData.community.size) {
                             Log.d("서버 성공", communityData.community[i].toString())
@@ -204,8 +202,7 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
                                         user_id = communityData.community[i].nickname,
                                         user_prefer = communityData.community[i].likeCount,
                                         has_like = communityData.community[i].hasLike,
-                                        main_image = communityData.community[i].mainImage,
-                                        postId = communityData.community[i].postId
+                                        main_image = communityData.community[i].mainImage
                                     )
                                 )
                             )

@@ -19,7 +19,6 @@ data class ResponseCommunityData(
             val month: String,
             val mood: Int,
             val nickname: String,
-            val postId: Int,
             val week: String,
             val year: String
         )

@@ -89,7 +89,8 @@
             app:destination="@id/frameFragment" />
         <action
             android:id="@+id/action_communityFragment_to_challengeFragment"
-            app:destination="@id/challengeFragment"
+            app:destination="@id/challengeFragment" />
+        <action
             android:id="@+id/action_communityFragment_to_communityDetailFragment"
             app:destination="@id/communityDetailFragment" />
     </fragment>
@@ -142,7 +143,11 @@
         android:id="@+id/privateDetailFragment"
         android:name="org.journey.android.diary.view.PrivateDetailFragment"
         android:label="PrivateDetailFragment"
-        tools:layout="@layout/fragment_private_detail" />
+        tools:layout="@layout/fragment_private_detail">
+        <action
+            android:id="@+id/action_privateDetailFragment_to_privateFragment"
+            app:destination="@id/privateFragment" />
+    </fragment>
     <fragment
         android:id="@+id/courseFragment"
         android:name="org.journey.android.course.view.CourseFragment"
