@@ -36,6 +36,9 @@ import retrofit2.Response
 // 챌린지 시작 여부 알려주는 변수
 var hasCourse = userCourseStatus
 
+// challenge situation
+var challengeStatus = 0
+
 class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
     
     //private var _binding: FragmentChallengeBinding? = null
@@ -74,9 +77,6 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
 
     // popup msg array
     private lateinit var userMents : List<String>
-
-    // challenge situation
-    var challengeStatus = 0
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -218,11 +218,11 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
                             dialogTitleCourse.text = "뽀득뽀득 세균 퇴치\n" + " 코스 완료"
                             writeButtonCourse.setOnClickListener {
                                 alertDialogCourse.dismiss()
-                                Toast.makeText(this.context, "작성할게! 클릭", Toast.LENGTH_SHORT).show()
+                                //Toast.makeText(this.context, "작성할게! 클릭", Toast.LENGTH_SHORT).show()
                             }
                             laterButtonCourse.setOnClickListener {
                                 alertDialogCourse.dismiss()
-                                Toast.makeText(this.context, "나중에 클릭", Toast.LENGTH_SHORT).show()
+                                //Toast.makeText(this.context, "나중에 클릭", Toast.LENGTH_SHORT).show()
                             }
                             lateinit var mAnim1: Animation
                             mAnim1 = AnimationUtils.loadAnimation(ctxt, R.anim.challenge_image_animation)
@@ -233,11 +233,12 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
                         else{
                             writeButtonEnd.setOnClickListener {
                                 alertDialogEnd.dismiss()
-                                Toast.makeText(this.context, "작성할게! 클릭", Toast.LENGTH_SHORT).show()
+                                //Toast.makeText(this.context, "작성할게! 클릭", Toast.LENGTH_SHORT).show()
+                                findNavController().navigate(R.id.action_challengeFragment_to_diaryFirstFragment)
                             }
                             laterButtonEnd.setOnClickListener {
                                 alertDialogEnd.dismiss()
-                                Toast.makeText(this.context, "나중에 클릭", Toast.LENGTH_SHORT).show()
+                                //Toast.makeText(this.context, "나중에 클릭", Toast.LENGTH_SHORT).show()
                             }
                             lateinit var mAnim1: Animation
                             mAnim1 = AnimationUtils.loadAnimation(ctxt, R.anim.challenge_image_animation)

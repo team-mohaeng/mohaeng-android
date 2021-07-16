@@ -87,6 +87,9 @@
         <action
             android:id="@+id/action_communityFragment_to_frameFragment"
             app:destination="@id/frameFragment" />
+        <action
+            android:id="@+id/action_communityFragment_to_challengeFragment"
+            app:destination="@id/challengeFragment" />
     </fragment>
     <fragment
         android:id="@+id/challengeFragment"
@@ -96,6 +99,9 @@
         <action
             android:id="@+id/action_challengeFragment_to_courseFragment"
             app:destination="@id/courseFragment" />
+        <action
+            android:id="@+id/action_challengeFragment_to_diaryFirstFragment"
+            app:destination="@id/diaryFirstFragment" />
     </fragment>
     <fragment
         android:id="@+id/diaryFirstFragment"
