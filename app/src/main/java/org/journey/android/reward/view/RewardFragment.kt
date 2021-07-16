@@ -37,12 +37,13 @@ class RewardFragment : BaseFragment<FragmentRewardBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        showReward()
+        //showReward()
         //showCompleteCourse()
         loadDatas()
         goBackMain()
     }
-    private fun showReward(){
+
+    private fun showReward() {
         rewardAdapter = RewardAdapter()
         binding.recyclerviewReward.adapter = rewardAdapter
         rewardAdapter.rewardList.addAll(
@@ -62,7 +63,7 @@ class RewardFragment : BaseFragment<FragmentRewardBinding>() {
         rewardAdapter.notifyDataSetChanged()
     }
 
-    /*
+
     private fun showCompleteCourse(){
         completeCourseAdapter = CompleteCourseAdapter()
         binding.recyclerviewShowReward.adapter = completeCourseAdapter
@@ -71,34 +72,39 @@ class RewardFragment : BaseFragment<FragmentRewardBinding>() {
                 CompleteCourseData(
                     courseDate = "7일 코스",
                     courseName = "뽀득뽀득 세균 퇴치",
-                    courseComplete = "2021.07.31"
+                    courseComplete = "2021.07.31",
+                    property = 0
                 ),
                 CompleteCourseData(
                     courseDate = "7일 코스",
                     courseName = "뽀득뽀득 세균 퇴치",
-                    courseComplete = "2021.07.31"
+                    courseComplete = "2021.07.31",
+                    property = 1
                 ),
                 CompleteCourseData(
                     courseDate = "7일 코스",
                     courseName = "뽀득뽀득 세균 퇴치",
-                    courseComplete = "2021.07.31"
+                    courseComplete = "2021.07.31",
+                    property = 2
                 ),
                 CompleteCourseData(
                     courseDate = "7일 코스",
                     courseName = "뽀득뽀득 세균 퇴치",
-                    courseComplete = "2021.07.31"
+                    courseComplete = "2021.07.31",
+                    property = 3
                 ),
                 CompleteCourseData(
                     courseDate = "7일 코스",
                     courseName = "뽀득뽀득 세균 퇴치",
-                    courseComplete = "2021.07.31"
+                    courseComplete = "2021.07.31",
+                    property = 1
                 )
             )
         )
         completeCourseAdapter.notifyDataSetChanged()
     }
 
-     */
+
     private fun goBackMain() {
         binding.buttonPressedBack.setOnClickListener {
             findNavController().popBackStack()
@@ -156,9 +162,9 @@ class RewardFragment : BaseFragment<FragmentRewardBinding>() {
                                 )
                             }
 
-                            completeCourseAdapter.completeCourseList.addAll(
-                                datas
-                            )
+//                            completeCourseAdapter.completeCourseList.addAll(
+//                                datas
+//                            )
 
                             // 데이터 변경되었으니 업데이트해라
                             completeCourseAdapter.notifyDataSetChanged()
