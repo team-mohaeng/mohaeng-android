@@ -39,7 +39,7 @@ class RewardFragment : BaseFragment<FragmentRewardBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         //showReward()
-        //showCompleteCourse()
+        showCompleteCourse()
         loadDatas()
         goBackMain()
     }
@@ -73,38 +73,37 @@ class RewardFragment : BaseFragment<FragmentRewardBinding>() {
                 CompleteCourseData(
                     courseDate = "7일 코스",
                     courseName = "뽀득뽀득 세균 퇴치",
-                    courseComplete = "2021.07.31",
+                    courseComplete = "2021.07.16",
                     property = 0
                 ),
                 CompleteCourseData(
-                    courseDate = "7일 코스",
-                    courseName = "뽀득뽀득 세균 퇴치",
-                    courseComplete = "2021.07.31",
+                    courseDate = "5일 코스",
+                    courseName = "나는야 음유시인",
+                    courseComplete = "2021.07.09",
                     property = 1
                 ),
                 CompleteCourseData(
-                    courseDate = "7일 코스",
-                    courseName = "뽀득뽀득 세균 퇴치",
-                    courseComplete = "2021.07.31",
+                    courseDate = "3일 코스",
+                    courseName = "추억을 더듬더듬",
+                    courseComplete = "2021.07.04",
                     property = 2
                 ),
                 CompleteCourseData(
                     courseDate = "7일 코스",
-                    courseName = "뽀득뽀득 세균 퇴치",
-                    courseComplete = "2021.07.31",
+                    courseName = "상상만 해도 설레",
+                    courseComplete = "2021.06.29",
                     property = 3
                 ),
                 CompleteCourseData(
                     courseDate = "7일 코스",
-                    courseName = "뽀득뽀득 세균 퇴치",
-                    courseComplete = "2021.07.31",
+                    courseName = "동네 한 바퀴",
+                    courseComplete = "2021.06.11",
                     property = 1
                 )
             )
         )
         completeCourseAdapter.notifyDataSetChanged()
     }
-
 
     private fun goBackMain() {
         binding.buttonPressedBack.setOnClickListener {
@@ -113,8 +112,8 @@ class RewardFragment : BaseFragment<FragmentRewardBinding>() {
     }
 
     private fun loadDatas() {
-        completeCourseAdapter = CompleteCourseAdapter()
-        binding.recyclerviewShowReward.adapter = completeCourseAdapter
+//        completeCourseAdapter = CompleteCourseAdapter()
+//        binding.recyclerviewShowReward.adapter = completeCourseAdapter
 
         RetrofitService.rewardService.getRewardData(
             userJwt
@@ -154,24 +153,24 @@ class RewardFragment : BaseFragment<FragmentRewardBinding>() {
                                 response.body()!!.data!!.courses[i].challenges[response.body()!!.data!!.courses[i].challenges.size - 1].day
                             var date = year + "." + month + "." + day
 
-                            datas = mutableListOf<CompleteCourseData>()
-                            datas.apply {
-                                add(
-                                    CompleteCourseData(
-                                        courseDate = response.body()!!.data!!.courses[i].totalDays.toString() + "일차",
-                                        courseName = response.body()!!.data!!.courses[i].title.toString(),
-                                        courseComplete = date,
-                                        property = property
-                                    )
-                                )
-                            }
+                            //datas = mutableListOf<CompleteCourseData>()
+//                            datas.apply {
+//                                add(
+//                                    CompleteCourseData(
+//                                        courseDate = response.body()!!.data!!.courses[i].totalDays.toString() + "일차",
+//                                        courseName = response.body()!!.data!!.courses[i].title.toString(),
+//                                        courseComplete = date,
+//                                        property = property
+//                                    )
+//                                )
+//                            }
 
 //                            completeCourseAdapter.completeCourseList.addAll(
 //                                datas
 //                            )
 
                             // 데이터 변경되었으니 업데이트해라
-                            completeCourseAdapter.notifyDataSetChanged()
+//                            completeCourseAdapter.notifyDataSetChanged()
                         }
                         showReward()
                     } else {
