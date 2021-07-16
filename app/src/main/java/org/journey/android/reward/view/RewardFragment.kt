@@ -11,6 +11,7 @@ import org.journey.android.base.BaseFragment
 import org.journey.android.course.api.ServiceCreator
 import org.journey.android.course.data.LibraryListInfo
 import org.journey.android.course.data.ResponseLibraryData
+import org.journey.android.course.view.LibraryListAdapter
 import org.journey.android.databinding.FragmentRewardBinding
 import org.journey.android.login.view.userJwt
 import org.journey.android.main.RetrofitService
@@ -106,6 +107,9 @@ class RewardFragment : BaseFragment<FragmentRewardBinding>() {
     }
 
     private fun loadDatas() {
+        completeCourseAdapter = CompleteCourseAdapter()
+        binding.recyclerviewShowReward.adapter = completeCourseAdapter
+
         RetrofitService.rewardService.getRewardData(
             userJwt
         ).enqueue(object : Callback<ResponseRewardData> {
