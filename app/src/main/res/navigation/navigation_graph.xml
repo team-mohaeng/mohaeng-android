@@ -148,10 +148,6 @@
             android:id="@+id/action_privateDetailFragment_to_privateFragment"
             app:destination="@id/privateFragment" />
     </fragment>
-<<<<<<< HEAD
-=======
-
->>>>>>> cd4ec3275e1a61a16d18211c16897d654eff110a
     <fragment
         android:id="@+id/courseFragment"
         android:name="org.journey.android.course.view.CourseFragment"
