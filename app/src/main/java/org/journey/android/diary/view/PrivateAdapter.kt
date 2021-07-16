@@ -5,8 +5,13 @@ import android.graphics.BlurMaskFilter
 import android.graphics.Color
 import android.graphics.ColorFilter
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.content.res.AppCompatResources.getDrawable
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.MultiTransformation
@@ -60,6 +65,9 @@ class PrivateAdapter: RecyclerView.Adapter<PrivateAdapter.PrivateViewHolder>(){
             {
                 binding.buttonImagePrivate.setTextColor(Color.parseColor(R.color.journey_pink2.toString()))
                 binding.buttonImagePrivate.setBackgroundResource(R.drawable.ic_icnheartfull)
+            }
+            itemView.setOnClickListener {
+                itemView.findNavController().navigate(R.id.action_privateFragment_to_privateDetailFragment)
             }
         }
     }

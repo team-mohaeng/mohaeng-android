@@ -1,6 +1,7 @@
 package org.journey.android.diary.view
 
 import android.app.Dialog
+import android.graphics.Bitmap
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -11,7 +12,14 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.MultiTransformation
+import com.bumptech.glide.load.resource.bitmap.GranularRoundedCorners
+import com.bumptech.glide.request.RequestOptions
+import jp.wasabeef.glide.transformations.BlurTransformation
+import jp.wasabeef.glide.transformations.ColorFilterTransformation
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation
 import org.journey.android.R
 import org.journey.android.databinding.FragmentPrivateDetailBinding
 import org.journey.android.diary.dto.ResponseDiaryDislikeData
@@ -47,7 +55,7 @@ class PrivateDetailFragment: Fragment() {
         var postNumCurrentPage = 0
         val call: Call<ResponseDiaryPrivateDetailData> = RetrofitService.diaryPrivateDetailService
             .getPrivateDetailDiary(
-                1,
+                detailPostId,
                 userJwt
             )
         call.enqueue(object : Callback<ResponseDiaryPrivateDetailData> {
@@ -73,8 +81,13 @@ class PrivateDetailFragment: Fragment() {
                         binding.textviewPrivateDetailDate.text = privateDetailNowDate
                         binding.buttonPrivateDetailLike.text=data.likeCount.toString()
 
+                        val multi = MultiTransformation<Bitmap>(
+                            GranularRoundedCorners(50F,50F,0F,0F)
+                        )
+
                         Glide.with(view)
                             .load(data.mainImage)
+                            .apply(RequestOptions.bitmapTransform(multi))
                             .into(binding.imageviewPrivateDetailBack)
 
                         journeyMood=data.mood
@@ -171,7 +184,7 @@ class PrivateDetailFragment: Fragment() {
             if(binding.buttonPrivateDetailLike.isSelected==false)
             {
                 val call:Call<ResponseDiaryLikeData> = RetrofitService.diaryLikeService
-                    .changeLike(1, userJwt)
+                    .changeLike(detailPostId, userJwt)
                 call.enqueue(object:Callback<ResponseDiaryLikeData>{
                     override fun onResponse(
                         call: Call<ResponseDiaryLikeData>,
@@ -196,7 +209,7 @@ class PrivateDetailFragment: Fragment() {
             }
             else{
                 val call:Call<ResponseDiaryDislikeData> = RetrofitService.diaryDislikeService
-                    .changeDislike(1, userJwt)
+                    .changeDislike(detailPostId, userJwt)
                 call.enqueue(object:Callback<ResponseDiaryDislikeData>{
                     override fun onResponse(
                         call: Call<ResponseDiaryDislikeData>,
@@ -221,7 +234,9 @@ class PrivateDetailFragment: Fragment() {
             }
         }
 
-
+        binding.buttonPrivateCancel.setOnClickListener {
+            findNavController().navigate(R.id.action_privateDetailFragment_to_privateFragment)
+        }
     }
 
 
