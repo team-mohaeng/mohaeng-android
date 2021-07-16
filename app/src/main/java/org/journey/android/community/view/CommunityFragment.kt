@@ -52,6 +52,8 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
         //setUIListener()
         initRecyclerView()
         setAdapter()
+        binding.buttonHappinessWrite.setOnClickListener {
+            findNavController().navigate(R.id.action_communityFragment_to_diaryFirstFragment)}
 
 
         //서버 연결해서 happinessStatus와 몇명이 소확행 피드에 올렸는지 받아옴
@@ -116,7 +118,8 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
             setAdapter()
         }
 
-        binding.buttonHappinessWrite.setOnClickListener {
+
+            /*
             // Dialog만들기
             val mDialogView =
                 LayoutInflater.from(this.context).inflate(R.layout.course_custom_dialog, null)
@@ -170,8 +173,8 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
                     alertDialog.dismiss()
                     Toast.makeText(this.context, "알았어 클릭", Toast.LENGTH_SHORT).show()
                 }
-            }
-        }
+            }*/
+
     }
 
     private fun setAdapter(){

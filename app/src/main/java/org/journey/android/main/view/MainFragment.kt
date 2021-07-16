@@ -35,9 +35,9 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
         super.onViewCreated(view, savedInstanceState)
         goToReward()
         binding.textviewConcentrationPercent.setOnClickListener {
-            binding.progressbarConcentration.incrementProgressBy(25)
+            //binding.progressbarConcentration.incrementProgressBy(25)
         }
-        setRetrofit()
+        //setRetrofit()
     }
 
     private fun goToReward() {

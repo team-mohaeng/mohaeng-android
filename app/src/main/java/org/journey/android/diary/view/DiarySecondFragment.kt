@@ -50,6 +50,7 @@ class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        uploadGallery()
         pressedBack()
         val secondInstance = Calendar.getInstance()
         val secondNowYear = secondInstance.get(Calendar.YEAR).toString()
@@ -166,7 +167,7 @@ class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
             }
         })
 
-        setRetrofit()
+        //setRetrofit()
 
         binding.buttonCompelete.setOnClickListener{
 
@@ -230,7 +231,7 @@ class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
             gallery.data = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
             startActivityForResult(gallery, PICK_IMAGE)
             Log.d("사진사진",gallery.data.toString())
-            path = gallery.data.toString()
+//            path = gallery.data.toString()
 
             binding.buttonPictureUpload.setBackgroundResource(R.drawable.picture_dummy)
         }
