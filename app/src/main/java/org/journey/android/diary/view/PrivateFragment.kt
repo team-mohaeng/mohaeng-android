@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import org.journey.android.R
 import org.journey.android.databinding.FragmentPrivateBinding
-import org.journey.android.diary.PrivateAdapter
+import org.journey.android.diary.view.PrivateAdapter
 import org.journey.android.diary.dto.PrivateData
 import org.journey.android.diary.dto.ResponseDiaryPrivateData
 import org.journey.android.login.view.userJwt
@@ -24,7 +24,6 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.util.*
 
-var detailPostId = 0
 
 class PrivateFragment : Fragment(){
     private lateinit var  binding : FragmentPrivateBinding
@@ -86,7 +85,6 @@ class PrivateFragment : Fragment(){
                         binding.textviewPrivateEmptyContent.isVisible = false
                         if (dataPrivate != null) {
                             for (i in 0 until countContent!!) {
-                                detailPostId = dataPrivate.myDrawerSmallSatisfactions[i].postId
                                 privateAdapter.privateDiaryList.addAll(
                                     listOf<PrivateData>(
                                         PrivateData(

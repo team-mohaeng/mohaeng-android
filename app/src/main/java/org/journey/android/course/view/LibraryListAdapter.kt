@@ -183,13 +183,14 @@ class LibraryListAdapter :RecyclerView.Adapter<LibraryListAdapter.LibraryListVie
                         val noButton = mDialogView.findViewById<AppCompatButton>(R.id.button_dialog_no)
                         noButton.setOnClickListener {
                             alertDialog.dismiss()
-                            Toast.makeText(ctxt, "포기 안 해! 클릭", Toast.LENGTH_SHORT).show()
+                            //Toast.makeText(ctxt, "포기 안 해! 클릭", Toast.LENGTH_SHORT).show()
                         }
 
                         val changeButton = mDialogView.findViewById<AppCompatButton>(R.id.button_dialog_change)
                         changeButton.setOnClickListener {
                             alertDialog.dismiss()
-                            Toast.makeText(ctxt, "변경할래 클릭", Toast.LENGTH_SHORT).show()
+                            //Toast.makeText(ctxt, "변경할래 클릭", Toast.LENGTH_SHORT).show()
+                            selectCourse(LibraryListInfo.courseId)
                         }
                     }
 
