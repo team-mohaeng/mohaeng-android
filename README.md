@@ -16,6 +16,7 @@
 	<summary><b>Preview</b><br></summary>
 	<div markdown="1">
     <img src="https://user-images.githubusercontent.com/28949235/125818953-985f2d8b-442d-41e6-833c-c82aaa95f672.png" alt="image" />
+
     <img src="https://user-images.githubusercontent.com/58849278/126058907-1f14f778-5784-432e-bfa4-1a7c05110391.png" />
     <img src="https://user-images.githubusercontent.com/58849278/126058934-63c29b0c-9521-4465-ba1d-615f9e273e7d.png" />
 	<img src="https://user-images.githubusercontent.com/28949235/125819660-29a88675-1b4d-4a72-b358-5917d71b4f6b.png" />
@@ -67,7 +68,10 @@
 | [OkHttp](https://square.github.io/okhttp/)                   | 서버 통신에서 토큰 Interceptor 등 Util 기능 제작에 활용 |
 | [Firebase](https://firebase.google.com/)                     | 푸쉬 알람 구현에 활용                                             |
 | [Hilt](https://developer.android.com/jetpack/androidx/releases/hilt) | 의존성 주입                        |
+| [Glide](https://github.com/bumptech/glide)                   | URL 형식의 이미지          |
+| [TedImagePicker](https://github.com/ParkSangGwon/TedImagePicker) | 갤러리에서 이미지를 가져오기 위해 사용                  |
 | [Glide](https://github.com/bumptech/glide)                   | URL 형식의 이미지          |       
+
 </details>
 
 
