@@ -31,6 +31,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+var postDetailId = 0
 class PrivateDetailFragment: Fragment() {
 
     private lateinit var  binding : FragmentPrivateDetailBinding
@@ -55,8 +56,9 @@ class PrivateDetailFragment: Fragment() {
         var postNumCurrentPage = 0
         val call: Call<ResponseDiaryPrivateDetailData> = RetrofitService.diaryPrivateDetailService
             .getPrivateDetailDiary(
-                detailPostId,
+                postDetailId,
                 userJwt
+
             )
         call.enqueue(object : Callback<ResponseDiaryPrivateDetailData> {
             override fun onResponse(
@@ -69,14 +71,8 @@ class PrivateDetailFragment: Fragment() {
                         postNumCurrentPage = data.postId
                         binding.textviewPrivateDetailNickname.text = data.nickname
                         var privateDetailNowDate = data.year + "."
-                        privateDetailNowDate = if (data.month.toInt() < 10)
-                            privateDetailNowDate + "0" + data.month + "."
-                        else
-                            privateDetailNowDate + data.month + "."
-                        if (data.day.toInt() < 10)
-                            privateDetailNowDate = privateDetailNowDate + "0" + data.day
-                        else
-                            privateDetailNowDate = privateDetailNowDate + data.day
+                        privateDetailNowDate = privateDetailNowDate + data.month + "."
+                        privateDetailNowDate = privateDetailNowDate + data.day
                         privateDetailNowDate = privateDetailNowDate + "(" + data.week + ")"
                         binding.textviewPrivateDetailDate.text = privateDetailNowDate
                         binding.buttonPrivateDetailLike.text=data.likeCount.toString()
@@ -181,10 +177,10 @@ class PrivateDetailFragment: Fragment() {
         }
 
         binding.buttonPrivateDetailLike.setOnClickListener{
-            if(binding.buttonPrivateDetailLike.isSelected==false)
+            if(!binding.buttonPrivateDetailLike.isSelected)
             {
                 val call:Call<ResponseDiaryLikeData> = RetrofitService.diaryLikeService
-                    .changeLike(detailPostId, userJwt)
+                    .changeLike(postDetailId, userJwt)
                 call.enqueue(object:Callback<ResponseDiaryLikeData>{
                     override fun onResponse(
                         call: Call<ResponseDiaryLikeData>,
@@ -209,7 +205,7 @@ class PrivateDetailFragment: Fragment() {
             }
             else{
                 val call:Call<ResponseDiaryDislikeData> = RetrofitService.diaryDislikeService
-                    .changeDislike(detailPostId, userJwt)
+                    .changeDislike(postDetailId, userJwt)
                 call.enqueue(object:Callback<ResponseDiaryDislikeData>{
                     override fun onResponse(
                         call: Call<ResponseDiaryDislikeData>,
