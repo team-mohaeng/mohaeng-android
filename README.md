@@ -17,14 +17,14 @@
 	<div markdown="1">
     <img src="https://user-images.githubusercontent.com/28949235/125818953-985f2d8b-442d-41e6-833c-c82aaa95f672.png" alt="image" />
 
-    <img src="https://user-images.githubusercontent.com/58849278/126058907-1f14f778-5784-432e-bfa4-1a7c05110391.png" />
-    <img src="https://user-images.githubusercontent.com/58849278/126058934-63c29b0c-9521-4465-ba1d-615f9e273e7d.png" />
-	<img src="https://user-images.githubusercontent.com/28949235/125819660-29a88675-1b4d-4a72-b358-5917d71b4f6b.png" />
-	<img src="https://user-images.githubusercontent.com/58849278/125906281-1427c872-10af-4cad-b791-c9f6722ee39d.png" />
-	<img src="https://user-images.githubusercontent.com/28949235/125819715-3f5a355f-5ee7-4465-999d-455550becd82.png" />
-  <img src=" https://user-images.githubusercontent.com/58849278/125941121-64159098-e277-465a-a82c-5d1b152a9e1b.png" />
-	<img src="https://user-images.githubusercontent.com/58849278/125941262-a64007c8-62d6-4f45-8188-726ad4ace3e0.png" />
-	<img src="https://user-images.githubusercontent.com/58849278/125941379-a457ebc3-fbc8-4d84-a4c7-141d117d1ec7.png" />
+<img src="https://user-images.githubusercontent.com/58849278/126058907-1f14f778-5784-432e-bfa4-1a7c05110391.png" />
+<img src="https://user-images.githubusercontent.com/58849278/126058934-63c29b0c-9521-4465-ba1d-615f9e273e7d.png" />
+<img src="https://user-images.githubusercontent.com/28949235/125819660-29a88675-1b4d-4a72-b358-5917d71b4f6b.png" />
+<img src="https://user-images.githubusercontent.com/58849278/125906281-1427c872-10af-4cad-b791-c9f6722ee39d.png" />
+<img src="https://user-images.githubusercontent.com/28949235/125819715-3f5a355f-5ee7-4465-999d-455550becd82.png" />
+<img src=" https://user-images.githubusercontent.com/58849278/125941121-64159098-e277-465a-a82c-5d1b152a9e1b.png" />
+<img src="https://user-images.githubusercontent.com/58849278/125941262-a64007c8-62d6-4f45-8188-726ad4ace3e0.png" />
+<img src="https://user-images.githubusercontent.com/58849278/125941379-a457ebc3-fbc8-4d84-a4c7-141d117d1ec7.png" />
   <img src="https://user-images.githubusercontent.com/28949235/125819842-019d3d42-0af6-4775-8b3e-276752416deb.png" />
   </div>
 	</details>
