@@ -38,6 +38,7 @@ var hasCourse = userCourseStatus
 
 // challenge situation
 var challengeStatus = 0
+//var check = 0
 
 class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
     
@@ -46,7 +47,6 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     //private val binding get() = _binding!!
-
 
     // 인증 개수 저장하는 변수
     private var stampNumber = 3
@@ -81,8 +81,17 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setRetrofitMain()
 
+/*
+        if(check == 0){
+            binding.constraintlayoutChallengeGone.visibility = View.VISIBLE
+            binding.constraintlayoutChallengeOngoing.visibility = View.GONE
+            check = 1
+        }
+        else{
+            setRetrofitMain()
+        }*/
+        setRetrofitMain()
 
         initChallengeType(binding.imagebuttonFirstFirst)
         initChallengeType(binding.imagebuttonSecondFirst)
@@ -109,6 +118,7 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
         //setRetrofit(courseId)
 
         Log.d("challenge_course",hasCourse.toString())
+
         if (hasCourse!=0) {
 
             binding.constraintlayoutChallengeGone.visibility = View.GONE
