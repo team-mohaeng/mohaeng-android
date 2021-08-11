@@ -38,9 +38,9 @@ class RewardFragment : BaseFragment<FragmentRewardBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //showReward()
-        //showCompleteCourse()
-        loadDatas()
+        showReward()
+        showCompleteCourse()
+        //loadDatas()
         goBackMain()
     }
 
@@ -50,12 +50,12 @@ class RewardFragment : BaseFragment<FragmentRewardBinding>() {
         rewardAdapter.rewardList.addAll(
             listOf<RewardData>(
                 RewardData(
-                    percent = lovePercent,
+                    percent = "27",
                     percentUnit = "%",
                     rewardContent = requireContext().getString(R.string.reward_challenge_percent)
                 ),
                 RewardData(
-                    percent = successDay,
+                    percent = "13",
                     percentUnit = "일",
                     rewardContent = requireContext().getString(R.string.reward_challenge_date)
                 )
@@ -73,31 +73,31 @@ class RewardFragment : BaseFragment<FragmentRewardBinding>() {
                 CompleteCourseData(
                     courseDate = "7일 코스",
                     courseName = "뽀득뽀득 세균 퇴치",
-                    courseComplete = "2021.07.31",
+                    courseComplete = "2021.07.16",
                     property = 0
                 ),
                 CompleteCourseData(
-                    courseDate = "7일 코스",
-                    courseName = "뽀득뽀득 세균 퇴치",
-                    courseComplete = "2021.07.31",
+                    courseDate = "5일 코스",
+                    courseName = "나는야 음유시인",
+                    courseComplete = "2021.07.09",
                     property = 1
                 ),
                 CompleteCourseData(
-                    courseDate = "7일 코스",
-                    courseName = "뽀득뽀득 세균 퇴치",
-                    courseComplete = "2021.07.31",
+                    courseDate = "3일 코스",
+                    courseName = "추억을 더듬더듬",
+                    courseComplete = "2021.07.04",
                     property = 2
                 ),
                 CompleteCourseData(
                     courseDate = "7일 코스",
-                    courseName = "뽀득뽀득 세균 퇴치",
-                    courseComplete = "2021.07.31",
+                    courseName = "상상만 해도 설레",
+                    courseComplete = "2021.06.29",
                     property = 3
                 ),
                 CompleteCourseData(
                     courseDate = "7일 코스",
-                    courseName = "뽀득뽀득 세균 퇴치",
-                    courseComplete = "2021.07.31",
+                    courseName = "동네 한 바퀴",
+                    courseComplete = "2021.06.11",
                     property = 1
                 )
             )
