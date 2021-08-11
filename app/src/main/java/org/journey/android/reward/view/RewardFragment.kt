@@ -41,6 +41,7 @@ class RewardFragment : BaseFragment<FragmentRewardBinding>() {
         //showReward()
         showCompleteCourse()
         loadDatas()
+        //loadDatas()
         goBackMain()
     }
 
@@ -50,12 +51,12 @@ class RewardFragment : BaseFragment<FragmentRewardBinding>() {
         rewardAdapter.rewardList.addAll(
             listOf<RewardData>(
                 RewardData(
-                    percent = lovePercent,
+                    percent = "27",
                     percentUnit = "%",
                     rewardContent = requireContext().getString(R.string.reward_challenge_percent)
                 ),
                 RewardData(
-                    percent = successDay,
+                    percent = "13",
                     percentUnit = "일",
                     rewardContent = requireContext().getString(R.string.reward_challenge_date)
                 )

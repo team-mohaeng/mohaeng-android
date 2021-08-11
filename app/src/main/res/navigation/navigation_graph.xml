@@ -63,7 +63,6 @@
             android:id="@+id/action_loginFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
     </fragment>
-
     <fragment
         android:id="@+id/mainFragment"
         android:name="org.journey.android.main.view.MainFragment"
