@@ -38,8 +38,9 @@ class RewardFragment : BaseFragment<FragmentRewardBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        showReward()
+        //showReward()
         showCompleteCourse()
+        loadDatas()
         //loadDatas()
         goBackMain()
     }
@@ -105,7 +106,6 @@ class RewardFragment : BaseFragment<FragmentRewardBinding>() {
         completeCourseAdapter.notifyDataSetChanged()
     }
 
-
     private fun goBackMain() {
         binding.buttonPressedBack.setOnClickListener {
             findNavController().popBackStack()
@@ -113,8 +113,8 @@ class RewardFragment : BaseFragment<FragmentRewardBinding>() {
     }
 
     private fun loadDatas() {
-        completeCourseAdapter = CompleteCourseAdapter()
-        binding.recyclerviewShowReward.adapter = completeCourseAdapter
+//        completeCourseAdapter = CompleteCourseAdapter()
+//        binding.recyclerviewShowReward.adapter = completeCourseAdapter
 
         RetrofitService.rewardService.getRewardData(
             userJwt
@@ -154,24 +154,24 @@ class RewardFragment : BaseFragment<FragmentRewardBinding>() {
                                 response.body()!!.data!!.courses[i].challenges[response.body()!!.data!!.courses[i].challenges.size - 1].day
                             var date = year + "." + month + "." + day
 
-                            datas = mutableListOf<CompleteCourseData>()
-                            datas.apply {
-                                add(
-                                    CompleteCourseData(
-                                        courseDate = response.body()!!.data!!.courses[i].totalDays.toString() + "일차",
-                                        courseName = response.body()!!.data!!.courses[i].title.toString(),
-                                        courseComplete = date,
-                                        property = property
-                                    )
-                                )
-                            }
+                            //datas = mutableListOf<CompleteCourseData>()
+//                            datas.apply {
+//                                add(
+//                                    CompleteCourseData(
+//                                        courseDate = response.body()!!.data!!.courses[i].totalDays.toString() + "일차",
+//                                        courseName = response.body()!!.data!!.courses[i].title.toString(),
+//                                        courseComplete = date,
+//                                        property = property
+//                                    )
+//                                )
+//                            }
 
 //                            completeCourseAdapter.completeCourseList.addAll(
 //                                datas
 //                            )
 
                             // 데이터 변경되었으니 업데이트해라
-                            completeCourseAdapter.notifyDataSetChanged()
+//                            completeCourseAdapter.notifyDataSetChanged()
                         }
                         showReward()
                     } else {
