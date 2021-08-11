@@ -1,5 +1,6 @@
-package org.journey.android.diary
+package org.journey.android.diary.view
 
+import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BlurMaskFilter
 import android.graphics.Color
@@ -8,6 +9,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.content.res.AppCompatResources.getDrawable
+import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.core.content.ContextCompat
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment.findNavController
@@ -21,12 +24,16 @@ import jp.wasabeef.glide.transformations.BlurTransformation
 import jp.wasabeef.glide.transformations.ColorFilterTransformation
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation
 import org.journey.android.R
+import org.journey.android.course.view.ctxt
 import org.journey.android.databinding.ItemPrivateRecordBinding
 import org.journey.android.diary.dto.PrivateData
 import org.journey.android.diary.view.PrivateFragment
+import org.journey.android.diary.view.postDetailId
+
 
 class PrivateAdapter: RecyclerView.Adapter<PrivateAdapter.PrivateViewHolder>(){
     val privateDiaryList = mutableListOf<PrivateData>()
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -37,6 +44,7 @@ class PrivateAdapter: RecyclerView.Adapter<PrivateAdapter.PrivateViewHolder>(){
             false
         )
         return PrivateViewHolder(binding)
+
     }
 
     override fun onBindViewHolder(holder: PrivateViewHolder, position: Int) {
@@ -63,10 +71,11 @@ class PrivateAdapter: RecyclerView.Adapter<PrivateAdapter.PrivateViewHolder>(){
                 .into(binding.imageviewRecyclerviewBackground)
             if(privateData.hasLike)
             {
-                binding.buttonImagePrivate.setTextColor(Color.parseColor(R.color.journey_pink2.toString()))
+                binding.buttonImagePrivate.setTextColor(ContextCompat.getColor(binding.buttonImagePrivate.context,R.color.journey_pink2))
                 binding.buttonImagePrivate.setBackgroundResource(R.drawable.ic_icnheartfull)
             }
             itemView.setOnClickListener {
+                postDetailId=privateData.postId
                 itemView.findNavController().navigate(R.id.action_privateFragment_to_privateDetailFragment)
             }
         }
