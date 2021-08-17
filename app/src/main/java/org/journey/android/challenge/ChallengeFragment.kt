@@ -1,4 +1,4 @@
-package org.journey.android.challenge.view
+package org.journey.android.challenge
 
 import android.app.AlertDialog
 import android.graphics.Color
@@ -6,13 +6,11 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
 import android.util.TypedValue
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.view.animation.TranslateAnimation
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
@@ -22,8 +20,8 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.fragment.findNavController
 import org.journey.android.R
 import org.journey.android.base.BaseFragment
-import org.journey.android.challenge.data.ResponseChallengeData
-import org.journey.android.challenge.data.ResponseStampData
+import org.journey.android.data.ResponseChallengeData
+import org.journey.android.data.ResponseStampData
 import org.journey.android.databinding.FragmentChallengeBinding
 import org.journey.android.login.view.userJwt
 import org.journey.android.main.RetrofitService

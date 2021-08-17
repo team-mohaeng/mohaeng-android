@@ -1,4 +1,4 @@
-package org.journey.android.challenge.data
+package org.journey.android.data
 
 data class ResponseStampData(
     val status: Int,

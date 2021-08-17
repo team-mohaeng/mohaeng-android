@@ -1,7 +1,7 @@
 package org.journey.android.challenge.api
 
-import org.journey.android.challenge.data.ResponseChallengeData
-import org.journey.android.challenge.data.ResponseStampData
+import org.journey.android.data.ResponseChallengeData
+import org.journey.android.data.ResponseStampData
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Header

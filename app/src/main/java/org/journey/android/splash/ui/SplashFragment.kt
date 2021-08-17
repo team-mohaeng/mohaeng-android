@@ -1,4 +1,4 @@
-package org.journey.android.splash
+package org.journey.android.splash.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
