@@ -8,7 +8,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/journey_pink9"
-    tools:context=".splash.SplashFragment">
+    tools:context=".splash.ui.SplashFragment">
 
     <ImageView
         android:id="@+id/imageview_splash"

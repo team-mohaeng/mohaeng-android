@@ -4,9 +4,7 @@ import android.app.AlertDialog
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import android.media.Image
 import android.util.Log
-import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,11 +17,9 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import org.journey.android.databinding.ItemLibraryBinding
 import org.journey.android.R
-import org.journey.android.challenge.view.hasCourse
+import org.journey.android.ui.challenge.view.hasCourse
 import org.journey.android.course.api.ServiceCreator
 import org.journey.android.course.data.ResponseChooseData
-import org.journey.android.course.data.ResponseLibraryData
-import org.journey.android.databinding.CourseCustomDialogBinding
 import org.journey.android.login.view.userJwt
 import retrofit2.Call
 import retrofit2.Callback

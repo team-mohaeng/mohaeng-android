@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_onboarding"
+    app:startDestination="@id/onboardingActivity">
+
+    <activity
+        android:id="@+id/onboardingActivity"
+        android:name="org.journey.android.splash.onboarding.OnboardingActivity"
+        android:label="activity_onboarding"
+        tools:layout="@layout/activity_onboarding" />
+    <fragment
+        android:id="@+id/onboardingFirstFragment"
+        android:name="org.journey.android.splash.ui.OnboardingFirstFragment"
+        android:label="OnboardingFirstFragment"
+        tools:layout="@layout/fragment_onboarding_first"/>
+</navigation>

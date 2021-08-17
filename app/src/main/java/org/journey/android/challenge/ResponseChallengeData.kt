@@ -1,6 +1,4 @@
-package org.journey.android.challenge.data
-
-import org.journey.android.course.data.ChooseCourseData
+package org.journey.android.data
 
 data class ResponseChallengeData(
     val status: Int,

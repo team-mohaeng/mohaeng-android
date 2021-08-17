@@ -1,22 +1,14 @@
 package org.journey.android.community.view
 
-import android.app.AlertDialog
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
-import androidx.appcompat.widget.AppCompatButton
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.fragment.findNavController
 import org.journey.android.R
 import org.journey.android.base.BaseFragment
-import org.journey.android.challenge.view.challengeStatus
+import org.journey.android.ui.challenge.view.challengeStatus
 import org.journey.android.community.ResponseCommunityData
 import org.journey.android.community.dto.BottomSheetData
 import org.journey.android.databinding.FragmentCommunityBinding

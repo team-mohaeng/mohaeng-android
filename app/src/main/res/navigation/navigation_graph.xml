@@ -34,7 +34,7 @@
     </fragment>
     <fragment
         android:id="@+id/splashFragment"
-        android:name="org.journey.android.splash.SplashFragment"
+        android:name="org.journey.android.splash.ui.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash">
         <action
@@ -95,7 +95,7 @@
     </fragment>
     <fragment
         android:id="@+id/challengeFragment"
-        android:name="org.journey.android.challenge.view.ChallengeFragment"
+        android:name="org.journey.android.ui.challenge.view.ChallengeFragment"
         android:label="ChallengeFragment"
         tools:layout="@layout/fragment_challenge">
         <action
