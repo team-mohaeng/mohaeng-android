@@ -18,10 +18,11 @@
     <string name="private_empty_contents">아직 당신의 소확행을 담아두지 않았군\n챌린지를 성공하고 소확행을 작성해보겠어?</string>
     <string name="diary_hashtag_count">태그는 최대 5개까지\n입력할 수 있어요!</string>
 
-    <string name="challenge_message_journey">손을 씻는 것은 청결에 있어서 가장 기본적이지만 잊기 쉬운 일이쟈니. 깨끗해진 너의 손으로 쟈니를 섬세하게 다뤄줘.</string>
+    <string name="challenge_message_mohang">어제 외운 단어 기억 나지?\n어제 외운 단어로 문장을 만들어봐~ </string>
     <string name="reward_challenge_percent">총 증가시킨\n쟈니와의 애정도</string>
     <string name="reward_challenge_date">챌린지 연속 성공\n최장 일수</string>
-    <string name="challenge_explain">아이콘을 터치해 인증을 모두 완료하세요!\n자정이 넘으면 미션이 끝납니다</string>
+    <string name="challenge_explain">오늘의 챌린지를 성공하면 <b>해피지수가 </b></string>
+    <string name="challenge_explain2">획득 가능한 뱃지는 </string>
     <string name="challenge_complete">챌린지를 성공해서 소확행을 작성할 수 있어.\n나와 함께 쓰러갈래, 쟈기?</string>
 
     <string name="happiness_popcontent_ver1">소확행은 오늘의 챌린지를\n성공해야 작성할 수 있어.\n나와 함께 챌린지를 시작해보겠어?</string>

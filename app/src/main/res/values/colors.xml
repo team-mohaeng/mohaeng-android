@@ -73,4 +73,7 @@
     <color name="mohaeng_green">#1BC193</color>
     <color name="mohaeng_blue">#B2D9FC</color>
 
+    <color name="mohaeng_yellow_a">#FFEDBF</color>
+    <color name="mohaeng_yellow_b">#FFFBEF</color>
+
 </resources>
