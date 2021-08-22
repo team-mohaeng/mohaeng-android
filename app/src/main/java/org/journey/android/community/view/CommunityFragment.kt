@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import org.journey.android.R
 import org.journey.android.base.BaseFragment
-import org.journey.android.ui.challenge.view.challengeStatus
+import org.journey.android.challenge.challengeStatus
 import org.journey.android.community.ResponseCommunityData
 import org.journey.android.community.dto.BottomSheetData
 import org.journey.android.databinding.FragmentCommunityBinding
