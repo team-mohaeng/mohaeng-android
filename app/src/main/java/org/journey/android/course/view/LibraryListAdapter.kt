@@ -17,7 +17,8 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import org.journey.android.databinding.ItemLibraryBinding
 import org.journey.android.R
-import org.journey.android.ui.challenge.view.hasCourse
+import org.journey.android.challenge.hasCourse
+
 import org.journey.android.course.api.ServiceCreator
 import org.journey.android.course.data.ResponseChooseData
 import org.journey.android.login.view.userJwt

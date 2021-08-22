@@ -2,147 +2,137 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="org.journey.android.frame.FrameViewModel" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/mohaeng_yellow"
         tools:context=".main.view.MainFragment">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_main_first"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:layout_width="26dp"
+            tools:layout_height="26dp"
             android:layout_marginTop="24dp"
-            android:background="@drawable/ic_frame148"
+            android:background="@drawable/ic_medal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.85"
+            app:layout_constraintHorizontal_bias="0.75"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/button_main_next"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginLeft="12dp"
-            android:background="@drawable/ic_frame147"
+            android:id="@+id/button_main_chat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:layout_width="26dp"
+            tools:layout_height="26dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/ic_chat"
             app:layout_constraintStart_toEndOf="@id/button_main_first"
+            app:layout_constraintTop_toTopOf="@id/button_main_first"
             app:layout_constraintBottom_toBottomOf="@id/button_main_first"/>
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_main_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_user"
+            android:layout_marginLeft="10dp"
+            app:layout_constraintBottom_toBottomOf="@id/button_main_chat"
+            app:layout_constraintStart_toEndOf="@id/button_main_chat"
+            tools:layout_height="27dp"
+            tools:layout_width="27dp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textview_main_greet"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="24dp"
-            android:layout_marginTop="12dp"
-            android:fontFamily="@font/spoqahansansneoregular"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="41dp"
+            android:fontFamily="@font/gmarketsansttfmedium"
             android:text="@string/main_greeting"
-            android:textColor="@color/journey_black"
-            android:textSize="14sp"
+            android:textColor="@color/mohaeng_black"
+            android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/button_main_first" />
 
-        <TextView
-            android:id="@+id/textview_main_challenge"
+        <ProgressBar
+            android:id="@+id/progressbar_main"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="24dp"
-            android:layout_marginTop="12dp"
-            android:fontFamily="@font/bmhanna11yrsotf"
-            android:text="뽀득뽀득 세균 퇴치"
-            android:textColor="@color/black"
-            android:textSize="32sp"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="28dp"
+            android:max="100"
+            android:orientation="vertical"
+            android:progress="60"
+            android:progressBackgroundTint="@color/mohaeng_brown2"
+            android:progressDrawable="@drawable/custom_progress_states"
+            app:layout_constraintStart_toStartOf="@+id/textview_main_greet"
+            app:layout_constraintTop_toBottomOf="@id/textview_main_greet"
+            tools:layout_height="89dp"
+            tools:layout_width="44dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_main_reward"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_mainbtn"
+            app:layout_constraintTop_toBottomOf="@id/progressbar_main"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageview_mohaeng_character"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_mohaeng_char"
+            android:layout_marginTop="29dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textview_main_greet" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/button_main_user"
-            android:layout_width="88dp"
-            android:layout_height="32dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginLeft="24dp"
-            android:drawableLeft="@drawable/main_health"
-            android:drawablePadding="-4dp"
-            android:fontFamily="@font/spoqahansansneobold"
-            android:paddingLeft="12dp"
-            android:text="2 일차"
-            android:textColor="@color/white"
-            android:background="@drawable/ic_rectanglemain"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textview_main_challenge" />
-
-        <ImageView
-            android:id="@+id/imageview_journey"
-            android:layout_width="match_parent"
-            android:layout_height="580dp"
-            android:src="@drawable/imagefour"
-            app:layout_constraintBottom_toTopOf="@id/textview_our_concentration"
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageview_blank"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/ic_maincrs"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_main_first" />
+            app:layout_constraintTop_toBottomOf="@id/imageview_mohaeng_character" />
 
-        <TextView
-            android:id="@+id/textview_our_concentration"
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_course_progress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginStart="48dp"
             android:fontFamily="@font/spoqahansansneobold"
-            android:text="너와 나의 농도"
-            android:textColor="@color/journey_black"
+            android:text="코스 진행률 50% "
+            android:textColor="@color/mohaeng_yellow2"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageview_blank"
+            app:layout_constraintStart_toStartOf="@id/imageview_blank"
+            app:layout_constraintTop_toTopOf="@+id/imageview_blank" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_course_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/gmarketsansttfmedium"
+            android:text="의식적으로 양치를 깨끗하게 "
+            android:textColor="@color/mohaeng_black"
             android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/imageview_journey" />
+            android:layout_marginLeft="20dp"
+            app:layout_constraintBottom_toBottomOf="@id/textview_course_progress"
+            app:layout_constraintStart_toEndOf="@+id/textview_course_progress"
+            app:layout_constraintTop_toTopOf="@id/textview_course_progress" />
 
-        <TextView
-            android:id="@+id/textview_concentration_percent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:fontFamily="@font/spoqahansansneobold"
-            android:text="89%"
-            android:textColor="@color/journey_pink7"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="@id/textview_our_concentration"
-            app:layout_constraintStart_toEndOf="@id/textview_our_concentration"
-            app:layout_constraintTop_toTopOf="@id/textview_our_concentration" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:background="@drawable/ic_questioncircle"
-            app:layout_constraintBottom_toBottomOf="@id/textview_concentration_percent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.85"
-            app:layout_constraintStart_toEndOf="@id/textview_concentration_percent"
-            app:layout_constraintTop_toTopOf="@+id/textview_concentration_percent" />
-
-        <ImageView
-            android:id="@+id/imageview_main_progress"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:scaleType="fitXY"
-            android:src="@drawable/ic_progressbar"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textview_our_concentration"/>
-
-        <ProgressBar
-            android:id="@+id/progressbar_concentration"
-            style="@android:style/Widget.ProgressBar.Horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="14dp"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="16dp"
-            android:progressTint="@color/journey_pink6"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:max="100"
-            android:progress="89"
-            android:progressBackgroundTint="@color/journey_transparency"
-            android:indeterminateDrawable="@drawable/ic_progressbar"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textview_our_concentration" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
