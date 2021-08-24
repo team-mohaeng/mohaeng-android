@@ -71,13 +71,38 @@
             android:layout_marginTop="28dp"
             android:max="100"
             android:orientation="vertical"
-            android:progress="60"
+            android:progress="40"
             android:progressBackgroundTint="@color/mohaeng_brown2"
             android:progressDrawable="@drawable/custom_progress_states"
             app:layout_constraintStart_toStartOf="@+id/textview_main_greet"
             app:layout_constraintTop_toBottomOf="@id/textview_main_greet"
             tools:layout_height="89dp"
             tools:layout_width="44dp" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageview_progress_star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_star"
+            app:layout_constraintBottom_toBottomOf="@+id/progressbar_main"
+            app:layout_constraintEnd_toEndOf="@id/progressbar_main"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintVertical_bias="0.4"
+            app:layout_constraintStart_toStartOf="@id/progressbar_main"
+            app:layout_constraintTop_toTopOf="@+id/progressbar_main" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_progress_level"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lv.22"
+            android:fontFamily="@font/gmarketsansttfbold"
+            android:textColor="@color/mohaeng_brown"
+            android:textSize="10sp"
+            android:layout_marginTop="2dp"
+            app:layout_constraintTop_toBottomOf="@id/imageview_progress_star"
+            app:layout_constraintStart_toStartOf="@id/progressbar_main"
+            app:layout_constraintEnd_toEndOf="@id/progressbar_main"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_main_reward"
