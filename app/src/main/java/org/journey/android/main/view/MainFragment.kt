@@ -1,5 +1,10 @@
 package org.journey.android.main.view
 
+import android.annotation.SuppressLint
+import android.app.AlertDialog
+import android.app.Dialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -34,11 +39,25 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         goToReward()
+        showIndexDialog()
+        binding.progressbarMain.progress = 50
 //        binding.textviewConcentrationPercent.setOnClickListener {
 //            //binding.progressbarConcentration.incrementProgressBy(25)
 //        }
         //setRetrofit()
     }
+
+    @SuppressLint("ResourceType")
+    private fun showIndexDialog(){
+        binding.buttonMainReward.setOnClickListener {
+            val dialogView = LayoutInflater.from(context).inflate(R.layout.dialog_index_explanation,null)
+            dialogView?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            val builder = AlertDialog.Builder(context)
+                .setView(dialogView)
+            builder.show()
+        }
+    }
+
 
     private fun goToReward() {
         binding.buttonMainFirst.setOnClickListener {
