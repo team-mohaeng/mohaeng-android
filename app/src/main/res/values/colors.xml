@@ -60,16 +60,17 @@
     <color name="health_button">#FFDABD</color>
     <color name="challenge_button">#DDF4D6</color>
     <color name="gray_button">#EEEEEE</color>
-
     <color name="mohaeng_yellow">#FFF2D0</color>
     <color name="mohaeng_yellow2">#FFC453</color>
     <color name="mohaeng_yellow3">#FFE2AB</color>
+    <color name="mohaeng_yellow4">#FFC453</color>
     <color name="mohaeng_black">#202020</color>
     <color name="mohaeng_black2">#4B4B4B</color>
     <color name="mohaeng_gray">#7B7B7B</color>
     <color name="mohaeng_gray2">#D2D2D2</color>
     <color name="mohaeng_gray3">#F2F2F2</color>
     <color name="mohaeng_gray4">#828A93</color>
+    <color name="mohaeng_gray5">#CCCCCC</color>
     <color name="mohaeng_brown">#554239</color>
     <color name="mohaeng_brown2">#C3B6A4</color>
     <color name="mohaeng_green">#1BC193</color>

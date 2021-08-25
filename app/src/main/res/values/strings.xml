@@ -38,4 +38,7 @@
     <string name="diary_compelete_comment">당신의 행복이 하나 더 늘었군.\n다른 쟈기들과 함께하면 기쁨이 배가 될거야.\n함께 행복을 공유해보겠어?</string>
     <string name="splash_ment">어느날\n내 일상을 긴장시키는\n누군가가 나타났다</string>
     <string name="find_pw_input_email">이런, 길 잃은 나의 아기고양이\n당신의 이메일을 입력해주겠어?</string>
+
+    <string name="dialog_happy_index_explanation">하루 챌린지를 달성할 때,코스를 완료할 때,안부를\n작성했을 때 제공되는 지수입니다.</string>
+    <string name="dialog_level_index_explanation">해피 지수 게이지가 다 차면 레벨이 넘어가게 됩니다.\n레벨이 한 번 오를 때마다 한 가지 캐릭터 스타일을 \n얻을 수 있어요.</string>
 </resources>

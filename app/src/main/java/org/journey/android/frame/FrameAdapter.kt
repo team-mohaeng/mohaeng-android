@@ -15,6 +15,8 @@ class FrameAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
             2 -> CommunityFragment()
             else -> throw RuntimeException("Error")
         }
+        notifyDataSetChanged()
     }
+
 
 }

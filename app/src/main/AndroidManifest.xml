@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JourneyAndroid"
         android:usesCleartextTraffic="true">
-        <activity android:name="org.journey.android.splash.onboarding.OnboardingActivity"></activity>
+        <activity android:name="org.journey.android.splash.onboarding.OnboardingActivity">
+        </activity>
         <activity android:name=".frame.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
