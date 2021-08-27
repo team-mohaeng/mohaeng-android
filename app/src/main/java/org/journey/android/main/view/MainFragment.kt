@@ -3,6 +3,7 @@ package org.journey.android.main.view
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.app.Dialog
+import android.content.DialogInterface
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -38,6 +39,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setClickListener()
         goToReward()
         showIndexDialog()
         binding.progressbarMain.progress = 50
@@ -52,9 +54,18 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
         binding.buttonMainReward.setOnClickListener {
             val dialogView = LayoutInflater.from(context).inflate(R.layout.dialog_index_explanation,null)
             dialogView?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            dialogView.setBackgroundResource(R.drawable.selector_index_dialog)
             val builder = AlertDialog.Builder(context)
                 .setView(dialogView)
             builder.show()
+        }
+    }
+
+    private fun setClickListener(){
+        with(binding){
+            buttonMainChat.setOnClickListener {
+                findNavController().navigate(R.id.action_frameFragment_to_chatFragment)
+            }
         }
     }
 

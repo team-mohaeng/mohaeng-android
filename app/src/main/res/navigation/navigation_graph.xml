@@ -31,6 +31,9 @@
         <action
             android:id="@+id/action_frameFragment_to_privateFragment"
             app:destination="@+id/privateFragment"/>
+        <action
+            android:id="@+id/action_frameFragment_to_chatFragment"
+            app:destination="@id/chatFragment" />
     </fragment>
     <fragment
         android:id="@+id/splashFragment"
@@ -72,6 +75,9 @@
     <action
             android:id="@+id/action_mainFragment_to_rewardFragment"
             app:destination="@id/rewardFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_chatFragment"
+            app:destination="@id/chatFragment" />
 
     </fragment>
 
@@ -235,4 +241,9 @@
         android:label="CommunityDetailFragment"
         tools:layout="@layout/fragment_community_detail">
     </fragment>
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="org.journey.android.chat.ChatFragment"
+        android:label="ChatFragment"
+        tools:layout="@layout/fragment_chat"/>
 </navigation>
