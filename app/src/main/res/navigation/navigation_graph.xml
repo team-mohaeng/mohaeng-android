@@ -34,6 +34,9 @@
         <action
             android:id="@+id/action_frameFragment_to_chatFragment"
             app:destination="@id/chatFragment" />
+        <action
+            android:id="@+id/action_frameFragment_to_characterFragment"
+            app:destination="@id/characterFragment" />
     </fragment>
     <fragment
         android:id="@+id/splashFragment"
@@ -246,4 +249,9 @@
         android:name="org.journey.android.chat.ChatFragment"
         android:label="ChatFragment"
         tools:layout="@layout/fragment_chat"/>
+    <fragment
+        android:id="@+id/characterFragment"
+        android:name="org.journey.android.character.CharacterFragment"
+        android:label="CharacterFragment"
+        tools:layout="@layout/fragment_character"/>
 </navigation>

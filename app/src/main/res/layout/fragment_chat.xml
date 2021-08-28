@@ -29,6 +29,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/button_pop_back" />
 
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textview_chat_empty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="앗,알림이 없어요!"
+        android:textColor="@color/mohaeng_gray"
+        android:fontFamily="@font/gmarketsansttflight"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
