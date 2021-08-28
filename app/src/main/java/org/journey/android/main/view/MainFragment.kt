@@ -40,7 +40,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setClickListener()
-        goToReward()
+        //goToReward()
         showIndexDialog()
         binding.progressbarMain.progress = 50
 //        binding.textviewConcentrationPercent.setOnClickListener {
@@ -65,6 +65,9 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
         with(binding){
             buttonMainChat.setOnClickListener {
                 findNavController().navigate(R.id.action_frameFragment_to_chatFragment)
+            }
+            buttonMainFirst.setOnClickListener {
+                findNavController().navigate(R.id.action_frameFragment_to_characterFragment)
             }
         }
     }
