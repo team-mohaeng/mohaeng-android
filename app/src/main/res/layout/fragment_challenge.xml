@@ -107,23 +107,43 @@
                 app:layout_constraintStart_toEndOf="@+id/textview_challenge_today"
                 app:layout_constraintTop_toBottomOf="@+id/imagebutton_challenge_browse" />
 
-
-            <TextView
-                android:id="@+id/textview_mohaeng_talk"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintlayout_mohaeng_talk"
                 android:layout_width="match_parent"
                 android:layout_height="88dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/challenge_textview_round"
-                android:fontFamily="@font/spoqahansansneoregular"
-                android:gravity="center"
-                android:lineSpacingExtra="10dp"
-                android:paddingLeft="64dp"
-                android:text="@string/challenge_message_mohaeng"
-                android:textColor="@color/black"
-                android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textview_challenge_today" />
+                app:layout_constraintTop_toBottomOf="@+id/textview_challenge_today">
+
+                <TextView
+                    android:id="@+id/textview_mohaeng_talk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/spoqahansansneoregular"
+                    android:gravity="center"
+                    android:lineSpacingExtra="10dp"
+                    android:text="@string/challenge_message_mohaeng"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_challenge_character"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintlayout_challenge_sub"
@@ -132,7 +152,7 @@
                 android:layout_marginTop="12dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textview_mohaeng_talk">
+                app:layout_constraintTop_toBottomOf="@+id/constraintlayout_mohaeng_talk">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/constraintlayout_sub_first"
@@ -141,7 +161,7 @@
                     android:layout_marginBottom="8dp"
                     android:background="@drawable/challenge_layout_radius"
                     android:paddingBottom="28dp"
-                    android:visibility="visible"
+                    android:visibility="gone"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -176,7 +196,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/textview_first_content"
+                        android:id="@+id/textview_first_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
@@ -199,7 +219,7 @@
                         android:src="@drawable/stamp_health_no"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textview_first_content" />
+                        app:layout_constraintTop_toBottomOf="@+id/textview_first_title" />
 
                     <TextView
                         android:id="@+id/textview_first_explain_front"
@@ -309,30 +329,32 @@
                         app:layout_constraintVertical_bias="1.0" />
 
                     <TextView
-                        android:id="@+id/textview_second_title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:id="@+id/textview_second_day"
+                        android:layout_width="61dp"
+                        android:layout_height="24sp"
                         android:layout_marginTop="43dp"
-                        android:fontFamily="@font/spoqahansansneoregular"
-                        android:text="뽀득뽀득 세균퇴치"
-                        android:textColor="@color/black"
-                        android:textSize="15sp"
+                        android:background="@drawable/challenge_day_round"
+                        android:fontFamily="@font/gmarketsansttfmedium"
+                        android:gravity="center"
+                        android:text="1일차"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/textview_second_content"
+                        android:id="@+id/textview_second_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:fontFamily="@font/spoqahansansneobold"
-                        android:text="깨끗하게 손씻기 3회"
-                        android:textColor="@color/journey_pink_b"
-                        android:textSize="26sp"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/gmarketsansttfmedium"
+                        android:text="어제 외운 단어로 문장 만들기"
+                        android:textColor="@color/mohaeng_green"
+                        android:textSize="24sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textview_second_title" />
+                        app:layout_constraintTop_toBottomOf="@+id/textview_second_day" />
 
                     <ImageButton
                         android:id="@+id/imagebutton_second_first"
@@ -347,7 +369,7 @@
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintHorizontal_chainStyle="packed"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textview_second_content" />
+                        app:layout_constraintTop_toBottomOf="@+id/textview_second_title" />
 
                     <ImageButton
                         android:id="@+id/imagebutton_second_second"
@@ -363,18 +385,84 @@
                         app:layout_constraintTop_toTopOf="@+id/imagebutton_second_first" />
 
                     <TextView
-                        android:id="@+id/textview_second_explain"
+                        android:id="@+id/textview_second_explain_front"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="55dp"
+                        android:layout_marginTop="40dp"
                         android:fontFamily="@font/spoqahansansneoregular"
                         android:gravity="center"
                         android:text="@string/challenge_explain"
                         android:textColor="#767171"
                         android:textSize="12sp"
-                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/textview_second_explain_point"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintStart_toEndOf="@+id/imageview_back_second"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/imagebutton_second_second" />
+                        app:layout_constraintTop_toBottomOf="@+id/imagebutton_second_first" />
+
+                    <TextView
+                        android:id="@+id/textview_second_explain_point"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/spoqahansansneoregular"
+                        android:gravity="center"
+                        android:text="2%"
+                        android:textColor="#767171"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toStartOf="@+id/textview_second_explain_back"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/textview_second_explain_front"
+                        app:layout_constraintTop_toBottomOf="@+id/imagebutton_second_first" />
+
+                    <TextView
+                        android:id="@+id/textview_second_explain_back"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/spoqahansansneoregular"
+                        android:gravity="center"
+                        android:text=" 올라가!"
+                        android:textColor="#767171"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/textview_second_explain_point"
+                        app:layout_constraintTop_toBottomOf="@+id/imagebutton_second_first" />
+
+                    <TextView
+                        android:id="@+id/textview_second_explain2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/spoqahansansneoregular"
+                        android:gravity="center"
+                        android:text="@string/challenge_explain2"
+                        android:textColor="#767171"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toStartOf="@+id/textview_second_explain2_badge"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textview_second_explain_front" />
+
+                    <TextView
+                        android:id="@+id/textview_second_explain2_badge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/spoqahansansneoregular"
+                        android:gravity="center"
+                        android:text="없지롱"
+                        android:textColor="#767171"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/textview_second_explain2"
+                        app:layout_constraintTop_toBottomOf="@+id/textview_second_explain_front" />
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -385,7 +473,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/challenge_layout_radius"
                     android:paddingBottom="23dp"
-                    android:visibility="gone"
+                    android:visibility="visible"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -405,30 +493,34 @@
                         app:layout_constraintVertical_bias="1.0" />
 
                     <TextView
-                        android:id="@+id/textview_third_title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:id="@+id/textview_third_day"
+                        android:layout_width="61dp"
+                        android:layout_height="24sp"
                         android:layout_marginTop="43dp"
-                        android:fontFamily="@font/spoqahansansneoregular"
-                        android:text="뽀득뽀득 세균퇴치"
-                        android:textColor="@color/black"
-                        android:textSize="15sp"
+                        android:background="@drawable/challenge_day_round"
+                        android:fontFamily="@font/gmarketsansttfmedium"
+                        android:gravity="center"
+                        android:text="1일차"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
+
                     <TextView
-                        android:id="@+id/textview_third_content"
+                        android:id="@+id/textview_third_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:fontFamily="@font/spoqahansansneobold"
-                        android:text="깨끗하게 손씻기 3회"
-                        android:textColor="@color/journey_pink_b"
-                        android:textSize="26sp"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/gmarketsansttfmedium"
+                        android:text="어제 외운 단어로 문장 만들기"
+                        android:textColor="@color/mohaeng_green"
+                        android:textSize="24sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textview_third_title" />
+                        app:layout_constraintTop_toBottomOf="@+id/textview_third_day" />
+
 
                     <ImageButton
                         android:id="@+id/imagebutton_third_first"
@@ -442,7 +534,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_chainStyle="spread"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textview_third_content" />
+                        app:layout_constraintTop_toBottomOf="@+id/textview_third_title" />
 
                     <ImageButton
                         android:id="@+id/imagebutton_third_second"
@@ -473,25 +565,98 @@
                         app:layout_constraintTop_toTopOf="@+id/imagebutton_third_second" />
 
                     <TextView
-                        android:id="@+id/textview_third_explain"
+                        android:id="@+id/textview_third_explain_front"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
+                        android:layout_marginTop="40dp"
                         android:fontFamily="@font/spoqahansansneoregular"
                         android:gravity="center"
                         android:text="@string/challenge_explain"
                         android:textColor="#767171"
                         android:textSize="12sp"
-                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/textview_third_explain_point"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_chainStyle="packed"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/imagebutton_third_second" />
 
+                    <TextView
+                        android:id="@+id/textview_third_explain_point"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/spoqahansansneoregular"
+                        android:gravity="center"
+                        android:text="2%"
+                        android:textColor="#767171"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toStartOf="@+id/textview_third_explain_back"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/textview_third_explain_front"
+                        app:layout_constraintTop_toBottomOf="@+id/imagebutton_third_second" />
+
+                    <TextView
+                        android:id="@+id/textview_third_explain_back"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/spoqahansansneoregular"
+                        android:gravity="center"
+                        android:text=" 올라가!"
+                        android:textColor="#767171"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/textview_third_explain_point"
+                        app:layout_constraintTop_toBottomOf="@+id/imagebutton_third_second" />
+
+                    <TextView
+                        android:id="@+id/textview_third_explain2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/spoqahansansneoregular"
+                        android:gravity="center"
+                        android:text="@string/challenge_explain2"
+                        android:textColor="#767171"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toStartOf="@+id/textview_third_explain2_badge"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textview_third_explain_front" />
+
+                    <TextView
+                        android:id="@+id/textview_third_explain2_badge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/spoqahansansneoregular"
+                        android:gravity="center"
+                        android:text="없지롱"
+                        android:textColor="#767171"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/textview_third_explain2"
+                        app:layout_constraintTop_toBottomOf="@+id/textview_third_explain_front" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <ImageButton
+                android:id="@+id/imagebutton_challenge_course"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/ic_course_arrow"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintlayout_challenge_sub" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -17,9 +17,9 @@
             android:id="@+id/imageview_right_road"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="52dp"
+            android:layout_marginEnd="18dp"
             android:adjustViewBounds="true"
-            android:src="@drawable/ic_course_pink_right_v2"
+            android:src="@drawable/ic_course_right"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -29,14 +29,14 @@
             android:id="@+id/textview_right_day"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="86dp"
+            android:layout_marginStart="22dp"
             android:layout_marginBottom="8dp"
             android:fontFamily="@font/spoqahansansneobold"
             android:text="1일차"
             android:textColor="@color/black"
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/textview_right_content"
-            app:layout_constraintStart_toStartOf="@+id/imageview_right_road" />
+            app:layout_constraintStart_toEndOf="@+id/imageview_right_circle" />
 
         <TextView
             android:id="@+id/textview_right_complete"
@@ -69,11 +69,11 @@
             android:id="@+id/imageview_right_circle"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_marginEnd="283dp"
+            android:layout_marginStart="29dp"
             android:layout_marginBottom="3dp"
             android:src="@drawable/ic_dummyimg"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintStart_toStartOf="@+id/imageview_right_road" />
 <!--
         <View
             android:layout_width="20dp"

@@ -68,7 +68,7 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
     private var userChallengeId = 0
 
     // journey msg
-    private var journeyMsg = ""
+    private var mohaengMsg = ""
 
     // journey end msg
     private var journeyEndMsg = ""
@@ -98,6 +98,7 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
         initChallengeType(binding.imagebuttonThirdSecond)
         initChallengeType(binding.imagebuttonThirdThird)
 
+        setButtonEvent()
     }
 
     var challengeType = 0
@@ -122,7 +123,7 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
             binding.constraintlayoutChallengeGone.visibility = View.GONE
             binding.constraintlayoutChallengeOngoing.visibility = View.VISIBLE
 
-            binding.textviewJourneyTalk.text = journeyMsg
+            binding.textviewMohaengTalk.text = mohaengMsg
 
             var height: Int = 0
             var width: Int = 0
@@ -212,10 +213,10 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
 
                     // 스탬프 다  인증 완료하면 완료 팝업 등
                     if(stampComplete == stampNumber){
-                        binding.textviewJourneyTalk.text = journeyEndMsg
-                        binding.textviewFirstExplain.text = "오늘의 챌린지 성공!\n" + "내일 새로운 챌린지로 다시 만나요!"
-                        binding.textviewSecondExplain.text = "오늘의 챌린지 성공!\n" + "내일 새로운 챌린지로 다시 만나요!"
-                        binding.textviewThirdExplain.text = "오늘의 챌린지 성공!\n" + "내일 새로운 챌린지로 다시 만나요!"
+                        binding.textviewMohaengTalk.text = journeyEndMsg
+//                        binding.textviewFirstExplain.text = "오늘의 챌린지 성공!\n" + "내일 새로운 챌린지로 다시 만나요!"
+//                        binding.textviewSecondExplain.text = "오늘의 챌린지 성공!\n" + "내일 새로운 챌린지로 다시 만나요!"
+//                        binding.textviewThirdExplain.text = "오늘의 챌린지 성공!\n" + "내일 새로운 챌린지로 다시 만나요!"
                         when(stampNumber){
                             1 -> binding.imageviewBackFirst.visibility = View.VISIBLE
                             2 -> binding.imageviewBackSecond.visibility = View.VISIBLE
@@ -256,9 +257,9 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
                         }
                     }
                     else{
-                        binding.textviewFirstExplain.text = "아이콘을 터치해 인증을 완료할 수 있어요\n" + "자정 전까지 오늘의 챌린지를 성공해보세요!"
-                        binding.textviewSecondExplain.text = "아이콘을 터치해 인증을 완료할 수 있어요\n" + "자정 전까지 오늘의 챌린지를 성공해보세요!"
-                        binding.textviewThirdExplain.text = "아이콘을 터치해 인증을 완료할 수 있어요\n" + "자정 전까지 오늘의 챌린지를 성공해보세요!"
+//                        binding.textviewFirstExplain.text = "아이콘을 터치해 인증을 완료할 수 있어요\n" + "자정 전까지 오늘의 챌린지를 성공해보세요!"
+//                        binding.textviewSecondExplain.text = "아이콘을 터치해 인증을 완료할 수 있어요\n" + "자정 전까지 오늘의 챌린지를 성공해보세요!"
+//                        binding.textviewThirdExplain.text = "아이콘을 터치해 인증을 완료할 수 있어요\n" + "자정 전까지 오늘의 챌린지를 성공해보세요!"
                     }
                 }
                 btnStamp.isEnabled = false
@@ -425,9 +426,6 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
                     }
                 }
             }
-            binding.imageviewChallengeJourney.layoutParams.height = height
-            binding.imageviewChallengeJourney.layoutParams.width = width
-            binding.imageviewChallengeJourney.requestLayout()
         }
         else{
             binding.constraintlayoutChallengeGone.visibility = View.VISIBLE
@@ -445,6 +443,7 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
         // 챌린지 진행 중 현재 진행중인 코스로 이동하는 버튼
         binding.imagebuttonChallengeCourse.setOnClickListener {
             findNavController().navigate(R.id.action_frameFragment_to_courseFragment)
+            Log.d("course", "courseeeee")
         }
 
         // 챌린지 진행 중 코스 라이브러리로 이동하는 버튼
@@ -492,7 +491,7 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
                                 courseDays = response.body()!!.data!!.course!!.challenges[i].id
                                 userCourseId = response.body()!!.data!!.course!!.id
                                 userChallengeId = response.body()!!.data!!.course!!.challenges[i].id
-                                journeyMsg =
+                                mohaengMsg =
                                     response.body()!!.data!!.course!!.challenges[i].description
                                 journeyEndMsg =
                                     response.body()!!.data!!.course!!.challenges[i].successDescription
@@ -504,9 +503,9 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
                                 binding.textviewSecondTitle.text = response.body()!!.data!!.course!!.challenges[i].title
                                 binding.textviewThirdTitle.text = response.body()!!.data!!.course!!.challenges[i].title
 
-                                binding.textviewFirstContent.text = response.body()!!.data!!.course!!.title
-                                binding.textviewSecondContent.text = response.body()!!.data!!.course!!.title
-                                binding.textviewThirdContent.text = response.body()!!.data!!.course!!.title
+//                                binding.textviewFirstContent.text = response.body()!!.data!!.course!!.title
+//                                binding.textviewSecondContent.text = response.body()!!.data!!.course!!.title
+//                                binding.textviewThirdContent.text = response.body()!!.data!!.course!!.title
                                 break
                             }
                         }
