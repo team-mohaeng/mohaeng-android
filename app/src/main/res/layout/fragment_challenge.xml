@@ -109,7 +109,7 @@
 
 
             <TextView
-                android:id="@+id/textview_mohang_talk"
+                android:id="@+id/textview_mohaeng_talk"
                 android:layout_width="match_parent"
                 android:layout_height="88dp"
                 android:layout_marginTop="20dp"
@@ -118,7 +118,7 @@
                 android:gravity="center"
                 android:lineSpacingExtra="10dp"
                 android:paddingLeft="64dp"
-                android:text="@string/challenge_message_mohang"
+                android:text="@string/challenge_message_mohaeng"
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -132,7 +132,7 @@
                 android:layout_marginTop="12dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textview_mohang_talk">
+                app:layout_constraintTop_toBottomOf="@+id/textview_mohaeng_talk">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/constraintlayout_sub_first"

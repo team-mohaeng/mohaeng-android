@@ -18,7 +18,7 @@
     <string name="private_empty_contents">아직 당신의 소확행을 담아두지 않았군\n챌린지를 성공하고 소확행을 작성해보겠어?</string>
     <string name="diary_hashtag_count">태그는 최대 5개까지\n입력할 수 있어요!</string>
 
-    <string name="challenge_message_mohang">어제 외운 단어 기억 나지?\n어제 외운 단어로 문장을 만들어봐~ </string>
+    <string name="challenge_message_mohaeng">어제 외운 단어 기억 나지?\n어제 외운 단어로 문장을 만들어봐~ </string>
     <string name="reward_challenge_percent">총 증가시킨\n쟈니와의 애정도</string>
     <string name="reward_challenge_date">챌린지 연속 성공\n최장 일수</string>
     <string name="challenge_explain">오늘의 챌린지를 성공하면 <b>해피지수가 </b></string>
