@@ -50,7 +50,7 @@ class JourneyMessagingService : FirebaseMessagingService() {
 
         val notificationBuilder =
             NotificationCompat.Builder(this, channelId)
-                .setSmallIcon(R.drawable.ic_launcher_background)
+                .setSmallIcon(R.drawable.mohaeng_char)
                 .setContentTitle(remoteMessage.notification?.title.toString())
                 .setContentText(remoteMessage.notification?.body.toString())
                 .setAutoCancel(true)

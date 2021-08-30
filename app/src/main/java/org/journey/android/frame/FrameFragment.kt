@@ -47,7 +47,6 @@ class FrameFragment : BaseFragment<FragmentFrameBinding>() {
     }
 
     private fun selectBottomNavigation(pageIndex: Int) {
-
         binding.bottomNavigation.selectedItemId = when (pageIndex) {
             0 -> R.id.mainFragment
             1 -> R.id.challengeFragment

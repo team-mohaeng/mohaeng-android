@@ -5,7 +5,7 @@
     <string name="msg_token_fmt" translatable="false">토큰: %s</string>
     <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
 
-    <string name="main_greeting">안녕,쟈기?\n오늘도 당신의 일상에 지독하게 엮어 보려 해</string>
+    <string name="main_greeting">아라아라! 벌써 밤이야!\n인증하고 일찍 자자</string>
 
     <string name="happiness_explanation">오늘의 챌린지를 성공하고\n나의 소확행도 공유해보자</string>
     <string name="library_content_dummy">나 쟈니가 인간세계에 처음 도착했을 때 사람들이\n청결에 대해 은근히 무심한 것이 신기했쟈니. 내\n가 사는 별에서는 상상도 할 수 없쟈니.</string>
@@ -39,4 +39,7 @@
     <string name="diary_compelete_comment">당신의 행복이 하나 더 늘었군.\n다른 쟈기들과 함께하면 기쁨이 배가 될거야.\n함께 행복을 공유해보겠어?</string>
     <string name="splash_ment">어느날\n내 일상을 긴장시키는\n누군가가 나타났다</string>
     <string name="find_pw_input_email">이런, 길 잃은 나의 아기고양이\n당신의 이메일을 입력해주겠어?</string>
+
+    <string name="dialog_happy_index_explanation">하루 챌린지를 달성할 때,코스를 완료할 때,안부를\n작성했을 때 제공되는 지수입니다.</string>
+    <string name="dialog_level_index_explanation">해피 지수 게이지가 다 차면 레벨이 넘어가게 됩니다.\n레벨이 한 번 오를 때마다 한 가지 캐릭터 스타일을 \n얻을 수 있어요.</string>
 </resources>
