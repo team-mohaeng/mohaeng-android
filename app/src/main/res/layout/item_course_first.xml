@@ -9,20 +9,18 @@
         android:id="@+id/imageview_process_first"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="27dp"
+        android:layout_marginStart="18dp"
         android:src="@drawable/ic_course_first"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <ImageView
         android:id="@+id/imageview_process_circle"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginTop="33dp"
-        android:layout_marginEnd="3dp"
         android:src="@drawable/ic_dummyimg"
-        app:layout_constraintEnd_toEndOf="@+id/imageview_process_first"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageview_process_first" />
 
     <TextView
@@ -61,6 +59,7 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/textview_process_day"
         app:layout_constraintTop_toBottomOf="@+id/textview_process_complete" />
+
 <!--
     <View
         android:layout_width="20dp"
