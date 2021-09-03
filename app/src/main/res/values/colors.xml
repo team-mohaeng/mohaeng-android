@@ -66,6 +66,7 @@
     <color name="mohaeng_yellow4">#FFC453</color>
     <color name="mohaeng_yellow5">#FFE7A9</color>
     <color name="moheang_yellow6">#FFC75A</color>
+    <color name="moheang_yellow7">#FFF2D0</color>
     <color name="mohaeng_black">#202020</color>
     <color name="mohaeng_black2">#4B4B4B</color>
     <color name="mohaeng_gray">#7B7B7B</color>
@@ -75,6 +76,7 @@
     <color name="mohaeng_gray5">#CCCCCC</color>
     <color name="mohaeng_gray6">#797979</color>
     <color name="mohaeng_gray7">#CECECE</color>
+    <color name="mohaeng_gray8">#7C7C7C</color>
     <color name="mohaeng_brown">#554239</color>
     <color name="mohaeng_brown2">#C3B6A4</color>
     <color name="mohaeng_green">#1BC193</color>

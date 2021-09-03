@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
 class FindPassWordViewPagerAdater(
-    val items: ArrayList<Fragment>, activity: Fragment):FragmentStateAdapter(activity) {
+    private val items: ArrayList<Fragment>, activity: Fragment):FragmentStateAdapter(activity) {
     override fun getItemCount(): Int {
         return items.size
     }

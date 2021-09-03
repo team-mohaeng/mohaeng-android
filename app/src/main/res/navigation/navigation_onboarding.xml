@@ -29,4 +29,9 @@
         android:name="org.journey.android.splash.ui.EmailLoginFragment"
         android:label="EmailLoginFragment"
         tools:layout="@layout/fragment_email_login"/>
+    <fragment
+        android:id="@+id/findPassWordOneFragment2"
+        android:name="org.journey.android.findpw.view.FindPassWordOneFragment"
+        android:label="FindPassWordOneFragment"
+        tools:layout="@layout/fragment_find_password_one"/>
 </navigation>
