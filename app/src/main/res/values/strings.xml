@@ -43,4 +43,5 @@
     <string name="dialog_level_index_explanation">해피 지수 게이지가 다 차면 레벨이 넘어가게 됩니다.\n레벨이 한 번 오를 때마다 한 가지 캐릭터 스타일을 \n얻을 수 있어요.</string>
 
     <string name="login_email_account"><u>이메일로 로그인</u></string>
+    <string name="forgotten_password"><u>비밀번호를 잊으셨나요?</u></string>
 </resources>
