@@ -41,4 +41,6 @@
 
     <string name="dialog_happy_index_explanation">하루 챌린지를 달성할 때,코스를 완료할 때,안부를\n작성했을 때 제공되는 지수입니다.</string>
     <string name="dialog_level_index_explanation">해피 지수 게이지가 다 차면 레벨이 넘어가게 됩니다.\n레벨이 한 번 오를 때마다 한 가지 캐릭터 스타일을 \n얻을 수 있어요.</string>
+
+    <string name="login_email_account"><u>이메일로 로그인</u></string>
 </resources>

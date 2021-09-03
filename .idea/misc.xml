@@ -11,11 +11,13 @@
         <entry key="app/src/main/res/layout/dialog_index_explanation.xml" value="0.34479166666666666" />
         <entry key="app/src/main/res/layout/diary_compelete_dialog.xml" value="0.18854166666666666" />
         <entry key="app/src/main/res/layout/diary_hashtag_count_dialog.xml" value="0.18854166666666666" />
-        <entry key="app/src/main/res/layout/fragment_character.xml" value="0.34479166666666666" />
+        <entry key="app/src/main/res/layout/fragment_character.xml" value="0.4106926442845206" />
         <entry key="app/src/main/res/layout/fragment_chat.xml" value="0.40498238886996857" />
         <entry key="app/src/main/res/layout/fragment_community.xml" value="0.24444444444444444" />
         <entry key="app/src/main/res/layout/fragment_frame.xml" value="0.2265625" />
+        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.34479166666666666" />
         <entry key="app/src/main/res/layout/fragment_main.xml" value="0.17407407407407408" />
+        <entry key="app/src/main/res/layout/fragment_onboarding_first.xml" value="0.2265625" />
       </map>
     </option>
   </component>
