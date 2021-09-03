@@ -36,11 +36,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = '1.8'
-    }
-    lintOptions {
-        checkReleaseBuilds false
-        abortOnError false
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 
 }

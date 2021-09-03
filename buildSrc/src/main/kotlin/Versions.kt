@@ -9,8 +9,9 @@ object Versions {
     const val activity_ktx_version = "1.2.3"
     const val lifecycle_version = "2.3.1"
 
-    const val dagger_version = "2.35.1"
+    const val dagger_version = "2.37"
 
     const val retrofit_version = "2.9.0"
     const val okhttp_version = "4.9.0"
+
 }
