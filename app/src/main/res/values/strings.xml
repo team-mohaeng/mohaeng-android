@@ -45,4 +45,5 @@
 
     <string name="login_email_account"><u>이메일로 로그인</u></string>
     <string name="forgotten_password"><u>비밀번호를 잊으셨나요?</u></string>
+    <string name="login_google">Google로 시작하기</string>
 </resources>

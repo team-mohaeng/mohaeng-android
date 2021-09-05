@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_onboarding"
-    app:startDestination="@id/emailLoginFragment">
+    app:startDestination="@id/onboardingFirstFragment">
 
     <activity
         android:id="@+id/onboardingActivity"
@@ -18,6 +18,9 @@
         <action
             android:id="@+id/action_onboardingFirstFragment_to_emailLoginFragment"
             app:destination="@id/emailLoginFragment" />
+        <action
+            android:id="@+id/action_onboardingFirstFragment_to_findPassWordOneFragment2"
+            app:destination="@id/findPassWordOneFragment" />
     </fragment>
     <fragment
         android:id="@+id/mainFragment"
@@ -30,7 +33,7 @@
         android:label="EmailLoginFragment"
         tools:layout="@layout/fragment_email_login"/>
     <fragment
-        android:id="@+id/findPassWordOneFragment2"
+        android:id="@+id/findPassWordOneFragment"
         android:name="org.journey.android.findpw.view.FindPassWordOneFragment"
         android:label="FindPassWordOneFragment"
         tools:layout="@layout/fragment_find_password_one"/>

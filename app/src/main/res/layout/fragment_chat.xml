@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewModel"
+            type="org.journey.android.chat.ChatViewModel" />
+    </data>
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -34,6 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="앗,알림이 없어요!"
+        android:visibility="invisible"
         android:textColor="@color/mohaeng_gray"
         android:fontFamily="@font/gmarketsansttflight"
         android:textSize="16sp"
@@ -42,6 +48,74 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_chat_new_content"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="100dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="44dp"
+        android:text="새로운 알림이 있습니다"
+        android:visibility="visible"
+        android:fontFamily="@font/spoqahansansneoregular"
+        android:textColor="@color/white"
+        android:background="@drawable/button_chat_new_alarm"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textview_chat_title" />
 
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageview_chat_character"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="18dp"
+        android:background="@drawable/ic_mohaeng_rabbit"
+        app:layout_constraintTop_toBottomOf="@id/button_chat_new_content"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textview_name_mohaeng"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="모행"
+        android:textSize="12sp"
+        android:textColor="@color/journey_black2"
+        android:layout_marginLeft="8dp"
+        android:fontFamily="@font/gmarketsansttfmedium"
+        app:layout_constraintStart_toEndOf="@id/imageview_chat_character"
+        app:layout_constraintTop_toTopOf="@id/imageview_chat_character"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageview_text_balloon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:background="@drawable/ic_union"
+        app:layout_constraintStart_toStartOf="@id/textview_name_mohaeng"
+        app:layout_constraintTop_toBottomOf="@id/textview_name_mohaeng"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textview_balloon_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="너의 안부에 스티커가 붙여졌어!"
+        android:textColor="@color/black"
+        android:fontFamily="@font/spoqahansansneoregular"
+        app:layout_constraintBottom_toBottomOf="@+id/imageview_text_balloon"
+        app:layout_constraintEnd_toEndOf="@id/imageview_text_balloon"
+        app:layout_constraintStart_toStartOf="@id/imageview_text_balloon"
+        app:layout_constraintTop_toTopOf="@id/imageview_text_balloon" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textview_arrival_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1시간 전"
+        android:textSize="10sp"
+        android:textColor="@color/mohaeng_gray"
+        android:layout_marginLeft="9dp"
+        android:fontFamily="@font/spoqahansansneoregular"
+        app:layout_constraintStart_toEndOf="@id/imageview_text_balloon"
+        app:layout_constraintBottom_toBottomOf="@id/imageview_text_balloon"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
