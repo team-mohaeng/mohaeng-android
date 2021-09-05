@@ -251,7 +251,7 @@
         tools:layout="@layout/fragment_chat"/>
     <fragment
         android:id="@+id/characterFragment"
-        android:name="org.journey.android.character.CharacterFragment"
+        android:name="org.journey.android.character.ui.CharacterFragment"
         android:label="CharacterFragment"
         tools:layout="@layout/fragment_character"/>
 </navigation>
