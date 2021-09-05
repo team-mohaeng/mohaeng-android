@@ -12,6 +12,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.messaging.FirebaseMessaging
+import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.HiltAndroidApp
 import org.journey.android.R
 import org.journey.android.databinding.ActivityMainBinding
@@ -21,6 +22,8 @@ import javax.inject.Inject
 
 
 var userToken = ""
+
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     lateinit var pref: SharedPreferencesManager
     private lateinit var binding: ActivityMainBinding

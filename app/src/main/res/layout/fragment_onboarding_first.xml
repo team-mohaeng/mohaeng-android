@@ -7,7 +7,6 @@
             name="viewModel"
             type="org.journey.android.splash.OnboardingViewModel" />
     </data>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -34,10 +33,13 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30dp"
             android:layout_marginTop="430dp"
+            android:drawableLeft="@drawable/ic_kakao_logo"
+            android:paddingLeft="80dp"
             android:background="@drawable/ic_kakao_button"
             android:fontFamily="@font/spoqahansansneoregular"
             android:text="카카오로 시작하기"
             android:textSize="14sp"
+            android:paddingRight="80dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -49,10 +51,24 @@
             android:layout_marginHorizontal="30dp"
             android:layout_marginTop="12dp"
             android:background="@drawable/ic_google_btn"
-            android:text="Google로 시작하기"
+            android:text="@string/login_google"
+            android:fontFamily="@font/robotomedium"
+            android:textSize="14sp"
+            android:textAllCaps="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/button_login_kakao" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageview_seperate_line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/mohaeng_gray5"
+            android:layout_marginHorizontal="30dp"
+            app:layout_constraintTop_toBottomOf="@id/button_login_google"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_login_email"
@@ -60,8 +76,11 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30dp"
             android:layout_marginTop="24dp"
+            android:drawableLeft="@drawable/ic_email"
             android:background="@drawable/ic_google_btn"
+            android:paddingLeft="80dp"
             android:text="이메일로 시작하기"
+            android:paddingRight="80dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/button_login_google" />
@@ -93,7 +112,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textview_ask_account"
             app:layout_constraintTop_toTopOf="@id/textview_ask_account" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
