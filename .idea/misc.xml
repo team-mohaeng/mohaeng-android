@@ -28,6 +28,8 @@
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.34479166666666666" />
         <entry key="app/src/main/res/layout/fragment_main.xml" value="0.17407407407407408" />
         <entry key="app/src/main/res/layout/fragment_onboarding_first.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/item_select_character.xml" value="0.353125" />
+        <entry key="app/src/main/res/layout/item_select_option.xml" value="0.353125" />
         <entry key="app/src/main/res/menu/bottom_navigation.xml" value="0.34479166666666666" />
       </map>
     </option>
