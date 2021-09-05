@@ -26,7 +26,7 @@ class OnboardingFirstFragment : BaseFragment<FragmentOnboardingFirstBinding>() {
 
     private fun setClickListener(){
         with(binding){
-            buttonLoginEmail.setOnClickListener { Navigation.findNavController(binding.root).navigate(R.id.action_onboardingFirstFragment_to_emailLoginFragment) }
+            textviewEmailAccount.setOnClickListener { Navigation.findNavController(binding.root).navigate(R.id.action_onboardingFirstFragment_to_emailLoginFragment) }
         }
     }
 }
