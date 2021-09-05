@@ -21,12 +21,11 @@
         <action
             android:id="@+id/action_onboardingFirstFragment_to_findPassWordOneFragment2"
             app:destination="@id/findPassWordOneFragment" />
+        <action
+            android:id="@+id/action_onboardingFirstFragment_to_emailSignupFragment"
+            app:destination="@id/emailSignupFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/mainFragment"
-        android:name="org.journey.android.main.view.MainFragment"
-        android:label="MainFragment"
-        tools:layout="@layout/fragment_main"/>
+
     <fragment
         android:id="@+id/emailLoginFragment"
         android:name="org.journey.android.splash.ui.EmailLoginFragment"
@@ -37,4 +36,9 @@
         android:name="org.journey.android.findpw.view.FindPassWordOneFragment"
         android:label="FindPassWordOneFragment"
         tools:layout="@layout/fragment_find_password_one"/>
+    <fragment
+        android:id="@+id/emailSignupFragment"
+        android:name="org.journey.android.splash.ui.EmailSignupFragment"
+        android:label="EmailSignupFragment"
+        tools:layout="@layout/fragment_email_signup"/>
 </navigation>
