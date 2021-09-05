@@ -96,6 +96,7 @@
         android:text="로그인하기"
         android:textSize="16sp"
         android:stateListAnimator="@null"
+        android:enabled="false"
         android:fontFamily="@font/spoqahansansneobold"
         android:textColor="@color/white"
         android:layout_marginTop="48dp"
