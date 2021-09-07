@@ -15,9 +15,10 @@
 
         <ImageView
             android:id="@+id/imageview_second_road"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="18dp"
+            android:layout_marginStart="18dp"
             android:adjustViewBounds="true"
             android:src="@drawable/ic_course_right"
             app:layout_constraintBottom_toBottomOf="parent"

@@ -149,9 +149,9 @@ class CourseListAdapter :RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 binding.textviewRightComplete.visibility = View.INVISIBLE
 
             if(CourseListInfo.courseCurrent)
-                binding.imageviewRightRoad.setImageResource(R.drawable.ic_course_pink_right_v2)
+                binding.imageviewRightRoad.setImageResource(R.drawable.ic_course_right)
             else
-                binding.imageviewRightRoad.setImageResource(R.drawable.ic_course_gray_right)
+                binding.imageviewRightRoad.setImageResource(R.drawable.ic_course_left_f)
         }
     }
 
@@ -189,9 +189,9 @@ class CourseListAdapter :RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
 
             if(CourseListInfo.courseCurrent)
-                binding.imageviewLeftRoad.setImageResource(R.drawable.ic_course_pink_left)
+                binding.imageviewLeftRoad.setImageResource(R.drawable.ic_course_left)
             else
-                binding.imageviewLeftRoad.setImageResource(R.drawable.ic_course_gray_left)
+                binding.imageviewLeftRoad.setImageResource(R.drawable.ic_course_right_f)
         }
     }
 
@@ -227,9 +227,9 @@ class CourseListAdapter :RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 binding.textviewSecondComplete.visibility = View.INVISIBLE
 
             if(CourseListInfo.courseCurrent)
-                binding.imageviewSecondRoad.setImageResource(R.drawable.ic_course_pink_right)
+                binding.imageviewSecondRoad.setImageResource(R.drawable.ic_course_left)
             else
-                binding.imageviewSecondRoad.setImageResource(R.drawable.ic_course_second_gray)
+                binding.imageviewSecondRoad.setImageResource(R.drawable.ic_course_second_f)
         }
     }
 }
