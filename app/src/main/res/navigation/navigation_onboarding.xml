@@ -30,7 +30,11 @@
         android:id="@+id/emailLoginFragment"
         android:name="org.journey.android.splash.ui.EmailLoginFragment"
         android:label="EmailLoginFragment"
-        tools:layout="@layout/fragment_email_login"/>
+        tools:layout="@layout/fragment_email_login">
+        <action
+            android:id="@+id/action_emailLoginFragment_to_findPassWordOneFragment"
+            app:destination="@id/findPassWordOneFragment" />
+    </fragment>
     <fragment
         android:id="@+id/findPassWordOneFragment"
         android:name="org.journey.android.findpw.view.FindPassWordOneFragment"
