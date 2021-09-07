@@ -108,4 +108,7 @@ dependencies {
     implementation 'jp.wasabeef:glide-transformations:4.3.0'
     implementation 'jp.co.cyberagent.android:gpuimage:2.1.0'
 
+    //Keyboard Observer
+    implementation 'io.github.ParkSangGwon:tedkeyboardobserver:1.0.1'
+
 }

@@ -33,6 +33,9 @@ class EmailLoginFragment : Fragment() {
     private fun setClickListener(){
         with(binding){
             buttonReturn.setOnClickListener { findNavController().popBackStack() }
+            textviewForgotPassword.setOnClickListener { Navigation.findNavController(binding.root).navigate(
+                R.id.action_emailLoginFragment_to_findPassWordOneFragment
+            ) }
         }
     }
     private fun setTextWatcher(){
@@ -49,5 +52,6 @@ class EmailLoginFragment : Fragment() {
             })
         }
     }
+
 
 }

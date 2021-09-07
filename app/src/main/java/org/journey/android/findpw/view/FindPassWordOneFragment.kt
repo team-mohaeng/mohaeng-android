@@ -38,18 +38,28 @@ class FindPassWordOneFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setTextWatcher()
+        setClickListener()
 //        clickEvent()
-//        binding.edittextInputEmail.addTextChangedListener(object : TextWatcher {
-//
-//            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-//            }
-//            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-//                binding.buttonFindPasswordOneNext.isSelected =
-//                    binding.edittextInputEmail.text.toString().isNotEmpty()
-//            }
-//            override fun afterTextChanged(s: Editable?) {
-//            }
-//        })
+    }
+    private fun setTextWatcher(){
+        with(binding){
+            edittextInputEmail.addTextChangedListener(object :  TextWatcher {
+                override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                }
+                override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                    buttonSendVerification.isSelected =edittextInputEmail.text.toString().isNotEmpty()
+                }
+                override fun afterTextChanged(p0: Editable?) {
+                }
+
+            })
+        }
+    }
+    private fun setClickListener(){
+        with(binding){
+            buttonReturnBack.setOnClickListener { findNavController().popBackStack() }
+        }
     }
 
 //    private fun clickEvent() {
