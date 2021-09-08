@@ -17,9 +17,11 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.fragment.app.FragmentActivity
 import androidx.navigation.fragment.findNavController
 import org.journey.android.R
 import org.journey.android.base.BaseFragment
+import org.journey.android.course.view.CourseFragment
 import org.journey.android.data.ResponseChallengeData
 import org.journey.android.data.ResponseStampData
 import org.journey.android.databinding.FragmentChallengeBinding
@@ -79,6 +81,10 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val fragmentManager = (activity as FragmentActivity).supportFragmentManager
+        fragmentManager.beginTransaction()
+            .replace(R.id.framelayout_course, CourseFragment())
+            .commit()
 
 /*
         if(check == 0){
@@ -89,7 +95,9 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
         else{
             setRetrofitMain()
         }*/
-        setRetrofitMain()
+        
+        // 서버 연결시 주석 해제
+         setRetrofitMain()
 
         initChallengeType(binding.imagebuttonFirstFirst)
         initChallengeType(binding.imagebuttonSecondFirst)
@@ -195,6 +203,7 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
                 alertDialog.show()
 
                 okButton.setOnClickListener {
+                    // 서버 통신시 주석 제거
                     setStampRetrofit(userCourseId, userChallengeId)
                     alertDialog.dismiss()
 
@@ -440,11 +449,11 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
             findNavController().navigate(R.id.action_frameFragment_to_libraryFragment)
         }
 
-        // 챌린지 진행 중 현재 진행중인 코스로 이동하는 버튼
-        binding.imagebuttonChallengeCourse.setOnClickListener {
-            findNavController().navigate(R.id.action_frameFragment_to_courseFragment)
-            Log.d("course", "courseeeee")
-        }
+//        // 챌린지 진행 중 현재 진행중인 코스로 이동하는 버튼
+//        binding.imagebuttonChallengeCourse.setOnClickListener {
+//            findNavController().navigate(R.id.action_frameFragment_to_courseFragment)
+//            Log.d("course", "courseeeee")
+//        }
 
         // 챌린지 진행 중 코스 라이브러리로 이동하는 버튼
         binding.imagebuttonChallengeBrowse.setOnClickListener {
@@ -545,7 +554,8 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
                             "서버", response.body()!!.data.toString()
                         )
                         if(response.body()!!.data!!.course!= null){
-                            setRetrofit(response.body()!!.data!!.course!!.id)
+                            // 서버 연결시 주석 해제 
+                             setRetrofit(response.body()!!.data!!.course!!.id)
                             userCourseId = response.body()!!.data!!.course!!.id
                             hasCourse = response.body()!!.data!!.course!!.situation
                         }
