@@ -46,4 +46,8 @@
     <string name="login_email_account"><u>이메일로 로그인</u></string>
     <string name="forgotten_password"><u>비밀번호를 잊으셨나요?</u></string>
     <string name="login_google">Google로 시작하기</string>
+
+    <string name="service_agreement"><u>서비스 이용약관(필수)</u></string>
+    <string name="service_privacy_agreement"><u>개인정보 수집 및 이용 동의(필수)</u></string>
+
 </resources>
