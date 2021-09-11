@@ -111,4 +111,7 @@ dependencies {
     //Keyboard Observer
     implementation 'io.github.ParkSangGwon:tedkeyboardobserver:1.0.1'
 
+    //Coil
+    implementation 'io.coil-kt:coil:1.1.1'
+
 }
