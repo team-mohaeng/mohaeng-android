@@ -29,6 +29,7 @@ class CharacterFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setClickListener()
         selectCharacter()
+        selectCharacterOption()
     }
 
     private fun setClickListener() {
@@ -44,6 +45,14 @@ class CharacterFragment : Fragment() {
             this.adapter = CharacterSelectAdapter()
             viewModel.characterList.observe(viewLifecycleOwner) {
                 (adapter as CharacterSelectAdapter).characterList = it.toMutableList()
+            }
+        }
+    }
+    private fun selectCharacterOption(){
+        binding.recyclerviewSelectStyle.apply {
+            this.adapter = CharacterOptionAdapter()
+            viewModel.optionList.observe(viewLifecycleOwner){
+                (adapter as CharacterOptionAdapter).optionList = it.toMutableList()
             }
         }
     }

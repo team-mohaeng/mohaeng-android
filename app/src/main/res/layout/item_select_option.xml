@@ -14,6 +14,7 @@
         android:id="@+id/imagebutton_option_character"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        loadDrawable="@{data.imageOption}"
         android:background="@drawable/ic_option1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
