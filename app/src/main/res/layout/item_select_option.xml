@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="data"
+            type="org.journey.android.character.MohaengCharacterOptionEntity" />
+    </data>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -8,6 +14,7 @@
         android:id="@+id/imagebutton_option_character"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        loadDrawable="@{data.imageOption}"
         android:background="@drawable/ic_option1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -15,3 +22,4 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

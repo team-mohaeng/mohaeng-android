@@ -5,6 +5,7 @@
       <map>
         <entry key="app/src/main/res/drawable/bottom_sheet_radius.xml" value="0.3609375" />
         <entry key="app/src/main/res/drawable/button_chat_new_alarm.xml" value="0.2046875" />
+        <entry key="app/src/main/res/drawable/challenge_layout_radius.xml" value="0.24479166666666666" />
         <entry key="app/src/main/res/drawable/dialog_button_change.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/drawable/diary_button_selector.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/drawable/diary_edittext_selector.xml" value="0.2833333333333333" />
@@ -21,7 +22,8 @@
         <entry key="app/src/main/res/layout/dialog_index_explanation.xml" value="0.34479166666666666" />
         <entry key="app/src/main/res/layout/diary_compelete_dialog.xml" value="0.18854166666666666" />
         <entry key="app/src/main/res/layout/diary_hashtag_count_dialog.xml" value="0.18854166666666666" />
-        <entry key="app/src/main/res/layout/fragment_character.xml" value="0.4106926442845206" />
+        <entry key="app/src/main/res/layout/fragment_challenge.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_character.xml" value="0.10617283950617284" />
         <entry key="app/src/main/res/layout/fragment_chat.xml" value="0.40498238886996857" />
         <entry key="app/src/main/res/layout/fragment_community.xml" value="0.24444444444444444" />
         <entry key="app/src/main/res/layout/fragment_edit_nick_name.xml" value="0.2609375" />
@@ -36,8 +38,10 @@
         <entry key="app/src/main/res/layout/fragment_service_agree.xml" value="0.3302083333333333" />
         <entry key="app/src/main/res/layout/fragment_set_nick_name.xml" value="0.2609375" />
         <entry key="app/src/main/res/layout/fragment_signup_first.xml" value="0.3515625" />
-        <entry key="app/src/main/res/layout/item_select_character.xml" value="0.353125" />
-        <entry key="app/src/main/res/layout/item_select_option.xml" value="0.353125" />
+        <entry key="app/src/main/res/layout/item_reward_course.xml" value="0.22864583333333333" />
+        <entry key="app/src/main/res/layout/item_select_character.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/item_select_option.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/private_date_picker.xml" value="0.22864583333333333" />
         <entry key="app/src/main/res/menu/bottom_navigation.xml" value="0.34479166666666666" />
       </map>
     </option>

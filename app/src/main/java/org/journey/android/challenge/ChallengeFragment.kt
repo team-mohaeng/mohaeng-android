@@ -17,10 +17,11 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.navigation.fragment.findNavController
+import dagger.hilt.android.AndroidEntryPoint
 import org.journey.android.R
-import org.journey.android.base.BaseFragment
 import org.journey.android.course.view.CourseFragment
 import org.journey.android.data.ResponseChallengeData
 import org.journey.android.data.ResponseStampData
@@ -29,6 +30,7 @@ import org.journey.android.login.view.userJwt
 import org.journey.android.main.RetrofitService
 import org.journey.android.main.dto.ResponseMainModelItem
 import org.journey.android.main.view.userCourseStatus
+import org.journey.android.util.AutoClearedValue
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -40,13 +42,9 @@ var hasCourse = userCourseStatus
 var challengeStatus = 0
 //var check = 0
 
-class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
-    
-    //private var _binding: FragmentChallengeBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    //private val binding get() = _binding!!
+@AndroidEntryPoint
+class ChallengeFragment : Fragment() {
+    private var binding by AutoClearedValue<FragmentChallengeBinding>()
 
     // 인증 개수 저장하는 변수
     private var stampNumber = 3
@@ -77,6 +75,15 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
 
     // popup msg array
     private lateinit var userMents : List<String>
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentChallengeBinding.inflate(inflater,container,false)
+        return binding.root
+    }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -459,13 +466,6 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
         binding.imagebuttonChallengeBrowse.setOnClickListener {
             findNavController().navigate(R.id.action_frameFragment_to_libraryFragment)
         }
-    }
-
-    override fun getFragmentBinding(
-        inflater: LayoutInflater,
-        container: ViewGroup?
-    ): FragmentChallengeBinding {
-        return FragmentChallengeBinding.inflate(inflater, container, false)
     }
 
     fun setRetrofit(courseId: Int) {

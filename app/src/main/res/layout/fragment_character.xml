@@ -90,6 +90,13 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintTop_toTopOf="@+id/view_select_character" />
 
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/recyclerview_select_style"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/recyclerview_select_style"
+        app:layout_constraintTop_toTopOf="@id/recyclerview_select_style" />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_select_style"
         android:layout_width="match_parent"
