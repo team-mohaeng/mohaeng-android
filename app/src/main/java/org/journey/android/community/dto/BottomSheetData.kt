@@ -1,7 +1,7 @@
 package org.journey.android.community.dto
 
 data class BottomSheetData(
-    val tags :String,
+    val title :String,
     val second_tags : String,
     val diary : String,
     val user_id : String,

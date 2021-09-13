@@ -16,16 +16,28 @@
 
         <TextView
             android:id="@+id/textview_diary"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
+            android:layout_width="70dp"
+            android:layout_height="44dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="8dp"
             android:fontFamily="@font/spoqahansansneoregular"
-            android:gravity="right"
+            android:gravity="center"
             android:text="내 서랍장"
             android:textColor="@color/journey_black"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toStartOf="@+id/button_happiness_write"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_happiness_write"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="18dp"
+            android:background="@drawable/ic_community_write"
+            android:fontFamily="@font/spoqahansansneobold"
+            android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.898"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -33,110 +45,56 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="18dp"
-            android:layout_marginTop="56dp"
-            android:fontFamily="@font/spoqahansansneobold"
-            android:text="소확행 구경하기"
+            android:layout_marginTop="106dp"
+            android:fontFamily="@font/gmarketsansttfmedium"
+            android:text="오늘은 64개의\n안부가 남겨졌어요"
+            android:lineSpacingExtra="8dp"
             android:textColor="@color/journey_black"
-            android:textSize="24sp"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/textview_happiness_explanation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="18dp"
-            android:layout_marginTop="47dp"
-            android:fontFamily="@font/spoqahansansneoregular"
-            android:text="@string/happiness_explanation"
-            android:textColor="@color/journey_black"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textview_happiness_community" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/button_happiness_write"
-            android:layout_width="130dp"
-            android:layout_height="34dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/ic_rectangle280"
-            android:drawableLeft="@drawable/community_lock"
-            android:drawablePadding="2dp"
-            android:fontFamily="@font/spoqahansansneobold"
-            android:gravity="left|center"
-            android:paddingLeft="10dp"
-            android:text="소확행 작성하기"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textview_happiness_explanation" />
 
         <ImageView
             android:id="@+id/imageview_graphic"
-            android:layout_width="168dp"
-            android:layout_height="170dp"
-            android:layout_marginLeft="68dp"
-            android:background="@drawable/graphichappy"
-            app:layout_constraintBottom_toTopOf="@id/view_browse"
-            app:layout_constraintStart_toEndOf="@id/button_happiness_write" />
+            android:layout_width="160dp"
+            android:layout_height="140dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="18dp"
+            android:background="@drawable/ic_graphichappy"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textview_diary" />
 
         <View
             android:id="@+id/view_browse"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/bottom_sheet_radius"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/button_happiness_write">
+            app:layout_constraintTop_toBottomOf="@id/textview_happiness_community">
 
         </View>
 
-        <TextView
-            android:id="@+id/textview_browse_user"
+        <ImageView
+            android:id="@+id/imageview_graphic_hand"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
-            android:layout_marginTop="40dp"
-            android:fontFamily="@font/spoqahansansneobold"
-            android:text="@string/total_user_format"
-            android:textColor="@color/journey_black"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/view_browse" />
-
-        <TextView
-            android:id="@+id/textview_update"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="140dp"
-            android:fontFamily="@font/spoqahansansneoregular"
-            android:text="최신 순"
-            android:textColor="@color/journey_black"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@id/textview_browse_user"
-            app:layout_constraintStart_toEndOf="@id/textview_browse_user" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/checkbox_select_update"
-            android:layout_width="18dp"
-            android:layout_height="18dp"
-            android:background="@drawable/ic_frame107"
-            app:layout_constraintBottom_toBottomOf="@id/textview_update"
-            app:layout_constraintStart_toEndOf="@id/textview_update"
-            app:layout_constraintTop_toTopOf="@id/textview_update" />
+            android:layout_marginTop="106dp"
+            android:layout_marginEnd="23dp"
+            android:background="@drawable/ic_graphichappy_hand"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageview_graphic" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview_community_record"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="18dp"
-            android:paddingVertical="12dp"
+            android:layout_marginTop="34dp"
             android:orientation="vertical"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textview_browse_user"
-            app:spanCount="2"
+            app:layout_constraintTop_toBottomOf="@id/imageview_graphic_hand"
             tools:listitem="@layout/item_community_record" />
 
 

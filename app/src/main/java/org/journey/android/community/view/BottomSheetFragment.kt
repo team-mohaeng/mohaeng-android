@@ -32,6 +32,7 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setAdapter()
+//        dummyData()
     }
 
     private fun setAdapter(){
@@ -58,7 +59,7 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
                             bottomSheetAdapter.bottomList.addAll(
                                 listOf<BottomSheetData>(
                                     BottomSheetData(
-                                        tags = communityData.community[i].hashtags.joinToString(" "),
+                                        title = communityData.community[i].hashtags.joinToString(" "),
                                         second_tags = communityData.community[i].hashtags.joinToString(
                                             ""
                                         ),
@@ -87,6 +88,27 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
 
         }
         )
+        bottomSheetAdapter.notifyDataSetChanged()
+    }
+
+    fun dummyData(){
+        binding.recyclerviewCommunityRecord.adapter = bottomSheetAdapter
+
+        bottomSheetAdapter.bottomList.addAll(
+            listOf<BottomSheetData>(
+                BottomSheetData(
+                    title = "",
+                    second_tags = "",
+                    diary = "맛있는피자에시원한맥주먹고선선한날씨에산책했어요맛있는피자에시원한맥",
+                    user_id = "시원스쿨",
+                    user_prefer = 1,
+                    has_like = true,
+                    main_image = ""
+                )
+            )
+        )
+
+        // Adapter의 모든 데이터가 변했으니 다시 불러와라
         bottomSheetAdapter.notifyDataSetChanged()
     }
 }

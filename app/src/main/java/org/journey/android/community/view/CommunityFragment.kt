@@ -43,10 +43,11 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
         }
         happinessStatus = challengeStatus
         clickEvent()
-        setButtonEvent()
+//        setButtonEvent()
         //setUIListener()
         initRecyclerView()
         setAdapter()
+//        dummyData()
         binding.buttonHappinessWrite.setOnClickListener {
             findNavController().navigate(R.id.action_communityFragment_to_diaryFirstFragment)}
 
@@ -64,7 +65,7 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
                     if (data != null) {
                         happinessStatus = data.hasSmallSatisfaction
                         todayUploader = data.userCount
-                        binding.textviewBrowseUser.text =
+                        binding.textviewHappinessCommunity.text =
                             getString(R.string.total_user_format, todayUploader)
                     }
                 } else {
@@ -99,17 +100,18 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
         }
     }
 
-    fun setButtonEvent() {
-        binding.textviewUpdate.setOnClickListener{
-            if(binding.textviewUpdate.text == "최신 순"){
-                binding.textviewUpdate.text = "좋아요 순"
-                sortContent = "like"
-            } else {
-                binding.textviewUpdate.text = "최신 순"
-                sortContent = "date"
-            }
-            setAdapter()
-        }
+    // 정렬 버튼 이벤트
+//    fun setButtonEvent() {
+//        binding.textviewUpdate.setOnClickListener{
+//            if(binding.textviewUpdate.text == "최신 순"){
+//                binding.textviewUpdate.text = "좋아요 순"
+//                sortContent = "like"
+//            } else {
+//                binding.textviewUpdate.text = "최신 순"
+//                sortContent = "date"
+//            }
+//            setAdapter()
+//        }
 
             /*
             // Dialog만들기
@@ -228,7 +230,7 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
 //            }
 //        }
 
-    }
+//    }
 
     private fun setAdapter(){
         val call: Call<ResponseCommunityData> = RetrofitService.communityService
@@ -252,7 +254,7 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
                             bottomSheetAdapter.bottomList.addAll(
                                 listOf<BottomSheetData>(
                                     BottomSheetData(
-                                        tags=communityData.community[i].hashtags.joinToString(" "),
+                                        title=communityData.community[i].hashtags.joinToString(" "),
                                         second_tags=communityData.community[i].hashtags.joinToString(""),
                                         diary=communityData.community[i].content,
                                         user_id = communityData.community[i].nickname,
@@ -286,6 +288,27 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
         binding.textviewDiary.setOnClickListener {
             findNavController().navigate(R.id.action_frameFragment_to_privateFragment)
         }
+    }
+
+    fun dummyData(){
+        binding.recyclerviewCommunityRecord.adapter = bottomSheetAdapter
+
+        bottomSheetAdapter.bottomList.addAll(
+            listOf<BottomSheetData>(
+                BottomSheetData(
+                    title = "",
+                    second_tags = "",
+                    diary = "맛있는피자에시원한맥주먹고선선한날씨에산책했어요맛있는피자에시원한맥",
+                    user_id = "시원스쿨",
+                    user_prefer = 1,
+                    has_like = true,
+                    main_image = ""
+                )
+            )
+        )
+
+        // Adapter의 모든 데이터가 변했으니 다시 불러와라
+        bottomSheetAdapter.notifyDataSetChanged()
     }
 }
 
