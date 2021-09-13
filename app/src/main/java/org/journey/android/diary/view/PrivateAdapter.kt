@@ -56,28 +56,28 @@ class PrivateAdapter: RecyclerView.Adapter<PrivateAdapter.PrivateViewHolder>(){
     class PrivateViewHolder(private val binding: ItemPrivateRecordBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(privateData: PrivateData) {
-            binding.textviewPrivateHashtags.text = privateData.textViewHashTags
+            binding.textviewPrivateTitle.text = privateData.textViewHashTags
             binding.textviewPrivateContent.text = privateData.textViewPrivateContent
-            binding.textviewPrivateLikeCount.text = privateData.textViewLikeCount
+//            binding.textviewPrivateLikeCount.text = privateData.textViewLikeCount
             binding.textviewPrivateNickname.text = privateData.textViewPrivateNickName
             val multi = MultiTransformation<Bitmap>(
-                BlurTransformation(25),
-                ColorFilterTransformation(Color.argb(80, 0, 0, 0)),
-                RoundedCornersTransformation(100, 10)
+//                BlurTransformation(25),
+//                ColorFilterTransformation(Color.argb(80, 0, 0, 0)),
+                RoundedCornersTransformation(4, 0)
             )
             Glide.with(itemView)
                 .load(privateData.imageViewPrivate)
                 .apply(RequestOptions.bitmapTransform(multi))
                 .into(binding.imageviewRecyclerviewBackground)
-            if(privateData.hasLike)
-            {
-                binding.buttonImagePrivate.setTextColor(ContextCompat.getColor(binding.buttonImagePrivate.context,R.color.journey_pink2))
-                binding.buttonImagePrivate.setBackgroundResource(R.drawable.ic_icnheartfull)
-            }
-            itemView.setOnClickListener {
-                postDetailId=privateData.postId
-                itemView.findNavController().navigate(R.id.action_privateFragment_to_privateDetailFragment)
-            }
+//            if(privateData.hasLike)
+//            {
+//                binding.buttonImagePrivate.setTextColor(ContextCompat.getColor(binding.buttonImagePrivate.context,R.color.journey_pink2))
+//                binding.buttonImagePrivate.setBackgroundResource(R.drawable.ic_icnheartfull)
+//            }
+//            itemView.setOnClickListener {
+//                postDetailId=privateData.postId
+//                itemView.findNavController().navigate(R.id.action_privateFragment_to_privateDetailFragment)
+//            }
         }
     }
 }

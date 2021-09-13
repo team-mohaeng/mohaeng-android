@@ -11,6 +11,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import org.journey.android.R
 import org.journey.android.databinding.FragmentPrivateBinding
@@ -223,8 +224,8 @@ class PrivateFragment : Fragment(){
     fun showMy(){
         val privateAdapter = PrivateAdapter()
         binding.recyclerviewPrivate.adapter = privateAdapter
-        val gridLayoutManager = GridLayoutManager(context, 2)
-        binding.recyclerviewPrivate.layoutManager = gridLayoutManager
+//        val gridLayoutManager = GridLayoutManager(context, 2)
+        binding.recyclerviewPrivate.layoutManager = LinearLayoutManager(context)
 
         privateAdapter.privateDiaryList.addAll(
             listOf<PrivateData>(
