@@ -44,19 +44,19 @@ class BottomSheetAdapter(val listener: OnItemClickListener) : ListAdapter<Bottom
     class BottomSheetViewHolder(val binding : ItemCommunityRecordBinding) :
             RecyclerView.ViewHolder(binding.root){
                 fun bind(bottomSheetData: BottomSheetData){
-                    binding.textviewTags.text = bottomSheetData.tags
+                    binding.textviewTitle.text = bottomSheetData.title
                     //binding.textviewSecondTags.text= bottomSheetData.second_tags
                     binding.textviewRecordContent.text = bottomSheetData.diary
                     binding.textviewUserId.text = bottomSheetData.user_id
-                    binding.textviewCountPrefer.text = bottomSheetData.user_prefer.toString()
-                    if(bottomSheetData.has_like)
-                    {
-                        binding.buttonUserPrefer.setTextColor(Color.parseColor(R.color.journey_pink2.toString()))
-                        binding.buttonUserPrefer.setBackgroundResource(R.drawable.ic_icnheartfull)
-                    }
-                    else{
-                        binding.buttonUserPrefer.setBackgroundResource(R.drawable.ic_diary_private_heart)
-                    }
+//                    binding.textviewCountPrefer.text = bottomSheetData.user_prefer.toString()
+//                    if(bottomSheetData.has_like)
+//                    {
+//                        binding.buttonUserPrefer.setTextColor(Color.parseColor(R.color.journey_pink2.toString()))
+//                        binding.buttonUserPrefer.setBackgroundResource(R.drawable.ic_icnheartfull)
+//                    }
+//                    else{
+//                        binding.buttonUserPrefer.setBackgroundResource(R.drawable.ic_diary_private_heart)
+//                    }
                     val multiEffect = MultiTransformation<Bitmap>(
                         BlurTransformation(25),
                         ColorFilterTransformation(Color.argb(80, 0, 0, 0)),
