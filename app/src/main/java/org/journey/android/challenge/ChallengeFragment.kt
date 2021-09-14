@@ -482,6 +482,29 @@ class ChallengeFragment : Fragment() {
         binding.imagebuttonChallengeBrowse.setOnClickListener {
             findNavController().navigate(R.id.action_frameFragment_to_libraryFragment)
         }
+
+        // help button event
+        val mDialogViewHelp =
+            LayoutInflater.from(this.context).inflate(R.layout.dialog_challenge_help, null)
+        val mBuilderHelp = AlertDialog.Builder(this.context)
+            .setView(mDialogViewHelp)
+        val alertDialogHelp = mBuilderHelp.create()
+
+        mDialogViewHelp.setBackgroundColor(Color.TRANSPARENT)
+        val windowHelp = alertDialogHelp.window
+        windowHelp?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        val dialogClose = mDialogViewHelp.findViewById<AppCompatButton>(R.id.button_dialog_close)
+
+        // test/////////////////
+        binding.imageviewChallengeHelp.setOnClickListener {
+            alertDialogHelp.show()
+        }
+
+        dialogClose.setOnClickListener {
+            alertDialogHelp.dismiss()
+        }
+
     }
 
     fun setRetrofit(courseId: Int) {

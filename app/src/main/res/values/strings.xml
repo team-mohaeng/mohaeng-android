@@ -24,6 +24,9 @@
     <string name="challenge_explain">오늘의 챌린지를 성공하면 <b>해피지수가 </b></string>
     <string name="challenge_explain2">획득 가능한 뱃지는 </string>
     <string name="challenge_complete">인증하러 왔구나?\n오늘의 챌린지 다했어?</string>
+    <string name="challenge_how">화면 중앙의 인증하기 버튼을 눌러 인증할 수 있어요\n잠들기 전까지 오늘의 챌린지를 성공해보세요!</string>
+    <string name="challenge_update">매일 오전 4시에 다음 챌린지로 넘어가요\n오늘의 챌린지를 인증하지 않은 경우\n오전 4시가 지나도 다음 챌린지로 넘어가지 않습니다</string>
+
 
     <string name="happiness_popcontent_ver1">소확행은 오늘의 챌린지를\n성공해야 작성할 수 있어.\n나와 함께 챌린지를 시작해보겠어?</string>
     <string name="happiness_popcontent_ver2">소확행은 오늘의 챌린지를\n성공해야 작성할 수 있어.\n나와 함께 챌린지를 수행해보겠어?</string>
