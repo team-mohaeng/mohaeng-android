@@ -20,6 +20,12 @@
         <item name="closeIconTint">@drawable/ic_diary_hash_tag_close</item>
     </style>
 
+    <style name="LikeChipStyle" parent="Widget.MaterialComponents.Chip.Entry">
+        <item name="background">@drawable/chip_background</item>
+        <item name="android:textColor">@color/mohaeng_orange_a</item>
+        <item name="icon">@drawable/ic_diary_hash_tag_close</item>
+    </style>
+
     <style name="Theme.Transparent" parent="android:Theme">
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>

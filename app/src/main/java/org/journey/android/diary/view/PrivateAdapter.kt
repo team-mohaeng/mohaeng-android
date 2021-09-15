@@ -74,10 +74,11 @@ class PrivateAdapter: RecyclerView.Adapter<PrivateAdapter.PrivateViewHolder>(){
 //                binding.buttonImagePrivate.setTextColor(ContextCompat.getColor(binding.buttonImagePrivate.context,R.color.journey_pink2))
 //                binding.buttonImagePrivate.setBackgroundResource(R.drawable.ic_icnheartfull)
 //            }
-//            itemView.setOnClickListener {
-//                postDetailId=privateData.postId
-//                itemView.findNavController().navigate(R.id.action_privateFragment_to_privateDetailFragment)
-//            }
+
+            itemView.setOnClickListener {
+                postDetailId=privateData.postId
+                itemView.findNavController().navigate(R.id.action_privateFragment_to_privateDetailFragment)
+            }
         }
     }
 }

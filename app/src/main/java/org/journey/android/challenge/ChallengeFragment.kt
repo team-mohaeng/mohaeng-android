@@ -496,7 +496,6 @@ class ChallengeFragment : Fragment() {
 
         val dialogClose = mDialogViewHelp.findViewById<AppCompatButton>(R.id.button_dialog_close)
 
-        // test/////////////////
         binding.imageviewChallengeHelp.setOnClickListener {
             alertDialogHelp.show()
         }

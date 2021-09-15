@@ -95,18 +95,18 @@ class PrivateDetailFragment: Fragment() {
                             binding.imageviewPrivateDetailFront.setImageResource(R.drawable.ic_diary_journey_good_face)
 
 
-                        val testHashtagString = data.hashtags.joinToString(" ")
-                        if (testHashtagString.isEmpty()) {
-                            binding.textviewPrivateDetailHashtag.text = testHashtagString
-                        } else if (testHashtagString.length in 1..19) {
-                            val shortHashtagString = "\n" + testHashtagString
-                            binding.textviewPrivateDetailHashtag.isVisible = true
-                            binding.textviewPrivateDetailHashtag.text = shortHashtagString
-                        } else if (testHashtagString.length > 19) {
-                            val longHashtagString = testHashtagString.substring(0, 18) + "\n" + testHashtagString.substring(19, testHashtagString.length - 1)
-                            binding.textviewPrivateDetailHashtag.isVisible = true
-                            binding.textviewPrivateDetailHashtag.text = longHashtagString
-                        }
+//                        val testHashtagString = data.hashtags.joinToString(" ")
+//                        if (testHashtagString.isEmpty()) {
+//                            binding.textviewPrivateDetailHashtag.text = testHashtagString
+//                        } else if (testHashtagString.length in 1..19) {
+//                            val shortHashtagString = "\n" + testHashtagString
+//                            binding.textviewPrivateDetailHashtag.isVisible = true
+//                            binding.textviewPrivateDetailHashtag.text = shortHashtagString
+//                        } else if (testHashtagString.length > 19) {
+//                            val longHashtagString = testHashtagString.substring(0, 18) + "\n" + testHashtagString.substring(19, testHashtagString.length - 1)
+//                            binding.textviewPrivateDetailHashtag.isVisible = true
+//                            binding.textviewPrivateDetailHashtag.text = longHashtagString
+//                        }
 
                         val testContentString = data.content
                         if(testContentString.length>=18)
@@ -134,9 +134,9 @@ class PrivateDetailFragment: Fragment() {
             val deleteDialog = activity?.let { it1 -> Dialog(it1) }
             val deleteDialogInflater: LayoutInflater = LayoutInflater.from(activity)
             val mView: View =
-                deleteDialogInflater.inflate(R.layout.private_delete_message_dialog, null)
-            val back: Button = mView.findViewById(R.id.button_do_not_delete)
-            val delete: Button = mView.findViewById(R.id.button_real_delete)
+                deleteDialogInflater.inflate(R.layout.dialog_detail_delete, null)
+            val deleteBtn: Button = mView.findViewById(R.id.button_dialog_delete)
+            val closeBtn: Button = mView.findViewById(R.id.button_dialog_close)
             val window = deleteDialog?.window
             window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
@@ -149,13 +149,13 @@ class PrivateDetailFragment: Fragment() {
                     heightPrivateDetailFragmentDisplay.toInt()
                 )
             }
-            back.setOnClickListener {
+            closeBtn.setOnClickListener {
                 if (deleteDialog != null) {
                     deleteDialog.dismiss()
                     deleteDialog.cancel()
                 }
             }
-            delete.setOnClickListener {
+            deleteBtn.setOnClickListener {
                 val call: Call<Unit> = RetrofitService.diaryDeleteService
                     .deleteDiary(
                         postNumCurrentPage,
