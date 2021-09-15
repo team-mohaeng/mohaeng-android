@@ -22,10 +22,13 @@
         <entry key="app/src/main/res/layout/dialog_index_explanation.xml" value="0.34479166666666666" />
         <entry key="app/src/main/res/layout/diary_compelete_dialog.xml" value="0.18854166666666666" />
         <entry key="app/src/main/res/layout/diary_hashtag_count_dialog.xml" value="0.18854166666666666" />
-        <entry key="app/src/main/res/layout/fragment_challenge.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_character.xml" value="0.10617283950617284" />
+        <entry key="app/src/main/res/layout/fragment_challenge.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_character.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_chat.xml" value="0.40498238886996857" />
         <entry key="app/src/main/res/layout/fragment_community.xml" value="0.24444444444444444" />
+        <entry key="app/src/main/res/layout/fragment_diary_first.xml" value="0.290625" />
+        <entry key="app/src/main/res/layout/fragment_diary_second.xml" value="0.290625" />
+        <entry key="app/src/main/res/layout/fragment_diary_viewpager_adapter.xml" value="0.290625" />
         <entry key="app/src/main/res/layout/fragment_edit_nick_name.xml" value="0.2609375" />
         <entry key="app/src/main/res/layout/fragment_email_login.xml" value="0.34479166666666666" />
         <entry key="app/src/main/res/layout/fragment_email_signup.xml" value="0.3515625" />
@@ -38,6 +41,9 @@
         <entry key="app/src/main/res/layout/fragment_service_agree.xml" value="0.3302083333333333" />
         <entry key="app/src/main/res/layout/fragment_set_nick_name.xml" value="0.2609375" />
         <entry key="app/src/main/res/layout/fragment_signup_first.xml" value="0.3515625" />
+        <entry key="app/src/main/res/layout/item_community_record.xml" value="0.290625" />
+        <entry key="app/src/main/res/layout/item_course_first.xml" value="0.25833333333333336" />
+        <entry key="app/src/main/res/layout/item_course_left.xml" value="0.25833333333333336" />
         <entry key="app/src/main/res/layout/item_reward_course.xml" value="0.22864583333333333" />
         <entry key="app/src/main/res/layout/item_select_character.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_select_option.xml" value="0.1" />

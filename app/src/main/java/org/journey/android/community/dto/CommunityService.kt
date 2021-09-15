@@ -1,5 +1,6 @@
-package org.journey.android.community
+package org.journey.android.community.dto
 
+import org.journey.android.community.dto.ResponseCommunityData
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Header

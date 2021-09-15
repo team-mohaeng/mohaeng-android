@@ -86,7 +86,7 @@
 
     <fragment
         android:id="@+id/communityFragment"
-        android:name="org.journey.android.community.view.CommunityFragment"
+        android:name="org.journey.android.community.CommunityFragment"
         android:label="fragment_community"
         tools:layout="@layout/fragment_community">
         <action

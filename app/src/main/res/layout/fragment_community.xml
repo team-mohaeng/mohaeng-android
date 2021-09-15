@@ -2,27 +2,26 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
     <data>
         <variable
-            name="data"
-            type="org.journey.android.frame.FrameViewModel" />
+            name="viewModel"
+            type="org.journey.android.community.CommunityPostViewModel" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintlayout_frame_community"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/mohaeng_yellow"
-        tools:context=".community.view.CommunityFragment">
-
-        <TextView
+        tools:context=".community.CommunityFragment">
+        <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/textview_diary"
             android:layout_width="70dp"
             android:layout_height="44dp"
             android:layout_marginTop="6dp"
-            android:layout_marginEnd="8dp"
             android:fontFamily="@font/spoqahansansneoregular"
             android:gravity="center"
-            android:text="내 서랍장"
+            android:background="@drawable/ic_gnbiconmypage"
             android:textColor="@color/journey_black"
             android:textSize="14sp"
             app:layout_constraintEnd_toStartOf="@+id/button_happiness_write"
@@ -47,7 +46,7 @@
             android:layout_marginLeft="18dp"
             android:layout_marginTop="106dp"
             android:fontFamily="@font/gmarketsansttfmedium"
-            android:text="오늘은 64개의\n안부가 남겨졌어요"
+            android:text="@string/community_count_greeting"
             android:lineSpacingExtra="8dp"
             android:textColor="@color/journey_black"
             android:textSize="18sp"
@@ -92,11 +91,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="34dp"
             android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/imageview_graphic_hand"
             tools:listitem="@layout/item_community_record" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -1,4 +1,4 @@
-package org.journey.android.community
+package org.journey.android.community.dto
 
 data class ResponseCommunityData(
     val status: Int,
