@@ -3,11 +3,13 @@ package org.journey.android.diary.view
 import android.graphics.Bitmap
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.MultiTransformation
 import com.bumptech.glide.request.RequestOptions
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation
+import org.journey.android.R
 import org.journey.android.databinding.ItemPrivateRecordBinding
 import org.journey.android.diary.dto.PrivateData
 
