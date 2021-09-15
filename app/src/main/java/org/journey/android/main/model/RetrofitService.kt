@@ -1,7 +1,7 @@
 package org.journey.android.main.model
 
 import okhttp3.OkHttpClient
-import org.journey.android.community.CommunityService
+import org.journey.android.community.dto.CommunityService
 import org.journey.android.diary.service.DiaryDislikeService
 import org.journey.android.diary.service.DiaryLikeService
 import org.journey.android.diary.service.DiaryDeleteService

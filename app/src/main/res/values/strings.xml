@@ -49,5 +49,8 @@
 
     <string name="service_agreement"><u>서비스 이용약관(필수)</u></string>
     <string name="service_privacy_agreement"><u>개인정보 수집 및 이용 동의(필수)</u></string>
+    <string name="community_count_greeting">오늘은 64개의\n안부가 남겨졌어요</string>
+    <string name="community_user_id">아라아랑</string>
+    <string name="community_post_date">8월 15일</string>
 
 </resources>

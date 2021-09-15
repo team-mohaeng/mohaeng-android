@@ -10,5 +10,4 @@ object BottomSheetDiffCallback : DiffUtil.ItemCallback<BottomSheetData>() {
     override fun areContentsTheSame(oldItem: BottomSheetData, newItem: BottomSheetData): Boolean {
         return oldItem == newItem
     }
-
 }
