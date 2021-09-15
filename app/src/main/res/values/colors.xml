@@ -90,5 +90,8 @@
     <color name="moheang_gray_b">#ADADAD</color>
     <color name="mohaeng_gray_c">#4D000000</color>
     <color name="mohaeng_orange_a">#F5AE24</color>
+    <color name="mohaeng_brown_a">#55423A</color>
+    <color name="mohaeng_brown_b">#837869</color>
+    <color name="mohaeng_brown_c">#B8AC9C</color>
 
 </resources>

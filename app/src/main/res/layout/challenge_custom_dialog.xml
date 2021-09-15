@@ -11,22 +11,32 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:background="@drawable/library_dialog"
+        android:background="@drawable/challenge_dialog"
         android:paddingTop="0dp"
-        android:paddingBottom="24dp"
+        android:paddingBottom="29dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_dialog_close"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginRight="14dp"
+            android:background="@drawable/ic_xbtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textview_dialog_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="239dp"
-            android:fontFamily="@font/bmhanna11yrsotf"
-            android:text="오늘의 챌린지 완료"
+            android:layout_marginTop="22dp"
+            android:fontFamily="@font/spoqahansansneoregular"
+            android:text="인증하기"
             android:textColor="@color/journey_black"
-            android:textSize="24sp"
+            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -36,65 +46,85 @@
             android:id="@+id/textview_dialog_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="51dp"
-            android:layout_marginTop="35dp"
-            android:layout_marginEnd="51dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="30dp"
+            android:fontFamily="@font/gmarketsansttflight"
             android:gravity="center"
+            android:lineSpacingExtra="8dp"
             android:text="@string/challenge_complete"
-            android:textColor="@color/journey_gray_d"
-            android:textSize="14sp"
+            android:textColor="@color/mohaeng_black"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textview_dialog_title" />
+
+        <ImageView
+            android:id="@+id/imageview_dialog_image"
+            android:layout_width="125dp"
+            android:layout_height="88dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/ic_challenge_complete"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textview_dialog_content" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintlayout_dialog_buttons"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="26dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="25dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="28dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textview_dialog_content">
+            app:layout_constraintTop_toBottomOf="@+id/imageview_dialog_image">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button_dialog_write"
+                android:id="@+id/button_dialog_a"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/dialog_button_round"
                 android:fontFamily="@font/spoqahansansneobold"
-                android:text="작성하기"
+                android:text="완벽하게 성공 🤗"
                 android:textColor="@color/white"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button_dialog_later"
+                android:id="@+id/button_dialog_b"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
                 android:background="@drawable/dialog_button_change"
                 android:fontFamily="@font/spoqahansansneobold"
-                android:text="나중에"
-                android:textColor="@color/journey_pink_a"
-                android:textSize="16sp"
+                android:text="살짝 아쉬워 😅"
+                android:textColor="@color/white"
+                android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button_dialog_write" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                app:layout_constraintTop_toBottomOf="@+id/button_dialog_a" />
 
-    <ImageView
-        android:id="@+id/imageview_dialog_image"
-        android:layout_width="234dp"
-        android:layout_height="232dp"
-        android:background="@drawable/graphicgrats"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_dialog_c"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/dialog_button_third"
+                android:fontFamily="@font/spoqahansansneobold"
+                android:text="겨우 해냈다..! 😌"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button_dialog_b" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
