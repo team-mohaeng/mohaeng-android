@@ -36,7 +36,8 @@ import retrofit2.Callback
 import retrofit2.Response
 
 // 챌린지 시작 여부 알려주는 변수
-var hasCourse = userCourseStatus
+//var hasCourse = userCourseStatus
+var hasCourse = 1
 
 // challenge situation
 var challengeStatus = 0
@@ -47,7 +48,7 @@ class ChallengeFragment : Fragment() {
     private var binding by AutoClearedValue<FragmentChallengeBinding>()
 
     // 인증 개수 저장하는 변수
-    private var stampNumber = 3
+    private var stampNumber =1
 
     // 완료한 미션 개수를 저장하는 변수
     private var stampComplete = 0
@@ -114,6 +115,9 @@ class ChallengeFragment : Fragment() {
         initChallengeType(binding.imagebuttonThirdThird)
 
         setButtonEvent()
+
+        // 서버 연결 전 확인용
+        selectChallengeView()
     }
 
     var challengeType = 0
@@ -155,9 +159,21 @@ class ChallengeFragment : Fragment() {
             windowEnd?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
             val dialogTitleEnd = mDialogViewEnd.findViewById<TextView>(R.id.textview_dialog_title)
-            val writeButtonEnd = mDialogViewEnd.findViewById<AppCompatButton>(R.id.button_dialog_write)
-            val laterButtonEnd = mDialogViewEnd.findViewById<AppCompatButton>(R.id.button_dialog_later)
+            val writeButtonEnd = mDialogViewEnd.findViewById<AppCompatButton>(R.id.button_dialog_a)
+            val laterButtonEnd = mDialogViewEnd.findViewById<AppCompatButton>(R.id.button_dialog_b)
             val imageEnd = mDialogViewEnd.findViewById<ImageView>(R.id.imageview_dialog_image)
+            val dialogClose = mDialogViewEnd.findViewById<AppCompatButton>(R.id.button_dialog_close)
+
+            // test/////////////////
+            binding.imagebuttonFirstFirst.setOnClickListener {
+                alertDialogEnd.show()
+            }
+
+            dialogClose.setOnClickListener {
+                alertDialogEnd.dismiss()
+                //Toast.makeText(this.context, "작성할게! 클릭", Toast.LENGTH_SHORT).show()
+            }
+                ////////////////
             
             // 코스 완료 후 나타나는 dialog 만들기
             val mDialogViewCourse = LayoutInflater.from(this.context).inflate(R.layout.challenge_course_dialog, null)
@@ -466,6 +482,29 @@ class ChallengeFragment : Fragment() {
         binding.imagebuttonChallengeBrowse.setOnClickListener {
             findNavController().navigate(R.id.action_frameFragment_to_libraryFragment)
         }
+
+        // help button event
+        val mDialogViewHelp =
+            LayoutInflater.from(this.context).inflate(R.layout.dialog_challenge_help, null)
+        val mBuilderHelp = AlertDialog.Builder(this.context)
+            .setView(mDialogViewHelp)
+        val alertDialogHelp = mBuilderHelp.create()
+
+        mDialogViewHelp.setBackgroundColor(Color.TRANSPARENT)
+        val windowHelp = alertDialogHelp.window
+        windowHelp?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        val dialogClose = mDialogViewHelp.findViewById<AppCompatButton>(R.id.button_dialog_close)
+
+        // test/////////////////
+        binding.imageviewChallengeHelp.setOnClickListener {
+            alertDialogHelp.show()
+        }
+
+        dialogClose.setOnClickListener {
+            alertDialogHelp.dismiss()
+        }
+
     }
 
     fun setRetrofit(courseId: Int) {

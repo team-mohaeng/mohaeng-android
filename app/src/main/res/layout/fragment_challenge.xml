@@ -121,7 +121,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
                 android:layout_marginTop="21dp"
-                android:src="@drawable/ic_challenge_help"
+                android:src="@drawable/ic_challenge_question"
                 app:layout_constraintStart_toEndOf="@+id/textview_challenge_today"
                 app:layout_constraintTop_toBottomOf="@+id/imagebutton_challenge_browse" />
 
@@ -179,7 +179,7 @@
                     android:layout_marginBottom="8dp"
                     android:background="@drawable/challenge_layout_radius"
                     android:paddingBottom="28dp"
-                    android:visibility="gone"
+                    android:visibility="visible"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -491,7 +491,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/challenge_layout_radius"
                     android:paddingBottom="23dp"
-                    android:visibility="visible"
+                    android:visibility="gone"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
