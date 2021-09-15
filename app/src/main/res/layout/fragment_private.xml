@@ -57,11 +57,13 @@
         android:layout_marginTop="12dp"
         android:layout_marginBottom="44dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/button_private_time_picker"
-        app:layout_constraintVertical_bias="0.0"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/item_private_record" />
 
     <ImageView
@@ -91,6 +93,5 @@
         android:textSize="12sp"
         android:gravity="center"
          />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
