@@ -9,17 +9,21 @@ import android.widget.Button
 import android.widget.NumberPicker
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import org.journey.android.R
+import org.journey.android.community.CommunityPostViewModel
+import org.journey.android.databinding.FragmentCommunityBinding
 import org.journey.android.databinding.FragmentPrivateBinding
 import org.journey.android.diary.view.PrivateAdapter
 import org.journey.android.diary.dto.PrivateData
 import org.journey.android.diary.dto.ResponseDiaryPrivateData
 import org.journey.android.login.view.userJwt
 import org.journey.android.main.model.RetrofitService
+import org.journey.android.util.AutoClearedValue
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -27,11 +31,11 @@ import java.util.*
 
 
 class PrivateFragment : Fragment(){
-    private lateinit var  binding : FragmentPrivateBinding
+    private var binding by AutoClearedValue<FragmentPrivateBinding>()
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View?{
-        val privateView = inflater.inflate(R.layout.fragment_private, null)
-        binding = FragmentPrivateBinding.inflate(inflater, container, false)
+        binding = FragmentPrivateBinding.inflate(inflater,container,false)
         return binding.root
     }
 
@@ -224,7 +228,6 @@ class PrivateFragment : Fragment(){
     fun showMy(){
         val privateAdapter = PrivateAdapter()
         binding.recyclerviewPrivate.adapter = privateAdapter
-//        val gridLayoutManager = GridLayoutManager(context, 2)
         binding.recyclerviewPrivate.layoutManager = LinearLayoutManager(context)
 
         privateAdapter.privateDiaryList.addAll(
