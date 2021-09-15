@@ -1,34 +1,15 @@
 package org.journey.android.diary.view
 
-import android.content.Context
 import android.graphics.Bitmap
-import android.graphics.BlurMaskFilter
-import android.graphics.Color
-import android.graphics.ColorFilter
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.content.res.AppCompatResources.getDrawable
-import androidx.core.content.ContentProviderCompat.requireContext
-import androidx.core.content.ContextCompat
-import androidx.navigation.Navigation.findNavController
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.MultiTransformation
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
-import jp.wasabeef.glide.transformations.BlurTransformation
-import jp.wasabeef.glide.transformations.ColorFilterTransformation
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation
-import org.journey.android.R
-import org.journey.android.course.view.ctxt
 import org.journey.android.databinding.ItemPrivateRecordBinding
 import org.journey.android.diary.dto.PrivateData
-import org.journey.android.diary.view.PrivateFragment
-import org.journey.android.diary.view.postDetailId
 
 
 class PrivateAdapter: RecyclerView.Adapter<PrivateAdapter.PrivateViewHolder>(){
