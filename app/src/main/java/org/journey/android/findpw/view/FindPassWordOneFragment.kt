@@ -3,23 +3,14 @@ package org.journey.android.findpw.view
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
-import org.journey.android.R
 import org.journey.android.databinding.FragmentFindPasswordOneBinding
-import org.journey.android.findpw.dto.EmailCreator
-import org.journey.android.findpw.dto.ResponsePasswordData
 import org.journey.android.util.AutoClearedValue
-import org.journey.android.util.enqueueUtil
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 var userId = ""
 var userIdTemp = ""

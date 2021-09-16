@@ -20,20 +20,9 @@ import android.widget.ImageView
 import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.chip.Chip
-import okhttp3.MediaType.Companion.toMediaTypeOrNull
-import okhttp3.MultipartBody
-import okhttp3.RequestBody
 import org.journey.android.R
 import org.journey.android.base.BaseFragment
 import org.journey.android.databinding.FragmentDiarySecondBinding
-import org.journey.android.diary.dto.RequestDiaryWriteData
-import org.journey.android.diary.dto.ResponseDiaryWriteData
-import org.journey.android.login.view.userJwt
-import org.journey.android.main.model.RetrofitService
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import java.io.File
 import java.util.*
 
 class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
