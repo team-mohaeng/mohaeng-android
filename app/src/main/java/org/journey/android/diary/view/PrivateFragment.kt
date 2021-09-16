@@ -149,7 +149,7 @@ class PrivateFragment : Fragment(){
                     selectDateDialog.cancel()
                 }
 
-
+/*
                 val call: Call<ResponseDiaryPrivateData> = RetrofitService.diaryPrivateService
                     .getPrivateDiary(
                         selectDialogYear.value.toString(),
@@ -203,7 +203,7 @@ class PrivateFragment : Fragment(){
                     override fun onFailure(call: Call<ResponseDiaryPrivateData>, t: Throwable) {
                         Log.d("NetworkTest", "error:$t")
                     }
-                })
+                })*/
             }
 
             if (selectDateDialog != null) {
