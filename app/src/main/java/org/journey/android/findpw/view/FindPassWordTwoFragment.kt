@@ -1,6 +1,5 @@
 package org.journey.android.findpw.view
 
-import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -13,11 +12,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import org.journey.android.R
 import org.journey.android.databinding.FragmentFindPasswordTwoBinding
-import org.journey.android.findpw.dto.EmailCreator
-import org.journey.android.findpw.dto.ResponsePasswordData
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 
 class FindPassWordTwoFragment:Fragment() {
