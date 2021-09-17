@@ -2,26 +2,16 @@ package org.journey.android.main.view
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
-import android.app.Dialog
-import android.content.DialogInterface
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import org.journey.android.R
 import org.journey.android.base.BaseFragment
 import org.journey.android.databinding.FragmentMainBinding
-import org.journey.android.login.view.userJwt
-import org.journey.android.main.dto.ResponseMainModelItem
-import org.journey.android.main.model.RetrofitService
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 
 var userCourseStatus = 0

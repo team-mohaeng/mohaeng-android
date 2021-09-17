@@ -1,32 +1,19 @@
 package org.journey.android.diary.view
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.NumberPicker
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import org.journey.android.R
-import org.journey.android.community.CommunityPostViewModel
-import org.journey.android.databinding.FragmentCommunityBinding
 import org.journey.android.databinding.FragmentPrivateBinding
-import org.journey.android.diary.view.PrivateAdapter
 import org.journey.android.diary.dto.PrivateData
-import org.journey.android.diary.dto.ResponseDiaryPrivateData
-import org.journey.android.login.view.userJwt
-import org.journey.android.main.model.RetrofitService
 import org.journey.android.util.AutoClearedValue
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import java.util.*
 
 
@@ -65,12 +52,11 @@ class PrivateFragment : Fragment(){
         val selectDialogSave: Button =
             selectDateDialogView.findViewById(R.id.button_date_picker_select)
 
-        val call: Call<ResponseDiaryPrivateData> = RetrofitService.diaryPrivateService
-            .getPrivateDiary(
-                privateInstance.get(Calendar.YEAR).toString(),
-                privateNowMonth,
-                userJwt
-            )
+//        val call: Call<ResponseDiaryPrivateData> = RetrofitService.diaryPrivateService
+//            .getPrivateDiary(
+//                privateInstance.get(Calendar.YEAR).toString(),
+//                privateNowMonth
+//            )
         /*
         call.enqueue(object : Callback<ResponseDiaryPrivateData> {
             override fun onResponse(
