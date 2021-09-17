@@ -1,15 +1,19 @@
 package org.journey.android.diary.view
 
 import android.app.Dialog
+import android.content.res.ColorStateList
 import android.graphics.Bitmap
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.DisplayMetrics
 import android.util.Log
 import android.view.*
 import android.widget.Button
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -17,6 +21,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.MultiTransformation
 import com.bumptech.glide.load.resource.bitmap.GranularRoundedCorners
 import com.bumptech.glide.request.RequestOptions
+import com.google.android.material.chip.Chip
 import jp.wasabeef.glide.transformations.BlurTransformation
 import jp.wasabeef.glide.transformations.ColorFilterTransformation
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation
@@ -35,6 +40,9 @@ var postDetailId = 0
 class PrivateDetailFragment: Fragment() {
 
     private lateinit var  binding : FragmentPrivateDetailBinding
+
+    // 공감 이모션 리스트
+    var likeList : MutableList<String> = mutableListOf()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View?{
@@ -177,57 +185,7 @@ class PrivateDetailFragment: Fragment() {
         }
 
         binding.buttonPrivateDetailLike.setOnClickListener{
-            if(!binding.buttonPrivateDetailLike.isSelected)
-            {
-                val call:Call<ResponseDiaryLikeData> = RetrofitService.diaryLikeService
-                    .changeLike(postDetailId, userJwt)
-                call.enqueue(object:Callback<ResponseDiaryLikeData>{
-                    override fun onResponse(
-                        call: Call<ResponseDiaryLikeData>,
-                        response: Response<ResponseDiaryLikeData>
-                    ) {
-                        if(response.isSuccessful)
-                        {
-                            Toast.makeText(requireContext(),"Like!",Toast.LENGTH_SHORT).show()
-                            binding.buttonPrivateDetailLike.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_icnheartfull,0,0,0)
-                            binding.buttonPrivateDetailLike.text =(binding.buttonPrivateDetailLike.text.toString().toInt() + 1).toString()
-                            binding.buttonPrivateDetailLike.setTextColor(resources.getColor(R.color.journey_pink2))
-                            binding.buttonPrivateDetailLike.isSelected=true
-                        }
-                        else{
-                            Log.d("CT ERROR", "CT ERROR")
-                        }
-                    }
-                    override fun onFailure(call: Call<ResponseDiaryLikeData>, t: Throwable) {
-                        Log.d("NT ERROR", "NT ERROR")
-                    }
-                })
-            }
-            else{
-                val call:Call<ResponseDiaryDislikeData> = RetrofitService.diaryDislikeService
-                    .changeDislike(postDetailId, userJwt)
-                call.enqueue(object:Callback<ResponseDiaryDislikeData>{
-                    override fun onResponse(
-                        call: Call<ResponseDiaryDislikeData>,
-                        response: Response<ResponseDiaryDislikeData>
-                    ) {
-                        if(response.isSuccessful)
-                        {
-                            Toast.makeText(requireContext(),"Dislike!",Toast.LENGTH_SHORT).show()
-                            binding.buttonPrivateDetailLike.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_diary_private_heart,0,0,0)
-                            binding.buttonPrivateDetailLike.text =(binding.buttonPrivateDetailLike.text.toString().toInt() - 1).toString()
-                            binding.buttonPrivateDetailLike.setTextColor(resources.getColor(R.color.white))
-                            binding.buttonPrivateDetailLike.isSelected=false
-                        }
-                        else{
-                            Log.d("CT ERROR", "CT ERROR")
-                        }
-                    }
-                    override fun onFailure(call: Call<ResponseDiaryDislikeData>, t: Throwable) {
-                        Log.d("NT ERROR", "NT ERROR")
-                    }
-                })
-            }
+            addChipToGroup(3)
         }
 
         binding.buttonPrivateCancel.setOnClickListener {
@@ -235,5 +193,65 @@ class PrivateDetailFragment: Fragment() {
         }
     }
 
+    fun addChipToGroup(emotion: Int) {
+        if (binding.chipgroupLike.childCount < 6) {
+            val chip = Chip(context)
+            chip.chipBackgroundColor =
+                ColorStateList.valueOf(resources.getColor(R.color.mohaeng_yellow_b))
+            chip.chipStrokeColor = ColorStateList.valueOf(resources.getColor(R.color.mohaeng_yellow))
+            chip.chipStrokeWidth = 2F
+            chip.setTextColor(ColorStateList.valueOf(resources.getColor(R.color.mohaeng_yellow2)))
+            chip.text = emotion.toString()
+            chip.textSize = 12F
+            chip.chipIcon =
+                ContextCompat.getDrawable(requireContext(), R.drawable.ic_launcher_background)
+            chip.isChipIconVisible = true
+//            chip.chipIconSize = 20F
+            chip.iconStartPadding = 30F
+            chip.iconEndPadding = 5F
+
+
+//            chip.isCloseIconVisible = false
+//            chip.closeIcon =
+//                ContextCompat.getDrawable(requireContext(), R.drawable.ic_diary_hash_tag_close)
+//            chip.closeIconSize = 36F
+//            chip.closeIconStartPadding = -10F
+//            chip.closeIconEndPadding = 30F
+//            chip.closeIconTint =
+//                ColorStateList.valueOf(resources.getColor(R.color.journey_pink))
+            chip.isClickable = true
+            chip.isCheckable = false
+            likeList.add(chip.text.toString())
+            binding.chipgroupLike.addView(chip as View)
+            chip.setOnCloseIconClickListener {
+                binding.chipgroupLike.removeView(chip as View)
+                likeList.remove(chip.text.toString())
+            }
+        }
+//        else if(binding.chipgroupLike.childCount==6)
+//        {
+//            val displaymetrics = DisplayMetrics()
+//            requireActivity().windowManager.defaultDisplay.getMetrics(displaymetrics)
+//            val height = displaymetrics.heightPixels * 0.4
+//            val width = displaymetrics.widthPixels * 0.9
+//            val alertDialog = activity?.let { it1 -> Dialog(it1) }
+//            val alertDialogInflater : LayoutInflater = LayoutInflater.from(activity)
+//            val mView : View = alertDialogInflater.inflate(R.layout.diary_hashtag_count_dialog,null)
+//
+//            val window = alertDialog?.window
+//            window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+//            val buttonConfirm:Button = mView.findViewById(R.id.button_confirm)
+//            if (alertDialog != null) {
+//                alertDialog.setContentView(mView)
+//                alertDialog.create()
+//                alertDialog.show()
+//            }
+//            buttonConfirm.setOnClickListener{
+//                if (alertDialog != null)
+//                {alertDialog.dismiss()
+//                    alertDialog.cancel()}
+//            }
+//        }
+    }
 
 }

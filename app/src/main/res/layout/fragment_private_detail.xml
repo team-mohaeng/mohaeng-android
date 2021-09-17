@@ -159,13 +159,14 @@
             style="@style/LikeChipStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="14dp"
+            app:chipSpacing="6dp"
+            app:chipSpacingVertical="5dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            android:layout_marginLeft="10dp"
-            app:chipSpacing="6dp"
-            app:chipSpacingVertical="10dp"
             app:layout_constraintStart_toEndOf="@+id/button_private_detail_like"
-            app:layout_constraintTop_toTopOf="@+id/button_private_detail_like">
+            app:layout_constraintTop_toBottomOf="@+id/textview_private_detail_content">
 
         </com.google.android.material.chip.ChipGroup>
 
