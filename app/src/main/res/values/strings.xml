@@ -55,5 +55,6 @@
     <string name="community_count_greeting">오늘은 64개의\n안부가 남겨졌어요</string>
     <string name="community_user_id">아라아랑</string>
     <string name="community_post_date">8월 15일</string>
+    <string name="mypage_user_email">tldnjs102@gmail.com</string>
 
 </resources>

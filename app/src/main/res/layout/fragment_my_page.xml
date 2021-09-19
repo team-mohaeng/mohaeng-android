@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/view_my_page"
+            android:layout_width="match_parent"
+            android:layout_height="364dp"
+            android:background="@drawable/ic_mypageviewbg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_return_back"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/ic_gnbicnback"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_setting"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_marginRight="6dp"
+            android:background="@drawable/ic_settingicn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/button_return_back" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_user_nick_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="94dp"
+            android:fontFamily="@font/gmarketsansttfmedium"
+            android:text="아라아랑"
+            android:textColor="@color/mohaeng_black"
+            android:textSize="22dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_edit_nick_name"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginLeft="3dp"
+            android:background="@drawable/ic_edittch"
+            app:layout_constraintBottom_toBottomOf="@id/textview_user_nick_name"
+            app:layout_constraintStart_toEndOf="@id/textview_user_nick_name"
+            app:layout_constraintTop_toTopOf="@id/textview_user_nick_name" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_user_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="132dp"
+            android:fontFamily="@font/spoqahansansneoregular"
+            android:text="@string/mypage_user_email"
+            android:textColor="@color/mohaeng_gray"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.53"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+       <androidx.appcompat.widget.AppCompatImageView
+           android:id="@+id/imageview_success_course"
+           android:layout_width="76dp"
+           android:layout_height="83dp"
+           android:background="@drawable/my_page_image_rec"
+           android:layout_marginTop="32dp"
+           android:layout_marginLeft="18dp"
+           android:text="성공한\n코스"
+           android:textSize="12sp"
+           app:layout_constraintTop_toBottomOf="@id/textview_user_email"
+           app:layout_constraintStart_toStartOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageview_success_challenge"
+            android:layout_width="76dp"
+            android:layout_height="83dp"
+            android:layout_marginLeft="7dp"
+            android:background="@drawable/my_page_image_rec"
+            app:layout_constraintBottom_toBottomOf="@+id/imageview_success_course"
+            app:layout_constraintStart_toEndOf="@id/imageview_success_course"
+            app:layout_constraintTop_toTopOf="@+id/imageview_success_course" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageview_written_greeting"
+            android:layout_width="76dp"
+            android:layout_height="83dp"
+            android:layout_marginLeft="7dp"
+            android:background="@drawable/my_page_image_rec"
+            app:layout_constraintTop_toTopOf="@id/imageview_success_challenge"
+            app:layout_constraintStart_toEndOf="@id/imageview_success_challenge"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageview_obtained_badge"
+            android:layout_width="76dp"
+            android:layout_height="83dp"
+            android:layout_marginLeft="7dp"
+            android:background="@drawable/my_page_image_rec"
+            app:layout_constraintStart_toEndOf="@id/imageview_written_greeting"
+            app:layout_constraintTop_toTopOf="@id/imageview_written_greeting"/>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

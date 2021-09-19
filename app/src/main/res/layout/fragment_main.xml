@@ -31,7 +31,7 @@
             app:layout_constraintBottom_toBottomOf="@id/button_main_first"/>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/button_main_next"
+            android:id="@+id/button_main_mypage"
             android:layout_width="26dp"
             android:layout_height="26dp"
             android:layout_marginLeft="10dp"

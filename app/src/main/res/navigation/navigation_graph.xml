@@ -37,6 +37,9 @@
         <action
             android:id="@+id/action_frameFragment_to_characterFragment"
             app:destination="@id/characterFragment" />
+        <action
+            android:id="@+id/action_frameFragment_to_myPageFragment"
+            app:destination="@id/myPageFragment" />
     </fragment>
     <fragment
         android:id="@+id/splashFragment"
@@ -104,7 +107,7 @@
     </fragment>
     <fragment
         android:id="@+id/challengeFragment"
-        android:name="org.journey.android.ui.challenge.view.ChallengeFragment"
+        android:name="org.journey.android.challenge.ChallengeFragment"
         android:label="ChallengeFragment"
         tools:layout="@layout/fragment_challenge">
         <action
@@ -254,4 +257,9 @@
         android:name="org.journey.android.character.ui.CharacterFragment"
         android:label="CharacterFragment"
         tools:layout="@layout/fragment_character"/>
+    <fragment
+        android:id="@+id/myPageFragment"
+        android:name="org.journey.android.mypage.MyPageFragment"
+        android:label="MyPageFragment"
+        tools:layout="@layout/fragment_my_page"/>
 </navigation>
