@@ -58,7 +58,7 @@ class CharacterViewModel @Inject constructor() : BaseViewModel() {
                 R.drawable.ic_option_2
             ),
             MohaengCharacterOptionEntity(
-                R.drawable.ic_option_3
+                R.drawable.ic_none_char
             ),
             MohaengCharacterOptionEntity(
                 R.drawable.ic_option_4

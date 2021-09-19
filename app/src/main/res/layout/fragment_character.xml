@@ -85,7 +85,7 @@
         android:layout_height="60dp"
         app:layout_constraintStart_toStartOf="parent"
         android:orientation="horizontal"
-        android:layout_marginHorizontal="18dp"
+        android:layout_marginHorizontal="16dp"
         tools:listitem="@layout/item_select_character"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintTop_toTopOf="@+id/view_select_character" />
