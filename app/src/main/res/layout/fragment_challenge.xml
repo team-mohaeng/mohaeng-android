@@ -124,7 +124,7 @@
                             app:layout_constraintStart_toEndOf="@+id/textview_challenge_today"
                             app:layout_constraintTop_toBottomOf="@+id/imagebutton_challenge_browse" />
 
-                        <androidx.constraintlayout.widget.ConstraintLayout
+                        <View
                             android:id="@+id/constraintlayout_mohaeng_talk"
                             android:layout_width="match_parent"
                             android:layout_height="88dp"
@@ -132,32 +132,31 @@
                             android:background="@drawable/challenge_textview_round"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textview_challenge_today">
+                            app:layout_constraintTop_toBottomOf="@+id/textview_challenge_today" />
 
-                            <TextView
-                                android:id="@+id/textview_mohaeng_talk"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/spoqahansansneoregular"
-                                android:gravity="center"
-                                android:lineSpacingExtra="10dp"
-                                android:text="@string/challenge_message_mohaeng"
-                                android:textColor="@color/black"
-                                android:textSize="14sp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toEndOf="@+id/imageView"
-                                app:layout_constraintTop_toTopOf="parent" />
+                        <TextView
+                            android:id="@+id/textview_mohaeng_talk"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/spoqahansansneoregular"
+                            android:gravity="center"
+                            android:lineSpacingExtra="10dp"
+                            android:text="@string/challenge_message_mohaeng"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/constraintlayout_mohaeng_talk"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/imageView"
+                            app:layout_constraintTop_toTopOf="@+id/constraintlayout_mohaeng_talk" />
 
-                            <ImageView
-                                android:id="@+id/imageView"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/ic_challenge_character"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
+                        <ImageView
+                            android:id="@+id/imageView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_challenge_character"
+                            app:layout_constraintBottom_toBottomOf="@+id/constraintlayout_mohaeng_talk"
+                            app:layout_constraintStart_toStartOf="@+id/constraintlayout_mohaeng_talk"
+                            app:layout_constraintTop_toTopOf="@+id/constraintlayout_mohaeng_talk" />
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:id="@+id/constraintlayout_sub_first"
