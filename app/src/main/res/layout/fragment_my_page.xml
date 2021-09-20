@@ -111,7 +111,58 @@
             app:layout_constraintStart_toEndOf="@id/imageview_written_greeting"
             app:layout_constraintTop_toTopOf="@id/imageview_written_greeting"/>
 
+        <CalendarView
+            android:id="@+id/calender_my_page"
+            android:layout_width="match_parent"
+            android:layout_height="303dp"
+            android:layout_marginHorizontal="18dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/calendar_background"
+            app:layout_constraintTop_toBottomOf="@id/imageview_success_course"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/button_my_page"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginHorizontal="18dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/my_page_image_rec"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/calender_my_page"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageview_button_image"
+            android:layout_width="148dp"
+            android:layout_height="48dp"
+            android:background="@drawable/image"
+            app:layout_constraintEnd_toEndOf="@id/button_my_page"
+            app:layout_constraintBottom_toBottomOf="@id/button_my_page"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageview_button_side"
+            android:layout_width="109dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="78dp"
+            android:background="@drawable/image3"
+            app:layout_constraintBottom_toBottomOf="@id/button_my_page"
+            app:layout_constraintEnd_toEndOf="@+id/button_my_page"
+            app:layout_constraintTop_toTopOf="@+id/imageview_button_image" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_challenge_record"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="챌린지 기록 보기"
+            android:textSize="16sp"
+            android:fontFamily="@font/gmarketsansttfmedium"
+            android:textColor="@color/black"
+            android:layout_marginLeft="19dp"
+            app:layout_constraintStart_toStartOf="@id/button_my_page"
+            app:layout_constraintTop_toTopOf="@id/button_my_page"
+            app:layout_constraintBottom_toBottomOf="@id/button_my_page"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
