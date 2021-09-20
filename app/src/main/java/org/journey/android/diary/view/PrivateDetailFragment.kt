@@ -2,31 +2,22 @@ package org.journey.android.diary.view
 
 import android.app.Dialog
 import android.content.res.ColorStateList
-import android.graphics.Bitmap
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.util.DisplayMetrics
-import android.util.Log
 import android.view.*
 import android.widget.Button
-import android.widget.Toast
+import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.core.content.ContextCompat
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.MultiTransformation
-import com.bumptech.glide.load.resource.bitmap.GranularRoundedCorners
-import com.bumptech.glide.request.RequestOptions
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.chip.Chip
-import jp.wasabeef.glide.transformations.BlurTransformation
-import jp.wasabeef.glide.transformations.ColorFilterTransformation
-import jp.wasabeef.glide.transformations.RoundedCornersTransformation
 import org.journey.android.R
 import org.journey.android.databinding.FragmentPrivateDetailBinding
+
 
 var postDetailId = 0
 class PrivateDetailFragment: Fragment() {
@@ -129,52 +120,7 @@ class PrivateDetailFragment: Fragment() {
 //        }
 //        )
 //
-//        binding.buttonPrivateDelete.setOnClickListener()
-//        {
-//            val deleteDialog = activity?.let { it1 -> Dialog(it1) }
-//            val deleteDialogInflater: LayoutInflater = LayoutInflater.from(activity)
-//            val mView: View =
-//                deleteDialogInflater.inflate(R.layout.dialog_detail_delete, null)
-//            val deleteBtn: Button = mView.findViewById(R.id.button_dialog_delete)
-//            val closeBtn: Button = mView.findViewById(R.id.button_dialog_close)
-//            val window = deleteDialog?.window
-//            window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-//
-//            if (deleteDialog != null) {
-//                deleteDialog.setContentView(mView)
-//                deleteDialog.create()
-//                deleteDialog.show()
-//                deleteDialog.window?.setLayout(
-//                    widthPrivateDetailFragmentDisplay.toInt(),
-//                    heightPrivateDetailFragmentDisplay.toInt()
-//                )
-//            }
-//            closeBtn.setOnClickListener {
-//                if (deleteDialog != null) {
-//                    deleteDialog.dismiss()
-//                    deleteDialog.cancel()
-//                }
-//            }
-//            deleteBtn.setOnClickListener {
-//                val call: Call<Unit> = RetrofitService.diaryDeleteService
-//                    .deleteDiary(
-//                        postNumCurrentPage,
-//                        userJwt
-//                    )
-//                call.enqueue(object : Callback<Unit> {
-//                    override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
-//                        if (response.isSuccessful) {
-//                            Toast.makeText(requireContext(), "삭제되었습니다",Toast.LENGTH_SHORT).show()
-//                        } else {
-//                        }
-//                    }
-//
-//                    override fun onFailure(call: Call<Unit>, t: Throwable) {
-//                        Log.d("Delete Diary NT Error", "Delete Error!")
-//                    }
-//                })
-//            }
-//        }
+
 
         binding.buttonPrivateDelete.setOnClickListener()
         {
@@ -230,6 +176,23 @@ class PrivateDetailFragment: Fragment() {
         binding.buttonPrivateCancel.setOnClickListener {
             findNavController().navigate(R.id.action_privateDetailFragment_to_privateFragment)
         }
+
+        binding.imagebuttonPrivateDetailReport.setOnClickListener {
+            val reportDialog = activity?.let { it1 -> BottomSheetDialog(it1) }
+            val view = layoutInflater.inflate(R.layout.dialog_detail_report, null)
+            val window = reportDialog?.window
+            window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+            val reportBtn = view.findViewById<Button>(R.id.button_dialog_report)
+
+            reportBtn.setOnClickListener {
+                reportDialog?.dismiss()
+            }
+
+            reportDialog?.setContentView(view)
+            reportDialog?.show()
+
+        }
     }
 
     fun addChipToGroup(emotion: Int) {
@@ -245,7 +208,6 @@ class PrivateDetailFragment: Fragment() {
             chip.chipIcon =
                 ContextCompat.getDrawable(requireContext(), R.drawable.ic_launcher_background)
             chip.isChipIconVisible = true
-//            chip.chipIconSize = 20F
             chip.iconStartPadding = 30F
             chip.iconEndPadding = 5F
 
