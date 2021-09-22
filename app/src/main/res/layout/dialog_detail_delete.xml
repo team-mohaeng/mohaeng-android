@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:background="@drawable/detale_delete_dialog"
+        android:background="@drawable/detail_delete_dialog"
         android:paddingTop="0dp"
         android:paddingBottom="24dp"
         app:layout_constraintEnd_toEndOf="parent"
