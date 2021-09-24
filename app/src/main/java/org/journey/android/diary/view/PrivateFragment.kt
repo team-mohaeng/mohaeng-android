@@ -106,8 +106,8 @@ class PrivateFragment : Fragment(){
                 Log.d("NetworkTest", "error:$t")
             }
         })
-*/
 
+*/
 
         binding.buttonPrivateTimePicker.setOnClickListener()
         {

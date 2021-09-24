@@ -3,6 +3,7 @@ package org.journey.android.diary.view
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import org.journey.android.databinding.FragmentPrivateDetailBinding
 
 var postDetailId = 0
@@ -17,6 +18,7 @@ class PrivateDetailFragment: Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setButtonClickListener()
 
 //        var journeyMood = 0
 //        val displaymetricsPrivateDetailFragment = DisplayMetrics()
@@ -209,5 +211,11 @@ class PrivateDetailFragment: Fragment() {
 //        }
 //    }
 
+    }
+
+    private fun setButtonClickListener(){
+        with(binding){
+            buttonPrivateCancel.setOnClickListener { findNavController().popBackStack() }
+        }
     }
 }

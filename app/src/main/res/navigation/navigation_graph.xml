@@ -40,6 +40,9 @@
         <action
             android:id="@+id/action_frameFragment_to_myPageFragment"
             app:destination="@id/myPageFragment" />
+        <action
+            android:id="@+id/action_frameFragment_to_privateDetailFragment"
+            app:destination="@id/privateDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/splashFragment"
