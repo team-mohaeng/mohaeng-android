@@ -34,7 +34,7 @@ class ChallengeFragment : Fragment() {
     }
     private fun setClickListener(){
         with(binding){
-            imagebuttonChallengeBrowse.setOnClickListener { findNavController().navigate(R.id.action_frameFragment_to_libraryFragment) }
+            imagebuttonChallengeBrowse.setOnClickListener { findNavController().navigate(R.id.action_frameFragment_to_courseCatalogFragment) }
         }
     }
 

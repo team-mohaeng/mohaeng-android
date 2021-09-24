@@ -9,7 +9,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import org.journey.android.R
-import org.journey.android.community.CommunityPostViewModel
 import org.journey.android.databinding.FragmentCommunityBinding
 import org.journey.android.util.AutoClearedValue
 

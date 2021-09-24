@@ -15,7 +15,7 @@
             app:destination="@id/rewardFragment" />
         <action
             android:id="@+id/action_frameFragment_to_libraryFragment"
-            app:destination="@id/libraryFragment" />
+            app:destination="@id/courseCatalogFragment" />
         <action
             android:id="@+id/action_frameFragment_to_courseFragment"
             app:destination="@id/courseFragment" />
@@ -43,6 +43,9 @@
         <action
             android:id="@+id/action_frameFragment_to_privateDetailFragment"
             app:destination="@id/privateDetailFragment" />
+        <action
+            android:id="@+id/action_frameFragment_to_courseCatalogFragment"
+            app:destination="@id/courseCatalogFragment" />
     </fragment>
     <fragment
         android:id="@+id/splashFragment"
@@ -51,30 +54,12 @@
         tools:layout="@layout/fragment_splash">
         <action
             android:id="@+id/action_splashFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            app:destination="@id/courseCatalogFragment" />
         <action
             android:id="@+id/action_splashFragment_to_frameFragment"
             app:destination="@id/frameFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/loginFragment"
-        android:name="org.journey.android.login.view.LoginFragment"
-        android:label="fragment_login"
-        tools:layout="@layout/fragment_login">
 
-        <action
-            android:id="@+id/action_loginFragment_to_signupFirstFragment"
-            app:destination="@id/signupFirstFragment" />
-        <action
-            android:id="@+id/action_loginFragment_to_frameFragment"
-            app:destination="@id/frameFragment" />
-        <action
-            android:id="@+id/action_loginFragment_to_findPassWordOneFragment"
-            app:destination="@id/findPassWordOneFragment" />
-        <action
-            android:id="@+id/action_loginFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
-    </fragment>
     <fragment
         android:id="@+id/mainFragment"
         android:name="org.journey.android.main.view.MainFragment"
@@ -168,14 +153,14 @@
         android:label="fragment_course"
         tools:layout="@layout/fragment_course">
         <action
-            android:id="@+id/action_courseFragment_to_libraryFragment"
-            app:destination="@id/libraryFragment" />
+            android:id="@+id/action_courseFragment_to_courseCatalogFragment"
+            app:destination="@id/courseCatalogFragment" />
     </fragment>
     <fragment
-        android:id="@+id/libraryFragment"
-        android:name="org.journey.android.course.view.LibraryFragment"
+        android:id="@+id/courseCatalogFragment"
+        android:name="org.journey.android.course.view.CourseCatalogFragment"
         android:label="fragment_library"
-        tools:layout="@layout/fragment_library" />
+        tools:layout="@layout/fragment_course_catalog" />
     <fragment
         android:id="@+id/signupFirstFragment"
         android:name="org.journey.android.signup.view.SignupFirstFragment"
@@ -199,9 +184,6 @@
         android:name="org.journey.android.signup.view.SignupThirdFragment"
         android:label="fragment_signup_third"
         tools:layout="@layout/fragment_signup_third" >
-        <action
-            android:id="@+id/action_signupThirdFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/findPassWordOneFragment"
@@ -226,9 +208,6 @@
         android:name="org.journey.android.findpw.view.FindPassWordThreeFragment"
         android:label="FindPassWordThreeFragment"
         tools:layout="@layout/fragment_find_password_three">
-        <action
-            android:id="@+id/action_findPassWordThreeFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/privateFragment"
