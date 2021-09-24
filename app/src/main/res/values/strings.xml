@@ -56,5 +56,7 @@
     <string name="community_user_id">아라아랑</string>
     <string name="community_post_date">8월 15일</string>
     <string name="mypage_user_email">tldnjs102@gmail.com</string>
+    <string name="challenge_content_name">어제 외운 단어로 문장 만들기</string>
+    <string name="challenge_happy_percent">2%</string>
 
 </resources>

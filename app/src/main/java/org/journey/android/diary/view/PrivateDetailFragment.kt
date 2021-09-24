@@ -8,8 +8,6 @@ import android.os.Bundle
 import android.util.DisplayMetrics
 import android.view.*
 import android.widget.Button
-import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -34,6 +32,7 @@ class PrivateDetailFragment: Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setButtonClickListener()
 
 //        var journeyMood = 0
         val displaymetricsPrivateDetailFragment = DisplayMetrics()
@@ -228,6 +227,12 @@ class PrivateDetailFragment: Fragment() {
                 binding.chipgroupLike.removeView(chip as View)
                 likeList.remove(chip.text.toString())
             }
+        }
+    }
+
+    private fun setButtonClickListener(){
+        with(binding){
+            buttonPrivateCancel.setOnClickListener { findNavController().popBackStack() }
         }
     }
 }

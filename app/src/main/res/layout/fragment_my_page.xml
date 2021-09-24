@@ -117,6 +117,7 @@
             android:layout_height="303dp"
             android:layout_marginHorizontal="18dp"
             android:layout_marginTop="16dp"
+            android:weekDayTextAppearance="@font/spoqahansansneoregular"
             android:background="@drawable/calendar_background"
             app:layout_constraintTop_toBottomOf="@id/imageview_success_course"
             app:layout_constraintStart_toStartOf="parent"
