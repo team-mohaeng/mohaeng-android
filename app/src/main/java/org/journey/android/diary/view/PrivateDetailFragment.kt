@@ -1,6 +1,8 @@
 package org.journey.android.diary.view
 
+import android.app.AlertDialog
 import android.app.Dialog
+import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -8,6 +10,7 @@ import android.os.Bundle
 import android.util.DisplayMetrics
 import android.view.*
 import android.widget.Button
+import android.widget.ImageButton
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -32,7 +35,7 @@ class PrivateDetailFragment: Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setButtonClickListener()
+        setButtonClickListener(context)
 
 //        var journeyMood = 0
         val displaymetricsPrivateDetailFragment = DisplayMetrics()
@@ -167,30 +170,53 @@ class PrivateDetailFragment: Fragment() {
 //                })
 //            }
         }
+    }
 
-        binding.buttonPrivateDetailLike.setOnClickListener{
-            addChipToGroup(3)
-        }
+    private fun setButtonClickListener(ctxt: Context?){
+        with(binding){
+            buttonPrivateCancel.setOnClickListener { findNavController().popBackStack() }
 
-        binding.buttonPrivateCancel.setOnClickListener {
-            findNavController().navigate(R.id.action_privateDetailFragment_to_privateFragment)
-        }
+            buttonPrivateDetailLike.setOnClickListener{
+                val mDialogViewEmoji =
+                    LayoutInflater.from(ctxt).inflate(R.layout.dialog_myfeed_emoji, null)
+                val mBuilderEmoji = AlertDialog.Builder(ctxt)
+                    .setView(mDialogViewEmoji)
+                val alertDialogEmoji = mBuilderEmoji.create()
 
-        binding.imagebuttonPrivateDetailReport.setOnClickListener {
-            val reportDialog = activity?.let { it1 -> BottomSheetDialog(it1) }
-            val view = layoutInflater.inflate(R.layout.dialog_detail_report, null)
-            val window = reportDialog?.window
-            window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+                mDialogViewEmoji.setBackgroundColor(Color.TRANSPARENT)
+                val windowEmoji = alertDialogEmoji.window
+                windowEmoji?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
-            val reportBtn = view.findViewById<Button>(R.id.button_dialog_report)
+                val dialogClose = mDialogViewEmoji.findViewById<ImageButton>(R.id.imagebutton_emoji_close)
+                val dialogFirst = mDialogViewEmoji.findViewById<ImageButton>(R.id.imagebutton_emoji_first)
 
-            reportBtn.setOnClickListener {
-                reportDialog?.dismiss()
+                dialogClose.setOnClickListener {
+                    alertDialogEmoji.dismiss()
+                }
+                dialogFirst.setOnClickListener {
+                    addChipToGroup(3)
+                    alertDialogEmoji.dismiss()
+                }
+                
+                alertDialogEmoji.show()
             }
 
-            reportDialog?.setContentView(view)
-            reportDialog?.show()
+            imagebuttonPrivateDetailReport.setOnClickListener {
+                val reportDialog = activity?.let { it1 -> BottomSheetDialog(it1) }
+                val view = layoutInflater.inflate(R.layout.dialog_detail_report, null)
+                val window = reportDialog?.window
+                window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
+                val reportBtn = view.findViewById<Button>(R.id.button_dialog_report)
+
+                reportBtn.setOnClickListener {
+                    reportDialog?.dismiss()
+                }
+
+                reportDialog?.setContentView(view)
+                reportDialog?.show()
+
+            }
         }
     }
 
@@ -230,9 +256,4 @@ class PrivateDetailFragment: Fragment() {
         }
     }
 
-    private fun setButtonClickListener(){
-        with(binding){
-            buttonPrivateCancel.setOnClickListener { findNavController().popBackStack() }
-        }
-    }
 }
