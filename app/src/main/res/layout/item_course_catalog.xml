@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="data"
+            type="org.journey.android.course.CourseCatalogEntity" />
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/background_course_catalog"
+    android:layout_marginBottom="30dp">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textview_course_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@{data.courseName}"
+        android:textSize="20sp"
+        android:fontFamily="@font/gmarketsansttfmedium"
+        android:textColor="@color/mohaeng_black"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageview_course_period"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_course_date"
+        android:layout_marginLeft="12dp"
+        app:layout_constraintStart_toEndOf="@id/textview_course_title"
+        app:layout_constraintTop_toTopOf="@id/textview_course_title"
+        app:layout_constraintBottom_toBottomOf="@id/textview_course_title"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textview_course_period"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@{data.coursePeriod}"
+        android:textColor="@color/white"
+        android:fontFamily="@font/spoqahansansneoregular"
+        android:textSize="9sp"
+        app:layout_constraintBottom_toBottomOf="@id/imageview_course_period"
+        app:layout_constraintEnd_toEndOf="@id/imageview_course_period"
+        app:layout_constraintStart_toStartOf="@id/imageview_course_period"
+        app:layout_constraintTop_toTopOf="@id/imageview_course_period"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textview_course_intro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:layout_marginLeft="23dp"
+        android:textColor="@color/mohaeng_black"
+        android:textSize="12sp"
+        android:text="@{data.courseIntro}"
+        android:fontFamily="@font/spoqahansansneothin"
+        app:layout_constraintTop_toBottomOf="@id/textview_course_title"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageview_catalog_source"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        loadDrawable="@{data.courseImage}"
+        android:background="@drawable/ic_img"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textview_course_intro" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_start_course"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textColor="@color/white"
+        android:text="시작하기"
+        android:fontFamily="@font/gmarketsansttfmedium"
+        android:textSize="16sp"
+        android:drawableRight="@drawable/ic_btnside"
+        android:paddingRight="120dp"
+        android:paddingLeft="124dp"
+        android:background="@drawable/course_catalog_background"
+        app:layout_constraintTop_toBottomOf="@id/imageview_catalog_source"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

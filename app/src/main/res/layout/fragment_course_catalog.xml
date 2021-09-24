@@ -2,24 +2,28 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="org.journey.android.course.CourseViewModel" />
+    </data>
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".course.view.LibraryFragment">
+    android:layout_height="match_parent">
 
-    <ImageButton
-        android:id="@+id/imagebutton_library_back"
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/button_back"
         android:layout_width="44dp"
         android:layout_height="44dp"
         android:layout_marginStart="18dp"
         android:layout_marginTop="36dp"
         android:background="@drawable/ic_diary_back_page_button"
-        app:layout_constraintBottom_toBottomOf="@+id/textview_library"
+        app:layout_constraintBottom_toBottomOf="@+id/textview_course_catalog"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textview_library"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textview_course_catalog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
@@ -32,18 +36,16 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview_library"
+        android:id="@+id/recyclerview_course_catalog"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="18dp"
-        android:orientation="vertical"
+        android:layout_height="0dp"
+        android:layout_marginTop="36dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="18dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textview_library"
-        tools:listitem="@layout/item_library" />
+        app:layout_constraintTop_toBottomOf="@id/button_back"
+        tools:listitem="@layout/item_course_catalog"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

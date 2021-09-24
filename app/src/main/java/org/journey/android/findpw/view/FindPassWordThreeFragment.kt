@@ -139,7 +139,6 @@ class FindPassWordThreeFragment: Fragment() {
 //                        Log.d("findPW","실패2")
 //                    }
 //                })
-                findNavController().navigate(R.id.action_findPassWordThreeFragment_to_loginFragment)
             }
         }
     }

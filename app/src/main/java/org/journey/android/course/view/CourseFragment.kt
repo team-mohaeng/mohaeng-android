@@ -28,4 +28,5 @@ class CourseFragment : Fragment() {
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
     }
+
 }

@@ -58,5 +58,6 @@
     <string name="mypage_user_email">tldnjs102@gmail.com</string>
     <string name="challenge_content_name">어제 외운 단어로 문장 만들기</string>
     <string name="challenge_happy_percent">2%</string>
+    <string name="course_catalog_intro">매일매일 똑같은 노래만 듣는건 지겨우니까! 새로운 노래\n를 플레이리스트에 추가해보자</string>
 
 </resources>
