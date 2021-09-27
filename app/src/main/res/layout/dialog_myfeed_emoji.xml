@@ -20,8 +20,8 @@
         android:id="@+id/imagebutton_emoji_first"
         android:layout_width="84dp"
         android:layout_height="84dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/ic_emoji_sample"
+        android:layout_marginEnd="25dp"
+        android:background="@drawable/ic_emoji_tears"
         app:layout_constraintBottom_toTopOf="@+id/imagebutton_emoji_close"
         app:layout_constraintEnd_toStartOf="@+id/imagebutton_emoji_second" />
 
@@ -29,8 +29,8 @@
         android:id="@+id/imagebutton_emoji_second"
         android:layout_width="84dp"
         android:layout_height="84dp"
-        android:layout_marginBottom="58dp"
-        android:background="@drawable/ic_emoji_sample"
+        android:layout_marginBottom="52dp"
+        android:background="@drawable/ic_emoji_cong"
         app:layout_constraintBottom_toTopOf="@+id/imagebutton_emoji_close"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -39,8 +39,8 @@
         android:id="@+id/imagebutton_emoji_third"
         android:layout_width="84dp"
         android:layout_height="84dp"
-        android:layout_marginStart="20dp"
-        android:background="@drawable/ic_emoji_sample"
+        android:layout_marginStart="25dp"
+        android:background="@drawable/ic_emoji_medal"
         app:layout_constraintBottom_toTopOf="@+id/imagebutton_emoji_close"
         app:layout_constraintStart_toEndOf="@+id/imagebutton_emoji_second" />
 
@@ -48,8 +48,8 @@
         android:id="@+id/imagebutton_emoji_fourth"
         android:layout_width="84dp"
         android:layout_height="84dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/ic_emoji_sample"
+        android:layout_marginEnd="25dp"
+        android:background="@drawable/ic_emoji_good"
         app:layout_constraintEnd_toStartOf="@+id/imagebutton_emoji_fifth"
         app:layout_constraintTop_toBottomOf="@+id/imagebutton_emoji_close" />
 
@@ -57,8 +57,8 @@
         android:id="@+id/imagebutton_emoji_fifth"
         android:layout_width="84dp"
         android:layout_height="84dp"
-        android:layout_marginTop="48dp"
-        android:background="@drawable/ic_emoji_sample"
+        android:layout_marginTop="52dp"
+        android:background="@drawable/ic_emoji_twinkle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imagebutton_emoji_close" />
@@ -67,8 +67,8 @@
         android:id="@+id/imagebutton_emoji_sixth"
         android:layout_width="84dp"
         android:layout_height="84dp"
-        android:layout_marginStart="20dp"
-        android:background="@drawable/ic_emoji_sample"
+        android:layout_marginStart="25dp"
+        android:background="@drawable/ic_emoji_lucky"
         app:layout_constraintStart_toEndOf="@+id/imagebutton_emoji_fifth"
         app:layout_constraintTop_toBottomOf="@+id/imagebutton_emoji_close" />
 

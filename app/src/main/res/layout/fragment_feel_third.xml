@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".diary.view.FeelThirdFragment">
+
+    <ImageView
+        android:id="@+id/imageview_feel_third"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_feel_third"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageview_feel_before"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginEnd="36dp"
+        android:alpha="0.3"
+        android:background="@drawable/ic_feel_second"
+        app:layout_constraintBottom_toBottomOf="@+id/imageview_feel_third"
+        app:layout_constraintEnd_toStartOf="@+id/imageview_feel_third" />
+
+
+    <TextView
+        android:id="@+id/textview_feel_third"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:fontFamily="@font/spoqahansansneoregular"
+        android:text="안좋아..."
+        android:textColor="@color/mohaeng_black2"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageview_feel_third" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

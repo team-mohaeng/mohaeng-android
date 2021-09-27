@@ -201,22 +201,22 @@ class PrivateDetailFragment: Fragment() {
                 alertDialogEmoji.show()
             }
 
-            imagebuttonPrivateDetailReport.setOnClickListener {
-                val reportDialog = activity?.let { it1 -> BottomSheetDialog(it1) }
-                val view = layoutInflater.inflate(R.layout.dialog_detail_report, null)
-                val window = reportDialog?.window
-                window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-
-                val reportBtn = view.findViewById<Button>(R.id.button_dialog_report)
-
-                reportBtn.setOnClickListener {
-                    reportDialog?.dismiss()
-                }
-
-                reportDialog?.setContentView(view)
-                reportDialog?.show()
-
-            }
+//            imagebuttonPrivateDetailReport.setOnClickListener {
+//                val reportDialog = activity?.let { it1 -> BottomSheetDialog(it1) }
+//                val view = layoutInflater.inflate(R.layout.dialog_detail_report, null)
+//                val window = reportDialog?.window
+//                window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+//
+//                val reportBtn = view.findViewById<Button>(R.id.button_dialog_report)
+//
+//                reportBtn.setOnClickListener {
+//                    reportDialog?.dismiss()
+//                }
+//
+//                reportDialog?.setContentView(view)
+//                reportDialog?.show()
+//
+//            }
         }
     }
 
