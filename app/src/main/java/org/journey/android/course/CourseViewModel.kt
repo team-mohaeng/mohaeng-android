@@ -12,13 +12,19 @@ class CourseViewModel @Inject constructor() : DisposableViewModel(){
     private val _courseRoute = MutableLiveData<List<CourseEntity>>()
     val courseRoute : LiveData<List<CourseEntity>>
         get() = _courseRoute
+
     private val _courseCatalogList = MutableLiveData<List<CourseCatalogEntity>>()
     val courseCatalogList : LiveData<List<CourseCatalogEntity>>
         get() = _courseCatalogList
 
+    private val _courseOddDateList = MutableLiveData<List<CourseOddDateEntity>>()
+    val courseOddDateList : LiveData<List<CourseOddDateEntity>>
+        get() = _courseOddDateList
+
     init {
         fetchCourseRoute()
         fetchCatalogList()
+        fetchOddDateList()
     }
 
     private fun fetchCourseRoute(){
@@ -37,6 +43,32 @@ class CourseViewModel @Inject constructor() : DisposableViewModel(){
             )
         )
         _courseRoute.value = courseRoute
+    }
+
+    private fun fetchOddDateList(){
+        val courseOddDateList = listOf(
+            CourseOddDateEntity(
+                R.drawable.stamp,
+                "1일차",
+                "3개 국어 인삿말 말하기"
+            ),
+            CourseOddDateEntity(
+                R.drawable.stamp,
+                "3일차",
+                "3개 국어 인삿말 말하기"
+            ),
+            CourseOddDateEntity(
+                R.drawable.stamp,
+                "5일차",
+                "3개 국어 인삿말 말하기"
+            ),
+            CourseOddDateEntity(
+                R.drawable.stamp,
+                "7일차",
+                "3개 국어 인삿말 말하기"
+            )
+        )
+        _courseOddDateList.value = courseOddDateList
     }
 
     private fun fetchCatalogList(){

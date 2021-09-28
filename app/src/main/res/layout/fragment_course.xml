@@ -95,6 +95,21 @@
             tools:listitem="@layout/item_course_situation"
             tools:itemCount="8"/>
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview_course_stamp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="54dp"
+            android:layout_marginTop="130dp"
+            android:orientation="vertical"
+            android:nestedScrollingEnabled="false"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_head_line"
+            tools:listitem="@layout/item_course_stamp"
+            tools:itemCount="4"/>
+
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageview_default_end"
             android:layout_width="wrap_content"
@@ -105,9 +120,7 @@
             app:layout_constraintStart_toStartOf="@id/recyclerview_course"
             app:layout_constraintTop_toBottomOf="@id/recyclerview_course" />
 
-
-
-
+        
     </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </layout>

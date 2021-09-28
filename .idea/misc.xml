@@ -72,7 +72,9 @@
         <entry key="app/src/main/res/layout/item_course_first.xml" value="0.25833333333333336" />
         <entry key="app/src/main/res/layout/item_course_left.xml" value="0.25833333333333336" />
         <entry key="app/src/main/res/layout/item_course_right.xml" value="0.290625" />
+        <entry key="app/src/main/res/layout/item_course_second.xml" value="0.3333333333333333" />
         <entry key="app/src/main/res/layout/item_course_situation.xml" value="0.3333333333333333" />
+        <entry key="app/src/main/res/layout/item_course_stamp.xml" value="0.21979166666666666" />
         <entry key="app/src/main/res/layout/item_library.xml" value="0.3380208333333333" />
         <entry key="app/src/main/res/layout/item_reward_course.xml" value="0.22864583333333333" />
         <entry key="app/src/main/res/layout/item_select_character.xml" value="0.1" />
