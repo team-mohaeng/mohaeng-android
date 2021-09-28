@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
-import org.journey.android.community.CommunityPostAdapter
 import org.journey.android.databinding.FragmentBadgeBinding
 import org.journey.android.util.AutoClearedValue
 

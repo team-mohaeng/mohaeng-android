@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
+import org.journey.android.course.CourseAdapter
+import org.journey.android.course.CourseOddDateAdapter
 import org.journey.android.course.CourseViewModel
 import org.journey.android.databinding.FragmentCourseBinding
 import org.journey.android.util.AutoClearedValue
@@ -27,6 +29,25 @@ class CourseFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
+        loadCourseRoute()
+        loadOddDateCourse()
+    }
+    private fun loadCourseRoute(){
+        binding.recyclerviewCourse.apply {
+            this.adapter = CourseAdapter()
+            viewModel.courseRoute.observe(viewLifecycleOwner){
+                (adapter as CourseAdapter).courseSituation = it.toMutableList()
+            }
+        }
+    }
+
+    private fun loadOddDateCourse(){
+        binding.recyclerviewCourseStamp.apply {
+            this.adapter = CourseOddDateAdapter()
+            viewModel.courseOddDateList.observe(viewLifecycleOwner){
+                (adapter as CourseOddDateAdapter).oddDate = it.toMutableList()
+            }
+        }
     }
 
 }

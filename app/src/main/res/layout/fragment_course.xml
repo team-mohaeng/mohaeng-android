@@ -1,100 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
             name="viewModel"
             type="org.journey.android.course.CourseViewModel" />
     </data>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/journey_gray1"
-    tools:context=".course.view.CourseFragment">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintlayout_course_back"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:paddingBottom="4dp"
-        android:background="@drawable/ic_course_title_back">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintlayout_course_title"
+        android:background="@color/mohaeng_yellow_b">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/view_head_line"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="24dp"
-            android:layout_marginTop="52dp"
-            android:background="@drawable/course_title_round"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_height="120dp"
+            android:shadowDx="2"
+            android:background="@drawable/course_head_back_ground"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:id="@+id/textview_course_current"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/spoqahansansneoregular"
-                android:text="현재 진행중인 코스"
-                android:textColor="@color/black"
-                android:textSize="12sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/textview_course_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
-                android:fontFamily="@font/gmarketsansttfmedium"
-                android:text="뽀득뽀득 세균 퇴치"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textview_course_current" />
-
-            <TextView
-                android:id="@+id/textview_course_day"
-                android:layout_width="47dp"
-                android:layout_height="22dp"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/course_round_green"
-                android:fontFamily="@font/gmarketsansttfmedium"
-                android:foregroundGravity="center"
-                android:gravity="center"
-                android:paddingHorizontal="8dp"
-                android:paddingVertical="6dp"
-                android:text="2일차"
-                android:textColor="@color/white"
-                android:textSize="10sp"
-                app:layout_constraintStart_toEndOf="@+id/textview_course_title"
-                app:layout_constraintTop_toTopOf="@+id/textview_course_title" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <ImageView
-            android:id="@+id/imageview_course"
+            app:layout_constraintTop_toTopOf="parent"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_course_ing"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_course_mountain"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:text="현재 진행중인 코스"
+            android:textColor="@color/mohaeng_black2"
+            android:fontFamily="@font/spoqahansansneoregular"
+            android:textSize="12sp"
+            android:layout_marginTop="48dp"
+            android:layout_marginLeft="18dp"
+            app:layout_constraintStart_toStartOf="@id/view_head_line"
+            app:layout_constraintTop_toTopOf="@id/view_head_line"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview_course"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="24dp"
-        android:orientation="vertical"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintlayout_course_back"
-        tools:listitem="@layout/item_course_right" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_course_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/gmarketsansttfmedium"
+            android:text="지구촌 촌장되기"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:layout_marginBottom="26dp"
+            app:layout_constraintBottom_toBottomOf="@+id/view_head_line"
+            app:layout_constraintStart_toStartOf="@id/view_head_line"
+            app:layout_constraintTop_toBottomOf="@id/textview_course_ing" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_course_period"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_rect_date4"
+            android:layout_marginLeft="12dp"
+            android:text="4일차"
+            android:fontFamily="@font/gmarketsansttfmedium"
+            android:textSize="10sp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            app:layout_constraintStart_toEndOf="@id/textview_course_name"
+            app:layout_constraintTop_toTopOf="@id/textview_course_name"
+            app:layout_constraintBottom_toBottomOf="@id/textview_course_name"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageview_course_head"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_frame4"
+            app:layout_constraintBottom_toBottomOf="@+id/view_head_line"
+            app:layout_constraintEnd_toEndOf="@id/view_head_line" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageview_course_default"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_ongoing0"
+            app:layout_constraintStart_toStartOf="@+id/recyclerview_course"
+            app:layout_constraintTop_toBottomOf="@id/view_head_line" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview_course"
+            android:layout_width="324dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:nestedScrollingEnabled="false"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageview_course_default"
+            tools:listitem="@layout/item_course_situation"
+            tools:itemCount="8"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview_course_stamp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="54dp"
+            android:layout_marginTop="130dp"
+            android:orientation="vertical"
+            android:nestedScrollingEnabled="false"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_head_line"
+            tools:listitem="@layout/item_course_stamp"
+            tools:itemCount="4"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageview_default_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_default_end"
+            android:layout_marginBottom="40dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/recyclerview_course"
+            app:layout_constraintTop_toBottomOf="@id/recyclerview_course" />
+
+        
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </layout>
