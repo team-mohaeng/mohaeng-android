@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="data"
+            type="org.journey.android.course.CourseOddDateEntity" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="260dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageview_stamp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="14dp"
+        loadDrawable="@{data.stampImage}"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textview_dday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="22dp"
+        android:text="@{data.DDay}"
+        android:fontFamily="@font/gmarketsansttfmedium"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@id/imageview_stamp"
+        app:layout_constraintTop_toTopOf="@id/imageview_stamp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textview_course_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/spoqahansansneoregular"
+        android:text="@{data.courseContent}"
+        android:textColor="@color/mohaeng_black2"
+        android:textSize="12sp"
+        android:layout_marginLeft="22dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageview_stamp"
+        app:layout_constraintStart_toEndOf="@id/imageview_stamp"
+        app:layout_constraintTop_toBottomOf="@id/textview_dday" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
