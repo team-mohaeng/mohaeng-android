@@ -2,7 +2,9 @@ package org.journey.android.diary.view
 
 import android.app.Dialog
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.content.res.ColorStateList
+import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.net.Uri
@@ -17,13 +19,19 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.Toast
+import androidx.core.app.ActivityCompat.startActivityForResult
 import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
+import com.bumptech.glide.Glide
 import com.google.android.material.chip.Chip
 import org.journey.android.R
 import org.journey.android.base.BaseFragment
 import org.journey.android.databinding.FragmentDiarySecondBinding
+import org.journey.android.frame.MainActivity
+import java.io.File
 import java.util.*
+import java.util.jar.Manifest
 
 class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
     private var imageUri: Uri? = null
@@ -40,7 +48,22 @@ class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         uploadGallery()
-        pressedBack()
+        clickButtons()
+        binding.buttonCompelete.isEnabled = false
+
+        if(moodNum==0)
+        {
+            binding.imageviewDiaryTodaySecond.setBackgroundResource(R.drawable.ic_feel_third)
+        }
+        else if(moodNum==1)
+        {
+            binding.imageviewDiaryTodaySecond.setBackgroundResource(R.drawable.ic_feel_second)
+        }
+        else if(moodNum==2)
+        {
+            binding.imageviewDiaryTodaySecond.setBackgroundResource(R.drawable.ic_feel_first)
+        }
+
         val secondInstance = Calendar.getInstance()
         val secondNowYear = secondInstance.get(Calendar.YEAR).toString()
         val secondNowMonth = (secondInstance.get(Calendar.MONTH) + 1).toString()
@@ -59,81 +82,10 @@ class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
                 else -> return ""
             }
         }
-        val secondViewToday = secondNowYear + "년 " + secondNowMonth + "월 " + secondNowDate + "일 " + secondNowDayOfWeekToString(secondNowDayOfWeek) +"요일"
+//        val secondViewToday = secondNowYear + "년 " + secondNowMonth + "월 " + secondNowDate + "일 " + secondNowDayOfWeekToString(secondNowDayOfWeek) +"요일"
+        val secondViewToday = secondNowMonth + "월 " + secondNowDate + "일 "
 
         binding.textviewNowDateSecond.text = secondViewToday
-
-
-        fun addChipToGroup(hashTag: String) {
-            if (binding.chipgroupHashtag.childCount < 5) {
-                val chip = Chip(context)
-                chip.chipBackgroundColor =
-                    ColorStateList.valueOf(resources.getColor(R.color.journey_gray_e))
-                chip.setTextColor(ColorStateList.valueOf(resources.getColor(R.color.white)))
-                chip.text = hashTag
-                chip.textSize = 12F
-                chip.chipIcon =
-                    ContextCompat.getDrawable(requireContext(), R.drawable.ic_launcher_background)
-                chip.isChipIconVisible = false
-                chip.isCloseIconVisible = true
-                chip.closeIcon =
-                    ContextCompat.getDrawable(requireContext(), R.drawable.ic_diary_hash_tag_close)
-                chip.closeIconSize = 36F
-                chip.closeIconStartPadding = -10F
-                chip.closeIconEndPadding = 30F
-                chip.closeIconTint =
-                    ColorStateList.valueOf(resources.getColor(R.color.journey_pink))
-                chip.isClickable = true
-                chip.isCheckable = false
-                hashTagsList.add(chip.text.toString())
-                binding.chipgroupHashtag.addView(chip as View)
-                chip.setOnCloseIconClickListener {
-                    binding.chipgroupHashtag.removeView(chip as View)
-                    hashTagsList.remove(chip.text.toString())
-                }
-            }
-            else if(binding.chipgroupHashtag.childCount==5)
-            {
-                val displaymetrics = DisplayMetrics()
-                requireActivity().windowManager.defaultDisplay.getMetrics(displaymetrics)
-                val height = displaymetrics.heightPixels * 0.4
-                val width = displaymetrics.widthPixels * 0.9
-                val alertDialog = activity?.let { it1 -> Dialog(it1) }
-                val alertDialogInflater : LayoutInflater = LayoutInflater.from(activity)
-                val mView : View = alertDialogInflater.inflate(R.layout.diary_hashtag_count_dialog,null)
-
-                val window = alertDialog?.window
-                window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-                val buttonConfirm:Button = mView.findViewById(R.id.button_confirm)
-                if (alertDialog != null) {
-                    alertDialog.setContentView(mView)
-                    alertDialog.create()
-                    alertDialog.show()
-                }
-                buttonConfirm.setOnClickListener{
-                    if (alertDialog != null)
-                    {alertDialog.dismiss()
-                        alertDialog.cancel()}
-                }
-            }
-        }
-
-        binding.edittextHashtag.addTextChangedListener(object : TextWatcher {
-
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-            }
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if (binding.edittextHashtag.text.toString().endsWith(" ")) {
-                    var str: String = "#" + binding.edittextHashtag.text.toString()
-                    addChipToGroup(str)
-                    binding.edittextHashtag.setText("")
-                }
-            }
-
-            override fun afterTextChanged(s: Editable?) {
-            }
-        })
 
         binding.edittextContentHappiness.addTextChangedListener(object: TextWatcher {
 
@@ -149,86 +101,165 @@ class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
             override fun afterTextChanged(s: Editable?) {
                 var userInput = binding.edittextContentHappiness.text.toString()
                 binding.textviewCountString.text = userInput.length.toString()
-                if (userInput.isNotEmpty())
+                if (userInput.isNotEmpty()) {
                     binding.buttonCompelete.isSelected = true
-                else if (userInput.isEmpty())
+                    binding.buttonCompelete.isEnabled = true
+                    binding.buttonCompelete.isClickable = true
+                }
+                else if (userInput.isEmpty()) {
                     binding.buttonCompelete.isSelected = false
+                    binding.buttonCompelete.isEnabled = false
+                }
             }
         })
 
         //setRetrofit()
 
-        binding.buttonCompelete.setOnClickListener{
+        if(binding.edittextContentHappiness.text.length > 0){
+            binding.buttonCompelete.isEnabled = true
+            binding.buttonCompelete.isSelected = true
+            binding.buttonCompelete.isClickable = true
+        }
 
-            val displaymetricsDiarySecondFragment = DisplayMetrics()
-            requireActivity().windowManager.defaultDisplay.getMetrics(displaymetricsDiarySecondFragment)
-            val heightDiarySecondDisplay = displaymetricsDiarySecondFragment.heightPixels
-            val widthDiarySecondDisplay = displaymetricsDiarySecondFragment.widthPixels * 0.9
-            val alertDialogDiarySecondFragment = activity?.let { it2 -> Dialog(it2) }
-            val alertDialogDiarySecondFragmentInflater : LayoutInflater = LayoutInflater.from(activity)
-            val mView : View = alertDialogDiarySecondFragmentInflater.inflate(R.layout.diary_compelete_dialog,null)
-            val moodImage = mView.findViewById(R.id.imageview_diary_compelete_dialog_top) as ImageView
-
-            if(moodNum==0)
-            {
-                moodImage.setBackgroundResource(R.drawable.diary_bad_compelete)
-            }
-            else if(moodNum==1)
-            {
-                moodImage.setBackgroundResource(R.drawable.diary_soso_compelete)
-            }
-            else if(moodNum==2)
-            {
-                moodImage.setBackgroundResource(R.drawable.diary_good_compelete)
-            }
-
-            val windowTwo = alertDialogDiarySecondFragment?.window
-            windowTwo?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-            if (alertDialogDiarySecondFragment != null)
-            {
-                alertDialogDiarySecondFragment.setContentView(mView)
-                alertDialogDiarySecondFragment.create()
-                alertDialogDiarySecondFragment.show()
-                alertDialogDiarySecondFragment.window?.setLayout(widthDiarySecondDisplay.toInt(), heightDiarySecondDisplay.toInt())
-                val shareButton = mView.findViewById(R.id.button_diary_compelete_share) as Button
-                val privateButton = mView.findViewById(R.id.button_diary_compelete_save) as Button
-                shareButton.setOnClickListener {
-                    checkPrivate=false
-                    findNavController().navigate(R.id.action_diarySecondFragment_to_communityFragment)
-                    alertDialogDiarySecondFragment.cancel()
-                }
-                privateButton.setOnClickListener {
-                    checkPrivate=true
-                    findNavController().navigate(R.id.action_diarySecondFragment_to_communityFragment)
-                    alertDialogDiarySecondFragment.cancel()
-                }
-            }
+//        binding.buttonCompelete.setOnClickListener{
+//
+//            val displaymetricsDiarySecondFragment = DisplayMetrics()
+//            requireActivity().windowManager.defaultDisplay.getMetrics(displaymetricsDiarySecondFragment)
+//            val heightDiarySecondDisplay = displaymetricsDiarySecondFragment.heightPixels
+//            val widthDiarySecondDisplay = displaymetricsDiarySecondFragment.widthPixels * 0.9
+//            val alertDialogDiarySecondFragment = activity?.let { it2 -> Dialog(it2) }
+//            val alertDialogDiarySecondFragmentInflater : LayoutInflater = LayoutInflater.from(activity)
+//            val mView : View = alertDialogDiarySecondFragmentInflater.inflate(R.layout.diary_compelete_dialog,null)
+//            val moodImage = mView.findViewById(R.id.imageview_diary_compelete_dialog_top) as ImageView
 
 
-            binding.imagebuttonCourseBackSecond.setOnClickListener {
-                findNavController().navigate(R.id.action_diarySecondFragment_to_diaryFirstFragment)
-            }
-    }
+
+//            val windowTwo = alertDialogDiarySecondFragment?.window
+//            windowTwo?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+//            if (alertDialogDiarySecondFragment != null)
+//            {
+//                alertDialogDiarySecondFragment.setContentView(mView)
+//                alertDialogDiarySecondFragment.create()
+//                alertDialogDiarySecondFragment.show()
+//                alertDialogDiarySecondFragment.window?.setLayout(widthDiarySecondDisplay.toInt(), heightDiarySecondDisplay.toInt())
+//                val shareButton = mView.findViewById(R.id.button_diary_compelete_share) as Button
+//                val privateButton = mView.findViewById(R.id.button_diary_compelete_save) as Button
+//                shareButton.setOnClickListener {
+//                    checkPrivate=false
+//                    findNavController().navigate(R.id.action_diarySecondFragment_to_communityFragment)
+//                    alertDialogDiarySecondFragment.cancel()
+//                }
+//                privateButton.setOnClickListener {
+//                    checkPrivate=true
+//                    findNavController().navigate(R.id.action_diarySecondFragment_to_communityFragment)
+//                    alertDialogDiarySecondFragment.cancel()
+//                }
+//            }
+
+//    }
 
 
     }
+
+    fun startActivityForResult(intent: Intent?, requestCode: Int, data: Intent) {
+        super.startActivityForResult(intent, requestCode)
+        // Image 상대경로를 가져온다
+         var uri = data.dataString
+
+        if (!uri.isNullOrEmpty()) {
+            var bitmap = BitmapFactory.decodeFile(uri)
+
+            binding.constraintlayoutPictureUpload.visibility = View.GONE
+            binding.imageviewDiaryPicture.visibility = View.VISIBLE
+            binding.imageviewDiaryPicture.setImageBitmap(bitmap)
+        }
+    }
+    
     var path = ""
     // 갤러리 이미지 첨부
     fun uploadGallery() {
-        binding.buttonPictureUpload.setOnClickListener {
+        binding.constraintlayoutPictureUpload.setOnClickListener {
             val gallery = Intent(Intent.ACTION_PICK)
             gallery.data = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
             startActivityForResult(gallery, PICK_IMAGE)
             Log.d("사진사진",gallery.data.toString())
-//            path = gallery.data.toString()
 
-            binding.buttonPictureUpload.setBackgroundResource(R.drawable.picture_dummy)
+            gallery.data = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+            gallery.type = "image/*"
+            gallery.action = Intent.ACTION_GET_CONTENT
+
+//
+            var imageUri = gallery.data.toString()
+            var imageFile = File(imageUri)
+            if (imageUri.length > 0) {
+//                startActivityForResult(gallery, PICK_IMAGE, binding.imageviewDiaryPicture)
+                var bitmap = BitmapFactory.decodeFile(imageUri)
+
+                binding.constraintlayoutPictureUpload.visibility = View.GONE
+                binding.imageviewDiaryPicture.visibility = View.VISIBLE
+//                binding.imageviewDiaryPicture.setImageBitmap(bitmap)
+//                Glide.with(context)
+//                            .load(imageUri)
+//                            .into(binding.imageviewDiaryPicture)
+            }
+//
+////            path = gallery.data.toString(
+////            })
         }
     }
-    fun pressedBack(){
-        binding.imagebuttonCourseBackSecond.setOnClickListener {
+
+    private fun startActivityForResult(gallery: Intent, pickImage: Int, imageviewDiaryPicture: ImageView) {
+        fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?, diaryImageView: ImageView) {
+            super.onActivityResult(requestCode, resultCode, data)
+            if( resultCode == DiarySecondFragment.PICK_IMAGE) {
+                var ImageData = data?.dataString
+                try {
+//                    val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, ImnageData)
+                    var bitmap = BitmapFactory.decodeFile(ImageData)
+                    diaryImageView.setImageBitmap(bitmap)
+                } catch (e:Exception) {
+                    e.printStackTrace()
+                }
+            }
+        }
+    }
+
+    fun clickButtons(){
+        binding.imagebuttonDiaryBackSecond.setOnClickListener {
             findNavController().popBackStack()
-        }}
+        }
+
+        binding.imagebuttonDiaryCancelSecond.setOnClickListener {
+            findNavController().popBackStack()
+            findNavController().popBackStack()
+        }
+
+        binding.buttonCompelete.setOnClickListener{
+            findNavController().popBackStack()
+            findNavController().popBackStack()
+        }
+
+        binding.imagebuttonDiaryCheckbox.setOnClickListener {
+            if(checkPrivate){
+                checkPrivate=false
+                binding.imagebuttonDiaryCheckbox.setBackgroundResource(R.drawable.ic_diary_checkbox)
+            }
+            else {
+                checkPrivate=true
+                binding.imagebuttonDiaryCheckbox.setBackgroundResource(R.drawable.ic_diary_checkboxno)
+            }
+        }
+        binding.textviewDiaryCheckbox.setOnClickListener {
+            if(checkPrivate){
+                checkPrivate=false
+                binding.imagebuttonDiaryCheckbox.setBackgroundResource(R.drawable.ic_diary_checkbox)
+            }
+            else {
+                checkPrivate=true
+                binding.imagebuttonDiaryCheckbox.setBackgroundResource(R.drawable.ic_diary_checkboxno)
+            }
+        }
+    }
 
     fun setRetrofit(){
         uploadGallery()
@@ -276,7 +307,7 @@ class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
     }
 
     companion object {
-        private const val PICK_IMAGE = 100
+        const val PICK_IMAGE = 100
     }
 
 

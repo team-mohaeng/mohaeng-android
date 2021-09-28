@@ -30,6 +30,8 @@ class DiaryFirstFragment : Fragment(){
         clickEvent()
         pressedBack()
 
+        binding.buttonCompelete.isSelected = true
+
         binding.viewpagerDiaryFirst.adapter = adapter
         binding.viewpagerDiaryFirst.setCurrentItem(1,true)
         binding.dotsIndicatorFeel.setViewPager(binding.viewpagerDiaryFirst)
