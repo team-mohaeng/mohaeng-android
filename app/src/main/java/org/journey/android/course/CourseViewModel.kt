@@ -17,7 +17,26 @@ class CourseViewModel @Inject constructor() : DisposableViewModel(){
         get() = _courseCatalogList
 
     init {
+        fetchCourseRoute()
         fetchCatalogList()
+    }
+
+    private fun fetchCourseRoute(){
+        val courseRoute = listOf(
+            CourseEntity(
+                R.drawable.ic_default2
+        ),
+            CourseEntity(
+                R.drawable.ic_default3
+            ),
+            CourseEntity(
+                R.drawable.ic_default2
+            ),
+            CourseEntity(
+                R.drawable.ic_default3
+            )
+        )
+        _courseRoute.value = courseRoute
     }
 
     private fun fetchCatalogList(){
