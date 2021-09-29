@@ -34,7 +34,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="21dp"
         android:fontFamily="@font/spoqahansansneomedium"
-        android:text="피드 둘러보기"
+        android:text="내 서랍장"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -89,16 +89,6 @@
         app:layout_constraintBottom_toBottomOf="@+id/imageview_private_detail_front"
         app:layout_constraintStart_toEndOf="@+id/imageview_private_detail_front"
         app:layout_constraintStart_toStartOf="@+id/textview_private_detail_nickname" />
-
-    <ImageButton
-        android:id="@+id/imagebutton_private_detail_report"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="18dp"
-        android:background="@drawable/ic_report"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_private_detail_title" />
 
     <ImageView
         android:id="@+id/imageview_private_detail_back"

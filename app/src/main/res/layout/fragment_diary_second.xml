@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -14,7 +14,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/imagebutton_course_back_second"
+                android:id="@+id/imagebutton_diary_back_second"
                 android:layout_width="44dp"
                 android:layout_height="44dp"
                 android:background="@drawable/ic_diary_back_page_button"
@@ -22,179 +22,215 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textview_second_diary_title"
+                android:id="@+id/textview_now_date_second"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="00월 00일"
                 android:layout_gravity="center"
                 android:fontFamily="@font/spoqahansansneomedium"
-                android:text="소확행 작성하기"
                 android:textColor="@color/journey_black3"
                 android:textSize="16sp" />
         </androidx.appcompat.widget.Toolbar>
 
-        <TextView
-            android:id="@+id/textview_now_date_second"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0000년 00월 00일 (월)"
-            android:textColor="@color/journey_black4"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar_input_happiness_second"
-            android:fontFamily="@font/spoqahansansneomedium"
-            android:layout_marginTop="52dp"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/textview_how_are_you_today"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="오늘의 소확행은 무엇인가요?"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textview_now_date_second"
-            android:textColor="@color/journey_black"
-            android:fontFamily="@font/spoqahansansneobold"
-            android:textSize="20sp"
-            android:layout_marginTop="2dp" />
-
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/button_picture_upload"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
-            android:background="@drawable/ic_diary_button_picture_upload"
-            android:layout_marginTop="28dp"
-            app:layout_constraintLeft_toLeftOf="parent"
+            android:id="@+id/imagebutton_diary_cancel_second"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="6dp"
+            android:background="@drawable/ic_x"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textview_how_are_you_today" />
-
-        <EditText
-            android:id="@+id/edittext_content_happiness"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="15sp"
-            android:fontFamily="@font/spoqahansansneomedium"
-            android:gravity="top|left"
-            android:hint="오늘의 소확행을 작성해주세요."
-            android:inputType="text|textMultiLine"
-            android:lines="5"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_picture_upload"
-            android:layout_marginLeft="24dp"
-            android:layout_marginRight="24dp"
-            android:layout_marginTop="28dp"
-            android:paddingLeft="12dp"
-            android:paddingTop="12dp"
-            android:maxLength="40"
-            android:background="@drawable/diary_edittext_selector"
-            android:textColorHint="@color/journey_gray"
-            />
+            app:layout_constraintTop_toTopOf="parent" />
 
 
         <TextView
-            android:id="@+id/textview_count_string"
+            android:id="@+id/textview_diary_text_second"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0"
-            android:textColor="@color/journey_black"
-            app:layout_constraintBottom_toBottomOf="@id/textview_max_string"
-            app:layout_constraintRight_toLeftOf="@+id/textview_max_string"
-            app:layout_constraintTop_toTopOf="@+id/textview_max_string"
-            android:textSize="12sp"
-            />
-
+            android:text="아라아랑의 오늘을 남겨줘"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/gmarketsansttfmedium"
+            android:textColor="@color/journey_black3"
+            android:textSize="20sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_input_happiness_second" />
 
         <TextView
-            android:id="@+id/textview_max_string"
+            android:id="@+id/textview_diary_subtext_second"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="15dp"
-            android:layout_marginBottom="16dp"
-            android:hint="/40자"
-            app:layout_constraintBottom_toBottomOf="@id/edittext_content_happiness"
-            app:layout_constraintRight_toRightOf="@+id/edittext_content_happiness"
-            android:textSize="12sp"
-             />
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/spoqahansansneoregular"
+            android:text="챌린지와 함께한 하루 이야기를 기록으로 남겨봐"
+            android:textColor="@color/moheang_gray_b"
+            android:textSize="13sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textview_diary_text_second" />
 
-
-        <EditText
-            android:id="@+id/edittext_hashtag"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintlayout_diary_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:hint="태그를 입력해주세요. (한 개당 최대 6글자)"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/edittext_content_happiness"
-            android:textSize="15sp"
-            android:layout_marginLeft="24dp"
-            android:layout_marginRight="24dp"
-            android:layout_marginTop="11.55dp"
-            android:paddingTop="14dp"
-            android:maxLength="7"
-            android:paddingBottom="17dp"
-            android:background="@drawable/hashtag_edittext_selector"
-            android:paddingLeft="24dp"
-            android:textColorHint="@color/journey_gray"
-            />
+            android:layout_marginHorizontal="18dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/diary_content_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textview_diary_subtext_second">
 
+            <ImageView
+                android:id="@+id/imageview_diary_today_second"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/ic_feel_first"
+                android:layout_marginTop="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <View
+                android:id="@+id/view_diary_content"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/mohaeng_yellow8"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="20dp"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageview_diary_today_second" />
+
+            <EditText
+                android:id="@+id/edittext_content_happiness"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginRight="16dp"
+                android:background="@null"
+                android:fontFamily="@font/spoqahansansneomedium"
+                android:gravity="top|left"
+                android:hint="밤 산책 챌린지를 하러 가서 치즈 냥이를 만났다ㅠㅠ\n사랑아 고양해"
+                android:inputType="text|textMultiLine"
+                android:lines="5"
+                android:maxLength="40"
+                android:textColorHint="@color/journey_gray"
+                android:textSize="14sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view_diary_content" />
+
+            <TextView
+                android:id="@+id/textview_count_string"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="@color/mohaeng_gray7"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="@id/textview_max_string"
+                app:layout_constraintRight_toLeftOf="@+id/textview_max_string"
+                app:layout_constraintTop_toTopOf="@+id/textview_max_string" />
+
+            <TextView
+                android:id="@+id/textview_max_string"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="/40자"
+                android:textSize="10sp"
+                android:textColor="@color/moheang_yellow6"
+                android:fontFamily="@font/spoqahansansneoregular"
+                app:layout_constraintBottom_toBottomOf="@id/edittext_content_happiness"
+                app:layout_constraintRight_toRightOf="@+id/edittext_content_happiness" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintlayout_picture_upload"
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/diary_content_gallery"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edittext_content_happiness">
+
+                <ImageView
+                    android:id="@+id/imageview_diary_gallery"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:background="@drawable/ic_diary_plus"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/textview_diary_gallery"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textview_diary_gallery"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/spoqahansansneoregular"
+                    android:text="하루를 사진으로 남겨봐!"
+                    android:textColor="@color/mohaeng_black2"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/imageview_diary_gallery"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ImageView
+                android:id="@+id/imageview_diary_picture"
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="20dp"
+                android:visibility="gone"
+                android:scaleType="centerCrop"
+                app:layout_constraintStart_toStartOf="@+id/constraintlayout_picture_upload"
+                app:layout_constraintTop_toBottomOf="@+id/edittext_content_happiness" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageButton
+            android:id="@+id/imagebutton_diary_checkbox"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="22dp"
+            android:background="@drawable/ic_diary_checkboxno"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintlayout_diary_content" />
+
+        <TextView
+            android:id="@+id/textview_diary_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/spoqahansansneoregular"
+            android:text="피드에 오늘의 안부를 공유할게!"
+            android:textColor="@color/mohaeng_black"
+            android:textSize="12sp"
+            android:layout_marginTop="24dp"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintStart_toEndOf="@+id/imagebutton_diary_checkbox"
+            app:layout_constraintTop_toBottomOf="@+id/constraintlayout_diary_content" />
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_compelete"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginLeft="24dp"
-            android:layout_marginTop="42dp"
-            android:layout_marginRight="24dp"
             android:background="@drawable/diary_button_selector"
             android:fontFamily="@font/spoqahansansneobold"
-            android:paddingTop="14dp"
-            android:paddingBottom="14dp"
-            android:stateListAnimator="@null"
-            android:text="작성완료"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:text="계속하기"
             android:textColor="@color/white"
             android:textSize="16sp"
             app:cornerRadius="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/scrollview_chips" />
-
-        <HorizontalScrollView
-            android:id="@+id/scrollview_chips"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="28dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edittext_hashtag">
-
-            <com.google.android.material.chip.ChipGroup
-                android:id="@+id/chipgroup_hashtag"
-                style="@style/HashTagChipStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edittext_hashtag">
-
-
-            </com.google.android.material.chip.ChipGroup>
-        </HorizontalScrollView>
-
-        <TextView
-            android:id="@+id/textview_hash_tag_sharp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="35dp"
-            android:layout_marginBottom="4dp"
-            android:text="#"
-            android:textColor="@color/journey_black"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@id/edittext_hashtag"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="@id/edittext_hashtag" />
-
+            app:layout_constraintRight_toRightOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
 

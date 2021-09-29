@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar_private_title"
+            android:id="@+id/toolbar_diary_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/imagebutton_course_back"
+                android:id="@+id/imagebutton_diary_back"
                 android:layout_width="44dp"
                 android:layout_height="44dp"
                 android:background="@drawable/ic_diary_back_page_button"
@@ -23,51 +23,110 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textview_private_diary"
+                android:id="@+id/textview_now_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:fontFamily="@font/spoqahansansneomedium"
-                android:text="소확행 작성하기"
-                android:textColor="@color/journey_black3"
+                android:fontFamily="@font/spoqahansansneoregular"
+                android:text="00월 00일"
+                android:textColor="@color/mohaeng_black"
                 android:textSize="16sp" />
-
         </androidx.appcompat.widget.Toolbar>
 
 
-        <TextView
-            android:id="@+id/textview_now_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0000년 00월 00일 (월)"
-            android:textColor="@color/journey_black3"
-            app:layout_constraintLeft_toLeftOf="parent"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/imagebutton_diary_cancel"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="6dp"
+            android:background="@drawable/ic_x"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar_private_title"
-            android:fontFamily="@font/spoqahansansneomedium"
-            android:layout_marginTop="52dp"
-            android:textSize="14sp" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textview_how_are_you_today"
+            android:id="@+id/textview_diary_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="당신의 오늘은 어땠나요?"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textview_now_date"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/gmarketsansttfmedium"
+            android:text="아라아랑의 오늘은 어땠어?"
             android:textColor="@color/journey_black3"
-            android:fontFamily="@font/spoqahansansneobold"
             android:textSize="20sp"
-            android:layout_marginTop="2dp" />
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_diary_title" />
 
+        <TextView
+            android:id="@+id/textview_diary_subtext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/spoqahansansneoregular"
+            android:text="오늘을 대표하는 기분을 선택해줘"
+            android:textColor="@color/moheang_gray_b"
+            android:textSize="13sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textview_diary_text" />
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewpager_diary_first"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            app:layout_constraintBottom_toTopOf="@+id/dots_indicator_feel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textview_diary_subtext"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_compelete"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/diary_button_selector"
+            android:fontFamily="@font/spoqahansansneobold"
+            android:stateListAnimator="@null"
+            android:text="계속하기"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+            android:id="@+id/dots_indicator_feel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            app:dotsColor="@color/mohaeng_yellow"
+            app:dotsCornerRadius="10dp"
+            app:dotsSize="10dp"
+            app:dotsSpacing="5dp"
+            app:dotsWidthFactor="2.5"
+            app:layout_constraintBottom_toTopOf="@+id/button_compelete"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/viewpager_diary_first"
+            app:progressMode="false"
+            app:selectedDotColor="@color/mohaeng_yellow" />
+
+        <!--
         <ImageButton
             android:id="@+id/imagebutton_feel_one"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toStartOf="@+id/imagebutton_feel_two"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textview_how_are_you_today"
+            app:layout_constraintTop_toBottomOf="@+id/textview_diary_text"
             app:srcCompat="@drawable/journey_bad_face_button_selector"
             android:layout_marginTop="85dp"
             android:layout_marginLeft="18dp"
@@ -137,27 +196,8 @@
             app:layout_constraintBottom_toBottomOf="@+id/textview_soso_day"
             android:layout_marginLeft="39dp" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/button_compelete"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="560dp"
-            android:background="@drawable/diary_button_selector"
-            android:fontFamily="@font/spoqahansansneobold"
-            android:paddingTop="14.18dp"
-            android:paddingBottom="14.18dp"
-            android:stateListAnimator="@null"
-            android:text="다음"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            app:cornerRadius="30dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
+-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

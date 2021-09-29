@@ -15,6 +15,7 @@ import java.util.*
 var moodNum = 0
 class DiaryFirstFragment : Fragment(){
     private lateinit var  binding : FragmentDiaryFirstBinding
+    private val adapter by lazy { DiaryFirstViewPagerAdapter(parentFragmentManager) }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View?{
         val privateView = inflater.inflate(R.layout.fragment_diary_first, null)
@@ -28,6 +29,15 @@ class DiaryFirstFragment : Fragment(){
         super.onViewCreated(view, savedInstanceState)
         clickEvent()
         pressedBack()
+
+        binding.buttonCompelete.isSelected = true
+
+        binding.viewpagerDiaryFirst.adapter = adapter
+        binding.viewpagerDiaryFirst.setCurrentItem(1,true)
+        binding.dotsIndicatorFeel.setViewPager(binding.viewpagerDiaryFirst)
+
+
+
         val firstInstance = Calendar.getInstance()
         val firstNowYear = firstInstance.get(Calendar.YEAR).toString()
         val firstNowMonth = (firstInstance.get(Calendar.MONTH)+1).toString()
@@ -46,72 +56,77 @@ class DiaryFirstFragment : Fragment(){
                 else -> return ""
             }
         }
-        val firstViewToday = firstNowYear + "년 " + firstNowMonth + "월 " + firstNowDate + "일 " + firstNowDayOfWeekToString(firstNowDayOfWeek) +"요일"
+//        val firstViewToday = firstNowYear + "년 " + firstNowMonth + "월 " + firstNowDate + "일 " + firstNowDayOfWeekToString(firstNowDayOfWeek) +"요일"
+        val firstViewToday = firstNowMonth + "월 " + firstNowDate + "일 "
 
         binding.textviewNowDate.text = firstViewToday
 
-        binding.textviewBadDay.setOnClickListener{
-            binding.textviewBadDay.isSelected=false
-        }
-
-        binding.textviewSosoDay.setOnClickListener{
-            binding.textviewSosoDay.isSelected=false
-        }
-
-        binding.textviewGoodDay.setOnClickListener{
-            binding.textviewGoodDay.isSelected=false
-        }
-
-
-        binding.imagebuttonFeelOne.setOnClickListener {
-            if(binding.imagebuttonFeelTwo.isSelected)
-                binding.imagebuttonFeelTwo.isSelected=false
-            if(binding.imagebuttonFeelThree.isSelected)
-                binding.imagebuttonFeelThree.isSelected=false
-            binding.imagebuttonFeelOne.isSelected=true
-            binding.buttonCompelete.isSelected=true
-            binding.textviewBadDay.isSelected=false
-            binding.textviewSosoDay.isSelected=true
-            binding.textviewGoodDay.isSelected=true
-            moodNum=0
-        }
-
-        binding.imagebuttonFeelTwo.setOnClickListener {
-            if(binding.imagebuttonFeelOne.isSelected)
-                binding.imagebuttonFeelOne.isSelected=false
-            if(binding.imagebuttonFeelThree.isSelected)
-                binding.imagebuttonFeelThree.isSelected=false
-            binding.imagebuttonFeelTwo.isSelected=true
-            binding.buttonCompelete.isSelected=true
-            binding.textviewBadDay.isSelected=true
-            binding.textviewSosoDay.isSelected=false
-            binding.textviewGoodDay.isSelected=true
-            moodNum=1
-        }
-
-        binding.imagebuttonFeelThree.setOnClickListener {
-            if(binding.imagebuttonFeelOne.isSelected)
-                binding.imagebuttonFeelOne.isSelected=false
-            if(binding.imagebuttonFeelTwo.isSelected)
-                binding.imagebuttonFeelTwo.isSelected = false
-            binding.imagebuttonFeelThree.isSelected = true
-            binding.buttonCompelete.isSelected = true
-            binding.textviewBadDay.isSelected = true
-            binding.textviewSosoDay.isSelected = true
-            binding.textviewGoodDay.isSelected = false
-            moodNum=2
-        }
+//        binding.textviewBadDay.setOnClickListener{
+//            binding.textviewBadDay.isSelected=false
+//        }
+//
+//        binding.textviewSosoDay.setOnClickListener{
+//            binding.textviewSosoDay.isSelected=false
+//        }
+//
+//        binding.textviewGoodDay.setOnClickListener{
+//            binding.textviewGoodDay.isSelected=false
+//        }
+//
+//
+//        binding.imagebuttonFeelOne.setOnClickListener {
+//            if(binding.imagebuttonFeelTwo.isSelected)
+//                binding.imagebuttonFeelTwo.isSelected=false
+//            if(binding.imagebuttonFeelThree.isSelected)
+//                binding.imagebuttonFeelThree.isSelected=false
+//            binding.imagebuttonFeelOne.isSelected=true
+//            binding.buttonCompelete.isSelected=true
+//            binding.textviewBadDay.isSelected=false
+//            binding.textviewSosoDay.isSelected=true
+//            binding.textviewGoodDay.isSelected=true
+//            moodNum=0
+//        }
+//
+//        binding.imagebuttonFeelTwo.setOnClickListener {
+//            if(binding.imagebuttonFeelOne.isSelected)
+//                binding.imagebuttonFeelOne.isSelected=false
+//            if(binding.imagebuttonFeelThree.isSelected)
+//                binding.imagebuttonFeelThree.isSelected=false
+//            binding.imagebuttonFeelTwo.isSelected=true
+//            binding.buttonCompelete.isSelected=true
+//            binding.textviewBadDay.isSelected=true
+//            binding.textviewSosoDay.isSelected=false
+//            binding.textviewGoodDay.isSelected=true
+//            moodNum=1
+//        }
+//
+//        binding.imagebuttonFeelThree.setOnClickListener {
+//            if(binding.imagebuttonFeelOne.isSelected)
+//                binding.imagebuttonFeelOne.isSelected=false
+//            if(binding.imagebuttonFeelTwo.isSelected)
+//                binding.imagebuttonFeelTwo.isSelected = false
+//            binding.imagebuttonFeelThree.isSelected = true
+//            binding.buttonCompelete.isSelected = true
+//            binding.textviewBadDay.isSelected = true
+//            binding.textviewSosoDay.isSelected = true
+//            binding.textviewGoodDay.isSelected = false
+//            moodNum=2
+//        }
     }
 
     fun pressedBack(){
-        binding.imagebuttonCourseBack.setOnClickListener {
+        binding.imagebuttonDiaryBack.setOnClickListener {
             findNavController().popBackStack()
-    }}
+        }
+
+        binding.imagebuttonDiaryCancel.setOnClickListener {
+            findNavController().popBackStack()
+        }
+    }
 
     fun clickEvent() {
         binding.buttonCompelete.setOnClickListener {
-            if(binding.buttonCompelete.isSelected)
-                findNavController().navigate(R.id.action_diaryFirstFragment_to_diarySecondFragment)
+            findNavController().navigate(R.id.action_diaryFirstFragment_to_diarySecondFragment)
         }
     }
 }

@@ -199,9 +199,9 @@ class PrivateFragment : Fragment(){
             }
         }
 
-        binding.imagebuttonCommunityBackPrivate.setOnClickListener{
-            findNavController().navigate(R.id.action_privateFragment_to_communityFragment)
-        }
+//        binding.imagebuttonCommunityBackPrivate.setOnClickListener{
+//            findNavController().navigate(R.id.action_privateFragment_to_communityFragment)
+//        }
 
     }
 
