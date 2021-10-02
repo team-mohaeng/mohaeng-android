@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="data"
+            type="org.journey.android.course.CourseEntity" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/journey_transparency">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="30dp" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageview_stamp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/stamp"
+            android:layout_marginEnd="29dp"
+            app:layout_constraintBottom_toBottomOf="@id/guideline"
+            app:layout_constraintEnd_toEndOf="@+id/imageview_course"
+            app:layout_constraintTop_toTopOf="@id/guideline" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageview_course"
+            loadDrawable="@{data.routeImage}"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/guideline"
+            tools:background="@drawable/ic_course_gray_3" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

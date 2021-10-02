@@ -8,18 +8,19 @@ import org.journey.android.base.DisposableViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class CourseViewModel @Inject constructor() : DisposableViewModel(){
+class CourseViewModel @Inject constructor() : DisposableViewModel() {
     private val _courseRoute = MutableLiveData<List<CourseEntity>>()
-    val courseRoute : LiveData<List<CourseEntity>>
+    val courseRoute: LiveData<List<CourseEntity>>
         get() = _courseRoute
 
     private val _courseCatalogList = MutableLiveData<List<CourseCatalogEntity>>()
-    val courseCatalogList : LiveData<List<CourseCatalogEntity>>
+    val courseCatalogList: LiveData<List<CourseCatalogEntity>>
         get() = _courseCatalogList
 
-    private val _courseOddDateList = MutableLiveData<List<CourseOddDateEntity>>()
-    val courseOddDateList : LiveData<List<CourseOddDateEntity>>
+    private val _courseOddDateList = MutableLiveData<List<CourseDateEntity>>()
+    val courseDateList: LiveData<List<CourseDateEntity>>
         get() = _courseOddDateList
+
 
     init {
         fetchCourseRoute()
@@ -27,42 +28,69 @@ class CourseViewModel @Inject constructor() : DisposableViewModel(){
         fetchOddDateList()
     }
 
-    private fun fetchCourseRoute(){
+    private fun fetchCourseRoute() {
         val courseRoute = listOf(
             CourseEntity(
-                R.drawable.ic_default2
-        ),
-            CourseEntity(
-                R.drawable.ic_default3
+                null
             ),
             CourseEntity(
-                R.drawable.ic_default2
+                R.drawable.ic_course_gray
             ),
             CourseEntity(
-                R.drawable.ic_default3
+                R.drawable.ic_course_gray_3
+            ),
+            CourseEntity(
+                R.drawable.ic_course_gray
+            ),
+            CourseEntity(
+                R.drawable.ic_course_gray_3
+            ),
+            CourseEntity(
+                R.drawable.ic_course_gray
+            ),
+            CourseEntity(
+                R.drawable.ic_course_gray_3
+            ),
+            CourseEntity(
+                null
             )
         )
         _courseRoute.value = courseRoute
     }
 
-    private fun fetchOddDateList(){
+    private fun fetchOddDateList() {
         val courseOddDateList = listOf(
-            CourseOddDateEntity(
+            CourseDateEntity(
                 R.drawable.stamp,
                 "1일차",
                 "3개 국어 인삿말 말하기"
             ),
-            CourseOddDateEntity(
+            CourseDateEntity(
+                R.drawable.stamp,
+                "2일차",
+                "3개 국어 인삿말 말하기"
+            ),
+            CourseDateEntity(
                 R.drawable.stamp,
                 "3일차",
                 "3개 국어 인삿말 말하기"
             ),
-            CourseOddDateEntity(
+            CourseDateEntity(
+                R.drawable.stamp,
+                "4일차",
+                "3개 국어 인삿말 말하기"
+            ),
+            CourseDateEntity(
                 R.drawable.stamp,
                 "5일차",
                 "3개 국어 인삿말 말하기"
             ),
-            CourseOddDateEntity(
+            CourseDateEntity(
+                R.drawable.stamp,
+                "6일차",
+                "3개 국어 인삿말 말하기"
+            ),
+            CourseDateEntity(
                 R.drawable.stamp,
                 "7일차",
                 "3개 국어 인삿말 말하기"
@@ -71,7 +99,8 @@ class CourseViewModel @Inject constructor() : DisposableViewModel(){
         _courseOddDateList.value = courseOddDateList
     }
 
-    private fun fetchCatalogList(){
+
+    private fun fetchCatalogList() {
         val courseCatalogList = listOf(
             CourseCatalogEntity(
                 "오늘의 일일 DJ",

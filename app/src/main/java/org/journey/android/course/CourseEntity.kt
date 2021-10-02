@@ -1,5 +1,5 @@
 package org.journey.android.course
 
 data class CourseEntity(
-    val routeImage : Int
+    val routeImage : Int?
 )
