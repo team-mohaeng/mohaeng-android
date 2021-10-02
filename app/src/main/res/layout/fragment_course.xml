@@ -8,13 +8,16 @@
             name="viewModel"
             type="org.journey.android.course.CourseViewModel" />
     </data>
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:fillViewport="true">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/mohaeng_yellow_b">
+
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/view_head_line"
             android:layout_width="match_parent"
@@ -74,53 +77,35 @@
             app:layout_constraintBottom_toBottomOf="@+id/view_head_line"
             app:layout_constraintEnd_toEndOf="@id/view_head_line" />
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/imageview_course_default"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/ic_ongoing0"
-            app:layout_constraintStart_toStartOf="@+id/recyclerview_course"
-            app:layout_constraintTop_toBottomOf="@id/view_head_line" />
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview_course"
             android:layout_width="324dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:nestedScrollingEnabled="false"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/imageview_course_default"
-            tools:listitem="@layout/item_course_situation"
-            tools:itemCount="8"/>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerview_course_stamp"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginHorizontal="54dp"
-            android:layout_marginTop="130dp"
-            android:orientation="vertical"
-            android:nestedScrollingEnabled="false"
+            app:layout_constraintVertical_bias="0.0"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/view_head_line"
-            tools:listitem="@layout/item_course_stamp"
-            tools:itemCount="4"/>
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/imageview_default_end"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/ic_default_end"
-            android:layout_marginBottom="40dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@id/recyclerview_course"
-            app:layout_constraintTop_toBottomOf="@id/recyclerview_course" />
+            tools:listitem="@layout/item_course_situation"
+            tools:itemCount="8"/>
+
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/recyclerview_course_stamp"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_marginHorizontal="54dp"-->
+<!--            android:layout_marginTop="130dp"-->
+<!--            android:orientation="vertical"-->
+<!--            android:nestedScrollingEnabled="false"-->
+<!--            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/view_head_line"-->
+<!--            tools:listitem="@layout/item_course_stamp" />-->
 
         
     </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 </layout>
