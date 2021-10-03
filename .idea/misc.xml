@@ -74,7 +74,7 @@
         <entry key="app/src/main/res/layout/item_course_left.xml" value="0.25833333333333336" />
         <entry key="app/src/main/res/layout/item_course_right.xml" value="0.290625" />
         <entry key="app/src/main/res/layout/item_course_second.xml" value="0.3333333333333333" />
-        <entry key="app/src/main/res/layout/item_course_situation.xml" value="0.1397538235682681" />
+        <entry key="app/src/main/res/layout/item_course_situation.xml" value="0.335" />
         <entry key="app/src/main/res/layout/item_course_situation_end.xml" value="0.17604166666666668" />
         <entry key="app/src/main/res/layout/item_course_situation_reverse.xml" value="0.3380208333333333" />
         <entry key="app/src/main/res/layout/item_course_situation_start.xml" value="0.3380208333333333" />
@@ -85,6 +85,7 @@
         <entry key="app/src/main/res/layout/item_select_character.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_select_option.xml" value="0.1" />
         <entry key="app/src/main/res/layout/private_date_picker.xml" value="0.22864583333333333" />
+        <entry key="app/src/main/res/layout/private_delete_message_dialog.xml" value="0.3380208333333333" />
         <entry key="app/src/main/res/menu/bottom_navigation.xml" value="0.34479166666666666" />
       </map>
     </option>

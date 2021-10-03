@@ -31,6 +31,33 @@
             app:layout_constraintBottom_toBottomOf="@id/guideline"
             app:layout_constraintStart_toStartOf="@id/imageview_course"/>
 
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_dday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1일차"
+            android:fontFamily="@font/gmarketsansttfmedium"
+            android:textSize="24sp"
+            android:layout_marginStart="22dp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@id/imageview_stamp"
+            app:layout_constraintTop_toTopOf="@id/imageview_stamp"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_course_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="22dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/spoqahansansneoregular"
+            android:text="3개 국어 인삿말 하기"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageview_stamp"
+            app:layout_constraintStart_toEndOf="@id/imageview_stamp"
+            app:layout_constraintTop_toBottomOf="@id/textview_dday" />
+
+
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageview_course"
             android:layout_width="match_parent"

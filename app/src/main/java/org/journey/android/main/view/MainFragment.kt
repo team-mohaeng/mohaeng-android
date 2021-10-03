@@ -32,15 +32,24 @@ class MainFragment : Fragment() {
         showIndexDialog()
     }
 
-    @SuppressLint("ResourceType")
+//    @SuppressLint("ResourceType")
+//    private fun showIndexDialog(){
+//        binding.buttonMainReward.setOnClickListener {
+//            val dialogView = LayoutInflater.from(context).inflate(R.layout.dialog_index_explanation,null)
+//            dialogView?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+//            dialogView.setBackgroundResource(R.drawable.selector_index_dialog)
+//            val builder = AlertDialog.Builder(context)
+//                .setView(dialogView)
+//            builder.show()
+//        }
+//    }
+
     private fun showIndexDialog(){
-        binding.buttonMainReward.setOnClickListener {
-            val dialogView = LayoutInflater.from(context).inflate(R.layout.dialog_index_explanation,null)
-            dialogView?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-            dialogView.setBackgroundResource(R.drawable.selector_index_dialog)
-            val builder = AlertDialog.Builder(context)
-                .setView(dialogView)
-            builder.show()
+        with(binding){
+            buttonMainReward.setOnClickListener {
+                val dialog = DialogIndexExplanationFragment()
+                dialog.show(childFragmentManager,tag)
+            }
         }
     }
 

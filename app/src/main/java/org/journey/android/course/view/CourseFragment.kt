@@ -39,7 +39,7 @@ class CourseFragment : Fragment() {
         binding.recyclerviewCourse.apply {
             adapter = CourseAdapter()
             val lastCourseItem = (adapter as CourseAdapter).courseSituation.lastIndex
-            addItemDecoration(RecyclerViewItemDecoration(-42,0))
+            addItemDecoration(RecyclerViewItemDecoration(-54,0))
             viewModel.courseRoute.observe(viewLifecycleOwner){
                 (adapter as CourseAdapter).courseSituation = it
                 Log.e("data", "$it")
