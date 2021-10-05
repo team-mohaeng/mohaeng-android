@@ -84,8 +84,8 @@
                 android:id="@+id/imageview_diary_today_second"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:background="@drawable/ic_feel_first"
                 android:layout_marginTop="20dp"
+                android:background="@drawable/ic_feel_first"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -95,9 +95,9 @@
                 android:id="@+id/view_diary_content"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
+                android:layout_marginTop="20dp"
                 android:background="@color/mohaeng_yellow8"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="20dp"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageview_diary_today_second" />
@@ -137,10 +137,10 @@
                 android:id="@+id/textview_max_string"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="/40자"
-                android:textSize="10sp"
-                android:textColor="@color/moheang_yellow6"
                 android:fontFamily="@font/spoqahansansneoregular"
+                android:text="/40자"
+                android:textColor="@color/moheang_yellow6"
+                android:textSize="10sp"
                 app:layout_constraintBottom_toBottomOf="@id/edittext_content_happiness"
                 app:layout_constraintRight_toRightOf="@+id/edittext_content_happiness" />
 
@@ -186,13 +186,30 @@
                 android:id="@+id/imageview_diary_picture"
                 android:layout_width="match_parent"
                 android:layout_height="110dp"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:paddingVertical="16dp"
                 android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:scaleType="fitCenter"
                 android:visibility="gone"
-                android:scaleType="centerCrop"
+                android:background="@color/mohaeng_transparency"
+                android:src="@drawable/ic_diary_plus"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/constraintlayout_picture_upload"
                 app:layout_constraintTop_toBottomOf="@+id/edittext_content_happiness" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageButton
+            android:id="@+id/imagebutton_diary_picturex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:padding="4dp"
+            android:layout_marginBottom="102dp"
+            android:background="@drawable/ic_gallery_delete"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/constraintlayout_diary_content"
+            app:layout_constraintEnd_toEndOf="@+id/constraintlayout_diary_content" />
 
         <ImageButton
             android:id="@+id/imagebutton_diary_checkbox"
