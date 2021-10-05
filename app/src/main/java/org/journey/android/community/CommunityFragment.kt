@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import org.journey.android.R
 import org.journey.android.databinding.FragmentCommunityBinding
+import org.journey.android.frame.FrameFragmentDirections
 import org.journey.android.util.AutoClearedValue
 
 @AndroidEntryPoint
@@ -36,7 +37,11 @@ class CommunityFragment : Fragment() {
 
     private fun loadCommunityPost(){
         binding.recyclerviewCommunityRecord.apply {
-            this.adapter = CommunityPostAdapter()
+            this.adapter = CommunityPostAdapter(object : CommunityPostAdapter.OnItemClickListener{
+                override fun itemClick() {
+                    findNavController().navigate(R.id.action_frameFragment_to_privateDetailFragment)
+                }
+            })
             viewModel.communityPostList.observe(viewLifecycleOwner){
                 (adapter as CommunityPostAdapter).posts = it.toMutableList()
             }

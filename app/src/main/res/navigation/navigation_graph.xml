@@ -46,6 +46,9 @@
         <action
             android:id="@+id/action_frameFragment_to_courseCatalogFragment"
             app:destination="@id/courseCatalogFragment" />
+        <action
+            android:id="@+id/action_frameFragment_to_communityDetailFragment"
+            app:destination="@id/communityDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/splashFragment"
