@@ -1,37 +1,30 @@
 package org.journey.android.diary.view
 
-import android.app.Dialog
+import android.app.Activity
 import android.content.Intent
-import android.content.pm.PackageManager
-import android.content.res.ColorStateList
 import android.graphics.BitmapFactory
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
+import android.graphics.ImageDecoder
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.DisplayMetrics
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.Toast
-import androidx.core.app.ActivityCompat.startActivityForResult
-import androidx.core.content.ContextCompat
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.navigation.fragment.findNavController
-import com.bumptech.glide.Glide
-import com.google.android.material.chip.Chip
+import com.google.android.gms.common.internal.Constants
 import org.journey.android.R
 import org.journey.android.base.BaseFragment
 import org.journey.android.databinding.FragmentDiarySecondBinding
-import org.journey.android.frame.MainActivity
-import java.io.File
+import org.journey.android.diary.view.DiarySecondFragment.Companion.PICK_IMAGE
+import java.io.InputStream
+import java.lang.Exception
 import java.util.*
-import java.util.jar.Manifest
 
 class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
     private var imageUri: Uri? = null
@@ -42,7 +35,6 @@ class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
         return FragmentDiarySecondBinding.inflate(inflater, container, false)
     }
 
-    var hashTagsList : MutableList<String> = mutableListOf()
     var checkPrivate = false
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -160,65 +152,76 @@ class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
 
 
     }
-
-    fun startActivityForResult(intent: Intent?, requestCode: Int, data: Intent) {
-        super.startActivityForResult(intent, requestCode)
-        // Image 상대경로를 가져온다
-         var uri = data.dataString
-
-        if (!uri.isNullOrEmpty()) {
-            var bitmap = BitmapFactory.decodeFile(uri)
-
-            binding.constraintlayoutPictureUpload.visibility = View.GONE
-            binding.imageviewDiaryPicture.visibility = View.VISIBLE
-            binding.imageviewDiaryPicture.setImageBitmap(bitmap)
-        }
-    }
     
     var path = ""
+
+    val getContent = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
+        var currentImgUrl: Uri? = uri
+
+        try {
+            val bitmap = if(Build.VERSION.SDK_INT>=29){
+                val source: ImageDecoder.Source = ImageDecoder.createSource(requireActivity()
+                    .contentResolver, currentImgUrl!!)
+                ImageDecoder.decodeBitmap(source)
+            } else{
+                MediaStore.Images.Media.getBitmap(requireActivity().contentResolver, currentImgUrl!!)
+            }
+
+            binding.imageviewDiaryPicture.setImageBitmap(bitmap)
+            binding.constraintlayoutPictureUpload.visibility = View.GONE
+            binding.imageviewDiaryPicture.visibility = View.VISIBLE
+            binding.imagebuttonDiaryPicturex.visibility = View.VISIBLE
+
+        }
+        catch (e:Exception){
+            e.printStackTrace()
+        }
+    }
     // 갤러리 이미지 첨부
     fun uploadGallery() {
         binding.constraintlayoutPictureUpload.setOnClickListener {
-            val gallery = Intent(Intent.ACTION_PICK)
-            gallery.data = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
-            startActivityForResult(gallery, PICK_IMAGE)
-            Log.d("사진사진",gallery.data.toString())
-
-            gallery.data = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
-            gallery.type = "image/*"
-            gallery.action = Intent.ACTION_GET_CONTENT
-
+//            val gallery = Intent(Intent.ACTION_PICK)
+//            gallery.data = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+//            activity?.startActivityForResult(gallery, PICK_IMAGE)
 //
-            var imageUri = gallery.data.toString()
-            var imageFile = File(imageUri)
-            if (imageUri.length > 0) {
-//                startActivityForResult(gallery, PICK_IMAGE, binding.imageviewDiaryPicture)
-                var bitmap = BitmapFactory.decodeFile(imageUri)
-
-                binding.constraintlayoutPictureUpload.visibility = View.GONE
-                binding.imageviewDiaryPicture.visibility = View.VISIBLE
-//                binding.imageviewDiaryPicture.setImageBitmap(bitmap)
-//                Glide.with(context)
-//                            .load(imageUri)
-//                            .into(binding.imageviewDiaryPicture)
-            }
+//            Log.d("사진사진",gallery.data.toString())
+//            path = gallery.data.toString()
 //
-////            path = gallery.data.toString(
-////            })
+//            binding.imageviewDiaryPicture.setBackgroundResource(R.drawable.picture_dummy)
+
+            getContent.launch("image/*")
+        }
+
+        binding.imagebuttonDiaryPicturex.setOnClickListener {
+            binding.constraintlayoutPictureUpload.visibility = View.VISIBLE
+            binding.imageviewDiaryPicture.visibility = View.GONE
+            binding.imagebuttonDiaryPicturex.visibility = View.GONE
         }
     }
 
-    private fun startActivityForResult(gallery: Intent, pickImage: Int, imageviewDiaryPicture: ImageView) {
-        fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?, diaryImageView: ImageView) {
-            super.onActivityResult(requestCode, resultCode, data)
-            if( resultCode == DiarySecondFragment.PICK_IMAGE) {
-                var ImageData = data?.dataString
-                try {
-//                    val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, ImnageData)
-                    var bitmap = BitmapFactory.decodeFile(ImageData)
-                    diaryImageView.setImageBitmap(bitmap)
-                } catch (e:Exception) {
-                    e.printStackTrace()
+    private fun onActivityResult(requestCode: Int, result: ActivityResult) {
+        if(result.resultCode == Activity.RESULT_OK) {
+            val intent = result.data
+            when (requestCode) {
+                PICK_IMAGE -> {
+                    var currentImgUrl: Uri? = intent?.data
+
+                    try {
+                        val bitmap = if(Build.VERSION.SDK_INT>=29){
+                            val source: ImageDecoder.Source = ImageDecoder.createSource(requireActivity()
+                                .contentResolver, currentImgUrl!!)
+                            ImageDecoder.decodeBitmap(source)
+                        } else{
+                            MediaStore.Images.Media.getBitmap(requireActivity().contentResolver, currentImgUrl!!)
+                        }
+
+                        binding.constraintlayoutPictureUpload.visibility = View.GONE
+                        binding.imageviewDiaryPicture.visibility = View.VISIBLE
+                        binding.imageviewDiaryPicture.setImageBitmap(bitmap)
+                    }
+                    catch (e:Exception){
+                        e.printStackTrace()
+                    }
                 }
             }
         }
