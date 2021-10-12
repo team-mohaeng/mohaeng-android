@@ -55,12 +55,37 @@ class CommunityDetailFragment : Fragment() {
 
                 val dialogClose = mDialogViewEmoji.findViewById<ImageButton>(R.id.imagebutton_emoji_close)
                 val dialogFirst = mDialogViewEmoji.findViewById<ImageButton>(R.id.imagebutton_emoji_first)
+                val diaglogSecond = mDialogViewEmoji.findViewById<ImageButton>(R.id.imagebutton_emoji_second)
+                val dialogThird = mDialogViewEmoji.findViewById<ImageButton>(R.id.imagebutton_emoji_third)
+                val dialogFourth = mDialogViewEmoji.findViewById<ImageButton>(R.id.imagebutton_emoji_fourth)
+                val dialogFifth = mDialogViewEmoji.findViewById<ImageButton>(R.id.imagebutton_emoji_fifth)
+                val dialogSixth = mDialogViewEmoji.findViewById<ImageButton>(R.id.imagebutton_emoji_sixth)
 
                 dialogClose.setOnClickListener {
                     alertDialogEmoji.dismiss()
                 }
                 dialogFirst.setOnClickListener {
-                    addChipToGroup(3)
+                    addChipToGroup(1,1)
+                    alertDialogEmoji.dismiss()
+                }
+                diaglogSecond.setOnClickListener {
+                    addChipToGroup(2,1)
+                    alertDialogEmoji.dismiss()
+                }
+                dialogThird.setOnClickListener {
+                    addChipToGroup(3,1)
+                    alertDialogEmoji.dismiss()
+                }
+                dialogFourth.setOnClickListener {
+                    addChipToGroup(4,1)
+                    alertDialogEmoji.dismiss()
+                }
+                dialogFifth.setOnClickListener {
+                    addChipToGroup(5,1)
+                    alertDialogEmoji.dismiss()
+                }
+                dialogSixth.setOnClickListener {
+                    addChipToGroup(6,1)
                     alertDialogEmoji.dismiss()
                 }
 
@@ -86,7 +111,7 @@ class CommunityDetailFragment : Fragment() {
         }
     }
 
-    fun addChipToGroup(emotion: Int) {
+    fun addChipToGroup(emotion: Int, cnt: Int) {
         if (binding.chipgroupLike.childCount < 6) {
             val chip = Chip(context)
             chip.chipBackgroundColor =
@@ -94,10 +119,23 @@ class CommunityDetailFragment : Fragment() {
             chip.chipStrokeColor = ColorStateList.valueOf(resources.getColor(R.color.mohaeng_yellow))
             chip.chipStrokeWidth = 2F
             chip.setTextColor(ColorStateList.valueOf(resources.getColor(R.color.mohaeng_yellow2)))
-            chip.text = emotion.toString()
+            chip.text = cnt.toString()
             chip.textSize = 12F
-            chip.chipIcon =
-                ContextCompat.getDrawable(requireContext(), R.drawable.ic_launcher_background)
+            when(emotion){
+                1-> chip.chipIcon =
+                    ContextCompat.getDrawable(requireContext(), R.drawable.ic_emoji_tears)
+                2-> chip.chipIcon =
+                    ContextCompat.getDrawable(requireContext(), R.drawable.ic_emoji_cong)
+                3-> chip.chipIcon =
+                    ContextCompat.getDrawable(requireContext(), R.drawable.ic_emoji_medal)
+                4-> chip.chipIcon =
+                    ContextCompat.getDrawable(requireContext(), R.drawable.ic_emoji_good)
+                5-> chip.chipIcon =
+                    ContextCompat.getDrawable(requireContext(), R.drawable.ic_emoji_twinkle)
+                6-> chip.chipIcon =
+                    ContextCompat.getDrawable(requireContext(), R.drawable.ic_emoji_lucky)
+            }
+
             chip.isChipIconVisible = true
             chip.iconStartPadding = 30F
             chip.iconEndPadding = 5F
