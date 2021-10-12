@@ -39,7 +39,7 @@ class CommunityFragment : Fragment() {
         binding.recyclerviewCommunityRecord.apply {
             this.adapter = CommunityPostAdapter(object : CommunityPostAdapter.OnItemClickListener{
                 override fun itemClick() {
-                    findNavController().navigate(R.id.action_frameFragment_to_privateDetailFragment)
+                    findNavController().navigate(R.id.action_frameFragment_to_communityDetailFragment)
                 }
             })
             viewModel.communityPostList.observe(viewLifecycleOwner){

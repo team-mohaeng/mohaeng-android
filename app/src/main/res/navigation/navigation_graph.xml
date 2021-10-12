@@ -228,7 +228,7 @@
 
     <fragment
         android:id="@+id/communityDetailFragment"
-        android:name="org.journey.android.frame.FrameFragment"
+        android:name="org.journey.android.community.CommunityDetailFragment"
         android:label="CommunityDetailFragment"
         tools:layout="@layout/fragment_community_detail">
     </fragment>
