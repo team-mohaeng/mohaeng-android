@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/mohaeng_yellow"
-        tools:context=".community.CommunityFragment">
+        tools:context=".community.ui.fragment.CommunityFragment">
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/textview_diary"
             android:layout_width="70dp"

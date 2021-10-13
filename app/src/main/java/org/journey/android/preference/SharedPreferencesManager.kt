@@ -4,10 +4,10 @@ import android.content.SharedPreferences
 import javax.inject.Inject
 
 class SharedPreferencesManager @Inject constructor(
-    val encryptedSharedPreferences : SharedPreferences
+    private val encryptedSharedPreferences: SharedPreferences
 ) {
     fun <T> putSharedPref(key: String, value: T) = with(encryptedSharedPreferences.edit()) {
-        when(value) {
+        when (value) {
             is String -> putString(key, value)
             is Long -> putLong(key, value)
             is Int -> putInt(key, value)
@@ -19,9 +19,9 @@ class SharedPreferencesManager @Inject constructor(
     }
 
     @Suppress("UNCHECKED_CAST")
-    fun <T> getSharedPrefs(key: String, defaultValue: T): T  {
-        return when(defaultValue) {
-            is String-> encryptedSharedPreferences.getString(key, defaultValue) as T
+    fun <T> getSharedPrefs(key: String, defaultValue: T): T {
+        return when (defaultValue) {
+            is String -> encryptedSharedPreferences.getString(key, defaultValue) as T
             is Int -> encryptedSharedPreferences.getInt(key, defaultValue) as T
             is Long -> encryptedSharedPreferences.getLong(key, defaultValue) as T
             is Boolean -> encryptedSharedPreferences.getBoolean(key, defaultValue) as T

@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import org.journey.android.databinding.FragmentSetNickNameBinding
-import org.journey.android.entry.onboarding.OnboardingActivity
 import org.journey.android.frame.MainActivity
 import org.journey.android.util.AutoClearedValue
 
