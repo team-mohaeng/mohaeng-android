@@ -1,4 +1,4 @@
-package org.journey.android.splash.ui
+package org.journey.android.entry.ui
 
 import android.os.Bundle
 import android.text.Editable

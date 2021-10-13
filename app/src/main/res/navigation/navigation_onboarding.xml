@@ -4,15 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_onboarding"
     app:startDestination="@id/onboardingFirstFragment">
-
-    <activity
-        android:id="@+id/onboardingActivity"
-        android:name="org.journey.android.splash.onboarding.OnboardingActivity"
-        android:label="activity_onboarding"
-        tools:layout="@layout/activity_onboarding" />
     <fragment
         android:id="@+id/onboardingFirstFragment"
-        android:name="org.journey.android.splash.ui.OnboardingFirstFragment"
+        android:name="org.journey.android.entry.ui.LoginFragment"
         android:label="OnboardingFirstFragment"
         tools:layout="@layout/fragment_onboarding_first">
         <action
@@ -24,11 +18,13 @@
         <action
             android:id="@+id/action_onboardingFirstFragment_to_emailSignupFragment"
             app:destination="@id/emailSignupFragment" />
+        <action
+            android:id="@+id/action_onboardingFirstFragment_to_serviceAgreeFragment"
+            app:destination="@id/serviceAgreeFragment" />
     </fragment>
-
     <fragment
         android:id="@+id/emailLoginFragment"
-        android:name="org.journey.android.splash.ui.EmailLoginFragment"
+        android:name="org.journey.android.entry.ui.EmailLoginFragment"
         android:label="EmailLoginFragment"
         tools:layout="@layout/fragment_email_login">
         <action
@@ -42,7 +38,25 @@
         tools:layout="@layout/fragment_find_password_one"/>
     <fragment
         android:id="@+id/emailSignupFragment"
-        android:name="org.journey.android.splash.ui.EmailSignupFragment"
+        android:name="org.journey.android.entry.ui.EmailSignupFragment"
         android:label="EmailSignupFragment"
-        tools:layout="@layout/fragment_email_signup"/>
+        tools:layout="@layout/fragment_email_signup">
+        <action
+            android:id="@+id/action_emailSignupFragment_to_serviceAgreeFragment"
+            app:destination="@id/serviceAgreeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/serviceAgreeFragment"
+        android:name="org.journey.android.entry.ui.ServiceAgreeFragment"
+        android:label="ServiceAgreeFragment"
+        tools:layout="@layout/fragment_service_agree">
+        <action
+            android:id="@+id/action_serviceAgreeFragment_to_setNickNameFragment"
+            app:destination="@id/setNickNameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/setNickNameFragment"
+        android:name="org.journey.android.nickname.SetNickNameFragment"
+        android:label="SetNickNameFragment"
+        tools:layout="@layout/fragment_set_nick_name"/>
 </navigation>

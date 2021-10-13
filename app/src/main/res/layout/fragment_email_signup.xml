@@ -148,7 +148,7 @@
         android:visibility="invisible" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button_login_complete"
+        android:id="@+id/button_sign_up_complete"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/ic_rec_ok"
@@ -156,14 +156,13 @@
         android:text="확인"
         android:textSize="16sp"
         android:stateListAnimator="@null"
-        android:enabled="false"
         android:fontFamily="@font/spoqahansansneobold"
         android:textColor="@color/white"
         android:layout_marginTop="20dp"
         app:layout_constraintTop_toBottomOf="@id/edittext_double_check_password"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:visibility="invisible"/>
+        android:visibility="visible"/>
 
 
 

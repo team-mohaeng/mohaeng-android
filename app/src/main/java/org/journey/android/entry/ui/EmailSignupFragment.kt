@@ -1,12 +1,14 @@
-package org.journey.android.splash.ui
+package org.journey.android.entry.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
+import org.journey.android.R
 import org.journey.android.databinding.FragmentEmailSignupBinding
 import org.journey.android.util.AutoClearedValue
 
@@ -25,11 +27,17 @@ class EmailSignupFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setClickListener()
+        popBackStack()
+        successSignUp()
     }
-    private fun setClickListener(){
+    private fun popBackStack(){
         with(binding){
             buttonReturnEmailSignup.setOnClickListener { findNavController().popBackStack() }
+        }
+    }
+    private fun successSignUp(){
+        binding.buttonSignUpComplete.setOnClickListener {
+            Navigation.findNavController(binding.root).navigate(R.id.action_emailSignupFragment_to_serviceAgreeFragment)
         }
     }
 }

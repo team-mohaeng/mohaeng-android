@@ -1,4 +1,4 @@
-package org.journey.android.splash.onboarding
+package org.journey.android.entry.onboarding
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
