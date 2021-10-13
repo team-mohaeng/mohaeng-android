@@ -1,19 +1,19 @@
 package org.journey.android.reward.util
 
 import androidx.recyclerview.widget.DiffUtil
-import org.journey.android.reward.dto.CompleteCourseData
+import org.journey.android.reward.dto.CompleteCourseEntity
 
-object CourseDiffCallback : DiffUtil.ItemCallback<CompleteCourseData>() {
+object CourseDiffCallback : DiffUtil.ItemCallback<CompleteCourseEntity>() {
     override fun areItemsTheSame(
-        oldItem: CompleteCourseData,
-        newItem: CompleteCourseData
+        oldItem: CompleteCourseEntity,
+        newItem: CompleteCourseEntity
     ): Boolean {
         return oldItem.hashCode() == newItem.hashCode()
     }
 
     override fun areContentsTheSame(
-        oldItem: CompleteCourseData,
-        newItem: CompleteCourseData
+        oldItem: CompleteCourseEntity,
+        newItem: CompleteCourseEntity
     ): Boolean {
         return oldItem == newItem
     }

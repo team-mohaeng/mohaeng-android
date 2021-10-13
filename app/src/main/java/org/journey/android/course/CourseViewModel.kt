@@ -5,6 +5,9 @@ import androidx.lifecycle.MutableLiveData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import org.journey.android.R
 import org.journey.android.base.DisposableViewModel
+import org.journey.android.course.data.CourseCatalogEntity
+import org.journey.android.course.data.CourseDateEntity
+import org.journey.android.course.data.CourseEntity
 import javax.inject.Inject
 
 @HiltViewModel

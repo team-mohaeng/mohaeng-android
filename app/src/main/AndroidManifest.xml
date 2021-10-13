@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
-        android:name=".application.JourneyApplication"
+        android:name=".application.MohaengApplication"
         android:windowSoftInputMode="adjustResize"
         android:allowBackup="true"
         android:icon="@mipmap/ic_journey"
@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JourneyAndroid"
         android:usesCleartextTraffic="true">
-        <activity android:name="org.journey.android.entry.onboarding.OnboardingActivity">
+        <activity android:name="org.journey.android.entry.frame.EntryActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

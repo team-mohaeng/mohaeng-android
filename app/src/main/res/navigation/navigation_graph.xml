@@ -80,7 +80,7 @@
 
     <fragment
         android:id="@+id/communityFragment"
-        android:name="org.journey.android.community.CommunityFragment"
+        android:name="org.journey.android.community.ui.fragment.CommunityFragment"
         android:label="fragment_community"
         tools:layout="@layout/fragment_community">
         <action
@@ -134,7 +134,7 @@
     </fragment>
     <fragment
         android:id="@+id/rewardFragment"
-        android:name="org.journey.android.reward.view.RewardFragment"
+        android:name="org.journey.android.reward.ui.RewardFragment"
         android:label="RewardFragment"
         tools:layout="@layout/fragment_reward">
         <action
@@ -152,7 +152,7 @@
     </fragment>
     <fragment
         android:id="@+id/courseFragment"
-        android:name="org.journey.android.course.view.CourseFragment"
+        android:name="org.journey.android.course.ui.CourseFragment"
         android:label="fragment_course"
         tools:layout="@layout/fragment_course">
         <action
@@ -161,7 +161,7 @@
     </fragment>
     <fragment
         android:id="@+id/courseCatalogFragment"
-        android:name="org.journey.android.course.view.CourseCatalogFragment"
+        android:name="org.journey.android.course.ui.CourseCatalogFragment"
         android:label="fragment_library"
         tools:layout="@layout/fragment_course_catalog" />
 
@@ -196,7 +196,7 @@
 
     <fragment
         android:id="@+id/communityDetailFragment"
-        android:name="org.journey.android.community.CommunityDetailFragment"
+        android:name="org.journey.android.community.ui.fragment.CommunityDetailFragment"
         android:label="CommunityDetailFragment"
         tools:layout="@layout/fragment_community_detail">
     </fragment>
@@ -207,7 +207,7 @@
         tools:layout="@layout/fragment_chat"/>
     <fragment
         android:id="@+id/characterFragment"
-        android:name="org.journey.android.character.ui.CharacterFragment"
+        android:name="org.journey.android.character.ui.fragment.CharacterFragment"
         android:label="CharacterFragment"
         tools:layout="@layout/fragment_character"/>
     <fragment

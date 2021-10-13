@@ -7,10 +7,6 @@
             name="viewModel"
             type="org.journey.android.challenge.ChallengeViewModel" />
     </data>
-    <!--    <ScrollView-->
-    <!--        android:id="@+id/scrollview_challenge"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="0dp">-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintlayout_challenge_ongoing"
         android:layout_width="match_parent"
@@ -586,6 +582,4 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintlayout_challenge_sub" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <!--    </ScrollView>-->
 </layout>

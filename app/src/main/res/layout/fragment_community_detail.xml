@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginBottom="13dp"
-    tools:context=".community.CommunityDetailFragment">
+    tools:context=".community.ui.fragment.CommunityDetailFragment">
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_community_cancel"
