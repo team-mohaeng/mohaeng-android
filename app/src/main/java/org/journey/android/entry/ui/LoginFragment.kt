@@ -1,4 +1,4 @@
-package org.journey.android.splash.ui
+package org.journey.android.entry.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,7 +11,7 @@ import org.journey.android.base.BaseFragment
 import org.journey.android.databinding.FragmentOnboardingFirstBinding
 
 @AndroidEntryPoint
-class OnboardingFirstFragment : BaseFragment<FragmentOnboardingFirstBinding>() {
+class LoginFragment : BaseFragment<FragmentOnboardingFirstBinding>() {
     override fun getFragmentBinding(
         inflater: LayoutInflater,
         container: ViewGroup?

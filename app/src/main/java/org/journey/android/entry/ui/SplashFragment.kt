@@ -1,11 +1,10 @@
-package org.journey.android.splash.ui
+package org.journey.android.entry.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.findNavController
 import kotlinx.coroutines.*
 import org.journey.android.R
 import org.journey.android.base.BaseFragment

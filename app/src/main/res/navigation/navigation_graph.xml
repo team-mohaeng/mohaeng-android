@@ -52,7 +52,7 @@
     </fragment>
     <fragment
         android:id="@+id/splashFragment"
-        android:name="org.journey.android.splash.ui.SplashFragment"
+        android:name="org.journey.android.entry.ui.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash">
         <action
@@ -164,39 +164,7 @@
         android:name="org.journey.android.course.view.CourseCatalogFragment"
         android:label="fragment_library"
         tools:layout="@layout/fragment_course_catalog" />
-    <fragment
-        android:id="@+id/signupFirstFragment"
-        android:name="org.journey.android.signup.view.SignupFirstFragment"
-        android:label="fragment_signup_first"
-        tools:layout="@layout/fragment_signup_first" >
-        <action
-            android:id="@+id/action_signupFirstFragment_to_signupSecondFragment"
-            app:destination="@id/signupSecondFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/signupSecondFragment"
-        android:name="org.journey.android.signup.view.SignupSecondFragment"
-        android:label="fragment_signup_second"
-        tools:layout="@layout/fragment_signup_second" >
-        <action
-            android:id="@+id/action_signupSecondFragment_to_signupThirdFragment"
-            app:destination="@id/signupThirdFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/signupThirdFragment"
-        android:name="org.journey.android.signup.view.SignupThirdFragment"
-        android:label="fragment_signup_third"
-        tools:layout="@layout/fragment_signup_third" >
-    </fragment>
-    <fragment
-        android:id="@+id/findPassWordOneFragment"
-        android:name="org.journey.android.findpw.view.FindPassWordOneFragment"
-        android:label="FindPassWordOneFragment"
-        tools:layout="@layout/fragment_find_password_one">
-        <action
-            android:id="@+id/action_findPassWordOneFragment_to_findPassWordTwoFragment"
-            app:destination="@id/findPassWordTwoFragment" />
-    </fragment>
+
     <fragment
         android:id="@+id/findPassWordTwoFragment"
         android:name="org.journey.android.findpw.view.FindPassWordTwoFragment"

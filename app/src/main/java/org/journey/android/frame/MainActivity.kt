@@ -34,22 +34,22 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         initNavController()
         setFullScreen()
-        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
-            if (!task.isSuccessful) {
-                Log.w(
-                    "FirebasePractice.TAG",
-                    "Fetching FCM registration token failed",
-                    task.exception
-                )
-                return@OnCompleteListener
-            } else {
-                val token = task.result
-                val msg = getString(R.string.msg_token_fmt, token)
-                //JourneyRepository.userToken = token.toString()
-                userToken = token.toString()
-                Log.d("fbPractice.Success", msg)
-            }
-        })
+//        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
+//            if (!task.isSuccessful) {
+//                Log.w(
+//                    "FirebasePractice.TAG",
+//                    "Fetching FCM registration token failed",
+//                    task.exception
+//                )
+//                return@OnCompleteListener
+//            } else {
+//                val token = task.result
+//                val msg = getString(R.string.msg_token_fmt, token)
+//                //JourneyRepository.userToken = token.toString()
+//                userToken = token.toString()
+//                Log.d("fbPractice.Success", msg)
+//            }
+//        })
     }
 
     private fun initNavController() {

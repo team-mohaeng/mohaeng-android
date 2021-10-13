@@ -2,9 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.journey.android">
 
-<!--    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />-->
-<!--    <uses-permission android:name="android.permission.INTERNET" />-->
-<!--    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:name=".application.JourneyApplication"
@@ -16,14 +16,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JourneyAndroid"
         android:usesCleartextTraffic="true">
-        <activity android:name="org.journey.android.splash.onboarding.OnboardingActivity">
-        </activity>
-        <activity android:name=".frame.MainActivity">
+        <activity android:name="org.journey.android.entry.onboarding.OnboardingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".frame.MainActivity">
+
         </activity>
 <!--        <service-->
 <!--            android:name=".pushalarm.JourneyMessagingService"-->

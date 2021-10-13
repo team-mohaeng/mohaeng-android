@@ -1,4 +1,4 @@
-package org.journey.android.splash
+package org.journey.android.entry
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
