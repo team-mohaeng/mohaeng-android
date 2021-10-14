@@ -6,7 +6,7 @@
     app:startDestination="@id/onboardingFirstFragment">
     <fragment
         android:id="@+id/onboardingFirstFragment"
-        android:name="org.journey.android.entry.ui.LoginFragment"
+        android:name="org.journey.android.login.LoginFragment"
         android:label="OnboardingFirstFragment"
         tools:layout="@layout/fragment_onboarding_first">
         <action

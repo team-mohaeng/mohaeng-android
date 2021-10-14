@@ -49,32 +49,34 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'com.google.firebase:firebase-messaging:22.0.0'
     implementation 'androidx.security:security-crypto:1.0.0'
+    implementation 'com.google.firebase:firebase-auth-ktx:21.0.1'
+    implementation 'com.google.android.gms:play-services-auth:19.2.0'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     //Jetpack Navigation
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation "androidx.navigation:navigation-fragment-ktx:${Versions.navigation_version}"
-    implementation "androidx.navigation:navigation-ui-ktx:${Versions.navigation_version}"
+    implementation "androidx.navigation:navigation-fragment-ktx:${Versions.NAVIGATION_VERSION}"
+    implementation "androidx.navigation:navigation-ui-ktx:${Versions.NAVIGATION_VERSION}"
 
     //Hilt
-    implementation "com.google.dagger:hilt-android:${Versions.dagger_version}"
-    kapt "com.google.dagger:hilt-android-compiler:${Versions.dagger_version}"
+    implementation "com.google.dagger:hilt-android:${Versions.DAGGER_HILT_VERSION}"
+    kapt "com.google.dagger:hilt-android-compiler:${Versions.DAGGER_HILT_VERSION}"
 
     //lifecycle
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle_version}"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycle_version}"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.LIFECYCLE_VERSION}"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.LIFECYCLE_VERSION}"
 
     //Fragment-ktx
-    implementation "androidx.fragment:fragment-ktx:${Versions.fragment_ktx_version}"
+    implementation "androidx.fragment:fragment-ktx:${Versions.FRAGMENT_KTX_VERSION}"
 
     //Activity-ktx
-    implementation "androidx.activity:activity-ktx:${Versions.activity_ktx_version}"
+    implementation "androidx.activity:activity-ktx:${Versions.ACTIVITY_KTX_VERSION}"
 
     // RxJava
-    implementation "io.reactivex.rxjava2:rxjava:${Versions.rxjava_version}"
-    implementation "io.reactivex.rxjava2:rxandroid:${Versions.rxandroid_version}"
+    implementation "io.reactivex.rxjava3:rxjava:${Versions.RXJAVA_VERSION}"
+    implementation "io.reactivex.rxjava3:rxandroid:${Versions.RXANDROID_VERSION}"
 
     //Firebase
     implementation platform('com.google.firebase:firebase-bom:28.4.2')
@@ -84,12 +86,12 @@ dependencies {
     implementation 'com.google.firebase:firebase-messaging:22.0.0'
 
     //Retrofit
-    implementation "com.squareup.retrofit2:retrofit:${Versions.retrofit_version}"
-    implementation "com.squareup.retrofit2:converter-gson:${Versions.retrofit_version}"
-    implementation "com.squareup.retrofit2:adapter-rxjava2:${Versions.retrofit_version}"
+    implementation "com.squareup.retrofit2:retrofit:${Versions.RETROFIT_VERSION}"
+    implementation "com.squareup.retrofit2:converter-gson:${Versions.RETROFIT_VERSION}"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:${Versions.RETROFIT_VERSION}"
 
     //OkHttp Logging Interceptor
-    implementation "com.squareup.okhttp3:logging-interceptor:${Versions.okhttp_version}"
+    implementation "com.squareup.okhttp3:logging-interceptor:${Versions.OKHTTP_VERSION}"
 
     //Dot Indicator
     implementation 'com.tbuonomo:dotsindicator:4.2'
