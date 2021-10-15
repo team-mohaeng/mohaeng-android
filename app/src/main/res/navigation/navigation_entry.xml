@@ -6,7 +6,7 @@
     app:startDestination="@id/onboardingFirstFragment">
     <fragment
         android:id="@+id/onboardingFirstFragment"
-        android:name="org.journey.android.login.LoginFragment"
+        android:name="org.journey.android.login.ui.LoginFragment"
         android:label="OnboardingFirstFragment"
         tools:layout="@layout/fragment_onboarding_first">
         <action
@@ -24,7 +24,7 @@
     </fragment>
     <fragment
         android:id="@+id/emailLoginFragment"
-        android:name="org.journey.android.entry.ui.EmailLoginFragment"
+        android:name="org.journey.android.login.ui.EmailLoginFragment"
         android:label="EmailLoginFragment"
         tools:layout="@layout/fragment_email_login">
         <action
@@ -38,7 +38,7 @@
         tools:layout="@layout/fragment_find_password_one"/>
     <fragment
         android:id="@+id/emailSignupFragment"
-        android:name="org.journey.android.entry.ui.EmailSignupFragment"
+        android:name="org.journey.android.signup.EmailSignupFragment"
         android:label="EmailSignupFragment"
         tools:layout="@layout/fragment_email_signup">
         <action
@@ -47,7 +47,7 @@
     </fragment>
     <fragment
         android:id="@+id/serviceAgreeFragment"
-        android:name="org.journey.android.entry.ui.ServiceAgreeFragment"
+        android:name="org.journey.android.signup.ServiceAgreeFragment"
         android:label="ServiceAgreeFragment"
         tools:layout="@layout/fragment_service_agree">
         <action

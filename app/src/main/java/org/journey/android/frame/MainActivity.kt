@@ -3,29 +3,19 @@ package org.journey.android.frame
 import android.os.Build
 import android.os.Build.VERSION_CODES
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowInsetsController
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.firebase.messaging.FirebaseMessaging
 import dagger.hilt.android.AndroidEntryPoint
-import dagger.hilt.android.HiltAndroidApp
 import org.journey.android.R
 import org.journey.android.databinding.ActivityMainBinding
-import org.journey.android.diary.*
-import org.journey.android.preference.SharedPreferencesManager
-import javax.inject.Inject
 
-
-var userToken = ""
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-    lateinit var pref: SharedPreferencesManager
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
     override fun onCreate(savedInstanceState: Bundle?) {

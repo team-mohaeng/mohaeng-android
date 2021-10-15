@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/ic_moh_login"
-        tools:context=".login.LoginFragment">
+        tools:context=".login.ui.LoginFragment">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textview_login_logo"
