@@ -1,4 +1,4 @@
-package org.journey.android.login
+package org.journey.android.login.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,6 +12,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import org.journey.android.R
 import org.journey.android.base.BaseFragment
 import org.journey.android.databinding.FragmentOnboardingFirstBinding
+import org.journey.android.login.LoginViewModel
 
 @AndroidEntryPoint
 class LoginFragment : BaseFragment<FragmentOnboardingFirstBinding>() {

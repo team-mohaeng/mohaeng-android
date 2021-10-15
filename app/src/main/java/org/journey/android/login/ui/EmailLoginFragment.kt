@@ -1,4 +1,4 @@
-package org.journey.android.entry.ui
+package org.journey.android.login.ui
 
 import android.os.Bundle
 import android.text.Editable
