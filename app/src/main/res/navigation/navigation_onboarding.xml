@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools = "http://schemas.android.com/tools"
     android:id="@+id/navigation_onboarding"
-    app:startDestination="@layout/activity_onboarding">
+    app:startDestination="@id/onboardingFirstFragment">
 
+
+    <fragment
+        android:id="@+id/onboardingFirstFragment"
+        android:name="org.journey.android.OnboardingFirstFragment"
+        android:label="OnboardingFirstFragment"
+        tools:layout="@layout/fragment_onboarding_first">
+        <action
+            android:id="@+id/action_onboardingFirstFragment_to_onboardingSecondFragment"
+            app:destination="@id/onboardingSecondFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/onboardingSecondFragment"
+        android:name="org.journey.android.OnboardingSecondFragment"
+        android:label="OnboardingSecondFragment"
+        tools:layout="@layout/fragment_onboarding_second"/>
 </navigation>

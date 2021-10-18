@@ -3,6 +3,9 @@ package org.journey.android
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import dagger.hilt.android.AndroidEntryPoint
 import org.journey.android.databinding.ActivityOnboardingBinding
 import org.journey.android.entry.frame.EntryActivity
@@ -10,19 +13,18 @@ import org.journey.android.entry.frame.EntryActivity
 @AndroidEntryPoint
 class OnboardingActivity : AppCompatActivity() {
     private lateinit var binding : ActivityOnboardingBinding
-
+    private lateinit var navController: NavController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityOnboardingBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        startLogin()
+        initNavController()
+    }
+    private fun initNavController() {
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.navigation_host_fragment) as NavHostFragment
+        navController = navHostFragment.navController
     }
 
-    private fun startLogin(){
-        binding.textviewSkipOnboarding.setOnClickListener {
-            val intent = Intent(this, EntryActivity::class.java)
-            startActivity(intent)
-        }
-    }
 
 }

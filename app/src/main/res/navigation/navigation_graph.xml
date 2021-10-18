@@ -166,21 +166,6 @@
         tools:layout="@layout/fragment_course_catalog" />
 
     <fragment
-        android:id="@+id/findPassWordTwoFragment"
-        android:name="org.journey.android.findpw.view.FindPassWordTwoFragment"
-        android:label="FindPassWordTwoFragment"
-        tools:layout="@layout/fragment_find_password_two">
-        <action
-            android:id="@+id/action_findPassWordTwoFragment_to_findPassWordThreeFragment"
-            app:destination="@id/findPassWordThreeFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/findPassWordThreeFragment"
-        android:name="org.journey.android.findpw.view.FindPassWordThreeFragment"
-        android:label="FindPassWordThreeFragment"
-        tools:layout="@layout/fragment_find_password_three">
-    </fragment>
-    <fragment
         android:id="@+id/privateFragment"
         android:name="org.journey.android.diary.view.PrivateFragment"
         android:label="PrivateFragment"

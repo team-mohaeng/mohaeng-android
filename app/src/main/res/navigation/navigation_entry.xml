@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_entry"
-    app:startDestination="@id/onboardingFirstFragment">
+    app:startDestination="@id/loginFragment">
     <fragment
-        android:id="@+id/onboardingFirstFragment"
+        android:id="@+id/loginFragment"
         android:name="org.journey.android.login.ui.LoginFragment"
         android:label="OnboardingFirstFragment"
-        tools:layout="@layout/fragment_onboarding_first">
+        tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_onboardingFirstFragment_to_emailLoginFragment"
             app:destination="@id/emailLoginFragment" />

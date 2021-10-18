@@ -11,19 +11,19 @@ import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
 import org.journey.android.R
 import org.journey.android.base.BaseFragment
-import org.journey.android.databinding.FragmentOnboardingFirstBinding
+import org.journey.android.databinding.FragmentLoginBinding
 import org.journey.android.login.LoginViewModel
 
 @AndroidEntryPoint
-class LoginFragment : BaseFragment<FragmentOnboardingFirstBinding>() {
+class LoginFragment : BaseFragment<FragmentLoginBinding>() {
     private lateinit var auth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
     private val viewModel by viewModels<LoginViewModel>()
     override fun getFragmentBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
-    ): FragmentOnboardingFirstBinding {
-        return FragmentOnboardingFirstBinding.inflate(inflater,container,false)
+    ): FragmentLoginBinding {
+        return FragmentLoginBinding.inflate(inflater,container,false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
