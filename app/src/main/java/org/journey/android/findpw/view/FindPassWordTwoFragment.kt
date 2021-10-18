@@ -28,7 +28,6 @@ class FindPassWordTwoFragment:Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        clickEvent()
 
         binding.edittextInputCode.addTextChangedListener(object : TextWatcher {
 
@@ -55,9 +54,4 @@ class FindPassWordTwoFragment:Fragment() {
         })
     }
 
-    fun clickEvent() {
-        binding.buttonFindPasswordTwoNext.setOnClickListener {
-            findNavController().navigate(R.id.action_findPassWordTwoFragment_to_findPassWordThreeFragment)
-        }
-    }
 }

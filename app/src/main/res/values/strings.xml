@@ -59,5 +59,25 @@
     <string name="challenge_content_name">어제 외운 단어로 문장 만들기</string>
     <string name="challenge_happy_percent">2%</string>
     <string name="course_catalog_intro">매일매일 똑같은 노래만 듣는건 지겨우니까! 새로운 노래\n를 플레이리스트에 추가해보자</string>
+    <string name="onboarding_text_one">야~ 모행?!</string>
+    <string name="onboarding_answer_text">안녕! 만나서 방가워.\n내 집착을 견딜 준비가 되어있어?\n\n 나와 함께 재미있는 챌린지를 수행하며\n하루 행복에 더 가까워지길 바라!</string>
+    <string name="onboarding_skip"><u>이미 계정이 있어! (로그인하기)</u></string>
+    <string name="onboarding_explan_challenge">모행에서는 다양한 종류의\n\n챌린지를 진행할 수 있어.</string>
+    <string name="subtitle_course_explanation">반복되는 일상을 벗어나게 해줄 도전적인 챌린지</string>
 
+    <string name="course_one">꺅 일탈행 코스</string>
+    <string name="course_two">꼭 지켜야행 코스</string>
+    <string name="course_three">날 케어행 코스</string>
+    <string name="course_four">늘 건강행 코스</string>
+    <string name="course_five">호 추억행 코스</string>
+    <string name="course_six">짱 똑똑행 코스</string>
+    <string name="course_seven">쪽 사랑행 코스</string>
+
+    <string name="course_subtitle_one">반복되는 일상을 벗어나게 해줄 도전적인 챌린지</string>
+    <string name="course_subtitle_two">규칙적인 생활 습관을 위한 챌린지</string>
+    <string name="course_subtitle_three">나 스스로를 케어하는 챌린지</string>
+    <string name="course_subtitle_four">건강한 신체와 정신을 위한 챌린지</string>
+    <string name="course_subtitle_five">추억과 관련된 챌린지</string>
+    <string name="course_subtitle_six">교양과 관련된 챌린지</string>
+    <string name="course_subtitle_seven">친구, 가족, 멘토</string>
 </resources>
