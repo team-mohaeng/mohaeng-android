@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageview_onboarding_question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginStart="25dp"
+            android:background="@drawable/ic_onboard_one"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_onboarding_ask_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/gmarketsansttfmedium"
+            android:text="@string/onboarding_text_one"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:layout_marginTop="12dp"
+            android:textScaleX="0.98"
+            app:layout_constraintEnd_toEndOf="@id/imageview_onboarding_question"
+            app:layout_constraintStart_toStartOf="@id/imageview_onboarding_question"
+            app:layout_constraintTop_toTopOf="@id/imageview_onboarding_question" />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageview_onboarding_answer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="19dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/ic_onboard_two"
+            app:layout_constraintTop_toBottomOf="@id/imageview_onboarding_question"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_onboarding_answer_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="32dp"
+            android:fontFamily="@font/gmarketsansttfmedium"
+            android:text="@string/onboarding_answer_text"
+            android:textColor="@color/black"
+            android:textScaleX="0.98"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageview_onboarding_answer"
+            app:layout_constraintEnd_toEndOf="@+id/imageview_onboarding_answer"
+            app:layout_constraintStart_toStartOf="@id/imageview_onboarding_answer"
+            app:layout_constraintTop_toTopOf="@id/imageview_onboarding_answer" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageview_onboarding_rabbit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="74dp"
+            android:background="@drawable/ic_grpxonboarding1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageview_onboarding_answer"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageview_onboarding_racoon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:background="@drawable/ic_grpxonboarding2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageview_onboarding_answer"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_onboarding_start"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_onboardingbtn"
+            android:layout_marginTop="56dp"
+            android:text="새롭게 시작하기"
+            android:textColor="@color/white"
+            android:fontFamily="@font/spoqahansansneobold"
+            android:textSize="16sp"
+            android:textScaleX="0.98"
+            app:layout_constraintTop_toBottomOf="@id/imageview_onboarding_rabbit"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_skip_onboarding"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/spoqahansansneoregular"
+            android:text="@string/onboarding_skip"
+            android:textColor="@color/black"
+            android:textSize="10sp"
+            android:layout_marginBottom="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/button_onboarding_start" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

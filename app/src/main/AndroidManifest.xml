@@ -16,16 +16,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JourneyAndroid"
         android:usesCleartextTraffic="true">
-        <activity android:name="org.journey.android.entry.frame.EntryActivity">
+        <activity android:name="org.journey.android.entry.frame.EntryActivity"
+            android:exported="true">
+        </activity>
+        <activity android:name=".frame.MainActivity"
+            android:exported="true">
+        </activity>
+        <activity android:name=".OnboardingActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".frame.MainActivity">
 
-        </activity>
 <!--        <service-->
 <!--            android:name=".pushalarm.JourneyMessagingService"-->
 <!--            android:enabled="true"-->
