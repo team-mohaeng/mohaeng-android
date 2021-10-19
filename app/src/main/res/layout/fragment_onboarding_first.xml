@@ -79,10 +79,10 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_onboarding_start"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/ic_onboardingbtn"
-            android:layout_marginTop="36dp"
+            android:layout_marginTop="30dp"
             android:text="새롭게 시작하기"
             android:textColor="@color/white"
             android:fontFamily="@font/spoqahansansneobold"
@@ -100,6 +100,7 @@
             android:text="@string/onboarding_skip"
             android:textColor="@color/black"
             android:textSize="10sp"
+            android:layout_marginTop="4dp"
             android:layout_marginBottom="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

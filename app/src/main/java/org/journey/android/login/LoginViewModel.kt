@@ -28,50 +28,13 @@ class LoginViewModel @Inject constructor(
     val refreshToken: LiveData<String>
         get() = _refreshToken
 
-    private val _isLoginSuccessed = MutableLiveData<String>()
-    val isLoginSuccessed: LiveData<String>
+    private val _isLoginSuccessed = MutableLiveData<String?>()
+    val isLoginSuccessed: LiveData<String?>
         get() = _isLoginSuccessed
 
-//    fun socialLogin(accessToken : String, socialType: String){
-//        addDisposable(
-//            accountController.socialLogin(RequestSocialLoginDTO(accessToken, socialType))
-//                .subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribe({ response ->
-//                    if (response.isSuccessful) {
-//                        val responseBody = response.body()
-//                        if (responseBody!= null) {
-//                            _isLoginSuccessed.postValue(LOGIN_SUCCESS)
-//                            userPreferenceManager.apply {
-//                                val token = "Bearer ${responseBody.token.accessToken}"
-//                                saveUserAccessToken(token)
-//                                saveUserAccountId(responseBody.account.id)
-//                                saveUserRefreshToken(responseBody.token.refreshToken)
-//                                saveIsSkipTest(true)
-//                                saveIsAlreadyLogIn(true)
-//                            }
-//                        } else {
-//                            userPreferenceManager.saveIsAlreadyLogIn(false)
-//                            _isLoginSuccessed.postValue(LOGIN_FAIL)
-//                        }
-//                    } else {
-//                        userPreferenceManager.saveIsAlreadyLogIn(false)
-//                        if (response.code() == 500) {
-//                            _isLoginSuccessed.postValue(LOGIN_UNAUTHORIZATION)
-//                            userPreferenceManager.run {
-//                                saveUserAccessToken(accessToken)
-//                                saveSocialLoginType(socialType)
-//                            }
-//                        } else {
-//                            _isLoginSuccessed.postValue(LOGIN_FAIL)
-//                        }
-//                    }
-//                },{
-//                    it?.printStackTrace()
-//                    _isLoginSuccessed.postValue(LOGIN_FAIL)
-//                })
-//        )
-//    }
+    fun changeIsLoginSuccessed(success: String?) {
+        _isLoginSuccessed.value = success
+    }
 
     companion object {
         const val LOGIN_SUCCESS = "SUCCESS"
