@@ -83,4 +83,5 @@
     <string name="onboarding_third_subtitle">간단하게 수행한 다음, 동그란 버튼을 눌러\n\n오늘의 챌린지를 인증해봐!</string>
     
     <string name="kakao_app_key">76520e61eaf787345929bd73ec5ca3df</string>
+    <string name="onboarding_challenge_success_ment">화면을 위로 스크롤 하면\n\n지금 하고있는 코스의 진행상황도 파악할 수 있어</string>
 </resources>
