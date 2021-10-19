@@ -84,4 +84,5 @@
     
     <string name="kakao_app_key">76520e61eaf787345929bd73ec5ca3df</string>
     <string name="onboarding_challenge_success_ment">화면을 위로 스크롤 하면\n\n지금 하고있는 코스의 진행상황도 파악할 수 있어</string>
+    <string name="onboarding_last_ment">오늘의 챌린지를 인증하고 나서\n하루에 한 번씩 안부를 작성할 수 있어. \n\n챌린지를 하면서 느꼈던 사소한 것도 괜찮아.\n자유롭게 안부를 남겨봐~</string>
 </resources>
