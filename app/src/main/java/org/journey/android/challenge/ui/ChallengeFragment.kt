@@ -1,4 +1,4 @@
-package org.journey.android.challenge
+package org.journey.android.challenge.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import org.journey.android.R
+import org.journey.android.challenge.ChallengeViewModel
 import org.journey.android.databinding.FragmentChallengeBinding
 
 import org.journey.android.util.AutoClearedValue
@@ -30,14 +31,29 @@ class ChallengeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
-        setClickListener()
+        setAction()
+        showChallengeExplanationDialog()
+        certifyChallenge()
     }
-    private fun setClickListener(){
+    private fun setAction(){
         with(binding){
             imagebuttonChallengeBrowse.setOnClickListener { findNavController().navigate(R.id.action_frameFragment_to_courseCatalogFragment) }
             imagebuttonChallengeCourse.setOnClickListener { findNavController().navigate(R.id.action_frameFragment_to_courseFragment) }
         }
     }
+    private fun showChallengeExplanationDialog(){
+        binding.imageviewChallengeHelp.setOnClickListener {
+            val dialog = ChallengeExplanationDialog()
+            dialog.show(childFragmentManager,tag)
+        }
+    }
+    private fun certifyChallenge(){
+        binding.imagebuttonStamp.setOnClickListener {
+            val dialog = ChallengeCertifyDialog()
+            dialog.show(childFragmentManager,tag)
+        }
+    }
+
 
 }
 

@@ -142,7 +142,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/textview_first_day" />
 
                 <androidx.appcompat.widget.AppCompatImageButton
-                    android:id="@+id/imagebutton_first_first"
+                    android:id="@+id/imagebutton_stamp"
                     android:layout_width="324dp"
                     android:layout_height="140dp"
                     android:layout_marginTop="40dp"
@@ -167,7 +167,7 @@
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintHorizontal_chainStyle="packed"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imagebutton_first_first" />
+                    app:layout_constraintTop_toBottomOf="@+id/imagebutton_stamp" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/textview_first_explain_point"
@@ -183,7 +183,7 @@
                     app:layout_constraintEnd_toStartOf="@+id/textview_first_explain_back"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/textview_first_explain_front"
-                    app:layout_constraintTop_toBottomOf="@+id/imagebutton_first_first" />
+                    app:layout_constraintTop_toBottomOf="@+id/imagebutton_stamp" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/textview_first_explain_back"
@@ -197,7 +197,7 @@
                     android:textSize="12sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/textview_first_explain_point"
-                    app:layout_constraintTop_toBottomOf="@+id/imagebutton_first_first" />
+                    app:layout_constraintTop_toBottomOf="@+id/imagebutton_stamp" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/textview_first_explain2"
