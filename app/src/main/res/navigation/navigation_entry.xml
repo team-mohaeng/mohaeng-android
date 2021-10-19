@@ -10,16 +10,16 @@
         android:label="OnboardingFirstFragment"
         tools:layout="@layout/fragment_login">
         <action
-            android:id="@+id/action_onboardingFirstFragment_to_emailLoginFragment"
+            android:id="@+id/action_loginFragment_to_emailLoginFragment"
             app:destination="@id/emailLoginFragment" />
         <action
-            android:id="@+id/action_onboardingFirstFragment_to_findPassWordOneFragment2"
+            android:id="@+id/action_loginFragment_to_findPassWordOneFragment2"
             app:destination="@id/findPassWordOneFragment" />
         <action
-            android:id="@+id/action_onboardingFirstFragment_to_emailSignupFragment"
+            android:id="@+id/action_loginFragment_to_emailSignupFragment"
             app:destination="@id/emailSignupFragment" />
         <action
-            android:id="@+id/action_onboardingFirstFragment_to_serviceAgreeFragment"
+            android:id="@+id/action_loginFragment_to_serviceAgreeFragment"
             app:destination="@id/serviceAgreeFragment" />
     </fragment>
     <fragment
