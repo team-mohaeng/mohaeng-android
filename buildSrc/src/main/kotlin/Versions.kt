@@ -1,4 +1,4 @@
-object Versions {
+object DependencyVersions {
     const val KOTLIN_VERSION = "1.5.30"
     const val GRADLE_VERSION = "7.0.1"
 

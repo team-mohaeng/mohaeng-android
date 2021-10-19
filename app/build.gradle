@@ -57,26 +57,26 @@ dependencies {
 
     //Jetpack Navigation
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation "androidx.navigation:navigation-fragment-ktx:${Versions.NAVIGATION_VERSION}"
-    implementation "androidx.navigation:navigation-ui-ktx:${Versions.NAVIGATION_VERSION}"
+    implementation "androidx.navigation:navigation-fragment-ktx:${DependencyVersions.NAVIGATION_VERSION}"
+    implementation "androidx.navigation:navigation-ui-ktx:${DependencyVersions.NAVIGATION_VERSION}"
 
     //Hilt
-    implementation "com.google.dagger:hilt-android:${Versions.DAGGER_HILT_VERSION}"
-    kapt "com.google.dagger:hilt-android-compiler:${Versions.DAGGER_HILT_VERSION}"
+    implementation "com.google.dagger:hilt-android:${DependencyVersions.DAGGER_HILT_VERSION}"
+    kapt "com.google.dagger:hilt-android-compiler:${DependencyVersions.DAGGER_HILT_VERSION}"
 
     //lifecycle
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.LIFECYCLE_VERSION}"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.LIFECYCLE_VERSION}"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:${DependencyVersions.LIFECYCLE_VERSION}"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:${DependencyVersions.LIFECYCLE_VERSION}"
 
     //Fragment-ktx
-    implementation "androidx.fragment:fragment-ktx:${Versions.FRAGMENT_KTX_VERSION}"
+    implementation "androidx.fragment:fragment-ktx:${DependencyVersions.FRAGMENT_KTX_VERSION}"
 
     //Activity-ktx
-    implementation "androidx.activity:activity-ktx:${Versions.ACTIVITY_KTX_VERSION}"
+    implementation "androidx.activity:activity-ktx:${DependencyVersions.ACTIVITY_KTX_VERSION}"
 
     // RxJava
-    implementation "io.reactivex.rxjava3:rxjava:${Versions.RXJAVA_VERSION}"
-    implementation "io.reactivex.rxjava3:rxandroid:${Versions.RXANDROID_VERSION}"
+    implementation "io.reactivex.rxjava3:rxjava:${DependencyVersions.RXJAVA_VERSION}"
+    implementation "io.reactivex.rxjava3:rxandroid:${DependencyVersions.RXANDROID_VERSION}"
 
     //Firebase
     implementation platform('com.google.firebase:firebase-bom:28.4.2')
@@ -86,19 +86,18 @@ dependencies {
     implementation 'com.google.firebase:firebase-messaging:22.0.0'
 
     //Retrofit
-    implementation "com.squareup.retrofit2:retrofit:${Versions.RETROFIT_VERSION}"
-    implementation "com.squareup.retrofit2:converter-gson:${Versions.RETROFIT_VERSION}"
-    implementation "com.squareup.retrofit2:adapter-rxjava2:${Versions.RETROFIT_VERSION}"
+    implementation "com.squareup.retrofit2:retrofit:${DependencyVersions.RETROFIT_VERSION}"
+    implementation "com.squareup.retrofit2:converter-gson:${DependencyVersions.RETROFIT_VERSION}"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:${DependencyVersions.RETROFIT_VERSION}"
 
     //OkHttp Logging Interceptor
-    implementation "com.squareup.okhttp3:logging-interceptor:${Versions.OKHTTP_VERSION}"
+    implementation "com.squareup.okhttp3:logging-interceptor:${DependencyVersions.OKHTTP_VERSION}"
 
     //Dot Indicator
     implementation 'com.tbuonomo:dotsindicator:4.2'
 
     //Glide
     implementation 'com.github.bumptech.glide:glide:4.12.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
     implementation 'jp.wasabeef:glide-transformations:4.3.0'
     implementation 'jp.co.cyberagent.android:gpuimage:2.1.0'
 
