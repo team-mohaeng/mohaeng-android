@@ -1,9 +1,9 @@
-package org.journey.android
+package org.journey.android.onboarding
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import dagger.hilt.android.lifecycle.HiltViewModel
-import org.journey.android.base.BaseViewModel
+import org.journey.android.R
 import org.journey.android.base.DisposableViewModel
 import javax.inject.Inject
 

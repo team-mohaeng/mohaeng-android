@@ -1,10 +1,12 @@
-package org.journey.android
+package org.journey.android.onboarding.ui.adapter
 
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import org.journey.android.BR
 import org.journey.android.databinding.ItemOnboardingCourseBinding
+import org.journey.android.onboarding.OnboardingCourseEntity
 
 class OnboardingCourseAdapter :
     RecyclerView.Adapter<OnboardingCourseAdapter.OnboardingCourseViewHolder>(){

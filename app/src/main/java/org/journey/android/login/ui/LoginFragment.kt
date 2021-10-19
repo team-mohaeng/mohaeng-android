@@ -28,10 +28,10 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setClickListener()
+        setAction()
     }
 
-    private fun setClickListener(){
+    private fun setAction(){
         with(binding){
             textviewEmailAccount.setOnClickListener { Navigation.findNavController(binding.root).navigate(
                 R.id.action_onboardingFirstFragment_to_emailLoginFragment

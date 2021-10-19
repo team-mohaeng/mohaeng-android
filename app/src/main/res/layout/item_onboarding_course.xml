@@ -3,7 +3,7 @@
     <data>
         <variable
             name="data"
-            type="org.journey.android.OnboardingCourseEntity" />
+            type="org.journey.android.onboarding.OnboardingCourseEntity" />
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/layout_background"
