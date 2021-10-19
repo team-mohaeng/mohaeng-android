@@ -19,5 +19,32 @@
         android:id="@+id/onboardingSecondFragment"
         android:name="org.journey.android.OnboardingSecondFragment"
         android:label="OnboardingSecondFragment"
-        tools:layout="@layout/fragment_onboarding_second"/>
+        tools:layout="@layout/fragment_onboarding_second">
+        <action
+            android:id="@+id/action_onboardingSecondFragment_to_onboardingThirdFragment"
+            app:destination="@id/onboardingThirdFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/onboardingThirdFragment"
+        android:name="org.journey.android.OnboardingThirdFragment"
+        android:label="OnboardingThirdFragment"
+        tools:layout="@layout/fragment_onboarding_third">
+        <action
+            android:id="@+id/action_onboardingThirdFragment_to_onboardingFourthFragment"
+            app:destination="@id/onboardingFourthFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/onboardingFourthFragment"
+        android:name="org.journey.android.OnboardingFourthFragment"
+        android:label="OnboardingFourthFragment"
+        tools:layout="@layout/fragment_onboarding_fourth">
+        <action
+            android:id="@+id/action_onboardingFourthFragment_to_onboardingFifthFragment"
+            app:destination="@id/onboardingFifthFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/onboardingFifthFragment"
+        android:name="org.journey.android.OnboardingFifthFragment"
+        android:label="OnboardingFifthFragment"
+        tools:layout="@layout/fragment_onboarding_fifth"/>
 </navigation>

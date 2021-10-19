@@ -114,13 +114,5 @@
         app:layout_constraintStart_toStartOf="@id/imageview_stamp_background"
         app:layout_constraintTop_toBottomOf="@id/button_stamp" />
 
-
-
-
-
-
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

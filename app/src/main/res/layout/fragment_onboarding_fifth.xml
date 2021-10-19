@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textview_last_ment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:layout_marginLeft="18dp"
+        android:fontFamily="@font/gmarketsansttfmedium"
+        android:textColor="@color/mohaeng_black"
+        android:textSize="14sp"
+        android:textScaleX="0.98"
+        android:lineSpacingExtra="8dp"
+        android:text="@string/onboarding_last_ment"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/imagebutton_diary"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="14dp"
+        android:layout_height="460dp"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/feedex"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textview_last_ment" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imagview_onboarding_last_character"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_marginBottom="44dp"
+        android:background="@drawable/grpxonboarding5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
