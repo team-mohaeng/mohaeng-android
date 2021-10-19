@@ -2,7 +2,7 @@ package org.journey.android.frame
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import org.journey.android.challenge.ChallengeFragment
+import org.journey.android.challenge.ui.ChallengeFragment
 import org.journey.android.community.ui.fragment.CommunityFragment
 import org.journey.android.main.view.MainFragment
 

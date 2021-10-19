@@ -7,6 +7,9 @@ plugins {
     id 'com.google.gms.google-services'
 }
 
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
@@ -15,7 +18,7 @@ android {
         applicationId "org.journey.android"
         minSdkVersion 23
         targetSdkVersion 30
-        versionCode 1
+        versionCode 3
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -120,9 +123,5 @@ dependencies {
 
     //Kakao
     implementation "com.kakao.sdk:v2-user:2.6.0"
-
-
-
-
 
 }
