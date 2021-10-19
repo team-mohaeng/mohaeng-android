@@ -80,4 +80,5 @@
     <string name="course_subtitle_five">추억과 관련된 챌린지</string>
     <string name="course_subtitle_six">교양과 관련된 챌린지</string>
     <string name="course_subtitle_seven">친구, 가족, 멘토</string>
+    <string name="onboarding_third_subtitle">간단하게 수행한 다음, 동그란 버튼을 눌러\n\n오늘의 챌린지를 인증해봐!</string>
 </resources>
