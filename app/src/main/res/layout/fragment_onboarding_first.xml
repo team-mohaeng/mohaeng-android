@@ -82,7 +82,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/ic_onboardingbtn"
-            android:layout_marginTop="56dp"
+            android:layout_marginTop="36dp"
             android:text="새롭게 시작하기"
             android:textColor="@color/white"
             android:fontFamily="@font/spoqahansansneobold"

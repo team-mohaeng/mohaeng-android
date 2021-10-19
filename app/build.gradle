@@ -116,8 +116,14 @@ dependencies {
     //Coil
     implementation 'io.coil-kt:coil:1.1.1'
 
-    // indicator
+    // Indicator
     implementation 'com.tbuonomo:dotsindicator:4.2'
+
+    //Kakao
+    implementation "com.kakao.sdk:v2-user:2.6.0"
+
+
+
 
 
 }

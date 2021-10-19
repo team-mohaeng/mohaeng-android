@@ -8,21 +8,23 @@
 
     <application
         android:name=".application.MohaengApplication"
-        android:windowSoftInputMode="adjustResize"
         android:allowBackup="true"
         android:icon="@mipmap/ic_journey"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_journey_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.JourneyAndroid"
-        android:usesCleartextTraffic="true">
-        <activity android:name="org.journey.android.entry.frame.EntryActivity"
+        android:usesCleartextTraffic="true"
+        android:windowSoftInputMode="adjustResize">
+        <activity
+            android:name="org.journey.android.entry.frame.EntryActivity"
+            android:exported="true"></activity>
+        <activity
+            android:name=".frame.MainActivity"
+            android:exported="true"></activity>
+        <activity
+            android:name=".OnboardingActivity"
             android:exported="true">
-        </activity>
-        <activity android:name=".frame.MainActivity"
-            android:exported="true">
-        </activity>
-        <activity android:name=".OnboardingActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -30,14 +32,21 @@
             </intent-filter>
         </activity>
 
-<!--        <service-->
-<!--            android:name=".pushalarm.JourneyMessagingService"-->
-<!--            android:enabled="true"-->
-<!--            android:exported="false">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="com.google.firebase.MESSAGING_EVENT" />-->
-<!--            </intent-filter>-->
-<!--        </service>-->
+        <meta-data
+            android:name="com.kakao.sdk.AppKey"
+            android:value="@string/kakao_app_key" />
+        <activity android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="oauth"
+                    android:scheme="76520e61eaf787345929bd73ec5ca3df" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
