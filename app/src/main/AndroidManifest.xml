@@ -23,7 +23,7 @@
             android:name=".frame.MainActivity"
             android:exported="true"></activity>
         <activity
-            android:name=".OnboardingActivity"
+            android:name=".onboarding.OnboardingActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

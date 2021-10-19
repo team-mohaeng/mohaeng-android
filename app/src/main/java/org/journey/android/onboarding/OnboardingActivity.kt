@@ -1,16 +1,14 @@
-package org.journey.android
+package org.journey.android.onboarding
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import com.kakao.sdk.common.util.Utility
 import dagger.hilt.android.AndroidEntryPoint
+import org.journey.android.R
 import org.journey.android.databinding.ActivityOnboardingBinding
-import org.journey.android.entry.frame.EntryActivity
 
 @AndroidEntryPoint
 class OnboardingActivity : AppCompatActivity() {
@@ -29,6 +27,5 @@ class OnboardingActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.navigation_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
     }
-
 
 }

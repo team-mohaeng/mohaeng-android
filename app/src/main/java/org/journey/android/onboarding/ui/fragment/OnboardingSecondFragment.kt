@@ -1,4 +1,4 @@
-package org.journey.android
+package org.journey.android.onboarding.ui.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import org.journey.android.databinding.FragmentOnboardingSecondBinding
+import org.journey.android.onboarding.ui.adapter.OnboardingCourseAdapter
+import org.journey.android.onboarding.OnboardingViewModel
 import org.journey.android.util.AutoClearedValue
 
 class OnboardingSecondFragment : Fragment() {
