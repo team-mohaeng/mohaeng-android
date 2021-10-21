@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="org.journey.android.nickname.NickNameViewModel" />
+        <variable
+            name="nickNameStatus"
+            type="org.journey.android.nickname.NickNameStatus" />
+    </data>
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -44,12 +53,28 @@
         android:layout_marginTop="28dp"
         android:hint="닉네임 입력(한글 6자 이내)"
         android:gravity="center_horizontal"
+        android:singleLine="true"
         android:backgroundTint="@color/mohaeng_gray7"
         android:fontFamily="@font/spoqahansansneomedium"
         android:textSize="14sp"
+        android:text="@={viewModel.nickname}"
         app:layout_constraintTop_toBottomOf="@id/imageview_nickname_character"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textview_check_nickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:textSize="10sp"
+        android:textScaleX="0.98"
+        android:text="@{viewModel.nickNameStatus != null ? context.getString(viewModel.nickNameStatus.alertMessage) : ``}"
+        android:fontFamily="@font/spoqahansansneoregular"
+        android:textColor="@color/mohaeng_red_ea"
+        app:layout_constraintEnd_toEndOf="@id/edittext_set_nickname"
+        app:layout_constraintTop_toBottomOf="@id/edittext_set_nickname"
+        tools:text="@string/not_available_nickname"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_set_nickname"
@@ -62,11 +87,12 @@
         android:stateListAnimator="@null"
         android:fontFamily="@font/spoqahansansneobold"
         android:textColor="@color/white"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="39dp"
+        android:visibility="gone"
         app:layout_constraintTop_toBottomOf="@id/edittext_set_nickname"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:visibility="visible"/>
+        android:enabled="@{viewModel.nickNameStatus == nickNameStatus.IS_NOT_AVAILABLE_NICKNAME ? true : false}"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

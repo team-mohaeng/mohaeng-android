@@ -10,22 +10,39 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/ic_moh_login"
         tools:context=".login.ui.LoginFragment">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="match_parent"
+            android:layout_height="388dp"
+            android:background="@drawable/ic_background"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textview_login_logo"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="136dp"
-            android:fontFamily="@font/gmarketsansttfmedium"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="200dp"
+            android:fontFamily="@font/gmarketsansttfbold"
             android:gravity="center_horizontal"
             android:text="MOHAENG"
             android:textColor="@color/moheang_yellow6"
-            android:textSize="24sp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="28sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_login_ment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/gmarketsansttflight"
+            android:text="모행에 온 것을 환영해!"
+            android:textColor="@color/mohaeng_gray11"
+            android:textSize="19sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textview_login_logo" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_login_kakao"
