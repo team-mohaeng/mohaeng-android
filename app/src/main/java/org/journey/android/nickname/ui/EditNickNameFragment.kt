@@ -1,4 +1,4 @@
-package org.journey.android.nickname
+package org.journey.android.nickname.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater

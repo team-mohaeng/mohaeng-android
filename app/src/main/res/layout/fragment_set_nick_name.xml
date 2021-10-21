@@ -92,7 +92,7 @@
         app:layout_constraintTop_toBottomOf="@id/edittext_set_nickname"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:enabled="@{viewModel.nickNameStatus == nickNameStatus.IS_NOT_AVAILABLE_NICKNAME ? true : false}"/>
+        android:enabled="@{viewModel.nickNameStatus == nickNameStatus.IS_NOT_AVAILABLE_NICKNAME ? false : true}"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

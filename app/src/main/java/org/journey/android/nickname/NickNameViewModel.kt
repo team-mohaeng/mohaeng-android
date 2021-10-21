@@ -20,7 +20,6 @@ class NickNameViewModel @Inject constructor() : DisposableViewModel() {
                 _nickNameStatus.value = NickNameStatus.IS_NOT_AVAILABLE_NICKNAME
             }
             else {
-
             }
         }
     }

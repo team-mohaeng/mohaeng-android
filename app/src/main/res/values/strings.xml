@@ -87,4 +87,5 @@
     <string name="onboarding_last_ment">오늘의 챌린지를 인증하고 나서\n하루에 한 번씩 안부를 작성할 수 있어. \n\n챌린지를 하면서 느꼈던 사소한 것도 괜찮아.\n자유롭게 안부를 남겨봐~</string>
 
     <string name="not_available_nickname">사용 불가능한 닉네임입니다.</string>
+    <string name="giveup_challenge">기존 코스를 포기하면 새로 시작한 코스\n첫날의 해피지수를 받을 수 없어 ㅠㅠ</string>
 </resources>
