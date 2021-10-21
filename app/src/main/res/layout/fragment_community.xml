@@ -54,47 +54,26 @@
             app:layout_constraintTop_toTopOf="parent" />
 
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageview_graphic"
-            android:layout_width="160dp"
-            android:layout_height="140dp"
-            android:layout_marginTop="6dp"
-            android:layout_marginEnd="18dp"
-            android:background="@drawable/ic_graphichappy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/background_commnity"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textview_diary" />
 
-        <View
-            android:id="@+id/view_browse"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/bottom_sheet_radius"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textview_happiness_community">
-
-        </View>
-
-        <ImageView
-            android:id="@+id/imageview_graphic_hand"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="106dp"
-            android:layout_marginEnd="23dp"
-            android:background="@drawable/ic_graphichappy_hand"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/imageview_graphic" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview_community_record"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="34dp"
+            android:layout_marginTop="152dp"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/imageview_graphic_hand"
+            app:layout_constraintTop_toTopOf="@id/imageview_graphic"
             tools:listitem="@layout/item_community_record" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
