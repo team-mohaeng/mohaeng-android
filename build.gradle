@@ -8,6 +8,7 @@ buildscript {
     dependencies {
         classpath "com.android.tools.build:gradle:7.0.1"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.30"
+        classpath 'com.google.gms:google-services:4.3.10'
         classpath(Plugins.DAGGER_HILT_GRADLE_PLUGIN)
         classpath(Plugins.NAVIGATION_PLUGIN)
         classpath(Plugins.CLASSPATH_GMS_GOOGLE_SERVICES)
