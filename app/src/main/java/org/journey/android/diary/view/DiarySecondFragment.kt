@@ -233,6 +233,10 @@ class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
     fun clickButtons(){
         binding.imagebuttonDiaryBackSecond.setOnClickListener {
             findNavController().popBackStack()
+            findNavController().popBackStack()
+            findNavController().navigate(R.id.action_frameFragment_to_diaryFirstFragment)
+
+//            findNavController().navigate(R.id.action_diaryFirstFragment_to_diaryFirstFragment)
         }
 
         binding.imagebuttonDiaryCancelSecond.setOnClickListener {
