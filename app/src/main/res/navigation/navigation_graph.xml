@@ -131,6 +131,18 @@
         <action
             android:id="@+id/action_diarySecondFragment_to_communityFragment"
             app:destination="@id/communityFragment" />
+        <action
+            android:id="@+id/action_diarySecondFragment_to_diaryEndFragment"
+            app:destination="@id/diaryEndFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/diaryEndFragment"
+        android:name="org.journey.android.diary.view.DiaryEndFragment"
+        android:label="DiaryEndFragment"
+        tools:layout="@layout/fragment_diary_end">
+        <action
+            android:id="@+id/action_diaryEndFragment_to_communityFragment"
+            app:destination="@id/communityFragment" />
     </fragment>
     <fragment
         android:id="@+id/rewardFragment"

@@ -1,6 +1,7 @@
 package org.journey.android.diary.view
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.widget.Button
 import android.widget.ImageButton
@@ -13,6 +14,7 @@ import org.journey.android.databinding.FragmentPrivateBinding
 import java.util.*
 
 var moodNum = 0
+
 class DiaryFirstFragment : Fragment(){
     private lateinit var  binding : FragmentDiaryFirstBinding
     private val adapter by lazy { DiaryFirstViewPagerAdapter(parentFragmentManager) }
@@ -33,9 +35,8 @@ class DiaryFirstFragment : Fragment(){
         binding.buttonCompelete.isSelected = true
 
         binding.viewpagerDiaryFirst.adapter = adapter
-        binding.viewpagerDiaryFirst.setCurrentItem(1,true)
+        binding.viewpagerDiaryFirst.setCurrentItem(0,true)
         binding.dotsIndicatorFeel.setViewPager(binding.viewpagerDiaryFirst)
-
 
 
         val firstInstance = Calendar.getInstance()
@@ -126,6 +127,14 @@ class DiaryFirstFragment : Fragment(){
 
     fun clickEvent() {
         binding.buttonCompelete.setOnClickListener {
+            var diarySecond = DiarySecondFragment()
+            var bundle = Bundle()
+            bundle.putInt("moodNum",binding.viewpagerDiaryFirst.currentItem)
+            diarySecond.arguments = bundle
+            Log.d("MOOD", "${binding.viewpagerDiaryFirst.currentItem}, ${diarySecond.arguments}")
+
+            moodNum = binding.viewpagerDiaryFirst.currentItem
+
             findNavController().navigate(R.id.action_diaryFirstFragment_to_diarySecondFragment)
         }
     }
