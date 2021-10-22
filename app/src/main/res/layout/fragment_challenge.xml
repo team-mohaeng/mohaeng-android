@@ -44,15 +44,59 @@
             app:layout_constraintStart_toEndOf="@+id/textview_challenge_today"
             app:layout_constraintTop_toBottomOf="@+id/imagebutton_challenge_browse" />
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/imageview_mohaeng_talk"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintlayout_none_challenge"
             android:layout_width="match_parent"
-            android:layout_height="88dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/challenge_textview_round"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textview_challenge_today" />
+            app:layout_constraintTop_toBottomOf="@id/imageview_challenge_help">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageview_start_challenge"
+                android:layout_width="190dp"
+                android:layout_height="190dp"
+                android:layout_marginTop="130dp"
+                android:background="@drawable/challenge_none"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_start_new_challenge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:text="코스 선택하기"
+                android:fontFamily="@font/spoqahansansneobold"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:textScaleX="0.98"
+                android:background="@drawable/ic_button_start_challenge"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imageview_start_challenge" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintlayout_challenge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageview_challenge_help">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageview_mohaeng_talk"
+                android:layout_width="match_parent"
+                android:layout_height="88dp"
+                android:background="@drawable/challenge_textview_round"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageview_mohaeng_rabbit"
@@ -142,7 +186,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/textview_first_day" />
 
                 <androidx.appcompat.widget.AppCompatImageButton
-                    android:id="@+id/imagebutton_first_first"
+                    android:id="@+id/imagebutton_stamp"
                     android:layout_width="324dp"
                     android:layout_height="140dp"
                     android:layout_marginTop="40dp"
@@ -167,7 +211,7 @@
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintHorizontal_chainStyle="packed"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imagebutton_first_first" />
+                    app:layout_constraintTop_toBottomOf="@+id/imagebutton_stamp" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/textview_first_explain_point"
@@ -183,7 +227,7 @@
                     app:layout_constraintEnd_toStartOf="@+id/textview_first_explain_back"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/textview_first_explain_front"
-                    app:layout_constraintTop_toBottomOf="@+id/imagebutton_first_first" />
+                    app:layout_constraintTop_toBottomOf="@+id/imagebutton_stamp" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/textview_first_explain_back"
@@ -197,7 +241,7 @@
                     android:textSize="12sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/textview_first_explain_point"
-                    app:layout_constraintTop_toBottomOf="@+id/imagebutton_first_first" />
+                    app:layout_constraintTop_toBottomOf="@+id/imagebutton_stamp" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/textview_first_explain2"
@@ -569,6 +613,7 @@
                     app:layout_constraintStart_toEndOf="@+id/textview_third_explain2"
                     app:layout_constraintTop_toBottomOf="@+id/textview_third_explain_front" />
 
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -581,5 +626,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintlayout_challenge_sub" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

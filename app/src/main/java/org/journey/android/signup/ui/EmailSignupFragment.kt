@@ -1,4 +1,4 @@
-package org.journey.android.signup
+package org.journey.android.signup.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater

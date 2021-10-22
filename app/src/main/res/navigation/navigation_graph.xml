@@ -98,7 +98,7 @@
     </fragment>
     <fragment
         android:id="@+id/challengeFragment"
-        android:name="org.journey.android.challenge.ChallengeFragment"
+        android:name="org.journey.android.challenge.ui.ChallengeFragment"
         android:label="ChallengeFragment"
         tools:layout="@layout/fragment_challenge">
         <action
@@ -107,6 +107,9 @@
         <action
             android:id="@+id/action_challengeFragment_to_diaryFirstFragment"
             app:destination="@id/diaryFirstFragment" />
+        <action
+            android:id="@+id/action_challengeFragment_to_finishRewardFragment"
+            app:destination="@id/finishRewardFragment" />
     </fragment>
     <fragment
         android:id="@+id/diaryFirstFragment"
@@ -212,4 +215,18 @@
         android:name="org.journey.android.mypage.MyPageFragment"
         android:label="MyPageFragment"
         tools:layout="@layout/fragment_my_page"/>
+    <dialog
+        android:id="@+id/challengeCertifyDialog"
+        android:name="org.journey.android.challenge.ui.ChallengeCertifyDialog"
+        android:label="ChallengeCertifyDialog"
+        tools:layout="@layout/dialog_certify_challenge">
+        <action
+            android:id="@+id/action_challengeCertifyDialog_to_finishRewardFragment"
+            app:destination="@id/finishRewardFragment" />
+    </dialog>
+    <fragment
+        android:id="@+id/finishRewardFragment"
+        android:name="org.journey.android.FinishRewardFragment"
+        android:label="FinishRewardFragment"
+        tools:layout="@layout/fragment_finish_reward"/>
 </navigation>

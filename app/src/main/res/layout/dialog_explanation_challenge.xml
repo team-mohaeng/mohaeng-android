@@ -6,13 +6,10 @@
     android:layout_height="wrap_content"
     android:background="@color/journey_transparency">
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
         android:background="@drawable/challenge_help_dialog"
-        android:paddingTop="0dp"
         android:paddingBottom="36dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,12 +20,12 @@
             android:layout_width="34dp"
             android:layout_height="34dp"
             android:layout_marginTop="14dp"
-            android:layout_marginRight="14dp"
+            android:layout_marginEnd="14dp"
             android:background="@drawable/ic_xbtn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textview_dialog_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -44,7 +41,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageview_dialog_image"
             android:layout_width="290dp"
             android:layout_height="60dp"
@@ -54,7 +51,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textview_dialog_content" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textview_dialog_how"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -68,7 +65,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageview_dialog_image" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textview_how_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -83,7 +80,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textview_dialog_how" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textview_dialog_update"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -97,7 +94,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textview_how_content" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textview_update_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

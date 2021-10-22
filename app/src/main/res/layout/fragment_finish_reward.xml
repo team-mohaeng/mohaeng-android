@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_success_ment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="96dp"
+            android:fontFamily="@font/gmarketsansttfmedium"
+            android:text="오늘의 챌린지 성공!"
+            android:textColor="@color/mohaeng_black"
+            android:textScaleX="0.98"
+            android:textSize="26sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageview_character"
+            android:layout_width="260dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="123dp"
+            android:background="@drawable/frame"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textview_success_ment" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imagview_graphic"
+            android:layout_width="200dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/gray_graphic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageview_character" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_success_challenge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/spoqahansansneobold"
+            android:text="해피지수 15 획득!"
+            android:textColor="@color/mohaeng_yellow11"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imagview_graphic"
+            app:layout_constraintEnd_toEndOf="@+id/imagview_graphic"
+            app:layout_constraintStart_toStartOf="@id/imagview_graphic"
+            app:layout_constraintTop_toTopOf="@id/imagview_graphic" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_ongoing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/ic_ongoing_btn"
+            android:fontFamily="@font/spoqahansansneobold"
+            android:stateListAnimator="@null"
+            android:text="계속하기"
+            android:textColor="@color/white"
+            android:textScaleX="0.98"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imagview_graphic" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

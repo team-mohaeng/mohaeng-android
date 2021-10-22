@@ -38,7 +38,7 @@
         tools:layout="@layout/fragment_find_password_one"/>
     <fragment
         android:id="@+id/emailSignupFragment"
-        android:name="org.journey.android.signup.EmailSignupFragment"
+        android:name="org.journey.android.signup.ui.EmailSignupFragment"
         android:label="EmailSignupFragment"
         tools:layout="@layout/fragment_email_signup">
         <action
@@ -47,7 +47,7 @@
     </fragment>
     <fragment
         android:id="@+id/serviceAgreeFragment"
-        android:name="org.journey.android.signup.ServiceAgreeFragment"
+        android:name="org.journey.android.signup.ui.ServiceAgreeFragment"
         android:label="ServiceAgreeFragment"
         tools:layout="@layout/fragment_service_agree">
         <action
@@ -56,7 +56,7 @@
     </fragment>
     <fragment
         android:id="@+id/setNickNameFragment"
-        android:name="org.journey.android.nickname.SetNickNameFragment"
+        android:name="org.journey.android.nickname.ui.SetNickNameFragment"
         android:label="SetNickNameFragment"
         tools:layout="@layout/fragment_set_nick_name"/>
 </navigation>

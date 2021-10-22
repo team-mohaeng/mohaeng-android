@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "495078612836-bgbm4kua517jauukin8jde8855bvupl4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.journey.android",
+            "certificate_hash": "42097f0f68d5f7b8716633eb3f4006ad393a6517"
+          }
+        },
+        {
           "client_id": "495078612836-gouqa80mog4qg1e4nv9s3qr9s18ugnpt.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,6 +37,13 @@
             {
               "client_id": "495078612836-gouqa80mog4qg1e4nv9s3qr9s18ugnpt.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "495078612836-7mtco3ip5f9bhsd8sj6eaq8e120mnb3i.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "choyi.mohaeng"
+              }
             }
           ]
         }
