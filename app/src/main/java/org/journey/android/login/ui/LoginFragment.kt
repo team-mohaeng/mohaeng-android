@@ -1,16 +1,24 @@
 package org.journey.android.login.ui
 
+import android.content.ContentValues
 import android.content.ContentValues.TAG
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
+import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.GoogleAuthProvider
 import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.user.UserApiClient
 import dagger.hilt.android.AndroidEntryPoint
@@ -35,9 +43,11 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        auth = FirebaseAuth.getInstance()
         setAction()
         launchKakaoLogin()
         checkLoginSuccess()
+        checkGoogleGso()
     }
 
     private fun setAction(){
@@ -75,21 +85,56 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
         }
     }
 
-    private fun checkLoginSuccess() {
-        viewModel.isLoginSuccessed.observe(viewLifecycleOwner) { loginStatus ->
-            when (loginStatus) {
-                LOGIN_SUCCESS -> {
-                    findNavController().navigate(R.id.action_loginFragment_to_serviceAgreeFragment)
-                }
-                LOGIN_FAIL -> {
-                    Log.e(TAG, "로그인 실패")
-                }
-                else -> {
-                }
+    private val googleLoginLauncher: ActivityResultLauncher<Intent> =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+            try {
+                val task = GoogleSignIn.getSignedInAccountFromIntent(it.data)
+                val account = task.getResult(ApiException::class.java)!!
+                firebaseAuthWithGoogle(account.idToken!!)
+                Log.w(ContentValues.TAG, "Google sign in success")
+            } catch (e: ApiException) {
+                Log.w(ContentValues.TAG, "Google sign in failed", e)
             }
+        }
+
+    private fun firebaseAuthWithGoogle(idToken: String) {
+        val credential = GoogleAuthProvider.getCredential(idToken, null)
+        auth?.signInWithCredential(credential)
+    }
+
+    private fun checkGoogleGso() {
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.firebase_app_key))
+            .requestEmail()
+            .build()
+        googleSignInClient = GoogleSignIn.getClient(context, gso)
+
+        binding.buttonLoginGoogle.setOnClickListener {
+            signGoogle()
         }
     }
 
+    private fun signGoogle() {
+        val signInIntent = googleSignInClient.signInIntent
+        googleLoginLauncher.launch(signInIntent)
+    }
+
+
+
+    private fun checkLoginSuccess() {
+        viewModel.isLoginSuccessed.observe(viewLifecycleOwner) { loginStatus ->
+            when (loginStatus) {
+//                LOGIN_SUCCESS -> {
+//                    findNavController().navigate(R.id.action_loginFragment_to_serviceAgreeFragment)
+//                }
+//                LOGIN_FAIL -> {
+//                    Log.e(TAG, "로그인 실패")
+//                }
+//                else -> {
+//                }
+            }
+        }
+    }
 
 
 }
