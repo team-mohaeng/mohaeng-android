@@ -43,10 +43,10 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
     private fun setAction(){
         with(binding){
             textviewEmailAccount.setOnClickListener { Navigation.findNavController(binding.root).navigate(
-                R.id.action_loginFragment_to_emailLoginFragment
+                R.id.action_loginFragment_to_emailSignupFragment
             ) }
             buttonLoginEmail.setOnClickListener { Navigation.findNavController(binding.root).navigate(
-                R.id.action_loginFragment_to_emailSignupFragment
+                R.id.action_loginFragment_to_emailLoginFragment
             ) }
         }
     }

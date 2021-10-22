@@ -1,4 +1,4 @@
-package org.journey.android.signup
+package org.journey.android.signup.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import org.journey.android.R
 import org.journey.android.databinding.FragmentServiceAgreeBinding
+import org.journey.android.signup.SignupViewModel
 import org.journey.android.util.AutoClearedValue
 
 @AndroidEntryPoint
