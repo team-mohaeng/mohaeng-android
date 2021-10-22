@@ -7,16 +7,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import org.journey.android.R
 import org.journey.android.databinding.FragmentEmailLoginBinding
+import org.journey.android.login.LoginViewModel
 import org.journey.android.util.AutoClearedValue
 
 @AndroidEntryPoint
 class EmailLoginFragment : Fragment() {
     private var binding by AutoClearedValue<FragmentEmailLoginBinding>()
+    private val viewModel by viewModels<LoginViewModel>()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -29,6 +32,7 @@ class EmailLoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setClickListener()
         setTextWatcher()
+        setEmailLogin()
     }
     private fun setClickListener(){
         with(binding){
@@ -44,12 +48,18 @@ class EmailLoginFragment : Fragment() {
                 override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 }
                 override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                     buttonLoginComplete.isSelected =edittextInputEmail.text.toString().isNotEmpty()
+                     buttonLoginComplete.isActivated =edittextInputEmail.text.toString().isNotEmpty()
                 }
                 override fun afterTextChanged(p0: Editable?) {
                 }
 
             })
+        }
+    }
+
+    private fun setEmailLogin(){
+        binding.buttonLoginComplete.setOnClickListener {
+            viewModel.signIn()
         }
     }
 

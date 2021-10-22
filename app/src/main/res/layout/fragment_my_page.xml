@@ -78,8 +78,6 @@
            android:background="@drawable/my_page_image_rec"
            android:layout_marginTop="32dp"
            android:layout_marginLeft="18dp"
-           android:text="성공한\n코스"
-           android:textSize="12sp"
            app:layout_constraintTop_toBottomOf="@id/textview_user_email"
            app:layout_constraintStart_toStartOf="parent"/>
 
