@@ -48,7 +48,6 @@ class PrivateDetailFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setButtonClickListener(context)
-//        chipRemove()
 
         val displaymetricsPrivateDetailFragment = DisplayMetrics()
         requireActivity().windowManager.defaultDisplay.getMetrics(
@@ -204,22 +203,6 @@ class PrivateDetailFragment: Fragment() {
                 alertDialogEmoji.show()
             }
 
-//            imagebuttonPrivateDetailReport.setOnClickListener {
-//                val reportDialog = activity?.let { it1 -> BottomSheetDialog(it1) }
-//                val view = layoutInflater.inflate(R.layout.dialog_detail_report, null)
-//                val window = reportDialog?.window
-//                window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-//
-//                val reportBtn = view.findViewById<Button>(R.id.button_dialog_report)
-//
-//                reportBtn.setOnClickListener {
-//                    reportDialog?.dismiss()
-//                }
-//
-//                reportDialog?.setContentView(view)
-//                reportDialog?.show()
-//
-//            }
         }
     }
 
@@ -331,45 +314,6 @@ class PrivateDetailFragment: Fragment() {
                 }
             }
 
-//                binding.chipgroupLike.removeView(chip as View)
-//                likeList.remove(chip.text.toString())
             }
         }
-
-//    fun chipRemove(){
-//        val chip = Chip(context)
-//
-//        chip.setOnClickListener {
-//            Log.d("chip", chip.id.toString())
-//            if(chip.id == postDetail.get("myemoji")){
-//                deleteEmoji(chip.id)
-//                findNavController().popBackStack()
-//            }
-////            if(chip.chipIcon == ContextCompat.getDrawable(requireContext(), R.drawable.ic_emoji_tears) && postDetail.get("myemoji") == 1){
-////                deleteEmoji(1)
-////                findNavController().popBackStack()
-////            }
-////            if(chip.chipIcon == ContextCompat.getDrawable(requireContext(), R.drawable.ic_emoji_cong) && postDetail.get("myemoji") == 2){
-////                deleteEmoji(2)
-////                findNavController().popBackStack()
-////            }
-////            if(chip.chipIcon == ContextCompat.getDrawable(requireContext(), R.drawable.ic_emoji_medal) && postDetail.get("myemoji") == 3){
-////                deleteEmoji(3)
-////                findNavController().popBackStack()
-////            }
-////            if(chip.chipIcon == ContextCompat.getDrawable(requireContext(), R.drawable.ic_emoji_good) && postDetail.get("myemoji") == 4){
-////                deleteEmoji(4)
-////                findNavController().popBackStack()
-////            }
-////            if(chip.chipIcon == ContextCompat.getDrawable(requireContext(), R.drawable.ic_emoji_twinkle) && postDetail.get("myemoji") == 5){
-////                deleteEmoji(5)
-////                findNavController().popBackStack()
-////            }
-////            if(chip.chipIcon == ContextCompat.getDrawable(requireContext(), R.drawable.ic_emoji_lucky) && postDetail.get("myemoji") == 6){
-////                deleteEmoji(6)
-////                findNavController().popBackStack()
-////            }
-//        }
-
-//    }
 }
