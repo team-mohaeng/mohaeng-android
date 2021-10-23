@@ -1,6 +1,7 @@
 package org.journey.android.diary.view
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,12 +14,20 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import org.journey.android.R
 import org.journey.android.databinding.FragmentPrivateBinding
 import org.journey.android.diary.dto.PrivateData
+import org.journey.android.diary.dto.ResponseDiaryPrivateData
+import org.journey.android.diary.service.FeedRequestToServer
 import org.journey.android.util.AutoClearedValue
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.util.*
 
 
 class PrivateFragment : Fragment(){
     private var binding by AutoClearedValue<FragmentPrivateBinding>()
+    val privateInstance = Calendar.getInstance()
+    val privateNowYear = privateInstance.get(Calendar.YEAR).toString().substring(2, 4)
+    var privateNowMonth = (privateInstance.get(Calendar.MONTH) + 1).toString()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View?{
@@ -29,11 +38,10 @@ class PrivateFragment : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         pressedBack()
-        showMy()
+//        showMy()
 
-        val privateInstance = Calendar.getInstance()
-        val privateNowYear = privateInstance.get(Calendar.YEAR).toString().substring(2, 4)
-        var privateNowMonth = (privateInstance.get(Calendar.MONTH) + 1).toString()
+        setRetrofit(privateInstance.get(Calendar.YEAR).toString(), privateNowMonth)
+
         if (privateNowMonth.toInt() < 10)
             privateNowMonth = "0$privateNowMonth"
         val nowSelectedDate = privateNowYear + "년 " + privateNowMonth + "월"
@@ -51,63 +59,6 @@ class PrivateFragment : Fragment(){
             selectDateDialogView.findViewById(R.id.numberpicker_month)
         val selectDialogSave: Button =
             selectDateDialogView.findViewById(R.id.button_date_picker_select)
-
-//        val call: Call<ResponseDiaryPrivateData> = RetrofitService.diaryPrivateService
-//            .getPrivateDiary(
-//                privateInstance.get(Calendar.YEAR).toString(),
-//                privateNowMonth
-//            )
-        /*
-        call.enqueue(object : Callback<ResponseDiaryPrivateData> {
-            override fun onResponse(
-                call: Call<ResponseDiaryPrivateData>,
-                responsePrivate: Response<ResponseDiaryPrivateData>
-            ) {
-                if (responsePrivate.isSuccessful) {
-                    val dataPrivate = responsePrivate.body()?.data
-                    val countContent = dataPrivate?.myDrawerSmallSatisfactions?.size
-                    val privateAdapter = PrivateAdapter()
-                    val gridLayoutManager = GridLayoutManager(context, 2)
-                    binding.recyclerviewPrivate.layoutManager = gridLayoutManager
-                    binding.recyclerviewPrivate.adapter = privateAdapter
-                    if (countContent == 0) {
-                        binding.imageviewPrivateEmptyImage.isVisible = true
-                        binding.textviewPrivateEmptyContent.isVisible = true
-                    } else {
-                        binding.imageviewPrivateEmptyImage.isVisible = false
-                        binding.textviewPrivateEmptyContent.isVisible = false
-                        if (dataPrivate != null) {
-                            for (i in 0 until countContent!!) {
-                                privateAdapter.privateDiaryList.addAll(
-                                    listOf<PrivateData>(
-                                        PrivateData(
-                                            postId = dataPrivate.myDrawerSmallSatisfactions[i].postId,
-                                            textViewLikeCount = dataPrivate.myDrawerSmallSatisfactions[i].likeCount.toString(),
-                                            textViewPrivateNickName = dataPrivate.myDrawerSmallSatisfactions[i].nickname,
-                                            textViewPrivateContent = dataPrivate.myDrawerSmallSatisfactions[i].content,
-                                            textViewHashTags = dataPrivate.myDrawerSmallSatisfactions[i].hashtags.joinToString(
-                                                " "
-                                            ),
-                                            imageViewPrivate = dataPrivate.myDrawerSmallSatisfactions[i].mainImage,
-                                            hasLike = dataPrivate.myDrawerSmallSatisfactions[i].hasLike
-                                        )
-                                    )
-                                )
-                            }
-                        }
-                    }
-                    privateAdapter.notifyDataSetChanged()
-                } else {
-                    Log.d("ClientTest", "Client Error")
-                }
-            }
-
-            override fun onFailure(call: Call<ResponseDiaryPrivateData>, t: Throwable) {
-                Log.d("NetworkTest", "error:$t")
-            }
-        })
-
-*/
 
         binding.buttonPrivateTimePicker.setOnClickListener()
         {
@@ -127,69 +78,15 @@ class PrivateFragment : Fragment(){
                 if (selected_month < 10)
                     string_selected_month = "0$selected_month"
 
-                val selected_year_month = (selectDialogYear.value).toString()
-                    .substring(2, 4) + "년 " + string_selected_month + "월"
+                val selected_year_month = (selectDialogYear.value).toString() + "년 " + string_selected_month + "월 안부"
                 binding.buttonPrivateTimePicker.text = selected_year_month
                 if (selectDateDialog != null) {
                     selectDateDialog.dismiss()
                     selectDateDialog.cancel()
                 }
 
-/*
-                val call: Call<ResponseDiaryPrivateData> = RetrofitService.diaryPrivateService
-                    .getPrivateDiary(
-                        selectDialogYear.value.toString(),
-                        string_selected_month,
-                        userJwt
-                    )
-                call.enqueue(object : Callback<ResponseDiaryPrivateData> {
-                    override fun onResponse(
-                        call: Call<ResponseDiaryPrivateData>,
-                        responsePrivate: Response<ResponseDiaryPrivateData>
-                    ) {
-                        if (responsePrivate.isSuccessful) {
-                            val dataPrivate = responsePrivate.body()?.data
-                            val countContent = dataPrivate?.myDrawerSmallSatisfactions?.size
-                            val privateAdapter = PrivateAdapter()
-                            val gridLayoutManager = GridLayoutManager(context, 2)
-                            binding.recyclerviewPrivate.layoutManager = gridLayoutManager
-                            binding.recyclerviewPrivate.adapter = privateAdapter
-                            if (countContent == 0) {
-                                binding.imageviewPrivateEmptyImage.isVisible = true
-                                binding.textviewPrivateEmptyContent.isVisible = true
-                            } else {
-                                binding.imageviewPrivateEmptyImage.isVisible = false
-                                binding.textviewPrivateEmptyContent.isVisible = false
-                                if (dataPrivate != null) {
-                                    for (i in 0 until countContent!!) {
-                                        privateAdapter.privateDiaryList.addAll(
-                                            listOf<PrivateData>(
-                                                PrivateData(
-                                                    postId = dataPrivate.myDrawerSmallSatisfactions[i].postId,
-                                                    textViewLikeCount = dataPrivate.myDrawerSmallSatisfactions[i].likeCount.toString(),
-                                                    textViewPrivateNickName = dataPrivate.myDrawerSmallSatisfactions[i].nickname,
-                                                    textViewPrivateContent = dataPrivate.myDrawerSmallSatisfactions[i].content,
-                                                    textViewHashTags = dataPrivate.myDrawerSmallSatisfactions[i].hashtags.joinToString(
-                                                        " "
-                                                    ),
-                                                    imageViewPrivate = dataPrivate.myDrawerSmallSatisfactions[i].mainImage,
-                                                    hasLike = dataPrivate.myDrawerSmallSatisfactions[i].hasLike
-                                                )
-                                            )
-                                        )
-                                    }
-                                }
-                            }
-                            privateAdapter.notifyDataSetChanged()
-                        } else {
-                            Log.d("ClientTest", "Client Error")
-                        }
-                    }
+                setRetrofit((selectDialogYear.value).toString(), string_selected_month)
 
-                    override fun onFailure(call: Call<ResponseDiaryPrivateData>, t: Throwable) {
-                        Log.d("NetworkTest", "error:$t")
-                    }
-                })*/
             }
 
             if (selectDateDialog != null) {
@@ -199,10 +96,6 @@ class PrivateFragment : Fragment(){
             }
         }
 
-//        binding.imagebuttonCommunityBackPrivate.setOnClickListener{
-//            findNavController().navigate(R.id.action_privateFragment_to_communityFragment)
-//        }
-
     }
 
     fun pressedBack(){
@@ -211,6 +104,72 @@ class PrivateFragment : Fragment(){
         }
     }
 
+    fun setRetrofit(year:String, month:String){
+        val call: Call<ResponseDiaryPrivateData> = FeedRequestToServer.service
+            .getPrivateDiary(
+                year,
+                month,
+                "application/json",
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk"
+            )
+
+        call.enqueue(object : Callback<ResponseDiaryPrivateData> {
+            override fun onResponse(
+                call: Call<ResponseDiaryPrivateData>,
+                responsePrivate: Response<ResponseDiaryPrivateData>
+            ) {
+                if (responsePrivate.isSuccessful) {
+                    val dataPrivate = responsePrivate.body()?.data
+                    val countContent = dataPrivate?.feeds?.size
+                    val privateAdapter = PrivateAdapter()
+                    binding.recyclerviewPrivate.adapter = privateAdapter
+                    if (countContent == 0) {
+                        binding.imageviewPrivateEmptyImage.visibility = View.VISIBLE
+                        binding.textviewPrivateEmptyContent.visibility = View.VISIBLE
+                    } else {
+                        binding.imageviewPrivateEmptyImage.visibility = View.GONE
+                        binding.textviewPrivateEmptyContent.visibility = View.GONE
+                        if (dataPrivate != null) {
+                            for (i in 0 until countContent!!) {
+                                privateAdapter.privateDiaryList.addAll(
+                                    listOf<PrivateData>(
+                                        PrivateData(
+                                            postId = dataPrivate.feeds[i].postId,
+                                            course = dataPrivate.feeds[i].course,
+                                            challenge = dataPrivate.feeds[i].challenge,
+                                            image = dataPrivate.feeds[i].image,
+                                            mood = dataPrivate.feeds[i].mood,
+                                            content = dataPrivate.feeds[i].content,
+                                            nickname = dataPrivate.feeds[i].nickname,
+                                            year = dataPrivate.feeds[i].year,
+                                            month = dataPrivate.feeds[i].month,
+                                            date = dataPrivate.feeds[i].date,
+                                            day = dataPrivate.feeds[i].day,
+                                            emoji = dataPrivate.feeds[i].emoji,
+                                            myEmoji = dataPrivate.feeds[i].myEmoji,
+                                            isReport = dataPrivate.feeds[i].isReport,
+                                            isDelete = dataPrivate.feeds[i].isDelete
+                                        )
+                                    )
+                                )
+                            }
+                        }
+                    }
+                    privateAdapter.notifyDataSetChanged()
+                    Log.d("private server 성공", dataPrivate.toString()+"${year} ${month}")
+
+                } else {
+                    Log.d("private ClientTest", "Client Error")
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseDiaryPrivateData>, t: Throwable) {
+                Log.d("NetworkTest", "error:$t")
+            }
+        })
+
+    }
+/*
     fun showMy(){
         val privateAdapter = PrivateAdapter()
         binding.recyclerviewPrivate.adapter = privateAdapter
@@ -312,4 +271,6 @@ class PrivateFragment : Fragment(){
         )
         privateAdapter.notifyDataSetChanged()
     }
+
+ */
 }
