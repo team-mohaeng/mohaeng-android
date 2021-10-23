@@ -1,6 +1,6 @@
 package org.journey.android.diary.service
 
-import org.journey.android.diary.dto.ResponseDiaryDislikeData
+import org.journey.android.diary.dto.RequestDiaryEmojiData
 import retrofit2.Call
 import retrofit2.http.Header
 import retrofit2.http.PUT
@@ -11,5 +11,5 @@ interface DiaryDislikeService {
     fun changeDislike(
         @Path("postId") postId: Int,
         @Header("Bearer") jwt : String
-    ): Call<ResponseDiaryDislikeData>
+    ): Call<RequestDiaryEmojiData>
 }

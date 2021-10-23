@@ -15,6 +15,7 @@ import android.widget.ImageButton
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -22,6 +23,8 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.chip.Chip
 import org.journey.android.R
 import org.journey.android.databinding.FragmentPrivateDetailBinding
+import org.journey.android.diary.dto.Emojifaction
+import org.journey.android.diary.dto.RequestDiaryEmojiData
 import org.journey.android.diary.service.FeedRequestToServer
 import retrofit2.Call
 import retrofit2.Callback
@@ -45,6 +48,7 @@ class PrivateDetailFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setButtonClickListener(context)
+//        chipRemove()
 
         val displaymetricsPrivateDetailFragment = DisplayMetrics()
         requireActivity().windowManager.defaultDisplay.getMetrics(
@@ -78,11 +82,10 @@ class PrivateDetailFragment: Fragment() {
         binding.textviewPrivateDetailTitle.text = postDetail.get("title").toString()
         binding.textviewPrivateDetailContent.text = postDetail.get("content").toString()
 
-//        for (i in 0 until postDetail.get("emoji").size()) {
-//            addChipToGroup(postDetail.get("emoji")[i][0],postDetail.get("emoji")[i][1])
-//        }
-
-        Log.d("private emoji", "${postDetail.get("emoji")}")
+        var emojiList:ArrayList<Emojifaction> = postDetail.get("emoji") as ArrayList<Emojifaction>
+        for (i in 0 until emojiList.size) {
+            addChipToGroup(emojiList[i].id,emojiList[i].count)
+        }
 
         binding.buttonPrivateDelete.setOnClickListener()
         {
@@ -162,30 +165,42 @@ class PrivateDetailFragment: Fragment() {
                     alertDialogEmoji.dismiss()
                 }
                 dialogFirst.setOnClickListener {
-                    addChipToGroup(1,1)
+//                    addChipToGroup(1,1)
+                    putEmojiRetrofit(1)
                     alertDialogEmoji.dismiss()
+                    refreshFragment()
                 }
                 diaglogSecond.setOnClickListener {
-                    addChipToGroup(2,1)
+//                    addChipToGroup(2,1)
+                    putEmojiRetrofit(2)
                     alertDialogEmoji.dismiss()
+                    refreshFragment()
                 }
                 dialogThird.setOnClickListener {
-                    addChipToGroup(3,1)
+//                    addChipToGroup(3,1)
+                    putEmojiRetrofit(3)
                     alertDialogEmoji.dismiss()
+                    refreshFragment()
                 }
                 dialogFourth.setOnClickListener {
-                    addChipToGroup(4,1)
+//                    addChipToGroup(4,1)
+                    putEmojiRetrofit(4)
                     alertDialogEmoji.dismiss()
+                    refreshFragment()
                 }
                 dialogFifth.setOnClickListener {
-                    addChipToGroup(5,1)
+//                    addChipToGroup(5,1)
+                    putEmojiRetrofit(5)
                     alertDialogEmoji.dismiss()
+                    refreshFragment()
                 }
                 dialogSixth.setOnClickListener {
-                    addChipToGroup(6,1)
+//                    addChipToGroup(6,1)
+                    putEmojiRetrofit(6)
                     alertDialogEmoji.dismiss()
+                    refreshFragment()
                 }
-                
+
                 alertDialogEmoji.show()
             }
 
@@ -208,6 +223,66 @@ class PrivateDetailFragment: Fragment() {
         }
     }
 
+    fun refreshFragment(){
+        findNavController().popBackStack()
+        if (getParentFragmentManager() != null) {
+
+            getParentFragmentManager()
+                ?.beginTransaction()
+                ?.detach(this@PrivateDetailFragment)
+                ?.attach(this@PrivateDetailFragment)
+                ?.commit()
+        }
+    }
+
+    fun putEmojiRetrofit(id:Int){
+        val call: Call<Unit> = FeedRequestToServer.writeService
+            .putEmoji(
+                postDetail.get("id") as Int,
+                "application/json",
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk",
+                RequestDiaryEmojiData(
+                    emojiId = id
+                )
+            )
+        call.enqueue(object : Callback<Unit> {
+            override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
+                if (response.isSuccessful) {
+//                    Toast.makeText(requireContext(), "삭제되었습니다",Toast.LENGTH_SHORT).show()
+                } else {
+                }
+            }
+
+            override fun onFailure(call: Call<Unit>, t: Throwable) {
+                Log.d("Emoji Diary NT Error", "Emoji Error!")
+            }
+        })
+    }
+    fun deleteEmoji(id: Int){
+        Log.d("chip", id.toString())
+        val call: Call<Unit> = FeedRequestToServer.writeService
+            .deleteEmoji(
+                postDetail.get("id") as Int,
+                "application/json",
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk",
+                RequestDiaryEmojiData(
+                    emojiId = id
+                )
+            )
+        call.enqueue(object : Callback<Unit> {
+            override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
+                if (response.isSuccessful) {
+                } else {
+                }
+            }
+
+            override fun onFailure(call: Call<Unit>, t: Throwable) {
+                Log.d("Emoji Delete NT Error", "Emoji DeleteError!")
+            }
+        })
+    }
+
+
     fun addChipToGroup(emotion: Int, cnt: Int) {
         if (binding.chipgroupLike.childCount < 6) {
             val chip = Chip(context)
@@ -218,6 +293,7 @@ class PrivateDetailFragment: Fragment() {
             chip.setTextColor(ColorStateList.valueOf(resources.getColor(R.color.mohaeng_yellow2)))
             chip.text = cnt.toString()
             chip.textSize = 12F
+            chip.id = emotion
             when(emotion){
                 1-> chip.chipIcon =
                     ContextCompat.getDrawable(requireContext(), R.drawable.ic_emoji_tears)
@@ -237,24 +313,63 @@ class PrivateDetailFragment: Fragment() {
             chip.iconStartPadding = 30F
             chip.iconEndPadding = 5F
 
-
-//            chip.isCloseIconVisible = false
-//            chip.closeIcon =
-//                ContextCompat.getDrawable(requireContext(), R.drawable.ic_diary_hash_tag_close)
-//            chip.closeIconSize = 36F
-//            chip.closeIconStartPadding = -10F
-//            chip.closeIconEndPadding = 30F
-//            chip.closeIconTint =
-//                ColorStateList.valueOf(resources.getColor(R.color.journey_pink))
             chip.isClickable = true
             chip.isCheckable = false
             likeList.add(chip.text.toString())
             binding.chipgroupLike.addView(chip as View)
+
             chip.setOnCloseIconClickListener {
                 binding.chipgroupLike.removeView(chip as View)
                 likeList.remove(chip.text.toString())
             }
-        }
-    }
 
+            chip.setOnClickListener {
+                if (chip.id == postDetail.get("myemoji")) {
+                    deleteEmoji(chip.id)
+                    Log.d("chip", chip.id.toString())
+                    findNavController().popBackStack()
+                }
+            }
+
+//                binding.chipgroupLike.removeView(chip as View)
+//                likeList.remove(chip.text.toString())
+            }
+        }
+
+//    fun chipRemove(){
+//        val chip = Chip(context)
+//
+//        chip.setOnClickListener {
+//            Log.d("chip", chip.id.toString())
+//            if(chip.id == postDetail.get("myemoji")){
+//                deleteEmoji(chip.id)
+//                findNavController().popBackStack()
+//            }
+////            if(chip.chipIcon == ContextCompat.getDrawable(requireContext(), R.drawable.ic_emoji_tears) && postDetail.get("myemoji") == 1){
+////                deleteEmoji(1)
+////                findNavController().popBackStack()
+////            }
+////            if(chip.chipIcon == ContextCompat.getDrawable(requireContext(), R.drawable.ic_emoji_cong) && postDetail.get("myemoji") == 2){
+////                deleteEmoji(2)
+////                findNavController().popBackStack()
+////            }
+////            if(chip.chipIcon == ContextCompat.getDrawable(requireContext(), R.drawable.ic_emoji_medal) && postDetail.get("myemoji") == 3){
+////                deleteEmoji(3)
+////                findNavController().popBackStack()
+////            }
+////            if(chip.chipIcon == ContextCompat.getDrawable(requireContext(), R.drawable.ic_emoji_good) && postDetail.get("myemoji") == 4){
+////                deleteEmoji(4)
+////                findNavController().popBackStack()
+////            }
+////            if(chip.chipIcon == ContextCompat.getDrawable(requireContext(), R.drawable.ic_emoji_twinkle) && postDetail.get("myemoji") == 5){
+////                deleteEmoji(5)
+////                findNavController().popBackStack()
+////            }
+////            if(chip.chipIcon == ContextCompat.getDrawable(requireContext(), R.drawable.ic_emoji_lucky) && postDetail.get("myemoji") == 6){
+////                deleteEmoji(6)
+////                findNavController().popBackStack()
+////            }
+//        }
+
+//    }
 }

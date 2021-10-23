@@ -6,11 +6,13 @@ import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -18,6 +20,11 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.chip.Chip
 import org.journey.android.R
 import org.journey.android.databinding.FragmentCommunityDetailBinding
+import org.journey.android.diary.service.FeedRequestToServer
+import org.journey.android.diary.view.postDetail
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class CommunityDetailFragment : Fragment() {
 
@@ -99,6 +106,25 @@ class CommunityDetailFragment : Fragment() {
                 val reportBtn = view.findViewById<Button>(R.id.button_dialog_report)
 
                 reportBtn.setOnClickListener {
+//                    val call: Call<Unit> = FeedRequestToServer.writeService
+//                        .reportDiary(
+//                            1,
+//                            "application/json",
+//                            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk"
+//                        )
+//                    call.enqueue(object : Callback<Unit> {
+//                        override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
+//                            if (response.isSuccessful) {
+//                                Toast.makeText(requireContext(), "신고했습니다.", Toast.LENGTH_SHORT).show()
+//                                reportDialog?.dismiss()
+//                            } else {
+//                            }
+//                        }
+//
+//                        override fun onFailure(call: Call<Unit>, t: Throwable) {
+//                            Log.d("Delete Diary NT Error", "Delete Error!")
+//                        }
+//                    })
                     reportDialog?.dismiss()
                 }
 

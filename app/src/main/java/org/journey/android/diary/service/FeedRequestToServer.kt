@@ -9,4 +9,5 @@ object FeedRequestToServer {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
     var service: DiaryPrivateService = retrofit.create(DiaryPrivateService::class.java)
+    var writeService: DiaryWriteService = retrofit.create(DiaryWriteService::class.java)
 }
