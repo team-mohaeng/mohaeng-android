@@ -119,6 +119,9 @@
         <action
             android:id="@+id/action_diaryFirstFragment_to_diarySecondFragment"
             app:destination="@id/diarySecondFragment" />
+        <action
+            android:id="@+id/action_diaryFirstFragment_to_diaryFirstFragment"
+            app:destination="@id/diaryFirstFragment" />
     </fragment>
     <fragment
         android:id="@+id/diarySecondFragment"
@@ -133,6 +136,18 @@
             app:destination="@id/diaryFirstFragment" />
         <action
             android:id="@+id/action_diarySecondFragment_to_communityFragment"
+            app:destination="@id/communityFragment" />
+        <action
+            android:id="@+id/action_diarySecondFragment_to_diaryEndFragment"
+            app:destination="@id/diaryEndFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/diaryEndFragment"
+        android:name="org.journey.android.diary.view.DiaryEndFragment"
+        android:label="DiaryEndFragment"
+        tools:layout="@layout/fragment_diary_end">
+        <action
+            android:id="@+id/action_diaryEndFragment_to_communityFragment"
             app:destination="@id/communityFragment" />
     </fragment>
     <fragment

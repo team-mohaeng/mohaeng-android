@@ -43,7 +43,10 @@ class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
         clickButtons()
         binding.buttonCompelete.isEnabled = false
 
-        if(moodNum==0)
+//        var moodNum = arguments?.getInt("moodNum")
+//        Log.d("MOODNUM", "${arguments?.getInt("moodNum")}, ${arguments}")
+
+        if(moodNum==2)
         {
             binding.imageviewDiaryTodaySecond.setBackgroundResource(R.drawable.ic_feel_third)
         }
@@ -51,7 +54,7 @@ class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
         {
             binding.imageviewDiaryTodaySecond.setBackgroundResource(R.drawable.ic_feel_second)
         }
-        else if(moodNum==2)
+        else if(moodNum==0)
         {
             binding.imageviewDiaryTodaySecond.setBackgroundResource(R.drawable.ic_feel_first)
         }
@@ -230,6 +233,10 @@ class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
     fun clickButtons(){
         binding.imagebuttonDiaryBackSecond.setOnClickListener {
             findNavController().popBackStack()
+            findNavController().popBackStack()
+            findNavController().navigate(R.id.action_frameFragment_to_diaryFirstFragment)
+
+//            findNavController().navigate(R.id.action_diaryFirstFragment_to_diaryFirstFragment)
         }
 
         binding.imagebuttonDiaryCancelSecond.setOnClickListener {
@@ -238,8 +245,9 @@ class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
         }
 
         binding.buttonCompelete.setOnClickListener{
-            findNavController().popBackStack()
-            findNavController().popBackStack()
+//            findNavController().popBackStack()
+//            findNavController().popBackStack()
+            findNavController().navigate(R.id.action_diarySecondFragment_to_diaryEndFragment)
         }
 
         binding.imagebuttonDiaryCheckbox.setOnClickListener {

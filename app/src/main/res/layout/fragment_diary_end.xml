@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".diary.view.DiaryEndFragment">
+
+        <TextView
+            android:id="@+id/textview_diaryend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/gmarketsansttfmedium"
+            android:text="오늘의 안부 작성 완료!"
+            android:textColor="@color/mohaeng_black"
+            android:textSize="26sp"
+            android:layout_marginTop="96dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageview_diaryend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_diary_end"
+            android:layout_marginTop="113dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textview_diaryend" />
+
+        <TextView
+            android:id="@+id/textview_diaryend_happy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/spoqahansansneoregular"
+            android:text="해피지수 10 획득!"
+            android:textColor="@color/mohaeng_orange_a"
+            android:textSize="18sp"
+            android:layout_marginTop="100dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageview_diaryend" />
+
+        <ImageView
+            android:id="@+id/imageview_diaryend_happy"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="87dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_diaryend_happy"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageview_diaryend" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_diaryend"
+            android:layout_width="0dp"
+            android:layout_height="54dp"
+            android:layout_marginStart="38dp"
+            android:layout_marginTop="51dp"
+            android:layout_marginEnd="37dp"
+            android:background="@drawable/btn_yellow_round"
+            android:fontFamily="@font/spoqahansansneoregular"
+            android:text="확인"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:stateListAnimator="@null"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageview_diaryend_happy" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

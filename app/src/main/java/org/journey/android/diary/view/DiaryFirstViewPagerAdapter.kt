@@ -19,6 +19,10 @@ class DiaryFirstViewPagerAdapter (fm: FragmentManager) : FragmentStatePagerAdapt
 
     }
 
+    override fun getItemPosition(`object`: Any): Int {
+        return super.getItemPosition(`object`)
+    }
+
     // 생성 할 Fragment 의 개수
     override fun getCount() = 3
 

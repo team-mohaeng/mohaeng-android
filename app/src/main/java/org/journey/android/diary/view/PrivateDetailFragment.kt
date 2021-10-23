@@ -8,19 +8,28 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.DisplayMetrics
+import android.util.Log
 import android.view.*
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.chip.Chip
 import org.journey.android.R
 import org.journey.android.databinding.FragmentPrivateDetailBinding
+import org.journey.android.diary.service.FeedRequestToServer
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
-var postDetailId = 0
+var postDetail = HashMap<String, Any>()
+
 class PrivateDetailFragment: Fragment() {
 
     private lateinit var  binding : FragmentPrivateDetailBinding
@@ -37,7 +46,6 @@ class PrivateDetailFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setButtonClickListener(context)
 
-//        var journeyMood = 0
         val displaymetricsPrivateDetailFragment = DisplayMetrics()
         requireActivity().windowManager.defaultDisplay.getMetrics(
             displaymetricsPrivateDetailFragment
@@ -46,83 +54,35 @@ class PrivateDetailFragment: Fragment() {
             displaymetricsPrivateDetailFragment.heightPixels * 0.5
         val widthPrivateDetailFragmentDisplay =
             displaymetricsPrivateDetailFragment.widthPixels * 0.9
-//        var postNumCurrentPage = 0
-//        val call: Call<ResponseDiaryPrivateDetailData> = RetrofitService.diaryPrivateDetailService
-//            .getPrivateDetailDiary(
-//                postDetailId,
-//                userJwt
-//
-//            )
-//        call.enqueue(object : Callback<ResponseDiaryPrivateDetailData> {
-//            override fun onResponse(
-//                call: Call<ResponseDiaryPrivateDetailData>,
-//                responseDetail: Response<ResponseDiaryPrivateDetailData>
-//            ) {
-//                if (responseDetail.isSuccessful) {
-//                    val data = responseDetail.body()?.data
-//                    if (data != null) {
-//                        postNumCurrentPage = data.postId
-//                        binding.textviewPrivateDetailNickname.text = data.nickname
-//                        var privateDetailNowDate = data.year + "."
-//                        privateDetailNowDate = privateDetailNowDate + data.month + "."
-//                        privateDetailNowDate = privateDetailNowDate + data.day
-//                        privateDetailNowDate = privateDetailNowDate + "(" + data.week + ")"
-//                        binding.textviewPrivateDetailDate.text = privateDetailNowDate
-//                        binding.buttonPrivateDetailLike.text=data.likeCount.toString()
-//
-//                        val multi = MultiTransformation<Bitmap>(
-//                            GranularRoundedCorners(50F,50F,0F,0F)
-//                        )
-//
-//                        Glide.with(view)
-//                            .load(data.mainImage)
-//                            .apply(RequestOptions.bitmapTransform(multi))
-//                            .into(binding.imageviewPrivateDetailBack)
-//
-//                        journeyMood=data.mood
-//                        if(journeyMood==0)
-//                            binding.imageviewPrivateDetailFront.setImageResource(R.drawable.ic_diary_journey_bad_face)
-//                        else if(journeyMood==1)
-//                            binding.imageviewPrivateDetailFront.setImageResource(R.drawable.ic_diary_journey_soso_face)
-//                        else if(journeyMood==2)
-//                            binding.imageviewPrivateDetailFront.setImageResource(R.drawable.ic_diary_journey_good_face)
-//
-//
-////                        val testHashtagString = data.hashtags.joinToString(" ")
-////                        if (testHashtagString.isEmpty()) {
-////                            binding.textviewPrivateDetailHashtag.text = testHashtagString
-////                        } else if (testHashtagString.length in 1..19) {
-////                            val shortHashtagString = "\n" + testHashtagString
-////                            binding.textviewPrivateDetailHashtag.isVisible = true
-////                            binding.textviewPrivateDetailHashtag.text = shortHashtagString
-////                        } else if (testHashtagString.length > 19) {
-////                            val longHashtagString = testHashtagString.substring(0, 18) + "\n" + testHashtagString.substring(19, testHashtagString.length - 1)
-////                            binding.textviewPrivateDetailHashtag.isVisible = true
-////                            binding.textviewPrivateDetailHashtag.text = longHashtagString
-////                        }
-//
-//                        val testContentString = data.content
-//                        if(testContentString.length>=18)
-//                        {
-//                            val longContentString = testContentString.substring(0,16)+"\n"+testContentString.substring(17, testContentString.length-1)
-//                            binding.textviewPrivateDetailContent.text=longContentString
-//                        }
-//                        else{
-//                            binding.textviewPrivateDetailContent.text = testContentString+"\n"
-//                        }
-//                    }
-//                }
-//                else{
-//                    Log.d("ClientTest", "Client Error")
-//                }
-//            }
-//            override fun onFailure(call: Call<ResponseDiaryPrivateDetailData>, t: Throwable) {
-//                Log.d("NetworkTest", "error:$t")
-//            }
-//        }
-//        )
-//
 
+        if(postDetail.get("mood")==2)
+        {
+            binding.imageviewPrivateDetailFront.setImageResource(R.drawable.ic_feel_third)
+        }
+        else if(postDetail.get("mood")==1)
+        {
+            binding.imageviewPrivateDetailFront.setImageResource(R.drawable.ic_feel_second)
+        }
+        else if(postDetail.get("mood")==0)
+        {
+            binding.imageviewPrivateDetailFront.setImageResource(R.drawable.ic_feel_first)
+        }
+
+        Log.d("privateDetail", "${postDetail}")
+        Glide.with(this)
+            .load(postDetail.get("image"))
+            .into(binding.imageviewPrivateDetailBack)
+
+        binding.textviewPrivateDetailNickname.text = postDetail.get("nickname").toString()
+        binding.textviewPrivateDetailDate.text = postDetail.get("date").toString()
+        binding.textviewPrivateDetailTitle.text = postDetail.get("title").toString()
+        binding.textviewPrivateDetailContent.text = postDetail.get("content").toString()
+
+//        for (i in 0 until postDetail.get("emoji").size()) {
+//            addChipToGroup(postDetail.get("emoji")[i][0],postDetail.get("emoji")[i][1])
+//        }
+
+        Log.d("private emoji", "${postDetail.get("emoji")}")
 
         binding.buttonPrivateDelete.setOnClickListener()
         {
@@ -150,25 +110,28 @@ class PrivateDetailFragment: Fragment() {
                     deleteDialog.cancel()
                 }
             }
-//            deleteBtn.setOnClickListener {
-//                val call: Call<Unit> = RetrofitService.diaryDeleteService
-//                    .deleteDiary(
-//                        postNumCurrentPage,
-//                        userJwt
-//                    )
-//                call.enqueue(object : Callback<Unit> {
-//                    override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
-//                        if (response.isSuccessful) {
-//                            Toast.makeText(requireContext(), "삭제되었습니다",Toast.LENGTH_SHORT).show()
-//                        } else {
-//                        }
-//                    }
-//
-//                    override fun onFailure(call: Call<Unit>, t: Throwable) {
-//                        Log.d("Delete Diary NT Error", "Delete Error!")
-//                    }
-//                })
-//            }
+            deleteBtn.setOnClickListener {
+                val call: Call<Unit> = FeedRequestToServer.service
+                    .deletePrivateDetail(
+                        postDetail.get("id") as Int,
+                        "application/json",
+                        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk"
+                    )
+                call.enqueue(object : Callback<Unit> {
+                    override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
+                        if (response.isSuccessful) {
+                            Toast.makeText(requireContext(), "삭제되었습니다",Toast.LENGTH_SHORT).show()
+                            deleteDialog?.dismiss()
+                            findNavController().popBackStack()
+                        } else {
+                        }
+                    }
+
+                    override fun onFailure(call: Call<Unit>, t: Throwable) {
+                        Log.d("Delete Diary NT Error", "Delete Error!")
+                    }
+                })
+            }
         }
     }
 
