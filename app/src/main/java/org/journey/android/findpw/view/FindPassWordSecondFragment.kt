@@ -11,28 +11,31 @@ import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import org.journey.android.R
 import org.journey.android.databinding.FragmentFindPasswordOneBinding
+import org.journey.android.databinding.FragmentFindPasswordSecondBinding
 import org.journey.android.util.AutoClearedValue
 
 @AndroidEntryPoint
-class FindPassWordOneFragment : Fragment() {
-    private var binding by AutoClearedValue<FragmentFindPasswordOneBinding>()
+class FindPassWordSecondFragment : Fragment() {
+    private var binding by AutoClearedValue<FragmentFindPasswordSecondBinding>()
+
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentFindPasswordOneBinding.inflate(inflater, container, false)
+        binding = FragmentFindPasswordSecondBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setTextWatcher()
-        setClickListener()
-        sendEmailVerification()
+        setNewPassword()
     }
+
     private fun setTextWatcher(){
         with(binding){
-            edittextInputEmail.addTextChangedListener(object :  TextWatcher {
+            edittextInputEmail.addTextChangedListener(object : TextWatcher {
                 override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 }
                 override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
@@ -40,21 +43,14 @@ class FindPassWordOneFragment : Fragment() {
                 }
                 override fun afterTextChanged(p0: Editable?) {
                 }
-
             })
         }
     }
-    private fun setClickListener(){
-        with(binding){
-            buttonReturnBack.setOnClickListener { findNavController().popBackStack() }
-        }
-    }
 
-    private fun sendEmailVerification(){
+    private fun setNewPassword(){
         binding.buttonSendVerification.setOnClickListener {
-            findNavController().navigate(R.id.action_findPassWordOneFragment_to_findPassWordSecondFragment)
+            findNavController().navigate(R.id.action_findPassWordSecondFragment_to_findPassWordThirdFragment)
         }
     }
 
 }
-
