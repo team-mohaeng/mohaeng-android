@@ -3,6 +3,7 @@ package org.journey.android.network
 import io.reactivex.rxjava3.core.Single
 import org.journey.android.findpw.RequestChangePasswordDTO
 import org.journey.android.findpw.ResponseChangePasswordDTO
+import org.journey.android.findpw.ResponseVerificationCodeDTO
 import org.journey.android.login.data.RequestEmailSignInDTO
 import org.journey.android.login.data.ResponseEmailSignInDTO
 import org.journey.android.main.dto.ResponseBeforeChallengeDTO
@@ -16,6 +17,9 @@ interface RetrofitInterface {
 
     @PUT("/api/password")
     fun changePassWord(@Body requestChangePasswordDTO: RequestChangePasswordDTO) : Single<ResponseChangePasswordDTO>
+
+    @GET("/api/password/{email}")
+    fun sendVerificationCode(@Path("email") email : String) : Single<ResponseVerificationCodeDTO>
 
     @POST("/api/signin")
     fun signInEmail(@Body requestEmailSignInDTO: RequestEmailSignInDTO) : Single<ResponseEmailSignInDTO>

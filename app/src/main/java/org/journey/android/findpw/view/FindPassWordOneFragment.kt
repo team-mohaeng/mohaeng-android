@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
+import org.journey.android.R
 import org.journey.android.databinding.FragmentFindPasswordOneBinding
 import org.journey.android.util.AutoClearedValue
 
@@ -27,6 +28,7 @@ class FindPassWordOneFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setTextWatcher()
         setClickListener()
+        sendEmailVerification()
     }
     private fun setTextWatcher(){
         with(binding){
@@ -45,6 +47,12 @@ class FindPassWordOneFragment : Fragment() {
     private fun setClickListener(){
         with(binding){
             buttonReturnBack.setOnClickListener { findNavController().popBackStack() }
+        }
+    }
+
+    private fun sendEmailVerification(){
+        binding.buttonSendVerification.setOnClickListener {
+            findNavController().navigate(R.id.action_findPassWordOneFragment_to_findPassWordSecondFragment)
         }
     }
 
