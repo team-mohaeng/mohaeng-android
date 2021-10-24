@@ -16,6 +16,28 @@
         android:theme="@style/Theme.JourneyAndroid"
         android:usesCleartextTraffic="true"
         android:windowSoftInputMode="adjustResize">
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_launcher_foreground" />
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@android:color/holo_blue_dark" />
+
+        <!-- Set color used with incoming notification messages (알림 채널 메타 데이터 추가) -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/default_notification_channel_id" />
+
+        <service
+            android:name=".pushalarm.MohaengMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+
         <activity
             android:name="org.journey.android.entry.frame.EntryActivity"
             android:exported="true">

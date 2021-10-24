@@ -44,6 +44,8 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         auth = FirebaseAuth.getInstance()
+
+        viewModel.getFcmDeviceToken()
         setAction()
         launchKakaoLogin()
         checkLoginSuccess()
@@ -73,7 +75,8 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
                 Log.e(TAG, "로그인 실패", error)
             } else if (token != null) {
                 Log.i(TAG, "로그인 성공 ${token.accessToken}")
-                findNavController().navigate(R.id.action_loginFragment_to_serviceAgreeFragment)
+                viewModel.kakaoLogin(token.accessToken)
+
             }
         }
         UserApiClient.instance.run {
@@ -91,7 +94,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
                 val task = GoogleSignIn.getSignedInAccountFromIntent(it.data)
                 val account = task.getResult(ApiException::class.java)!!
                 firebaseAuthWithGoogle(account.idToken!!)
-                Log.w(ContentValues.TAG, "Google sign in success")
+                Log.w(ContentValues.TAG, "${account.idToken}")
             } catch (e: ApiException) {
                 Log.w(ContentValues.TAG, "Google sign in failed", e)
             }
@@ -122,6 +125,12 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
 
 
     private fun checkLoginSuccess() {
+        viewModel.loginSuccess.observe(viewLifecycleOwner) { successed ->
+            if(successed) {
+                findNavController().navigate(R.id.action_loginFragment_to_serviceAgreeFragment)
+            }
+        }
+
         viewModel.isLoginSuccessed.observe(viewLifecycleOwner) { loginStatus ->
             when (loginStatus) {
 //                LOGIN_SUCCESS -> {

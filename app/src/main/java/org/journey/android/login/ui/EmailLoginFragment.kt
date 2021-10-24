@@ -1,5 +1,6 @@
 package org.journey.android.login.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -13,6 +14,7 @@ import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import org.journey.android.R
 import org.journey.android.databinding.FragmentEmailLoginBinding
+import org.journey.android.frame.MainActivity
 import org.journey.android.login.LoginViewModel
 import org.journey.android.util.AutoClearedValue
 
@@ -30,6 +32,9 @@ class EmailLoginFragment : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = viewLifecycleOwner
+
         setClickListener()
         setTextWatcher()
         setEmailLogin()
@@ -61,7 +66,11 @@ class EmailLoginFragment : Fragment() {
         binding.buttonLoginComplete.setOnClickListener {
             viewModel.signIn()
         }
+
+        viewModel.loginSuccess.observe(viewLifecycleOwner) { successed ->
+            if(successed) {
+                startActivity(Intent(requireContext(), MainActivity::class.java))
+            }
+        }
     }
-
-
 }
