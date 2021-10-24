@@ -11,7 +11,7 @@ import org.journey.android.network.RetrofitInterface
 import org.journey.android.preference.UserPreferenceManager
 import org.journey.android.qualifier.*
 import retrofit2.Retrofit
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
+import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
@@ -27,7 +27,7 @@ object NetworkModule {
     fun provideNetworkInterceptor(userPreferenceManager: UserPreferenceManager) : Interceptor {
         return Interceptor { chain ->
             val request = chain.request().newBuilder()
-            val accessToken = "Bearer " + userPreferenceManager.fetchUserAccessToken()
+            val accessToken = userPreferenceManager.fetchUserAccessToken()
             request.addHeader(TOKEN_TYPE, accessToken)
             chain.proceed(request.build())
         }
@@ -66,7 +66,7 @@ object NetworkModule {
             .baseUrl("http://54.180.103.98:5000/")
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
-            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+            .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
             .build()
     }
 
@@ -78,7 +78,7 @@ object NetworkModule {
             .baseUrl("http://54.180.103.98:5000/")
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
-            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+            .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
             .build()
 
     @Provides
@@ -93,6 +93,6 @@ object NetworkModule {
     fun provideUnAuthRetrofitInterface(@UnAuthRetrofit retrofit: Retrofit): RetrofitInterface =
         retrofit.create(RetrofitInterface::class.java)
 
-    private const val TOKEN_TYPE = "Authorization"
+    private const val TOKEN_TYPE = "Bearer"
 
 }

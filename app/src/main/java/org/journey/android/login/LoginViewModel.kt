@@ -3,6 +3,8 @@ package org.journey.android.login
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.messaging.FirebaseMessaging
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -25,6 +27,10 @@ class LoginViewModel @Inject constructor(
     val email = MutableLiveData<String>("")
     val password = MutableLiveData<String>("")
 
+    private val _fcmDeviceToken = MutableLiveData<String>()
+    val fcmDeviceToken: LiveData<String>
+        get() = _fcmDeviceToken
+
     val kakaoLogin: LiveData<Boolean>
         get() = _kakaoLogin
 
@@ -46,8 +52,14 @@ class LoginViewModel @Inject constructor(
     val isLoginSuccessed: LiveData<String?>
         get() = _isLoginSuccessed
 
+    init {
+
+    }
+
     fun signIn() {
-        addDisposable( signInController.emailSingIn(
+        addDisposable(
+            signInController.emailSingIn(
+                userPreferenceManager.fetchUserFcmDeviceToken(),
                 RequestEmailSignInDTO(
                     email.value.toString(),
                     password.value.toString()
@@ -55,22 +67,43 @@ class LoginViewModel @Inject constructor(
             ).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ response ->
-                    successSignIn(response)
+                    _loginSuccess.postValue(true)
                 }, {
                     it.printStackTrace()
+                    _loginSuccess.postValue(false)
                     Log.e("email signin fail","signin email fail")
                 })
         )
     }
 
-    private fun successSignIn(response: ResponseEmailSignInDTO) {
-        userPreferenceManager.apply {
-            saveUserEmail(response.email)
-        }
-        _loginSuccess.postValue(true)
+    fun kakaoLogin(header: String) {
+        addDisposable(
+            signInController.kakaoSignIn(header)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({
+                    it.data?.jwt?.let { userPreferenceManager.saveUserAccessToken(it) }
+                    _loginSuccess.postValue(true)
+                },{
+                    _loginSuccess.postValue(false)
+                    it.printStackTrace()
+                })
+        )
     }
 
+    fun getFcmDeviceToken() {
+        FirebaseMessaging.getInstance()
+            .token.addOnCompleteListener(OnCompleteListener { task ->
+                if(!task.isSuccessful) {
+                    return@OnCompleteListener
+                }
+                val token = task.result
 
+                Log.e("token", "$token")
+                _fcmDeviceToken.postValue(token)
+                userPreferenceManager.saveUserFcmDeviceToken(token)
+            })
+    }
 
 
 

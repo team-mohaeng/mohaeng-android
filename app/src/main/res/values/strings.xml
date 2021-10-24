@@ -89,4 +89,5 @@
     <string name="not_available_nickname">사용 불가능한 닉네임입니다.</string>
     <string name="giveup_challenge">기존 코스를 포기하면 새로 시작한 코스\n첫날의 해피지수를 받을 수 없어 ㅠㅠ</string>
     <string name="firebase_app_key">495078612836-gouqa80mog4qg1e4nv9s3qr9s18ugnpt.apps.googleusercontent.com</string>
+
 </resources>

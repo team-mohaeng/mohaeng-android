@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewModel"
+            type="org.journey.android.login.LoginViewModel" />
+    </data>
+
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_return"
         android:layout_width="44dp"
@@ -46,6 +54,7 @@
         android:inputType="textEmailAddress"
         android:fontFamily="@font/spoqahansansneoregular"
         android:textSize="14sp"
+        android:text="@={viewModel.email}"
         android:layout_marginLeft="14dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -75,6 +84,7 @@
         android:layout_height="wrap_content"
         android:hint="비밀번호 입력"
         android:inputType="textPassword"
+        android:text="@={viewModel.password}"
         android:fontFamily="@font/spoqahansansneoregular"
         android:textSize="14sp"
         android:layout_marginLeft="14dp"
@@ -96,7 +106,6 @@
         android:text="로그인하기"
         android:textSize="16sp"
         android:stateListAnimator="@null"
-        android:enabled="false"
         android:fontFamily="@font/spoqahansansneobold"
         android:textColor="@color/white"
         android:layout_marginTop="48dp"

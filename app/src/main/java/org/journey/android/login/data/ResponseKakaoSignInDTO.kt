@@ -7,5 +7,10 @@ data class ResponseKakaoSignInDTO(
     @SerializedName("message")
     val message: String,
     @SerializedName("status")
-    val status: Int
-)
+    val status: Int,
+    val data: TokenDTO?
+) {
+    data class TokenDTO(
+        val jwt: String
+    )
+}

@@ -85,13 +85,12 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:28.4.2')
     implementation 'com.google.firebase:firebase-messaging-ktx'
     implementation 'com.google.firebase:firebase-analytics-ktx'
-    implementation 'com.google.firebase:firebase-messaging-directboot:22.0.0'
-    implementation 'com.google.firebase:firebase-messaging:22.0.0'
+
 
     //Retrofit
     implementation "com.squareup.retrofit2:retrofit:${DependencyVersions.RETROFIT_VERSION}"
     implementation "com.squareup.retrofit2:converter-gson:${DependencyVersions.RETROFIT_VERSION}"
-    implementation "com.squareup.retrofit2:adapter-rxjava2:${DependencyVersions.RETROFIT_VERSION}"
+    implementation "com.squareup.retrofit2:adapter-rxjava3:${DependencyVersions.RETROFIT_VERSION}"
 
     //OkHttp Logging Interceptor
     implementation "com.squareup.okhttp3:logging-interceptor:${DependencyVersions.OKHTTP_VERSION}"
