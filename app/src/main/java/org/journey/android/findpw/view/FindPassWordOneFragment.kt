@@ -12,10 +12,6 @@ import dagger.hilt.android.AndroidEntryPoint
 import org.journey.android.databinding.FragmentFindPasswordOneBinding
 import org.journey.android.util.AutoClearedValue
 
-var userId = ""
-var userIdTemp = ""
-var userNumber = 0
-
 @AndroidEntryPoint
 class FindPassWordOneFragment : Fragment() {
     private var binding by AutoClearedValue<FragmentFindPasswordOneBinding>()
