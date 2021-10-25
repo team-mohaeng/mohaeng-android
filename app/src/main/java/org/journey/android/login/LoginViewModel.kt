@@ -11,7 +11,6 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import org.journey.android.base.DisposableViewModel
 import org.journey.android.login.controller.SignInController
 import org.journey.android.login.data.RequestEmailSignInDTO
-import org.journey.android.login.data.ResponseEmailSignInDTO
 import org.journey.android.preference.UserPreferenceManager
 import javax.inject.Inject
 
@@ -52,9 +51,6 @@ class LoginViewModel @Inject constructor(
     val isLoginSuccessed: LiveData<String?>
         get() = _isLoginSuccessed
 
-    init {
-
-    }
 
     fun signIn() {
         addDisposable(
@@ -76,9 +72,30 @@ class LoginViewModel @Inject constructor(
         )
     }
 
-    fun kakaoLogin(header: String) {
+    fun kakaoLogin() {
         addDisposable(
-            signInController.kakaoSignIn(header)
+            signInController.kakaoSignIn(
+                userPreferenceManager.fetchUserAccessToken(),
+                userPreferenceManager.fetchUserFcmDeviceToken()
+            )
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({
+                    it.data?.jwt?.let { userPreferenceManager.saveUserAccessToken(it) }
+                    _loginSuccess.postValue(true)
+                },{
+                    _loginSuccess.postValue(false)
+                    it.printStackTrace()
+                })
+        )
+    }
+
+    fun googleLogin(){
+        addDisposable(
+            signInController.googleSignIn(
+                userPreferenceManager.fetchUserAccessToken(),
+                userPreferenceManager.fetchUserFcmDeviceToken()
+            )
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({

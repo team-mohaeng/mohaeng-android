@@ -1,14 +1,16 @@
 package org.journey.android.signup.data.dto.response
 
+
 import com.google.gson.annotations.SerializedName
 
-data class ResponseSignupDTO(
-    @SerializedName("data")
-    val dataDTO: DataDTO,
+data class ResponseSocialSignUpDTO(
     @SerializedName("status")
-    val status: Int
+    val status: Int,
+    @SerializedName("data")
+    val data: Data?,
+    val message : String?
 ){
-    data class DataDTO(
+    data class Data(
         @SerializedName("jwt")
         val jwt: String
     )
