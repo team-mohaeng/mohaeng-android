@@ -26,8 +26,6 @@ import org.journey.android.R
 import org.journey.android.base.BaseFragment
 import org.journey.android.databinding.FragmentLoginBinding
 import org.journey.android.login.LoginViewModel
-import org.journey.android.login.LoginViewModel.Companion.LOGIN_FAIL
-import org.journey.android.login.LoginViewModel.Companion.LOGIN_SUCCESS
 
 @AndroidEntryPoint
 class LoginFragment : BaseFragment<FragmentLoginBinding>() {
@@ -75,7 +73,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
                 Log.e(TAG, "로그인 실패", error)
             } else if (token != null) {
                 Log.i(TAG, "로그인 성공 ${token.accessToken}")
-                viewModel.kakaoLogin(token.accessToken)
+                viewModel.kakaoLogin()
 
             }
         }
@@ -95,6 +93,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
                 val account = task.getResult(ApiException::class.java)!!
                 firebaseAuthWithGoogle(account.idToken!!)
                 Log.w(ContentValues.TAG, "${account.idToken}")
+                viewModel.googleLogin()
             } catch (e: ApiException) {
                 Log.w(ContentValues.TAG, "Google sign in failed", e)
             }
@@ -121,8 +120,6 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
         val signInIntent = googleSignInClient.signInIntent
         googleLoginLauncher.launch(signInIntent)
     }
-
-
 
     private fun checkLoginSuccess() {
         viewModel.loginSuccess.observe(viewLifecycleOwner) { successed ->
