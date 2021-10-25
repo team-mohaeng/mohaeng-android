@@ -1,4 +1,4 @@
-package org.journey.android.signup.data.dto.response
+package org.journey.android.signup.data
 
 import com.google.gson.annotations.SerializedName
 

@@ -1,17 +1,17 @@
 package org.journey.android.network
 
 import io.reactivex.rxjava3.core.Single
-import org.journey.android.findpw.RequestChangePasswordDTO
-import org.journey.android.findpw.ResponseChangePasswordDTO
-import org.journey.android.findpw.ResponseVerificationCodeDTO
+import org.journey.android.findpw.data.RequestChangePasswordDTO
+import org.journey.android.findpw.data.ResponseChangePasswordDTO
+import org.journey.android.findpw.data.ResponseVerificationCodeDTO
 import org.journey.android.login.data.RequestEmailSignInDTO
 import org.journey.android.login.data.ResponseEmailSignInDTO
 import org.journey.android.login.data.ResponseGoogleSignInDTO
 import org.journey.android.login.data.ResponseKakaoSignInDTO
 import org.journey.android.main.dto.ResponseBeforeChallengeDTO
-import org.journey.android.signup.data.dto.response.ResponseSignupDTO
-import org.journey.android.signup.data.dto.request.RequestSignupDTO
-import org.journey.android.signup.data.dto.response.ResponseSocialSignUpDTO
+import org.journey.android.signup.data.ResponseSignupDTO
+import org.journey.android.signup.data.RequestSignupDTO
+import org.journey.android.signup.data.ResponseSocialSignUpDTO
 import retrofit2.http.*
 
 interface RetrofitInterface {
@@ -27,7 +27,7 @@ interface RetrofitInterface {
                     @Header("token") fcmToken : String) : Single<ResponseGoogleSignInDTO>
 
     @POST("/api/signup")
-    fun signUp(@Body requestSignupDTO : RequestSignupDTO) : Single<ResponseSignupDTO>
+    fun signUp(fcmToken: String, @Body requestSignupDTO: RequestSignupDTO) : Single<ResponseSignupDTO>
 
     @POST("api/kakao/signup")
     fun signUpKakao(@Header("idToken") accessToken : String ,

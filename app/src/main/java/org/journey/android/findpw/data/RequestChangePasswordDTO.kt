@@ -1,4 +1,4 @@
-package org.journey.android.findpw
+package org.journey.android.findpw.data
 
 
 import com.google.gson.annotations.SerializedName
