@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
+import okhttp3.internal.notifyAll
 import org.journey.android.R
 import org.journey.android.community.viewmodel.CommunityPostViewModel
 import org.journey.android.community.ui.adapter.CommunityPostAdapter
@@ -46,6 +47,7 @@ class CommunityFragment : Fragment() {
             })
             viewModel.communityPostList.observe(viewLifecycleOwner){
                 (adapter as CommunityPostAdapter).posts = it.toMutableList()
+                (adapter as CommunityPostAdapter).notifyDataSetChanged()
             }
         }
     }
