@@ -20,7 +20,7 @@ class MainViewModel @Inject constructor(
     fun initMohaengMain(){
         addDisposable(
             homeController.getHome(
-                clent = "aos"
+                client = "aos"
             ).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ success->

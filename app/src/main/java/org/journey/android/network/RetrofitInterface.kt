@@ -43,6 +43,6 @@ interface RetrofitInterface {
     fun sendVerificationCode(@Path("email") email : String) : Single<ResponseVerificationCodeDTO>
 
     @GET("/api/home")
-    fun getHomeResource(@Header("clent") clent : String) : Single<ResponseHomeDTO>
+    fun getHomeResource(@Header("client") client : String) : Single<ResponseHomeDTO>
 
 }

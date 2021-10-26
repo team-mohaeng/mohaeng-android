@@ -10,6 +10,6 @@ import javax.inject.Inject
 class HomeControllerImpl @Inject constructor(
     @AuthRetrofitService private val retrofitInterface: RetrofitInterface
 ) : HomeController {
-    override fun getHome(clent: String): Single<ResponseHomeDTO> =
-        retrofitInterface.getHomeResource(clent)
+    override fun getHome(client: String): Single<ResponseHomeDTO> =
+        retrofitInterface.getHomeResource(client)
 }
