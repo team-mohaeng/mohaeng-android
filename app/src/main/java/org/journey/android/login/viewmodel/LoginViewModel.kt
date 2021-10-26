@@ -76,8 +76,7 @@ class LoginViewModel @Inject constructor(
             signInController.kakaoSignIn(
                 userPreferenceManager.fetchUserAccessToken(),
                 userPreferenceManager.fetchUserFcmDeviceToken(),
-            )
-                .subscribeOn(Schedulers.io())
+            ).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
                     if(it.data?.user == true) {
