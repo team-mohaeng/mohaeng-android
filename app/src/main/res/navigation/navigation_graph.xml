@@ -170,7 +170,7 @@
     </fragment>
     <fragment
         android:id="@+id/courseFragment"
-        android:name="org.journey.android.course.ui.CourseFragment"
+        android:name="org.journey.android.course.ui.fragment.CourseFragment"
         android:label="fragment_course"
         tools:layout="@layout/fragment_course">
         <action
@@ -179,7 +179,7 @@
     </fragment>
     <fragment
         android:id="@+id/courseCatalogFragment"
-        android:name="org.journey.android.course.ui.CourseCatalogFragment"
+        android:name="org.journey.android.course.ui.fragment.CourseCatalogFragment"
         android:label="fragment_library"
         tools:layout="@layout/fragment_course_catalog" />
 

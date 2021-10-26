@@ -3,7 +3,7 @@
     <data>
         <variable
             name="data"
-            type="org.journey.android.course.data.CourseCatalogEntity" />
+            type="org.journey.android.course.data.entity.CourseCatalogEntity" />
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout

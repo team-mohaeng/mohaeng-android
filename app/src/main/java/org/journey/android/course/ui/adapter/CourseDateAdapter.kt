@@ -1,10 +1,10 @@
-package org.journey.android.course.ui
+package org.journey.android.course.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import org.journey.android.BR
-import org.journey.android.course.data.CourseDateEntity
+import org.journey.android.course.data.entity.CourseDateEntity
 import org.journey.android.databinding.ItemCourseStampBinding
 import org.journey.android.databinding.ItemCourseStampReverseBinding
 import java.lang.RuntimeException

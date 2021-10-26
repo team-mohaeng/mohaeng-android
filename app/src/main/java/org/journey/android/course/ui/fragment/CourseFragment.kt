@@ -1,4 +1,4 @@
-package org.journey.android.course.ui
+package org.journey.android.course.ui.fragment
 
 import android.os.Bundle
 import android.util.Log
@@ -8,7 +8,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
-import org.journey.android.course.CourseViewModel
+import org.journey.android.course.viewmodel.CourseViewModel
+import org.journey.android.course.ui.adapter.CourseAdapter
 import org.journey.android.databinding.FragmentCourseBinding
 import org.journey.android.util.AutoClearedValue
 import org.journey.android.util.RecyclerViewItemDecoration

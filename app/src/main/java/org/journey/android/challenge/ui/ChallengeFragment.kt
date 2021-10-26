@@ -9,7 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import org.journey.android.R
-import org.journey.android.challenge.ChallengeViewModel
+import org.journey.android.challenge.viewmodel.ChallengeViewModel
 import org.journey.android.databinding.FragmentChallengeBinding
 
 import org.journey.android.util.AutoClearedValue
