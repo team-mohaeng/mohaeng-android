@@ -4,6 +4,8 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import org.journey.android.findpw.controller.ChangePasswordController
+import org.journey.android.findpw.controller.ChangePasswordControllerImpl
 import org.journey.android.findpw.controller.SendVerificationController
 import org.journey.android.findpw.controller.SendVerificationControllerImpl
 import org.journey.android.login.controller.SignInController
@@ -31,5 +33,10 @@ object ControllerModule {
     @Singleton
     fun provideSendVerificationController(@UnAuthRetrofitService retrofitInterface: RetrofitInterface) : SendVerificationController =
         SendVerificationControllerImpl(retrofitInterface)
+
+    @Provides
+    @Singleton
+    fun provideChangePasswordController(@UnAuthRetrofitService retrofitInterface: RetrofitInterface) : ChangePasswordController =
+        ChangePasswordControllerImpl(retrofitInterface)
 
 }

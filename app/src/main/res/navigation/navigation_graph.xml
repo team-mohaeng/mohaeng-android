@@ -229,7 +229,7 @@
     </dialog>
     <fragment
         android:id="@+id/finishRewardFragment"
-        android:name="org.journey.android.FinishRewardFragment"
+        android:name="org.journey.android.reward.ui.FinishRewardFragment"
         android:label="FinishRewardFragment"
         tools:layout="@layout/fragment_finish_reward"/>
 </navigation>
