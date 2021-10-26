@@ -1,13 +1,13 @@
-package org.journey.android.course
+package org.journey.android.course.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import org.journey.android.R
 import org.journey.android.base.DisposableViewModel
-import org.journey.android.course.data.CourseCatalogEntity
-import org.journey.android.course.data.CourseDateEntity
-import org.journey.android.course.data.CourseEntity
+import org.journey.android.course.data.entity.CourseCatalogEntity
+import org.journey.android.course.data.entity.CourseDateEntity
+import org.journey.android.course.data.entity.CourseEntity
 import javax.inject.Inject
 
 @HiltViewModel

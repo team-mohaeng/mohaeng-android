@@ -32,6 +32,7 @@ class CommunityFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
+        viewModel.fetchCommunityPost()
         loadCommunityPost()
         setClickListener()
     }

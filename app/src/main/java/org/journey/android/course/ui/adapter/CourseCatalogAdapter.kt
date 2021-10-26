@@ -1,10 +1,10 @@
-package org.journey.android.course.ui
+package org.journey.android.course.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import org.journey.android.BR
-import org.journey.android.course.data.CourseCatalogEntity
+import org.journey.android.course.data.entity.CourseCatalogEntity
 import org.journey.android.databinding.ItemCourseCatalogBinding
 
 class CourseCatalogAdapter : RecyclerView.Adapter<CourseCatalogAdapter.CourseCatalogViewHolder>() {

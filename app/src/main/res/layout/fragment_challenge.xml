@@ -5,7 +5,7 @@
     <data>
         <variable
             name="viewModel"
-            type="org.journey.android.challenge.ChallengeViewModel" />
+            type="org.journey.android.challenge.viewmodel.ChallengeViewModel" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintlayout_challenge_ongoing"

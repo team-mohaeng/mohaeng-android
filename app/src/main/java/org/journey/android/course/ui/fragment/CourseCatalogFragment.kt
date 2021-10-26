@@ -1,4 +1,4 @@
-package org.journey.android.course.ui
+package org.journey.android.course.ui.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
-import org.journey.android.course.CourseViewModel
+import org.journey.android.course.viewmodel.CourseViewModel
+import org.journey.android.course.ui.adapter.CourseCatalogAdapter
 import org.journey.android.databinding.FragmentCourseCatalogBinding
 import org.journey.android.util.AutoClearedValue
 

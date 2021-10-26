@@ -1,7 +1,9 @@
 package org.journey.android.network
 
 import io.reactivex.rxjava3.core.Single
+import org.journey.android.challenge.data.ResponseTodayChallengeDTO
 import org.journey.android.community.data.dto.ResponseCommunityFeedDTO
+import org.journey.android.course.data.dto.ResponseCompleteCourseListDTO
 import org.journey.android.findpw.data.RequestChangePasswordDTO
 import org.journey.android.findpw.data.ResponseChangePasswordDTO
 import org.journey.android.findpw.data.ResponseVerificationCodeDTO
@@ -54,7 +56,10 @@ interface RetrofitInterface {
     fun getCommunityFeed() : Single<ResponseCommunityFeedDTO>
 
     @GET("/api/today")
-    fun checkTodayChallenge(@Header("client") client : String)
+    fun checkTodayChallenge(@Header("client") client : String) : Single<ResponseTodayChallengeDTO>
+
+    @GET("/api/courses/complete")
+    fun getCompleteCourseList() : Single<ResponseCompleteCourseListDTO>
 
 
 
