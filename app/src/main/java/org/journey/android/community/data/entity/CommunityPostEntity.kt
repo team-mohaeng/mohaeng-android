@@ -1,4 +1,4 @@
-package org.journey.android.community
+package org.journey.android.community.data.entity
 
 data class CommunityPostEntity(
     val image : Int,

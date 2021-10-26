@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="org.journey.android.community.CommunityPostViewModel" />
+            type="org.journey.android.community.viewmodel.CommunityPostViewModel" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintlayout_frame_community"

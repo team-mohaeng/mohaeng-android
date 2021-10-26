@@ -215,7 +215,7 @@
         tools:layout="@layout/fragment_character"/>
     <fragment
         android:id="@+id/myPageFragment"
-        android:name="org.journey.android.mypage.MyPageFragment"
+        android:name="org.journey.android.mypage.ui.MyPageFragment"
         android:label="MyPageFragment"
         tools:layout="@layout/fragment_my_page"/>
     <dialog

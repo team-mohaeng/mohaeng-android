@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import org.journey.android.BR
-import org.journey.android.community.CommunityPostEntity
+import org.journey.android.community.data.entity.CommunityPostEntity
 import org.journey.android.databinding.ItemCommunityRecordBinding
 
 class CommunityPostAdapter(val listener : OnItemClickListener) : RecyclerView.Adapter<CommunityPostAdapter.CommunityPostViewHolder>() {

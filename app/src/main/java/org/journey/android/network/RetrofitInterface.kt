@@ -1,6 +1,7 @@
 package org.journey.android.network
 
 import io.reactivex.rxjava3.core.Single
+import org.journey.android.community.data.dto.ResponseCommunityFeedDTO
 import org.journey.android.findpw.data.RequestChangePasswordDTO
 import org.journey.android.findpw.data.ResponseChangePasswordDTO
 import org.journey.android.findpw.data.ResponseVerificationCodeDTO
@@ -9,10 +10,8 @@ import org.journey.android.login.data.ResponseEmailSignInDTO
 import org.journey.android.login.data.ResponseGoogleSignInDTO
 import org.journey.android.login.data.ResponseKakaoSignInDTO
 import org.journey.android.main.dto.ResponseHomeDTO
-import org.journey.android.signup.data.ResponseSignupDTO
-import org.journey.android.signup.data.RequestSignupDTO
-import org.journey.android.signup.data.RequestSocialSignUpDTO
-import org.journey.android.signup.data.ResponseSocialSignUpDTO
+import org.journey.android.mypage.data.ResponseCheckMyPageDTO
+import org.journey.android.signup.data.*
 import retrofit2.http.*
 
 interface RetrofitInterface {
@@ -44,5 +43,19 @@ interface RetrofitInterface {
 
     @GET("/api/home")
     fun getHomeResource(@Header("client") client : String) : Single<ResponseHomeDTO>
+
+    @PUT("/api/profile")
+    fun changeNickName(@Body requestChangeNickNameDTO: RequestChangeNickNameDTO) : Single<ResponseChangeNickNameDTO>
+
+    @GET("/api/profile")
+    fun checkMyPage() : Single<ResponseCheckMyPageDTO>
+
+    @GET("/api/feed")
+    fun getCommunityFeed() : Single<ResponseCommunityFeedDTO>
+
+    @GET("/api/today")
+    fun checkTodayChallenge(@Header("client") client : String)
+
+
 
 }
