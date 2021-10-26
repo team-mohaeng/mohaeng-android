@@ -5,10 +5,10 @@
     <data>
         <variable
             name="viewModel"
-            type="org.journey.android.nickname.NickNameViewModel" />
+            type="org.journey.android.signup.viewmodel.NickNameViewModel" />
         <variable
             name="nickNameStatus"
-            type="org.journey.android.nickname.NickNameStatus" />
+            type="org.journey.android.signup.NickNameStatus" />
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"

@@ -60,7 +60,7 @@
     </fragment>
     <fragment
         android:id="@+id/setNickNameFragment"
-        android:name="org.journey.android.nickname.ui.SetNickNameFragment"
+        android:name="org.journey.android.signup.ui.SetNickNameFragment"
         android:label="SetNickNameFragment"
         tools:layout="@layout/fragment_set_nick_name"/>
     <fragment

@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import org.journey.android.databinding.FragmentOnboardingSecondBinding
 import org.journey.android.onboarding.ui.adapter.OnboardingCourseAdapter
-import org.journey.android.onboarding.OnboardingViewModel
+import org.journey.android.onboarding.viewmodel.OnboardingViewModel
 import org.journey.android.util.AutoClearedValue
 
 class OnboardingSecondFragment : Fragment() {

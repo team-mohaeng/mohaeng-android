@@ -1,4 +1,4 @@
-package org.journey.android.onboarding
+package org.journey.android.onboarding.data
 
 data class OnboardingCourseEntity(
     val background : Int,

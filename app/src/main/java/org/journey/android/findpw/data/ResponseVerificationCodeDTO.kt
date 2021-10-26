@@ -8,4 +8,9 @@ data class ResponseVerificationCodeDTO(
     val verificationDataDTO: VerificationDataDTO,
     @SerializedName("status")
     val status: Int
-)
+){
+    data class VerificationDataDTO(
+        @SerializedName("number")
+        val number: String
+    )
+}

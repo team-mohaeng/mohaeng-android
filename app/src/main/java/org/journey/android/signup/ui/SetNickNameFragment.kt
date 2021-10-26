@@ -1,4 +1,4 @@
-package org.journey.android.nickname.ui
+package org.journey.android.signup.ui
 
 import android.content.Intent
 import android.os.Bundle
@@ -14,13 +14,17 @@ import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import org.journey.android.databinding.FragmentSetNickNameBinding
 import org.journey.android.frame.MainActivity
-import org.journey.android.nickname.NickNameViewModel
+import org.journey.android.preference.UserPreferenceManager
+import org.journey.android.signup.viewmodel.NickNameViewModel
 import org.journey.android.util.AutoClearedValue
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class SetNickNameFragment : Fragment() {
     private var binding by AutoClearedValue<FragmentSetNickNameBinding>()
     private val viewModel : NickNameViewModel by viewModels()
+    @Inject lateinit var userPreferenceManager: UserPreferenceManager
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -31,6 +35,17 @@ class SetNickNameFragment : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = viewLifecycleOwner
+
+
+        viewModel.signUpSuccess.observe(viewLifecycleOwner) { successed ->
+            if(successed) {
+                val intent = Intent(context, MainActivity::class.java)
+                startActivity(intent)
+            }
+        }
+
         popBackStack()
         initMain()
         checkNickName()
@@ -41,8 +56,12 @@ class SetNickNameFragment : Fragment() {
     }
     private fun initMain() {
         binding.buttonSetNickname.setOnClickListener {
-            val intent = Intent(context, MainActivity::class.java)
-            startActivity(intent)
+            if(userPreferenceManager.fetchUserSnsType() ==null){
+                viewModel.signUpEmail()
+            }
+            else{
+                viewModel.setNickName()
+            }
         }
     }
     private fun checkNickName(){
@@ -55,16 +74,13 @@ class SetNickNameFragment : Fragment() {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 binding.buttonSetNickname.isVisible = false
             }
-
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 checkNickName()
                 binding.buttonSetNickname.isVisible = true
             }
-
             override fun afterTextChanged(p0: Editable?) {}
 
         })
-
     }
 
 

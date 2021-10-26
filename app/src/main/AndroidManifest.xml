@@ -15,6 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JourneyAndroid"
         android:usesCleartextTraffic="true"
+        android:fullBackupContent="false"
         android:windowSoftInputMode="adjustResize">
 
         <meta-data
@@ -41,11 +42,7 @@
         <activity
             android:name="org.journey.android.entry.frame.EntryActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".frame.MainActivity"
@@ -55,7 +52,11 @@
         <activity
             android:name=".onboarding.OnboardingActivity"
             android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <meta-data

@@ -1,6 +1,5 @@
 package org.journey.android.signup.data
 
-
 import com.google.gson.annotations.SerializedName
 
 data class RequestSignupDTO(

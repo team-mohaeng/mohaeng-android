@@ -1,4 +1,4 @@
-package org.journey.android.login
+package org.journey.android.login.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -51,7 +51,6 @@ class LoginViewModel @Inject constructor(
     val isLoginSuccessed: LiveData<String?>
         get() = _isLoginSuccessed
 
-
     fun signIn() {
         addDisposable(
             signInController.emailSingIn(
@@ -76,13 +75,18 @@ class LoginViewModel @Inject constructor(
         addDisposable(
             signInController.kakaoSignIn(
                 userPreferenceManager.fetchUserAccessToken(),
-                userPreferenceManager.fetchUserFcmDeviceToken()
+                userPreferenceManager.fetchUserFcmDeviceToken(),
             )
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    it.data?.jwt?.let { userPreferenceManager.saveUserAccessToken(it) }
-                    _loginSuccess.postValue(true)
+                    if(it.data?.user == true) {
+                        it.data?.jwt?.let { userPreferenceManager.saveUserAccessToken(it) }
+                        _loginSuccess.postValue(true)
+                    } else {
+                        _loginSuccess.postValue(false)
+                    }
+                    userPreferenceManager.saveUserSnsType(snsType = "kakao")
                 },{
                     _loginSuccess.postValue(false)
                     it.printStackTrace()
@@ -95,11 +99,11 @@ class LoginViewModel @Inject constructor(
             signInController.googleSignIn(
                 userPreferenceManager.fetchUserAccessToken(),
                 userPreferenceManager.fetchUserFcmDeviceToken()
-            )
-                .subscribeOn(Schedulers.io())
+            ).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
                     it.data?.jwt?.let { userPreferenceManager.saveUserAccessToken(it) }
+                    userPreferenceManager.saveUserSnsType(snsType = "google")
                     _loginSuccess.postValue(true)
                 },{
                     _loginSuccess.postValue(false)
@@ -122,6 +126,9 @@ class LoginViewModel @Inject constructor(
             })
     }
 
+    fun saveAccessToken(token: String) {
+        userPreferenceManager.saveUserAccessToken(token)
+    }
 
 
     companion object {

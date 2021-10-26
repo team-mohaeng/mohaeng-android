@@ -25,13 +25,15 @@ import dagger.hilt.android.AndroidEntryPoint
 import org.journey.android.R
 import org.journey.android.base.BaseFragment
 import org.journey.android.databinding.FragmentLoginBinding
-import org.journey.android.login.LoginViewModel
+import org.journey.android.frame.MainActivity
+import org.journey.android.login.viewmodel.LoginViewModel
 
 @AndroidEntryPoint
 class LoginFragment : BaseFragment<FragmentLoginBinding>() {
     private lateinit var auth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
     private val viewModel by viewModels<LoginViewModel>()
+
     override fun getFragmentBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
@@ -53,10 +55,10 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
     private fun setAction(){
         with(binding){
             textviewEmailAccount.setOnClickListener { Navigation.findNavController(binding.root).navigate(
-                R.id.action_loginFragment_to_emailSignupFragment
+                R.id.action_loginFragment_to_emailLoginFragment
             ) }
             buttonLoginEmail.setOnClickListener { Navigation.findNavController(binding.root).navigate(
-                R.id.action_loginFragment_to_emailLoginFragment
+                R.id.action_loginFragment_to_emailSignupFragment
             ) }
         }
     }
@@ -72,6 +74,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
             if (error != null) {
                 Log.e(TAG, "로그인 실패", error)
             } else if (token != null) {
+                viewModel.saveAccessToken(token.accessToken)
                 Log.i(TAG, "로그인 성공 ${token.accessToken}")
                 viewModel.kakaoLogin()
 
@@ -92,7 +95,9 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
                 val task = GoogleSignIn.getSignedInAccountFromIntent(it.data)
                 val account = task.getResult(ApiException::class.java)!!
                 firebaseAuthWithGoogle(account.idToken!!)
-                Log.w(ContentValues.TAG, "${account.idToken}")
+                viewModel.saveAccessToken(account.idToken)
+
+                Log.e(ContentValues.TAG, "${account.idToken}")
                 viewModel.googleLogin()
             } catch (e: ApiException) {
                 Log.w(ContentValues.TAG, "Google sign in failed", e)
@@ -124,6 +129,8 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
     private fun checkLoginSuccess() {
         viewModel.loginSuccess.observe(viewLifecycleOwner) { successed ->
             if(successed) {
+                startActivity(Intent(requireContext(), MainActivity::class.java ))
+            } else {
                 findNavController().navigate(R.id.action_loginFragment_to_serviceAgreeFragment)
             }
         }
