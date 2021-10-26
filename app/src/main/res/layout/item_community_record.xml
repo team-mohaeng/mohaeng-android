@@ -22,7 +22,7 @@
                 android:id="@+id/imageview_post_image"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                loadDrawable="@{data.image}"
+                setImageURL="@{data.image}"
                 android:background="#AAAAAA"
                 android:scaleType="fitXY"
                 app:layout_constraintLeft_toLeftOf="parent"

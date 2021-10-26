@@ -2,6 +2,7 @@ package org.journey.android.community.data.dto
 
 
 import com.google.gson.annotations.SerializedName
+import org.journey.android.community.data.entity.CommunityPostEntity
 
 data class ResponseCommunityFeedDTO(
     @SerializedName("data")
@@ -58,6 +59,15 @@ data class ResponseCommunityFeedDTO(
                 @SerializedName("id")
                 val id: Int
             )
+            fun convertToCommunityPostEntity() : CommunityPostEntity {
+                return CommunityPostEntity(
+                    image,
+                    course,
+                    content,
+                    nickname,
+                    date
+                )
+            }
         }
     }
 }
