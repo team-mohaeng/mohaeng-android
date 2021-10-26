@@ -8,7 +8,7 @@ import org.journey.android.login.data.RequestEmailSignInDTO
 import org.journey.android.login.data.ResponseEmailSignInDTO
 import org.journey.android.login.data.ResponseGoogleSignInDTO
 import org.journey.android.login.data.ResponseKakaoSignInDTO
-import org.journey.android.main.dto.ResponseBeforeChallengeDTO
+import org.journey.android.main.dto.ResponseHomeDTO
 import org.journey.android.signup.data.ResponseSignupDTO
 import org.journey.android.signup.data.RequestSignupDTO
 import org.journey.android.signup.data.RequestSocialSignUpDTO
@@ -43,6 +43,6 @@ interface RetrofitInterface {
     fun sendVerificationCode(@Path("email") email : String) : Single<ResponseVerificationCodeDTO>
 
     @GET("/api/home")
-    fun getHomeResource(@Query("clent") clent : String) : Single<ResponseBeforeChallengeDTO>
+    fun getHomeResource(@Header("client") client : String) : Single<ResponseHomeDTO>
 
 }

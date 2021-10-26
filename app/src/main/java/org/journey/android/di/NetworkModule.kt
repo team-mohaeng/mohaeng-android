@@ -28,7 +28,7 @@ object NetworkModule {
         return Interceptor { chain ->
             val request = chain.request().newBuilder()
             val accessToken = userPreferenceManager.fetchUserAccessToken()
-            request.addHeader(TOKEN_TYPE, accessToken)
+            request.addHeader(TOKEN_TYPE, "${accessToken}")
             chain.proceed(request.build())
         }
     }

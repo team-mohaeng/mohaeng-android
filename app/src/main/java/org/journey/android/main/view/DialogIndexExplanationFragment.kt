@@ -6,10 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import androidx.fragment.app.DialogFragment
+import dagger.hilt.android.AndroidEntryPoint
 import org.journey.android.R
 import org.journey.android.databinding.DialogIndexExplanationBinding
 import org.journey.android.util.AutoClearedValue
 
+@AndroidEntryPoint
 class DialogIndexExplanationFragment : DialogFragment() {
     private var binding by AutoClearedValue<DialogIndexExplanationBinding>()
 
@@ -34,7 +36,6 @@ class DialogIndexExplanationFragment : DialogFragment() {
             buttonDialogClose.setOnClickListener { dismiss() }
         }
     }
-
 
 }
 
