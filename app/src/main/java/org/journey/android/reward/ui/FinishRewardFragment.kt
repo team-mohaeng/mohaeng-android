@@ -1,4 +1,4 @@
-package org.journey.android
+package org.journey.android.reward.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater

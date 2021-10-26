@@ -12,13 +12,17 @@ import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import org.journey.android.R
 import org.journey.android.databinding.FragmentFindPasswordOneBinding
-import org.journey.android.findpw.FindPassWordViewModel
+import org.journey.android.findpw.viewmodel.FindPassWordViewModel
+import org.journey.android.preference.UserPreferenceManager
 import org.journey.android.util.AutoClearedValue
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class FindPassWordOneFragment : Fragment() {
     private var binding by AutoClearedValue<FragmentFindPasswordOneBinding>()
     private val viewModel by viewModels<FindPassWordViewModel>()
+    @Inject lateinit var userPreferenceManager: UserPreferenceManager
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -58,6 +62,7 @@ class FindPassWordOneFragment : Fragment() {
     private fun sendEmailVerification(){
         binding.buttonSendVerification.setOnClickListener {
             viewModel.sendVericiationCode()
+
             findNavController().navigate(R.id.action_findPassWordOneFragment_to_findPassWordSecondFragment)
         }
     }
