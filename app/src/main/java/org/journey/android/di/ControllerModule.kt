@@ -4,6 +4,8 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import org.journey.android.findpw.controller.SendVerificationController
+import org.journey.android.findpw.controller.SendVerificationControllerImpl
 import org.journey.android.login.controller.SignInController
 import org.journey.android.login.controller.SignInControllerImpl
 import org.journey.android.network.RetrofitInterface
@@ -24,4 +26,10 @@ object ControllerModule {
     @Singleton
     fun provideSignUpController(@UnAuthRetrofitService retrofitInterface: RetrofitInterface) : SignUpController =
         SignUpControllerImpl(retrofitInterface)
+
+    @Provides
+    @Singleton
+    fun provideSendVerificationController(@UnAuthRetrofitService retrofitInterface: RetrofitInterface) : SendVerificationController =
+        SendVerificationControllerImpl(retrofitInterface)
+
 }

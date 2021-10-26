@@ -28,9 +28,7 @@ object NetworkModule {
         return Interceptor { chain ->
             val request = chain.request().newBuilder()
             val accessToken = userPreferenceManager.fetchUserAccessToken()
-            val fcmToken = userPreferenceManager.fetchUserFcmDeviceToken()
             request.addHeader(TOKEN_TYPE, accessToken)
-            request.addHeader(TOKEN, fcmToken)
             chain.proceed(request.build())
         }
     }
@@ -96,7 +94,6 @@ object NetworkModule {
         retrofit.create(RetrofitInterface::class.java)
 
 
-    private const val TOKEN_TYPE = "idToken"
-    private const val TOKEN = "token"
+    private const val TOKEN_TYPE = "Bearer"
 
 }

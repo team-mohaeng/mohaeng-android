@@ -6,7 +6,8 @@ data class ResponseSignupDTO(
     @SerializedName("data")
     val dataDTO: DataDTO,
     @SerializedName("status")
-    val status: Int
+    val status: Int,
+    val message : String?
 ){
     data class DataDTO(
         @SerializedName("jwt")

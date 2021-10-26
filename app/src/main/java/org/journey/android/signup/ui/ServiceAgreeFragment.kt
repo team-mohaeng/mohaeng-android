@@ -11,13 +11,17 @@ import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import org.journey.android.R
 import org.journey.android.databinding.FragmentServiceAgreeBinding
-import org.journey.android.signup.SignupViewModel
+import org.journey.android.preference.UserPreferenceManager
+import org.journey.android.signup.viewmodel.SignupViewModel
 import org.journey.android.util.AutoClearedValue
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class ServiceAgreeFragment : Fragment() {
     private var binding by AutoClearedValue<FragmentServiceAgreeBinding>()
     private val viewModel : SignupViewModel by viewModels()
+    @Inject lateinit var userPreferenceManager: UserPreferenceManager
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -30,6 +34,7 @@ class ServiceAgreeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
+
         popBackStack()
         setNickName()
         activateConfirmButton()

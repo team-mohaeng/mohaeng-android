@@ -1,10 +1,11 @@
-package org.journey.android.onboarding
+package org.journey.android.onboarding.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import org.journey.android.R
 import org.journey.android.base.DisposableViewModel
+import org.journey.android.onboarding.data.OnboardingCourseEntity
 import javax.inject.Inject
 
 @HiltViewModel

@@ -1,4 +1,4 @@
-package org.journey.android.nickname
+package org.journey.android.signup
 
 import org.journey.android.R
 

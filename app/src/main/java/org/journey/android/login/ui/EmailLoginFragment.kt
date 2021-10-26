@@ -15,7 +15,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import org.journey.android.R
 import org.journey.android.databinding.FragmentEmailLoginBinding
 import org.journey.android.frame.MainActivity
-import org.journey.android.login.LoginViewModel
+import org.journey.android.login.viewmodel.LoginViewModel
 import org.journey.android.util.AutoClearedValue
 
 @AndroidEntryPoint

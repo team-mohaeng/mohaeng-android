@@ -13,7 +13,7 @@ class SharedPreferencesManager @Inject constructor(
             is Int -> putInt(key, value)
             is Boolean -> putBoolean(key, value)
             is Float -> putFloat(key, value)
-            else -> IllegalArgumentException("Preferences type error")
+            else -> throw IllegalArgumentException("Preferences type error")
         }
         apply()
     }
