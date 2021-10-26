@@ -1,4 +1,4 @@
-package org.journey.android.mypage
+package org.journey.android.mypage.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater

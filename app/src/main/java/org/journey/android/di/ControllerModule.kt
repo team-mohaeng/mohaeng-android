@@ -4,6 +4,8 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import org.journey.android.community.controller.CommunityController
+import org.journey.android.community.controller.CommunityControllerImpl
 import org.journey.android.findpw.controller.ChangePasswordController
 import org.journey.android.findpw.controller.ChangePasswordControllerImpl
 import org.journey.android.findpw.controller.SendVerificationController
@@ -46,5 +48,11 @@ object ControllerModule {
     @Singleton
     fun provideGetHomeResourceController(@AuthRetrofitService retrofitInterface: RetrofitInterface) : HomeController =
         HomeControllerImpl(retrofitInterface)
+
+    @Provides
+    @Singleton
+    fun provideCommunityFeedController(@AuthRetrofitService retrofitInterface: RetrofitInterface) : CommunityController =
+        CommunityControllerImpl(retrofitInterface)
+
 
 }

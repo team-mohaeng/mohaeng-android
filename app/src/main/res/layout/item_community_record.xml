@@ -5,7 +5,7 @@
     <data>
         <variable
             name="data"
-            type="org.journey.android.community.CommunityPostEntity" />
+            type="org.journey.android.community.data.entity.CommunityPostEntity" />
     </data>
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintlayout_community_item"
