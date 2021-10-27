@@ -6,6 +6,9 @@
         <variable
             name="viewModel"
             type="org.journey.android.main.viewmodel.MainViewModel" />
+        <variable
+            name="data"
+            type="org.journey.android.main.dto.ResponseHomeDTO" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

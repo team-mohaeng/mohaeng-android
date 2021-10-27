@@ -57,8 +57,6 @@ class CommunityFragment : Fragment() {
             textviewDiary.setOnClickListener { findNavController().navigate(R.id.action_frameFragment_to_privateFragment) }
             buttonHappinessWrite.setOnClickListener { findNavController().navigate(R.id.action_frameFragment_to_diaryFirstFragment) }
         }
-
     }
-
 }
 

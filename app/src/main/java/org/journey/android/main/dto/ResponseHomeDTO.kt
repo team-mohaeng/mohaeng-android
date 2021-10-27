@@ -15,7 +15,7 @@ data class ResponseHomeDTO(
         @SerializedName("characterSkin")
         val characterSkin: String,
         @SerializedName("course")
-        val courseProgressDTO: CourseProgressDTO,
+        val courseProgressDTO: CourseProgressDTO?,
         @SerializedName("fullHappy")
         val fullHappy: Int,
         @SerializedName("happy")

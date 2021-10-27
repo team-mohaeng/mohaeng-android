@@ -17,6 +17,8 @@ import org.journey.android.main.controller.HomeControllerImpl
 import org.journey.android.network.RetrofitInterface
 import org.journey.android.qualifier.AuthRetrofitService
 import org.journey.android.qualifier.UnAuthRetrofitService
+import org.journey.android.signup.controller.ChangeNickNameController
+import org.journey.android.signup.controller.ChangeNickNameControllerImpl
 import org.journey.android.signup.controller.SignUpController
 import org.journey.android.signup.controller.SignUpControllerImpl
 import javax.inject.Singleton
@@ -53,6 +55,11 @@ object ControllerModule {
     @Singleton
     fun provideCommunityFeedController(@AuthRetrofitService retrofitInterface: RetrofitInterface) : CommunityController =
         CommunityControllerImpl(retrofitInterface)
+
+    @Provides
+    @Singleton
+    fun provideChangeNickNameController(@AuthRetrofitService retrofitInterface: RetrofitInterface) : ChangeNickNameController =
+        ChangeNickNameControllerImpl(retrofitInterface)
 
 
 }

@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewModel"
+            type="org.journey.android.signup.viewmodel.NickNameViewModel" />
+    </data>
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -56,6 +61,7 @@
         android:layout_marginHorizontal="18dp"
         android:layout_marginTop="28dp"
         android:hint="아라아랑아라"
+        android:text="@{viewModel.changeNickName}"
         android:gravity="center_horizontal"
         android:backgroundTint="@color/mohaeng_gray7"
         android:fontFamily="@font/spoqahansansneomedium"
@@ -81,6 +87,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:visibility="invisible"/>
-겨
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
