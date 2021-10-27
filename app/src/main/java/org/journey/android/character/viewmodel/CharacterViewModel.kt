@@ -1,4 +1,4 @@
-package org.journey.android.character
+package org.journey.android.character.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

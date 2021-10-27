@@ -3,7 +3,7 @@
     <data>
         <variable
             name="data"
-            type="org.journey.android.badge.BadgeEntity" />
+            type="org.journey.android.badge.data.entity.BadgeEntity" />
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,7 +18,7 @@
         android:id="@+id/imageview_badge"
         android:layout_width="154dp"
         android:layout_height="160dp"
-        loadDrawable="@{data.badgeImage}"
+        setImageURL="@{data.badgeImage}"
         android:background="@drawable/badgetch"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
