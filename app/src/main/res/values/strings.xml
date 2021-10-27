@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">쟈니</string>
+    <string name="app_name">모행</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="msg_token_fmt" translatable="false">토큰: %s</string>

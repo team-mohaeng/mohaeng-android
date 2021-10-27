@@ -98,7 +98,7 @@
     </fragment>
     <fragment
         android:id="@+id/challengeFragment"
-        android:name="org.journey.android.challenge.ui.ChallengeFragment"
+        android:name="org.journey.android.challenge.ui.fragment.ChallengeFragment"
         android:label="ChallengeFragment"
         tools:layout="@layout/fragment_challenge">
         <action
@@ -220,7 +220,7 @@
         tools:layout="@layout/fragment_my_page"/>
     <dialog
         android:id="@+id/challengeCertifyDialog"
-        android:name="org.journey.android.challenge.ui.ChallengeCertifyDialog"
+        android:name="org.journey.android.challenge.ui.dialog.ChallengeCertifyDialog"
         android:label="ChallengeCertifyDialog"
         tools:layout="@layout/dialog_certify_challenge">
         <action

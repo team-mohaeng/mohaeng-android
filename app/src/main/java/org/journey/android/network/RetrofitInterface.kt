@@ -2,7 +2,8 @@ package org.journey.android.network
 
 import io.reactivex.rxjava3.core.Single
 import org.journey.android.badge.data.dto.ResponseAchieveBadgeDTO
-import org.journey.android.challenge.data.ResponseTodayChallengeDTO
+import org.journey.android.challenge.data.response.ResponseTodayChallengeDTO
+import org.journey.android.challenge.data.response.ResponseValidateChallengeDTO
 import org.journey.android.community.data.dto.ResponseCommunityFeedDTO
 import org.journey.android.course.data.dto.ResponseCompleteCourseListDTO
 import org.journey.android.findpw.data.RequestChangePasswordDTO
@@ -58,6 +59,9 @@ interface RetrofitInterface {
 
     @GET("/api/today")
     fun checkTodayChallenge(@Header("client") client : String) : Single<ResponseTodayChallengeDTO>
+
+    @PUT("/api/today/{courseId}/{challengeId}")
+    fun putValidateChallenge(@Path("courseId") courseId : String, @Path("challengeId") challengeId : String) : Single<ResponseValidateChallengeDTO>
 
     @GET("/api/courses/complete")
     fun getCompleteCourseList() : Single<ResponseCompleteCourseListDTO>
