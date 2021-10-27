@@ -1,4 +1,4 @@
-package org.journey.android.challenge.ui
+package org.journey.android.challenge.ui.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +9,8 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import org.journey.android.R
+import org.journey.android.challenge.ui.dialog.ChallengeCertifyDialog
+import org.journey.android.challenge.ui.dialog.ChallengeExplanationDialog
 import org.journey.android.challenge.viewmodel.ChallengeViewModel
 import org.journey.android.databinding.FragmentChallengeBinding
 
@@ -34,6 +36,7 @@ class ChallengeFragment : Fragment() {
         setAction()
         showChallengeExplanationDialog()
         certifyChallenge()
+        getTodayChallenge()
     }
     private fun setAction(){
         with(binding){
@@ -49,11 +52,16 @@ class ChallengeFragment : Fragment() {
     }
     private fun certifyChallenge(){
         binding.imagebuttonStamp.setOnClickListener {
+            viewModel.validateChallenge()
             val dialog = ChallengeCertifyDialog()
             dialog.show(childFragmentManager,tag)
         }
     }
-
+    private fun getTodayChallenge(){
+        viewModel.todayChallengeList.observe(viewLifecycleOwner){
+            viewModel.getTodayChallenge()
+        }
+    }
 
 }
 

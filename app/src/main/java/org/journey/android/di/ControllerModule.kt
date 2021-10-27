@@ -6,6 +6,8 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import org.journey.android.badge.controller.BadgeController
 import org.journey.android.badge.controller.BadgeControllerImpl
+import org.journey.android.challenge.controller.ChallengeController
+import org.journey.android.challenge.controller.ChallengeControllerImpl
 import org.journey.android.community.controller.CommunityController
 import org.journey.android.community.controller.CommunityControllerImpl
 import org.journey.android.findpw.controller.ChangePasswordController
@@ -74,6 +76,11 @@ object ControllerModule {
     @Singleton
     fun provideAchieveBadgeController(@AuthRetrofitService retrofitInterface: RetrofitInterface) : BadgeController =
         BadgeControllerImpl(retrofitInterface)
+
+    @Provides
+    @Singleton
+    fun provideChallengeController(@AuthRetrofitService retrofitInterface: RetrofitInterface) : ChallengeController =
+        ChallengeControllerImpl(retrofitInterface)
 
 
 }
