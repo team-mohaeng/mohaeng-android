@@ -14,6 +14,8 @@ import org.journey.android.login.controller.SignInController
 import org.journey.android.login.controller.SignInControllerImpl
 import org.journey.android.main.controller.HomeController
 import org.journey.android.main.controller.HomeControllerImpl
+import org.journey.android.mypage.controller.MyPageController
+import org.journey.android.mypage.controller.MyPageControllerImpl
 import org.journey.android.network.RetrofitInterface
 import org.journey.android.qualifier.AuthRetrofitService
 import org.journey.android.qualifier.UnAuthRetrofitService
@@ -60,6 +62,11 @@ object ControllerModule {
     @Singleton
     fun provideChangeNickNameController(@AuthRetrofitService retrofitInterface: RetrofitInterface) : ChangeNickNameController =
         ChangeNickNameControllerImpl(retrofitInterface)
+
+    @Provides
+    @Singleton
+    fun provideGetMyPageController(@AuthRetrofitService retrofitInterface: RetrofitInterface) : MyPageController =
+        MyPageControllerImpl(retrofitInterface)
 
 
 }
