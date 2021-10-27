@@ -8,7 +8,9 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import org.journey.android.base.DisposableViewModel
 import org.journey.android.preference.UserPreferenceManager
 import org.journey.android.signup.NickNameStatus
+import org.journey.android.signup.controller.ChangeNickNameController
 import org.journey.android.signup.controller.SignUpController
+import org.journey.android.signup.data.RequestChangeNickNameDTO
 import org.journey.android.signup.data.RequestSignupDTO
 import org.journey.android.signup.data.RequestSocialSignUpDTO
 import javax.inject.Inject
@@ -16,12 +18,14 @@ import javax.inject.Inject
 @HiltViewModel
 class NickNameViewModel @Inject constructor(
     private val signUpController: SignUpController,
+    private val changeNickNameController: ChangeNickNameController,
     private val userPreferenceManager: UserPreferenceManager
 ) : DisposableViewModel() {
     val nickname = MutableLiveData<String>()
     val userEmail = MutableLiveData<String>()
     val userPassword = MutableLiveData<String>()
     val userPasswordDoubleCheck = MutableLiveData<String>()
+    val changeNickName = MutableLiveData<String>()
 
     private val _signUpSuccess = MutableLiveData<Boolean>()
     val signUpSuccess : LiveData<Boolean>
@@ -34,6 +38,10 @@ class NickNameViewModel @Inject constructor(
     private val _nickNameStatus = MutableLiveData<NickNameStatus>()
     val nickNameStatus: LiveData<NickNameStatus>
         get() = _nickNameStatus
+
+    private val _changeNickNameSuccess = MutableLiveData<Boolean>()
+    val changeNickNameSuccess : LiveData<Boolean>
+        get() = _changeNickNameSuccess
 
     fun checkNickNameAvailable(){
         nickname.value?.let { nickName ->
@@ -91,5 +99,23 @@ class NickNameViewModel @Inject constructor(
                 })
         )
     }
+
+    fun changeNickName(){
+        addDisposable(
+            changeNickNameController.changeNickName(
+                RequestChangeNickNameDTO(
+                    changeNickName.value.toString()
+                )
+            ).subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({
+                    _changeNickNameSuccess.postValue(true)
+                },{
+                    _changeNickNameSuccess.postValue(false)
+                    it.printStackTrace()
+                })
+        )
+    }
+
 
 }

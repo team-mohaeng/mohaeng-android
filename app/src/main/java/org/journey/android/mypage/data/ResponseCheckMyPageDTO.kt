@@ -1,6 +1,5 @@
 package org.journey.android.mypage.data
 
-
 import com.google.gson.annotations.SerializedName
 
 data class ResponseCheckMyPageDTO(

@@ -22,5 +22,4 @@ class SignUpControllerImpl @Inject constructor(
     ): Single<ResponseSocialSignUpDTO> =
         retrofitInterface.snsSignUp(accessToken, fcmToken, snsType,requestSocialSignUpDTO)
 
-
 }
