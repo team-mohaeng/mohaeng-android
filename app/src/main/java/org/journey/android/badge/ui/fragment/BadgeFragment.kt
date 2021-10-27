@@ -1,4 +1,4 @@
-package org.journey.android.badge
+package org.journey.android.badge.ui.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
+import org.journey.android.badge.ui.adapter.BadgeAdapter
+import org.journey.android.badge.viewmodel.BadgeViewModel
 import org.journey.android.databinding.FragmentBadgeBinding
 import org.journey.android.util.AutoClearedValue
 
@@ -34,7 +36,9 @@ class BadgeFragment : Fragment() {
         binding.recyclerviewObtainedBadge.apply {
             this.adapter = BadgeAdapter()
             viewModel.badgeList.observe(viewLifecycleOwner){
+                viewModel.loadObtainedBadge()
                 (adapter as BadgeAdapter).badgeList = it.toMutableList()
+                (adapter as BadgeAdapter).notifyDataSetChanged()
             }
         }
     }

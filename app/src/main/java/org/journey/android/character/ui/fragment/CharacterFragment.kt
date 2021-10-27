@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
-import org.journey.android.character.CharacterViewModel
+import org.journey.android.character.viewmodel.CharacterViewModel
 import org.journey.android.character.ui.adapter.CharacterOptionAdapter
 import org.journey.android.character.ui.adapter.CharacterSelectAdapter
 import org.journey.android.databinding.FragmentCharacterBinding

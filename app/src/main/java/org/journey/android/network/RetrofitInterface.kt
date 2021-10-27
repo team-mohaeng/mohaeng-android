@@ -1,6 +1,7 @@
 package org.journey.android.network
 
 import io.reactivex.rxjava3.core.Single
+import org.journey.android.badge.data.dto.ResponseAchieveBadgeDTO
 import org.journey.android.challenge.data.ResponseTodayChallengeDTO
 import org.journey.android.community.data.dto.ResponseCommunityFeedDTO
 import org.journey.android.course.data.dto.ResponseCompleteCourseListDTO
@@ -60,6 +61,9 @@ interface RetrofitInterface {
 
     @GET("/api/courses/complete")
     fun getCompleteCourseList() : Single<ResponseCompleteCourseListDTO>
+
+    @PUT("/api/badge")
+    fun putAchieveBadgeList() : Single<ResponseAchieveBadgeDTO>
 
 
 

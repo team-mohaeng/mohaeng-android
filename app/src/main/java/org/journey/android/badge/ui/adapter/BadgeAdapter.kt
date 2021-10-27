@@ -1,9 +1,10 @@
-package org.journey.android.badge
+package org.journey.android.badge.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import org.journey.android.BR
+import org.journey.android.badge.data.entity.BadgeEntity
 import org.journey.android.databinding.ItemBadgeBinding
 
 class BadgeAdapter : RecyclerView.Adapter<BadgeAdapter.BadgeViewHolder>() {
