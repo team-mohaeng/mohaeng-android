@@ -70,7 +70,4 @@ interface RetrofitInterface {
     fun putAchieveBadgeList() : Single<ResponseAchieveBadgeDTO>
 
 
-
-
-
 }
