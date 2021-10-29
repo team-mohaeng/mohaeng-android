@@ -15,6 +15,7 @@ import org.journey.android.login.data.ResponseGoogleSignInDTO
 import org.journey.android.login.data.ResponseKakaoSignInDTO
 import org.journey.android.main.dto.ResponseHomeDTO
 import org.journey.android.mypage.data.ResponseCheckMyPageDTO
+import org.journey.android.pushalarm.data.ResponsePushAlarmDTO
 import org.journey.android.signup.data.*
 import retrofit2.http.*
 
@@ -69,5 +70,6 @@ interface RetrofitInterface {
     @PUT("/api/badge")
     fun putAchieveBadgeList() : Single<ResponseAchieveBadgeDTO>
 
-
+    @GET("/api/message")
+    fun getPushAlarmMessage() : Single<ResponsePushAlarmDTO>
 }

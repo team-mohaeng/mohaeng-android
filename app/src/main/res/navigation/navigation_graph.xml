@@ -205,7 +205,7 @@
     </fragment>
     <fragment
         android:id="@+id/chatFragment"
-        android:name="org.journey.android.chat.ChatFragment"
+        android:name="org.journey.android.chat.ui.ChatFragment"
         android:label="ChatFragment"
         tools:layout="@layout/fragment_chat"/>
     <fragment
