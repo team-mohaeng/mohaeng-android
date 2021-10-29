@@ -93,7 +93,6 @@ object NetworkModule {
     fun provideUnAuthRetrofitInterface(@UnAuthRetrofit retrofit: Retrofit): RetrofitInterface =
         retrofit.create(RetrofitInterface::class.java)
 
-
     private const val TOKEN_TYPE = "Bearer"
 
 }
