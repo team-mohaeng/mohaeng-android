@@ -5,9 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import dagger.hilt.android.AndroidEntryPoint
+import org.journey.android.R
 import org.journey.android.databinding.FragmentOnboardingFourthBinding
 import org.journey.android.util.AutoClearedValue
 
+@AndroidEntryPoint
 class OnboardingFourthFragment : Fragment() {
     private var binding by AutoClearedValue<FragmentOnboardingFourthBinding>()
 
@@ -21,5 +25,12 @@ class OnboardingFourthFragment : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        skipOnboardingCourse()
     }
+    private fun skipOnboardingCourse(){
+        binding.buttonSkipCourse.setOnClickListener {
+            findNavController().navigate(R.id.action_onboardingFourthFragment_to_onboardingFifthFragment)
+        }
+    }
+
 }

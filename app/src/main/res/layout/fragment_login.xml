@@ -21,7 +21,7 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textview_login_logo"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="200dp"
             android:fontFamily="@font/gmarketsansttfbold"
@@ -29,8 +29,18 @@
             android:text="MOHAENG"
             android:textColor="@color/moheang_yellow6"
             android:textSize="28sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageview_login_foot"
+            android:layout_width="51dp"
+            android:layout_height="56dp"
+            android:background="@drawable/foot"
+            app:layout_constraintStart_toEndOf="@id/textview_login_logo"
+            app:layout_constraintBottom_toBottomOf="@id/textview_login_logo"/>
+
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textview_login_ment"

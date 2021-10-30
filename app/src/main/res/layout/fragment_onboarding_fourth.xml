@@ -6,7 +6,8 @@
         android:layout_height="match_parent">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            xmlns:mohaeng="http://schemas.android.com/apk/res/org.journey.android">
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/textview_onboarding_challenge_title"
                 android:layout_width="wrap_content"
@@ -21,7 +22,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"/>
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <org.journey.android.util.SpannableTextView
                 android:id="@+id/textview_onboarding_subtitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -30,6 +31,9 @@
                 android:textColor="@color/black"
                 android:textScaleX="0.98"
                 android:layout_marginTop="24dp"
+                mohaeng:span_start="23"
+                mohaeng:span_end="30"
+                mohaeng:span_color="@color/moheang_yellow6"
                 android:text="@string/onboarding_challenge_success_ment"
                 app:layout_constraintTop_toBottomOf="@id/textview_onboarding_challenge_title"
                 app:layout_constraintStart_toStartOf="@id/textview_onboarding_challenge_title"/>

@@ -2,14 +2,18 @@ package org.journey.android.onboarding.ui.adapter
 
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import org.journey.android.BR
 import org.journey.android.databinding.ItemOnboardingCourseBinding
 import org.journey.android.onboarding.data.OnboardingCourseEntity
 
-class OnboardingCourseAdapter :
+class OnboardingCourseAdapter(val listener: CourseSelectListener) :
     RecyclerView.Adapter<OnboardingCourseAdapter.OnboardingCourseViewHolder>(){
+    interface CourseSelectListener{
+        fun onClick()
+    }
     var selectCourse = mutableListOf<OnboardingCourseEntity>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OnboardingCourseViewHolder {
         val binding = ItemOnboardingCourseBinding.inflate(LayoutInflater.from(parent.context),parent,false)
@@ -19,6 +23,9 @@ class OnboardingCourseAdapter :
     override fun onBindViewHolder(holder: OnboardingCourseViewHolder, position: Int) {
         val course = selectCourse[position]
         holder.binding.setVariable(BR.data, course)
+        holder.binding.root.setOnClickListener {
+            listener.onClick()
+        }
     }
 
     override fun getItemCount(): Int = selectCourse.size

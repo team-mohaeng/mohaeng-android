@@ -59,6 +59,7 @@
         android:textColor="@color/mohaeng_black"
         android:textSize="12sp"
         android:text="@{data.courseIntro}"
+        android:lineSpacingExtra="4dp"
         android:fontFamily="@font/spoqahansansneothin"
         app:layout_constraintTop_toBottomOf="@id/textview_course_title"
         app:layout_constraintStart_toStartOf="parent"/>
