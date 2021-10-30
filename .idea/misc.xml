@@ -72,14 +72,14 @@
         <entry key="app/src/main/res/layout/fragment_finish_reward.xml" value="0.3380208333333333" />
         <entry key="app/src/main/res/layout/fragment_frame.xml" value="0.2265625" />
         <entry key="app/src/main/res/layout/fragment_library.xml" value="0.34479166666666666" />
-        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.34479166666666666" />
+        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_main.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_my_page.xml" value="0.23703703703703705" />
         <entry key="app/src/main/res/layout/fragment_onboarding_fifth.xml" value="0.3380208333333333" />
-        <entry key="app/src/main/res/layout/fragment_onboarding_first.xml" value="0.33240997229916897" />
+        <entry key="app/src/main/res/layout/fragment_onboarding_first.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_onboarding_fourth.xml" value="0.31142034548944336" />
-        <entry key="app/src/main/res/layout/fragment_onboarding_second.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_onboarding_third.xml" value="0.2759259259259259" />
+        <entry key="app/src/main/res/layout/fragment_onboarding_second.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_onboarding_third.xml" value="0.375" />
         <entry key="app/src/main/res/layout/fragment_private.xml" value="0.34479166666666666" />
         <entry key="app/src/main/res/layout/fragment_private_detail.xml" value="0.34479166666666666" />
         <entry key="app/src/main/res/layout/fragment_reward.xml" value="0.17239583333333333" />
@@ -88,6 +88,7 @@
         <entry key="app/src/main/res/layout/fragment_signup_first.xml" value="0.3515625" />
         <entry key="app/src/main/res/layout/fragment_signup_third.xml" value="0.32395833333333335" />
         <entry key="app/src/main/res/layout/fragment_signup_view_pager.xml" value="0.32395833333333335" />
+        <entry key="app/src/main/res/layout/fragment_splash.xml" value="0.33958333333333335" />
         <entry key="app/src/main/res/layout/item_badge.xml" value="0.2604166666666667" />
         <entry key="app/src/main/res/layout/item_community_record.xml" value="0.290625" />
         <entry key="app/src/main/res/layout/item_course_catalog.xml" value="0.25625" />

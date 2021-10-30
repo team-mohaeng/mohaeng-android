@@ -7,42 +7,45 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/journey_pink9"
+    android:background="@color/mohaeng_yellow4"
     tools:context=".entry.ui.SplashFragment">
 
-    <ImageView
-        android:id="@+id/imageview_splash"
-        android:layout_width="326dp"
-        android:layout_height="643dp"
-        android:background="@drawable/splashimage"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <ImageView
-        android:id="@+id/textview_splash"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textview_splash_mohaeng"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="192dp"
-        android:background="@drawable/ic_text"
-        app:layout_constraintEnd_toEndOf="@+id/imageview_logo"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageview_logo"
-        android:layout_width="164dp"
-        android:layout_height="164dp"
-        android:layout_marginTop="572dp"
-        android:background="@drawable/image89"
+        android:fontFamily="@font/gmarketsansttfbold"
+        android:text="MOHAENG"
+        android:textColor="@color/mohaeng_yellow_fff"
+        android:textSize="28dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.89"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.48" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageview_splash_footprint"
+        android:layout_width="39dp"
+        android:layout_height="48dp"
+        android:background="@drawable/footprint"
+        android:layout_marginBottom="13dp"
+        app:layout_constraintStart_toEndOf="@id/textview_splash_mohaeng"
+        app:layout_constraintBottom_toBottomOf="@id/textview_splash_mohaeng"/>
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textview_splash_welcome_ment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="모행에 온 것을 환영해!"
+        android:textColor="@color/mohaeng_yellow_fff"
+        android:fontFamily="@font/gmarketsansttflight"
+        android:textSize="19dp"
+        app:layout_constraintTop_toBottomOf="@id/textview_splash_mohaeng"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

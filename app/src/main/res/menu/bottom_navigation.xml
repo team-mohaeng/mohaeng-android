@@ -6,11 +6,11 @@
         android:title="홈" />
     <item
         android:id="@+id/challengeFragment"
-        android:icon="@drawable/ic_challenge"
+        android:icon="@drawable/tabicnchallenge"
         android:title="챌린지" />
     <item
         android:id="@+id/communityFragment"
-        android:icon="@drawable/ic_community"
+        android:icon="@drawable/tabicnfeed"
         android:title="피드" />
 
 </menu>
