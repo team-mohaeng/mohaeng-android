@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SpannableText">
+        <attr name="span_start" format="integer"/>
+        <attr name="span_end" format="integer"/>
+        <attr name="span_color" format="integer"/>
+    </declare-styleable>
+</resources>

@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 <androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:mohaeng="http://schemas.android.com/apk/res/org.journey.android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -12,7 +13,7 @@
         android:layout_height="wrap_content"
         android:text="재밌는 챌린지를 골랐네~"
         android:layout_marginLeft="18dp"
-        android:layout_marginTop="66dp"
+        android:layout_marginTop="64dp"
         android:fontFamily="@font/gmarketsansttfmedium"
         android:textSize="14sp"
         android:textColor="@color/black"
@@ -20,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
-    <androidx.appcompat.widget.AppCompatTextView
+    <org.journey.android.util.SpannableTextView
         android:id="@+id/textview_onboarding_subtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -29,6 +30,9 @@
         android:textColor="@color/black"
         android:textScaleX="0.98"
         android:layout_marginTop="24dp"
+        mohaeng:span_start="34"
+        mohaeng:span_end="35"
+        mohaeng:span_color="@color/moheang_yellow6"
         android:text="@string/onboarding_third_subtitle"
         app:layout_constraintTop_toBottomOf="@id/textview_onboarding_title"
         app:layout_constraintStart_toStartOf="@id/textview_onboarding_title"/>

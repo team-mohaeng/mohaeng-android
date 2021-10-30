@@ -13,7 +13,7 @@
             android:id="@+id/imageview_onboarding_question"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="60dp"
             android:layout_marginStart="25dp"
             android:background="@drawable/ic_onboard_one"
             app:layout_constraintStart_toStartOf="parent"
@@ -54,10 +54,13 @@
             android:textColor="@color/black"
             android:textScaleX="0.98"
             android:textSize="14sp"
+            android:lineSpacingExtra="4dp"
             app:layout_constraintBottom_toBottomOf="@+id/imageview_onboarding_answer"
             app:layout_constraintEnd_toEndOf="@+id/imageview_onboarding_answer"
+            app:layout_constraintHorizontal_bias="0.428"
             app:layout_constraintStart_toStartOf="@id/imageview_onboarding_answer"
-            app:layout_constraintTop_toTopOf="@id/imageview_onboarding_answer" />
+            app:layout_constraintTop_toTopOf="@id/imageview_onboarding_answer"
+            app:layout_constraintVertical_bias="0.8" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageview_onboarding_rabbit"
@@ -79,18 +82,20 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_onboarding_start"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/ic_onboardingbtn"
-            android:layout_marginTop="30dp"
+            android:layout_marginHorizontal="18dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/button_onboarding_background"
+            android:fontFamily="@font/spoqahansansneobold"
+            android:stateListAnimator="@null"
             android:text="새롭게 시작하기"
             android:textColor="@color/white"
-            android:fontFamily="@font/spoqahansansneobold"
-            android:textSize="16sp"
             android:textScaleX="0.98"
-            app:layout_constraintTop_toBottomOf="@id/imageview_onboarding_rabbit"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintTop_toBottomOf="@id/imageview_onboarding_racoon" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textview_skip_onboarding"
@@ -100,9 +105,7 @@
             android:text="@string/onboarding_skip"
             android:textColor="@color/black"
             android:textSize="10sp"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="30dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/button_onboarding_start" />
