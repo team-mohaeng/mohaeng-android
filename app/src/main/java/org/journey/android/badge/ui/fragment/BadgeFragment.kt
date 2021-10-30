@@ -32,11 +32,11 @@ class BadgeFragment : Fragment() {
         loadBadgeList()
         clickAssetListener()
     }
-    private fun loadBadgeList(){
+    private fun loadBadgeList() {
         binding.recyclerviewObtainedBadge.apply {
             this.adapter = BadgeAdapter()
-            viewModel.badgeList.observe(viewLifecycleOwner){
-                viewModel.loadObtainedBadge()
+            viewModel.badgeList.observe(viewLifecycleOwner) {
+//                viewModel.loadObtainedBadge()
                 (adapter as BadgeAdapter).badgeList = it.toMutableList()
                 (adapter as BadgeAdapter).notifyDataSetChanged()
             }

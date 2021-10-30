@@ -21,9 +21,7 @@ class BadgeViewModel @Inject constructor(
     val badgeList : LiveData<List<BadgeEntity>>
         get() = _badgeList
 
-    init{
-        loadObtainedBadge()
-    }
+
 
     fun loadObtainedBadge(){
        addDisposable(

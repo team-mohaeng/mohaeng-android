@@ -22,9 +22,9 @@
             android:layout_width="26dp"
             android:layout_height="26dp"
             android:layout_marginTop="24dp"
-            android:background="@drawable/ic_medal"
+            android:background="@drawable/gnbicnmedal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.75"
+            app:layout_constraintHorizontal_bias="0.7"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -32,8 +32,8 @@
             android:id="@+id/button_main_chat"
             android:layout_width="26dp"
             android:layout_height="26dp"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/ic_chat"
+            android:layout_marginStart="18dp"
+            android:background="@drawable/gnbicnnotice"
             app:layout_constraintStart_toEndOf="@id/button_main_first"
             app:layout_constraintTop_toTopOf="@id/button_main_first"
             app:layout_constraintBottom_toBottomOf="@id/button_main_first"/>
@@ -42,8 +42,9 @@
             android:id="@+id/button_main_mypage"
             android:layout_width="26dp"
             android:layout_height="26dp"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/ic_user"
+            android:layout_marginStart="18dp"
+
+            android:background="@drawable/gnbicnmypage"
             app:layout_constraintBottom_toBottomOf="@id/button_main_chat"
             app:layout_constraintStart_toEndOf="@id/button_main_chat"
             app:layout_constraintTop_toTopOf="@+id/button_main_chat" />
@@ -52,12 +53,14 @@
             android:id="@+id/textview_main_greet"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="18dp"
+            android:layout_marginStart="18dp"
             android:layout_marginTop="41dp"
             android:fontFamily="@font/gmarketsansttfmedium"
             android:text="@string/main_greeting"
             android:textColor="@color/mohaeng_black"
             android:textSize="24sp"
+            android:textScaleX="0.95"
+            android:lineSpacingExtra="4dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/button_main_first" />
 

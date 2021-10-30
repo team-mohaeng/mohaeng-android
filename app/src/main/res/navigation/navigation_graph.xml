@@ -75,6 +75,9 @@
         <action
             android:id="@+id/action_mainFragment_to_chatFragment"
             app:destination="@id/chatFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_badgeFragment"
+            app:destination="@id/badgeFragment" />
 
     </fragment>
 
@@ -232,4 +235,9 @@
         android:name="org.journey.android.reward.ui.FinishRewardFragment"
         android:label="FinishRewardFragment"
         tools:layout="@layout/fragment_finish_reward"/>
+    <fragment
+        android:id="@+id/badgeFragment"
+        android:name="org.journey.android.badge.ui.fragment.BadgeFragment"
+        android:label="BadgeFragment"
+        tools:layout="@layout/fragment_badge"/>
 </navigation>

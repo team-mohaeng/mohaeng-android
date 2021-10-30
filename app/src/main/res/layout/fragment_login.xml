@@ -16,8 +16,8 @@
             android:layout_width="match_parent"
             android:layout_height="388dp"
             android:background="@drawable/ic_background"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textview_login_logo"
@@ -37,7 +37,8 @@
             android:id="@+id/imageview_login_foot"
             android:layout_width="51dp"
             android:layout_height="56dp"
-            android:background="@drawable/foot"
+            android:layout_marginBottom="13dp"
+            android:background="@drawable/loginfootprint"
             app:layout_constraintStart_toEndOf="@id/textview_login_logo"
             app:layout_constraintBottom_toBottomOf="@id/textview_login_logo"/>
 

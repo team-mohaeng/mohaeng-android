@@ -33,10 +33,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="13dp"
-                android:fontFamily="@font/spoqahansansneoregular"
+                android:fontFamily="@font/gmarketsansttfmedium"
                 android:text="@{data.challengeName}"
                 android:textColor="@color/mohaeng_orange_a"
                 android:textSize="12sp"
+                android:textScaleX="0.98"
                 app:layout_constraintStart_toEndOf="@+id/imageview_post_image"
                 app:layout_constraintTop_toTopOf="parent" />
 
