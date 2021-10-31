@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools = "http://schemas.android.com/tools"
     android:id="@+id/navigation_onboarding"
-    app:startDestination="@id/onboardingFirstFragment">
+    app:startDestination="@id/splashFragment">
 
 
     <fragment
@@ -47,4 +47,13 @@
         android:name="org.journey.android.onboarding.ui.fragment.OnboardingFifthFragment"
         android:label="OnboardingFifthFragment"
         tools:layout="@layout/fragment_onboarding_fifth"/>
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="org.journey.android.entry.ui.SplashFragment"
+        android:label="SplashFragment"
+        tools:layout="@layout/fragment_splash">
+        <action
+            android:id="@+id/action_splashFragment_to_onboardingFirstFragment"
+            app:destination="@id/onboardingFirstFragment" />
+    </fragment>
 </navigation>

@@ -28,7 +28,7 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>() , CoroutineScope{
             delay(2000)
             withContext(Dispatchers.Main){
                 Navigation.findNavController(binding.root)
-                    .navigate(R.id.action_splashFragment_to_loginFragment)
+                    .navigate(R.id.action_splashFragment_to_onboardingFirstFragment)
             }
         }
     }
