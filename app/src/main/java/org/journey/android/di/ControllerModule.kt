@@ -8,6 +8,8 @@ import org.journey.android.badge.controller.BadgeController
 import org.journey.android.badge.controller.BadgeControllerImpl
 import org.journey.android.challenge.controller.ChallengeController
 import org.journey.android.challenge.controller.ChallengeControllerImpl
+import org.journey.android.character.controller.CharacterController
+import org.journey.android.character.controller.CharacterControllerImpl
 import org.journey.android.chat.controller.ChatController
 import org.journey.android.chat.controller.ChatControllerImpl
 import org.journey.android.community.controller.CommunityController
@@ -88,6 +90,11 @@ object ControllerModule {
     @Singleton
     fun provideChatController(@AuthRetrofitService retrofitInterface :RetrofitInterface) : ChatController =
         ChatControllerImpl(retrofitInterface)
+
+    @Provides
+    @Singleton
+    fun provideCharacterController(@AuthRetrofitService retrofitInterface: RetrofitInterface) : CharacterController =
+        CharacterControllerImpl(retrofitInterface)
 
 
 }
