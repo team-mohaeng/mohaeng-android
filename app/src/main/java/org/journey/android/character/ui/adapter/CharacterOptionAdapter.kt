@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import org.journey.android.BR
-import org.journey.android.character.data.MohaengCharacterOptionEntity
+import org.journey.android.character.data.entity.MohaengCharacterOptionEntity
 import org.journey.android.databinding.ItemSelectOptionBinding
 
 class CharacterOptionAdapter :
