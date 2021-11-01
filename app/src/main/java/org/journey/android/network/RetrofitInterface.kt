@@ -4,6 +4,9 @@ import io.reactivex.rxjava3.core.Single
 import org.journey.android.badge.data.dto.ResponseAchieveBadgeDTO
 import org.journey.android.challenge.data.response.ResponseTodayChallengeDTO
 import org.journey.android.challenge.data.response.ResponseValidateChallengeDTO
+import org.journey.android.character.data.dto.RequestChangeCharacterDTO
+import org.journey.android.character.data.dto.ResponseChangeCharacterDTO
+import org.journey.android.character.data.dto.ResponseGetCharacterDTO
 import org.journey.android.community.data.dto.ResponseCommunityFeedDTO
 import org.journey.android.course.data.dto.ResponseCompleteCourseListDTO
 import org.journey.android.findpw.data.RequestChangePasswordDTO
@@ -72,4 +75,10 @@ interface RetrofitInterface {
 
     @GET("/api/message")
     fun getPushAlarmMessage() : Single<ResponsePushAlarmDTO>
+
+    @PUT("/api/character")
+    fun changeCharacter(@Body requestChangeCharacterDTO: RequestChangeCharacterDTO) : Single<ResponseChangeCharacterDTO>
+
+    @GET("/api/character")
+    fun getCharacter(@Path("client") client: String) : Single<ResponseGetCharacterDTO>
 }

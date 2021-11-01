@@ -3,7 +3,7 @@
     <data>
         <variable
             name="data"
-            type="org.journey.android.character.data.MohaengCharacterOptionEntity" />
+            type="org.journey.android.character.data.entity.MohaengCharacterOptionEntity" />
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
