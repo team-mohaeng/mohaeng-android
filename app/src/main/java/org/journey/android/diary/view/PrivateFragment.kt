@@ -1,5 +1,6 @@
 package org.journey.android.diary.view
 
+import android.app.Dialog
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -16,6 +17,7 @@ import org.journey.android.databinding.FragmentPrivateBinding
 import org.journey.android.diary.dto.PrivateData
 import org.journey.android.diary.dto.ResponseDiaryPrivateData
 import org.journey.android.diary.service.FeedRequestToServer
+import org.journey.android.network.userJWT
 import org.journey.android.util.AutoClearedValue
 import retrofit2.Call
 import retrofit2.Callback
@@ -26,7 +28,7 @@ import java.util.*
 class PrivateFragment : Fragment(){
     private var binding by AutoClearedValue<FragmentPrivateBinding>()
     val privateInstance = Calendar.getInstance()
-    val privateNowYear = privateInstance.get(Calendar.YEAR).toString().substring(2, 4)
+    val privateNowYear = privateInstance.get(Calendar.YEAR).toString()
     var privateNowMonth = (privateInstance.get(Calendar.MONTH) + 1).toString()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -46,9 +48,9 @@ class PrivateFragment : Fragment(){
             privateNowMonth = "0$privateNowMonth"
         val nowSelectedDate = privateNowYear + "년 " + privateNowMonth + "월"
 
-        binding.buttonPrivateTimePicker.text = nowSelectedDate
+        binding.buttonPrivateTimePicker.text = nowSelectedDate + " 안부"
 
-        val selectDateDialog = activity?.let { it1 -> BottomSheetDialog(it1) }
+        val selectDateDialog = activity?.let { it1 -> Dialog(it1) }
         val selectDateDialogInflater: LayoutInflater = LayoutInflater.from(activity)
         val selectDateDialogView: View =
             selectDateDialogInflater.inflate(R.layout.private_date_picker, null)
@@ -59,6 +61,8 @@ class PrivateFragment : Fragment(){
             selectDateDialogView.findViewById(R.id.numberpicker_month)
         val selectDialogSave: Button =
             selectDateDialogView.findViewById(R.id.button_date_picker_select)
+        val selectDialogCancel: Button =
+            selectDateDialogView.findViewById(R.id.button_date_picker_cancel)
 
         binding.buttonPrivateTimePicker.setOnClickListener()
         {
@@ -66,11 +70,15 @@ class PrivateFragment : Fragment(){
             selectDialogYear.wrapSelectorWheel = false
             selectDialogMonth.wrapSelectorWheel = false
 
-            selectDialogYear.minValue = 2021
+            selectDialogYear.minValue = 2020
             selectDialogMonth.minValue = 1
 
-            selectDialogYear.maxValue = 2021
+            selectDialogYear.maxValue = 2030
             selectDialogMonth.maxValue = 12
+
+            // 기본값 설정
+            selectDialogMonth.value = privateNowMonth.toInt()
+            selectDialogYear.value = privateNowYear.toInt()
 
             selectDialogSave.setOnClickListener {
                 val selected_month = selectDialogMonth.value
@@ -87,6 +95,13 @@ class PrivateFragment : Fragment(){
 
                 setRetrofit((selectDialogYear.value).toString(), string_selected_month)
 
+            }
+
+            selectDialogCancel.setOnClickListener {
+                if (selectDateDialog != null) {
+                    selectDateDialog.dismiss()
+                    selectDateDialog.cancel()
+                }
             }
 
             if (selectDateDialog != null) {
@@ -110,7 +125,8 @@ class PrivateFragment : Fragment(){
                 year,
                 month,
                 "application/json",
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk"
+                userJWT
+//                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk"
             )
 
         call.enqueue(object : Callback<ResponseDiaryPrivateData> {
@@ -153,6 +169,15 @@ class PrivateFragment : Fragment(){
                                     )
                                 )
                             }
+
+                            binding.imageviewPrivateEmptyImage.visibility = View.INVISIBLE
+                            binding.textviewPrivateEmptyContent.visibility = View.INVISIBLE
+                            binding.recyclerviewPrivate.visibility = View.VISIBLE
+                        }
+                        else{
+                            binding.imageviewPrivateEmptyImage.visibility = View.VISIBLE
+                            binding.textviewPrivateEmptyContent.visibility = View.VISIBLE
+                            binding.recyclerviewPrivate.visibility = View.INVISIBLE
                         }
                     }
                     privateAdapter.notifyDataSetChanged()

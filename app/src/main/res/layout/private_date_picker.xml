@@ -23,7 +23,11 @@
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/textview_date_picker_year"
-        app:layout_constraintTop_toBottomOf="@+id/view"></NumberPicker>
+        app:layout_constraintTop_toBottomOf="@+id/view"
+        android:theme="@style/DefaultNumberPickerTheme"
+        android:selectionDividerHeight="1dp">
+
+    </NumberPicker>
 
     <TextView
         android:id="@+id/textview_date_picker_year"
@@ -48,7 +52,9 @@
         app:layout_constraintBottom_toBottomOf="@id/textview_date_picker_year"
         app:layout_constraintLeft_toRightOf="@id/textview_date_picker_year"
         app:layout_constraintRight_toLeftOf="@id/textview_date_picker_month"
-        app:layout_constraintTop_toTopOf="@id/textview_date_picker_year">
+        app:layout_constraintTop_toTopOf="@id/textview_date_picker_year"
+        android:theme="@style/DefaultNumberPickerTheme"
+        android:selectionDividerHeight="1dp">
 
     </NumberPicker>
 

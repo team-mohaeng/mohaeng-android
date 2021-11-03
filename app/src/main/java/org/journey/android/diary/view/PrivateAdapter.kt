@@ -1,5 +1,6 @@
 package org.journey.android.diary.view
 
+import android.content.Context
 import android.graphics.Bitmap
 import android.util.Log
 import android.view.LayoutInflater
@@ -16,7 +17,7 @@ import org.journey.android.databinding.ItemPrivateRecordBinding
 import org.journey.android.diary.dto.PrivateData
 import java.util.*
 
-
+lateinit var ctxt: Context
 class PrivateAdapter: RecyclerView.Adapter<PrivateAdapter.PrivateViewHolder>(){
     val privateDiaryList = mutableListOf<PrivateData>()
 
@@ -29,6 +30,7 @@ class PrivateAdapter: RecyclerView.Adapter<PrivateAdapter.PrivateViewHolder>(){
             parent,
             false
         )
+        ctxt = parent.context
         return PrivateViewHolder(binding)
 
     }
@@ -52,14 +54,17 @@ class PrivateAdapter: RecyclerView.Adapter<PrivateAdapter.PrivateViewHolder>(){
             var privateNowMonth = (privateInstance.get(Calendar.MONTH) + 1).toString()
             if (privateNowMonth.toInt() < 10)
                 privateNowMonth = "0$privateNowMonth"
-            if ((privateNowYear.equals(privateData.year)) and (privateNowMonth.equals(privateData.month)))
+            // 오늘의 안부라면
+            if ((privateNowYear.equals(privateData.year)) and (privateNowMonth.equals(privateData.month))){
                 binding.imageviewPrivateToday.visibility = View.VISIBLE
-            else
+                binding.constraintlayoutPrivateItem.setBackgroundColor(ctxt.getColor(R.color.mohaeng_yellow_b))
+            }
+            else {
                 binding.imageviewPrivateToday.visibility = View.INVISIBLE
+                binding.constraintlayoutPrivateItem.setBackgroundColor(ctxt.getColor(R.color.mohaeng_transparency))
+            }
 
             val multi = MultiTransformation<Bitmap>(
-//                BlurTransformation(25),
-//                ColorFilterTransformation(Color.argb(80, 0, 0, 0)),
                 RoundedCornersTransformation(4, 0)
             )
             Glide.with(itemView)
@@ -68,11 +73,6 @@ class PrivateAdapter: RecyclerView.Adapter<PrivateAdapter.PrivateViewHolder>(){
                 .into(binding.imageviewRecyclerviewBackground)
 
             itemView.setOnClickListener {
-//                postDetailId=privateData.postId
-//                postDetailMood = privateData.mood
-//                postDetailImage = privateData.image
-//                postDetailTitle = "${privateData.course} ${privateData.challenge}일차"
-//                postDetailContent = privateData.content
                 postDetail.put("id",privateData.postId)
                 postDetail.put("mood",privateData.mood)
                 postDetail.put("image",privateData.image)

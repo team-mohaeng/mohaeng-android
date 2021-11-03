@@ -26,6 +26,7 @@ import org.journey.android.databinding.FragmentPrivateDetailBinding
 import org.journey.android.diary.dto.Emojifaction
 import org.journey.android.diary.dto.RequestDiaryEmojiData
 import org.journey.android.diary.service.FeedRequestToServer
+import org.journey.android.network.userJWT
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -72,9 +73,16 @@ class PrivateDetailFragment: Fragment() {
         }
 
         Log.d("privateDetail", "${postDetail}")
-        Glide.with(this)
-            .load(postDetail.get("image"))
-            .into(binding.imageviewPrivateDetailBack)
+        if(postDetail.get("image")!!.equals("")){
+            binding.imageviewPrivateDetailBack.visibility = View.GONE
+        }
+        else{
+            binding.imageviewPrivateDetailBack.visibility = View.VISIBLE
+
+            Glide.with(this)
+                .load(postDetail.get("image"))
+                .into(binding.imageviewPrivateDetailBack)
+        }
 
         binding.textviewPrivateDetailNickname.text = postDetail.get("nickname").toString()
         binding.textviewPrivateDetailDate.text = postDetail.get("date").toString()
@@ -117,7 +125,8 @@ class PrivateDetailFragment: Fragment() {
                     .deletePrivateDetail(
                         postDetail.get("id") as Int,
                         "application/json",
-                        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk"
+                        userJWT
+//                        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk"
                     )
                 call.enqueue(object : Callback<Unit> {
                     override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
@@ -223,7 +232,8 @@ class PrivateDetailFragment: Fragment() {
             .putEmoji(
                 postDetail.get("id") as Int,
                 "application/json",
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk",
+                userJWT,
+//                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk",
                 RequestDiaryEmojiData(
                     emojiId = id
                 )
@@ -247,7 +257,8 @@ class PrivateDetailFragment: Fragment() {
             .deleteEmoji(
                 postDetail.get("id") as Int,
                 "application/json",
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk",
+                userJWT,
+//                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk",
                 RequestDiaryEmojiData(
                     emojiId = id
                 )
