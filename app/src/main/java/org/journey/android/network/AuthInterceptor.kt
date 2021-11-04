@@ -7,12 +7,15 @@ import org.journey.android.preference.UserPreferenceManager
 import java.net.HttpURLConnection
 import javax.inject.Inject
 
+var userJWT = ""
+
 class AuthInterceptor @Inject constructor(
     private val tokenController: TokenController,
     private val userPreferenceManager: UserPreferenceManager
 ) : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val request = chain.request().newBuilder().addHeaders(userPreferenceManager.fetchUserAccessToken()).build()
+        userJWT = userPreferenceManager.fetchUserAccessToken()
         val response = chain.proceed(request)
 
         if (response.code == HttpURLConnection.HTTP_UNAUTHORIZED) {

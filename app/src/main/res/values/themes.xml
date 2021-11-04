@@ -46,5 +46,9 @@
         <item name="android:background">@drawable/detail_report_dialog</item>
     </style>
 
+    <style name="DefaultNumberPickerTheme">
+        <item name="colorControlNormal">@color/mohaeng_yellow11</item>
+    </style>
+
 
 </resources>
