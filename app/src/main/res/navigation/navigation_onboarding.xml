@@ -32,6 +32,9 @@
         <action
             android:id="@+id/action_onboardingThirdFragment_to_onboardingFourthFragment"
             app:destination="@id/onboardingFourthFragment" />
+        <action
+            android:id="@+id/action_onboardingThirdFragment_to_challengeCertifyDialog"
+            app:destination="@id/challengeCertifyDialog" />
     </fragment>
     <fragment
         android:id="@+id/onboardingFourthFragment"
@@ -55,5 +58,14 @@
         <action
             android:id="@+id/action_splashFragment_to_onboardingFirstFragment"
             app:destination="@id/onboardingFirstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/challengeCertifyDialog"
+        android:name="org.journey.android.challenge.ui.dialog.ChallengeCertifyDialog"
+        android:label="ChallengeCertifyDialog"
+        tools:layout="@layout/dialog_certify_challenge">
+        <action
+            android:id="@+id/action_challengeCertifyDialog_to_onboardingFourthFragment"
+            app:destination="@id/onboardingFourthFragment" />
     </fragment>
 </navigation>
