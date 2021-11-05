@@ -1,16 +1,18 @@
 package org.journey.android.challenge.ui.dialog
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import androidx.fragment.app.DialogFragment
+import androidx.navigation.fragment.findNavController
 import org.journey.android.R
 import org.journey.android.databinding.DialogCertifyChallengeBinding
 import org.journey.android.util.AutoClearedValue
 
-class ChallengeCertifyDialog : DialogFragment() {
+class ChallengeCertifyDialog() : DialogFragment() {
     private var binding by AutoClearedValue<DialogCertifyChallengeBinding>()
 
     override fun onCreateView(
@@ -27,7 +29,6 @@ class ChallengeCertifyDialog : DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         closeDialog()
-        successChallenge()
     }
 
     private fun closeDialog(){
@@ -36,10 +37,6 @@ class ChallengeCertifyDialog : DialogFragment() {
         }
     }
 
-    private fun successChallenge(){
-        binding.buttonDialogA.setOnClickListener {  }
-        binding.buttonDialogB.setOnClickListener {  }
-        binding.buttonDialogC.setOnClickListener {  }
-    }
+
 
 }
