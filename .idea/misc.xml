@@ -36,6 +36,7 @@
         <entry key="app/src/main/res/layout/challenge_course_dialog.xml" value="0.32395833333333335" />
         <entry key="app/src/main/res/layout/challenge_custom_dialog.xml" value="0.18854166666666666" />
         <entry key="app/src/main/res/layout/course_custom_dialog.xml" value="0.32395833333333335" />
+        <entry key="app/src/main/res/layout/dialog_certify_challenge.xml" value="0.28802083333333334" />
         <entry key="app/src/main/res/layout/dialog_challenge_help.xml" value="0.32395833333333335" />
         <entry key="app/src/main/res/layout/dialog_detail_delete.xml" value="0.32395833333333335" />
         <entry key="app/src/main/res/layout/dialog_detail_report.xml" value="0.20364583333333333" />

@@ -139,7 +139,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="48dp"
             android:fontFamily="@font/spoqahansansneobold"
-            android:text="코스 진행률 50% "
+            android:text="코스 진행률 50%"
             android:textColor="@color/mohaeng_yellow2"
             android:textSize="11sp"
             app:layout_constraintBottom_toBottomOf="@+id/imageview_blank"
