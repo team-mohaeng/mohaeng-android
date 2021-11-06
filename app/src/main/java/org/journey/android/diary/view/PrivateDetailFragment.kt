@@ -24,7 +24,9 @@ import com.google.android.material.chip.Chip
 import org.journey.android.R
 import org.journey.android.databinding.FragmentPrivateDetailBinding
 import org.journey.android.diary.dto.Emojifaction
+import org.journey.android.diary.dto.PrivateData
 import org.journey.android.diary.dto.RequestDiaryEmojiData
+import org.journey.android.diary.dto.ResponseDiaryPrivateData
 import org.journey.android.diary.service.FeedRequestToServer
 import org.journey.android.network.userJWT
 import retrofit2.Call
@@ -33,6 +35,7 @@ import retrofit2.Response
 
 
 var postDetail = HashMap<String, Any>()
+var refreshCheck = false
 
 class PrivateDetailFragment: Fragment() {
 
@@ -89,9 +92,10 @@ class PrivateDetailFragment: Fragment() {
         binding.textviewPrivateDetailTitle.text = postDetail.get("title").toString()
         binding.textviewPrivateDetailContent.text = postDetail.get("content").toString()
 
-        var emojiList:ArrayList<Emojifaction> = postDetail.get("emoji") as ArrayList<Emojifaction>
+        var emojiList: ArrayList<Emojifaction> =
+            postDetail.get("emoji") as ArrayList<Emojifaction>
         for (i in 0 until emojiList.size) {
-            addChipToGroup(emojiList[i].id,emojiList[i].count)
+            addChipToGroup(emojiList[i].id, emojiList[i].count)
         }
 
         binding.buttonPrivateDelete.setOnClickListener()
@@ -216,7 +220,8 @@ class PrivateDetailFragment: Fragment() {
     }
 
     fun refreshFragment(){
-        findNavController().popBackStack()
+        setRetrofit(refreshYear, refreshMonth)
+
         if (getParentFragmentManager() != null) {
 
             getParentFragmentManager()
@@ -232,8 +237,8 @@ class PrivateDetailFragment: Fragment() {
             .putEmoji(
                 postDetail.get("id") as Int,
                 "application/json",
-                userJWT,
-//                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk",
+//                userJWT,
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk",
                 RequestDiaryEmojiData(
                     emojiId = id
                 )
@@ -257,8 +262,8 @@ class PrivateDetailFragment: Fragment() {
             .deleteEmoji(
                 postDetail.get("id") as Int,
                 "application/json",
-                userJWT,
-//                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk",
+//                userJWT,
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk",
                 RequestDiaryEmojiData(
                     emojiId = id
                 )
@@ -321,10 +326,48 @@ class PrivateDetailFragment: Fragment() {
                 if (chip.id == postDetail.get("myemoji")) {
                     deleteEmoji(chip.id)
                     Log.d("chip", chip.id.toString())
-                    findNavController().popBackStack()
+
+                    refreshFragment()
+//                    findNavController().popBackStack()
                 }
             }
 
             }
         }
+
+    fun setRetrofit(year:String, month:String){
+        val call: Call<ResponseDiaryPrivateData> = FeedRequestToServer.service
+            .getPrivateDiary(
+                year,
+                month,
+                "application/json",
+//                userJWT
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk"
+            )
+
+        call.enqueue(object : Callback<ResponseDiaryPrivateData> {
+            override fun onResponse(
+                call: Call<ResponseDiaryPrivateData>,
+                responsePrivate: Response<ResponseDiaryPrivateData>
+            ) {
+                if (responsePrivate.isSuccessful) {
+                    val dataPrivate = responsePrivate.body()?.data
+                    if (dataPrivate != null) {
+                        postDetail.put("emoji", dataPrivate.feeds!!.get(postDetail.get("position") as Int)!!.emoji)
+                        postDetail.put("myemoji", dataPrivate.feeds!!.get(postDetail.get("position") as Int)!!.myEmoji)
+                        Log.d("privateDetail", "${postDetail}")
+                        refreshCheck = true
+                        findNavController().popBackStack()
+                    }
+
+                } else {
+                    Log.d("private ClientTest", "Client Error")
+                }
+            }
+            override fun onFailure(call: Call<ResponseDiaryPrivateData>, t: Throwable) {
+                Log.d("NetworkTest", "error:$t")
+            }
+        })
+
+    }
 }

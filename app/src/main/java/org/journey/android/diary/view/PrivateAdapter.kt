@@ -54,8 +54,10 @@ class PrivateAdapter: RecyclerView.Adapter<PrivateAdapter.PrivateViewHolder>(){
             var privateNowMonth = (privateInstance.get(Calendar.MONTH) + 1).toString()
             if (privateNowMonth.toInt() < 10)
                 privateNowMonth = "0$privateNowMonth"
+            val privateNowDate = privateInstance.get(Calendar.DATE).toString()
+
             // 오늘의 안부라면
-            if ((privateNowYear.equals(privateData.year)) and (privateNowMonth.equals(privateData.month))){
+            if ((privateNowYear.equals(privateData.year)) and (privateNowMonth.equals(privateData.month)) and (privateNowDate.equals(privateData.date))){
                 binding.imageviewPrivateToday.visibility = View.VISIBLE
                 binding.constraintlayoutPrivateItem.setBackgroundColor(ctxt.getColor(R.color.mohaeng_yellow_b))
             }
@@ -83,6 +85,7 @@ class PrivateAdapter: RecyclerView.Adapter<PrivateAdapter.PrivateViewHolder>(){
                 postDetail.put("emoji", privateData.emoji)
                 postDetail.put("myemoji", privateData.myEmoji)
                 postDetail.put("isDelete", privateData.isDelete)
+                postDetail.put("position", getAdapterPosition())
 
                 Log.d("private",privateData.toString() )
 
