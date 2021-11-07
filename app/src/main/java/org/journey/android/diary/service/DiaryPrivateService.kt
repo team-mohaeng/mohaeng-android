@@ -1,5 +1,6 @@
 package org.journey.android.diary.service
 
+import org.journey.android.community.data.dto.ResponseCommunityFeedDTO
 import org.journey.android.diary.dto.ResponseDiaryPrivateData
 import retrofit2.Call
 import retrofit2.http.DELETE
@@ -22,4 +23,11 @@ interface DiaryPrivateService {
         @Header("Content-Type") contenttype: String,
         @Header("Bearer") jwt: String,
     ) : Call<Unit>
+
+    // 커뮤니티 디테일 위한 서버 연결
+    @GET("/api/feed")
+    fun getCommunityDiary(
+        @Header("Content-Type") contenttype: String,
+        @Header("Bearer") jwt: String,
+    ) : Call<ResponseCommunityFeedDTO>
 }

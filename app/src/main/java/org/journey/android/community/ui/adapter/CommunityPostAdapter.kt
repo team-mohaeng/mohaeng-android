@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import org.journey.android.BR
 import org.journey.android.community.data.entity.CommunityPostEntity
+import org.journey.android.community.ui.fragment.feedDetail
 import org.journey.android.databinding.ItemCommunityRecordBinding
 
 class CommunityPostAdapter(val listener : OnItemClickListener) : RecyclerView.Adapter<CommunityPostAdapter.CommunityPostViewHolder>() {
@@ -22,7 +23,8 @@ class CommunityPostAdapter(val listener : OnItemClickListener) : RecyclerView.Ad
     override fun onBindViewHolder(holder: CommunityPostViewHolder, position: Int) {
         val post = posts[position]
         holder.binding.setVariable(BR.data,post)
-        holder.binding.root.setOnClickListener { listener.itemClick() }
+        holder.binding.root.setOnClickListener { listener.itemClick()
+            feedDetail.put("position", holder.getAdapterPosition()) }
     }
     override fun getItemCount() = posts.size
 }

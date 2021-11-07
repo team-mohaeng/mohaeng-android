@@ -13,6 +13,7 @@ import org.journey.android.R
 import org.journey.android.community.viewmodel.CommunityPostViewModel
 import org.journey.android.community.ui.adapter.CommunityPostAdapter
 import org.journey.android.databinding.FragmentCommunityBinding
+import org.journey.android.diary.view.refreshCheck
 import org.journey.android.util.AutoClearedValue
 
 @AndroidEntryPoint
@@ -57,6 +58,14 @@ class CommunityFragment : Fragment() {
         with(binding){
             textviewDiary.setOnClickListener { findNavController().navigate(R.id.action_frameFragment_to_privateFragment) }
             buttonHappinessWrite.setOnClickListener { findNavController().navigate(R.id.action_frameFragment_to_diaryFirstFragment) }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if(refreshCheck == true){
+            refreshCheck = false
+            findNavController().navigate(R.id.action_frameFragment_to_communityDetailFragment)
         }
     }
 }
