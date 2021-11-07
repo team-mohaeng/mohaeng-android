@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.NumberPicker
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -24,6 +25,9 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.util.*
 
+var refreshYear = ""
+var refreshMonth = ""
+
 
 class PrivateFragment : Fragment(){
     private var binding by AutoClearedValue<FragmentPrivateBinding>()
@@ -35,6 +39,14 @@ class PrivateFragment : Fragment(){
                               savedInstanceState: Bundle?): View?{
         binding = FragmentPrivateBinding.inflate(inflater,container,false)
         return binding.root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if(refreshCheck == true){
+            refreshCheck = false
+            findNavController().navigate(R.id.action_privateFragment_to_privateDetailFragment)
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -135,6 +147,8 @@ class PrivateFragment : Fragment(){
                 responsePrivate: Response<ResponseDiaryPrivateData>
             ) {
                 if (responsePrivate.isSuccessful) {
+                    refreshYear = year
+                    refreshMonth = month
                     val dataPrivate = responsePrivate.body()?.data
                     val countContent = dataPrivate?.feeds?.size
                     val privateAdapter = PrivateAdapter()
