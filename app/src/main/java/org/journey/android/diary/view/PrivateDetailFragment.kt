@@ -53,14 +53,14 @@ class PrivateDetailFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setButtonClickListener(context)
 
-        val displaymetricsPrivateDetailFragment = DisplayMetrics()
-        requireActivity().windowManager.defaultDisplay.getMetrics(
-            displaymetricsPrivateDetailFragment
-        )
-        val heightPrivateDetailFragmentDisplay =
-            displaymetricsPrivateDetailFragment.heightPixels * 0.5
-        val widthPrivateDetailFragmentDisplay =
-            displaymetricsPrivateDetailFragment.widthPixels * 0.9
+//        val displaymetricsPrivateDetailFragment = DisplayMetrics()
+//        requireActivity().windowManager.defaultDisplay.getMetrics(
+//            displaymetricsPrivateDetailFragment
+//        )
+//        val heightPrivateDetailFragmentDisplay =
+//            displaymetricsPrivateDetailFragment.heightPixels * 0.5
+//        val widthPrivateDetailFragmentDisplay =
+//            displaymetricsPrivateDetailFragment.widthPixels * 0.9
 
         if(postDetail.get("mood")==2)
         {
@@ -76,12 +76,13 @@ class PrivateDetailFragment: Fragment() {
         }
 
         Log.d("privateDetail", "${postDetail}")
-        if(postDetail.get("image")!!.equals("")){
+        if(postDetail.get("image")==""){
             binding.imageviewPrivateDetailBack.visibility = View.GONE
+            binding.viewFeedDetailLine.visibility = View.VISIBLE
         }
         else{
             binding.imageviewPrivateDetailBack.visibility = View.VISIBLE
-
+            binding.viewFeedDetailLine.visibility = View.GONE
             Glide.with(this)
                 .load(postDetail.get("image"))
                 .into(binding.imageviewPrivateDetailBack)
@@ -113,10 +114,10 @@ class PrivateDetailFragment: Fragment() {
                 deleteDialog.setContentView(mView)
                 deleteDialog.create()
                 deleteDialog.show()
-                deleteDialog.window?.setLayout(
-                    widthPrivateDetailFragmentDisplay.toInt(),
-                    heightPrivateDetailFragmentDisplay.toInt()
-                )
+//                deleteDialog.window?.setLayout(
+//                    widthPrivateDetailFragmentDisplay.toInt(),
+//                    heightPrivateDetailFragmentDisplay.toInt()
+//                )
             }
             closeBtn.setOnClickListener {
                 if (deleteDialog != null) {
@@ -317,23 +318,17 @@ class PrivateDetailFragment: Fragment() {
             likeList.add(chip.text.toString())
             binding.chipgroupLike.addView(chip as View)
 
-            chip.setOnCloseIconClickListener {
-                binding.chipgroupLike.removeView(chip as View)
-                likeList.remove(chip.text.toString())
-            }
-
             chip.setOnClickListener {
-                if (chip.id == postDetail.get("myemoji")) {
-                    deleteEmoji(chip.id)
-                    Log.d("chip", chip.id.toString())
-
+                if(emotion == postDetail.get("myemoji")) {
+                    binding.chipgroupLike.removeView(chip as View)
+                    likeList.remove(chip.text.toString())
+                    deleteEmoji(postDetail.get("myemoji") as Int)
                     refreshFragment()
-//                    findNavController().popBackStack()
                 }
             }
 
-            }
         }
+    }
 
     fun setRetrofit(year:String, month:String){
         val call: Call<ResponseDiaryPrivateData> = FeedRequestToServer.service

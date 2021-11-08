@@ -18,6 +18,16 @@
         app:layout_constraintBottom_toBottomOf="@id/toolbar_community_detail_title"
         />
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_community_delete"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_marginRight="12dp"
+        android:background="@drawable/ic_diary_private_button_delete"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/toolbar_community_detail_title"/>
+
     <TextView
         android:id="@+id/textview_community_detail"
         android:layout_width="wrap_content"
@@ -106,6 +116,8 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/mohaeng_gray_a"
+        android:layout_marginTop="18dp"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageview_community_detail_back" />

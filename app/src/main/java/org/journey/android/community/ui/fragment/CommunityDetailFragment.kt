@@ -1,11 +1,13 @@
 package org.journey.android.community.ui.fragment
 
 import android.app.AlertDialog
+import android.app.Dialog
 import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.util.DisplayMetrics
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -20,14 +22,20 @@ import com.bumptech.glide.Glide
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.chip.Chip
 import org.journey.android.R
+import org.journey.android.community.data.dto.ResponseCommunityFeedDTO
 import org.journey.android.databinding.FragmentCommunityDetailBinding
 import org.journey.android.diary.dto.Emojifaction
 import org.journey.android.diary.dto.RequestDiaryEmojiData
+import org.journey.android.diary.dto.ResponseDiaryPrivateData
 import org.journey.android.diary.service.FeedRequestToServer
 import org.journey.android.diary.view.postDetail
+import org.journey.android.diary.view.refreshCheck
+import org.journey.android.network.userJWT
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+
+var feedDetail = HashMap<String, Any>()
 
 class CommunityDetailFragment : Fragment() {
 
@@ -44,34 +52,7 @@ class CommunityDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setButtonClickListener(context)
-
-        if(postDetail.get("mood")==2)
-        {
-            binding.imageviewCommunityDetailFront.setImageResource(R.drawable.ic_feel_third)
-        }
-        else if(postDetail.get("mood")==1)
-        {
-            binding.imageviewCommunityDetailFront.setImageResource(R.drawable.ic_feel_second)
-        }
-        else if(postDetail.get("mood")==0)
-        {
-            binding.imageviewCommunityDetailFront.setImageResource(R.drawable.ic_feel_first)
-        }
-
-        Log.d("communityDetail", "${postDetail}")
-        Glide.with(this)
-            .load(postDetail.get("image"))
-            .into(binding.imageviewCommunityDetailBack)
-
-        binding.textviewCommunityDetailNickname.text = postDetail.get("nickname").toString()
-        binding.textviewCommunityDetailDate.text = postDetail.get("date").toString()
-        binding.textviewCommunityDetailTitle.text = postDetail.get("title").toString()
-        binding.textviewCommunityDetailContent.text = postDetail.get("content").toString()
-
-        var emojiList:ArrayList<Emojifaction> = postDetail.get("emoji") as ArrayList<Emojifaction>
-        for (i in 0 until emojiList.size) {
-            addChipToGroup(emojiList[i].id,emojiList[i].count)
-        }
+        setRetrofit()
     }
 
     private fun setButtonClickListener(ctxt: Context?){
@@ -151,9 +132,10 @@ class CommunityDetailFragment : Fragment() {
                 reportBtn.setOnClickListener {
                     val call: Call<Unit> = FeedRequestToServer.writeService
                         .reportDiary(
-                            299,
+                            feedDetail.get("id") as Int,
                             "application/json",
-                            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk"
+                            userJWT
+//                            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk"
                         )
                     call.enqueue(object : Callback<Unit> {
                         override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
@@ -161,8 +143,8 @@ class CommunityDetailFragment : Fragment() {
                                 Toast.makeText(requireContext(), "신고했습니다.", Toast.LENGTH_SHORT).show()
                                 reportDialog?.dismiss()
                             } else {
-                                if(response.code() == 404){
-                                    Toast.makeText(requireContext(), "본인이 작성한 포스트는 신고할 수 없습니다.", Toast.LENGTH_SHORT).show()
+                                if(response.code() == 404 || response.code() == 401){
+                                    Toast.makeText(requireContext(), response.message(), Toast.LENGTH_SHORT).show()
                                 }
 //                                Toast.makeText(requireContext(), response.toString(), Toast.LENGTH_SHORT).show()
                             }
@@ -179,11 +161,63 @@ class CommunityDetailFragment : Fragment() {
                 reportDialog?.show()
 
             }
+
+            binding.buttonCommunityDelete.setOnClickListener()
+            {
+                val deleteDialog = activity?.let { it1 -> Dialog(it1) }
+                val deleteDialogInflater: LayoutInflater = LayoutInflater.from(activity)
+                val mView: View =
+                    deleteDialogInflater.inflate(R.layout.dialog_detail_delete, null)
+                val deleteBtn: Button = mView.findViewById(R.id.button_dialog_delete)
+                val closeBtn: Button = mView.findViewById(R.id.button_dialog_close)
+                val window = deleteDialog?.window
+                window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+                if (deleteDialog != null) {
+                    deleteDialog.setContentView(mView)
+                    deleteDialog.create()
+                    deleteDialog.show()
+//                    deleteDialog.window?.setLayout(
+//                        widthCommunityDetailFragmentDisplay.toInt(),
+//                        heightCommunityDetailFragmentDisplay.toInt()
+//                    )
+                }
+                closeBtn.setOnClickListener {
+                    if (deleteDialog != null) {
+                        deleteDialog.dismiss()
+                        deleteDialog.cancel()
+                    }
+                }
+                deleteBtn.setOnClickListener {
+                    val call: Call<Unit> = FeedRequestToServer.service
+                        .deletePrivateDetail(
+                            feedDetail.get("id") as Int,
+                            "application/json",
+                            userJWT
+                        )
+                    call.enqueue(object : Callback<Unit> {
+                        override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
+                            if (response.isSuccessful) {
+                                Toast.makeText(requireContext(), "삭제되었습니다",Toast.LENGTH_SHORT).show()
+                                deleteDialog?.dismiss()
+                                findNavController().popBackStack()
+                            } else {
+                            }
+                        }
+
+                        override fun onFailure(call: Call<Unit>, t: Throwable) {
+                            Log.d("Delete Diary NT Error", "Delete Error!")
+                        }
+                    })
+                }
+            }
         }
     }
 
     fun refreshFragment(){
+        refreshCheck = true
         findNavController().popBackStack()
+
         if (getParentFragmentManager() != null) {
 
             getParentFragmentManager()
@@ -197,9 +231,10 @@ class CommunityDetailFragment : Fragment() {
     fun putEmojiRetrofit(id:Int){
         val call: Call<Unit> = FeedRequestToServer.writeService
             .putEmoji(
-                postDetail.get("id") as Int,
+                feedDetail.get("id") as Int,
                 "application/json",
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk",
+                userJWT,
+//                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk",
                 RequestDiaryEmojiData(
                     emojiId = id
                 )
@@ -221,9 +256,10 @@ class CommunityDetailFragment : Fragment() {
         Log.d("chip", id.toString())
         val call: Call<Unit> = FeedRequestToServer.writeService
             .deleteEmoji(
-                postDetail.get("id") as Int,
+                feedDetail.get("id") as Int,
                 "application/json",
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk",
+                userJWT,
+//                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk",
                 RequestDiaryEmojiData(
                     emojiId = id
                 )
@@ -275,19 +311,128 @@ class CommunityDetailFragment : Fragment() {
             chip.isCheckable = false
             likeList.add(chip.text.toString())
             binding.chipgroupLike.addView(chip as View)
-            chip.setOnCloseIconClickListener {
-                binding.chipgroupLike.removeView(chip as View)
-                likeList.remove(chip.text.toString())
-            }
+
+//            if(emotion == feedDetail.get("myemoji")){
+//                chip.isCloseIconVisible = true
+//            }
 
             chip.setOnClickListener {
-                if (chip.id == postDetail.get("myemoji")) {
-                    deleteEmoji(chip.id)
-                    Log.d("chip", chip.id.toString())
-                    findNavController().popBackStack()
+                if(emotion == feedDetail.get("myemoji")) {
+                    binding.chipgroupLike.removeView(chip as View)
+                    likeList.remove(chip.text.toString())
+                    deleteEmoji(feedDetail.get("myemoji") as Int)
+                    refreshFragment()
                 }
             }
+
+//            chip.setOnClickListener {
+//                Log.d("chip1", "${chip.chipIcon} ${feedDetail.get("myemoji")}")
+//                var emojisrc = ""
+//                when(feedDetail.get("myemoji")){
+//                    1 -> emojisrc = "android.graphics.drawable.VectorDrawable@b55861"
+//                    2 -> emojisrc = "android.graphics.drawable.VectorDrawable@d93f4b3"
+//                    3 -> emojisrc = "android.graphics.drawable.VectorDrawable@7b397a7"
+//                    4 -> emojisrc = "android.graphics.drawable.VectorDrawable@ed4c232"
+//                    5 -> emojisrc = "android.graphics.drawable.VectorDrawable@db5ef9"
+//                    6 -> emojisrc = "android.graphics.drawable.VectorDrawable@dc11bbb"
+//                }
+//                Log.d("chip11", chip.chipIcon.toString() +"${emojisrc}")
+//                if(chip.chipIcon.toString() == emojisrc){
+//                    Log.d("chip2", "${chip.chipIcon} ${feedDetail.get("myemoji")}")
+//                }
+//                if (chip.id == feedDetail.get("myemoji")) {
+//                    Log.d("chip", chip.id.toString())
+//                    refreshFragment()
+//                    deleteEmoji(chip.id)
+//                }
+//            }
         }
+    }
+
+    fun setRetrofit(){
+        val call: Call<ResponseCommunityFeedDTO> = FeedRequestToServer.service
+            .getCommunityDiary(
+                "application/json",
+                userJWT
+//                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk"
+            )
+
+        call.enqueue(object : Callback<ResponseCommunityFeedDTO> {
+            override fun onResponse(
+                call: Call<ResponseCommunityFeedDTO>,
+                responsePrivate: Response<ResponseCommunityFeedDTO>
+            ) {
+                if (responsePrivate.isSuccessful) {
+                    val dataDetail = responsePrivate.body()?.data
+
+                    if (dataDetail != null) {
+                        var detailMood = dataDetail.feeds.get(feedDetail.get("position") as Int).mood
+                        if(detailMood==2)
+                        {
+                            binding.imageviewCommunityDetailFront.setImageResource(R.drawable.ic_feel_third)
+                        }
+                        else if(detailMood==1)
+                        {
+                            binding.imageviewCommunityDetailFront.setImageResource(R.drawable.ic_feel_second)
+                        }
+                        else if(detailMood==0)
+                        {
+                            binding.imageviewCommunityDetailFront.setImageResource(R.drawable.ic_feel_first)
+                        }
+
+                        if(dataDetail?.feeds!!.get(feedDetail.get("position") as Int)!!.isDelete){
+                            binding.buttonCommunityDelete.visibility = View.VISIBLE
+                        }
+                        else{
+                            binding.buttonCommunityDelete.visibility = View.INVISIBLE
+                        }
+
+                        if(dataDetail?.feeds!!.get(feedDetail.get("position") as Int)!!.isReport){
+                            binding.imagebuttonCommunityDetailReport.visibility = View.VISIBLE
+                        }
+                        else{
+                            binding.imagebuttonCommunityDetailReport.visibility = View.INVISIBLE
+                        }
+
+                        binding.textviewCommunityDetailNickname.text = dataDetail.feeds.get(feedDetail.get("position") as Int).nickname
+                        binding.textviewCommunityDetailDate.text = "${dataDetail.feeds.get(feedDetail.get("position") as Int).month}월 ${dataDetail.feeds.get(feedDetail.get("position") as Int).date}일"
+                        binding.textviewCommunityDetailTitle.text = dataDetail.feeds.get(feedDetail.get("position") as Int).course + " " +
+                                dataDetail.feeds.get(feedDetail.get("position") as Int).challenge.toString() + "일차"
+                        binding.textviewCommunityDetailContent.text = dataDetail.feeds.get(feedDetail.get("position") as Int).content
+
+                        feedDetail.put("emoji", dataDetail.feeds.get(feedDetail.get("position") as Int).emoji)
+                        feedDetail.put("myemoji", dataDetail.feeds.get(feedDetail.get("position") as Int).myEmoji)
+                        feedDetail.put("id", dataDetail.feeds.get(feedDetail.get("position") as Int).postId)
+
+                        var emojiList = dataDetail.feeds.get(feedDetail.get("position") as Int).emoji
+                        for (i in 0 until emojiList.size) {
+                            addChipToGroup(emojiList[i].id,emojiList[i].count)
+                        }
+
+                        var imageDetail = dataDetail.feeds.get(feedDetail.get("position") as Int).image
+                        if(imageDetail == ""){
+                            binding.imageviewCommunityDetailBack.visibility = View.GONE
+                            binding.viewCommunityDetailLine.visibility = View.VISIBLE
+                        }
+                        else{
+                            binding.imageviewCommunityDetailBack.visibility = View.VISIBLE
+                            binding.viewCommunityDetailLine.visibility = View.GONE
+                            Glide.with(this@CommunityDetailFragment)
+                                .load(imageDetail)
+                                .into(binding.imageviewCommunityDetailBack)
+                            Log.d("img", "$imageDetail $feedDetail")
+                        }
+                        Log.d("communityDetail", "${dataDetail.feeds.get(feedDetail.get("position") as Int)}")
+                    }
+
+                } else {
+                    Log.d("communityDetail", "Client Error")
+                }
+            }
+            override fun onFailure(call: Call<ResponseCommunityFeedDTO>, t: Throwable) {
+                Log.d("NetworkTest", "error:$t")
+            }
+        })
     }
 
 }
