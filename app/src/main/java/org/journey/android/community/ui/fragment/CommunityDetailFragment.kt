@@ -134,7 +134,8 @@ class CommunityDetailFragment : Fragment() {
                         .reportDiary(
                             feedDetail.get("id") as Int,
                             "application/json",
-                            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk"
+                            userJWT
+//                            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk"
                         )
                     call.enqueue(object : Callback<Unit> {
                         override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
@@ -232,7 +233,8 @@ class CommunityDetailFragment : Fragment() {
             .putEmoji(
                 feedDetail.get("id") as Int,
                 "application/json",
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk",
+                userJWT,
+//                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk",
                 RequestDiaryEmojiData(
                     emojiId = id
                 )
@@ -256,7 +258,8 @@ class CommunityDetailFragment : Fragment() {
             .deleteEmoji(
                 feedDetail.get("id") as Int,
                 "application/json",
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk",
+                userJWT,
+//                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk",
                 RequestDiaryEmojiData(
                     emojiId = id
                 )
@@ -308,12 +311,21 @@ class CommunityDetailFragment : Fragment() {
             chip.isCheckable = false
             likeList.add(chip.text.toString())
             binding.chipgroupLike.addView(chip as View)
-            chip.setOnCloseIconClickListener {
-                binding.chipgroupLike.removeView(chip as View)
-                likeList.remove(chip.text.toString())
-            }
+
+//            if(emotion == feedDetail.get("myemoji")){
+//                chip.isCloseIconVisible = true
+//            }
 
             chip.setOnClickListener {
+                if(emotion == feedDetail.get("myemoji")) {
+                    binding.chipgroupLike.removeView(chip as View)
+                    likeList.remove(chip.text.toString())
+                    deleteEmoji(feedDetail.get("myemoji") as Int)
+                    refreshFragment()
+                }
+            }
+
+//            chip.setOnClickListener {
 //                Log.d("chip1", "${chip.chipIcon} ${feedDetail.get("myemoji")}")
 //                var emojisrc = ""
 //                when(feedDetail.get("myemoji")){
@@ -328,23 +340,21 @@ class CommunityDetailFragment : Fragment() {
 //                if(chip.chipIcon.toString() == emojisrc){
 //                    Log.d("chip2", "${chip.chipIcon} ${feedDetail.get("myemoji")}")
 //                }
-                if (chip.id == feedDetail.get("myemoji")) {
-                    Log.d("chip", chip.id.toString())
-                    refreshFragment()
-                    deleteEmoji(chip.id)
-                }
-            }
+//                if (chip.id == feedDetail.get("myemoji")) {
+//                    Log.d("chip", chip.id.toString())
+//                    refreshFragment()
+//                    deleteEmoji(chip.id)
+//                }
+//            }
         }
     }
 
     fun setRetrofit(){
-        var imageDetail = ""
-
         val call: Call<ResponseCommunityFeedDTO> = FeedRequestToServer.service
             .getCommunityDiary(
                 "application/json",
-//                userJWT
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk"
+                userJWT
+//                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk"
             )
 
         call.enqueue(object : Callback<ResponseCommunityFeedDTO> {
@@ -384,22 +394,34 @@ class CommunityDetailFragment : Fragment() {
                             binding.imagebuttonCommunityDetailReport.visibility = View.INVISIBLE
                         }
 
-                        imageDetail = dataDetail.feeds.get(feedDetail.get("position") as Int).image
-
                         binding.textviewCommunityDetailNickname.text = dataDetail.feeds.get(feedDetail.get("position") as Int).nickname
                         binding.textviewCommunityDetailDate.text = "${dataDetail.feeds.get(feedDetail.get("position") as Int).month}월 ${dataDetail.feeds.get(feedDetail.get("position") as Int).date}일"
                         binding.textviewCommunityDetailTitle.text = dataDetail.feeds.get(feedDetail.get("position") as Int).course + " " +
                                 dataDetail.feeds.get(feedDetail.get("position") as Int).challenge.toString() + "일차"
                         binding.textviewCommunityDetailContent.text = dataDetail.feeds.get(feedDetail.get("position") as Int).content
 
+                        feedDetail.put("emoji", dataDetail.feeds.get(feedDetail.get("position") as Int).emoji)
+                        feedDetail.put("myemoji", dataDetail.feeds.get(feedDetail.get("position") as Int).myEmoji)
+                        feedDetail.put("id", dataDetail.feeds.get(feedDetail.get("position") as Int).postId)
+
                         var emojiList = dataDetail.feeds.get(feedDetail.get("position") as Int).emoji
                         for (i in 0 until emojiList.size) {
                             addChipToGroup(emojiList[i].id,emojiList[i].count)
                         }
 
-                        feedDetail.put("emoji", dataDetail.feeds.get(feedDetail.get("position") as Int).emoji)
-                        feedDetail.put("myemoji", dataDetail.feeds.get(feedDetail.get("position") as Int).myEmoji)
-                        feedDetail.put("id", dataDetail.feeds.get(feedDetail.get("position") as Int).postId)
+                        var imageDetail = dataDetail.feeds.get(feedDetail.get("position") as Int).image
+                        if(imageDetail == ""){
+                            binding.imageviewCommunityDetailBack.visibility = View.GONE
+                            binding.viewCommunityDetailLine.visibility = View.VISIBLE
+                        }
+                        else{
+                            binding.imageviewCommunityDetailBack.visibility = View.VISIBLE
+                            binding.viewCommunityDetailLine.visibility = View.GONE
+                            Glide.with(this@CommunityDetailFragment)
+                                .load(imageDetail)
+                                .into(binding.imageviewCommunityDetailBack)
+                            Log.d("img", "$imageDetail $feedDetail")
+                        }
                         Log.d("communityDetail", "${dataDetail.feeds.get(feedDetail.get("position") as Int)}")
                     }
 
@@ -411,11 +433,6 @@ class CommunityDetailFragment : Fragment() {
                 Log.d("NetworkTest", "error:$t")
             }
         })
-
-        Glide.with(this)
-            .load(imageDetail)
-            .into(binding.imageviewCommunityDetailBack)
-        Log.d("img", "$imageDetail")
     }
 
 }

@@ -104,6 +104,8 @@
         android:id="@+id/view_feed_detail_line"
         android:layout_width="match_parent"
         android:layout_height="1dp"
+        android:layout_marginTop="18dp"
+        android:visibility="gone"
         android:background="@color/mohaeng_gray_a"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
