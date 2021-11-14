@@ -69,10 +69,16 @@ class PrivateAdapter: RecyclerView.Adapter<PrivateAdapter.PrivateViewHolder>(){
             val multi = MultiTransformation<Bitmap>(
                 RoundedCornersTransformation(4, 0)
             )
-            Glide.with(itemView)
-                .load(privateData.image)
-                .apply(RequestOptions.bitmapTransform(multi))
-                .into(binding.imageviewRecyclerviewBackground)
+            if(privateData.image==""){
+                binding.imageviewRecyclerviewBackground.setBackgroundResource(R.drawable.ic_feed_img)
+                binding.imageviewRecyclerviewBackground.setImageResource(R.drawable.ic_feed_img)
+            }
+            else{
+                Glide.with(itemView)
+                    .load(privateData.image)
+                    .apply(RequestOptions.bitmapTransform(multi))
+                    .into(binding.imageviewRecyclerviewBackground)
+            }
 
             itemView.setOnClickListener {
                 postDetail.put("id",privateData.postId)
