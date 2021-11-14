@@ -17,6 +17,7 @@ import org.journey.android.frame.MainActivity
 import org.journey.android.onboarding.viewmodel.OnboardingViewModel
 import org.journey.android.preference.UserPreferenceManager
 import org.journey.android.util.AutoClearedValue
+import org.journey.android.util.Extensions.typeWrite
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -40,7 +41,8 @@ class OnboardingFirstFragment : Fragment() {
         binding.lifecycleOwner = viewLifecycleOwner
         startLogin()
         startOnboarding()
-        Log.e("user token", userPreferenceManager.fetchUserAccessToken())
+        loadTypingAnimation()
+//        Log.e("user token", userPreferenceManager.fetchUserAccessToken())
 
     }
 
@@ -49,6 +51,11 @@ class OnboardingFirstFragment : Fragment() {
             Log.e("user token", "${userPreferenceManager.fetchUserAccessToken()}")
             startActivity(Intent(requireContext(), MainActivity::class.java))
         }
+    }
+
+    private fun loadTypingAnimation(){
+        binding.textviewOnboardingAskText.typeWrite(this, "야~ 모행?!",120L)
+//        binding.textviewOnboardingAnswerText.typeWrite(this,"안녕! 만나서 방가워.\n내 집착을 견딜 준비가 되어있어?\n\n나와 함께 재미있는 챌린지를 수행하며\n하루 행복에 더 가까워지길 바라!",100L )
     }
 
 
