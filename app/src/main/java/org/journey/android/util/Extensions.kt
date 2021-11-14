@@ -10,10 +10,15 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.ProgressBar
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.text.toSpannable
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 object Extensions {
     fun Int.dpToPx(displayMetrics: DisplayMetrics): Int = (this * displayMetrics.density).toInt()
@@ -21,6 +26,16 @@ object Extensions {
         val spannableText = text.toSpannable()
         spannableText.setSpan(BackgroundColorSpan(colorResId), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
         text = spannableText
+    }
+//
+    fun TextView.typeWrite(lifecycleOwner: LifecycleOwner, text: String, intervalMs: Long) {
+        this@typeWrite.text = ""
+        lifecycleOwner.lifecycleScope.launch {
+            repeat(text.length) {
+                delay(intervalMs)
+                this@typeWrite.text = text.take(it + 1)
+            }
+        }
     }
 
     fun Context.showToast(text: String) {
