@@ -30,11 +30,10 @@ class OnboardingFifthFragment : Fragment(), CoroutineScope {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         launch {
-            delay(2000)
+            delay(2500)
             withContext(Dispatchers.Main){
-                //온보딩 마지막뷰 확정되면 넘기기
-//                Navigation.findNavController(binding.root)
-//                    .navigate()
+                Navigation.findNavController(binding.root)
+                    .navigate(R.id.action_onboardingFifthFragment_to_onboardingSixthFragment)
             }
         }
     }

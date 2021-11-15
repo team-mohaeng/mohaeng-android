@@ -6,10 +6,15 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.appcompat.widget.AppCompatTextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.schedulers.Schedulers
 import org.journey.android.R
 import org.journey.android.databinding.FragmentOnboardingFirstBinding
 import org.journey.android.entry.frame.EntryActivity
@@ -18,6 +23,8 @@ import org.journey.android.onboarding.viewmodel.OnboardingViewModel
 import org.journey.android.preference.UserPreferenceManager
 import org.journey.android.util.AutoClearedValue
 import org.journey.android.util.Extensions.typeWrite
+import java.util.*
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -41,7 +48,7 @@ class OnboardingFirstFragment : Fragment() {
         binding.lifecycleOwner = viewLifecycleOwner
         startLogin()
         startOnboarding()
-        loadTypingAnimation()
+        animateTyping()
 //        Log.e("user token", userPreferenceManager.fetchUserAccessToken())
 
     }
@@ -53,11 +60,45 @@ class OnboardingFirstFragment : Fragment() {
         }
     }
 
-    private fun loadTypingAnimation(){
-        binding.textviewOnboardingAskText.typeWrite(this, "야~ 모행?!",120L)
-//        binding.textviewOnboardingAnswerText.typeWrite(this,"안녕! 만나서 방가워.\n내 집착을 견딜 준비가 되어있어?\n\n나와 함께 재미있는 챌린지를 수행하며\n하루 행복에 더 가까워지길 바라!",100L )
+    private fun animateTyping() {
+        val textview = binding.textviewOnboardingAskText
+        val text = requireContext().getString(R.string.onboarding_text_one)
+        var textCount = 0
+        var textStack = ""
+        Observable.interval(120, TimeUnit.MILLISECONDS)
+            .subscribeOn(Schedulers.io())
+            .take(text.length.toLong())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                textStack += text[textCount].toString()
+                textview.setText(textStack)
+                textCount++
+            },{
+                it.printStackTrace()
+            }, {
+                animateSecondTyping()
+            })
     }
 
+    private fun animateSecondTyping() {
+        val textview = binding.textviewOnboardingAnswerText
+        val text = requireContext().getString(R.string.onboarding_answer_text)
+        var textCount = 0
+        var textStack = ""
+        Observable.interval(70, TimeUnit.MILLISECONDS)
+            .subscribeOn(Schedulers.io())
+            .take(text.length.toLong())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                textStack += text[textCount].toString()
+                textview.setText(textStack)
+                textCount++
+            },{
+                it.printStackTrace()
+            }, {
+
+            })
+    }
 
     private fun startLogin(){
         binding.textviewSkipOnboarding.setOnClickListener {
@@ -71,5 +112,5 @@ class OnboardingFirstFragment : Fragment() {
             findNavController().navigate(R.id.action_onboardingFirstFragment_to_onboardingSecondFragment)
         }
     }
-
 }
+

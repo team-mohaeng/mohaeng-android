@@ -80,7 +80,8 @@
         <entry key="app/src/main/res/layout/fragment_onboarding_first.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_onboarding_fourth.xml" value="0.31142034548944336" />
         <entry key="app/src/main/res/layout/fragment_onboarding_second.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_onboarding_third.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/fragment_onboarding_sixth.xml" value="0.14166666666666666" />
+        <entry key="app/src/main/res/layout/fragment_onboarding_third.xml" value="0.145679012345679" />
         <entry key="app/src/main/res/layout/fragment_private.xml" value="0.34479166666666666" />
         <entry key="app/src/main/res/layout/fragment_private_detail.xml" value="0.34479166666666666" />
         <entry key="app/src/main/res/layout/fragment_reward.xml" value="0.17239583333333333" />
