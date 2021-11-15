@@ -38,7 +38,6 @@ class MainFragment : Fragment() {
                 playAnimation()
             }
         }
-
         setClickListener()
         showIndexDialog()
     }
@@ -66,8 +65,5 @@ class MainFragment : Fragment() {
 
         }
     }
-
-
-
-
 }
+
