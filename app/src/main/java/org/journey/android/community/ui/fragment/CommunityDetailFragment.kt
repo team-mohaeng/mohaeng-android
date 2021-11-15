@@ -7,7 +7,6 @@ import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.util.DisplayMetrics
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -24,13 +23,9 @@ import com.google.android.material.chip.Chip
 import org.journey.android.R
 import org.journey.android.community.data.dto.ResponseCommunityFeedDTO
 import org.journey.android.databinding.FragmentCommunityDetailBinding
-import org.journey.android.diary.dto.Emojifaction
 import org.journey.android.diary.dto.RequestDiaryEmojiData
-import org.journey.android.diary.dto.ResponseDiaryPrivateData
 import org.journey.android.diary.service.FeedRequestToServer
-import org.journey.android.diary.view.postDetail
 import org.journey.android.diary.view.refreshCheck
-import org.journey.android.network.userJWT
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -134,7 +129,7 @@ class CommunityDetailFragment : Fragment() {
                         .reportDiary(
                             feedDetail.get("id") as Int,
                             "application/json",
-                            userJWT
+                            ""
 //                            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk"
                         )
                     call.enqueue(object : Callback<Unit> {
@@ -193,7 +188,8 @@ class CommunityDetailFragment : Fragment() {
                         .deletePrivateDetail(
                             feedDetail.get("id") as Int,
                             "application/json",
-                            userJWT
+//                            userJWT
+                        ""
                         )
                     call.enqueue(object : Callback<Unit> {
                         override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
@@ -233,7 +229,8 @@ class CommunityDetailFragment : Fragment() {
             .putEmoji(
                 feedDetail.get("id") as Int,
                 "application/json",
-                userJWT,
+                "",
+//                userJWT,
 //                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk",
                 RequestDiaryEmojiData(
                     emojiId = id
@@ -258,7 +255,7 @@ class CommunityDetailFragment : Fragment() {
             .deleteEmoji(
                 feedDetail.get("id") as Int,
                 "application/json",
-                userJWT,
+                "",
 //                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk",
                 RequestDiaryEmojiData(
                     emojiId = id
@@ -353,7 +350,7 @@ class CommunityDetailFragment : Fragment() {
         val call: Call<ResponseCommunityFeedDTO> = FeedRequestToServer.service
             .getCommunityDiary(
                 "application/json",
-                userJWT
+                ""
 //                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk"
             )
 

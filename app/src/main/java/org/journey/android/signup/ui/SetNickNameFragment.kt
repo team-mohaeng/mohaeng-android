@@ -39,6 +39,7 @@ class SetNickNameFragment : Fragment() {
         binding.lifecycleOwner = viewLifecycleOwner
 
 
+
         viewModel.signUpSuccess.observe(viewLifecycleOwner) { successed ->
             if(successed) {
                 val intent = Intent(context, MainActivity::class.java)

@@ -9,16 +9,12 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.NumberPicker
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import org.journey.android.R
 import org.journey.android.databinding.FragmentPrivateBinding
 import org.journey.android.diary.dto.PrivateData
 import org.journey.android.diary.dto.ResponseDiaryPrivateData
 import org.journey.android.diary.service.FeedRequestToServer
-import org.journey.android.network.userJWT
 import org.journey.android.util.AutoClearedValue
 import retrofit2.Call
 import retrofit2.Callback
@@ -137,7 +133,7 @@ class PrivateFragment : Fragment(){
                 year,
                 month,
                 "application/json",
-                userJWT
+                ""
 //                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk"
             )
 
