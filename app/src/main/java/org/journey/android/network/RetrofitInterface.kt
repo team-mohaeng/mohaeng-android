@@ -35,7 +35,7 @@ interface RetrofitInterface {
                     @Header("token") fcmToken : String) : Single<ResponseGoogleSignInDTO>
 
     @POST("/api/signup")
-    fun signUp(@Header("fcmToken") fcmToken : String, @Body requestSignupDTO: RequestSignupDTO) : Single<ResponseSignupDTO>
+    fun signUp(@Header("token") fcmToken : String, @Body requestSignupDTO: RequestSignupDTO) : Single<ResponseSignupDTO>
 
     @POST("api/{snsType}/signup")
     fun snsSignUp(@Header("idToken") accessToken : String ,
