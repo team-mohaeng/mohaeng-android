@@ -53,8 +53,7 @@ class MainFragment : Fragment() {
                 findNavController().navigate(R.id.action_frameFragment_to_characterFragment)
             }
             buttonMainMypage.setOnClickListener {
-                findNavController().navigate(R.id.action_mainFragment_to_badgeFragment)
-//                findNavController().navigate(R.id.action_frameFragment_to_myPageFragment)
+                findNavController().navigate(R.id.action_frameFragment_to_myPageFragment)
             }
 
         }

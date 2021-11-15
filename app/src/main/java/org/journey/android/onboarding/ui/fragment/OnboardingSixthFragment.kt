@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import dagger.hilt.android.AndroidEntryPoint
 import org.journey.android.R
 import org.journey.android.databinding.FragmentOnboardingSixthBinding
+import org.journey.android.entry.frame.EntryActivity
 import org.journey.android.frame.MainActivity
 import org.journey.android.util.AutoClearedValue
 
@@ -34,7 +35,8 @@ class OnboardingSixthFragment : Fragment() {
 
     private fun startMohaeng(){
         binding.buttonStartMohaeng.setOnClickListener {
-            val intent = Intent(context, MainActivity::class.java)
+            //Todo 로그인된 유저는 바로 메인홈, 계정이 없을경우 로그인
+            val intent = Intent(context, EntryActivity::class.java)
             startActivity(intent)
         }
     }

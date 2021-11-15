@@ -93,5 +93,6 @@
     <string name="onboarding_congratulate">오늘 챌린지 수행 축하해~</string>
     <string name="onboarding_last">재미있는 챌린지들을 수행해서\n캐릭터들의 레벨을 쌓고\n모행이들의 다양한 모습을 찾아보자.</string>
     <string name="onboarding_choose_course">꽂히는 코스를 하나 선택해봐~!</string>
+    <string name="change_nickname">닉네임 변경하기</string>
 
 </resources>

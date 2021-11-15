@@ -1,4 +1,4 @@
-package org.journey.android.signup.ui
+package org.journey.android.mypage.ui
 
 import android.os.Bundle
 import android.text.Editable
@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import org.journey.android.databinding.FragmentEditNickNameBinding
 import org.journey.android.signup.viewmodel.NickNameViewModel
@@ -34,10 +35,13 @@ class EditNickNameFragment : Fragment() {
         binding.lifecycleOwner = viewLifecycleOwner
         changeNickName()
         setButtonVisible()
+        popBackStack()
     }
     private fun changeNickName() {
-        viewModel.changeNickName.observe(viewLifecycleOwner){
-            viewModel.changeNickName()
+        binding.buttonSetNickname.setOnClickListener {
+            viewModel.changeNickName.observe(viewLifecycleOwner){
+                viewModel.changeNickName()
+            }
         }
     }
     private fun setButtonVisible(){
@@ -49,7 +53,9 @@ class EditNickNameFragment : Fragment() {
                 binding.buttonSetNickname.isVisible = true
             }
             override fun afterTextChanged(p0: Editable?) {}
-
         })
+    }
+    private fun popBackStack(){
+        binding.buttonNicknameReturn.setOnClickListener { findNavController().popBackStack() }
     }
 }

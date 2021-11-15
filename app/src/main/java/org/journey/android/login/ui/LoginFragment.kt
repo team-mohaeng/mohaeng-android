@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
@@ -44,12 +45,13 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         auth = FirebaseAuth.getInstance()
-
         viewModel.getFcmDeviceToken()
         setAction()
         launchKakaoLogin()
         checkLoginSuccess()
         checkGoogleGso()
+        animateLogo()
+        animateFootPrint()
     }
 
     private fun setAction(){
@@ -134,7 +136,6 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
                 findNavController().navigate(R.id.action_loginFragment_to_serviceAgreeFragment)
             }
         }
-
         viewModel.isLoginSuccessed.observe(viewLifecycleOwner) { loginStatus ->
             when (loginStatus) {
 //                LOGIN_SUCCESS -> {
@@ -148,6 +149,21 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
             }
         }
     }
+
+    private fun animateLogo(){
+        val fadeInText = binding.textviewLoginLogo
+        val fadeInSub = binding.textviewLoginMent
+        val fadeIn = AnimationUtils.loadAnimation(requireContext(), R.anim.fade_in)
+        fadeInText.startAnimation(fadeIn)
+        fadeInSub.startAnimation(fadeIn)
+    }
+
+    private fun animateFootPrint() {
+        val fadeInFootPrint = binding.imageviewLoginFoot
+        val fadeIn = AnimationUtils.loadAnimation(requireContext(), R.anim.fade_in)
+        fadeInFootPrint.startAnimation(fadeIn)
+    }
+
 
 
 }

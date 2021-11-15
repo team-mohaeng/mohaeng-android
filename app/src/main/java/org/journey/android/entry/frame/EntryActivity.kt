@@ -27,7 +27,6 @@ class EntryActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityEntryBinding.inflate(layoutInflater)
-
         setContentView(binding.root)
         initNavController()
         setKeyboardObserver()
@@ -55,7 +54,6 @@ class EntryActivity : AppCompatActivity() {
                 Log.e("Hash key", something)
             }
         } catch (e: Exception) {
-            // TODO Auto-generated catch block
             Log.e("name not found", e.toString())
         }
     }
