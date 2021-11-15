@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Animation
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.fragment.app.Fragment
@@ -22,6 +23,7 @@ import org.journey.android.frame.MainActivity
 import org.journey.android.onboarding.viewmodel.OnboardingViewModel
 import org.journey.android.preference.UserPreferenceManager
 import org.journey.android.util.AutoClearedValue
+import org.journey.android.util.Extensions.applyVisibilityAnimation
 import org.journey.android.util.Extensions.typeWrite
 import java.util.*
 import java.util.concurrent.TimeUnit
@@ -48,7 +50,7 @@ class OnboardingFirstFragment : Fragment() {
         binding.lifecycleOwner = viewLifecycleOwner
         startLogin()
         startOnboarding()
-        animateTyping()
+        showAskingTextBalloon()
 //        Log.e("user token", userPreferenceManager.fetchUserAccessToken())
 
     }
@@ -59,6 +61,33 @@ class OnboardingFirstFragment : Fragment() {
             startActivity(Intent(requireContext(), MainActivity::class.java))
         }
     }
+
+    private fun showAskingTextBalloon() {
+        val animationSet = binding.imageviewOnboardingQuestion.applyVisibilityAnimation(1000L)
+        animationSet.setAnimationListener(object : Animation.AnimationListener{
+            override fun onAnimationStart(p0: Animation?) {}
+            override fun onAnimationEnd(p0: Animation?) {
+                binding.imageviewOnboardingQuestion.visibility = View.VISIBLE
+                animateTyping()
+                showAnswerTextBalloon()
+            }
+            override fun onAnimationRepeat(p0: Animation?) {}
+        })
+    }
+
+    private fun showAnswerTextBalloon() {
+        val animationSet = binding.imageviewOnboardingAnswer.applyVisibilityAnimation(1000L)
+        animationSet.setAnimationListener(object : Animation.AnimationListener{
+            override fun onAnimationStart(p0: Animation?) {}
+            override fun onAnimationEnd(p0: Animation?) {
+                binding.imageviewOnboardingAnswer.visibility = View.VISIBLE
+                animateSecondTyping()
+            }
+            override fun onAnimationRepeat(p0: Animation?) {}
+        })
+    }
+
+
 
     private fun animateTyping() {
         val textview = binding.textviewOnboardingAskText
