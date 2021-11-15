@@ -7,15 +7,22 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.journey.android.base.DisposableViewModel
 import org.journey.android.main.controller.HomeController
+import org.journey.android.main.dto.ResponseHomeDTO
+import org.journey.android.preference.UserPreferenceManager
 import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    private val homeController: HomeController
+    private val homeController: HomeController,
+    private val userPreferenceManager: UserPreferenceManager
 ) : DisposableViewModel(){
     private val _getHomeResource = MutableLiveData<Boolean>()
     val getHomeResource : LiveData<Boolean>
         get() = _getHomeResource
+
+    private val _getLottie = MutableLiveData<ResponseHomeDTO.ChallengeProgressDTO>()
+    val getLottie : LiveData<ResponseHomeDTO.ChallengeProgressDTO>
+        get() = _getLottie
 
     fun initMohaengMain(){
         addDisposable(
@@ -23,7 +30,8 @@ class MainViewModel @Inject constructor(
                 client = "aos"
             ).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ success->
+                .subscribe({ reponse->
+                    _getLottie.postValue(reponse.challengeProgressDTO)
                     _getHomeResource.postValue(true)
                 },{
                     _getHomeResource.postValue(false)

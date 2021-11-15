@@ -47,6 +47,7 @@ class SetNickNameFragment : Fragment() {
     }
     private fun initMain() {
         binding.buttonSetNickname.setOnClickListener {
+            viewModel.setNickName()
             if(userPreferenceManager.fetchUserSnsType().isNullOrEmpty()){
                 viewModel.signUpEmail()
                 viewModel.signUpSuccess.observe(viewLifecycleOwner) { successed ->
@@ -67,6 +68,7 @@ class SetNickNameFragment : Fragment() {
             viewModel.checkNickNameAvailable()
         }
     }
+
     private fun setButtonVisible(){
         binding.edittextSetNickname.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {

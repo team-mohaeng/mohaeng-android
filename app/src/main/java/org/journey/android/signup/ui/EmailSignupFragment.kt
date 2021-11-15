@@ -32,7 +32,6 @@ class EmailSignupFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
-
         popBackStack()
         successSignUp()
 
