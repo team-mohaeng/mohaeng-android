@@ -49,7 +49,11 @@
         android:id="@+id/onboardingFifthFragment"
         android:name="org.journey.android.onboarding.ui.fragment.OnboardingFifthFragment"
         android:label="OnboardingFifthFragment"
-        tools:layout="@layout/fragment_onboarding_fifth"/>
+        tools:layout="@layout/fragment_onboarding_fifth">
+        <action
+            android:id="@+id/action_onboardingFifthFragment_to_onboardingSixthFragment"
+            app:destination="@id/onboardingSixthFragment" />
+    </fragment>
     <fragment
         android:id="@+id/splashFragment"
         android:name="org.journey.android.entry.ui.SplashFragment"
@@ -68,4 +72,9 @@
             android:id="@+id/action_challengeCertifyDialog_to_onboardingFourthFragment"
             app:destination="@id/onboardingFourthFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/onboardingSixthFragment"
+        android:name="org.journey.android.onboarding.ui.fragment.OnboardingSixthFragment"
+        android:label="OnboardingSixthFragment"
+        tools:layout="@layout/fragment_onboarding_sixth"/>
 </navigation>

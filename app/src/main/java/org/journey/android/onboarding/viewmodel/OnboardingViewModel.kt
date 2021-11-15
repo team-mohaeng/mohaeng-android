@@ -21,47 +21,25 @@ class OnboardingViewModel @Inject constructor():DisposableViewModel() {
     private fun fetchCourseList(){
         val selectCourse = listOf(
             OnboardingCourseEntity(
-                R.drawable.ic_rectangle_1228,
-                R.string.course_one,
-                R.string.course_subtitle_one,
-                R.drawable.grpcrsex1
-
+                R.drawable.crs1
             ),
             OnboardingCourseEntity(
-                R.drawable.ic_rectangle_1229,
-                R.string.course_two,
-                R.string.course_subtitle_two,
-                R.drawable.grpcrsex2
+                R.drawable.crs2
             ),
             OnboardingCourseEntity(
-                R.drawable.ic_rectangle_1230,
-                R.string.course_three,
-                R.string.course_subtitle_three,
-                R.drawable.grpcrsex3
+                R.drawable.crs3
             ),
             OnboardingCourseEntity(
-                R.drawable.ic_rectangle_1231,
-                R.string.course_four,
-                R.string.course_subtitle_four,
-                R.drawable.grpcrsex4
+                R.drawable.crs4
             ),
             OnboardingCourseEntity(
-                R.drawable.ic_rectangle_1232,
-                R.string.course_five,
-                R.string.course_subtitle_five,
-                R.drawable.grpcrsex5
+                R.drawable.crs5
             ),
             OnboardingCourseEntity(
-                R.drawable.ic_rectangle_1233,
-                R.string.course_six,
-                R.string.course_subtitle_six,
-                R.drawable.grpcrsex6
+                R.drawable.crs6
             ),
             OnboardingCourseEntity(
-                R.drawable.ic_rectanglelove,
-                R.string.course_seven,
-                R.string.course_subtitle_seven,
-                R.drawable.grpcrsex7
+                R.drawable.crs7
             )
         )
         _selectCourse.value = selectCourse

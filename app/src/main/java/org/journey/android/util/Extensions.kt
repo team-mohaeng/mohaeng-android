@@ -3,8 +3,10 @@ package org.journey.android.util
 import android.animation.ObjectAnimator
 import android.app.Activity
 import android.content.Context
+import android.os.Handler
 import android.text.Spanned
 import android.text.style.BackgroundColorSpan
+import android.util.AttributeSet
 import android.util.DisplayMetrics
 import android.view.MotionEvent
 import android.view.View
@@ -17,8 +19,11 @@ import androidx.core.text.toSpannable
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
+import io.reactivex.rxjava3.core.Observable
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import java.util.*
+import java.util.concurrent.TimeUnit
 
 object Extensions {
     fun Int.dpToPx(displayMetrics: DisplayMetrics): Int = (this * displayMetrics.density).toInt()
@@ -27,7 +32,7 @@ object Extensions {
         spannableText.setSpan(BackgroundColorSpan(colorResId), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
         text = spannableText
     }
-//
+
     fun TextView.typeWrite(lifecycleOwner: LifecycleOwner, text: String, intervalMs: Long) {
         this@typeWrite.text = ""
         lifecycleOwner.lifecycleScope.launch {
