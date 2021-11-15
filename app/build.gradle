@@ -57,6 +57,7 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation 'com.airbnb.android:lottie:3.4.0'
 
     //Jetpack Navigation
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'

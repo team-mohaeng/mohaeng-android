@@ -4,7 +4,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textview_onboarding_last_ment"
         android:layout_width="wrap_content"
@@ -18,8 +17,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie_onboarding"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        app:lottie_rawRes="@raw/onboardingcard"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/button_start_mohaeng"/>
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_start_mohaeng"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="60dp"
@@ -33,6 +41,5 @@
         android:background="@drawable/button_onboarding_background"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
