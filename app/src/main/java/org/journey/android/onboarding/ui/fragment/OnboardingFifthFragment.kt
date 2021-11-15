@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import kotlinx.coroutines.*
@@ -29,6 +30,7 @@ class OnboardingFifthFragment : Fragment(), CoroutineScope {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        animateFadeIn()
         launch {
             delay(2500)
             withContext(Dispatchers.Main){
@@ -36,6 +38,12 @@ class OnboardingFifthFragment : Fragment(), CoroutineScope {
                     .navigate(R.id.action_onboardingFifthFragment_to_onboardingSixthFragment)
             }
         }
+    }
+
+    private fun animateFadeIn(){
+        val fadeInText = binding.textviewLastMent
+        val fadeIn = AnimationUtils.loadAnimation(requireContext(), R.anim.fade_in)
+        fadeInText.startAnimation(fadeIn)
     }
 
 

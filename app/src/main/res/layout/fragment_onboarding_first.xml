@@ -13,8 +13,9 @@
             android:id="@+id/imageview_onboarding_question"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="24dp"
             android:layout_marginStart="25dp"
+            android:visibility="invisible"
             android:background="@drawable/ic_onboard_one"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
@@ -37,6 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="19dp"
             android:layout_marginEnd="30dp"
+            android:visibility="invisible"
             android:background="@drawable/ic_onboard_two"
             app:layout_constraintTop_toBottomOf="@id/imageview_onboarding_question"
             app:layout_constraintEnd_toEndOf="parent"/>

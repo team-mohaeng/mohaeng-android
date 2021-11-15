@@ -51,7 +51,7 @@ class OnboardingThirdFragment : Fragment() {
         val text = requireContext().getString(R.string.onboarding_greeting_met)
         var textCount = 0
         var textStack = ""
-        Observable.interval(120, TimeUnit.MILLISECONDS)
+        Observable.interval(60, TimeUnit.MILLISECONDS)
             .subscribeOn(Schedulers.io())
             .take(text.length.toLong())
             .observeOn(AndroidSchedulers.mainThread())

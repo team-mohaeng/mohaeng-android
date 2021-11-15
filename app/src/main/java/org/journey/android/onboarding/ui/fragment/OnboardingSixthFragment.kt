@@ -5,8 +5,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
 import dagger.hilt.android.AndroidEntryPoint
+import org.journey.android.R
 import org.journey.android.databinding.FragmentOnboardingSixthBinding
 import org.journey.android.frame.MainActivity
 import org.journey.android.util.AutoClearedValue
@@ -27,6 +29,7 @@ class OnboardingSixthFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         startMohaeng()
+        loadFadingEffect()
     }
 
     private fun startMohaeng(){
@@ -34,5 +37,11 @@ class OnboardingSixthFragment : Fragment() {
             val intent = Intent(context, MainActivity::class.java)
             startActivity(intent)
         }
+    }
+
+    private fun loadFadingEffect() {
+        val fadeInMent = binding.textviewOnboardingLastMent
+        val fadeIn = AnimationUtils.loadAnimation(requireContext(), R.anim.fade_in)
+        fadeInMent.startAnimation(fadeIn)
     }
 }

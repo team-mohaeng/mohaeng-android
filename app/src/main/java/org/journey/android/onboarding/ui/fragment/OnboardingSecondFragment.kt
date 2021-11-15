@@ -66,7 +66,7 @@ class OnboardingSecondFragment : Fragment() {
         val text = requireContext().getString(R.string.onboarding_explan_challenge)
         var textCount = 0
         var textStack = ""
-        Observable.interval(120, TimeUnit.MILLISECONDS)
+        Observable.interval(60, TimeUnit.MILLISECONDS)
             .subscribeOn(Schedulers.io())
             .take(text.length.toLong())
             .observeOn(AndroidSchedulers.mainThread())
@@ -80,24 +80,5 @@ class OnboardingSecondFragment : Fragment() {
                 binding.textviewChooseCourse.isVisible = true
             })
     }
-//
-//    private fun animateSecondTyping() {
-//        val textview = binding.textviewChooseCourse
-//        val text = requireContext().getString(R.string.onboarding_choose_course)
-//        var textCount = 0
-//        var textStack = ""
-//        Observable.interval(120, TimeUnit.MILLISECONDS)
-//            .subscribeOn(Schedulers.io())
-//            .take(text.length.toLong())
-//            .observeOn(AndroidSchedulers.mainThread())
-//            .subscribe({
-//                textStack += text[textCount].toString()
-//                textview.setText(textStack)
-//                textCount++
-//            },{
-//                it.printStackTrace()
-//            }, {
-//
-//            })
-//    }
+
 }
