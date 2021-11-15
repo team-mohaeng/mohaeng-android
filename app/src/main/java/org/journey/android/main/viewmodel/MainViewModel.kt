@@ -24,6 +24,11 @@ class MainViewModel @Inject constructor(
     val getLottie : LiveData<ResponseHomeDTO.ChallengeProgressDTO>
         get() = _getLottie
 
+    private val _userNickName = MutableLiveData<String>()
+    val userNickName : LiveData<String>
+        get() = _userNickName
+
+
     fun initMohaengMain(){
         addDisposable(
             homeController.getHome(
@@ -32,6 +37,7 @@ class MainViewModel @Inject constructor(
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ reponse->
                     _getLottie.postValue(reponse.challengeProgressDTO)
+                    _userNickName.postValue(reponse.challengeProgressDTO.nicknema)
                     _getHomeResource.postValue(true)
                 },{
                     _getHomeResource.postValue(false)
