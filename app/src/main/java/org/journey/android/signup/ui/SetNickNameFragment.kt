@@ -37,15 +37,6 @@ class SetNickNameFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
-
-
-        viewModel.signUpSuccess.observe(viewLifecycleOwner) { successed ->
-            if(successed) {
-                val intent = Intent(context, MainActivity::class.java)
-                startActivity(intent)
-            }
-        }
-
         popBackStack()
         initMain()
         checkNickName()
@@ -56,13 +47,20 @@ class SetNickNameFragment : Fragment() {
     }
     private fun initMain() {
         binding.buttonSetNickname.setOnClickListener {
-            if(userPreferenceManager.fetchUserSnsType() ==null){
+            if(userPreferenceManager.fetchUserSnsType().isNullOrEmpty()){
                 viewModel.signUpEmail()
-            }
-            else{
+                viewModel.signUpSuccess.observe(viewLifecycleOwner) { successed ->
+                    if(successed) {
+                        val intent = Intent(context, MainActivity::class.java)
+                        startActivity(intent)
+                    }
+                }
+            } else{
                 viewModel.setNickName()
             }
         }
+        //로그아웃하고 다시 접속했을 경우 User 관련된 부분 다 널 처리 !!
+//        userPreferenceManager.saveUserSnsType("")
     }
     private fun checkNickName(){
         viewModel.nickname.observe(viewLifecycleOwner){
@@ -79,7 +77,6 @@ class SetNickNameFragment : Fragment() {
                 binding.buttonSetNickname.isVisible = true
             }
             override fun afterTextChanged(p0: Editable?) {}
-
         })
     }
 

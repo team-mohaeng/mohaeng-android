@@ -7,7 +7,6 @@ import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.util.DisplayMetrics
 import android.util.Log
 import android.view.*
 import android.widget.Button
@@ -15,20 +14,15 @@ import android.widget.ImageButton
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.chip.Chip
 import org.journey.android.R
 import org.journey.android.databinding.FragmentPrivateDetailBinding
 import org.journey.android.diary.dto.Emojifaction
-import org.journey.android.diary.dto.PrivateData
 import org.journey.android.diary.dto.RequestDiaryEmojiData
 import org.journey.android.diary.dto.ResponseDiaryPrivateData
 import org.journey.android.diary.service.FeedRequestToServer
-import org.journey.android.network.userJWT
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -130,7 +124,7 @@ class PrivateDetailFragment: Fragment() {
                     .deletePrivateDetail(
                         postDetail.get("id") as Int,
                         "application/json",
-                        userJWT
+                      ""
 //                        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk"
                     )
                 call.enqueue(object : Callback<Unit> {
@@ -238,7 +232,7 @@ class PrivateDetailFragment: Fragment() {
             .putEmoji(
                 postDetail.get("id") as Int,
                 "application/json",
-                userJWT,
+                "",
 //                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk",
                 RequestDiaryEmojiData(
                     emojiId = id
@@ -263,7 +257,7 @@ class PrivateDetailFragment: Fragment() {
             .deleteEmoji(
                 postDetail.get("id") as Int,
                 "application/json",
-                userJWT,
+               "",
 //                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk",
                 RequestDiaryEmojiData(
                     emojiId = id
@@ -336,7 +330,7 @@ class PrivateDetailFragment: Fragment() {
                 year,
                 month,
                 "application/json",
-                userJWT
+                ""
 //                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk"
             )
 
