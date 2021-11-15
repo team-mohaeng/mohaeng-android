@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
+import org.journey.android.R
 import org.journey.android.databinding.FragmentMyPageBinding
 import org.journey.android.mypage.viewmodel.MyPageViewModel
 import org.journey.android.util.AutoClearedValue
@@ -29,10 +30,11 @@ class MyPageFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
-        setClickListener()
+        popBackStack()
         getMyPageResource()
+        editNickName()
     }
-    private fun setClickListener(){
+    private fun popBackStack(){
         with(binding){
             buttonReturnBack.setOnClickListener { findNavController().popBackStack() }
         }
@@ -42,6 +44,13 @@ class MyPageFragment : Fragment() {
             viewModel.getMyPageResource()
         }
     }
+    private fun editNickName(){
+        binding.buttonEditNickName.setOnClickListener {
+            findNavController().navigate(R.id.action_myPageFragment_to_editNickNameFragment)
+        }
+    }
+
+
 
 
 }

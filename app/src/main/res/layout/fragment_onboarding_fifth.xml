@@ -10,7 +10,7 @@
         android:id="@+id/textview_last_ment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="40dp"
         android:layout_marginLeft="18dp"
         android:fontFamily="@font/gmarketsansttfmedium"
         android:textColor="@color/mohaeng_black"

@@ -7,8 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
-import android.widget.TextView
-import androidx.appcompat.widget.AppCompatTextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -24,7 +22,6 @@ import org.journey.android.onboarding.viewmodel.OnboardingViewModel
 import org.journey.android.preference.UserPreferenceManager
 import org.journey.android.util.AutoClearedValue
 import org.journey.android.util.Extensions.applyVisibilityAnimation
-import org.journey.android.util.Extensions.typeWrite
 import java.util.*
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
@@ -51,8 +48,7 @@ class OnboardingFirstFragment : Fragment() {
         startLogin()
         startOnboarding()
         showAskingTextBalloon()
-//        Log.e("user token", userPreferenceManager.fetchUserAccessToken())
-
+        checkHasUserToken()
     }
 
     private fun checkHasUserToken() {
