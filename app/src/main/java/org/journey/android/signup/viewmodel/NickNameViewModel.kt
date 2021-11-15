@@ -24,6 +24,7 @@ class NickNameViewModel @Inject constructor(
     val nickname = MutableLiveData<String>()
     val userEmail = MutableLiveData<String>()
     val userPassword = MutableLiveData<String>()
+    val userToken = MutableLiveData<String>()
     val userPasswordDoubleCheck = MutableLiveData<String>()
     val changeNickName = MutableLiveData<String>()
 
@@ -55,6 +56,7 @@ class NickNameViewModel @Inject constructor(
     fun saveEmailSignUpInformation () {
         userEmail.value?.let { userPreferenceManager.saveUserEmail(it) }
         userPassword.value?.let { userPreferenceManager.saveUserPassword(it) }
+        userToken.value?.let{userPreferenceManager.saveUserFcmDeviceToken(it)}
     }
 
     fun setNickName(){
@@ -92,6 +94,7 @@ class NickNameViewModel @Inject constructor(
                 .subscribe({
                     userPreferenceManager.saveUserEmail(userEmail.value.toString())
                     userPreferenceManager.saveUserPassword(userPassword.value.toString())
+                    userPreferenceManager.saveUserFcmDeviceToken(userToken.value.toString())
                     _emailSignUpSuccess.postValue(true)
                 },{
                     _emailSignUpSuccess.postValue(false)

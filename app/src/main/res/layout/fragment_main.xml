@@ -10,8 +10,8 @@
             name="data"
             type="org.journey.android.main.dto.ResponseHomeDTO" />
     </data>
-
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_main_skin"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/mohaeng_yellow"
@@ -43,7 +43,6 @@
             android:layout_width="26dp"
             android:layout_height="26dp"
             android:layout_marginStart="18dp"
-
             android:background="@drawable/gnbicnmypage"
             app:layout_constraintBottom_toBottomOf="@id/button_main_chat"
             app:layout_constraintStart_toEndOf="@id/button_main_chat"
@@ -113,15 +112,15 @@
             app:layout_constraintTop_toBottomOf="@id/progressbar_main"
             app:layout_constraintStart_toStartOf="parent"/>
 
-
-        <androidx.appcompat.widget.AppCompatImageView
+        <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/imageview_mohaeng_character"
-            android:layout_width="250dp"
+            android:layout_width="280dp"
             android:layout_height="500dp"
-            android:src="@drawable/main_character"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="120dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textview_main_greet" />
+            app:layout_constraintTop_toBottomOf="@+id/button_main_first"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true" />
 
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/imageview_blank"

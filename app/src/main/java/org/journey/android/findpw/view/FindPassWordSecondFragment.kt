@@ -31,6 +31,7 @@ class FindPassWordSecondFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setTextWatcher()
         setNewPassword()
+        popBackStack()
     }
 
     private fun setTextWatcher(){
@@ -51,6 +52,10 @@ class FindPassWordSecondFragment : Fragment() {
         binding.buttonSendVerification.setOnClickListener {
             findNavController().navigate(R.id.action_findPassWordSecondFragment_to_findPassWordThirdFragment)
         }
+    }
+
+    private fun popBackStack(){
+        binding.buttonReturnBack.setOnClickListener { findNavController().popBackStack() }
     }
 
 }

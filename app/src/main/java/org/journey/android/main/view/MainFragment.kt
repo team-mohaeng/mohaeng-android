@@ -12,6 +12,7 @@ import org.journey.android.R
 import org.journey.android.databinding.FragmentMainBinding
 import org.journey.android.main.viewmodel.MainViewModel
 import org.journey.android.util.AutoClearedValue
+import org.journey.android.util.BindingAdapter.setSkin
 
 @AndroidEntryPoint
 class MainFragment : Fragment() {
@@ -31,6 +32,13 @@ class MainFragment : Fragment() {
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
         viewModel.initMohaengMain()
+        viewModel.getLottie.observe(viewLifecycleOwner){
+            binding.imageviewMohaengCharacter.run {
+                setAnimationFromUrl(it.characterLottie)
+                playAnimation()
+            }
+        }
+
         setClickListener()
         showIndexDialog()
     }
@@ -58,6 +66,8 @@ class MainFragment : Fragment() {
 
         }
     }
+
+
 
 
 }

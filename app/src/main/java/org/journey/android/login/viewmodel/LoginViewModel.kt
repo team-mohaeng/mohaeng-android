@@ -62,6 +62,7 @@ class LoginViewModel @Inject constructor(
             ).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ response ->
+                    userPreferenceManager.saveUserAccessToken(response.data?.jwt.toString())
                     _loginSuccess.postValue(true)
                 }, {
                     it.printStackTrace()
