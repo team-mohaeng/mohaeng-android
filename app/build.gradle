@@ -5,6 +5,7 @@ plugins {
     id 'dagger.hilt.android.plugin'
     id 'androidx.navigation.safeargs'
     id 'com.google.gms.google-services'
+    id 'com.google.android.gms.oss-licenses-plugin'
 }
 
 Properties properties = new Properties()
@@ -127,5 +128,6 @@ dependencies {
     //encrypted shared preference
     implementation "androidx.security:security-crypto:${DependencyVersions.CRYPTO_VERSION}"
 
-
+    //opensource license
+    implementation 'com.google.android.gms:play-services-oss-licenses:17.0.0'
 }

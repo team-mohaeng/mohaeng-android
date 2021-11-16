@@ -9,12 +9,16 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.NumberPicker
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import dagger.hilt.android.AndroidEntryPoint
 import org.journey.android.R
 import org.journey.android.databinding.FragmentPrivateBinding
 import org.journey.android.diary.dto.PrivateData
 import org.journey.android.diary.dto.ResponseDiaryPrivateData
 import org.journey.android.diary.service.FeedRequestToServer
+import org.journey.android.diary.viewmodel.PrivateViewModel
+import org.journey.android.setting.viewmodel.SettingViewModel
 import org.journey.android.util.AutoClearedValue
 import retrofit2.Call
 import retrofit2.Callback
@@ -24,9 +28,10 @@ import java.util.*
 var refreshYear = ""
 var refreshMonth = ""
 
-
+@AndroidEntryPoint
 class PrivateFragment : Fragment(){
     private var binding by AutoClearedValue<FragmentPrivateBinding>()
+    private val viewModel by viewModels<PrivateViewModel>()
     val privateInstance = Calendar.getInstance()
     val privateNowYear = privateInstance.get(Calendar.YEAR).toString()
     var privateNowMonth = (privateInstance.get(Calendar.MONTH) + 1).toString()
@@ -133,7 +138,7 @@ class PrivateFragment : Fragment(){
                 year,
                 month,
                 "application/json",
-                ""
+                viewModel.getJWT()
 //                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk"
             )
 

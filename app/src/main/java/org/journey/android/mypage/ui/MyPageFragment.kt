@@ -33,6 +33,7 @@ class MyPageFragment : Fragment() {
         popBackStack()
         getMyPageResource()
         editNickName()
+        goSetting()
     }
     private fun popBackStack(){
         with(binding){
@@ -50,5 +51,11 @@ class MyPageFragment : Fragment() {
         }
     }
 
-}
+    private fun goSetting(){
+        binding.buttonSetting.setOnClickListener {
+            findNavController().navigate(R.id.action_myPageFragment_to_settingFragment)
+        }
+    }
 
+
+}

@@ -14,15 +14,18 @@ import android.widget.ImageButton
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.google.android.material.chip.Chip
+import dagger.hilt.android.AndroidEntryPoint
 import org.journey.android.R
 import org.journey.android.databinding.FragmentPrivateDetailBinding
 import org.journey.android.diary.dto.Emojifaction
 import org.journey.android.diary.dto.RequestDiaryEmojiData
 import org.journey.android.diary.dto.ResponseDiaryPrivateData
 import org.journey.android.diary.service.FeedRequestToServer
+import org.journey.android.diary.viewmodel.PrivateViewModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -31,9 +34,10 @@ import retrofit2.Response
 var postDetail = HashMap<String, Any>()
 var refreshCheck = false
 
+@AndroidEntryPoint
 class PrivateDetailFragment: Fragment() {
-
     private lateinit var  binding : FragmentPrivateDetailBinding
+    private val viewModel by viewModels<PrivateViewModel>()
 
     // 공감 이모션 리스트
     var likeList : MutableList<String> = mutableListOf()
@@ -124,7 +128,7 @@ class PrivateDetailFragment: Fragment() {
                     .deletePrivateDetail(
                         postDetail.get("id") as Int,
                         "application/json",
-                      ""
+                        viewModel.getJWT()
 //                        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk"
                     )
                 call.enqueue(object : Callback<Unit> {
@@ -232,7 +236,7 @@ class PrivateDetailFragment: Fragment() {
             .putEmoji(
                 postDetail.get("id") as Int,
                 "application/json",
-                "",
+                viewModel.getJWT(),
 //                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk",
                 RequestDiaryEmojiData(
                     emojiId = id
@@ -257,7 +261,7 @@ class PrivateDetailFragment: Fragment() {
             .deleteEmoji(
                 postDetail.get("id") as Int,
                 "application/json",
-               "",
+                viewModel.getJWT(),
 //                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk",
                 RequestDiaryEmojiData(
                     emojiId = id
@@ -330,7 +334,7 @@ class PrivateDetailFragment: Fragment() {
                 year,
                 month,
                 "application/json",
-                ""
+                viewModel.getJWT()
 //                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk"
             )
 

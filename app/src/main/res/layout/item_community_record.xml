@@ -23,7 +23,7 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 setImageURL="@{data.image}"
-                android:background="#AAAAAA"
+                android:background="@drawable/ic_feed_img"
                 android:scaleType="fitXY"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

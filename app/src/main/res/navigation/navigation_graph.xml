@@ -50,6 +50,9 @@
             android:id="@+id/action_frameFragment_to_communityDetailFragment"
             app:destination="@id/communityDetailFragment" />
         <action
+            android:id="@+id/action_frameFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
             android:id="@+id/action_frameFragment_to_badgeFragment"
             app:destination="@id/badgeFragment" />
         <action
@@ -221,6 +224,9 @@
         <action
             android:id="@+id/action_myPageFragment_to_editNickNameFragment"
             app:destination="@id/editNickNameFragment" />
+        <action
+            android:id="@+id/action_myPageFragment_to_settingFragment"
+            app:destination="@id/settingFragment" />
     </fragment>
     <dialog
         android:id="@+id/challengeCertifyDialog"
@@ -246,4 +252,26 @@
         android:name="org.journey.android.mypage.ui.EditNickNameFragment"
         android:label="EditNickNameFragment"
         tools:layout="@layout/fragment_edit_nick_name"/>
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="org.journey.android.setting.view.SettingFragment"
+        android:label="SettingFragment"
+        tools:layout="@layout/fragment_setting">
+        <action
+            android:id="@+id/action_settingFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_settingFragment_to_teamFragment"
+            app:destination="@id/teamFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="org.journey.android.login.ui.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login"/>
+    <fragment
+        android:id="@+id/teamFragment"
+        android:name="org.journey.android.setting.view.TeamFragment"
+        android:label="TeamFragment"
+        tools:layout="@layout/fragment_team"/>
 </navigation>

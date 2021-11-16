@@ -16,25 +16,29 @@ import android.widget.ImageButton
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.chip.Chip
+import dagger.hilt.android.AndroidEntryPoint
 import org.journey.android.R
 import org.journey.android.community.data.dto.ResponseCommunityFeedDTO
 import org.journey.android.databinding.FragmentCommunityDetailBinding
 import org.journey.android.diary.dto.RequestDiaryEmojiData
 import org.journey.android.diary.service.FeedRequestToServer
 import org.journey.android.diary.view.refreshCheck
+import org.journey.android.diary.viewmodel.PrivateViewModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 var feedDetail = HashMap<String, Any>()
 
+@AndroidEntryPoint
 class CommunityDetailFragment : Fragment() {
-
     private lateinit var  binding : FragmentCommunityDetailBinding
+    private val viewModel by viewModels<PrivateViewModel>()
 
     // 공감 이모션 리스트
     var likeList : MutableList<String> = mutableListOf()
@@ -129,7 +133,7 @@ class CommunityDetailFragment : Fragment() {
                         .reportDiary(
                             feedDetail.get("id") as Int,
                             "application/json",
-                            ""
+                            viewModel.getJWT()
 //                            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk"
                         )
                     call.enqueue(object : Callback<Unit> {
@@ -229,8 +233,7 @@ class CommunityDetailFragment : Fragment() {
             .putEmoji(
                 feedDetail.get("id") as Int,
                 "application/json",
-                "",
-//                userJWT,
+                viewModel.getJWT(),
 //                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk",
                 RequestDiaryEmojiData(
                     emojiId = id
@@ -255,7 +258,7 @@ class CommunityDetailFragment : Fragment() {
             .deleteEmoji(
                 feedDetail.get("id") as Int,
                 "application/json",
-                "",
+                viewModel.getJWT(),
 //                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk",
                 RequestDiaryEmojiData(
                     emojiId = id
@@ -350,7 +353,7 @@ class CommunityDetailFragment : Fragment() {
         val call: Call<ResponseCommunityFeedDTO> = FeedRequestToServer.service
             .getCommunityDiary(
                 "application/json",
-                ""
+                viewModel.getJWT()
 //                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk"
             )
 
