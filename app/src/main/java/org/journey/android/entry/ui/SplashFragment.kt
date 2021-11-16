@@ -4,43 +4,51 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import androidx.navigation.Navigation
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.*
 import org.journey.android.R
-import org.journey.android.base.BaseFragment
 import org.journey.android.databinding.FragmentSplashBinding
-import org.journey.android.util.Extensions.applyVisibilityAnimation
+import org.journey.android.util.AutoClearedValue
 import kotlin.coroutines.CoroutineContext
 
 @AndroidEntryPoint
-class SplashFragment : BaseFragment<FragmentSplashBinding>() , CoroutineScope{
+class SplashFragment : Fragment(), CoroutineScope{
+    private var binding by AutoClearedValue<FragmentSplashBinding>()
     override val coroutineContext: CoroutineContext
         get() = Dispatchers.Main + Job()
 
-    override fun getFragmentBinding(
+    override fun onCreateView(
         inflater: LayoutInflater,
-        container: ViewGroup?
-    ): FragmentSplashBinding {
-        return FragmentSplashBinding.inflate(inflater, container, false)
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentSplashBinding.inflate(inflater, container, false)
+        return binding.root
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val fadeInImage = binding.textviewSplashMohaeng
-        val animation = AnimationUtils.loadAnimation(requireContext(), R.anim.fade_in)
-        fadeInImage.startAnimation(animation)
+        launchSplash()
+        animateLogo()
         animateFadeIn()
         animateFootPrint()
+    }
+
+    private fun launchSplash(){
         launch {
             delay(2500)
             withContext(Dispatchers.Main){
-                Navigation.findNavController(binding.root)
-                    .navigate(R.id.action_splashFragment_to_onboardingFirstFragment)
+               findNavController().navigate(R.id.action_splashFragment_to_onboardingFirstFragment)
             }
         }
+    }
+
+    private fun animateLogo(){
+        val fadeInImage = binding.textviewSplashMohaeng
+        val animation = AnimationUtils.loadAnimation(requireContext(), R.anim.fade_in)
+        fadeInImage.startAnimation(animation)
     }
 
     private fun animateFadeIn(){
