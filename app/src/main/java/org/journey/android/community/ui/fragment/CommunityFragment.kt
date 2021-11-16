@@ -47,7 +47,6 @@ class CommunityFragment : Fragment() {
                 }
             })
             viewModel.communityPostList.observe(viewLifecycleOwner){
-
                 (adapter as CommunityPostAdapter).posts = it.toMutableList()
                 (adapter as CommunityPostAdapter).notifyDataSetChanged()
             }
