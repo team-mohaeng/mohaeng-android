@@ -1,15 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/progress_background">
-            <shape android:shape="rectangle">
-                <corners
-                    android:bottomLeftRadius="41dp"
-                    android:bottomRightRadius="41dp"
-                    android:topRightRadius="41dp"
-                    android:topLeftRadius="41dp"/>
-                <stroke android:color="@color/white"
-                    android:width="2dp"/>
+<item android:id="@android:id/background">
+    <shape android:shape="rectangle">
+        <corners android:radius="41dp"/>
+        <solid android:color="@color/mohaeng_transparency"/>
+        <stroke android:color="@color/white" android:width="2dp"/>
+    </shape>
+</item>
+    <item android:id="@+id/secondary_progress"
+        android:top="1dp"
+        android:bottom="1dp"
+        android:left="1dp"
+        android:right="1dp">
+        <clip>
+            <shape>
+                <corners android:bottomLeftRadius="41dp" android:topLeftRadius="41dp"/>
+                <solid android:color="@color/mohaeng_brown2"/>
             </shape>
-        </item>
+        </clip>
+    </item>
 
+<item android:id="@android:id/progress"
+    android:top="1dp"
+    android:bottom="1dp"
+    android:left="1dp"
+    android:right="1dp">
+    <clip>
+        <shape>
+            <corners android:radius="41dp"/>
+            <solid android:color="@color/mohaeng_brown2"/>
+        </shape>
+    </clip>
+</item>
 </layer-list>

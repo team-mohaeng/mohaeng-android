@@ -12,7 +12,6 @@
         android:bottom="1dp"
         android:left="1dp"
         android:right="1dp">
-
         <scale android:scaleWidth="100%">
             <shape>
                 <corners android:radius="8dp"/>

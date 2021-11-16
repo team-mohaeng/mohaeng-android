@@ -19,13 +19,15 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageview_skin"
+            setImageURL="@{viewModel.getLottie.characterSkin}"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            setImageURL="@{viewModel.getLottie.characterSkin}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintVertical_bias="0.0" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_main_first"
@@ -81,11 +83,9 @@
             android:layout_height="44dp"
             android:layout_marginTop="40dp"
             android:max="100"
-            android:orientation="vertical"
-            android:progress="40"
-            android:progressBackgroundTint="@color/mohaeng_brown2"
-            android:progressDrawable="@drawable/custom_progress_states"
+            android:progress="@{viewModel.getLottie.fullHappy}"
             android:rotation="270"
+            android:progressDrawable="@drawable/custom_progress_states"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textview_main_greet" />
 
