@@ -14,6 +14,8 @@ import org.journey.android.chat.controller.ChatController
 import org.journey.android.chat.controller.ChatControllerImpl
 import org.journey.android.community.controller.CommunityController
 import org.journey.android.community.controller.CommunityControllerImpl
+import org.journey.android.course.controller.CourseCatalogController
+import org.journey.android.course.controller.CourseCatalogControllerImpl
 import org.journey.android.findpw.controller.ChangePasswordController
 import org.journey.android.findpw.controller.ChangePasswordControllerImpl
 import org.journey.android.findpw.controller.SendVerificationController
@@ -95,6 +97,11 @@ object ControllerModule {
     @Singleton
     fun provideCharacterController(@AuthRetrofitService retrofitInterface: RetrofitInterface) : CharacterController =
         CharacterControllerImpl(retrofitInterface)
+
+    @Provides
+    @Singleton
+    fun provideCourseCatalogController(@AuthRetrofitService retrofitInterface: RetrofitInterface) : CourseCatalogController =
+        CourseCatalogControllerImpl(retrofitInterface)
 
 
 }

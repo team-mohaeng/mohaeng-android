@@ -11,6 +11,9 @@ import org.journey.android.badge.data.source.BadgeDataSourceImpl
 import org.journey.android.community.data.repository.CommunityFeedRepository
 import org.journey.android.community.data.repository.CommunityFeedRepositoryImpl
 import org.journey.android.community.data.source.CommunityFeedDataSource
+import org.journey.android.course.data.repository.CourseCatalogRepository
+import org.journey.android.course.data.repository.CourseCatalogRepositoryImpl
+import org.journey.android.course.data.source.CourseCatalogDataSource
 import javax.inject.Singleton
 
 @Module
@@ -25,4 +28,9 @@ object RepositoryModule {
     @Singleton
     fun provideBadgeListRepository(dataSource : BadgeDataSource) : BadgeListRepository =
         BadgeListRepositoryImpl(dataSource)
+
+    @Provides
+    @Singleton
+    fun provideCourseCatalogRepository(dataSource : CourseCatalogDataSource) : CourseCatalogRepository =
+        CourseCatalogRepositoryImpl(dataSource)
 }

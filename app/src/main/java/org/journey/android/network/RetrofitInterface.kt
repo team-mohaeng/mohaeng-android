@@ -9,6 +9,7 @@ import org.journey.android.character.data.dto.ResponseChangeCharacterDTO
 import org.journey.android.character.data.dto.ResponseGetCharacterDTO
 import org.journey.android.community.data.dto.ResponseCommunityFeedDTO
 import org.journey.android.course.data.dto.ResponseCompleteCourseListDTO
+import org.journey.android.course.data.dto.ResponseCourseCatalogDTO
 import org.journey.android.findpw.data.RequestChangePasswordDTO
 import org.journey.android.findpw.data.ResponseChangePasswordDTO
 import org.journey.android.findpw.data.ResponseVerificationCodeDTO
@@ -66,6 +67,9 @@ interface RetrofitInterface {
 
     @PUT("/api/today/{courseId}/{challengeId}")
     fun putValidateChallenge(@Path("courseId") courseId : String, @Path("challengeId") challengeId : String) : Single<ResponseValidateChallengeDTO>
+
+    @GET("/api/courses")
+    fun getCourses() : Single<ResponseCourseCatalogDTO>
 
     @GET("/api/courses/complete")
     fun getCompleteCourseList() : Single<ResponseCompleteCourseListDTO>

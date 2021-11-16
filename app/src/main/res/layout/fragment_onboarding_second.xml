@@ -28,7 +28,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="18dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="54dp"
                 android:gravity="top|start"
                 android:fontFamily="@font/gmarketsansttfmedium"
                 android:textColor="@color/black"

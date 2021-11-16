@@ -31,7 +31,6 @@ class CourseFragment : Fragment() {
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
         loadCourseRoute()
-//        loadOddDateCourse()
     }
     private fun loadCourseRoute(){
         binding.recyclerviewCourse.apply {

@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:mohaeng="http://schemas.android.com/apk/res/org.journey.android"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            xmlns:mohaeng="http://schemas.android.com/apk/res/org.journey.android">
+            android:layout_height="match_parent">
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/textview_onboarding_challenge_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="18dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="54dp"
                 android:fontFamily="@font/gmarketsansttfmedium"
                 android:textSize="14sp"
                 android:textColor="@color/black"
                 android:textScaleX="0.98"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"/>
-
             <org.journey.android.util.SpannableTextView
                 android:id="@+id/textview_onboarding_subtitle"
                 android:layout_width="wrap_content"
@@ -37,7 +36,6 @@
                 android:text="@string/onboarding_challenge_success_ment"
                 app:layout_constraintTop_toBottomOf="@id/textview_onboarding_challenge_title"
                 app:layout_constraintStart_toStartOf="@id/textview_onboarding_challenge_title"/>
-
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/imageview_onboarding_bear"
                 android:layout_width="154dp"
@@ -57,7 +55,6 @@
                 app:layout_constraintHorizontal_bias="0.514"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/imageview_onboarding_bear" />
-
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/imageview_date_background"
                 android:layout_width="wrap_content"
@@ -67,7 +64,6 @@
                 app:layout_constraintTop_toTopOf="@id/imageview_stamp_background"
                 app:layout_constraintStart_toStartOf="@id/imageview_stamp_background"
                 app:layout_constraintEnd_toEndOf="@id/imageview_stamp_background"/>
-
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/textview_date"
                 android:layout_width="wrap_content"
@@ -80,7 +76,6 @@
                 app:layout_constraintEnd_toEndOf="@+id/imageview_date_background"
                 app:layout_constraintStart_toStartOf="@id/imageview_date_background"
                 app:layout_constraintTop_toTopOf="@id/imageview_date_background" />
-
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/textview_course_title"
                 android:layout_width="wrap_content"
@@ -94,7 +89,6 @@
                 app:layout_constraintEnd_toEndOf="@+id/imageview_stamp_background"
                 app:layout_constraintStart_toStartOf="@id/imageview_stamp_background"
                 app:layout_constraintTop_toBottomOf="@id/textview_date" />
-
             <androidx.appcompat.widget.AppCompatImageButton
                 android:id="@+id/button_stamp"
                 android:layout_width="324dp"
@@ -104,7 +98,6 @@
                 app:layout_constraintEnd_toEndOf="@+id/imageview_stamp_background"
                 app:layout_constraintStart_toStartOf="@id/imageview_stamp_background"
                 app:layout_constraintTop_toBottomOf="@id/textview_course_title" />
-
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/textview_success_stamp"
                 android:layout_width="wrap_content"
@@ -130,6 +123,7 @@
                 app:layout_constraintTop_toBottomOf="@id/imageview_stamp_background" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_marginTop="20dp"
@@ -137,7 +131,6 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/button_scroll" />
-
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/view_head_line"
                     android:layout_width="match_parent"
@@ -159,7 +152,6 @@
                         android:layout_marginStart="18dp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"/>
-
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/textview_course_name"
                         android:layout_width="wrap_content"
@@ -174,7 +166,6 @@
                         app:layout_constraintBottom_toBottomOf="@+id/view_head_line"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/textview_course_ing" />
-
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/textview_course_period"
                         android:layout_width="wrap_content"
@@ -189,7 +180,6 @@
                         app:layout_constraintStart_toEndOf="@id/textview_course_name"
                         app:layout_constraintTop_toTopOf="@id/textview_course_name"
                         app:layout_constraintBottom_toBottomOf="@id/textview_course_name"/>
-
                     <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/imageview_course_head"
                         android:layout_width="wrap_content"
@@ -198,7 +188,6 @@
                         app:layout_constraintBottom_toBottomOf="@+id/view_head_line"
                         app:layout_constraintEnd_toEndOf="@id/view_head_line" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
-
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/imagview_example_course"
                 android:layout_width="324dp"
@@ -212,17 +201,17 @@
                 android:id="@+id/button_skip_course"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/ic_mohaeng_yellow_btn"
+                android:fontFamily="@font/spoqahansansneobold"
+                android:stateListAnimator="@null"
                 android:text="알겠어, 얼른 넘어가줘!"
                 android:textColor="@color/white"
-                android:fontFamily="@font/spoqahansansneobold"
-                android:textSize="16sp"
                 android:textScaleX="0.98"
-                android:stateListAnimator="@null"
-                android:background="@drawable/ic_mohaeng_yellow_btn"
-                app:layout_constraintTop_toBottomOf="@id/imagview_example_course"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
-
+                app:layout_constraintTop_toBottomOf="@id/imagview_example_course" />
             </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 </layout>

@@ -5,13 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:mohaeng="http://schemas.android.com/apk/res/org.journey.android">
-
     <org.journey.android.util.SpannableTextView
         android:id="@+id/textview_last_ment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginLeft="18dp"
+        android:layout_marginTop="54dp"
+        android:layout_marginStart="18dp"
         android:fontFamily="@font/gmarketsansttfmedium"
         android:textColor="@color/mohaeng_black"
         android:textSize="14sp"
@@ -23,7 +22,6 @@
         android:text="@string/onboarding_last_ment"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
-
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/imagebutton_diary"
         android:layout_width="match_parent"
@@ -34,7 +32,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textview_last_ment" />
-
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imagview_onboarding_last_character"
         android:layout_width="140dp"
@@ -43,10 +40,5 @@
         android:background="@drawable/grpxonboarding5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
-
-
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

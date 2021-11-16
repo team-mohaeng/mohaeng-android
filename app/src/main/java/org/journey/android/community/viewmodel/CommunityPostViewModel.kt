@@ -21,8 +21,8 @@ class CommunityPostViewModel @Inject constructor(
     val communityPostList : LiveData<List<CommunityPostEntity>>
         get() = _communityPostList
 
-    private val _getEntireCommuntiy = MutableLiveData<ResponseCommunityFeedDTO>()
-    val getEntireCommunity : LiveData<ResponseCommunityFeedDTO>
+    private val _getEntireCommuntiy = MutableLiveData<ResponseCommunityFeedDTO.Data>()
+    val getEntireCommunity : LiveData<ResponseCommunityFeedDTO.Data>
         get() = _getEntireCommuntiy
 
     fun fetchCommunityPost() {
