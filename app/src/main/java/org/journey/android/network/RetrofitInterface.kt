@@ -70,7 +70,7 @@ interface RetrofitInterface {
     @GET("/api/courses/complete")
     fun getCompleteCourseList() : Single<ResponseCompleteCourseListDTO>
 
-    @PUT("/api/badge")
+    @GET("/api/badge")
     fun putAchieveBadgeList() : Single<ResponseAchieveBadgeDTO>
 
     @GET("/api/message")

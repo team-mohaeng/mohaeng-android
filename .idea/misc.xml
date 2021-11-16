@@ -14,6 +14,7 @@
         <entry key="app/src/main/res/drawable/challenge_stamp_button.xml" value="0.27239583333333334" />
         <entry key="app/src/main/res/drawable/course_catalog_background.xml" value="0.27239583333333334" />
         <entry key="app/src/main/res/drawable/course_head_back_ground.xml" value="0.3494791666666667" />
+        <entry key="app/src/main/res/drawable/custom_progress_states.xml" value="0.3487179487179487" />
         <entry key="app/src/main/res/drawable/dialog_button_change.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/drawable/diary_button_selector.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/drawable/diary_edittext_selector.xml" value="0.2833333333333333" />
@@ -76,7 +77,7 @@
         <entry key="app/src/main/res/layout/fragment_frame.xml" value="0.2265625" />
         <entry key="app/src/main/res/layout/fragment_library.xml" value="0.34479166666666666" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_main.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_main.xml" value="0.3258233732018052" />
         <entry key="app/src/main/res/layout/fragment_my_page.xml" value="0.23703703703703705" />
         <entry key="app/src/main/res/layout/fragment_onboarding_fifth.xml" value="0.3380208333333333" />
         <entry key="app/src/main/res/layout/fragment_onboarding_first.xml" value="0.335" />

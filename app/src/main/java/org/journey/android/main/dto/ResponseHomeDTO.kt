@@ -34,7 +34,7 @@ data class ResponseHomeDTO(
             @SerializedName("challengeTitle")
             val challengeTitle: String,
             @SerializedName("percent")
-            val percent: Int
+            val percent: Int? = 0
         )
     }
 }

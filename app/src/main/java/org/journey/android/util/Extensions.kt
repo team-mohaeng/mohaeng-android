@@ -26,6 +26,7 @@ import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.rxjava3.core.Observable
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.TimeUnit
 
@@ -58,6 +59,15 @@ object Extensions {
                 this@typeWrite.text = text.take(it + 1)
             }
         }
+    }
+
+    fun Calendar.dateToString(format: String, local : Locale = Locale.KOREA): String{
+        val formatter = SimpleDateFormat(format, local)
+        return formatter.format(this)
+    }
+
+    fun currentDate(): Date{
+        return Calendar.getInstance().time
     }
 
     fun Context.showToast(text: String) {

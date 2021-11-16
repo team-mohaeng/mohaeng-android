@@ -56,7 +56,7 @@ class MainFragment : Fragment() {
                 findNavController().navigate(R.id.action_frameFragment_to_chatFragment)
             }
             buttonMainFirst.setOnClickListener {
-                findNavController().navigate(R.id.action_frameFragment_to_characterFragment)
+                findNavController().navigate(R.id.action_frameFragment_to_badgeFragment)
             }
             buttonMainMypage.setOnClickListener {
                 findNavController().navigate(R.id.action_frameFragment_to_myPageFragment)

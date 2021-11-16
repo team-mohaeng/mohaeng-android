@@ -96,9 +96,12 @@
     <string name="change_nickname">닉네임 변경하기</string>
     <string name="user_index_level">Lv.%d</string>
     <string name="main_dialog_user_level">Lv.%d</string>
-    <string name="main_dialog_user_index_percent">0/200 (%d)</string>
+    <string name="main_dialog_user_index_percent">%d/200 (%d)</string>
     <string name="main_dialog_level">레벨이란 ?</string>
     <string name="main_dialog_happy_index">해피 지수란?</string>
     <string name="main_dialog_happiness">해피 지수</string>
+    <string name="main_underway_progress">코스 진행률 %d</string>
+    <string name="undergoing_challenge_title">의식적으로 양치를 깨끗하게</string>
+    <string name="none_undergoing_challenge">코스 선택 후,챌린지를 시작해봐!</string>
 
 </resources>

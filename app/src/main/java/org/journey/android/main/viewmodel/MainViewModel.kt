@@ -32,15 +32,18 @@ class MainViewModel @Inject constructor(
     val happinessIndex : LiveData<Int>
         get() = _happinessIndex
 
+
+
     fun initMohaengMain(){
         addDisposable(
             homeController.getHome(
                 client = "aos"
             ).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ reponse->
-                    _getLottie.postValue(reponse.challengeProgressDTO)
-                    _userNickName.postValue(reponse.challengeProgressDTO.nickname)
+                .subscribe({ response->
+                    _happinessIndex.postValue(response.challengeProgressDTO.fullHappy*2)
+                    _getLottie.postValue(response.challengeProgressDTO)
+                    _userNickName.postValue(response.challengeProgressDTO.nickname)
                     _getHomeResource.postValue(true)
                 },{
                     _getHomeResource.postValue(false)

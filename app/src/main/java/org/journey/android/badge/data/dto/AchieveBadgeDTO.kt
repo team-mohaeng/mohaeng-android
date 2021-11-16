@@ -10,7 +10,7 @@ data class AchieveBadgeDTO(
     @SerializedName("id")
     val id: Int,
     @SerializedName("image")
-    val image: String,
+    val image: String?,
     @SerializedName("info")
     val info: String,
     @SerializedName("name")
@@ -19,6 +19,7 @@ data class AchieveBadgeDTO(
     fun convertToAchieveBadgeEntity() : BadgeEntity {
         return BadgeEntity(
             image,
-            name )
+            name
+        )
     }
 }

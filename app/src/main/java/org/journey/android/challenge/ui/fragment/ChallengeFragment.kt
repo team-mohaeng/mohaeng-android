@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -33,15 +34,19 @@ class ChallengeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
-        setAction()
+
+        viewModel.getTodayChallenge()
+        setNavController()
         showChallengeExplanationDialog()
         certifyChallenge()
         getTodayChallenge()
+        setNavController()
     }
-    private fun setAction(){
+    private fun setNavController(){
         with(binding){
             imagebuttonChallengeBrowse.setOnClickListener { findNavController().navigate(R.id.action_frameFragment_to_courseCatalogFragment) }
             imagebuttonChallengeCourse.setOnClickListener { findNavController().navigate(R.id.action_frameFragment_to_courseFragment) }
+            buttonStartNewChallenge.setOnClickListener { findNavController().navigate(R.id.action_frameFragment_to_courseCatalogFragment) }
         }
     }
     private fun showChallengeExplanationDialog(){
@@ -59,7 +64,11 @@ class ChallengeFragment : Fragment() {
     }
     private fun getTodayChallenge(){
         viewModel.todayChallengeList.observe(viewLifecycleOwner){
-            viewModel.getTodayChallenge()
+            if(viewModel.fetchTodayChallenge.value != null){
+                binding.constraintlayoutChallenge.isVisible = true
+            } else{
+                binding.constraintlayoutNoneChallenge.isVisible = true
+            }
         }
     }
 
