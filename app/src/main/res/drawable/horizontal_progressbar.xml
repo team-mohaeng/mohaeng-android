@@ -1,25 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/background">
-        <shape
-            android:thickness="17dp"
-            android:shape="rectangle">
+    <item android:id="@android:id/background">
+        <shape>
+            <corners android:radius="8dp"/>
             <solid android:color="@color/mohaeng_yellow"/>
-            <corners
-                android:topLeftRadius="100dp"
-                android:topRightRadius="100dp"
-                android:bottomRightRadius="100dp"
-                android:bottomLeftRadius="100dp"/>
         </shape>
     </item>
-    <item android:id="@+id/progress">
-        <shape
-            android:thickness="17dp">
-            <corners
-                android:topLeftRadius="100dp"
-                android:topRightRadius="100dp"
-                android:bottomRightRadius="100dp"
-                android:bottomLeftRadius="100dp"/>
-        </shape>
+
+    <item android:id="@android:id/progress"
+        android:top="1dp"
+        android:bottom="1dp"
+        android:left="1dp"
+        android:right="1dp">
+        <scale android:scaleWidth="100%">
+            <shape>
+                <corners android:radius="8dp"/>
+                <solid android:color="@color/mohaeng_yellow4"/>
+            </shape>
+        </scale>
     </item>
 </layer-list>

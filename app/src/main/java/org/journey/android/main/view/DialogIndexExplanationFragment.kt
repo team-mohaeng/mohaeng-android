@@ -1,19 +1,23 @@
 package org.journey.android.main.view
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import org.journey.android.R
 import org.journey.android.databinding.DialogIndexExplanationBinding
+import org.journey.android.main.viewmodel.MainViewModel
 import org.journey.android.util.AutoClearedValue
 
 @AndroidEntryPoint
 class DialogIndexExplanationFragment : DialogFragment() {
     private var binding by AutoClearedValue<DialogIndexExplanationBinding>()
+    private val viewModel by viewModels<MainViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,6 +32,9 @@ class DialogIndexExplanationFragment : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = viewLifecycleOwner
+        viewModel.initMohaengMain()
         closeDialog()
     }
 
@@ -36,6 +43,5 @@ class DialogIndexExplanationFragment : DialogFragment() {
             buttonDialogClose.setOnClickListener { dismiss() }
         }
     }
-
 }
 

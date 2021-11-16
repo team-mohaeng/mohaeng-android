@@ -7,6 +7,7 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.journey.android.base.DisposableViewModel
 import org.journey.android.challenge.controller.ChallengeController
+import org.journey.android.challenge.data.response.ResponseTodayChallengeDTO
 import javax.inject.Inject
 
 @HiltViewModel
@@ -24,13 +25,17 @@ class ChallengeViewModel @Inject constructor(
     val validateChallenge : LiveData<Boolean>
         get() = _validateChallenge
 
+    private val _fetchTodayChallenge = MutableLiveData<ResponseTodayChallengeDTO>()
+    val fetchTodayChallenge : LiveData<ResponseTodayChallengeDTO>
+        get() = _fetchTodayChallenge
+
     fun getTodayChallenge(){
         addDisposable(
             challengeController.todayChallenge(
                 client = "aos"
             ).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({
+                .subscribe({ response ->
                      _todayChallengeList.postValue(true)
                 },{
                     _todayChallengeList.postValue(false)

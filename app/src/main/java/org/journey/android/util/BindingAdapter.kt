@@ -14,12 +14,7 @@ import java.lang.System.load
 object BindingAdapter {
     @JvmStatic
     @BindingAdapter("setImageURL")
-    fun ImageView.setImageURL(url: String) { load(url) }
-
-    @JvmStatic
-    @BindingAdapter("setSkin")
-    fun ConstraintLayout.setSkin(url : String) {load(url)}
-
+    fun ImageView.setImageURL(url: String?) { if(!url.isNullOrEmpty()) load(url) }
 
     @JvmStatic
     @BindingAdapter("corner_radius")

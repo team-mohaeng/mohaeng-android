@@ -22,29 +22,32 @@ class BadgeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentBadgeBinding.inflate(inflater,container,false)
+        binding = FragmentBadgeBinding.inflate(inflater, container, false)
         return binding.root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
         loadBadgeList()
         clickAssetListener()
+        viewModel.loadObtainedBadge()
     }
+
     private fun loadBadgeList() {
-        binding.recyclerviewObtainedBadge.apply {
+        binding.recyclerviewObtainedBadge.run {
             this.adapter = BadgeAdapter()
             viewModel.badgeList.observe(viewLifecycleOwner) {
-//                viewModel.loadObtainedBadge()
                 (adapter as BadgeAdapter).badgeList = it.toMutableList()
                 (adapter as BadgeAdapter).notifyDataSetChanged()
             }
         }
     }
 
-    private fun clickAssetListener(){
-        with(binding){
+
+    private fun clickAssetListener() {
+        with(binding) {
             buttonBack.setOnClickListener { findNavController().popBackStack() }
         }
     }

@@ -50,7 +50,5 @@ class MyPageFragment : Fragment() {
         }
     }
 
-
-
-
 }
+
