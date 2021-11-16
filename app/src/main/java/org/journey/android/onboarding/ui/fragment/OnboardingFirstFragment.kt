@@ -48,11 +48,11 @@ class OnboardingFirstFragment : Fragment() {
         startLogin()
         startOnboarding()
         showAskingTextBalloon()
-        checkHasUserToken()
+//        checkHasUserToken()
     }
 
     private fun checkHasUserToken() {
-        if (userPreferenceManager.fetchUserAccessToken() == "") {
+        if (userPreferenceManager.fetchUserAccessToken() != "") {
             Log.e("user token", "${userPreferenceManager.fetchUserAccessToken()}")
             startActivity(Intent(requireContext(), MainActivity::class.java))
         }
@@ -82,8 +82,6 @@ class OnboardingFirstFragment : Fragment() {
             override fun onAnimationRepeat(p0: Animation?) {}
         })
     }
-
-
 
     private fun animateTyping() {
         val textview = binding.textviewOnboardingAskText
