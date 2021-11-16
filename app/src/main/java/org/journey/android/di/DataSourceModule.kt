@@ -10,6 +10,8 @@ import org.journey.android.character.data.source.CharacterDataSource
 import org.journey.android.character.data.source.CharacterDataSourceImpl
 import org.journey.android.community.data.source.CommunityFeedDataSource
 import org.journey.android.community.data.source.CommunityFeedDataSourceImpl
+import org.journey.android.course.data.source.CourseCatalogDataSource
+import org.journey.android.course.data.source.CourseCatalogDataSourceImpl
 import org.journey.android.network.RetrofitInterface
 import org.journey.android.qualifier.AuthRetrofitService
 import javax.inject.Singleton
@@ -31,4 +33,9 @@ object DataSourceModule {
     @Singleton
     fun provideCharacterDataSource(@AuthRetrofitService retrofitInterface: RetrofitInterface) : CharacterDataSource =
         CharacterDataSourceImpl(retrofitInterface)
+
+    @Provides
+    @Singleton
+    fun provideCourseCatalogDataSource(@AuthRetrofitService retrofitInterface: RetrofitInterface) : CourseCatalogDataSource =
+        CourseCatalogDataSourceImpl(retrofitInterface)
 }

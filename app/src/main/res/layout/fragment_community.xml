@@ -43,7 +43,7 @@
             android:layout_marginStart="18dp"
             android:layout_marginTop="106dp"
             android:fontFamily="@font/gmarketsansttfmedium"
-            android:text="@{@string/community_count_greeting(viewModel.getEntireCommunity.data.userCount)}"
+            android:text="@{@string/community_count_greeting(viewModel.getEntireCommunity.userCount)}"
             android:lineSpacingExtra="8dp"
             android:textColor="@color/journey_black"
             android:textSize="18sp"
