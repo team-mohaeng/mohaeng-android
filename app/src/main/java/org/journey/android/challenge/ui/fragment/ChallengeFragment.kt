@@ -21,7 +21,6 @@ import org.journey.android.util.AutoClearedValue
 class ChallengeFragment : Fragment() {
     private var binding by AutoClearedValue<FragmentChallengeBinding>()
     private val viewModel by viewModels<ChallengeViewModel>()
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -34,7 +33,6 @@ class ChallengeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
-
         viewModel.getTodayChallenge()
         setNavController()
         showChallengeExplanationDialog()
@@ -42,34 +40,41 @@ class ChallengeFragment : Fragment() {
         getTodayChallenge()
         setNavController()
     }
-    private fun setNavController(){
-        with(binding){
+
+    private fun setNavController() {
+        with(binding) {
             imagebuttonChallengeBrowse.setOnClickListener { findNavController().navigate(R.id.action_frameFragment_to_courseCatalogFragment) }
             imagebuttonChallengeCourse.setOnClickListener { findNavController().navigate(R.id.action_frameFragment_to_courseFragment) }
-            buttonStartNewChallenge.setOnClickListener { findNavController().navigate(R.id.action_frameFragment_to_courseCatalogFragment) }
         }
     }
-    private fun showChallengeExplanationDialog(){
+
+    private fun showChallengeExplanationDialog() {
         binding.imageviewChallengeHelp.setOnClickListener {
             val dialog = ChallengeExplanationDialog()
-            dialog.show(childFragmentManager,tag)
+            dialog.show(childFragmentManager, tag)
         }
     }
-    private fun certifyChallenge(){
+
+    private fun certifyChallenge() {
         binding.imagebuttonStamp.setOnClickListener {
             viewModel.validateChallenge()
             val dialog = ChallengeCertifyDialog()
-            dialog.show(childFragmentManager,tag)
+            dialog.show(childFragmentManager, tag)
         }
     }
-    private fun getTodayChallenge(){
-        viewModel.todayChallengeList.observe(viewLifecycleOwner){
-            if(viewModel.fetchTodayChallenge.value != null){
+
+    private fun getTodayChallenge() {
+        viewModel.todayChallengeList.observe(viewLifecycleOwner) {
+            if (viewModel.fetchTodayChallenge.value != null) {
                 binding.constraintlayoutChallenge.isVisible = true
-            } else{
+            } else {
                 binding.constraintlayoutNoneChallenge.isVisible = true
+                startNoneChallenge()
             }
         }
+    }
+    private fun startNoneChallenge(){
+        binding.buttonStartNewChallenge.setOnClickListener { findNavController().navigate(R.id.action_frameFragment_to_courseCatalogFragment)}
     }
 
 }

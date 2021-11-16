@@ -25,22 +25,15 @@ class MainFragment : Fragment() {
         binding = FragmentMainBinding.inflate(inflater, container,false)
         return binding.root
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
         viewModel.initMohaengMain()
-        viewModel.getLottie.observe(viewLifecycleOwner){
-            binding.imageviewMohaengCharacter.run {
-                setAnimationFromUrl(it.characterLottie)
-                playAnimation()
-            }
-        }
-        setClickListener()
+        animateLottie()
+        setNavController()
         showIndexDialog()
     }
-
     private fun showIndexDialog(){
         with(binding){
             buttonMainReward.setOnClickListener {
@@ -49,19 +42,19 @@ class MainFragment : Fragment() {
             }
         }
     }
-
-    private fun setClickListener(){
+    private fun setNavController(){
         with(binding){
-            buttonMainChat.setOnClickListener {
-                findNavController().navigate(R.id.action_frameFragment_to_chatFragment)
+            buttonMainChat.setOnClickListener { findNavController().navigate(R.id.action_frameFragment_to_chatFragment) }
+            buttonMainFirst.setOnClickListener { findNavController().navigate(R.id.action_frameFragment_to_badgeFragment) }
+            buttonMainMypage.setOnClickListener { findNavController().navigate(R.id.action_frameFragment_to_myPageFragment) }
+            imageviewBlank.setOnClickListener { findNavController().navigate(R.id.action_frameFragment_to_challengeFragment) }
+        }
+    }
+    private fun animateLottie(){
+        viewModel.getLottie.observe(viewLifecycleOwner){
+            binding.imageviewMohaengCharacter.run { setAnimationFromUrl(it.characterLottie)
+                playAnimation()
             }
-            buttonMainFirst.setOnClickListener {
-                findNavController().navigate(R.id.action_frameFragment_to_badgeFragment)
-            }
-            buttonMainMypage.setOnClickListener {
-                findNavController().navigate(R.id.action_frameFragment_to_myPageFragment)
-            }
-
         }
     }
 }
