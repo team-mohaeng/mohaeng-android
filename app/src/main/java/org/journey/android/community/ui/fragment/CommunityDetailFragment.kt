@@ -25,6 +25,7 @@ import org.journey.android.community.data.dto.ResponseCommunityFeedDTO
 import org.journey.android.databinding.FragmentCommunityDetailBinding
 import org.journey.android.diary.dto.RequestDiaryEmojiData
 import org.journey.android.diary.service.FeedRequestToServer
+import org.journey.android.diary.view.UserJWT
 import org.journey.android.diary.view.refreshCheck
 import retrofit2.Call
 import retrofit2.Callback
@@ -129,7 +130,7 @@ class CommunityDetailFragment : Fragment() {
                         .reportDiary(
                             feedDetail.get("id") as Int,
                             "application/json",
-                            ""
+                            UserJWT
 //                            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk"
                         )
                     call.enqueue(object : Callback<Unit> {
@@ -229,8 +230,7 @@ class CommunityDetailFragment : Fragment() {
             .putEmoji(
                 feedDetail.get("id") as Int,
                 "application/json",
-                "",
-//                userJWT,
+                UserJWT,
 //                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk",
                 RequestDiaryEmojiData(
                     emojiId = id
@@ -255,7 +255,7 @@ class CommunityDetailFragment : Fragment() {
             .deleteEmoji(
                 feedDetail.get("id") as Int,
                 "application/json",
-                "",
+                UserJWT,
 //                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk",
                 RequestDiaryEmojiData(
                     emojiId = id
@@ -350,7 +350,7 @@ class CommunityDetailFragment : Fragment() {
         val call: Call<ResponseCommunityFeedDTO> = FeedRequestToServer.service
             .getCommunityDiary(
                 "application/json",
-                ""
+                UserJWT
 //                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk"
             )
 

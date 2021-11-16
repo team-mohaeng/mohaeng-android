@@ -16,6 +16,7 @@ import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.journey.android.R
 import org.journey.android.databinding.FragmentOnboardingFirstBinding
+import org.journey.android.diary.view.UserJWT
 import org.journey.android.entry.frame.EntryActivity
 import org.journey.android.frame.MainActivity
 import org.journey.android.onboarding.viewmodel.OnboardingViewModel
@@ -52,8 +53,9 @@ class OnboardingFirstFragment : Fragment() {
     }
 
     private fun checkHasUserToken() {
-        if (userPreferenceManager.fetchUserAccessToken() == "") {
+        if (userPreferenceManager.fetchUserAccessToken() != "") {
             Log.e("user token", "${userPreferenceManager.fetchUserAccessToken()}")
+            UserJWT = userPreferenceManager.fetchUserAccessToken()
             startActivity(Intent(requireContext(), MainActivity::class.java))
         }
     }

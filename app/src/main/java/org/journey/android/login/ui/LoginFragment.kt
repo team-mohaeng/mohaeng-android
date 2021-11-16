@@ -29,6 +29,8 @@ import org.journey.android.databinding.FragmentLoginBinding
 import org.journey.android.frame.MainActivity
 import org.journey.android.login.viewmodel.LoginViewModel
 
+lateinit var googleClient: GoogleSignInClient
+
 @AndroidEntryPoint
 class LoginFragment : BaseFragment<FragmentLoginBinding>() {
     private lateinit var auth: FirebaseAuth
@@ -117,6 +119,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
             .requestEmail()
             .build()
         googleSignInClient = GoogleSignIn.getClient(context, gso)
+        googleClient = googleSignInClient
 
         binding.buttonLoginGoogle.setOnClickListener {
             signGoogle()

@@ -3,18 +3,36 @@ package org.journey.android.setting.view
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
+import com.google.firebase.auth.FirebaseAuth
+import com.kakao.sdk.user.UserApiClient
+import dagger.hilt.android.AndroidEntryPoint
 import org.journey.android.R
 import org.journey.android.databinding.FragmentSettingBinding
+import org.journey.android.diary.dto.RequestDiaryEmojiData
+import org.journey.android.diary.service.FeedRequestToServer
+import org.journey.android.diary.view.UserJWT
+import org.journey.android.diary.view.postDetail
+import org.journey.android.login.ui.googleClient
+import org.journey.android.setting.service.SettingRequestToServer
+import org.journey.android.setting.viewmodel.SettingViewModel
 import org.journey.android.util.AutoClearedValue
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
+@AndroidEntryPoint
 class SettingFragment : Fragment() {
     private var binding by AutoClearedValue<FragmentSettingBinding>()
+    private val viewModel by viewModels<SettingViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,24 +46,23 @@ class SettingFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         buttonEvents()
-
         binding.switchSettingPush.setOnCheckedChangeListener { buttonView, isChecked ->
             if(isChecked){
-                // push알람
+                viewModel.getFcmDeviceToken()
             } else{
-                //push알람 x
+                viewModel.removeFcmDeviceToken()
             }
         }
     }
 
     fun buttonEvents(){
         binding.constraintlayoutSettingPrivate.setOnClickListener {
-            var intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.notion.so/3b5c8118a1d94d0982a45eb41cea1bac"))
+            var intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://brawny-pest-02a.notion.site/6fca114a154e49e2b81d1a53ddf56fe1"))
             startActivity(intent)
         }
 
         binding.constraintlayoutSettingService.setOnClickListener {
-            var intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.notion.so/1b28e6626d2541608b5efc729f526b09"))
+            var intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://brawny-pest-02a.notion.site/70443cf71de6456a918e03e7ebdea4ba"))
             startActivity(intent)
         }
 
@@ -56,16 +73,36 @@ class SettingFragment : Fragment() {
         }
 
         binding.constraintlayoutSettingLogout.setOnClickListener {
-            findNavController().popBackStack()
-            findNavController().popBackStack()
-            findNavController().navigate(R.id.action_frameFragment_to_loginFragment)
+            var snstype = viewModel.logout()
+            if(snstype == "google"){
+                FirebaseAuth.getInstance().signOut()
+                googleClient.signOut().addOnCompleteListener {
+                    findNavController().popBackStack()
+                    findNavController().popBackStack()
+                    findNavController().navigate(R.id.action_frameFragment_to_loginFragment)
+                }
+            }
 
+            if(snstype == "kakao"){
+                UserApiClient.instance.logout { error ->
+                    if (error != null) {
+                        Toast.makeText(this.context, "로그아웃 실패 $error", Toast.LENGTH_SHORT).show()
+                    }else {
+                        findNavController().popBackStack()
+                        findNavController().popBackStack()
+                        findNavController().navigate(R.id.action_frameFragment_to_loginFragment)
+                    }
+                }
+            }
+            else {
+                findNavController().popBackStack()
+                findNavController().popBackStack()
+                findNavController().navigate(R.id.action_frameFragment_to_loginFragment)
+            }
         }
 
         binding.constraintlayoutSettingSignout.setOnClickListener {
-            findNavController().popBackStack()
-            findNavController().popBackStack()
-            findNavController().navigate(R.id.action_frameFragment_to_loginFragment)
+            deleteUser()
         }
 
         binding.constraintlayoutSettingQuestion.setOnClickListener {
@@ -84,4 +121,30 @@ class SettingFragment : Fragment() {
             findNavController().popBackStack()
         }
     }
+
+    fun deleteUser(){
+        val call: Call<Unit> = SettingRequestToServer.service
+            .deleteUser(
+                "application/json",
+                UserJWT,
+//                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk",
+            )
+        call.enqueue(object : Callback<Unit> {
+            override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
+                if (response.isSuccessful) {
+                    Log.d("delete user", "success")
+                    findNavController().popBackStack()
+                    findNavController().popBackStack()
+                    findNavController().navigate(R.id.action_frameFragment_to_loginFragment)
+                } else {
+                    Log.d("delete user", "fail $response")
+                }
+            }
+
+            override fun onFailure(call: Call<Unit>, t: Throwable) {
+                Log.d("User Delete NT Error", "User Delete Error!")
+            }
+        })
+    }
+
 }
