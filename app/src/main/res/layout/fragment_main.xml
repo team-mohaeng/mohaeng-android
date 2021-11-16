@@ -17,6 +17,16 @@
         android:background="@color/mohaeng_yellow"
         tools:context=".main.view.MainFragment">
 
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageview_skin"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            setImageURL="@{viewModel.getLottie.characterSkin}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_main_first"
             android:layout_width="26dp"
@@ -49,31 +59,19 @@
             app:layout_constraintTop_toTopOf="@+id/button_main_chat" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/textview_user_nickname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
-            android:layout_marginTop="41dp"
-            android:textColor="@color/mohaeng_black"
-            android:textSize="24sp"
-            android:textScaleX="0.95"
-            android:text="@{viewModel.userNickName}"
-            android:fontFamily="@font/gmarketsansttfmedium"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/button_main_first"/>
-
-        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textview_main_greet"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@{@string/main_greeting(viewModel.getLottie.nickname)}"
             android:layout_marginTop="41dp"
+            android:layout_marginStart="14dp"
             android:fontFamily="@font/gmarketsansttfmedium"
             tools:text="@string/main_greeting"
             android:textColor="@color/mohaeng_black"
             android:textSize="24sp"
             android:textScaleX="0.95"
             android:lineSpacingExtra="4dp"
-            app:layout_constraintStart_toEndOf="@id/textview_user_nickname"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/button_main_first" />
 
         <ProgressBar
@@ -107,7 +105,7 @@
             android:id="@+id/textview_progress_level"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Lv.22"
+            android:text="@{@string/user_index_level(viewModel.getLottie.level)}"
             android:fontFamily="@font/gmarketsansttfbold"
             android:textColor="@color/mohaeng_brown"
             android:textSize="10sp"

@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
+    <data>
+        <variable
+            name="viewModel"
+            type="org.journey.android.main.viewmodel.MainViewModel" />
+    </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/selector_index_dialog">
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -16,31 +19,27 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
-
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button_dialog_close"
                 android:layout_width="34dp"
                 android:layout_height="34dp"
                 android:layout_marginTop="14dp"
-                android:layout_marginRight="14dp"
+                android:layout_marginEnd="14dp"
                 android:background="@drawable/ic_xbtn"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
-
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/textview_dialog_level"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="66dp"
                 android:fontFamily="@font/gmarketsansttfbold"
-                android:text="Lv.22"
+                android:text="@{@string/user_index_level(viewModel.getLottie.level)}"
                 android:textColor="@color/mohaeng_yellow4"
                 android:textSize="22sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
             <ProgressBar
                 android:id="@+id/progressbar_dialog_index"
                 style="@style/Widget.AppCompat.ProgressBar.Horizontal"
@@ -48,45 +47,38 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="36dp"
                 android:layout_marginTop="24dp"
-                android:indeterminateDrawable="@drawable/horizontal_progressbar"
-                android:minHeight="17dp"
-                android:progress="100"
-                android:progressBackgroundTint="@color/mohaeng_yellow"
-                android:progressDrawable="@drawable/horizontal_progressbar"
-                android:progressTint="@color/mohaeng_yellow4"
+                android:progress="@{viewModel.getLottie.fullHappy}"
+                android:progressDrawable="@{viewModel.getLottie.isStyleNew ? @drawable/horizontal_progressbar : @drawable/horizontal_progressbar_unstated}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textview_dialog_level" />
-
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/textview_happy_index"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="19dp"
                 android:fontFamily="@font/gmarketsansttfmedium"
-                android:text="해피 지수"
+                android:text="@string/main_dialog_happiness"
                 android:textColor="@color/mohaeng_black"
                 android:textSize="12sp"
                 app:layout_constraintEnd_toStartOf="@+id/textview_index_percent"
                 app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/progressbar_dialog_index" />
-
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/textview_index_percent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="9dp"
+                android:layout_marginStart="9dp"
                 android:layout_marginTop="19dp"
                 android:fontFamily="@font/gmarketsansttfmedium"
-                android:text="160/200 (80)"
                 android:textColor="@color/mohaeng_black"
                 android:textSize="12sp"
+                android:text="@{@string/main_dialog_user_index_percent(viewModel.getLottie.fullHappy)}"
                 app:layout_constraintBottom_toBottomOf="@+id/textview_happy_index"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/textview_happy_index"
                 app:layout_constraintTop_toBottomOf="@id/progressbar_dialog_index" />
-
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/imageview_dialog_seperate"
                 android:layout_width="0dp"
@@ -96,60 +88,58 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textview_happy_index" />
-
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/textview_happiness"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
+                android:layout_marginStart="30dp"
                 android:layout_marginTop="34dp"
                 android:fontFamily="@font/spoqahansansneobold"
-                android:text="해피 지수란?"
+                android:text="@string/main_dialog_happy_index"
                 android:textSize="12sp"
                 android:textColor="@color/mohaeng_black2"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/imageview_dialog_seperate" />
-
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/textview_explanation_happiness"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
+                android:layout_marginStart="30dp"
                 android:layout_marginTop="12dp"
                 android:fontFamily="@font/spoqahansansneomedium"
                 android:text="@string/dialog_happy_index_explanation"
                 android:textColor="@color/mohaeng_gray"
                 android:textSize="11sp"
-                android:layout_marginRight="36dp"
+                android:layout_marginEnd="36dp"
+                android:lineSpacingExtra="4dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textview_happiness" />
-
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/textview_level"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
+                android:layout_marginStart="30dp"
                 android:layout_marginTop="26dp"
                 android:fontFamily="@font/spoqahansansneobold"
-                android:text="레벨이란 ?"
+                android:text="@string/main_dialog_level"
                 android:textColor="@color/mohaeng_black2"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textview_explanation_happiness" />
-
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/textview_explanation_level"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
+                android:layout_marginStart="30dp"
                 android:layout_marginTop="12dp"
                 android:layout_marginBottom="37dp"
                 android:fontFamily="@font/spoqahansansneomedium"
                 android:text="@string/dialog_level_index_explanation"
                 android:textColor="@color/mohaeng_gray"
                 android:textSize="11sp"
-                android:layout_marginRight="29dp"
+                android:layout_marginEnd="29dp"
+                android:lineSpacingExtra="4dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

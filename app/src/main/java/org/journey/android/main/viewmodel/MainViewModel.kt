@@ -28,6 +28,9 @@ class MainViewModel @Inject constructor(
     val userNickName : LiveData<String>
         get() = _userNickName
 
+    private val _happinessIndex = MutableLiveData<Int>()
+    val happinessIndex : LiveData<Int>
+        get() = _happinessIndex
 
     fun initMohaengMain(){
         addDisposable(
@@ -37,7 +40,7 @@ class MainViewModel @Inject constructor(
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ reponse->
                     _getLottie.postValue(reponse.challengeProgressDTO)
-                    _userNickName.postValue(reponse.challengeProgressDTO.nicknema)
+                    _userNickName.postValue(reponse.challengeProgressDTO.nickname)
                     _getHomeResource.postValue(true)
                 },{
                     _getHomeResource.postValue(false)

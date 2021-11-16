@@ -26,8 +26,8 @@ data class ResponseHomeDTO(
         val isStyleNew: Boolean,
         @SerializedName("level")
         val level: Int,
-        @SerializedName("nicknema")
-        val nicknema: String
+        @SerializedName("nickname")
+        val nickname: String
     )
     {
         data class CourseProgressDTO(
