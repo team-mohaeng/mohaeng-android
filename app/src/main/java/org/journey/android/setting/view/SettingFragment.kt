@@ -133,6 +133,9 @@ class SettingFragment : Fragment() {
             override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
                 if (response.isSuccessful) {
                     Log.d("delete user", "success")
+
+                    viewModel.logout()
+                    
                     findNavController().popBackStack()
                     findNavController().popBackStack()
                     findNavController().navigate(R.id.action_frameFragment_to_loginFragment)
