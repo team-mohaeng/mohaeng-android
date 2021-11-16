@@ -18,9 +18,7 @@ class BadgeAdapter : RecyclerView.Adapter<BadgeAdapter.BadgeViewHolder>() {
 
     override fun onBindViewHolder(holder: BadgeViewHolder, position: Int) {
         val badge = badgeList[position]
-        holder.binding.setVariable(BR.data,badge)
+        holder.binding.setVariable(BR.data, badge)
     }
-
     override fun getItemCount() = badgeList.size
-
 }

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -20,7 +21,6 @@ import org.journey.android.util.AutoClearedValue
 class ChallengeFragment : Fragment() {
     private var binding by AutoClearedValue<FragmentChallengeBinding>()
     private val viewModel by viewModels<ChallengeViewModel>()
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -33,34 +33,48 @@ class ChallengeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
-        setAction()
+        viewModel.getTodayChallenge()
+        setNavController()
         showChallengeExplanationDialog()
         certifyChallenge()
         getTodayChallenge()
+        setNavController()
     }
-    private fun setAction(){
-        with(binding){
+
+    private fun setNavController() {
+        with(binding) {
             imagebuttonChallengeBrowse.setOnClickListener { findNavController().navigate(R.id.action_frameFragment_to_courseCatalogFragment) }
             imagebuttonChallengeCourse.setOnClickListener { findNavController().navigate(R.id.action_frameFragment_to_courseFragment) }
         }
     }
-    private fun showChallengeExplanationDialog(){
+
+    private fun showChallengeExplanationDialog() {
         binding.imageviewChallengeHelp.setOnClickListener {
             val dialog = ChallengeExplanationDialog()
-            dialog.show(childFragmentManager,tag)
+            dialog.show(childFragmentManager, tag)
         }
     }
-    private fun certifyChallenge(){
+
+    private fun certifyChallenge() {
         binding.imagebuttonStamp.setOnClickListener {
             viewModel.validateChallenge()
             val dialog = ChallengeCertifyDialog()
-            dialog.show(childFragmentManager,tag)
+            dialog.show(childFragmentManager, tag)
         }
     }
-    private fun getTodayChallenge(){
-        viewModel.todayChallengeList.observe(viewLifecycleOwner){
-            viewModel.getTodayChallenge()
+
+    private fun getTodayChallenge() {
+        viewModel.todayChallengeList.observe(viewLifecycleOwner) {
+            if (viewModel.fetchTodayChallenge.value != null) {
+                binding.constraintlayoutChallenge.isVisible = true
+            } else {
+                binding.constraintlayoutNoneChallenge.isVisible = true
+                startNoneChallenge()
+            }
         }
+    }
+    private fun startNoneChallenge(){
+        binding.buttonStartNewChallenge.setOnClickListener { findNavController().navigate(R.id.action_frameFragment_to_courseCatalogFragment)}
     }
 
 }

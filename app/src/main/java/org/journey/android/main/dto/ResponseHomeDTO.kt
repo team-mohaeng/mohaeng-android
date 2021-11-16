@@ -26,15 +26,15 @@ data class ResponseHomeDTO(
         val isStyleNew: Boolean,
         @SerializedName("level")
         val level: Int,
-        @SerializedName("nicknema")
-        val nicknema: String
+        @SerializedName("nickname")
+        val nickname: String
     )
     {
         data class CourseProgressDTO(
             @SerializedName("challengeTitle")
             val challengeTitle: String,
             @SerializedName("percent")
-            val percent: Int
+            val percent: Int? = 0
         )
     }
 }

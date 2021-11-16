@@ -2,7 +2,6 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-
     <data>
         <variable
             name="viewModel"
@@ -26,7 +25,6 @@
             android:textSize="14sp"
             app:layout_constraintEnd_toStartOf="@+id/button_happiness_write"
             app:layout_constraintTop_toTopOf="parent" />
-
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_happiness_write"
             android:layout_width="44dp"
@@ -38,22 +36,19 @@
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textview_happiness_community"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="18dp"
+            android:layout_marginStart="18dp"
             android:layout_marginTop="106dp"
             android:fontFamily="@font/gmarketsansttfmedium"
-            android:text="@string/community_count_greeting"
+            android:text="@{@string/community_count_greeting(viewModel.getEntireCommunity.data.userCount)}"
             android:lineSpacingExtra="8dp"
             android:textColor="@color/journey_black"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageview_graphic"
             android:layout_width="match_parent"
@@ -62,8 +57,6 @@
             android:background="@drawable/background_commnity"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textview_diary" />
-
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview_community_record"
             android:layout_width="match_parent"
@@ -75,6 +68,5 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/imageview_graphic"
             tools:listitem="@layout/item_community_record" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

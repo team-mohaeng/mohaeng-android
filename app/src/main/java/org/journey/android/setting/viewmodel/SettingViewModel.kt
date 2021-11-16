@@ -12,7 +12,6 @@ import com.kakao.sdk.user.UserApiClient
 import dagger.hilt.android.lifecycle.HiltViewModel
 import org.journey.android.R
 import org.journey.android.base.DisposableViewModel
-import org.journey.android.login.ui.googleClient
 import org.journey.android.preference.UserPreferenceManager
 import javax.inject.Inject
 
@@ -58,6 +57,10 @@ class SettingViewModel @Inject constructor(
         userPreferenceManager.saveUserAccessToken("")
 
         return userPreferenceManager.fetchUserSnsType()
+    }
+
+    fun getJWT(): String {
+        return userPreferenceManager.fetchUserAccessToken()
     }
 
 }

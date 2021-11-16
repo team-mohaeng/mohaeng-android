@@ -5,7 +5,7 @@
     <string name="msg_token_fmt" translatable="false">토큰: %s</string>
     <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
 
-    <string name="main_greeting">아라아라! 벌써 밤이야!\n인증하고 일찍 자자</string>
+    <string name="main_greeting">%s! 벌써 밤이야!\n인증하고 일찍 자자</string>
 
     <string name="happiness_explanation">오늘의 챌린지를 성공하고\n나의 소확행도 공유해보자</string>
     <string name="library_content_dummy">나 쟈니가 인간세계에 처음 도착했을 때 사람들이\n청결에 대해 은근히 무심한 것이 신기했쟈니. 내\n가 사는 별에서는 상상도 할 수 없쟈니.</string>
@@ -52,7 +52,7 @@
 
     <string name="service_agreement"><u>서비스 이용약관(필수)</u></string>
     <string name="service_privacy_agreement"><u>개인정보 수집 및 이용 동의(필수)</u></string>
-    <string name="community_count_greeting">오늘은 64개의\n안부가 남겨졌어요</string>
+    <string name="community_count_greeting">오늘은 %d개의\n안부가 남겨졌어요</string>
     <string name="community_user_id">아라아랑</string>
     <string name="community_post_date">8월 15일</string>
     <string name="mypage_user_email">tldnjs102@gmail.com</string>
@@ -94,5 +94,14 @@
     <string name="onboarding_last">재미있는 챌린지들을 수행해서\n캐릭터들의 레벨을 쌓고\n모행이들의 다양한 모습을 찾아보자.</string>
     <string name="onboarding_choose_course">꽂히는 코스를 하나 선택해봐~!</string>
     <string name="change_nickname">닉네임 변경하기</string>
+    <string name="user_index_level">Lv.%d</string>
+    <string name="main_dialog_user_level">Lv.%d</string>
+    <string name="main_dialog_user_index_percent">%d/200 (%d)</string>
+    <string name="main_dialog_level">레벨이란 ?</string>
+    <string name="main_dialog_happy_index">해피 지수란?</string>
+    <string name="main_dialog_happiness">해피 지수</string>
+    <string name="main_underway_progress">코스 진행률 %d</string>
+    <string name="undergoing_challenge_title">의식적으로 양치를 깨끗하게</string>
+    <string name="none_undergoing_challenge">코스 선택 후,챌린지를 시작해봐!</string>
 
 </resources>

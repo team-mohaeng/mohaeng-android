@@ -52,6 +52,12 @@
         <action
             android:id="@+id/action_frameFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_frameFragment_to_badgeFragment"
+            app:destination="@id/badgeFragment" />
+        <action
+            android:id="@+id/action_frameFragment_to_challengeFragment"
+            app:destination="@id/challengeFragment" />
     </fragment>
 
     <fragment
@@ -104,6 +110,9 @@
         <action
             android:id="@+id/action_challengeFragment_to_finishRewardFragment"
             app:destination="@id/finishRewardFragment" />
+        <action
+            android:id="@+id/action_challengeFragment_to_courseCatalogFragment"
+            app:destination="@id/courseCatalogFragment" />
     </fragment>
     <fragment
         android:id="@+id/diaryFirstFragment"

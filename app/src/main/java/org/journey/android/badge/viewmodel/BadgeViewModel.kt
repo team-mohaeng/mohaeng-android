@@ -10,6 +10,7 @@ import org.journey.android.badge.controller.BadgeController
 import org.journey.android.badge.data.entity.BadgeEntity
 import org.journey.android.badge.data.repository.BadgeListRepository
 import org.journey.android.base.DisposableViewModel
+import org.journey.android.character.data.entity.MohaengCharacterEntity
 import javax.inject.Inject
 
 @HiltViewModel
@@ -17,19 +18,20 @@ class BadgeViewModel @Inject constructor(
     private val badgeController: BadgeController,
     private val badgeListRepository: BadgeListRepository
 ) : DisposableViewModel() {
+    private val _getBadgeList = MutableLiveData<Boolean>()
+
     private val _badgeList = MutableLiveData<List<BadgeEntity>>()
     val badgeList : LiveData<List<BadgeEntity>>
         get() = _badgeList
 
-
-
     fun loadObtainedBadge(){
        addDisposable(
-           badgeListRepository.fetchBadgeList()
+           badgeController.putBadgeList()
                .observeOn(Schedulers.io())
                .subscribeOn(AndroidSchedulers.mainThread())
                .subscribe({
-                   _badgeList.postValue(it)
+                   _badgeList.postValue(it.dataDTO.achieveBadgeDTOS.map { it.convertToAchieveBadgeEntity() })
+                   _getBadgeList.postValue(true)
                },{
                    it.printStackTrace()
                })

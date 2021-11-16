@@ -6,6 +6,9 @@
         <variable
             name="viewModel"
             type="org.journey.android.challenge.viewmodel.ChallengeViewModel" />
+        <variable
+            name="data"
+            type="org.journey.android.challenge.data.response.ResponseTodayChallengeDTO" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintlayout_challenge_ongoing"
@@ -48,7 +51,7 @@
             android:id="@+id/constraintlayout_none_challenge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"
+            android:visibility="invisible"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/imageview_challenge_help">
 
@@ -85,7 +88,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:visibility="visible"
+            android:visibility="invisible"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/imageview_challenge_help">
 

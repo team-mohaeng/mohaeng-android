@@ -9,7 +9,6 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.journey.android.base.DisposableViewModel
-import org.journey.android.diary.view.UserJWT
 import org.journey.android.login.controller.SignInController
 import org.journey.android.login.data.RequestEmailSignInDTO
 import org.journey.android.preference.UserPreferenceManager
@@ -65,7 +64,6 @@ class LoginViewModel @Inject constructor(
                 .subscribe({ response ->
                     userPreferenceManager.saveUserAccessToken(response.data?.jwt.toString())
                     _loginSuccess.postValue(true)
-                    UserJWT = response.data?.jwt.toString()
                 }, {
                     it.printStackTrace()
                     _loginSuccess.postValue(false)
@@ -85,7 +83,6 @@ class LoginViewModel @Inject constructor(
                     if(it.data?.user == true) {
                         it.data?.jwt?.let { userPreferenceManager.saveUserAccessToken(it) }
                         _loginSuccess.postValue(true)
-                        UserJWT = it.data?.jwt
                     } else {
                         _loginSuccess.postValue(false)
                     }
@@ -108,7 +105,6 @@ class LoginViewModel @Inject constructor(
                     it.data?.jwt?.let { userPreferenceManager.saveUserAccessToken(it) }
                     userPreferenceManager.saveUserSnsType(snsType = "google")
                     _loginSuccess.postValue(true)
-                    UserJWT = it.data?.jwt.toString()
                 },{
                     _loginSuccess.postValue(false)
                     it.printStackTrace()

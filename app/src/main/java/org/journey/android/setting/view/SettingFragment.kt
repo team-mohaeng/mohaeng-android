@@ -17,11 +17,6 @@ import com.kakao.sdk.user.UserApiClient
 import dagger.hilt.android.AndroidEntryPoint
 import org.journey.android.R
 import org.journey.android.databinding.FragmentSettingBinding
-import org.journey.android.diary.dto.RequestDiaryEmojiData
-import org.journey.android.diary.service.FeedRequestToServer
-import org.journey.android.diary.view.UserJWT
-import org.journey.android.diary.view.postDetail
-import org.journey.android.login.ui.googleClient
 import org.journey.android.setting.service.SettingRequestToServer
 import org.journey.android.setting.viewmodel.SettingViewModel
 import org.journey.android.util.AutoClearedValue
@@ -76,11 +71,11 @@ class SettingFragment : Fragment() {
             var snstype = viewModel.logout()
             if(snstype == "google"){
                 FirebaseAuth.getInstance().signOut()
-                googleClient.signOut().addOnCompleteListener {
-                    findNavController().popBackStack()
-                    findNavController().popBackStack()
-                    findNavController().navigate(R.id.action_frameFragment_to_loginFragment)
-                }
+
+                findNavController().popBackStack()
+                findNavController().popBackStack()
+                findNavController().navigate(R.id.action_frameFragment_to_loginFragment)
+
             }
 
             if(snstype == "kakao"){
@@ -126,7 +121,7 @@ class SettingFragment : Fragment() {
         val call: Call<Unit> = SettingRequestToServer.service
             .deleteUser(
                 "application/json",
-                UserJWT,
+                viewModel.getJWT(),
 //                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk",
             )
         call.enqueue(object : Callback<Unit> {
