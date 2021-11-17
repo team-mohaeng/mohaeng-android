@@ -55,7 +55,7 @@ class CourseViewModel @Inject constructor(
         addDisposable(
             courseStateController.putCourseState(
                 client = "aos",
-                courseId.value
+                courseId.value ?: -1
             ).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
