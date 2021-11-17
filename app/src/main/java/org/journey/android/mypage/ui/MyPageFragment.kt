@@ -17,7 +17,6 @@ import org.journey.android.util.AutoClearedValue
 class MyPageFragment : Fragment() {
     private var binding by AutoClearedValue<FragmentMyPageBinding>()
     private val viewModel : MyPageViewModel by viewModels()
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -30,15 +29,14 @@ class MyPageFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
+        viewModel.getMyPageResource()
         popBackStack()
         getMyPageResource()
         editNickName()
         goSetting()
     }
     private fun popBackStack(){
-        with(binding){
-            buttonReturnBack.setOnClickListener { findNavController().popBackStack() }
-        }
+        with(binding){ buttonReturnBack.setOnClickListener { findNavController().popBackStack() } }
     }
     private fun getMyPageResource(){
         viewModel.myPageResource.observe(viewLifecycleOwner){

@@ -7,26 +7,29 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.journey.android.base.DisposableViewModel
 import org.journey.android.mypage.controller.MyPageController
+import org.journey.android.mypage.data.ResponseCheckMyPageDTO
 import javax.inject.Inject
 
 @HiltViewModel
 class MyPageViewModel @Inject constructor(
     private val myPageController: MyPageController
-) :
-    DisposableViewModel() {
-
+) : DisposableViewModel() {
     private val _myPageResource = MutableLiveData<Boolean>()
-    val myPageResource : LiveData<Boolean>
+    val myPageResource: LiveData<Boolean>
         get() = _myPageResource
 
-    fun getMyPageResource(){
+    private val _fetchMyPageSource = MutableLiveData<ResponseCheckMyPageDTO>()
+    val fetchMyPageSource : LiveData<ResponseCheckMyPageDTO>
+        get() = _fetchMyPageSource
+
+    fun getMyPageResource() {
         addDisposable(
             myPageController.myPageResource()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({
-                    _myPageResource.postValue(true)
-                },{
+                .subscribe({ response ->
+                    _fetchMyPageSource.postValue(response)
+                }, {
                     _myPageResource.postValue(false)
                     it.printStackTrace()
                 })
