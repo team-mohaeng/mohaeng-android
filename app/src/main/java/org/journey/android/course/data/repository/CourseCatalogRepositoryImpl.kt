@@ -13,6 +13,5 @@ class CourseCatalogRepositoryImpl @Inject constructor(
             response.catalogDataDTO.courses.map {
                 it.convertToCourseCatalogEntity()
             }
-
         }
 }

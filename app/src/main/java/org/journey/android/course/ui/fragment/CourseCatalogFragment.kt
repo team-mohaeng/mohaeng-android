@@ -29,6 +29,7 @@ class CourseCatalogFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
+        viewModel.fetchCatalogList()
         fetchCourseCatalog()
         setClickListener()
     }
@@ -38,6 +39,7 @@ class CourseCatalogFragment : Fragment() {
             this.adapter = CourseCatalogAdapter()
             viewModel.courseCatalogList.observe(viewLifecycleOwner){
                 (adapter as CourseCatalogAdapter).courseCatalog = it.toMutableList()
+                (adapter as CourseCatalogAdapter).notifyDataSetChanged()
             }
         }
     }

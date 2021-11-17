@@ -103,5 +103,7 @@
     <string name="main_underway_progress">코스 진행률 %d</string>
     <string name="undergoing_challenge_title">의식적으로 양치를 깨끗하게</string>
     <string name="none_undergoing_challenge">코스 선택 후,챌린지를 시작해봐!</string>
+    <string name="course_start">시작하기</string>
+    <string name="course_total_days">꺅 일탈행 %d일 코스</string>
 
 </resources>
