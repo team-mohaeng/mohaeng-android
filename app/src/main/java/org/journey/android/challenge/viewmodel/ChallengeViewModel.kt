@@ -7,6 +7,7 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.journey.android.base.DisposableViewModel
 import org.journey.android.challenge.controller.ChallengeController
+import org.journey.android.challenge.data.TodayChallengeDTO
 import org.journey.android.challenge.data.response.ResponseTodayChallengeDTO
 import javax.inject.Inject
 
@@ -29,6 +30,10 @@ class ChallengeViewModel @Inject constructor(
     val fetchTodayChallenge : LiveData<ResponseTodayChallengeDTO>
         get() = _fetchTodayChallenge
 
+    private val _showTodayChallenge = MutableLiveData<TodayChallengeDTO>()
+    val showTodayChallenge : LiveData<TodayChallengeDTO>
+        get() = _showTodayChallenge
+
     fun getTodayChallenge(){
         addDisposable(
             challengeController.todayChallenge(
@@ -37,6 +42,7 @@ class ChallengeViewModel @Inject constructor(
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ response ->
                      _todayChallengeList.postValue(true)
+                    _showTodayChallenge.postValue(response.todayChallengeDataDTO.todayCourseDTO?.todayChallengeDTOS?.first())
                 },{
                     _todayChallengeList.postValue(false)
                     it.printStackTrace()
@@ -47,6 +53,7 @@ class ChallengeViewModel @Inject constructor(
     fun validateChallenge(){
         addDisposable(
             challengeController.validateChallenge(
+                client = "aos",
                 courseId.value.toString(),
                 challengeId.value.toString()
             ).subscribeOn(Schedulers.io())

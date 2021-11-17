@@ -13,9 +13,10 @@ class ChallengeControllerImpl @Inject constructor(
         retrofitInterface.checkTodayChallenge(client)
 
     override fun validateChallenge(
+        client : String,
         courseId: String,
         challengeId: String
     ): Single<ResponseValidateChallengeDTO> =
-        retrofitInterface.putValidateChallenge(courseId, challengeId)
+        retrofitInterface.putValidateChallenge(client,courseId, challengeId)
 
 }

@@ -22,6 +22,10 @@ class CourseViewModel @Inject constructor(
     private val courseStateController: CourseStateController,
     private val courseCatalogRepository: CourseCatalogRepository
 ) : DisposableViewModel() {
+    private val _courseId = MutableLiveData<Int>()
+    val courseId : LiveData<Int>
+        get() = _courseId
+
     private val _courseRoute = MutableLiveData<List<CourseEntity>>()
     val courseRoute: LiveData<List<CourseEntity>>
         get() = _courseRoute
@@ -38,6 +42,10 @@ class CourseViewModel @Inject constructor(
     val startCourse : LiveData<ResponseStartChallengeDTO>
         get() = _startCourse
 
+    fun changeCourseId(courseId: Int) {
+        _courseId.value = courseId
+    }
+
     init {
         fetchCourseRoute()
         fetchOddDateList()
@@ -47,7 +55,7 @@ class CourseViewModel @Inject constructor(
         addDisposable(
             courseStateController.putCourseState(
                 client = "aos",
-                courseId = 1
+                courseId.value ?: -1
             ).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({

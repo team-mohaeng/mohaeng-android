@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
     <data>
         <variable
             name="viewModel"
@@ -10,13 +9,15 @@
             name="data"
             type="org.journey.android.challenge.data.response.ResponseTodayChallengeDTO" />
     </data>
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintlayout_challenge_ongoing"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingHorizontal="18dp"
         android:paddingTop="32dp">
-
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/imagebutton_challenge_browse"
             android:layout_width="wrap_content"
@@ -105,25 +106,25 @@
             android:id="@+id/imageview_mohaeng_rabbit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            setImageURL="@{viewModel.fetchTodayChallenge.todayChallengeDataDTO.mainCharacterImg"
             android:background="@drawable/ic_challenge_character"
             app:layout_constraintBottom_toBottomOf="@+id/imageview_mohaeng_talk"
             app:layout_constraintStart_toStartOf="@+id/imageview_mohaeng_talk"
             app:layout_constraintTop_toTopOf="@+id/imageview_mohaeng_talk" />
 
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/textview_mohaeng_talk"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:fontFamily="@font/spoqahansansneoregular"
-            android:lineSpacingExtra="4dp"
-            android:text="@string/challenge_message_mohaeng"
-            android:textColor="@color/mohaeng_black2"
-            android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="@+id/imageview_mohaeng_talk"
-            app:layout_constraintStart_toEndOf="@+id/imageview_mohaeng_rabbit"
-            app:layout_constraintTop_toTopOf="@+id/imageview_mohaeng_talk" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textview_mohaeng_talk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/spoqahansansneoregular"
+                android:lineSpacingExtra="2dp"
+                android:text="@{viewModel.showTodayChallenge.beforeMent}"
+                android:textColor="@color/mohaeng_black2"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageview_mohaeng_talk"
+                app:layout_constraintStart_toEndOf="@+id/imageview_mohaeng_rabbit"
+                app:layout_constraintTop_toTopOf="@+id/imageview_mohaeng_talk" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintlayout_challenge_sub"
@@ -181,7 +182,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:fontFamily="@font/gmarketsansttfmedium"
-                    android:text="@string/challenge_content_name"
+                    android:text="@{viewModel.showTodayChallenge.title}"
                     android:textColor="@color/mohaeng_green"
                     android:textSize="24sp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -194,6 +195,7 @@
                     android:layout_height="140dp"
                     android:layout_marginTop="40dp"
                     android:adjustViewBounds="true"
+                    setImageURL="@{viewModel.fetchTodayChallenge.todayChallengeDataDTO.popupCharacterImg"
                     android:background="@drawable/challenge_stamp_button"
                     android:scaleType="fitCenter"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -631,4 +633,5 @@
             app:layout_constraintTop_toBottomOf="@+id/constraintlayout_challenge_sub" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 </layout>
