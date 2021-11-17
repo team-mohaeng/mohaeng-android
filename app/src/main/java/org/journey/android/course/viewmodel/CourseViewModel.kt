@@ -148,7 +148,6 @@ class CourseViewModel @Inject constructor(
                 },{
                     it.printStackTrace()
                 })
-
         )
     }
 
