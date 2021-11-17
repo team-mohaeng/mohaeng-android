@@ -15,8 +15,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class BadgeViewModel @Inject constructor(
-    private val badgeController: BadgeController,
-    private val badgeListRepository: BadgeListRepository
+    private val badgeController: BadgeController
 ) : DisposableViewModel() {
     private val _getBadgeList = MutableLiveData<Boolean>()
 
@@ -37,5 +36,4 @@ class BadgeViewModel @Inject constructor(
                })
        )
     }
-
 }

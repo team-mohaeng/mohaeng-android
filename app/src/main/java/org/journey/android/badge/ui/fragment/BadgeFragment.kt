@@ -25,16 +25,14 @@ class BadgeFragment : Fragment() {
         binding = FragmentBadgeBinding.inflate(inflater, container, false)
         return binding.root
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
         loadBadgeList()
-        clickAssetListener()
+        popBackStack()
         viewModel.loadObtainedBadge()
     }
-
     private fun loadBadgeList() {
         binding.recyclerviewObtainedBadge.run {
             this.adapter = BadgeAdapter()
@@ -44,11 +42,7 @@ class BadgeFragment : Fragment() {
             }
         }
     }
-
-
-    private fun clickAssetListener() {
-        with(binding) {
-            buttonBack.setOnClickListener { findNavController().popBackStack() }
-        }
+    private fun popBackStack() {
+        with(binding) { buttonBack.setOnClickListener { findNavController().popBackStack() } }
     }
 }
