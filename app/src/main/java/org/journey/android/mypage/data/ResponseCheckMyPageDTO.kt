@@ -18,7 +18,7 @@ data class ResponseCheckMyPageDTO(
         @SerializedName("completeCourseCount")
         val completeCourseCount: Int,
         @SerializedName("email")
-        val email: String,
+        val email: String?,
         @SerializedName("feedCount")
         val feedCount: Int,
         @SerializedName("nickname")
