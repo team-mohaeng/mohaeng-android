@@ -129,11 +129,8 @@ class OnboardingFirstFragment : Fragment() {
             startActivity(intent)
         }
     }
-
     private fun startOnboarding(){
-        binding.buttonOnboardingStart.setOnClickListener {
-            findNavController().navigate(R.id.action_onboardingFirstFragment_to_onboardingSecondFragment)
-        }
+        binding.buttonOnboardingStart.setOnClickListener { findNavController().navigate(R.id.action_onboardingFirstFragment_to_onboardingSecondFragment) }
     }
 }
 

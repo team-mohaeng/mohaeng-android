@@ -4,11 +4,15 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import org.journey.android.BR
+import org.journey.android.community.ui.adapter.CommunityPostAdapter
 import org.journey.android.course.data.entity.CourseCatalogEntity
 import org.journey.android.databinding.ItemCourseCatalogBinding
 
-class CourseCatalogAdapter : RecyclerView.Adapter<CourseCatalogAdapter.CourseCatalogViewHolder>() {
+class CourseCatalogAdapter(val listener : OnItemClickListener) : RecyclerView.Adapter<CourseCatalogAdapter.CourseCatalogViewHolder>() {
     var courseCatalog = mutableListOf<CourseCatalogEntity>()
+    interface OnItemClickListener {
+        fun selectCourse()
+    }
     class CourseCatalogViewHolder(val binding : ItemCourseCatalogBinding) :
             RecyclerView.ViewHolder(binding.root)
 
@@ -20,7 +24,7 @@ class CourseCatalogAdapter : RecyclerView.Adapter<CourseCatalogAdapter.CourseCat
     override fun onBindViewHolder(holder: CourseCatalogViewHolder, position: Int) {
         val courseList = courseCatalog[position]
         holder.binding.setVariable(BR.data,courseList)
-
+        holder.binding.root.setOnClickListener { listener.selectCourse() }
     }
 
     override fun getItemCount() = courseCatalog.size

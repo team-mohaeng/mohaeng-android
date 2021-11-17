@@ -31,23 +31,25 @@ class CourseCatalogFragment : Fragment() {
         binding.lifecycleOwner = viewLifecycleOwner
         viewModel.fetchCatalogList()
         fetchCourseCatalog()
-        setClickListener()
+        popBackStack()
     }
-
     private fun fetchCourseCatalog(){
         binding.recyclerviewCourseCatalog.apply {
-            this.adapter = CourseCatalogAdapter()
+            this.adapter = CourseCatalogAdapter(object : CourseCatalogAdapter.OnItemClickListener{
+                override fun selectCourse() {
+                    val dialog = DialogCourseStartFragment()
+                    dialog.run {
+                        show(childFragmentManager , tag)
+                    }
+                }
+            })
             viewModel.courseCatalogList.observe(viewLifecycleOwner){
                 (adapter as CourseCatalogAdapter).courseCatalog = it.toMutableList()
                 (adapter as CourseCatalogAdapter).notifyDataSetChanged()
             }
         }
     }
-
-    private fun setClickListener(){
-        with(binding){
-            buttonBack.setOnClickListener { findNavController().popBackStack() }
-        }
+    private fun popBackStack(){
+        with(binding){ buttonBack.setOnClickListener { findNavController().popBackStack() } }
     }
-
 }

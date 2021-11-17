@@ -105,5 +105,14 @@
     <string name="none_undergoing_challenge">코스 선택 후,챌린지를 시작해봐!</string>
     <string name="course_start">시작하기</string>
     <string name="course_total_days">꺅 일탈행 %d일 코스</string>
+    <string name="start_new_course">코스를 완료하면 해피 지수가 와르르!\n마지막 챌린지까지 파이팅이닷</string>
+
+    <string name="deviate_course_period">꺅 일탈행 %d일 코스</string>
+    <string name="promise_course_period">꼭 지켜야행 %d일 코스</string>
+    <string name="care_course_period">날 케어행 %d일 코스</string>
+    <string name="health_course_period">늘 건강행 %d일 코스</string>
+    <string name="memory_course_period">호 추억행 %d일 코스</string>
+    <string name="smart_course_period">짱 똑똑행 %d일 코스</string>
+    <string name="love_course_period">쪽 사랑행 %d일 코스</string>
 
 </resources>

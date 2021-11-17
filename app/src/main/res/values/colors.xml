@@ -108,4 +108,25 @@
     <color name="mohaeng_red_ea">#EA0707</color>
     <color name="mohaeng_yellow_fff">#FFF2D0</color>
 
+    <color name="deviate_course1">#F5E5FF</color>
+    <color name="deviate_course2">#C28DE2</color>
+
+    <color name="promise_course1">#F5E5FF</color>
+    <color name="promise_course2">#8B9EE2</color>
+
+    <color name="care_course1">#E9F4FF</color>
+    <color name="care_course2">#9ECEFB</color>
+
+    <color name="health_course1">#ECFFFA</color>
+    <color name="health_course2">#63CEAA</color>
+
+    <color name="memory_course1">#FFFAE9</color>
+    <color name="memory_course2">#FBE184</color>
+
+    <color name="smart_course1">#FFF0E6</color>
+    <color name="smart_course2">#FFA86A</color>
+
+    <color name="love_course1">#FFF3F3</color>
+    <color name="love_course2">#FF7E7E</color>
+
 </resources>
