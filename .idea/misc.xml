@@ -44,6 +44,7 @@
         <entry key="app/src/main/res/layout/course_custom_dialog.xml" value="0.32395833333333335" />
         <entry key="app/src/main/res/layout/dialog_certify_challenge.xml" value="0.28802083333333334" />
         <entry key="app/src/main/res/layout/dialog_challenge_help.xml" value="0.32395833333333335" />
+        <entry key="app/src/main/res/layout/dialog_course_start_fragment.xml" value="0.225" />
         <entry key="app/src/main/res/layout/dialog_detail_delete.xml" value="0.32395833333333335" />
         <entry key="app/src/main/res/layout/dialog_detail_report.xml" value="0.20364583333333333" />
         <entry key="app/src/main/res/layout/dialog_explanation_challenge.xml" value="0.22083333333333333" />
@@ -60,7 +61,7 @@
         <entry key="app/src/main/res/layout/fragment_community.xml" value="0.24444444444444444" />
         <entry key="app/src/main/res/layout/fragment_community_detail.xml" value="0.32395833333333335" />
         <entry key="app/src/main/res/layout/fragment_course.xml" value="0.2632113012687298" />
-        <entry key="app/src/main/res/layout/fragment_course_catalog.xml" value="0.2604166666666667" />
+        <entry key="app/src/main/res/layout/fragment_course_catalog.xml" value="0.24310776942355888" />
         <entry key="app/src/main/res/layout/fragment_diary_first.xml" value="0.290625" />
         <entry key="app/src/main/res/layout/fragment_diary_second.xml" value="0.290625" />
         <entry key="app/src/main/res/layout/fragment_diary_viewpager_adapter.xml" value="0.290625" />

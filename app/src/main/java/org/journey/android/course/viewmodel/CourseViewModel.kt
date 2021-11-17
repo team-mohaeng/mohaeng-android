@@ -3,15 +3,22 @@ package org.journey.android.course.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import dagger.hilt.android.lifecycle.HiltViewModel
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.schedulers.Schedulers
 import org.journey.android.R
 import org.journey.android.base.DisposableViewModel
+import org.journey.android.course.controller.CourseCatalogController
 import org.journey.android.course.data.entity.CourseCatalogEntity
 import org.journey.android.course.data.entity.CourseDateEntity
 import org.journey.android.course.data.entity.CourseEntity
+import org.journey.android.course.data.repository.CourseCatalogRepository
 import javax.inject.Inject
 
 @HiltViewModel
-class CourseViewModel @Inject constructor() : DisposableViewModel() {
+class CourseViewModel @Inject constructor(
+    private val courseCatalogController: CourseCatalogController,
+    private val courseCatalogRepository: CourseCatalogRepository
+) : DisposableViewModel() {
     private val _courseRoute = MutableLiveData<List<CourseEntity>>()
     val courseRoute: LiveData<List<CourseEntity>>
         get() = _courseRoute
@@ -27,7 +34,6 @@ class CourseViewModel @Inject constructor() : DisposableViewModel() {
 
     init {
         fetchCourseRoute()
-        fetchCatalogList()
         fetchOddDateList()
     }
 
@@ -103,33 +109,17 @@ class CourseViewModel @Inject constructor() : DisposableViewModel() {
     }
 
 
-    private fun fetchCatalogList() {
-        val courseCatalogList = listOf(
-            CourseCatalogEntity(
-                "오늘의 일일 DJ",
-                "꺅 일탈행 7일 코스",
-                R.string.course_catalog_intro,
-                R.drawable.ic_img
-            ),
-            CourseCatalogEntity(
-                "오늘의 일일 DJ",
-                "꺅 일탈행 7일 코스",
-                R.string.course_catalog_intro,
-                R.drawable.ic_img
-            ),
-            CourseCatalogEntity(
-                "오늘의 일일 DJ",
-                "꺅 일탈행 7일 코스",
-                R.string.course_catalog_intro,
-                R.drawable.ic_img
-            ),
-            CourseCatalogEntity(
-                "오늘의 일일 DJ",
-                "꺅 일탈행 7일 코스",
-                R.string.course_catalog_intro,
-                R.drawable.ic_img
-            )
+    fun fetchCatalogList() {
+        addDisposable(
+            courseCatalogRepository.fetchCourseCatalog()
+                .observeOn(Schedulers.io())
+                .subscribeOn(AndroidSchedulers.mainThread())
+                .subscribe({
+                      _courseCatalogList.postValue(it)
+                },{
+                    it.printStackTrace()
+                })
+
         )
-        _courseCatalogList.value = courseCatalogList
     }
 }

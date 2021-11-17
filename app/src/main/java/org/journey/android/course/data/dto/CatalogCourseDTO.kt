@@ -20,10 +20,10 @@ data class CatalogCourseDTO(
 ){
     fun convertToCourseCatalogEntity() : CourseCatalogEntity {
         return CourseCatalogEntity(
+            property,
             title,
-            description,
             totalDays,
-            property
+            description
         )
     }
 }
