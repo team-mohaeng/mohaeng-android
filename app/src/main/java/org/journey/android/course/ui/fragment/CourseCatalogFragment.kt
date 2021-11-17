@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
+import org.journey.android.R
 import org.journey.android.course.viewmodel.CourseViewModel
 import org.journey.android.course.ui.adapter.CourseCatalogAdapter
 import org.journey.android.databinding.FragmentCourseCatalogBinding
@@ -37,10 +38,15 @@ class CourseCatalogFragment : Fragment() {
         binding.recyclerviewCourseCatalog.apply {
             this.adapter = CourseCatalogAdapter(object : CourseCatalogAdapter.OnItemClickListener{
                 override fun selectCourse() {
-                    val dialog = DialogCourseStartFragment()
-                    dialog.run {
-                        show(childFragmentManager , tag)
-                    }
+
+
+                    val dialog = DialogCourseStartFragment(object: DialogCourseStartFragment.StartCourseListener{
+                        override fun startCourse() {
+                            findNavController().previousBackStackEntry?.savedStateHandle?.set("ddd", true)
+                            findNavController().popBackStack()
+                        }
+                    })
+                    dialog.show(childFragmentManager , "dialog")
                 }
             })
             viewModel.courseCatalogList.observe(viewLifecycleOwner){

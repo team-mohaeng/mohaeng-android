@@ -1,6 +1,7 @@
 package org.journey.android.challenge.ui.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -39,6 +40,15 @@ class ChallengeFragment : Fragment() {
         certifyChallenge()
         getTodayChallenge()
         setNavController()
+        setBackStackEntry()
+    }
+
+    private fun setBackStackEntry(){
+        findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<Boolean>("ddd")?.observe(viewLifecycleOwner) {
+            Log.e("ddd", "ddd")
+            binding.constraintlayoutChallenge.isVisible = true
+
+        }
     }
 
     private fun setNavController() {
@@ -65,7 +75,7 @@ class ChallengeFragment : Fragment() {
 
     private fun getTodayChallenge() {
         viewModel.todayChallengeList.observe(viewLifecycleOwner) {
-            if (viewModel.fetchTodayChallenge.value != null) {
+            if (viewModel.fetchTodayChallenge.value?.todayChallengeDataDTO?.todayCourseDTO != null) {
                 binding.constraintlayoutChallenge.isVisible = true
             } else {
                 binding.constraintlayoutNoneChallenge.isVisible = true

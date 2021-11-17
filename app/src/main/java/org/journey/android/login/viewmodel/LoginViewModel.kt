@@ -129,12 +129,4 @@ class LoginViewModel @Inject constructor(
     fun saveAccessToken(token: String) {
         userPreferenceManager.saveUserAccessToken(token)
     }
-
-
-    companion object {
-        const val LOGIN_SUCCESS = "SUCCESS"
-        const val LOGIN_UNAUTHORIZATION = "UNAUTHORIZATION"
-        const val LOGIN_FAIL = "FAIL"
-    }
-
 }
