@@ -77,6 +77,7 @@ class ChallengeFragment : Fragment() {
         viewModel.todayChallengeList.observe(viewLifecycleOwner) {
             if (viewModel.fetchTodayChallenge.value?.todayChallengeDataDTO?.todayCourseDTO != null) {
                 binding.constraintlayoutChallenge.isVisible = true
+                viewModel.getTodayChallenge()
             } else {
                 binding.constraintlayoutNoneChallenge.isVisible = true
                 startNoneChallenge()

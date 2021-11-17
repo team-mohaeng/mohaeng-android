@@ -15,7 +15,7 @@ data class TodayCourseDTO(
     @SerializedName("month")
     val month: String,
     @SerializedName("property")
-    val `property`: Int,
+    val property: Int,
     @SerializedName("situation")
     val situation: Int,
     @SerializedName("title")

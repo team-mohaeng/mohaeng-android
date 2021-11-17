@@ -6,5 +6,5 @@ import org.journey.android.challenge.data.response.ResponseValidateChallengeDTO
 
 interface ChallengeController {
     fun todayChallenge(client : String):Single<ResponseTodayChallengeDTO>
-    fun validateChallenge(courseId : String, challengeId : String) : Single<ResponseValidateChallengeDTO>
+    fun validateChallenge(client : String, courseId : String, challengeId : String) : Single<ResponseValidateChallengeDTO>
 }

@@ -67,7 +67,7 @@ interface RetrofitInterface {
     fun checkTodayChallenge(@Header("client") client : String) : Single<ResponseTodayChallengeDTO>
 
     @PUT("/api/today/{courseId}/{challengeId}")
-    fun putValidateChallenge(@Path("courseId") courseId : String, @Path("challengeId") challengeId : String) : Single<ResponseValidateChallengeDTO>
+    fun putValidateChallenge(@Header("client") client : String, @Path("courseId") courseId : String, @Path("challengeId") challengeId : String) : Single<ResponseValidateChallengeDTO>
 
     @GET("/api/courses")
     fun getCourses() : Single<ResponseCourseCatalogDTO>
