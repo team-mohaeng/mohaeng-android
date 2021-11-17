@@ -184,7 +184,11 @@
         android:id="@+id/courseCatalogFragment"
         android:name="org.journey.android.course.ui.fragment.CourseCatalogFragment"
         android:label="fragment_library"
-        tools:layout="@layout/fragment_course_catalog" />
+        tools:layout="@layout/fragment_course_catalog" >
+        <action
+            android:id="@+id/action_courseCatalogFragment_to_challengeFragment"
+            app:destination="@id/challengeFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/privateFragment"

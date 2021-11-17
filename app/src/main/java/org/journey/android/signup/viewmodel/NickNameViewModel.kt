@@ -52,7 +52,6 @@ class NickNameViewModel @Inject constructor(
             else { }
         }
     }
-
     fun saveEmailSignUpInformation () {
         userEmail.value?.let { userPreferenceManager.saveUserEmail(it) }
         userPassword.value?.let { userPreferenceManager.saveUserPassword(it) }
@@ -119,6 +118,5 @@ class NickNameViewModel @Inject constructor(
                 })
         )
     }
-
 
 }

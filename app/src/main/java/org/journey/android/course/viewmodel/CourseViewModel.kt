@@ -7,7 +7,9 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.journey.android.R
 import org.journey.android.base.DisposableViewModel
-import org.journey.android.course.controller.CourseCatalogController
+import org.journey.android.course.controller.catalog.CourseCatalogController
+import org.journey.android.course.controller.state.CourseStateController
+import org.journey.android.course.data.dto.ResponseStartChallengeDTO
 import org.journey.android.course.data.entity.CourseCatalogEntity
 import org.journey.android.course.data.entity.CourseDateEntity
 import org.journey.android.course.data.entity.CourseEntity
@@ -17,6 +19,7 @@ import javax.inject.Inject
 @HiltViewModel
 class CourseViewModel @Inject constructor(
     private val courseCatalogController: CourseCatalogController,
+    private val courseStateController: CourseStateController,
     private val courseCatalogRepository: CourseCatalogRepository
 ) : DisposableViewModel() {
     private val _courseRoute = MutableLiveData<List<CourseEntity>>()
@@ -31,10 +34,28 @@ class CourseViewModel @Inject constructor(
     val courseDateList: LiveData<List<CourseDateEntity>>
         get() = _courseOddDateList
 
+    private val _startCourse = MutableLiveData<ResponseStartChallengeDTO>()
+    val startCourse : LiveData<ResponseStartChallengeDTO>
+        get() = _startCourse
 
     init {
         fetchCourseRoute()
         fetchOddDateList()
+    }
+
+    fun putCourseState(){
+        addDisposable(
+            courseStateController.putCourseState(
+                client = "aos",
+                courseId = 1
+            ).subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({
+                      _startCourse.postValue(it)
+                },{
+                    it.printStackTrace()
+                })
+        )
     }
 
     private fun fetchCourseRoute() {
@@ -122,4 +143,5 @@ class CourseViewModel @Inject constructor(
 
         )
     }
+
 }

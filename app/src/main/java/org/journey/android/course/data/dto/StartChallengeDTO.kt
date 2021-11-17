@@ -1,11 +1,11 @@
-package org.journey.android.challenge.data
+package org.journey.android.course.data.dto
 
 
 import com.google.gson.annotations.SerializedName
 
-data class TodayChallengeDataDTO(
+data class StartChallengeDTO(
     @SerializedName("course")
-    val todayCourseDTO: TodayCourseDTO?,
+    val startCourseDTO: StartCourseDTO,
     @SerializedName("isComplete")
     val isComplete: Boolean,
     @SerializedName("isPenalty")

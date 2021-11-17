@@ -7,12 +7,10 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SignupViewModel @Inject constructor() : DisposableViewModel(){
-
     val wholePolicyAllowed = MutableLiveData<Boolean>()
     val serviceAllowed = MutableLiveData<Boolean>()
     val personalInformationAllowed = MutableLiveData<Boolean>()
     val serviceAgreementList = listOf(serviceAllowed, personalInformationAllowed)
-
 
     fun checkEveryServiceAgreement(){
         wholePolicyAllowed.value = serviceAgreementList.all { it.value  == true}
@@ -24,5 +22,4 @@ class SignupViewModel @Inject constructor() : DisposableViewModel(){
             serviceAllowed.value = this
         }
     }
-
 }
