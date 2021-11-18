@@ -20,23 +20,20 @@
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/imageview_character"
             android:layout_width="260dp"
-            android:layout_height="200dp"
-            android:layout_marginTop="123dp"
+            android:layout_height="250dp"
+            android:layout_marginTop="80dp"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
-            app:lottie_rawRes="@raw/awards_congrats"
+            app:lottie_rawRes="@raw/awards_crs"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textview_success_ment" />
-
-        <com.airbnb.lottie.LottieAnimationView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imagview_graphic"
             android:layout_width="200dp"
             android:layout_height="54dp"
             android:layout_marginTop="60dp"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:lottie_rawRes="@raw/letter"
+            android:background="@drawable/gray_graphic"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/imageview_character" />
