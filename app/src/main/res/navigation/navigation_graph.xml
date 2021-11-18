@@ -278,5 +278,14 @@
         android:id="@+id/completeRewardFragment"
         android:name="org.journey.android.reward.ui.CompleteRewardFragment"
         android:label="CompleteRewardFragment"
-        tools:layout="@layout/fragment_complete_reward"/>
+        tools:layout="@layout/fragment_complete_reward">
+        <action
+            android:id="@+id/action_completeRewardFragment_to_badgeRewardFragment"
+            app:destination="@id/badgeRewardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/badgeRewardFragment"
+        android:name="org.journey.android.reward.ui.BadgeRewardFragment"
+        android:label="BadgeRewardFragment"
+        tools:layout="@layout/fragment_badge_reward"/>
 </navigation>
