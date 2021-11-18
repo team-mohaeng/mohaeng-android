@@ -10,7 +10,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="96dp"
             android:fontFamily="@font/gmarketsansttfmedium"
-            android:text="코스를 완료했어!"
+            android:text="배지를 획득했어!"
             android:textColor="@color/mohaeng_black"
             android:textScaleX="0.98"
             android:textSize="26sp"
@@ -20,20 +20,22 @@
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/imageview_character"
             android:layout_width="260dp"
-            android:layout_height="250dp"
-            android:layout_marginTop="80dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="123dp"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
-            app:lottie_rawRes="@raw/awards_crs"
+            app:lottie_rawRes="@raw/awards_congrats"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textview_success_ment" />
-        <androidx.appcompat.widget.AppCompatImageView
+        <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/imagview_graphic"
             android:layout_width="200dp"
             android:layout_height="54dp"
             android:layout_marginTop="60dp"
-            android:background="@drawable/gray_graphic"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/letter"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/imageview_character" />

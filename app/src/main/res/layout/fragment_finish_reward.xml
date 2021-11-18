@@ -17,6 +17,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageview_character"
             android:layout_width="260dp"
@@ -26,6 +27,18 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textview_success_ment" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottie_animation"
+            android:layout_width="260dp"
+            android:layout_height="200dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageview_character"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textview_success_ment"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/awards_congrats" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imagview_graphic"

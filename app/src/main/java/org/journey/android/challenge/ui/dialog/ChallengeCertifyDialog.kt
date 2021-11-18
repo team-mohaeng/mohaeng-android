@@ -43,7 +43,11 @@ class ChallengeCertifyDialog(private val listener : CertifyChallengeListener) : 
     }
 
     private fun certifyCourse(){
-        binding.buttonDialogA.setOnClickListener { listener.certifyCourse() }
+        with(binding){
+            buttonDialogA.setOnClickListener { listener.certifyCourse() }
+            buttonDialogB.setOnClickListener { listener.certifyCourse() }
+            buttonDialogC.setOnClickListener { listener.certifyCourse() }
+        }
     }
 
 }
