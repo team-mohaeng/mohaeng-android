@@ -45,6 +45,8 @@ class MainViewModel @Inject constructor(
                     _getLottie.postValue(response.challengeProgressDTO)
                     _userNickName.postValue(response.challengeProgressDTO.nickname)
                     _getHomeResource.postValue(true)
+
+                    userPreferenceManager.saveUserNickName(response.challengeProgressDTO.nickname)
                 },{
                     _getHomeResource.postValue(false)
                     it.printStackTrace()

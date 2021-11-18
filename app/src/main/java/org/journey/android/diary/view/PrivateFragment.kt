@@ -126,20 +126,19 @@ class PrivateFragment : Fragment(){
 
     }
 
-    fun pressedBack(){
+    private fun pressedBack(){
         binding.imagebuttonCommunityBackPrivate.setOnClickListener {
             findNavController().popBackStack()
         }
     }
 
-    fun setRetrofit(year:String, month:String){
+    private fun setRetrofit(year:String, month:String){
         val call: Call<ResponseDiaryPrivateData> = FeedRequestToServer.service
             .getPrivateDiary(
                 year,
                 month,
                 "application/json",
                 viewModel.getJWT()
-//                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk"
             )
 
         call.enqueue(object : Callback<ResponseDiaryPrivateData> {
