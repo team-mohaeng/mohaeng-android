@@ -6,19 +6,24 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
+import org.journey.android.R
 import org.journey.android.databinding.FragmentEditNickNameBinding
+import org.journey.android.preference.UserPreferenceManager
 import org.journey.android.signup.viewmodel.NickNameViewModel
 import org.journey.android.util.AutoClearedValue
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class EditNickNameFragment : Fragment() {
     private var binding by AutoClearedValue<FragmentEditNickNameBinding>()
     private val viewModel : NickNameViewModel by viewModels()
+    @Inject lateinit var userPreferenceManager: UserPreferenceManager
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,15 +38,14 @@ class EditNickNameFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
-        changeNickName()
         setButtonVisible()
         popBackStack()
+        changeNickName()
     }
     private fun changeNickName() {
         binding.buttonSetNickname.setOnClickListener {
-            viewModel.changeNickName.observe(viewLifecycleOwner){
-                viewModel.changeNickName()
-            }
+            viewModel.changeNickName()
+            findNavController().navigate(R.id.action_editNickNameFragment_to_mainFragment)
         }
     }
     private fun setButtonVisible(){
@@ -58,4 +62,5 @@ class EditNickNameFragment : Fragment() {
     private fun popBackStack(){
         binding.buttonNicknameReturn.setOnClickListener { findNavController().popBackStack() }
     }
+
 }

@@ -11,9 +11,6 @@
         android:label="fragment_frame"
         tools:layout="@layout/fragment_frame">
         <action
-            android:id="@+id/action_frameFragment_to_rewardFragment"
-            app:destination="@id/rewardFragment" />
-        <action
             android:id="@+id/action_frameFragment_to_libraryFragment"
             app:destination="@id/courseCatalogFragment" />
         <action
@@ -58,6 +55,9 @@
         <action
             android:id="@+id/action_frameFragment_to_challengeFragment"
             app:destination="@id/challengeFragment" />
+        <action
+            android:id="@+id/action_frameFragment_to_finishRewardFragment"
+            app:destination="@id/finishRewardFragment" />
     </fragment>
 
     <fragment
@@ -66,9 +66,6 @@
         android:label="fragment_main"
         tools:layout="@layout/fragment_main">
 
-    <action
-            android:id="@+id/action_mainFragment_to_rewardFragment"
-            app:destination="@id/rewardFragment" />
         <action
             android:id="@+id/action_mainFragment_to_chatFragment"
             app:destination="@id/chatFragment" />
@@ -154,15 +151,6 @@
             app:destination="@id/communityFragment" />
     </fragment>
     <fragment
-        android:id="@+id/rewardFragment"
-        android:name="org.journey.android.reward.ui.RewardFragment"
-        android:label="RewardFragment"
-        tools:layout="@layout/fragment_reward">
-        <action
-            android:id="@+id/action_rewardFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
-    </fragment>
-    <fragment
         android:id="@+id/privateDetailFragment"
         android:name="org.journey.android.diary.view.PrivateDetailFragment"
         android:label="PrivateDetailFragment"
@@ -245,7 +233,11 @@
         android:id="@+id/finishRewardFragment"
         android:name="org.journey.android.reward.ui.FinishRewardFragment"
         android:label="FinishRewardFragment"
-        tools:layout="@layout/fragment_finish_reward"/>
+        tools:layout="@layout/fragment_finish_reward">
+        <action
+            android:id="@+id/action_finishRewardFragment_to_completeRewardFragment"
+            app:destination="@id/completeRewardFragment" />
+    </fragment>
     <fragment
         android:id="@+id/badgeFragment"
         android:name="org.journey.android.badge.ui.fragment.BadgeFragment"
@@ -255,7 +247,11 @@
         android:id="@+id/editNickNameFragment"
         android:name="org.journey.android.mypage.ui.EditNickNameFragment"
         android:label="EditNickNameFragment"
-        tools:layout="@layout/fragment_edit_nick_name"/>
+        tools:layout="@layout/fragment_edit_nick_name">
+        <action
+            android:id="@+id/action_editNickNameFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
     <fragment
         android:id="@+id/settingFragment"
         android:name="org.journey.android.setting.view.SettingFragment"
@@ -278,4 +274,9 @@
         android:name="org.journey.android.setting.view.TeamFragment"
         android:label="TeamFragment"
         tools:layout="@layout/fragment_team"/>
+    <fragment
+        android:id="@+id/completeRewardFragment"
+        android:name="org.journey.android.reward.ui.CompleteRewardFragment"
+        android:label="CompleteRewardFragment"
+        tools:layout="@layout/fragment_complete_reward"/>
 </navigation>

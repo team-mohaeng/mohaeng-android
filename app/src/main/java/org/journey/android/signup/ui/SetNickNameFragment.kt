@@ -60,7 +60,6 @@ class SetNickNameFragment : Fragment() {
                 viewModel.setNickName()
             }
         }
-        //로그아웃하고 다시 접속했을 경우 User 관련된 부분 다 널 처리 !!
 //        userPreferenceManager.saveUserSnsType("")
     }
     private fun checkNickName(){

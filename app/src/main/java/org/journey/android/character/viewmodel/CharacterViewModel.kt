@@ -5,12 +5,15 @@ import androidx.lifecycle.MutableLiveData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import org.journey.android.R
 import org.journey.android.base.BaseViewModel
+import org.journey.android.character.controller.CharacterController
 import org.journey.android.character.data.entity.MohaengCharacterEntity
 import org.journey.android.character.data.entity.MohaengCharacterOptionEntity
 import javax.inject.Inject
 
 @HiltViewModel
-class CharacterViewModel @Inject constructor() : BaseViewModel() {
+class CharacterViewModel @Inject constructor(
+    private val characterController: CharacterController
+) : BaseViewModel() {
     private val _characterList = MutableLiveData<List<MohaengCharacterEntity>>()
     val characterList: LiveData<List<MohaengCharacterEntity>>
         get() = _characterList

@@ -26,14 +26,18 @@ class NickNameViewModel @Inject constructor(
     val userPassword = MutableLiveData<String>()
     val userToken = MutableLiveData<String>()
     val userPasswordDoubleCheck = MutableLiveData<String>()
-    val changeNickName = MutableLiveData<String>()
+    val newNickName = MutableLiveData<String>()
 
     private val _signUpSuccess = MutableLiveData<Boolean>()
-    val signUpSuccess : LiveData<Boolean>
+    val signUpSuccess: LiveData<Boolean>
         get() = _signUpSuccess
 
+    private val _isChangeNickName = MutableLiveData<Boolean>()
+    val ischangeNickName: LiveData<Boolean>
+        get() = _isChangeNickName
+
     private val _emailSignUpSuccess = MutableLiveData<Boolean>()
-    val emailSignUpSuccess : LiveData<Boolean>
+    val emailSignUpSuccess: LiveData<Boolean>
         get() = _emailSignUpSuccess
 
     private val _nickNameStatus = MutableLiveData<NickNameStatus>()
@@ -41,24 +45,26 @@ class NickNameViewModel @Inject constructor(
         get() = _nickNameStatus
 
     private val _changeNickNameSuccess = MutableLiveData<Boolean>()
-    val changeNickNameSuccess : LiveData<Boolean>
+    val changeNickNameSuccess: LiveData<Boolean>
         get() = _changeNickNameSuccess
 
-    fun checkNickNameAvailable(){
+    fun checkNickNameAvailable() {
         nickname.value?.let { nickName ->
-            if(nickName.length > 6) { _nickNameStatus.value =
-                NickNameStatus.IS_NOT_AVAILABLE_NICKNAME
+            if (nickName.length > 6) {
+                _nickNameStatus.value = NickNameStatus.IS_NOT_AVAILABLE_NICKNAME
+            } else {
+                _nickNameStatus.value = NickNameStatus.CHECK_NICKNAME_REPETITION
             }
-            else { }
         }
     }
-    fun saveEmailSignUpInformation () {
+
+    fun saveEmailSignUpInformation() {
         userEmail.value?.let { userPreferenceManager.saveUserEmail(it) }
         userPassword.value?.let { userPreferenceManager.saveUserPassword(it) }
-        userToken.value?.let{userPreferenceManager.saveUserFcmDeviceToken(it)}
+        userToken.value?.let { userPreferenceManager.saveUserFcmDeviceToken(it) }
     }
 
-    fun setNickName(){
+    fun setNickName() {
         addDisposable(
             signUpController.socialSignUp(
                 userPreferenceManager.fetchUserAccessToken(),
@@ -72,14 +78,14 @@ class NickNameViewModel @Inject constructor(
                 .subscribe({ response ->
                     _signUpSuccess.postValue(true)
 
-                },{
+                }, {
                     _signUpSuccess.postValue(false)
-                   it.printStackTrace()
-                    } )
+                    it.printStackTrace()
+                })
         )
     }
 
-    fun signUpEmail(){
+    fun signUpEmail() {
         addDisposable(
             signUpController.emailSignUp(
                 userPreferenceManager.fetchUserFcmDeviceToken(),
@@ -95,28 +101,28 @@ class NickNameViewModel @Inject constructor(
                     userPreferenceManager.saveUserPassword(userPassword.value.toString())
                     userPreferenceManager.saveUserFcmDeviceToken(userToken.value.toString())
                     _emailSignUpSuccess.postValue(true)
-                },{
+                }, {
                     _emailSignUpSuccess.postValue(false)
                     it.printStackTrace()
                 })
         )
     }
 
-    fun changeNickName(){
+    fun changeNickName() {
         addDisposable(
             changeNickNameController.changeNickName(
                 RequestChangeNickNameDTO(
-                    changeNickName.value.toString()
+                    newNickName.value ?: ""
                 )
             ).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
                     _changeNickNameSuccess.postValue(true)
-                },{
+                    userPreferenceManager.saveUserNickName(newNickName.value.toString())
+                }, {
                     _changeNickNameSuccess.postValue(false)
                     it.printStackTrace()
                 })
         )
     }
-
 }

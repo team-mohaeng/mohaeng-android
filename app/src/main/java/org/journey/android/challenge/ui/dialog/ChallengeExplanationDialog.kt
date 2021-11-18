@@ -6,10 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import androidx.fragment.app.DialogFragment
+import dagger.hilt.android.AndroidEntryPoint
 import org.journey.android.R
 import org.journey.android.databinding.DialogExplanationChallengeBinding
 import org.journey.android.util.AutoClearedValue
 
+@AndroidEntryPoint
 class ChallengeExplanationDialog : DialogFragment() {
     private var binding by AutoClearedValue<DialogExplanationChallengeBinding>()
 

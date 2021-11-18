@@ -87,6 +87,8 @@
     <string name="onboarding_last_ment">오늘의 챌린지를 인증하고 나서\n하루에 한 번씩 안부를 작성할 수 있어. \n\n챌린지를 하면서 느꼈던 사소한 것도 괜찮아.\n자유롭게 안부를 남겨봐~</string>
 
     <string name="not_available_nickname">사용 불가능한 닉네임입니다.</string>
+    <string name="check_nickname_repetition">닉네임 중복 여부를 확인해주세요.</string>
+
     <string name="giveup_challenge">기존 코스를 포기하면 새로 시작한 코스\n첫날의 해피지수를 받을 수 없어 ㅠㅠ</string>
     <string name="firebase_app_key">495078612836-gouqa80mog4qg1e4nv9s3qr9s18ugnpt.apps.googleusercontent.com</string>
     <string name="onboarding_greeting_met">재밌는 챌린지를 골랐네~</string>
@@ -107,12 +109,13 @@
     <string name="course_total_days">꺅 일탈행 %d일 코스</string>
     <string name="start_new_course">코스를 완료하면 해피 지수가 와르르!\n마지막 챌린지까지 파이팅이닷</string>
 
-    <string name="deviate_course_period">꺅 일탈행 %d일 코스</string>
-    <string name="promise_course_period">꼭 지켜야행 %d일 코스</string>
-    <string name="care_course_period">날 케어행 %d일 코스</string>
-    <string name="health_course_period">늘 건강행 %d일 코스</string>
-    <string name="memory_course_period">호 추억행 %d일 코스</string>
-    <string name="smart_course_period">짱 똑똑행 %d일 코스</string>
-    <string name="love_course_period">쪽 사랑행 %d일 코스</string>
+    <string name="deviate_course_period">꺅 일탈행 7일 코스</string>
+    <string name="promise_course_period">꼭 지켜야행 7일 코스</string>
+    <string name="care_course_period">날 케어행 7일 코스</string>
+    <string name="health_course_period">늘 건강행 7일 코스</string>
+    <string name="memory_course_period">호 추억행 3일 코스</string>
+    <string name="smart_course_period">짱 똑똑행 7일 코스</string>
+    <string name="love_course_period">쪽 사랑행 7일 코스</string>
+    <string name="set_nickname_qualification">닉네임은 한글 6자 이내로 입력해주세요.</string>
 
 </resources>

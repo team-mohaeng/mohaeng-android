@@ -51,6 +51,11 @@ class CourseViewModel @Inject constructor(
         fetchOddDateList()
     }
 
+    fun fetchCourseCatalogEnum(){
+
+    }
+
+
     fun putCourseState(){
         addDisposable(
             courseStateController.putCourseState(
