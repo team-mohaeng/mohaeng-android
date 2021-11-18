@@ -1,10 +1,10 @@
-package org.journey.android.badge.data.dto
+package org.journey.android.character.data.dto.response
 
 
 import com.google.gson.annotations.SerializedName
-import org.journey.android.badge.data.entity.BadgeEntity
+import org.journey.android.character.data.dto.DataDTO
 
-data class ResponseAchieveBadgeDTO(
+data class ResponseGetCharacterDTO(
     @SerializedName("data")
     val dataDTO: DataDTO,
     @SerializedName("status")

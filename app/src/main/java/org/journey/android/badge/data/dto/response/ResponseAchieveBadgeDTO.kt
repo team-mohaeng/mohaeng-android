@@ -1,16 +1,13 @@
-package org.journey.android.signup.data
+package org.journey.android.badge.data.dto.response
+
 
 import com.google.gson.annotations.SerializedName
+import org.journey.android.badge.data.dto.DataDTO
 
-data class ResponseSignupDTO(
+data class ResponseAchieveBadgeDTO(
     @SerializedName("data")
     val dataDTO: DataDTO,
     @SerializedName("status")
     val status: Int,
     val message : String?
-){
-    data class DataDTO(
-        @SerializedName("jwt")
-        val jwt: String
-    )
-}
+)

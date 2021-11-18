@@ -32,7 +32,7 @@
             android:value="@string/default_notification_channel_id" />
 
         <service
-            android:name=".pushalarm.MohaengMessagingService"
+            android:name=".pushalarm.service.MohaengMessagingService"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT"/>

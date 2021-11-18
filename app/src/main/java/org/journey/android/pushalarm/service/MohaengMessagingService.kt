@@ -1,4 +1,4 @@
-package org.journey.android.pushalarm
+package org.journey.android.pushalarm.service
 
 import android.app.NotificationChannel
 import android.app.NotificationManager

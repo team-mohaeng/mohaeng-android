@@ -1,28 +1,32 @@
 package org.journey.android.network
 
 import io.reactivex.rxjava3.core.Single
-import org.journey.android.badge.data.dto.ResponseAchieveBadgeDTO
+import org.journey.android.badge.data.dto.response.ResponseAchieveBadgeDTO
 import org.journey.android.challenge.data.response.ResponseTodayChallengeDTO
 import org.journey.android.challenge.data.response.ResponseValidateChallengeDTO
-import org.journey.android.character.data.dto.RequestChangeCharacterDTO
-import org.journey.android.character.data.dto.ResponseChangeCharacterDTO
-import org.journey.android.character.data.dto.ResponseGetCharacterDTO
+import org.journey.android.character.data.dto.request.RequestChangeCharacterDTO
+import org.journey.android.character.data.dto.response.ResponseChangeCharacterDTO
+import org.journey.android.character.data.dto.response.ResponseGetCharacterDTO
 import org.journey.android.community.data.dto.ResponseCommunityFeedDTO
-import org.journey.android.course.data.dto.ResponseCompleteCourseListDTO
 import org.journey.android.course.data.dto.ResponseCourseCatalogDTO
 import org.journey.android.course.data.dto.ResponseStartChallengeDTO
 import org.journey.android.findpw.data.RequestChangePasswordDTO
 import org.journey.android.findpw.data.ResponseChangePasswordDTO
 import org.journey.android.findpw.data.ResponseVerificationCodeDTO
-import org.journey.android.login.data.RequestEmailSignInDTO
-import org.journey.android.login.data.ResponseEmailSignInDTO
-import org.journey.android.login.data.ResponseGoogleSignInDTO
-import org.journey.android.login.data.ResponseKakaoSignInDTO
+import org.journey.android.login.data.request.RequestEmailSignInDTO
+import org.journey.android.login.data.response.ResponseEmailSignInDTO
+import org.journey.android.login.data.response.ResponseGoogleSignInDTO
+import org.journey.android.login.data.response.ResponseKakaoSignInDTO
 import org.journey.android.main.dto.ResponseHomeDTO
 import org.journey.android.mypage.data.dto.response.ResponseCheckMyPageDTO
 import org.journey.android.mypage.data.dto.response.ResponseCompleteCourseDTO
 import org.journey.android.pushalarm.data.response.ResponsePushAlarmDTO
-import org.journey.android.signup.data.*
+import org.journey.android.signup.data.request.RequestChangeNickNameDTO
+import org.journey.android.signup.data.request.RequestSignupDTO
+import org.journey.android.signup.data.request.RequestSocialSignUpDTO
+import org.journey.android.signup.data.response.ResponseChangeNickNameDTO
+import org.journey.android.signup.data.response.ResponseSignupDTO
+import org.journey.android.signup.data.response.ResponseSocialSignUpDTO
 import retrofit2.http.*
 
 interface RetrofitInterface {
@@ -44,7 +48,8 @@ interface RetrofitInterface {
     fun snsSignUp(@Header("idToken") accessToken : String ,
                     @Header("token") fcmToken : String,
                   @Path("snsType") snsType : String,
-    @Body requestSocialSignUpDTO: RequestSocialSignUpDTO) : Single<ResponseSocialSignUpDTO>
+    @Body requestSocialSignUpDTO: RequestSocialSignUpDTO
+    ) : Single<ResponseSocialSignUpDTO>
 
     @PUT("/api/password")
     fun changePassWord(@Body requestChangePasswordDTO: RequestChangePasswordDTO) : Single<ResponseChangePasswordDTO>

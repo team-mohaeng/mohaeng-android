@@ -1,8 +1,7 @@
 package org.journey.android.badge.data.source
 
 import io.reactivex.rxjava3.core.Single
-import org.journey.android.badge.data.dto.ResponseAchieveBadgeDTO
-import org.journey.android.badge.data.source.BadgeDataSource
+import org.journey.android.badge.data.dto.response.ResponseAchieveBadgeDTO
 import org.journey.android.network.RetrofitInterface
 import javax.inject.Inject
 

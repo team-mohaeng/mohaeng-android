@@ -10,9 +10,9 @@ import org.journey.android.preference.UserPreferenceManager
 import org.journey.android.signup.NickNameStatus
 import org.journey.android.signup.controller.ChangeNickNameController
 import org.journey.android.signup.controller.SignUpController
-import org.journey.android.signup.data.RequestChangeNickNameDTO
-import org.journey.android.signup.data.RequestSignupDTO
-import org.journey.android.signup.data.RequestSocialSignUpDTO
+import org.journey.android.signup.data.request.RequestChangeNickNameDTO
+import org.journey.android.signup.data.request.RequestSignupDTO
+import org.journey.android.signup.data.request.RequestSocialSignUpDTO
 import javax.inject.Inject
 
 @HiltViewModel

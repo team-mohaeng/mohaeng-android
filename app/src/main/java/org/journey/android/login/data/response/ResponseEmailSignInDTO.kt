@@ -1,4 +1,4 @@
-package org.journey.android.login.data
+package org.journey.android.login.data.response
 
 import com.google.gson.annotations.SerializedName
 

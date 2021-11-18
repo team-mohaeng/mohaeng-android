@@ -62,7 +62,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="org.journey.android.main.view.MainFragment"
+        android:name="org.journey.android.main.view.fragment.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main">
 

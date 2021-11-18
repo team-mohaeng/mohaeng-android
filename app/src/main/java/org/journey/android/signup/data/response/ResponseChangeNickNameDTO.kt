@@ -1,9 +1,9 @@
-package org.journey.android.character.data.dto
+package org.journey.android.signup.data.response
 
 
 import com.google.gson.annotations.SerializedName
 
-data class ResponseChangeCharacterDTO(
+data class ResponseChangeNickNameDTO(
     @SerializedName("message")
     val message: String,
     @SerializedName("status")

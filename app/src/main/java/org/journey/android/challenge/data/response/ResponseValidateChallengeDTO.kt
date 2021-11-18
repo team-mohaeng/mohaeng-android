@@ -2,7 +2,7 @@ package org.journey.android.challenge.data.response
 
 
 import com.google.gson.annotations.SerializedName
-import org.journey.android.challenge.data.ValidateChallengeDataDTO
+import org.journey.android.challenge.data.dto.validate.ValidateChallengeDataDTO
 
 data class ResponseValidateChallengeDTO(
     @SerializedName("data")

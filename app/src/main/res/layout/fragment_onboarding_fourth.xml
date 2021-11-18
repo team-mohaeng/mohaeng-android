@@ -103,7 +103,7 @@
                 android:layout_height="180dp"
                 android:layout_marginTop="26dp"
                 app:lottie_rawRes="@raw/challenge2"
-                app:lottie_loop="true"
+                app:lottie_loop="false"
                 app:lottie_autoPlay="true"
                 app:layout_constraintStart_toStartOf="@id/imageview_stamp_background"
                 app:layout_constraintTop_toBottomOf="@id/textview_course_title"/>

@@ -1,4 +1,4 @@
-package org.journey.android.challenge.data
+package org.journey.android.challenge.data.dto.today
 
 
 import com.google.gson.annotations.SerializedName

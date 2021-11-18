@@ -7,7 +7,7 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.journey.android.base.DisposableViewModel
 import org.journey.android.challenge.controller.ChallengeController
-import org.journey.android.challenge.data.TodayChallengeDTO
+import org.journey.android.challenge.data.dto.today.TodayChallengeDTO
 import org.journey.android.challenge.data.response.ResponseTodayChallengeDTO
 import javax.inject.Inject
 
