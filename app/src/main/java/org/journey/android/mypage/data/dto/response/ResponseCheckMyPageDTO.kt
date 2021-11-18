@@ -1,4 +1,4 @@
-package org.journey.android.mypage.data
+package org.journey.android.mypage.data.dto.response
 
 import com.google.gson.annotations.SerializedName
 

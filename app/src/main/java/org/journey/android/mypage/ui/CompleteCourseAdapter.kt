@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import org.journey.android.BR
 import org.journey.android.databinding.ItemCourseCompleteBinding
-import org.journey.android.mypage.data.CompleteCourseEntity
+import org.journey.android.mypage.data.entity.CompleteCourseEntity
 import org.journey.android.util.DiffCallback
 
 class CompleteCourseAdapter(): ListAdapter<CompleteCourseEntity, CompleteCourseAdapter.CompleteCourseViewHolder>(

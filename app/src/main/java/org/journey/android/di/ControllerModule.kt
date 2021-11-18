@@ -26,8 +26,10 @@ import org.journey.android.login.controller.SignInController
 import org.journey.android.login.controller.SignInControllerImpl
 import org.journey.android.main.controller.HomeController
 import org.journey.android.main.controller.HomeControllerImpl
-import org.journey.android.mypage.controller.MyPageController
-import org.journey.android.mypage.controller.MyPageControllerImpl
+import org.journey.android.mypage.controller.course.CompleteCourseController
+import org.journey.android.mypage.controller.course.CompleteCourseControllerImpl
+import org.journey.android.mypage.controller.user.MyPageController
+import org.journey.android.mypage.controller.user.MyPageControllerImpl
 import org.journey.android.network.RetrofitInterface
 import org.journey.android.qualifier.AuthRetrofitService
 import org.journey.android.qualifier.UnAuthRetrofitService
@@ -109,5 +111,10 @@ object ControllerModule {
     @Singleton
     fun provideCourseStateContoller(@AuthRetrofitService retrofitInterface: RetrofitInterface) : CourseStateController =
         CourseStateControllerImpl(retrofitInterface)
+
+    @Provides
+    @Singleton
+    fun provideCompleteCourseController(@AuthRetrofitService retrofitInterface: RetrofitInterface) : CompleteCourseController =
+        CompleteCourseControllerImpl(retrofitInterface)
 
 }
