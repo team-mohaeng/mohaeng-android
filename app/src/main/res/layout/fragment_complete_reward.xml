@@ -19,8 +19,8 @@
             app:layout_constraintTop_toTopOf="parent" />
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/imageview_character"
-            android:layout_width="260dp"
-            android:layout_height="250dp"
+            android:layout_width="250dp"
+            android:layout_height="260dp"
             android:layout_marginTop="80dp"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
@@ -28,12 +28,14 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textview_success_ment" />
-        <androidx.appcompat.widget.AppCompatImageView
+        <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/imagview_graphic"
-            android:layout_width="200dp"
-            android:layout_height="54dp"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
             android:layout_marginTop="60dp"
-            android:background="@drawable/gray_graphic"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/letter2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/imageview_character" />
@@ -65,6 +67,6 @@
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/imagview_graphic" />
+            app:layout_constraintTop_toBottomOf="@id/textview_success_challenge" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

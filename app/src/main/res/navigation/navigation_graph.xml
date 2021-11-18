@@ -219,6 +219,9 @@
         <action
             android:id="@+id/action_myPageFragment_to_settingFragment"
             app:destination="@id/settingFragment" />
+        <action
+            android:id="@+id/action_myPageFragment_to_completeCourseFragment"
+            app:destination="@id/completeCourseFragment" />
     </fragment>
     <dialog
         android:id="@+id/challengeCertifyDialog"
@@ -278,5 +281,23 @@
         android:id="@+id/completeRewardFragment"
         android:name="org.journey.android.reward.ui.CompleteRewardFragment"
         android:label="CompleteRewardFragment"
-        tools:layout="@layout/fragment_complete_reward"/>
+        tools:layout="@layout/fragment_complete_reward">
+        <action
+            android:id="@+id/action_completeRewardFragment_to_badgeRewardFragment"
+            app:destination="@id/badgeRewardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/badgeRewardFragment"
+        android:name="org.journey.android.reward.ui.BadgeRewardFragment"
+        android:label="BadgeRewardFragment"
+        tools:layout="@layout/fragment_badge_reward">
+        <action
+            android:id="@+id/action_badgeRewardFragment_to_challengeFragment"
+            app:destination="@id/challengeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/completeCourseFragment"
+        android:name="org.journey.android.mypage.ui.CompleteCourseFragment"
+        android:label="CompleteCourseFragment"
+        tools:layout="@layout/fragment_complete_course"/>
 </navigation>

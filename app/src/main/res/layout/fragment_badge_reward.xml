@@ -17,29 +17,26 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-        <com.airbnb.lottie.LottieAnimationView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageview_character"
-            android:layout_width="260dp"
-            android:layout_height="200dp"
-            android:layout_marginTop="123dp"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:lottie_rawRes="@raw/awards_congrats"
+            android:layout_width="160dp"
+            android:layout_height="212dp"
+            android:layout_marginTop="90dp"
+            android:background="@drawable/challengeonestep"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textview_success_ment" />
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/imagview_graphic"
-            android:layout_width="200dp"
-            android:layout_height="54dp"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
             android:layout_marginTop="60dp"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
-            app:lottie_rawRes="@raw/letter"
+            app:lottie_rawRes="@raw/letter2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/imageview_character" />
-
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textview_success_challenge"
             android:layout_width="wrap_content"
@@ -52,7 +49,6 @@
             app:layout_constraintEnd_toEndOf="@+id/imagview_graphic"
             app:layout_constraintStart_toStartOf="@id/imagview_graphic"
             app:layout_constraintTop_toTopOf="@id/imagview_graphic" />
-
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_ongoing"
             android:layout_width="wrap_content"
@@ -61,12 +57,12 @@
             android:background="@drawable/ic_ongoing_btn"
             android:fontFamily="@font/spoqahansansneobold"
             android:stateListAnimator="@null"
-            android:text="계속하기"
+            android:text="확인"
             android:textColor="@color/white"
             android:textScaleX="0.98"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/imagview_graphic" />
+            app:layout_constraintTop_toBottomOf="@id/textview_success_challenge" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
