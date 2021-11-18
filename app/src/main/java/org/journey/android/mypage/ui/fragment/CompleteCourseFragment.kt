@@ -1,4 +1,4 @@
-package org.journey.android.mypage.ui
+package org.journey.android.mypage.ui.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import org.journey.android.databinding.FragmentCompleteCourseBinding
+import org.journey.android.mypage.ui.adapter.CompleteCourseAdapter
 import org.journey.android.mypage.viewmodel.MyPageViewModel
 import org.journey.android.util.AutoClearedValue
 
@@ -28,6 +29,7 @@ class CompleteCourseFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         popBackStack()
         fetchCompleteCourse()
+        viewModel.showCompleteCourse()
     }
     private fun popBackStack(){
         with(binding){

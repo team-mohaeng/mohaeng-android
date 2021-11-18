@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
-            name="data"
-            type="org.journey.android.mypage.data.entity.CompleteCourseEntity" />
+            name="viewModel"
+            type="org.journey.android.mypage.viewmodel.MyPageViewModel" />
     </data>
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -40,7 +40,7 @@
                 android:id="@+id/textview_course_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="오늘의 일일 DJ"
+                android:text="@{viewModel.isCompleteCourse().title}"
                 android:fontFamily="@font/gmarketsansttfmedium"
                 android:textColor="@color/black"
                 android:textSize="20sp"

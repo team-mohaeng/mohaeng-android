@@ -210,7 +210,7 @@
         tools:layout="@layout/fragment_character"/>
     <fragment
         android:id="@+id/myPageFragment"
-        android:name="org.journey.android.mypage.ui.MyPageFragment"
+        android:name="org.journey.android.mypage.ui.fragment.MyPageFragment"
         android:label="MyPageFragment"
         tools:layout="@layout/fragment_my_page">
         <action
@@ -248,7 +248,7 @@
         tools:layout="@layout/fragment_badge"/>
     <fragment
         android:id="@+id/editNickNameFragment"
-        android:name="org.journey.android.mypage.ui.EditNickNameFragment"
+        android:name="org.journey.android.mypage.ui.fragment.EditNickNameFragment"
         android:label="EditNickNameFragment"
         tools:layout="@layout/fragment_edit_nick_name">
         <action
@@ -297,7 +297,7 @@
     </fragment>
     <fragment
         android:id="@+id/completeCourseFragment"
-        android:name="org.journey.android.mypage.ui.CompleteCourseFragment"
+        android:name="org.journey.android.mypage.ui.fragment.CompleteCourseFragment"
         android:label="CompleteCourseFragment"
         tools:layout="@layout/fragment_complete_course"/>
 </navigation>

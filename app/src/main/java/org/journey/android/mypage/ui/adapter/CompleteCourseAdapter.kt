@@ -1,4 +1,4 @@
-package org.journey.android.mypage.ui
+package org.journey.android.mypage.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
