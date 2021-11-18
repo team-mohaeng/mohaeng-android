@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/mohaeng_yellow"
-        tools:context=".main.view.MainFragment">
+        tools:context=".main.view.fragment.MainFragment">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageview_skin"

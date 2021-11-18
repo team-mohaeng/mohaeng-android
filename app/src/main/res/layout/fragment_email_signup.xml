@@ -7,7 +7,7 @@
             type="org.journey.android.signup.viewmodel.NickNameViewModel" />
         <variable
             name="data"
-            type="org.journey.android.signup.data.RequestSignupDTO" />
+            type="org.journey.android.signup.data.request.RequestSignupDTO" />
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"

@@ -1,4 +1,4 @@
-package org.journey.android.main.view
+package org.journey.android.main.view.dialog
 
 import android.annotation.SuppressLint
 import android.os.Bundle

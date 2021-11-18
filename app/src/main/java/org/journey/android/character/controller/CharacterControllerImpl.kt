@@ -1,10 +1,9 @@
 package org.journey.android.character.controller
 
 import io.reactivex.rxjava3.core.Single
-import org.journey.android.character.controller.CharacterController
-import org.journey.android.character.data.dto.RequestChangeCharacterDTO
-import org.journey.android.character.data.dto.ResponseChangeCharacterDTO
-import org.journey.android.character.data.dto.ResponseGetCharacterDTO
+import org.journey.android.character.data.dto.request.RequestChangeCharacterDTO
+import org.journey.android.character.data.dto.response.ResponseChangeCharacterDTO
+import org.journey.android.character.data.dto.response.ResponseGetCharacterDTO
 import org.journey.android.network.RetrofitInterface
 import org.journey.android.qualifier.AuthRetrofitService
 import javax.inject.Inject

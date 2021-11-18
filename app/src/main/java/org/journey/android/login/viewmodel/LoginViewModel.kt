@@ -10,7 +10,7 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.journey.android.base.DisposableViewModel
 import org.journey.android.login.controller.SignInController
-import org.journey.android.login.data.RequestEmailSignInDTO
+import org.journey.android.login.data.request.RequestEmailSignInDTO
 import org.journey.android.preference.UserPreferenceManager
 import javax.inject.Inject
 

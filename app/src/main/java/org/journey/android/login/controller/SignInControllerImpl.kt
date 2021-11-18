@@ -1,10 +1,10 @@
 package org.journey.android.login.controller
 
 import io.reactivex.rxjava3.core.Single
-import org.journey.android.login.data.RequestEmailSignInDTO
-import org.journey.android.login.data.ResponseEmailSignInDTO
-import org.journey.android.login.data.ResponseGoogleSignInDTO
-import org.journey.android.login.data.ResponseKakaoSignInDTO
+import org.journey.android.login.data.request.RequestEmailSignInDTO
+import org.journey.android.login.data.response.ResponseEmailSignInDTO
+import org.journey.android.login.data.response.ResponseGoogleSignInDTO
+import org.journey.android.login.data.response.ResponseKakaoSignInDTO
 import org.journey.android.network.RetrofitInterface
 import javax.inject.Inject
 

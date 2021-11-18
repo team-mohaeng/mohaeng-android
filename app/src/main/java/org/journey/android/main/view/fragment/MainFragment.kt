@@ -1,4 +1,4 @@
-package org.journey.android.main.view
+package org.journey.android.main.view.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import org.journey.android.R
 import org.journey.android.databinding.FragmentMainBinding
+import org.journey.android.main.view.dialog.DialogIndexExplanationFragment
 import org.journey.android.main.viewmodel.MainViewModel
 import org.journey.android.util.AutoClearedValue
 
@@ -36,7 +37,7 @@ class MainFragment : Fragment() {
     }
     private fun showIndexDialog(){
         with(binding){
-            buttonMainReward.setOnClickListener {
+            progressbarMain.setOnClickListener {
                 val dialog = DialogIndexExplanationFragment()
                 dialog.show(childFragmentManager,tag)
             }
@@ -48,6 +49,7 @@ class MainFragment : Fragment() {
             buttonMainFirst.setOnClickListener { findNavController().navigate(R.id.action_frameFragment_to_badgeFragment) }
             buttonMainMypage.setOnClickListener { findNavController().navigate(R.id.action_frameFragment_to_myPageFragment) }
             imageviewBlank.setOnClickListener { findNavController().navigate(R.id.action_frameFragment_to_challengeFragment) }
+            buttonMainReward.setOnClickListener { findNavController().navigate(R.id.action_frameFragment_to_characterFragment) }
         }
     }
     private fun animateLottie(){
