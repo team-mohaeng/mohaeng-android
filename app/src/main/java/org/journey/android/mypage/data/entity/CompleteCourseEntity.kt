@@ -1,4 +1,4 @@
-package org.journey.android.mypage.data
+package org.journey.android.mypage.data.entity
 
 data class CompleteCourseEntity(
     val totalDays : Int,

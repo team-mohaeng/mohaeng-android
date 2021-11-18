@@ -6,9 +6,9 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.journey.android.base.DisposableViewModel
-import org.journey.android.mypage.controller.MyPageController
-import org.journey.android.mypage.data.CompleteCourseEntity
-import org.journey.android.mypage.data.ResponseCheckMyPageDTO
+import org.journey.android.mypage.controller.user.MyPageController
+import org.journey.android.mypage.data.entity.CompleteCourseEntity
+import org.journey.android.mypage.data.dto.response.ResponseCheckMyPageDTO
 import javax.inject.Inject
 
 @HiltViewModel

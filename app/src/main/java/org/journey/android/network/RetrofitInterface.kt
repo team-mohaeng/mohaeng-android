@@ -19,7 +19,8 @@ import org.journey.android.login.data.ResponseEmailSignInDTO
 import org.journey.android.login.data.ResponseGoogleSignInDTO
 import org.journey.android.login.data.ResponseKakaoSignInDTO
 import org.journey.android.main.dto.ResponseHomeDTO
-import org.journey.android.mypage.data.ResponseCheckMyPageDTO
+import org.journey.android.mypage.data.dto.response.ResponseCheckMyPageDTO
+import org.journey.android.mypage.data.dto.response.ResponseCompleteCourseDTO
 import org.journey.android.pushalarm.data.response.ResponsePushAlarmDTO
 import org.journey.android.signup.data.*
 import retrofit2.http.*
@@ -76,7 +77,7 @@ interface RetrofitInterface {
     fun putCourse(@Header("client") client : String, @Path("courseId") courseId : Int ) : Single<ResponseStartChallengeDTO>
 
     @GET("/api/courses/complete")
-    fun getCompleteCourseList() : Single<ResponseCompleteCourseListDTO>
+    fun getCompleteCourseList() : Single<ResponseCompleteCourseDTO>
 
     @GET("/api/badge")
     fun putAchieveBadgeList() : Single<ResponseAchieveBadgeDTO>
