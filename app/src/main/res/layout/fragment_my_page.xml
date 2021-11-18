@@ -78,6 +78,30 @@
            android:layout_marginStart="18dp"
            app:layout_constraintTop_toBottomOf="@id/textview_user_email"
            app:layout_constraintStart_toStartOf="parent"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_success_course"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="14dp"
+            android:text="@string/success_course_count"
+            android:fontFamily="@font/spoqahansansneomedium"
+            android:textSize="12sp"
+            android:lineSpacingExtra="2dp"
+            android:textColor="@color/mohaeng_black2"
+            app:layout_constraintStart_toStartOf="@id/imageview_success_course"
+            app:layout_constraintTop_toTopOf="@id/imageview_success_course"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_course_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/mohaeng_black2"
+            android:fontFamily="@font/spoqahansansneomedium"
+            android:textSize="18sp"
+            android:text="@{Integer.toString(viewModel.fetchMyPageSource.data.completeCourseCount)}"
+            android:layout_marginTop="4dp"
+            app:layout_constraintTop_toBottomOf="@id/textview_success_course"
+            app:layout_constraintStart_toStartOf="@id/textview_success_course"/>
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageview_success_challenge"
             android:layout_width="76dp"
@@ -87,6 +111,30 @@
             app:layout_constraintBottom_toBottomOf="@+id/imageview_success_course"
             app:layout_constraintStart_toEndOf="@id/imageview_success_course"
             app:layout_constraintTop_toTopOf="@+id/imageview_success_course" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_success_challenge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="14dp"
+            android:text="@string/success_course_challenge"
+            android:fontFamily="@font/spoqahansansneomedium"
+            android:textSize="12sp"
+            android:lineSpacingExtra="2dp"
+            android:textColor="@color/mohaeng_black2"
+            app:layout_constraintStart_toStartOf="@id/imageview_success_challenge"
+            app:layout_constraintTop_toTopOf="@id/imageview_success_challenge"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_challenge_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/mohaeng_black2"
+            android:fontFamily="@font/spoqahansansneomedium"
+            android:textSize="18sp"
+            android:layout_marginTop="4dp"
+            android:text="@{Integer.toString(viewModel.fetchMyPageSource.data.completeChallengeCount)}"
+            app:layout_constraintTop_toBottomOf="@id/textview_success_challenge"
+            app:layout_constraintStart_toStartOf="@id/textview_success_challenge"/>
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageview_written_greeting"
             android:layout_width="76dp"
@@ -95,6 +143,30 @@
             android:background="@drawable/my_page_image_rec"
             app:layout_constraintTop_toTopOf="@id/imageview_success_challenge"
             app:layout_constraintStart_toEndOf="@id/imageview_success_challenge"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_success_greeting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="14dp"
+            android:text="@string/success_written_count"
+            android:fontFamily="@font/spoqahansansneomedium"
+            android:textSize="12sp"
+            android:lineSpacingExtra="2dp"
+            android:textColor="@color/mohaeng_black2"
+            app:layout_constraintStart_toStartOf="@id/imageview_written_greeting"
+            app:layout_constraintTop_toTopOf="@id/imageview_written_greeting"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_greeting_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/mohaeng_black2"
+            android:fontFamily="@font/spoqahansansneomedium"
+            android:textSize="18sp"
+            android:text="@{Integer.toString(viewModel.fetchMyPageSource.data.feedCount)}"
+            android:layout_marginTop="4dp"
+            app:layout_constraintTop_toBottomOf="@id/textview_success_greeting"
+            app:layout_constraintStart_toStartOf="@id/textview_success_greeting"/>
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageview_obtained_badge"
             android:layout_width="76dp"
@@ -103,6 +175,30 @@
             android:background="@drawable/my_page_image_rec"
             app:layout_constraintStart_toEndOf="@id/imageview_written_greeting"
             app:layout_constraintTop_toTopOf="@id/imageview_written_greeting"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_achieved_badge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="14dp"
+            android:text="@string/success_achieved_badge"
+            android:fontFamily="@font/spoqahansansneomedium"
+            android:textSize="12sp"
+            android:lineSpacingExtra="2dp"
+            android:textColor="@color/mohaeng_black2"
+            app:layout_constraintStart_toStartOf="@id/imageview_obtained_badge"
+            app:layout_constraintTop_toTopOf="@id/imageview_obtained_badge"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_badge_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/mohaeng_black2"
+            android:fontFamily="@font/spoqahansansneomedium"
+            android:textSize="18sp"
+            android:text="@{Integer.toString(viewModel.fetchMyPageSource.data.badgeCount)}"
+            android:layout_marginTop="4dp"
+            app:layout_constraintTop_toBottomOf="@id/textview_achieved_badge"
+            app:layout_constraintStart_toStartOf="@id/textview_achieved_badge"/>
         <CalendarView
             android:id="@+id/calender_my_page"
             android:layout_width="match_parent"

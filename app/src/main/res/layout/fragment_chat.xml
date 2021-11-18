@@ -7,7 +7,7 @@
             type="org.journey.android.chat.viewmodel.ChatViewModel" />
         <variable
             name="data"
-            type="org.journey.android.pushalarm.data.ResponsePushAlarmDTO" />
+            type="org.journey.android.pushalarm.data.response.ResponsePushAlarmDTO" />
     </data>
 
         <androidx.constraintlayout.widget.ConstraintLayout

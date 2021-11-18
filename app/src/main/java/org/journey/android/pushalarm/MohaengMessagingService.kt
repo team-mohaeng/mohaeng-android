@@ -79,13 +79,13 @@ class MohaengMessagingService : FirebaseMessagingService() {
             this, uniId, intent, PendingIntent.FLAG_ONE_SHOT
         )
 
-        val channelId = "노티피케이션 메시지"
+        val channelId = "모행모행?"
 
         val soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
 
         val notificationBuilder =
             NotificationCompat.Builder(this, channelId)
-                .setSmallIcon(R.drawable.ic_launcher_background)
+                .setSmallIcon(R.drawable.mohaeng_char)
                 .setContentTitle(remoteMessage.notification?.title.toString())
                 .setContentText(remoteMessage.notification?.body.toString())
                 .setAutoCancel(true)

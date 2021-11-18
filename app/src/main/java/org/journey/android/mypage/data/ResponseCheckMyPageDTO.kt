@@ -12,7 +12,7 @@ data class ResponseCheckMyPageDTO(
         @SerializedName("badgeCount")
         val badgeCount: Int,
         @SerializedName("calendar")
-        val calendar: List<Any>,
+        val calendar: List<Any?>,
         @SerializedName("completeChallengeCount")
         val completeChallengeCount: Int,
         @SerializedName("completeCourseCount")

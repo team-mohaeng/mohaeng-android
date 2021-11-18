@@ -22,6 +22,10 @@ class MyPageViewModel @Inject constructor(
     val fetchMyPageSource : LiveData<ResponseCheckMyPageDTO>
         get() = _fetchMyPageSource
 
+    private val _showUserSituation = MutableLiveData<ResponseCheckMyPageDTO.Data>()
+    val showUserSituation : LiveData<ResponseCheckMyPageDTO.Data>
+        get() = _showUserSituation
+
     fun getMyPageResource() {
         addDisposable(
             myPageController.myPageResource()
