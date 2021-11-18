@@ -91,13 +91,22 @@
                 app:layout_constraintTop_toBottomOf="@id/textview_date" />
             <androidx.appcompat.widget.AppCompatImageButton
                 android:id="@+id/button_stamp"
-                android:layout_width="324dp"
-                android:layout_height="160dp"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
                 android:layout_marginTop="26dp"
-                android:background="@drawable/challenge_stamp"
+                android:background="@drawable/onboardingstamp"
                 app:layout_constraintEnd_toEndOf="@+id/imageview_stamp_background"
                 app:layout_constraintStart_toStartOf="@id/imageview_stamp_background"
                 app:layout_constraintTop_toBottomOf="@id/textview_course_title" />
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginTop="26dp"
+                app:lottie_rawRes="@raw/challenge2"
+                app:lottie_loop="true"
+                app:lottie_autoPlay="true"
+                app:layout_constraintStart_toStartOf="@id/imageview_stamp_background"
+                app:layout_constraintTop_toBottomOf="@id/textview_course_title"/>
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/textview_success_stamp"
                 android:layout_width="wrap_content"
