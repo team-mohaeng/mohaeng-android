@@ -8,13 +8,17 @@ import android.view.ViewGroup
 import android.view.Window
 import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
+import dagger.hilt.android.AndroidEntryPoint
 import org.journey.android.R
 import org.journey.android.databinding.DialogCertifyChallengeBinding
 import org.journey.android.util.AutoClearedValue
 
-class ChallengeCertifyDialog() : DialogFragment() {
+@AndroidEntryPoint
+class ChallengeCertifyDialog(private val listener : CertifyChallengeListener) : DialogFragment() {
     private var binding by AutoClearedValue<DialogCertifyChallengeBinding>()
-
+    interface CertifyChallengeListener {
+        fun certifyCourse()
+    }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -29,6 +33,7 @@ class ChallengeCertifyDialog() : DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         closeDialog()
+        certifyCourse()
     }
 
     private fun closeDialog(){
@@ -37,6 +42,8 @@ class ChallengeCertifyDialog() : DialogFragment() {
         }
     }
 
-
+    private fun certifyCourse(){
+        binding.buttonDialogA.setOnClickListener { listener.certifyCourse() }
+    }
 
 }

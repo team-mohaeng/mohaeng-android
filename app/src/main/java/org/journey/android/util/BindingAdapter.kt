@@ -1,5 +1,6 @@
 package org.journey.android.util
 
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -35,6 +36,12 @@ object BindingAdapter {
     @BindingAdapter("text_with_string_resources")
     fun TextView.setTextWithStringResources(resourceId: Int) {
         text = resources.getString(resourceId)
+    }
+
+    @JvmStatic
+    @BindingAdapter("setBackgroundColorRes")
+    fun View.setBackgroundColorRes(color: Int) {
+        setBackgroundColor(context.getColor(color))
     }
 
 }

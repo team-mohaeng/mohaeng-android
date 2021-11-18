@@ -11,7 +11,7 @@ import org.journey.android.databinding.ItemCourseCatalogBinding
 class CourseCatalogAdapter(val listener : OnItemClickListener) : RecyclerView.Adapter<CourseCatalogAdapter.CourseCatalogViewHolder>() {
     var courseCatalog = mutableListOf<CourseCatalogEntity>()
     interface OnItemClickListener {
-        fun selectCourse()
+        fun selectCourse(courseId : Int)
     }
     class CourseCatalogViewHolder(val binding : ItemCourseCatalogBinding) :
             RecyclerView.ViewHolder(binding.root)
@@ -23,8 +23,8 @@ class CourseCatalogAdapter(val listener : OnItemClickListener) : RecyclerView.Ad
 
     override fun onBindViewHolder(holder: CourseCatalogViewHolder, position: Int) {
         val courseList = courseCatalog[position]
-        holder.binding.setVariable(BR.data,courseList)
-        holder.binding.root.setOnClickListener { listener.selectCourse() }
+        holder.binding.setVariable(BR.data, courseList)
+        holder.binding.root.setOnClickListener { listener.selectCourse(courseList.courseProperty) }
     }
 
     override fun getItemCount() = courseCatalog.size

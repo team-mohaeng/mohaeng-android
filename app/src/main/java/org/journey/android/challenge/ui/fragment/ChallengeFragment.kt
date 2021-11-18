@@ -68,7 +68,12 @@ class ChallengeFragment : Fragment() {
     private fun certifyChallenge() {
         binding.imagebuttonStamp.setOnClickListener {
             viewModel.validateChallenge()
-            val dialog = ChallengeCertifyDialog()
+            val dialog = ChallengeCertifyDialog(object : ChallengeCertifyDialog.CertifyChallengeListener{
+                override fun certifyCourse() {
+                    findNavController().navigate(R.id.action_frameFragment_to_finishRewardFragment)
+                }
+
+            } )
             dialog.show(childFragmentManager, tag)
         }
     }

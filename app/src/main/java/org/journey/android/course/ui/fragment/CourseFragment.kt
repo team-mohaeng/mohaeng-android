@@ -43,15 +43,5 @@ class CourseFragment : Fragment() {
             }
         }
     }
-//
-//    private fun loadOddDateCourse(){
-//        binding.recyclerviewCourseStamp.apply {
-//            this.adapter = CourseDateAdapter()
-//            addItemDecoration(RecyclerViewItemDecoration(240,0))
-//            viewModel.courseDateList.observe(viewLifecycleOwner){
-//                (adapter as CourseDateAdapter).date = it.toMutableList()
-//            }
-//        }
-//    }
 
 }

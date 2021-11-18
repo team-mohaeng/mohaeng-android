@@ -1,6 +1,7 @@
 package org.journey.android.course.ui.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +10,8 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import org.journey.android.R
+import org.journey.android.course.CourseCatalogEnum
+import org.journey.android.course.CourseCatalogEnum.Companion.checkCourseProperty
 import org.journey.android.course.viewmodel.CourseViewModel
 import org.journey.android.course.ui.adapter.CourseCatalogAdapter
 import org.journey.android.databinding.FragmentCourseCatalogBinding
@@ -30,6 +33,7 @@ class CourseCatalogFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
+
         viewModel.fetchCatalogList()
         fetchCourseCatalog()
         popBackStack()
@@ -37,11 +41,11 @@ class CourseCatalogFragment : Fragment() {
     private fun fetchCourseCatalog(){
         binding.recyclerviewCourseCatalog.apply {
             this.adapter = CourseCatalogAdapter(object : CourseCatalogAdapter.OnItemClickListener{
-                override fun selectCourse() {
-
-
+                override fun selectCourse(courseId :Int) {
+                    viewModel.changeCourseId(courseId)
                     val dialog = DialogCourseStartFragment(object: DialogCourseStartFragment.StartCourseListener{
                         override fun startCourse() {
+                            viewModel.putCourseState()
                             findNavController().previousBackStackEntry?.savedStateHandle?.set("ddd", true)
                             findNavController().popBackStack()
                         }

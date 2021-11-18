@@ -20,6 +20,12 @@ class UserPreferenceManager(private val sharedPreferencesManager: SharedPreferen
     fun saveUserPassword(password : String) = sharedPreferencesManager.putSharedPref(PASS_WORD, password)
     fun fetchUserPassword() : String { return sharedPreferencesManager.getSharedPrefs(PASS_WORD, "")}
 
+    fun saveUserNickName(nickname : String) = sharedPreferencesManager.putSharedPref(NICK_NAME, nickname)
+    fun fetchUserNickName() : String { return sharedPreferencesManager.getSharedPrefs(NICK_NAME, "")}
+
+    fun saveIsAlreadyLogIn(isAlreadyLogIn: Boolean) = sharedPreferencesManager.putSharedPref(IS_ALREADY_LOGIN, isAlreadyLogIn)
+    fun fetchIsAlreadyLogIn(): Boolean = sharedPreferencesManager.getSharedPrefs(IS_ALREADY_LOGIN, false)
+
     companion object {
         private const val ACCESS_TOKEN = "access_token"
         private const val REFRESH_TOKEN = "refresh_token"
@@ -27,5 +33,7 @@ class UserPreferenceManager(private val sharedPreferencesManager: SharedPreferen
         private const val FCM_DEVICE_TOKEN = "fcm_device_token"
         private const val SNS_TYPE = "sns_type"
         private const val PASS_WORD = "pass_word"
+        private const val NICK_NAME = "nick_name"
+        private const val IS_ALREADY_LOGIN = "is_already_login"
     }
 }

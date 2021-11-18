@@ -14,11 +14,10 @@
         android:layout_width="44dp"
         android:layout_height="44dp"
         android:layout_marginTop="6dp"
-        android:layout_marginLeft="6dp"
+        android:layout_marginStart="6dp"
         android:background="@drawable/ic_gnback"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
-
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textview_edit_nickname"
         android:layout_width="wrap_content"
@@ -44,7 +43,7 @@
         android:id="@+id/textview_edit_nickname_explanation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="닉네임은 한글 6자 이내로 입력해주세요."
+        android:text="@string/set_nickname_qualification"
         android:textColor="@color/mohaeng_gray7"
         android:textSize="10sp"
         android:fontFamily="@font/spoqahansansneoregular"
@@ -53,7 +52,6 @@
         app:layout_constraintTop_toBottomOf="@id/imageview_nickname_character"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
-
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/edittext_edit_nickname"
         android:layout_width="match_parent"
@@ -62,7 +60,7 @@
         android:layout_marginTop="28dp"
         android:hint="아라아랑아라"
         android:inputType="text"
-        android:text="@{viewModel.changeNickName}"
+        android:text="@={viewModel.newNickName}"
         android:gravity="center_horizontal"
         android:backgroundTint="@color/mohaeng_gray7"
         android:fontFamily="@font/spoqahansansneomedium"
@@ -70,7 +68,6 @@
         app:layout_constraintTop_toBottomOf="@id/textview_edit_nickname_explanation"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
-
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_set_nickname"
         android:layout_width="match_parent"
@@ -80,7 +77,6 @@
         android:text="@string/change_nickname"
         android:textSize="16sp"
         android:stateListAnimator="@null"
-        android:enabled="false"
         android:fontFamily="@font/spoqahansansneobold"
         android:textColor="@color/white"
         android:layout_marginTop="32dp"
@@ -88,6 +84,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:visibility="invisible"/>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

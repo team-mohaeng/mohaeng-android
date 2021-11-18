@@ -1,6 +1,7 @@
 package org.journey.android.course.ui.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,11 +18,9 @@ import org.journey.android.util.AutoClearedValue
 class DialogCourseStartFragment(private val listener: StartCourseListener)  : DialogFragment() {
     private var binding by AutoClearedValue<DialogCourseStartBinding>()
     private val viewModel by viewModels<CourseViewModel>()
-
     interface StartCourseListener {
         fun startCourse()
     }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -30,7 +29,6 @@ class DialogCourseStartFragment(private val listener: StartCourseListener)  : Di
         binding = DialogCourseStartBinding.inflate(inflater, container, false)
         dialog?.window?.setBackgroundDrawableResource(R.drawable.selector_index_dialog)
         dialog?.window?.requestFeature(Window.FEATURE_NO_TITLE)
-
         return binding.root
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -42,7 +40,6 @@ class DialogCourseStartFragment(private val listener: StartCourseListener)  : Di
     private fun startCourse() {
         binding.buttonChange.setOnClickListener {
             listener.startCourse()
-            viewModel.putCourseState()
         }
     }
 

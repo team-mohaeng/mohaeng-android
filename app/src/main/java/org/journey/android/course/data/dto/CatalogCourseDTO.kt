@@ -2,6 +2,7 @@ package org.journey.android.course.data.dto
 
 
 import com.google.gson.annotations.SerializedName
+import org.journey.android.course.CourseCatalogEnum.Companion.checkCourseProperty
 import org.journey.android.course.data.entity.CourseCatalogEntity
 
 data class CatalogCourseDTO(
@@ -19,11 +20,17 @@ data class CatalogCourseDTO(
     val totalDays: Int
 ){
     fun convertToCourseCatalogEntity() : CourseCatalogEntity {
+        val course = checkCourseProperty(property)
         return CourseCatalogEntity(
             property,
             title,
             totalDays,
-            description
+            description,
+            course.cardColor,
+            course.buttonColor,
+            course.textBalloon,
+            course.subTitle,
+            course.cardStamp
         )
     }
 }
