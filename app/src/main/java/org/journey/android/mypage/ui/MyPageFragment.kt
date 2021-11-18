@@ -33,14 +33,16 @@ class MyPageFragment : Fragment() {
         popBackStack()
         getMyPageResource()
         editNickName()
-        goSetting()
+        navigateToSettingView()
     }
     private fun popBackStack(){
         with(binding){ buttonReturnBack.setOnClickListener { findNavController().popBackStack() } }
     }
     private fun getMyPageResource(){
-        viewModel.myPageResource.observe(viewLifecycleOwner){
-            viewModel.getMyPageResource()
+        with(viewModel){
+            myPageResource.observe(viewLifecycleOwner){
+                viewModel.getMyPageResource()
+            }
         }
     }
     private fun editNickName(){
@@ -48,8 +50,7 @@ class MyPageFragment : Fragment() {
             findNavController().navigate(R.id.action_myPageFragment_to_editNickNameFragment)
         }
     }
-
-    private fun goSetting(){
+    private fun navigateToSettingView(){
         binding.buttonSetting.setOnClickListener {
             findNavController().navigate(R.id.action_myPageFragment_to_settingFragment)
         }

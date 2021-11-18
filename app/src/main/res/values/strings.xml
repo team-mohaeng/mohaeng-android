@@ -117,5 +117,9 @@
     <string name="smart_course_period">짱 똑똑행 7일 코스</string>
     <string name="love_course_period">쪽 사랑행 7일 코스</string>
     <string name="set_nickname_qualification">닉네임은 한글 6자 이내로 입력해주세요.</string>
+    <string name="success_course_count">성공한\n코스</string>
+    <string name="success_course_challenge">성공한\n챌린지</string>
+    <string name="success_written_count">작성한\n안부</string>
+    <string name="success_achieved_badge">획득한\n뱃지</string>
 
 </resources>

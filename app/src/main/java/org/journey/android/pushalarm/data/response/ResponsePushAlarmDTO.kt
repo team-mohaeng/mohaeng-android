@@ -1,4 +1,4 @@
-package org.journey.android.pushalarm.data
+package org.journey.android.pushalarm.data.response
 
 
 import com.google.gson.annotations.SerializedName
