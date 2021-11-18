@@ -57,7 +57,7 @@
             android:background="@drawable/ic_ongoing_btn"
             android:fontFamily="@font/spoqahansansneobold"
             android:stateListAnimator="@null"
-            android:text="계속하기"
+            android:text="확인"
             android:textColor="@color/white"
             android:textScaleX="0.98"
             android:textSize="18sp"

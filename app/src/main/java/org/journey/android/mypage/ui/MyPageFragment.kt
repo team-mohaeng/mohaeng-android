@@ -34,6 +34,7 @@ class MyPageFragment : Fragment() {
         getMyPageResource()
         editNickName()
         navigateToSettingView()
+        showCompleteChallengeRecord()
     }
     private fun popBackStack(){
         with(binding){ buttonReturnBack.setOnClickListener { findNavController().popBackStack() } }
@@ -54,6 +55,10 @@ class MyPageFragment : Fragment() {
         binding.buttonSetting.setOnClickListener {
             findNavController().navigate(R.id.action_myPageFragment_to_settingFragment)
         }
+    }
+
+    private fun showCompleteChallengeRecord(){
+        binding.buttonMyPage.setOnClickListener { findNavController().navigate(R.id.action_myPageFragment_to_completeCourseFragment) }
     }
 
 

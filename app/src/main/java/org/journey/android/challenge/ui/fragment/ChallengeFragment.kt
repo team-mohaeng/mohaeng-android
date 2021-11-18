@@ -72,7 +72,6 @@ class ChallengeFragment : Fragment() {
                 override fun certifyCourse() {
                     findNavController().navigate(R.id.action_frameFragment_to_finishRewardFragment)
                 }
-
             } )
             dialog.show(childFragmentManager, tag)
         }

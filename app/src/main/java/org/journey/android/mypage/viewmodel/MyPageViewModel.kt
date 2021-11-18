@@ -7,6 +7,7 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.journey.android.base.DisposableViewModel
 import org.journey.android.mypage.controller.MyPageController
+import org.journey.android.mypage.data.CompleteCourseEntity
 import org.journey.android.mypage.data.ResponseCheckMyPageDTO
 import javax.inject.Inject
 
@@ -26,6 +27,10 @@ class MyPageViewModel @Inject constructor(
     val showUserSituation : LiveData<ResponseCheckMyPageDTO.Data>
         get() = _showUserSituation
 
+    private val _getCompleteCourse = MutableLiveData<List<CompleteCourseEntity>>()
+    val getCompleteCourse : LiveData<List<CompleteCourseEntity>>
+        get() = _getCompleteCourse
+
     fun getMyPageResource() {
         addDisposable(
             myPageController.myPageResource()
@@ -38,5 +43,41 @@ class MyPageViewModel @Inject constructor(
                     it.printStackTrace()
                 })
         )
+    }
+    init {
+        fetchCompleteCourse()
+    }
+    private fun fetchCompleteCourse(){
+        val getCompleteCourse = listOf(
+            CompleteCourseEntity(
+                7,
+            "",
+            2021,
+            8,
+                9
+            ),
+            CompleteCourseEntity(
+                7,
+                "",
+                2021,
+                8,
+                9
+            ),
+            CompleteCourseEntity(
+                7,
+                "",
+                2021,
+                8,
+                9
+            ),
+            CompleteCourseEntity(
+                7,
+                "",
+                2021,
+                8,
+                9
+            )
+        )
+        _getCompleteCourse.value = getCompleteCourse
     }
 }
