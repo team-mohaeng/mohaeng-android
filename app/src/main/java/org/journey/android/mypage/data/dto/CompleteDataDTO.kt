@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 data class CompleteDataDTO(
     @SerializedName("courses")
-    val cours: List<CompleteCourseDTO>,
+    val courses: List<CompleteCourseDTO?>,
     @SerializedName("isProgress")
     val isProgress: Boolean
 )

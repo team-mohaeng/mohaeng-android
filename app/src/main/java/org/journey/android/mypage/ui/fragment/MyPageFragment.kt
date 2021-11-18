@@ -1,4 +1,4 @@
-package org.journey.android.mypage.ui
+package org.journey.android.mypage.ui.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater

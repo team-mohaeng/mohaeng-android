@@ -8,5 +8,6 @@ data class ResponseCompleteCourseDTO(
     @SerializedName("data")
     val completeDataDTO: CompleteDataDTO,
     @SerializedName("status")
-    val status: Int
+    val status: Int,
+    val message : String?
 )
