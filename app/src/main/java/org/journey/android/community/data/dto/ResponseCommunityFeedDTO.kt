@@ -65,6 +65,7 @@ data class ResponseCommunityFeedDTO(
                     course,
                     content,
                     nickname,
+                    month,
                     date
                 )
             }

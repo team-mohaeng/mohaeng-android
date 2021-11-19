@@ -67,18 +67,28 @@
                 android:textSize="10sp"
                 app:layout_constraintStart_toStartOf="@+id/textview_post_content"
                 app:layout_constraintTop_toBottomOf="@+id/textview_post_content" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textview_post_month"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="26dp"
+                android:text="@{@string/community_feed_month(data.month)}"
+                android:textColor="@color/mohaeng_gray"
+                android:textSize="10sp"
+                android:layout_marginEnd="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textview_post_content" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/textview_post_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="26dp"
-                android:text="@{data.date}"
+                android:text="@{@string/community_feed_date(data.date)}"
                 android:textColor="@color/mohaeng_gray"
                 android:textSize="10sp"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textview_post_month"
                 app:layout_constraintTop_toBottomOf="@+id/textview_post_content" />
-
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageview_post_seperator"
             android:layout_width="match_parent"

@@ -5,5 +5,6 @@ data class CommunityPostEntity(
     val challengeName : String,
     val postContent : String,
     val id : String,
+    val month : String,
     val date : String
 )

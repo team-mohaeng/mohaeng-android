@@ -121,5 +121,7 @@
     <string name="success_course_challenge">성공한\n챌린지</string>
     <string name="success_written_count">작성한\n안부</string>
     <string name="success_achieved_badge">획득한\n뱃지</string>
+    <string name="community_feed_month">%s월</string>
+    <string name="community_feed_date">%s일</string>
 
 </resources>
