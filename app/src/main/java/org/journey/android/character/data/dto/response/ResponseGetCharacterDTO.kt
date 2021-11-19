@@ -13,11 +13,6 @@ data class ResponseGetCharacterDTO(
     val message : String?
 ) {
     fun convertToCharacterEntity(): CharacterInfoEntity {
-        return CharacterInfoEntity(
-            dataDTO.currentCharacterDTO,
-            dataDTO.currentSkinDTO,
-            dataDTO.characterDTOS,
-            dataDTO.skinDTOS
-        )
+        return dataDTO.convertToCharacterInfoEntity()
     }
 }

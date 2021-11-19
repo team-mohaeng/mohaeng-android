@@ -46,6 +46,14 @@ class CharacterViewModel @Inject constructor(
     val getCharacter : LiveData<CardDTO>
         get() = _getCharacter
 
+    private val _selectedType = MutableLiveData<Int>()
+    val selectedType: LiveData<Int>
+        get() = _selectedType
+
+    fun changeSelectedType(type: Int) {
+        _selectedType.value = type
+    }
+
     fun loadUserCurrentSkin() {
         addDisposable(
             characterRepository.getCharacter(client = "aos")
@@ -61,87 +69,56 @@ class CharacterViewModel @Inject constructor(
 
     init {
         fetchCharacterList()
-        fetchCharacterOptionList()
     }
 
     private fun fetchCharacterList() {
         val characterList = listOf(
             MohaengCharacterEntity(
+                1,
                 R.drawable.stylechactab1
             ),
             MohaengCharacterEntity(
+                2,
                 R.drawable.stylechactab2
             ),
             MohaengCharacterEntity(
+                3,
                 R.drawable.stylechactab3
             ),
             MohaengCharacterEntity(
+                4,
                 R.drawable.stylechactab4
             ),
             MohaengCharacterEntity(
+                5,
                 R.drawable.stylechactab5
             ),
             MohaengCharacterEntity(
+                6,
                 R.drawable.stylechactab6
             ),
             MohaengCharacterEntity(
+                null,
                 R.drawable.stylechactablock7
             ),
             MohaengCharacterEntity(
+                null,
                 R.drawable.stylechactablock8
             ),
             MohaengCharacterEntity(
+                null,
                 R.drawable.stylechactablock9
             ),
             MohaengCharacterEntity(
+                null,
                 R.drawable.stylechactablock10
             ),
             MohaengCharacterEntity(
+                null,
                 R.drawable.stylechactablock11
             )
         )
         _characterList.value = characterList
     }
 
-    private fun fetchCharacterOptionList() {
-        var optionList = listOf(
-            MohaengCharacterOptionEntity(
-                R.drawable.ic_option_1
-            ),
-            MohaengCharacterOptionEntity(
-                R.drawable.ic_option_2
-            ),
-            MohaengCharacterOptionEntity(
-                R.drawable.ic_none_char
-            ),
-            MohaengCharacterOptionEntity(
-                R.drawable.ic_option_4
-            ),
-            MohaengCharacterOptionEntity(
-                R.drawable.ic_option_2
-            ),
-            MohaengCharacterOptionEntity(
-                R.drawable.ic_option_3
-            ),
-            MohaengCharacterOptionEntity(
-                R.drawable.ic_option_4
-            ),
-            MohaengCharacterOptionEntity(
-                R.drawable.ic_option_2
-            ),
-            MohaengCharacterOptionEntity(
-                R.drawable.ic_option_3
-            ),
-            MohaengCharacterOptionEntity(
-                R.drawable.ic_option_4
-            ),
-            MohaengCharacterOptionEntity(
-                R.drawable.ic_option_2
-            ),
-            MohaengCharacterOptionEntity(
-                R.drawable.ic_option_3
-            )
-        )
-        _optionList.value = optionList
-    }
 }

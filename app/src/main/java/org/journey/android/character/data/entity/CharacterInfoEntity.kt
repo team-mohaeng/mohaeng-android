@@ -8,6 +8,6 @@ import org.journey.android.character.data.dto.SkinDTO
 data class CharacterInfoEntity(
     val currentCharacterImage: CurrentCharacterDTO,
     val currentCharacterSkin: CurrentSkinDTO,
-    val characterList: List<CharacterDTO>,
+    val characterList: List<CharacterEntity>,
     val skinList: List<SkinDTO>
 )

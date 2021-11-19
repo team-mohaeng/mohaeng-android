@@ -4,6 +4,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
 import coil.load
 import com.google.android.material.imageview.ShapeableImageView
@@ -16,6 +17,12 @@ object BindingAdapter {
     @JvmStatic
     @BindingAdapter("setImageURL")
     fun ImageView.setImageURL(url: String?) { if(!url.isNullOrEmpty()) load(url) }
+
+    @JvmStatic
+    @BindingAdapter("setCharacterImageURL")
+    fun ImageView.setCharacterImageURL(url: String?) {
+        if(!url.isNullOrEmpty()) load(url) else setBackgroundColor(ContextCompat.getColor(context, R.color.browser_actions_bg_grey))
+    }
 
     @JvmStatic
     @BindingAdapter("corner_radius")

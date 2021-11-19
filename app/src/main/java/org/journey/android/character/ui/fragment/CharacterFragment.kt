@@ -1,6 +1,7 @@
 package org.journey.android.character.ui.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -33,26 +34,37 @@ class CharacterFragment : Fragment() {
         binding.lifecycleOwner = viewLifecycleOwner
         popBackStack()
         selectCharacter()
-        selectCharacterOption()
         viewModel.loadUserCurrentSkin()
 
+        viewModel.characterInfo.observe(viewLifecycleOwner) {
+            selectCharacterOption()
+        }
     }
     private fun popBackStack() {
         with(binding) { buttonReturnBack.setOnClickListener { findNavController().popBackStack() } }
     }
     private fun selectCharacter() {
         binding.recyclerviewSelectCharacter.apply {
-            this.adapter = CharacterSelectAdapter()
+            this.adapter = CharacterSelectAdapter(object : CharacterSelectAdapter.CharacterSelectListener{
+                override fun selectCharacter(type: Int) {
+                    viewModel.changeSelectedType(type)
+                }
+            })
             viewModel.characterList.observe(viewLifecycleOwner) {
                 (adapter as CharacterSelectAdapter).characterList = it.toMutableList()
             }
         }
     }
+
     private fun selectCharacterOption(){
+        viewModel.changeSelectedType(1)
         binding.recyclerviewSelectStyle.apply {
             this.adapter = CharacterOptionAdapter()
-            viewModel.optionList.observe(viewLifecycleOwner){
-                (adapter as CharacterOptionAdapter).optionList = it.toMutableList()
+            viewModel.selectedType.observe(viewLifecycleOwner){ type ->
+                val character = viewModel.characterInfo.value?.characterList?.find { it.type == type }
+                Log.e("character", "${character}")
+                (adapter as CharacterOptionAdapter).optionList = character?.characters?.toMutableList() ?: mutableListOf()
+                (adapter as CharacterOptionAdapter).notifyDataSetChanged()
             }
         }
     }
