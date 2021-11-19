@@ -43,7 +43,6 @@ class CharacterFragment : Fragment() {
     private fun selectCharacter() {
         binding.recyclerviewSelectCharacter.apply {
             this.adapter = CharacterSelectAdapter()
-            viewModel.loadCharacterList()
             viewModel.characterList.observe(viewLifecycleOwner) {
                 (adapter as CharacterSelectAdapter).characterList = it.toMutableList()
             }

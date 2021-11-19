@@ -59,46 +59,45 @@ class CharacterViewModel @Inject constructor(
         )
     }
 
-    fun loadCharacterList() {
-        addDisposable(
-            characterRepository.getCharacter(client = "aos")
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({
-                      _characterInfo.postValue(it)
-                },{
-                    it.printStackTrace()
-                })
-        )
-    }
-
     init {
-//        fetchCharacterList()
+        fetchCharacterList()
         fetchCharacterOptionList()
     }
 
     private fun fetchCharacterList() {
         val characterList = listOf(
             MohaengCharacterEntity(
-                R.drawable.ic_char1
+                R.drawable.stylechactab1
             ),
             MohaengCharacterEntity(
-                R.drawable.ic_char2
+                R.drawable.stylechactab2
             ),
             MohaengCharacterEntity(
-                R.drawable.ic_char3
+                R.drawable.stylechactab3
             ),
             MohaengCharacterEntity(
-                R.drawable.ic_char4
+                R.drawable.stylechactab4
             ),
             MohaengCharacterEntity(
-                R.drawable.ic_char5
+                R.drawable.stylechactab5
             ),
             MohaengCharacterEntity(
-                R.drawable.ic_char4
+                R.drawable.stylechactab6
             ),
             MohaengCharacterEntity(
-                R.drawable.ic_char5
+                R.drawable.stylechactablock7
+            ),
+            MohaengCharacterEntity(
+                R.drawable.stylechactablock8
+            ),
+            MohaengCharacterEntity(
+                R.drawable.stylechactablock9
+            ),
+            MohaengCharacterEntity(
+                R.drawable.stylechactablock10
+            ),
+            MohaengCharacterEntity(
+                R.drawable.stylechactablock11
             )
         )
         _characterList.value = characterList
