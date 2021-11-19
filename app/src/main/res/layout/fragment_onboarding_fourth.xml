@@ -44,7 +44,6 @@
                 android:background="@drawable/gpxonboarding4"
                 app:layout_constraintTop_toBottomOf="@id/textview_onboarding_subtitle"
                 app:layout_constraintEnd_toEndOf="parent"/>
-
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/imageview_stamp_background"
                 android:layout_width="match_parent"
@@ -120,7 +119,6 @@
                 app:layout_constraintEnd_toEndOf="@+id/imageview_stamp_background"
                 app:layout_constraintStart_toStartOf="@id/imageview_stamp_background"
                 app:layout_constraintTop_toBottomOf="@id/button_stamp" />
-
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button_scroll"
                 android:layout_width="28dp"

@@ -45,5 +45,4 @@ class OnboardingViewModel @Inject constructor():DisposableViewModel() {
         _selectCourse.value = selectCourse
     }
 
-
 }

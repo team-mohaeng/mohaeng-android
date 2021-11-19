@@ -35,33 +35,15 @@ class CharacterFragment : Fragment() {
         selectCharacter()
         selectCharacterOption()
         viewModel.loadUserCurrentSkin()
-//        fetchCurrentCharacter()
-
-//        viewModel.characterInfo.observe(viewLifecycleOwner) {
-//            binding.imageviewCharacter.run {
-//                setImageDrawable(it.currentCharacterImage.image)
-//            }
-//        }
 
     }
-
     private fun popBackStack() {
-        with(binding) {
-            buttonReturnBack.setOnClickListener {
-                findNavController().popBackStack()
-            }
-        }
+        with(binding) { buttonReturnBack.setOnClickListener { findNavController().popBackStack() } }
     }
-//
-//    private fun fetchCurrentCharacter(){
-//        viewModel.currentUserCharacter.observe(viewLifecycleOwner) {
-//            binding.imageviewCharacter.run { playAnimation() }
-//        }
-//    }
-
     private fun selectCharacter() {
         binding.recyclerviewSelectCharacter.apply {
             this.adapter = CharacterSelectAdapter()
+            viewModel.loadCharacterList()
             viewModel.characterList.observe(viewLifecycleOwner) {
                 (adapter as CharacterSelectAdapter).characterList = it.toMutableList()
             }
