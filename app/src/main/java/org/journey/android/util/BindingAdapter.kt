@@ -12,7 +12,6 @@ import com.google.android.material.shape.ShapeAppearanceModel
 import org.journey.android.R
 import java.lang.System.load
 
-
 object BindingAdapter {
     @JvmStatic
     @BindingAdapter("setImageURL")
@@ -21,7 +20,7 @@ object BindingAdapter {
     @JvmStatic
     @BindingAdapter("setCharacterImageURL")
     fun ImageView.setCharacterImageURL(url: String?) {
-        if(!url.isNullOrEmpty()) load(url) else setBackgroundColor(ContextCompat.getColor(context, R.color.browser_actions_bg_grey))
+        if(!url.isNullOrEmpty()) load(url) else setImageDrawable(ContextCompat.getDrawable(context, R.drawable.stylecardlock1))
     }
 
     @JvmStatic

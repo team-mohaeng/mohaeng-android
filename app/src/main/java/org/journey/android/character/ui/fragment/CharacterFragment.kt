@@ -59,6 +59,7 @@ class CharacterFragment : Fragment() {
     private fun selectCharacterOption(){
         viewModel.changeSelectedType(1)
         binding.recyclerviewSelectStyle.apply {
+            isNestedScrollingEnabled = true
             this.adapter = CharacterOptionAdapter()
             viewModel.selectedType.observe(viewLifecycleOwner){ type ->
                 val character = viewModel.characterInfo.value?.characterList?.find { it.type == type }
