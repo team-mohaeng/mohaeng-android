@@ -11,17 +11,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/mohaeng_yellow">
-
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/user_skin"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        setImageURL="@{viewModel.characterInfo.currentCharacterSkin.image}"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_return_back"
         android:layout_width="44dp"
         android:layout_height="44dp"
-        android:layout_marginLeft="6dp"
+        android:layout_marginStart="6dp"
         android:layout_marginTop="6dp"
         android:background="@drawable/ic_gnbicnback"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
-
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textview_character_style"
         android:layout_width="wrap_content"
@@ -34,16 +41,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imageview_character"
-        android:layout_width="wrap_content"
+        setImageURL="@{viewModel.characterInfo.currentCharacterImage.image}"
+        android:layout_width="220dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
-        android:background="@drawable/ic_rabbit"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
+        app:layout_constraintBottom_toTopOf="@+id/button_complete_style"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/textview_character_style" />
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_character_skin"
         android:layout_width="wrap_content"
@@ -54,7 +60,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.47" />
-
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_complete_style"
         android:layout_width="match_parent"
@@ -69,7 +74,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/button_character_skin" />
-
     <View
         android:id="@+id/view_select_character"
         android:layout_width="match_parent"
@@ -78,7 +82,6 @@
         android:background="@drawable/bottom_sheet_radius"
         app:layout_constraintTop_toBottomOf="@id/button_complete_style"
         app:layout_constraintStart_toStartOf="parent"/>
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_select_character"
         android:layout_width="match_parent"
@@ -89,7 +92,6 @@
         tools:listitem="@layout/item_select_character"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintTop_toTopOf="@+id/view_select_character" />
-
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"

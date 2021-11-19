@@ -94,5 +94,5 @@ interface RetrofitInterface {
     fun changeCharacter(@Body requestChangeCharacterDTO: RequestChangeCharacterDTO) : Single<ResponseChangeCharacterDTO>
 
     @GET("/api/character")
-    fun getCharacter(@Path("client") client: String) : Single<ResponseGetCharacterDTO>
+    fun getCharacter(@Header("client") client: String) : Single<ResponseGetCharacterDTO>
 }

@@ -29,18 +29,35 @@ class CharacterFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setClickListener()
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = viewLifecycleOwner
+        popBackStack()
         selectCharacter()
         selectCharacterOption()
+        viewModel.loadUserCurrentSkin()
+//        fetchCurrentCharacter()
+
+//        viewModel.characterInfo.observe(viewLifecycleOwner) {
+//            binding.imageviewCharacter.run {
+//                setImageDrawable(it.currentCharacterImage.image)
+//            }
+//        }
+
     }
 
-    private fun setClickListener() {
+    private fun popBackStack() {
         with(binding) {
             buttonReturnBack.setOnClickListener {
                 findNavController().popBackStack()
             }
         }
     }
+//
+//    private fun fetchCurrentCharacter(){
+//        viewModel.currentUserCharacter.observe(viewLifecycleOwner) {
+//            binding.imageviewCharacter.run { playAnimation() }
+//        }
+//    }
 
     private fun selectCharacter() {
         binding.recyclerviewSelectCharacter.apply {
