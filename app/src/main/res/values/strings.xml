@@ -4,13 +4,10 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="msg_token_fmt" translatable="false">토큰: %s</string>
     <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
-
     <string name="main_greeting">%s, 오늘은 모행?\n챌린지하고 재밌는 하루 보내!</string>
-
     <string name="happiness_explanation">오늘의 챌린지를 성공하고\n나의 소확행도 공유해보자</string>
     <string name="library_content_dummy">나 쟈니가 인간세계에 처음 도착했을 때 사람들이\n청결에 대해 은근히 무심한 것이 신기했쟈니. 내\n가 사는 별에서는 상상도 할 수 없쟈니.</string>
     <string name="library_dialog">소확행은 오늘의 챌린지를\n성공해야 작성할 수 있어.\n나와 함께 챌린지를 시작해보겠어?</string>
-
     <string name="total_user_format">오늘은 %d개의 안부가 남겨졌어요</string>
     <string name="community_record_contents">맛있는 피자에 시원한 맥주 먹고 선선한 날씨에 산책했어요.</string>
     <string name="private_record_contents">맛있는 피자에 시원한 맥주 먹고 선선한\n날씨에 산책했어요.</string>
@@ -123,5 +120,6 @@
     <string name="success_achieved_badge">획득한\n뱃지</string>
     <string name="community_feed_month">%s월</string>
     <string name="community_feed_date">%s일</string>
+    <string name="community_head_line">오늘 하루는 어때?\n네 안부가 궁금해!</string>
 
 </resources>
