@@ -11,6 +11,8 @@ import org.journey.android.character.controller.CharacterController
 import org.journey.android.character.data.dto.CardDTO
 import org.journey.android.character.data.dto.CurrentCharacterDTO
 import org.journey.android.character.data.dto.CurrentSkinDTO
+import org.journey.android.character.data.dto.request.RequestChangeCharacterDTO
+import org.journey.android.character.data.dto.response.ResponseChangeCharacterDTO
 import org.journey.android.character.data.entity.CharacterInfoEntity
 import org.journey.android.character.data.entity.MohaengCharacterEntity
 import org.journey.android.character.data.entity.MohaengCharacterOptionEntity
@@ -46,6 +48,10 @@ class CharacterViewModel @Inject constructor(
     val getCharacter : LiveData<CardDTO>
         get() = _getCharacter
 
+    private val _changeCharacter = MutableLiveData<ResponseChangeCharacterDTO>()
+    val changeCharacter : LiveData<ResponseChangeCharacterDTO>
+        get() = _changeCharacter
+
     private val _selectedType = MutableLiveData<Int>()
     val selectedType: LiveData<Int>
         get() = _selectedType
@@ -65,6 +71,21 @@ class CharacterViewModel @Inject constructor(
                     it.printStackTrace()
                 })
         )
+    }
+
+    fun changeUserCharacter(){
+        addDisposable(
+            characterRepository.changeCharacter(requestChangeCharacterDTO = RequestChangeCharacterDTO(
+                3,1,2
+            )
+            )
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({
+                    _changeCharacter.postValue(it)
+                },{
+                    it.printStackTrace()
+                }))
     }
 
     init {

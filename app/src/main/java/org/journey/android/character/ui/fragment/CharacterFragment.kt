@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -27,15 +28,17 @@ class CharacterFragment : Fragment() {
         binding = FragmentCharacterBinding.inflate(inflater, container, false)
         return binding.root
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
         popBackStack()
         selectCharacter()
+        observeCharacterOption()
+        changeCharacter()
         viewModel.loadUserCurrentSkin()
-
+    }
+    private fun observeCharacterOption() {
         viewModel.characterInfo.observe(viewLifecycleOwner) {
             selectCharacterOption()
         }
@@ -69,4 +72,12 @@ class CharacterFragment : Fragment() {
             }
         }
     }
+
+    private fun changeCharacter(){
+        binding.buttonCompleteStyle.setOnClickListener {
+            viewModel.changeUserCharacter()
+            Toast.makeText(context, "캐릭터가 저장되었습니다.",Toast.LENGTH_SHORT).show()
+        }
+    }
+
 }
