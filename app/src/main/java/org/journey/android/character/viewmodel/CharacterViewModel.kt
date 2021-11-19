@@ -46,6 +46,14 @@ class CharacterViewModel @Inject constructor(
     val getCharacter : LiveData<CardDTO>
         get() = _getCharacter
 
+    private val _selectedType = MutableLiveData<Int>()
+    val selectedType: LiveData<Int>
+        get() = _selectedType
+
+    fun changeSelectedType(type: Int) {
+        _selectedType.value = type
+    }
+
     fun loadUserCurrentSkin() {
         addDisposable(
             characterRepository.getCharacter(client = "aos")
@@ -59,90 +67,58 @@ class CharacterViewModel @Inject constructor(
         )
     }
 
-    fun loadCharacterList() {
-        addDisposable(
-            characterRepository.getCharacter(client = "aos")
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({
-                      _characterInfo.postValue(it)
-                },{
-                    it.printStackTrace()
-                })
-        )
-    }
-
     init {
-//        fetchCharacterList()
-        fetchCharacterOptionList()
+        fetchCharacterList()
     }
 
     private fun fetchCharacterList() {
         val characterList = listOf(
             MohaengCharacterEntity(
-                R.drawable.ic_char1
+                1,
+                R.drawable.stylechactab1
             ),
             MohaengCharacterEntity(
-                R.drawable.ic_char2
+                2,
+                R.drawable.stylechactab2
             ),
             MohaengCharacterEntity(
-                R.drawable.ic_char3
+                3,
+                R.drawable.stylechactab3
             ),
             MohaengCharacterEntity(
-                R.drawable.ic_char4
+                4,
+                R.drawable.stylechactab4
             ),
             MohaengCharacterEntity(
-                R.drawable.ic_char5
+                5,
+                R.drawable.stylechactab5
             ),
             MohaengCharacterEntity(
-                R.drawable.ic_char4
+                6,
+                R.drawable.stylechactab6
             ),
             MohaengCharacterEntity(
-                R.drawable.ic_char5
+                null,
+                R.drawable.stylechactablock7
+            ),
+            MohaengCharacterEntity(
+                null,
+                R.drawable.stylechactablock8
+            ),
+            MohaengCharacterEntity(
+                null,
+                R.drawable.stylechactablock9
+            ),
+            MohaengCharacterEntity(
+                null,
+                R.drawable.stylechactablock10
+            ),
+            MohaengCharacterEntity(
+                null,
+                R.drawable.stylechactablock11
             )
         )
         _characterList.value = characterList
     }
 
-    private fun fetchCharacterOptionList() {
-        var optionList = listOf(
-            MohaengCharacterOptionEntity(
-                R.drawable.ic_option_1
-            ),
-            MohaengCharacterOptionEntity(
-                R.drawable.ic_option_2
-            ),
-            MohaengCharacterOptionEntity(
-                R.drawable.ic_none_char
-            ),
-            MohaengCharacterOptionEntity(
-                R.drawable.ic_option_4
-            ),
-            MohaengCharacterOptionEntity(
-                R.drawable.ic_option_2
-            ),
-            MohaengCharacterOptionEntity(
-                R.drawable.ic_option_3
-            ),
-            MohaengCharacterOptionEntity(
-                R.drawable.ic_option_4
-            ),
-            MohaengCharacterOptionEntity(
-                R.drawable.ic_option_2
-            ),
-            MohaengCharacterOptionEntity(
-                R.drawable.ic_option_3
-            ),
-            MohaengCharacterOptionEntity(
-                R.drawable.ic_option_4
-            ),
-            MohaengCharacterOptionEntity(
-                R.drawable.ic_option_2
-            ),
-            MohaengCharacterOptionEntity(
-                R.drawable.ic_option_3
-            )
-        )
-        _optionList.value = optionList
-    }
 }

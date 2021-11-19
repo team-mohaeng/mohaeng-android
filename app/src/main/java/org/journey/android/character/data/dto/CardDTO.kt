@@ -2,16 +2,20 @@ package org.journey.android.character.data.dto
 
 
 import com.google.gson.annotations.SerializedName
+import org.journey.android.character.data.entity.MohaengCharacterOptionEntity
 
 data class CardDTO(
-    @SerializedName("hasCard")
     val hasCard: Boolean,
-    @SerializedName("id")
     val id: Int,
-    @SerializedName("image")
     val image: String,
-    @SerializedName("isNew")
     val isNew: Boolean,
-    @SerializedName("preview")
     val preview: String
-)
+){
+    fun convertToMohaengCharacterOptionEntity(): MohaengCharacterOptionEntity {
+        return MohaengCharacterOptionEntity(
+            hasCard,
+            isNew,
+            image
+        )
+    }
+}

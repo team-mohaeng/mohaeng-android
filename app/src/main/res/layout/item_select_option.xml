@@ -8,14 +8,15 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingBottom="10dp">
 
-    <androidx.appcompat.widget.AppCompatImageButton
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imagebutton_option_character"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        loadDrawable="@{data.imageOption}"
-        android:background="@drawable/ic_option1"
+        android:layout_width="96dp"
+        android:layout_height="130dp"
+        android:scaleType="fitXY"
+        setCharacterImageURL="@{data.imageOption}"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
