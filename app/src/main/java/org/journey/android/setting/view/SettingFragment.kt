@@ -69,6 +69,10 @@ class SettingFragment : Fragment() {
             var intent = Intent(this@SettingFragment.context, OssLicensesMenuActivity::class.java)
             startActivity(intent)
             OssLicensesMenuActivity.setActivityTitle("오픈소스 라이선스")
+
+//            var intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://hip-accordion-2b6.notion.site/9926ee56f48c49a8929786ac6eb68b13"))
+//            startActivity(intent)
+
         }
 
         binding.constraintlayoutSettingLogout.setOnClickListener {
@@ -76,9 +80,7 @@ class SettingFragment : Fragment() {
             if(snstype == "google"){
                 FirebaseAuth.getInstance().signOut()
 
-                findNavController().popBackStack()
-                findNavController().popBackStack()
-                findNavController().navigate(R.id.action_frameFragment_to_loginFragment)
+                activity?.finish()
 
             }
 
@@ -87,16 +89,12 @@ class SettingFragment : Fragment() {
                     if (error != null) {
                         Toast.makeText(this.context, "로그아웃 실패 $error", Toast.LENGTH_SHORT).show()
                     }else {
-                        findNavController().popBackStack()
-                        findNavController().popBackStack()
-                        findNavController().navigate(R.id.action_frameFragment_to_loginFragment)
+                        activity?.finish()
                     }
                 }
             }
             else {
-                findNavController().popBackStack()
-                findNavController().popBackStack()
-                findNavController().navigate(R.id.action_frameFragment_to_loginFragment)
+                activity?.finish()
             }
         }
 
@@ -123,6 +121,11 @@ class SettingFragment : Fragment() {
             }
             deleteBtn.setOnClickListener {
                 deleteUser()
+
+                if (deleteDialog != null) {
+                    deleteDialog.dismiss()
+                    deleteDialog.cancel()
+                }
             }
         }
 
@@ -155,10 +158,7 @@ class SettingFragment : Fragment() {
                     Log.d("delete user", "success")
 
                     viewModel.logout()
-                    
-                    findNavController().popBackStack()
-                    findNavController().popBackStack()
-                    findNavController().navigate(R.id.action_frameFragment_to_loginFragment)
+                    activity?.finish()
                 } else {
                     Log.d("delete user", "fail $response")
                 }
