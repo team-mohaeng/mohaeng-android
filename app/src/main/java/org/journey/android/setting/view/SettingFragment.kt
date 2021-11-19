@@ -1,12 +1,16 @@
 package org.journey.android.setting.view
 
+import android.app.Dialog
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -50,7 +54,7 @@ class SettingFragment : Fragment() {
         }
     }
 
-    fun buttonEvents(){
+    private fun buttonEvents(){
         binding.constraintlayoutSettingPrivate.setOnClickListener {
             var intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://brawny-pest-02a.notion.site/6fca114a154e49e2b81d1a53ddf56fe1"))
             startActivity(intent)
@@ -97,7 +101,29 @@ class SettingFragment : Fragment() {
         }
 
         binding.constraintlayoutSettingSignout.setOnClickListener {
-            deleteUser()
+            val deleteDialog = activity?.let { it1 -> Dialog(it1) }
+            val deleteDialogInflater: LayoutInflater = LayoutInflater.from(activity)
+            val mView: View =
+                deleteDialogInflater.inflate(R.layout.dialog_user_delete, null)
+            val deleteBtn: Button = mView.findViewById(R.id.button_dialog_delete)
+            val closeBtn: Button = mView.findViewById(R.id.button_dialog_close)
+            val window = deleteDialog?.window
+            window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+            if (deleteDialog != null) {
+                deleteDialog.setContentView(mView)
+                deleteDialog.create()
+                deleteDialog.show()
+            }
+            closeBtn.setOnClickListener {
+                if (deleteDialog != null) {
+                    deleteDialog.dismiss()
+                    deleteDialog.cancel()
+                }
+            }
+            deleteBtn.setOnClickListener {
+                deleteUser()
+            }
         }
 
         binding.constraintlayoutSettingQuestion.setOnClickListener {
@@ -117,12 +143,11 @@ class SettingFragment : Fragment() {
         }
     }
 
-    fun deleteUser(){
+    private fun deleteUser(){
         val call: Call<Unit> = SettingRequestToServer.service
             .deleteUser(
                 "application/json",
                 viewModel.getJWT(),
-//                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk",
             )
         call.enqueue(object : Callback<Unit> {
             override fun onResponse(call: Call<Unit>, response: Response<Unit>) {

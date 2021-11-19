@@ -51,15 +51,6 @@ class PrivateDetailFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setButtonClickListener(context)
 
-//        val displaymetricsPrivateDetailFragment = DisplayMetrics()
-//        requireActivity().windowManager.defaultDisplay.getMetrics(
-//            displaymetricsPrivateDetailFragment
-//        )
-//        val heightPrivateDetailFragmentDisplay =
-//            displaymetricsPrivateDetailFragment.heightPixels * 0.5
-//        val widthPrivateDetailFragmentDisplay =
-//            displaymetricsPrivateDetailFragment.widthPixels * 0.9
-
         if(postDetail.get("mood")==2)
         {
             binding.imageviewPrivateDetailFront.setImageResource(R.drawable.ic_feel_third)
@@ -112,10 +103,6 @@ class PrivateDetailFragment: Fragment() {
                 deleteDialog.setContentView(mView)
                 deleteDialog.create()
                 deleteDialog.show()
-//                deleteDialog.window?.setLayout(
-//                    widthPrivateDetailFragmentDisplay.toInt(),
-//                    heightPrivateDetailFragmentDisplay.toInt()
-//                )
             }
             closeBtn.setOnClickListener {
                 if (deleteDialog != null) {
@@ -129,7 +116,6 @@ class PrivateDetailFragment: Fragment() {
                         postDetail.get("id") as Int,
                         "application/json",
                         viewModel.getJWT()
-//                        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk"
                     )
                 call.enqueue(object : Callback<Unit> {
                     override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
@@ -176,37 +162,31 @@ class PrivateDetailFragment: Fragment() {
                     alertDialogEmoji.dismiss()
                 }
                 dialogFirst.setOnClickListener {
-//                    addChipToGroup(1,1)
                     putEmojiRetrofit(1)
                     alertDialogEmoji.dismiss()
                     refreshFragment()
                 }
                 diaglogSecond.setOnClickListener {
-//                    addChipToGroup(2,1)
                     putEmojiRetrofit(2)
                     alertDialogEmoji.dismiss()
                     refreshFragment()
                 }
                 dialogThird.setOnClickListener {
-//                    addChipToGroup(3,1)
                     putEmojiRetrofit(3)
                     alertDialogEmoji.dismiss()
                     refreshFragment()
                 }
                 dialogFourth.setOnClickListener {
-//                    addChipToGroup(4,1)
                     putEmojiRetrofit(4)
                     alertDialogEmoji.dismiss()
                     refreshFragment()
                 }
                 dialogFifth.setOnClickListener {
-//                    addChipToGroup(5,1)
                     putEmojiRetrofit(5)
                     alertDialogEmoji.dismiss()
                     refreshFragment()
                 }
                 dialogSixth.setOnClickListener {
-//                    addChipToGroup(6,1)
                     putEmojiRetrofit(6)
                     alertDialogEmoji.dismiss()
                     refreshFragment()
@@ -218,7 +198,7 @@ class PrivateDetailFragment: Fragment() {
         }
     }
 
-    fun refreshFragment(){
+    private fun refreshFragment(){
         setRetrofit(refreshYear, refreshMonth)
 
         if (getParentFragmentManager() != null) {
@@ -231,13 +211,12 @@ class PrivateDetailFragment: Fragment() {
         }
     }
 
-    fun putEmojiRetrofit(id:Int){
+    private fun putEmojiRetrofit(id:Int){
         val call: Call<Unit> = FeedRequestToServer.writeService
             .putEmoji(
                 postDetail.get("id") as Int,
                 "application/json",
                 viewModel.getJWT(),
-//                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk",
                 RequestDiaryEmojiData(
                     emojiId = id
                 )
@@ -255,14 +234,13 @@ class PrivateDetailFragment: Fragment() {
             }
         })
     }
-    fun deleteEmoji(id: Int){
+    private fun deleteEmoji(id: Int){
         Log.d("chip", id.toString())
         val call: Call<Unit> = FeedRequestToServer.writeService
             .deleteEmoji(
                 postDetail.get("id") as Int,
                 "application/json",
                 viewModel.getJWT(),
-//                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk",
                 RequestDiaryEmojiData(
                     emojiId = id
                 )
@@ -281,7 +259,7 @@ class PrivateDetailFragment: Fragment() {
     }
 
 
-    fun addChipToGroup(emotion: Int, cnt: Int) {
+    private fun addChipToGroup(emotion: Int, cnt: Int) {
         if (binding.chipgroupLike.childCount < 6) {
             val chip = Chip(context)
             chip.chipBackgroundColor =
@@ -328,14 +306,13 @@ class PrivateDetailFragment: Fragment() {
         }
     }
 
-    fun setRetrofit(year:String, month:String){
+    private fun setRetrofit(year:String, month:String){
         val call: Call<ResponseDiaryPrivateData> = FeedRequestToServer.service
             .getPrivateDiary(
                 year,
                 month,
                 "application/json",
                 viewModel.getJWT()
-//                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk"
             )
 
         call.enqueue(object : Callback<ResponseDiaryPrivateData> {

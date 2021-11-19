@@ -16,18 +16,25 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.google.android.gms.common.internal.Constants
+import dagger.hilt.android.AndroidEntryPoint
 import org.journey.android.R
 import org.journey.android.base.BaseFragment
 import org.journey.android.databinding.FragmentDiarySecondBinding
 import org.journey.android.diary.view.DiarySecondFragment.Companion.PICK_IMAGE
+import org.journey.android.diary.viewmodel.PrivateViewModel
 import java.io.InputStream
 import java.lang.Exception
 import java.util.*
 
+@AndroidEntryPoint
 class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
     private var imageUri: Uri? = null
+    var checkPrivate = false
+    private val viewModel by viewModels<PrivateViewModel>()
+
     override fun getFragmentBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
@@ -35,16 +42,14 @@ class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
         return FragmentDiarySecondBinding.inflate(inflater, container, false)
     }
 
-    var checkPrivate = false
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         uploadGallery()
         clickButtons()
         binding.buttonCompelete.isEnabled = false
 
-//        var moodNum = arguments?.getInt("moodNum")
-//        Log.d("MOODNUM", "${arguments?.getInt("moodNum")}, ${arguments}")
+        val user_name = viewModel.getNickname()
+        binding.textviewDiaryTextSecond.text = "${user_name}의 오늘을 남겨줘"
 
         if(moodNum==2)
         {
@@ -77,7 +82,6 @@ class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
                 else -> return ""
             }
         }
-//        val secondViewToday = secondNowYear + "년 " + secondNowMonth + "월 " + secondNowDate + "일 " + secondNowDayOfWeekToString(secondNowDayOfWeek) +"요일"
         val secondViewToday = secondNowMonth + "월 " + secondNowDate + "일 "
 
         binding.textviewNowDateSecond.text = secondViewToday
@@ -115,44 +119,6 @@ class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
             binding.buttonCompelete.isSelected = true
             binding.buttonCompelete.isClickable = true
         }
-
-//        binding.buttonCompelete.setOnClickListener{
-//
-//            val displaymetricsDiarySecondFragment = DisplayMetrics()
-//            requireActivity().windowManager.defaultDisplay.getMetrics(displaymetricsDiarySecondFragment)
-//            val heightDiarySecondDisplay = displaymetricsDiarySecondFragment.heightPixels
-//            val widthDiarySecondDisplay = displaymetricsDiarySecondFragment.widthPixels * 0.9
-//            val alertDialogDiarySecondFragment = activity?.let { it2 -> Dialog(it2) }
-//            val alertDialogDiarySecondFragmentInflater : LayoutInflater = LayoutInflater.from(activity)
-//            val mView : View = alertDialogDiarySecondFragmentInflater.inflate(R.layout.diary_compelete_dialog,null)
-//            val moodImage = mView.findViewById(R.id.imageview_diary_compelete_dialog_top) as ImageView
-
-
-
-//            val windowTwo = alertDialogDiarySecondFragment?.window
-//            windowTwo?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-//            if (alertDialogDiarySecondFragment != null)
-//            {
-//                alertDialogDiarySecondFragment.setContentView(mView)
-//                alertDialogDiarySecondFragment.create()
-//                alertDialogDiarySecondFragment.show()
-//                alertDialogDiarySecondFragment.window?.setLayout(widthDiarySecondDisplay.toInt(), heightDiarySecondDisplay.toInt())
-//                val shareButton = mView.findViewById(R.id.button_diary_compelete_share) as Button
-//                val privateButton = mView.findViewById(R.id.button_diary_compelete_save) as Button
-//                shareButton.setOnClickListener {
-//                    checkPrivate=false
-//                    findNavController().navigate(R.id.action_diarySecondFragment_to_communityFragment)
-//                    alertDialogDiarySecondFragment.cancel()
-//                }
-//                privateButton.setOnClickListener {
-//                    checkPrivate=true
-//                    findNavController().navigate(R.id.action_diarySecondFragment_to_communityFragment)
-//                    alertDialogDiarySecondFragment.cancel()
-//                }
-//            }
-
-//    }
-
 
     }
     

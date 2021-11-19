@@ -134,7 +134,6 @@ class CommunityDetailFragment : Fragment() {
                             feedDetail.get("id") as Int,
                             "application/json",
                             viewModel.getJWT()
-//                            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk"
                         )
                     call.enqueue(object : Callback<Unit> {
                         override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
@@ -176,10 +175,6 @@ class CommunityDetailFragment : Fragment() {
                     deleteDialog.setContentView(mView)
                     deleteDialog.create()
                     deleteDialog.show()
-//                    deleteDialog.window?.setLayout(
-//                        widthCommunityDetailFragmentDisplay.toInt(),
-//                        heightCommunityDetailFragmentDisplay.toInt()
-//                    )
                 }
                 closeBtn.setOnClickListener {
                     if (deleteDialog != null) {
@@ -192,8 +187,7 @@ class CommunityDetailFragment : Fragment() {
                         .deletePrivateDetail(
                             feedDetail.get("id") as Int,
                             "application/json",
-//                            userJWT
-                        ""
+                            viewModel.getJWT()
                         )
                     call.enqueue(object : Callback<Unit> {
                         override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
@@ -214,7 +208,7 @@ class CommunityDetailFragment : Fragment() {
         }
     }
 
-    fun refreshFragment(){
+    private fun refreshFragment(){
         refreshCheck = true
         findNavController().popBackStack()
 
@@ -228,13 +222,12 @@ class CommunityDetailFragment : Fragment() {
         }
     }
 
-    fun putEmojiRetrofit(id:Int){
+    private fun putEmojiRetrofit(id:Int){
         val call: Call<Unit> = FeedRequestToServer.writeService
             .putEmoji(
                 feedDetail.get("id") as Int,
                 "application/json",
                 viewModel.getJWT(),
-//                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk",
                 RequestDiaryEmojiData(
                     emojiId = id
                 )
@@ -252,14 +245,13 @@ class CommunityDetailFragment : Fragment() {
             }
         })
     }
-    fun deleteEmoji(id: Int){
+    private fun deleteEmoji(id: Int){
         Log.d("chip", id.toString())
         val call: Call<Unit> = FeedRequestToServer.writeService
             .deleteEmoji(
                 feedDetail.get("id") as Int,
                 "application/json",
                 viewModel.getJWT(),
-//                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk",
                 RequestDiaryEmojiData(
                     emojiId = id
                 )
@@ -277,7 +269,7 @@ class CommunityDetailFragment : Fragment() {
         })
     }
 
-    fun addChipToGroup(emotion: Int, cnt: Int) {
+    private fun addChipToGroup(emotion: Int, cnt: Int) {
         if (binding.chipgroupLike.childCount < 6) {
             val chip = Chip(context)
             chip.chipBackgroundColor =
@@ -312,9 +304,6 @@ class CommunityDetailFragment : Fragment() {
             likeList.add(chip.text.toString())
             binding.chipgroupLike.addView(chip as View)
 
-//            if(emotion == feedDetail.get("myemoji")){
-//                chip.isCloseIconVisible = true
-//            }
 
             chip.setOnClickListener {
                 if(emotion == feedDetail.get("myemoji")) {
@@ -324,37 +313,14 @@ class CommunityDetailFragment : Fragment() {
                     refreshFragment()
                 }
             }
-
-//            chip.setOnClickListener {
-//                Log.d("chip1", "${chip.chipIcon} ${feedDetail.get("myemoji")}")
-//                var emojisrc = ""
-//                when(feedDetail.get("myemoji")){
-//                    1 -> emojisrc = "android.graphics.drawable.VectorDrawable@b55861"
-//                    2 -> emojisrc = "android.graphics.drawable.VectorDrawable@d93f4b3"
-//                    3 -> emojisrc = "android.graphics.drawable.VectorDrawable@7b397a7"
-//                    4 -> emojisrc = "android.graphics.drawable.VectorDrawable@ed4c232"
-//                    5 -> emojisrc = "android.graphics.drawable.VectorDrawable@db5ef9"
-//                    6 -> emojisrc = "android.graphics.drawable.VectorDrawable@dc11bbb"
-//                }
-//                Log.d("chip11", chip.chipIcon.toString() +"${emojisrc}")
-//                if(chip.chipIcon.toString() == emojisrc){
-//                    Log.d("chip2", "${chip.chipIcon} ${feedDetail.get("myemoji")}")
-//                }
-//                if (chip.id == feedDetail.get("myemoji")) {
-//                    Log.d("chip", chip.id.toString())
-//                    refreshFragment()
-//                    deleteEmoji(chip.id)
-//                }
-//            }
         }
     }
 
-    fun setRetrofit(){
+    private fun setRetrofit(){
         val call: Call<ResponseCommunityFeedDTO> = FeedRequestToServer.service
             .getCommunityDiary(
                 "application/json",
                 viewModel.getJWT()
-//                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3N30sImlhdCI6MTYzNDk4MTg1N30.c4ZBhK4vd9AG_LqFyzOfud6x7e_9Flko6_1J098oKsk"
             )
 
         call.enqueue(object : Callback<ResponseCommunityFeedDTO> {
