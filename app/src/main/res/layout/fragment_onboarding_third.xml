@@ -6,7 +6,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textview_onboarding_title"
         android:layout_width="wrap_content"
@@ -19,7 +18,6 @@
         android:textScaleX="0.98"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
-
     <org.journey.android.util.SpannableTextView
         android:id="@+id/textview_onboarding_subtitle"
         android:layout_width="wrap_content"
@@ -36,7 +34,6 @@
         mohaeng:span_color="@color/moheang_yellow6"
         mohaeng:span_end="35"
         mohaeng:span_start="34" />
-
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imageview_onboarding_bear"
         android:layout_width="154dp"
@@ -45,7 +42,6 @@
         android:background="@drawable/gpxonboarding4"
         app:layout_constraintTop_toBottomOf="@id/textview_onboarding_subtitle"
         app:layout_constraintEnd_toEndOf="parent"/>
-
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imageview_stamp_background"
         android:layout_width="match_parent"
@@ -56,7 +52,6 @@
         app:layout_constraintHorizontal_bias="0.514"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imageview_onboarding_bear" />
-
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imageview_date_background"
         android:layout_width="wrap_content"
@@ -66,7 +61,6 @@
         app:layout_constraintTop_toTopOf="@id/imageview_stamp_background"
         app:layout_constraintStart_toStartOf="@id/imageview_stamp_background"
         app:layout_constraintEnd_toEndOf="@id/imageview_stamp_background"/>
-
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textview_date"
         android:layout_width="wrap_content"
@@ -79,7 +73,6 @@
         app:layout_constraintEnd_toEndOf="@+id/imageview_date_background"
         app:layout_constraintStart_toStartOf="@id/imageview_date_background"
         app:layout_constraintTop_toTopOf="@id/imageview_date_background" />
-
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textview_course_title"
         android:layout_width="wrap_content"
@@ -93,7 +86,6 @@
         app:layout_constraintEnd_toEndOf="@+id/imageview_stamp_background"
         app:layout_constraintStart_toStartOf="@id/imageview_stamp_background"
         app:layout_constraintTop_toBottomOf="@id/textview_date" />
-
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/button_stamp"
         android:layout_width="140dp"
@@ -103,7 +95,6 @@
         app:layout_constraintEnd_toEndOf="@+id/imageview_stamp_background"
         app:layout_constraintStart_toStartOf="@id/imageview_stamp_background"
         app:layout_constraintTop_toBottomOf="@id/textview_course_title" />
-
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textview_push_stamp"
         android:layout_width="wrap_content"
@@ -117,6 +108,5 @@
         app:layout_constraintEnd_toEndOf="@+id/imageview_stamp_background"
         app:layout_constraintStart_toStartOf="@id/imageview_stamp_background"
         app:layout_constraintTop_toBottomOf="@id/button_stamp" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

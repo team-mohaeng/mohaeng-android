@@ -1,6 +1,5 @@
 package org.journey.android.onboarding
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -10,9 +9,6 @@ import com.kakao.sdk.common.util.Utility
 import dagger.hilt.android.AndroidEntryPoint
 import org.journey.android.R
 import org.journey.android.databinding.ActivityOnboardingBinding
-import org.journey.android.frame.MainActivity
-import org.journey.android.preference.UserPreferenceManager
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class OnboardingActivity : AppCompatActivity() {
@@ -22,7 +18,6 @@ class OnboardingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityOnboardingBinding.inflate(layoutInflater)
-
         setContentView(binding.root)
         var keyHash = Utility.getKeyHash(this)
         Log.d("KEY_HASH", keyHash)

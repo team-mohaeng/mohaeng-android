@@ -2,6 +2,9 @@
 <layout>
     <data>
         <variable
+            name="viewModel"
+            type="org.journey.android.character.viewmodel.CharacterViewModel" />
+        <variable
             name="data"
             type="org.journey.android.character.data.entity.MohaengCharacterEntity" />
     </data>
@@ -11,18 +14,16 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imagebutton_mohaeng_character"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        loadDrawable="@{data.image}"
-        android:layout_marginRight="24dp"
+        setImageURL="@{viewModel.getCharacter.image}"
+        android:layout_marginEnd="24dp"
         android:layout_marginTop="6dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
