@@ -70,7 +70,11 @@ class CharacterFragment : Fragment() {
 
     private fun fetchCharacterSkin() {
         binding.recyclerviewSkin.run {
-            this.adapter = CharacterSkinAdapter()
+            this.adapter = CharacterSkinAdapter(object : CharacterSkinAdapter.CharacterSkinListener{
+                override fun selectSkin(skin: Int) {
+                    viewModel.changeSelectedSkinType(skin)
+                }
+            })
             viewModel.characterSkin.observe(viewLifecycleOwner){
                 (adapter as CharacterSkinAdapter).skinList = it.toMutableList()
                 (adapter as CharacterSkinAdapter).notifyDataSetChanged()

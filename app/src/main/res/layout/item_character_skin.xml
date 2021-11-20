@@ -12,14 +12,6 @@
     android:layout_height="wrap_content"
     android:layout_marginBottom="12dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:elevation="2dp"
-        app:cardCornerRadius="20dp"
-        android:background="@color/white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imageview_skin"
         android:layout_width="28dp"
@@ -29,5 +21,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:background="@drawable/pre128" />
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imageview_skin_select"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:background="@drawable/grpcheck"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

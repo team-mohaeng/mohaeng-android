@@ -61,8 +61,16 @@ class CharacterViewModel @Inject constructor(
     val selectedType: LiveData<Int>
         get() = _selectedType
 
+    private val _selectedSkinType = MutableLiveData<Int>()
+    val selectedSkinType: LiveData<Int>
+        get() = _selectedSkinType
+
     fun changeSelectedType(type: Int) {
         _selectedType.value = type
+    }
+
+    fun changeSelectedSkinType(skin: Int) {
+        _selectedSkinType.value = skin
     }
 
     fun loadUserCurrentSkin() {
@@ -150,21 +158,27 @@ class CharacterViewModel @Inject constructor(
     private fun fetchSkinList(){
         val characterSkin = listOf(
             CharacterSkinEntity(
+                6,
                 R.drawable.pre133
             ),
             CharacterSkinEntity(
+                5,
                 R.drawable.pre132
             ),
             CharacterSkinEntity(
+                4,
                 R.drawable.pre131
             ),
             CharacterSkinEntity(
+                3,
                 R.drawable.pre130
             ),
             CharacterSkinEntity(
+                2,
                 R.drawable.pre129
             ),
             CharacterSkinEntity(
+                1,
                 R.drawable.pre128
             )
         )
