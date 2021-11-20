@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
@@ -38,7 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="이메일"
-        android:textColor="@color/mohaeng_gray"
+        android:textColor="@color/mohaeng_black"
         android:textSize="12sp"
         android:fontFamily="@font/spoqahansansneoregular"
         android:layout_marginTop="48dp"
@@ -66,8 +67,21 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textview_signup_email" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button_check_email"
+    <TextView
+        android:id="@+id/textview_email_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="18dp"
+        android:fontFamily="@font/spoqahansansneoregular"
+        android:text="중복된 이메일입니다"
+        android:textColor="@color/mohaeng_red_ea"
+        android:textSize="10sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edittext_input_email" />
+
+    <ImageView
+        android:id="@+id/imageview_check_email"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:background="@drawable/ic_yellow_check"
@@ -82,7 +96,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="비밀번호"
-        android:textColor="@color/mohaeng_gray"
+        android:textColor="@color/mohaeng_black"
         android:textSize="12sp"
         android:fontFamily="@font/spoqahansansneoregular"
         android:layout_marginTop="40dp"
@@ -107,8 +121,23 @@
         android:paddingBottom="16dp"
         android:textColorHint="@color/mohaeng_gray7"
         android:backgroundTint="@color/mohaeng_gray7" />
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button_check_password"
+
+
+    <TextView
+        android:id="@+id/textview_pw_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="18dp"
+        android:fontFamily="@font/spoqahansansneoregular"
+        android:text="영문, 숫자를 모두 포함하여 입력해주세요"
+        android:textColor="@color/mohaeng_red_ea"
+        android:textSize="10sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edittext_input_password" />
+
+    <ImageView
+        android:id="@+id/imageview_check_password"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:background="@drawable/ic_yellow_check"
@@ -123,7 +152,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="비밀번호 확인"
-        android:textColor="@color/mohaeng_gray"
+        android:textColor="@color/mohaeng_black"
         android:textSize="12sp"
         android:fontFamily="@font/spoqahansansneoregular"
         android:layout_marginTop="20dp"
@@ -148,8 +177,23 @@
         android:paddingBottom="16dp"
         android:textColorHint="@color/mohaeng_gray7"
         android:backgroundTint="@color/mohaeng_gray7" />
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button_double_check_password"
+
+    <TextView
+        android:id="@+id/textview_checkpw_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="18dp"
+        android:fontFamily="@font/spoqahansansneoregular"
+        android:text="비밀번호가 일치하지 않습니다"
+        android:textColor="@color/mohaeng_red_ea"
+        android:textSize="10sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edittext_double_check_password" />
+
+
+    <ImageView
+        android:id="@+id/imageview_double_check_password"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:background="@drawable/ic_yellow_check"
