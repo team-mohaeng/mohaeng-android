@@ -2,11 +2,13 @@ package org.journey.android.diary.view
 
 import android.app.Activity
 import android.content.Intent
+import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.ImageDecoder
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.provider.DocumentsContract
 import android.provider.MediaStore
 import android.text.Editable
 import android.text.TextWatcher
@@ -16,15 +18,27 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.net.toUri
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.google.android.gms.common.internal.Constants
 import dagger.hilt.android.AndroidEntryPoint
+import okhttp3.MediaType
+import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
+import okio.BufferedSink
 import org.journey.android.R
 import org.journey.android.base.BaseFragment
 import org.journey.android.databinding.FragmentDiarySecondBinding
+import org.journey.android.diary.service.DiaryWriteMultipartFormData.asMultipart
 import org.journey.android.diary.view.DiarySecondFragment.Companion.PICK_IMAGE
 import org.journey.android.diary.viewmodel.PrivateViewModel
+import org.journey.android.util.FormDataUtil
+import retrofit2.http.Multipart
+import java.io.File
 import java.io.InputStream
 import java.lang.Exception
 import java.util.*
@@ -32,7 +46,7 @@ import java.util.*
 @AndroidEntryPoint
 class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
     private var imageUri: Uri? = null
-    var checkPrivate = false
+
     private val viewModel by viewModels<PrivateViewModel>()
 
     override fun getFragmentBinding(
@@ -44,12 +58,17 @@ class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = viewLifecycleOwner
+
+
         uploadGallery()
         clickButtons()
         binding.buttonCompelete.isEnabled = false
-
+        uploadPosting()
         val user_name = viewModel.getNickname()
         binding.textviewDiaryTextSecond.text = "${user_name}의 오늘을 남겨줘"
+        viewModel.changeMood(moodNum)
 
         if(moodNum==2)
         {
@@ -125,15 +144,15 @@ class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
     var path = ""
 
     val getContent = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
-        var currentImgUrl: Uri? = uri
+        var currentImgUri: Uri? = uri
 
         try {
             val bitmap = if(Build.VERSION.SDK_INT>=29){
                 val source: ImageDecoder.Source = ImageDecoder.createSource(requireActivity()
-                    .contentResolver, currentImgUrl!!)
+                    .contentResolver, currentImgUri!!)
                 ImageDecoder.decodeBitmap(source)
             } else{
-                MediaStore.Images.Media.getBitmap(requireActivity().contentResolver, currentImgUrl!!)
+                MediaStore.Images.Media.getBitmap(requireActivity().contentResolver, currentImgUri!!)
             }
 
             binding.imageviewDiaryPicture.setImageBitmap(bitmap)
@@ -141,6 +160,12 @@ class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
             binding.imageviewDiaryPicture.visibility = View.VISIBLE
             binding.imagebuttonDiaryPicturex.visibility = View.VISIBLE
 
+            val filePath = File(currentImgUri.path).path
+            Log.e("path", "${filePath}")
+
+            val multipart = currentImgUri.asMultipart("image", requireContext().contentResolver)
+
+            viewModel.changeImage(multipart)
         }
         catch (e:Exception){
             e.printStackTrace()
@@ -187,6 +212,9 @@ class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
                         binding.constraintlayoutPictureUpload.visibility = View.GONE
                         binding.imageviewDiaryPicture.visibility = View.VISIBLE
                         binding.imageviewDiaryPicture.setImageBitmap(bitmap)
+
+
+
                     }
                     catch (e:Exception){
                         e.printStackTrace()
@@ -217,75 +245,72 @@ class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
         }
 
         binding.imagebuttonDiaryCheckbox.setOnClickListener {
-            if(checkPrivate){
-                checkPrivate=false
-                binding.imagebuttonDiaryCheckbox.setBackgroundResource(R.drawable.ic_diary_checkbox)
-            }
-            else {
-                checkPrivate=true
-                binding.imagebuttonDiaryCheckbox.setBackgroundResource(R.drawable.ic_diary_checkboxno)
+            viewModel.isPrivate.value?.let { checkPrivate ->
+                viewModel.changeIsPrivate(!checkPrivate)
             }
         }
-        binding.textviewDiaryCheckbox.setOnClickListener {
-            if(checkPrivate){
-                checkPrivate=false
-                binding.imagebuttonDiaryCheckbox.setBackgroundResource(R.drawable.ic_diary_checkbox)
-            }
-            else {
-                checkPrivate=true
-                binding.imagebuttonDiaryCheckbox.setBackgroundResource(R.drawable.ic_diary_checkboxno)
-            }
+
+        viewModel.isPrivate.observe(viewLifecycleOwner) { isPrivate ->
+            binding.imagebuttonDiaryCheckbox.setBackgroundResource(
+                if (isPrivate) R.drawable.ic_diary_checkbox else R.drawable.ic_diary_checkboxno
+            )
         }
     }
 
     fun setRetrofit(){
         uploadGallery()
-/*
-        val file = File(path)
-        val requestFile = RequestBody.create("multipart/form-data".toMediaTypeOrNull(), file)
-        val uploadFile = MultipartBody.Part.createFormData("mainImage", file.name, requestFile);
 
-
-        val hashlist : List<String> = listOf("1","2","3")
+//        val file = File(this.path)
+//        val requestFile = RequestBody.create("multipart/form-data".toMediaTypeOrNull(), file)
+//        val uploadFile = MultipartBody.Part.createFormData("mainImage", file.name, requestFile);
+//
+//
+//        val hashlist : List<String> = listOf("1","2","3")
 //                var file = File("/storage/emulated/0/Download/filename.pdf")
 //                val requestFile = RequestBody.create("application/pdf".toMediaTypeOrNull(), file)
 //                val body = MultipartBody.Part.createFormData("file", file.name, requestFile)
+//
+//        val requestDiaryWriteData = RequestDiaryWriteData(
+//            content = "안녕",
+//            mainImage = path,
+//            mood = "1",
+//            hashtags = hashlist,
+//            isPrivate = true
+//        )
+//
+//        val call: Call<ResponseDiaryWriteData> = RetrofitService.diaryWriteService
+//            .writeDiary(userJwt, "hi", uploadFile, "1", listOf("1","2","3"), true)
+//        call.enqueue(object : Callback<ResponseDiaryWriteData>{
+//            override fun onResponse(
+//                call: Call<ResponseDiaryWriteData>,
+//                response: Response<ResponseDiaryWriteData>
+//            ) {
+//                if(response.isSuccessful)
+//                {
+//                    Log.d("Compelete", "Compelete Success")
+//                }
+//                else{
+//                    Log.d("Compelete", "Compelete Fail")
+//                }
+//            }
+//            override fun onFailure(call: Call<ResponseDiaryWriteData>, t: Throwable) {
+//                Log.d("Compelete", "$t")
+//            }
+//
+//        })
 
-        val requestDiaryWriteData = RequestDiaryWriteData(
-            content = "안녕",
-            mainImage = path,
-            mood = "1",
-            hashtags = hashlist,
-            isPrivate = true
-        )
 
-        val call: Call<ResponseDiaryWriteData> = RetrofitService.diaryWriteService
-            .writeDiary(userJwt, "hi", uploadFile, "1", listOf("1","2","3"), true)
-        call.enqueue(object : Callback<ResponseDiaryWriteData>{
-            override fun onResponse(
-                call: Call<ResponseDiaryWriteData>,
-                response: Response<ResponseDiaryWriteData>
-            ) {
-                if(response.isSuccessful)
-                {
-                    Log.d("Compelete", "Compelete Success")
-                }
-                else{
-                    Log.d("Compelete", "Compelete Fail")
-                }
-            }
-            override fun onFailure(call: Call<ResponseDiaryWriteData>, t: Throwable) {
-                Log.d("Compelete", "$t")
-            }
-
-        })
-
- */
     }
 
     private fun uploadPosting(){
         binding.buttonCompelete.setOnClickListener {
-//            viewModel.uploadPosting()
+            viewModel.uploadImages()
+        }
+    }
+    inner class BitmapRequestBody(private val bitmap: Bitmap) : RequestBody() {
+        override fun contentType(): MediaType = "image/jpeg".toMediaType()
+        override fun writeTo(sink: BufferedSink) {
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 0, sink.outputStream())
         }
     }
 

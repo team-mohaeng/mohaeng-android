@@ -8,5 +8,5 @@ data class ResponsePostCommunityDTO(
     @SerializedName("data")
     val dataDTO: DataDTO,
     val status: Int,
-    val message: String
+    val message: String?
 )

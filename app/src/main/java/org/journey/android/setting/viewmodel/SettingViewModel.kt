@@ -39,7 +39,6 @@ class SettingViewModel @Inject constructor(
                     return@OnCompleteListener
                 }
                 val token = task.result
-
                 Log.e("token", "$token")
                 _fcmDeviceToken.postValue(token)
                 userPreferenceManager.saveUserFcmDeviceToken(token)
