@@ -53,16 +53,32 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/textview_character_style" />
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview_skin"
+                android:layout_width="32dp"
+                android:layout_height="220dp"
+                android:layout_marginBottom="14dp"
+                android:background="@drawable/background_skin_recyclerview"
+                android:elevation="2dp"
+                android:orientation="vertical"
+                android:visibility="invisible"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="@id/button_character_skin"
+                app:layout_constraintEnd_toEndOf="@+id/button_character_skin"
+                app:layout_constraintVertical_bias="0.45"
+                app:layout_constraintStart_toStartOf="@+id/button_character_skin"
+                tools:listitem="@layout/item_character_skin" />
+
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button_character_skin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
                 android:layout_marginStart="4dp"
-                android:background="@drawable/ic_button_char"
+                android:background="@drawable/btn"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.47" />
+                app:layout_constraintVertical_bias="0.45" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button_complete_style"

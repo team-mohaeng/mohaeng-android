@@ -1,4 +1,4 @@
-package org.journey.android.community.data.dto.response
+package org.journey.android.community.data.dto.request
 
 
 data class RequestUploadPostDTO(

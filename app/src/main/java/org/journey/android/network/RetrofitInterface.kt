@@ -1,5 +1,6 @@
 package org.journey.android.network
 
+import androidx.lifecycle.MutableLiveData
 import io.reactivex.rxjava3.core.Single
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -9,6 +10,7 @@ import org.journey.android.challenge.data.response.ResponseValidateChallengeDTO
 import org.journey.android.character.data.dto.request.RequestChangeCharacterDTO
 import org.journey.android.character.data.dto.response.ResponseChangeCharacterDTO
 import org.journey.android.character.data.dto.response.ResponseGetCharacterDTO
+import org.journey.android.community.data.dto.request.RequestUploadPostDTO
 import org.journey.android.community.data.dto.response.ResponseCommunityFeedDTO
 import org.journey.android.community.data.dto.response.ResponsePostCommunityDTO
 import org.journey.android.course.data.dto.ResponseCourseCatalogDTO

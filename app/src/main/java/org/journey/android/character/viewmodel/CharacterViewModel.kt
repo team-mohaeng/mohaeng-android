@@ -14,6 +14,7 @@ import org.journey.android.character.data.dto.CurrentSkinDTO
 import org.journey.android.character.data.dto.request.RequestChangeCharacterDTO
 import org.journey.android.character.data.dto.response.ResponseChangeCharacterDTO
 import org.journey.android.character.data.entity.CharacterInfoEntity
+import org.journey.android.character.data.entity.CharacterSkinEntity
 import org.journey.android.character.data.entity.MohaengCharacterEntity
 import org.journey.android.character.data.entity.MohaengCharacterOptionEntity
 import org.journey.android.character.data.repository.CharacterRepository
@@ -35,6 +36,10 @@ class CharacterViewModel @Inject constructor(
     private val _characterInfo = MutableLiveData<CharacterInfoEntity>()
     val characterInfo: LiveData<CharacterInfoEntity>
         get() = _characterInfo
+    
+    private val _characterSkin = MutableLiveData<List<CharacterSkinEntity>>()
+    val characterSkin : LiveData<List<CharacterSkinEntity>>
+        get() = _characterSkin
 
     private val _currentUserCharacter = MutableLiveData<CurrentCharacterDTO>()
     val currentUserCharacter: LiveData<CurrentCharacterDTO>
@@ -76,8 +81,8 @@ class CharacterViewModel @Inject constructor(
     fun changeUserCharacter(){
         addDisposable(
             characterRepository.changeCharacter(requestChangeCharacterDTO = RequestChangeCharacterDTO(
-                3,1,2
-            )
+                1,1,1
+                 )
             )
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -90,6 +95,7 @@ class CharacterViewModel @Inject constructor(
 
     init {
         fetchCharacterList()
+        fetchSkinList()
     }
 
     private fun fetchCharacterList() {
@@ -140,6 +146,29 @@ class CharacterViewModel @Inject constructor(
             )
         )
         _characterList.value = characterList
+    }
+    private fun fetchSkinList(){
+        val characterSkin = listOf(
+            CharacterSkinEntity(
+                R.drawable.pre133
+            ),
+            CharacterSkinEntity(
+                R.drawable.pre132
+            ),
+            CharacterSkinEntity(
+                R.drawable.pre131
+            ),
+            CharacterSkinEntity(
+                R.drawable.pre130
+            ),
+            CharacterSkinEntity(
+                R.drawable.pre129
+            ),
+            CharacterSkinEntity(
+                R.drawable.pre128
+            )
+        )
+        _characterSkin.value = characterSkin
     }
 
 }

@@ -1,4 +1,4 @@
-package org.journey.android.util
+package org.journey.android.customview
 
 import android.content.Context
 import android.content.res.TypedArray

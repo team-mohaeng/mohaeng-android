@@ -282,6 +282,12 @@ class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
 
  */
     }
+//
+//    private fun uploadPosting(){
+//        binding.buttonCompelete.setOnClickListener {
+//            viewModel.uploadPosting()
+//        }
+//    }
 
     companion object {
         const val PICK_IMAGE = 100
