@@ -15,14 +15,12 @@ class CharacterSelectAdapter (val listener : CharacterSelectListener): RecyclerV
     interface CharacterSelectListener{
         fun selectCharacter(type: Int)
     }
-
     var selectedPosition by Delegates.observable(0) { _, oldPosition, newPosition ->
         if (newPosition in characterList.indices) {
             notifyItemChanged(oldPosition)
             notifyItemChanged(newPosition)
         }
     }
-
     class CharacterSelectViewHolder(val binding: ItemSelectCharacterBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterSelectViewHolder {
@@ -44,7 +42,6 @@ class CharacterSelectAdapter (val listener : CharacterSelectListener): RecyclerV
             View.INVISIBLE
         }
     }
-
     override fun getItemCount() = characterList.size
 
 }

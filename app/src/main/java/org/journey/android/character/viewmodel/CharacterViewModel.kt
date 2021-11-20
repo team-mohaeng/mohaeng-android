@@ -65,12 +65,20 @@ class CharacterViewModel @Inject constructor(
     val selectedSkinType: LiveData<Int>
         get() = _selectedSkinType
 
+    private val _selectedOptionType = MutableLiveData<Int>()
+    val selectedOptionType: LiveData<Int>
+        get() = _selectedOptionType
+
     fun changeSelectedType(type: Int) {
         _selectedType.value = type
     }
 
     fun changeSelectedSkinType(skin: Int) {
         _selectedSkinType.value = skin
+    }
+
+    fun changeSelectedOptionType(option: Int) {
+        _selectedOptionType.value = option
     }
 
     fun loadUserCurrentSkin() {
