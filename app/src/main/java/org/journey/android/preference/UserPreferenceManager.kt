@@ -26,6 +26,16 @@ class UserPreferenceManager(private val sharedPreferencesManager: SharedPreferen
     fun saveIsAlreadyLogIn(isAlreadyLogIn: Boolean) = sharedPreferencesManager.putSharedPref(IS_ALREADY_LOGIN, isAlreadyLogIn)
     fun fetchIsAlreadyLogIn(): Boolean = sharedPreferencesManager.getSharedPrefs(IS_ALREADY_LOGIN, false)
 
+
+    fun saveCheckEmail(checkEmail: String) { sharedPreferencesManager.putSharedPref(CHECK_EMAIL, checkEmail) }
+    fun fetchCheckEmail(): String { return sharedPreferencesManager.getSharedPrefs(CHECK_EMAIL, "") }
+
+    fun saveCheckPassword(checkPassword : String) = sharedPreferencesManager.putSharedPref(CHECK_PASSWORD, checkPassword)
+    fun fetchCheckPassword() : String { return sharedPreferencesManager.getSharedPrefs(CHECK_PASSWORD, "")}
+
+    fun saveCheckDoublePassword(checkDoublePassword : String) = sharedPreferencesManager.putSharedPref(CHECK_DOUBLE_PASSWORD, checkDoublePassword)
+    fun fetchCheckDoublePassword() : String { return sharedPreferencesManager.getSharedPrefs(CHECK_DOUBLE_PASSWORD, "")}
+
     companion object {
         private const val ACCESS_TOKEN = "access_token"
         private const val REFRESH_TOKEN = "refresh_token"
@@ -35,5 +45,8 @@ class UserPreferenceManager(private val sharedPreferencesManager: SharedPreferen
         private const val PASS_WORD = "pass_word"
         private const val NICK_NAME = "nick_name"
         private const val IS_ALREADY_LOGIN = "is_already_login"
+        private const val CHECK_EMAIL = "check_email"
+        private const val CHECK_PASSWORD = "check_password"
+        private const val CHECK_DOUBLE_PASSWORD = "check_double_password"
     }
 }

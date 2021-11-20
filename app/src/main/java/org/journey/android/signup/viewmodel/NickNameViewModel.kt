@@ -125,4 +125,30 @@ class NickNameViewModel @Inject constructor(
                 })
         )
     }
+
+    fun setEmail(){
+        userEmail.value?.let {
+            userPreferenceManager.saveCheckEmail(userEmail.value.toString())
+        }
+    }
+    fun setPassword(){
+        userPassword.value?.let {
+            userPreferenceManager.saveCheckPassword(userPassword.value.toString())
+        }
+    }
+    fun setCheckPassword(){
+        userPasswordDoubleCheck.value?.let {
+            userPreferenceManager.saveCheckDoublePassword(userPasswordDoubleCheck.value.toString())
+        }
+    }
+
+    fun getEmail(): String{
+       return userPreferenceManager.fetchCheckEmail()
+    }
+    fun getPassword(): String{
+        return userPreferenceManager.fetchCheckPassword()
+    }
+    fun getCheckPassword(): String{
+        return userPreferenceManager.fetchCheckDoublePassword()
+    }
 }
