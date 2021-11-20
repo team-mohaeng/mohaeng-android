@@ -36,9 +36,9 @@ class CharacterViewModel @Inject constructor(
     private val _characterInfo = MutableLiveData<CharacterInfoEntity>()
     val characterInfo: LiveData<CharacterInfoEntity>
         get() = _characterInfo
-    
+
     private val _characterSkin = MutableLiveData<List<CharacterSkinEntity>>()
-    val characterSkin : LiveData<List<CharacterSkinEntity>>
+    val characterSkin: LiveData<List<CharacterSkinEntity>>
         get() = _characterSkin
 
     private val _currentUserCharacter = MutableLiveData<CurrentCharacterDTO>()
@@ -50,11 +50,11 @@ class CharacterViewModel @Inject constructor(
         get() = _currentUserSkin
 
     private val _getCharacter = MutableLiveData<CardDTO>()
-    val getCharacter : LiveData<CardDTO>
+    val getCharacter: LiveData<CardDTO>
         get() = _getCharacter
 
     private val _changeCharacter = MutableLiveData<ResponseChangeCharacterDTO>()
-    val changeCharacter : LiveData<ResponseChangeCharacterDTO>
+    val changeCharacter: LiveData<ResponseChangeCharacterDTO>
         get() = _changeCharacter
 
     private val _selectedType = MutableLiveData<Int>()
@@ -86,19 +86,21 @@ class CharacterViewModel @Inject constructor(
         )
     }
 
-    fun changeUserCharacter(){
+    fun changeUserCharacter() {
         addDisposable(
-            characterRepository.changeCharacter(requestChangeCharacterDTO = RequestChangeCharacterDTO(
-                1,1,1
-                 )
+            characterRepository.changeCharacter(
+                requestChangeCharacterDTO = RequestChangeCharacterDTO(
+                    1, 1, 1
+                )
             )
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
                     _changeCharacter.postValue(it)
-                },{
+                }, {
                     it.printStackTrace()
-                }))
+                })
+        )
     }
 
     init {
@@ -155,7 +157,8 @@ class CharacterViewModel @Inject constructor(
         )
         _characterList.value = characterList
     }
-    private fun fetchSkinList(){
+
+    private fun fetchSkinList() {
         val characterSkin = listOf(
             CharacterSkinEntity(
                 6,
@@ -180,9 +183,29 @@ class CharacterViewModel @Inject constructor(
             CharacterSkinEntity(
                 1,
                 R.drawable.pre128
+            ),
+            CharacterSkinEntity(
+                null,
+                R.drawable.nightlock
+            ),
+            CharacterSkinEntity(
+                null,
+                R.drawable.spreadlock
+            ),
+            CharacterSkinEntity(
+                null,
+                R.drawable.cloudlock
+            ),
+            CharacterSkinEntity(
+                null,
+                R.drawable.fieldlock
+            ),
+            CharacterSkinEntity(
+                null,
+                R.drawable.figurelock
             )
         )
-        _characterSkin.value = characterSkin
+        _characterSkin . value = characterSkin
     }
 
 }
