@@ -12,17 +12,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_dialog_close"
             android:layout_width="34dp"
             android:layout_height="34dp"
             android:layout_marginTop="14dp"
-            android:layout_marginRight="14dp"
+            android:layout_marginEnd="14dp"
             android:background="@drawable/ic_xbtn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textview_dialog_title"
             android:layout_width="wrap_content"
@@ -35,7 +33,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textview_dialog_content"
             android:layout_width="wrap_content"
@@ -51,7 +48,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textview_dialog_title" />
-
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageview_dialog_image"
             android:layout_width="150dp"
@@ -62,7 +58,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textview_dialog_content" />
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintlayout_dialog_buttons"
             android:layout_width="0dp"
@@ -72,7 +67,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageview_dialog_image">
-
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button_dialog_a"
                 style="@style/Widget.AppCompat.Button.Borderless"
@@ -86,7 +80,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button_dialog_b"
                 style="@style/Widget.AppCompat.Button.Borderless"
@@ -101,7 +94,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/button_dialog_a" />
-
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button_dialog_c"
                 style="@style/Widget.AppCompat.Button.Borderless"
@@ -117,7 +109,5 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/button_dialog_b" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
