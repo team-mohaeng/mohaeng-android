@@ -5,14 +5,12 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar_input_happiness_second"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
-
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/imagebutton_diary_back_second"
                 android:layout_width="44dp"
@@ -20,7 +18,6 @@
                 android:background="@drawable/ic_diary_back_page_button"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
             <TextView
                 android:id="@+id/textview_now_date_second"
                 android:layout_width="wrap_content"
@@ -31,7 +28,6 @@
                 android:textColor="@color/journey_black3"
                 android:textSize="16sp" />
         </androidx.appcompat.widget.Toolbar>
-
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/imagebutton_diary_cancel_second"
             android:layout_width="44dp"
@@ -41,26 +37,23 @@
             android:background="@drawable/ic_x"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-
         <TextView
             android:id="@+id/textview_diary_text_second"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="아라아랑의 오늘을 남겨줘"
-            android:layout_marginLeft="18dp"
+            android:layout_marginStart="18dp"
             android:layout_marginTop="32dp"
             android:fontFamily="@font/gmarketsansttfmedium"
             android:textColor="@color/journey_black3"
             android:textSize="20sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar_input_happiness_second" />
-
         <TextView
             android:id="@+id/textview_diary_subtext_second"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="18dp"
+            android:layout_marginStart="18dp"
             android:layout_marginTop="16dp"
             android:fontFamily="@font/spoqahansansneoregular"
             android:text="챌린지와 함께한 하루 이야기를 기록으로 남겨봐"
@@ -68,7 +61,6 @@
             android:textSize="13sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textview_diary_text_second" />
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintlayout_diary_content"
             android:layout_width="match_parent"
@@ -79,7 +71,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textview_diary_subtext_second">
-
             <ImageView
                 android:id="@+id/imageview_diary_today_second"
                 android:layout_width="100dp"
@@ -89,8 +80,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
-
             <View
                 android:id="@+id/view_diary_content"
                 android:layout_width="match_parent"
@@ -101,7 +90,6 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageview_diary_today_second" />
-
             <EditText
                 android:id="@+id/edittext_content_happiness"
                 android:layout_width="match_parent"
@@ -121,7 +109,6 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/view_diary_content" />
-
             <TextView
                 android:id="@+id/textview_count_string"
                 android:layout_width="wrap_content"
@@ -132,7 +119,6 @@
                 app:layout_constraintBottom_toBottomOf="@id/textview_max_string"
                 app:layout_constraintRight_toLeftOf="@+id/textview_max_string"
                 app:layout_constraintTop_toTopOf="@+id/textview_max_string" />
-
             <TextView
                 android:id="@+id/textview_max_string"
                 android:layout_width="wrap_content"
@@ -143,7 +129,6 @@
                 android:textSize="10sp"
                 app:layout_constraintBottom_toBottomOf="@id/edittext_content_happiness"
                 app:layout_constraintRight_toRightOf="@+id/edittext_content_happiness" />
-
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintlayout_picture_upload"
                 android:layout_width="match_parent"
@@ -153,7 +138,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/edittext_content_happiness">
-
                 <ImageView
                     android:id="@+id/imageview_diary_gallery"
                     android:layout_width="24dp"
@@ -181,7 +165,6 @@
                     app:layout_constraintStart_toEndOf="@+id/imageview_diary_gallery"
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
-
             <ImageView
                 android:id="@+id/imageview_diary_picture"
                 android:layout_width="match_parent"
@@ -198,7 +181,6 @@
                 app:layout_constraintStart_toStartOf="@+id/constraintlayout_picture_upload"
                 app:layout_constraintTop_toBottomOf="@+id/edittext_content_happiness" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-
         <ImageButton
             android:id="@+id/imagebutton_diary_picturex"
             android:layout_width="wrap_content"
@@ -210,17 +192,15 @@
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@+id/constraintlayout_diary_content"
             app:layout_constraintEnd_toEndOf="@+id/constraintlayout_diary_content" />
-
         <ImageButton
             android:id="@+id/imagebutton_diary_checkbox"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="22dp"
+            android:layout_marginStart="22dp"
             android:background="@drawable/ic_diary_checkboxno"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintlayout_diary_content" />
-
         <TextView
             android:id="@+id/textview_diary_checkbox"
             android:layout_width="wrap_content"
@@ -230,7 +210,7 @@
             android:textColor="@color/mohaeng_black"
             android:textSize="12sp"
             android:layout_marginTop="24dp"
-            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
             app:layout_constraintStart_toEndOf="@+id/imagebutton_diary_checkbox"
             app:layout_constraintTop_toBottomOf="@+id/constraintlayout_diary_content" />
         <androidx.appcompat.widget.AppCompatButton

@@ -36,7 +36,7 @@ class CommunityFragment : Fragment() {
         binding.lifecycleOwner = viewLifecycleOwner
         viewModel.fetchCommunityPost()
         loadCommunityPost()
-        setClickListener()
+        setNavController()
     }
 
     private fun loadCommunityPost(){
@@ -53,7 +53,7 @@ class CommunityFragment : Fragment() {
         }
     }
 
-    private fun setClickListener(){
+    private fun setNavController(){
         with(binding){
             textviewDiary.setOnClickListener { findNavController().navigate(R.id.action_frameFragment_to_privateFragment) }
             buttonHappinessWrite.setOnClickListener { findNavController().navigate(R.id.action_frameFragment_to_diaryFirstFragment) }
