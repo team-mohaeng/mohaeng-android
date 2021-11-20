@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -13,6 +14,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import org.journey.android.character.viewmodel.CharacterViewModel
 import org.journey.android.character.ui.adapter.CharacterOptionAdapter
 import org.journey.android.character.ui.adapter.CharacterSelectAdapter
+import org.journey.android.character.ui.adapter.CharacterSkinAdapter
 import org.journey.android.databinding.FragmentCharacterBinding
 import org.journey.android.util.AutoClearedValue
 
@@ -36,6 +38,8 @@ class CharacterFragment : Fragment() {
         selectCharacter()
         observeCharacterOption()
         changeCharacter()
+        fetchCharacterSkin()
+        showCharacterSkinOption()
         viewModel.loadUserCurrentSkin()
     }
     private fun observeCharacterOption() {
@@ -58,11 +62,26 @@ class CharacterFragment : Fragment() {
             }
         }
     }
+    private fun showCharacterSkinOption(){
+        binding.buttonCharacterSkin.setOnClickListener {
+            binding.recyclerviewSkin.isVisible = true
+        }
+    }
+
+    private fun fetchCharacterSkin() {
+        binding.recyclerviewSkin.run {
+            this.adapter = CharacterSkinAdapter()
+            viewModel.characterSkin.observe(viewLifecycleOwner){
+                (adapter as CharacterSkinAdapter).skinList = it.toMutableList()
+                (adapter as CharacterSkinAdapter).notifyDataSetChanged()
+            }
+        }
+    }
 
     private fun selectCharacterOption(){
         viewModel.changeSelectedType(1)
         binding.recyclerviewSelectStyle.apply {
-            isNestedScrollingEnabled = true
+            isNestedScrollingEnabled = false
             this.adapter = CharacterOptionAdapter()
             viewModel.selectedType.observe(viewLifecycleOwner){ type ->
                 val character = viewModel.characterInfo.value?.characterList?.find { it.type == type }
@@ -72,12 +91,12 @@ class CharacterFragment : Fragment() {
             }
         }
     }
-
     private fun changeCharacter(){
         binding.buttonCompleteStyle.setOnClickListener {
             viewModel.changeUserCharacter()
-            Toast.makeText(context, "캐릭터가 저장되었습니다.",Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "스타일이 저장되었습니다.",Toast.LENGTH_SHORT).show()
         }
     }
+
 
 }
