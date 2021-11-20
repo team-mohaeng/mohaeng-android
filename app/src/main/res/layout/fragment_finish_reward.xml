@@ -17,7 +17,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageview_character"
             android:layout_width="260dp"
@@ -27,7 +26,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textview_success_ment" />
-
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/lottie_animation"
             android:layout_width="260dp"
@@ -39,7 +37,6 @@
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
             app:lottie_rawRes="@raw/awards_congrats" />
-
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/imagview_graphic"
             android:layout_width="match_parent"
@@ -51,7 +48,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/imageview_character" />
-
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textview_success_challenge"
             android:layout_width="wrap_content"
@@ -64,7 +60,6 @@
             app:layout_constraintEnd_toEndOf="@+id/imagview_graphic"
             app:layout_constraintStart_toStartOf="@id/imagview_graphic"
             app:layout_constraintTop_toTopOf="@id/imagview_graphic" />
-
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_ongoing"
             android:layout_width="wrap_content"

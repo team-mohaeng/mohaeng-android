@@ -55,6 +55,7 @@
         <entry key="app/src/main/res/layout/dialog_giveup_challenge.xml" value="0.22083333333333333" />
         <entry key="app/src/main/res/layout/dialog_index_explanation.xml" value="0.34479166666666666" />
         <entry key="app/src/main/res/layout/dialog_myfeed_emoji.xml" value="0.20364583333333333" />
+        <entry key="app/src/main/res/layout/dialog_user_delete.xml" value="0.3380208333333333" />
         <entry key="app/src/main/res/layout/diary_compelete_dialog.xml" value="0.18854166666666666" />
         <entry key="app/src/main/res/layout/diary_hashtag_count_dialog.xml" value="0.18854166666666666" />
         <entry key="app/src/main/res/layout/fragment_badge.xml" value="0.2604166666666667" />
