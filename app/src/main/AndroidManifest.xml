@@ -4,8 +4,8 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:name=".application.MohaengApplication"
@@ -17,8 +17,8 @@
         android:theme="@style/Theme.JourneyAndroid"
         android:usesCleartextTraffic="true"
         android:fullBackupContent="false"
+        android:requestLegacyExternalStorage="true"
         android:windowSoftInputMode="adjustResize">
-
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
             android:resource="@drawable/ic_launcher_foreground" />
@@ -76,5 +76,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>

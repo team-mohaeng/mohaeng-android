@@ -2,6 +2,11 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="org.journey.android.diary.viewmodel.PrivateViewModel" />
+    </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -98,6 +103,7 @@
                 android:layout_marginTop="24dp"
                 android:layout_marginRight="16dp"
                 android:background="@null"
+                android:text="@={viewModel.content}"
                 android:fontFamily="@font/spoqahansansneomedium"
                 android:gravity="top|left"
                 android:hint="밤 산책 챌린지를 하러 가서 치즈 냥이를 만났다ㅠㅠ\n사랑아 고양해"

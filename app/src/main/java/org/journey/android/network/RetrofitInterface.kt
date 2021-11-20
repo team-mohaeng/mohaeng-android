@@ -120,10 +120,10 @@ interface RetrofitInterface {
     fun getCharacter(@Header("client") client: String): Single<ResponseGetCharacterDTO>
 
     @Multipart
-    @POST
+    @POST("/api/feed")
     fun uploadPost(
         @Header("client") client: String,
-        @Part feed: ArrayList<RequestBody>,
+        @Part feed: MultipartBody.Part?,
         @Part image: MultipartBody.Part?
     ): Single<ResponsePostCommunityDTO>
 
