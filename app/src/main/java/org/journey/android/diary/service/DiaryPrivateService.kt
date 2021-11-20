@@ -1,6 +1,6 @@
 package org.journey.android.diary.service
 
-import org.journey.android.community.data.dto.ResponseCommunityFeedDTO
+import org.journey.android.community.data.dto.response.ResponseCommunityFeedDTO
 import org.journey.android.diary.dto.ResponseDiaryPrivateData
 import retrofit2.Call
 import retrofit2.http.DELETE

@@ -14,6 +14,8 @@ import org.journey.android.chat.controller.ChatController
 import org.journey.android.chat.controller.ChatControllerImpl
 import org.journey.android.community.controller.CommunityController
 import org.journey.android.community.controller.CommunityControllerImpl
+import org.journey.android.community.controller.UploadPostController
+import org.journey.android.community.controller.UploadPostControllerImpl
 import org.journey.android.course.controller.catalog.CourseCatalogController
 import org.journey.android.course.controller.catalog.CourseCatalogControllerImpl
 import org.journey.android.course.controller.state.CourseStateController
@@ -116,5 +118,10 @@ object ControllerModule {
     @Singleton
     fun provideCompleteCourseController(@AuthRetrofitService retrofitInterface: RetrofitInterface) : CompleteCourseController =
         CompleteCourseControllerImpl(retrofitInterface)
+
+    @Provides
+    @Singleton
+    fun provideUploadPostController(@AuthRetrofitService retrofitInterface: RetrofitInterface) : UploadPostController =
+        UploadPostControllerImpl(retrofitInterface)
 
 }

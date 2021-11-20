@@ -67,6 +67,7 @@
         <entry key="app/src/main/res/layout/fragment_complete_reward.xml" value="0.3380208333333333" />
         <entry key="app/src/main/res/layout/fragment_course.xml" value="0.2632113012687298" />
         <entry key="app/src/main/res/layout/fragment_course_catalog.xml" value="0.24310776942355888" />
+        <entry key="app/src/main/res/layout/fragment_diary_end.xml" value="0.23385416666666667" />
         <entry key="app/src/main/res/layout/fragment_diary_first.xml" value="0.290625" />
         <entry key="app/src/main/res/layout/fragment_diary_second.xml" value="0.290625" />
         <entry key="app/src/main/res/layout/fragment_diary_viewpager_adapter.xml" value="0.290625" />

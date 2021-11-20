@@ -10,9 +10,8 @@ import javax.inject.Inject
 class CharacterRepositoryImpl @Inject constructor(
     private val characterDataSource: CharacterDataSource
 ) : CharacterRepository{
-    override fun changeCharacter(requestChangeCharacterDTO: RequestChangeCharacterDTO): Single<ResponseChangeCharacterDTO> {
-        TODO("Not yet implemented")
-    }
+    override fun changeCharacter(requestChangeCharacterDTO: RequestChangeCharacterDTO): Single<ResponseChangeCharacterDTO> =
+        characterDataSource.changeCharacter(requestChangeCharacterDTO)
 
     override fun getCharacter(client: String): Single<CharacterInfoEntity> =
         characterDataSource.getCharacter(client).map { response ->

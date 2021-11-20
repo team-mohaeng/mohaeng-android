@@ -287,6 +287,4 @@ class DiarySecondFragment : BaseFragment<FragmentDiarySecondBinding>() {
         const val PICK_IMAGE = 100
     }
 
-
-
 }

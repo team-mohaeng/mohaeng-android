@@ -23,7 +23,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.chip.Chip
 import dagger.hilt.android.AndroidEntryPoint
 import org.journey.android.R
-import org.journey.android.community.data.dto.ResponseCommunityFeedDTO
+import org.journey.android.community.data.dto.response.ResponseCommunityFeedDTO
 import org.journey.android.databinding.FragmentCommunityDetailBinding
 import org.journey.android.diary.dto.RequestDiaryEmojiData
 import org.journey.android.diary.service.FeedRequestToServer

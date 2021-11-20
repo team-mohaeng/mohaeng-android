@@ -1,13 +1,16 @@
 package org.journey.android.network
 
 import io.reactivex.rxjava3.core.Single
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import org.journey.android.badge.data.dto.response.ResponseAchieveBadgeDTO
 import org.journey.android.challenge.data.response.ResponseTodayChallengeDTO
 import org.journey.android.challenge.data.response.ResponseValidateChallengeDTO
 import org.journey.android.character.data.dto.request.RequestChangeCharacterDTO
 import org.journey.android.character.data.dto.response.ResponseChangeCharacterDTO
 import org.journey.android.character.data.dto.response.ResponseGetCharacterDTO
-import org.journey.android.community.data.dto.ResponseCommunityFeedDTO
+import org.journey.android.community.data.dto.response.ResponseCommunityFeedDTO
+import org.journey.android.community.data.dto.response.ResponsePostCommunityDTO
 import org.journey.android.course.data.dto.ResponseCourseCatalogDTO
 import org.journey.android.course.data.dto.ResponseStartChallengeDTO
 import org.journey.android.findpw.data.RequestChangePasswordDTO
@@ -31,68 +34,95 @@ import retrofit2.http.*
 
 interface RetrofitInterface {
     @POST("/api/signin")
-    fun signInEmail(@Header("token") fcmToken : String, @Body requestEmailSignInDTO: RequestEmailSignInDTO) : Single<ResponseEmailSignInDTO>
+    fun signInEmail(
+        @Header("token") fcmToken: String,
+        @Body requestEmailSignInDTO: RequestEmailSignInDTO
+    ): Single<ResponseEmailSignInDTO>
 
     @POST("/api/kakao")
-    fun kakaoLogin(@Header("idToken") accessToken : String ,
-                   @Header("token") fcmToken : String) : Single<ResponseKakaoSignInDTO>
+    fun kakaoLogin(
+        @Header("idToken") accessToken: String,
+        @Header("token") fcmToken: String
+    ): Single<ResponseKakaoSignInDTO>
 
     @POST("/api/google")
-    fun googleLogin(@Header("idToken") accessToken : String ,
-                    @Header("token") fcmToken : String) : Single<ResponseGoogleSignInDTO>
+    fun googleLogin(
+        @Header("idToken") accessToken: String,
+        @Header("token") fcmToken: String
+    ): Single<ResponseGoogleSignInDTO>
 
     @POST("/api/signup")
-    fun signUp(@Header("token") fcmToken : String, @Body requestSignupDTO: RequestSignupDTO) : Single<ResponseSignupDTO>
+    fun signUp(
+        @Header("token") fcmToken: String,
+        @Body requestSignupDTO: RequestSignupDTO
+    ): Single<ResponseSignupDTO>
 
     @POST("api/{snsType}/signup")
-    fun snsSignUp(@Header("idToken") accessToken : String ,
-                    @Header("token") fcmToken : String,
-                  @Path("snsType") snsType : String,
-    @Body requestSocialSignUpDTO: RequestSocialSignUpDTO
-    ) : Single<ResponseSocialSignUpDTO>
+    fun snsSignUp(
+        @Header("idToken") accessToken: String,
+        @Header("token") fcmToken: String,
+        @Path("snsType") snsType: String,
+        @Body requestSocialSignUpDTO: RequestSocialSignUpDTO
+    ): Single<ResponseSocialSignUpDTO>
 
     @PUT("/api/password")
-    fun changePassWord(@Body requestChangePasswordDTO: RequestChangePasswordDTO) : Single<ResponseChangePasswordDTO>
+    fun changePassWord(@Body requestChangePasswordDTO: RequestChangePasswordDTO): Single<ResponseChangePasswordDTO>
 
     @GET("/api/password/{email}")
-    fun sendVerificationCode(@Path("email") email : String) : Single<ResponseVerificationCodeDTO>
+    fun sendVerificationCode(@Path("email") email: String): Single<ResponseVerificationCodeDTO>
 
     @GET("/api/home")
-    fun getHomeResource(@Header("client") client : String) : Single<ResponseHomeDTO>
+    fun getHomeResource(@Header("client") client: String): Single<ResponseHomeDTO>
 
     @PUT("/api/profile")
-    fun changeNickName(@Body requestChangeNickNameDTO: RequestChangeNickNameDTO) : Single<ResponseChangeNickNameDTO>
+    fun changeNickName(@Body requestChangeNickNameDTO: RequestChangeNickNameDTO): Single<ResponseChangeNickNameDTO>
 
     @GET("/api/profile")
-    fun checkMyPage() : Single<ResponseCheckMyPageDTO>
+    fun checkMyPage(): Single<ResponseCheckMyPageDTO>
 
     @GET("/api/feed")
-    fun getCommunityFeed() : Single<ResponseCommunityFeedDTO>
+    fun getCommunityFeed(): Single<ResponseCommunityFeedDTO>
 
     @GET("/api/today")
-    fun checkTodayChallenge(@Header("client") client : String) : Single<ResponseTodayChallengeDTO>
+    fun checkTodayChallenge(@Header("client") client: String): Single<ResponseTodayChallengeDTO>
 
     @PUT("/api/today/{courseId}/{challengeId}")
-    fun putValidateChallenge(@Header("client") client : String, @Path("courseId") courseId : String, @Path("challengeId") challengeId : String) : Single<ResponseValidateChallengeDTO>
+    fun putValidateChallenge(
+        @Header("client") client: String,
+        @Path("courseId") courseId: String,
+        @Path("challengeId") challengeId: String
+    ): Single<ResponseValidateChallengeDTO>
 
     @GET("/api/courses")
-    fun getCourses() : Single<ResponseCourseCatalogDTO>
+    fun getCourses(): Single<ResponseCourseCatalogDTO>
 
     @PUT("/api/courses/{courseId}")
-    fun putCourse(@Header("client") client : String, @Path("courseId") courseId : Int ) : Single<ResponseStartChallengeDTO>
+    fun putCourse(
+        @Header("client") client: String,
+        @Path("courseId") courseId: Int
+    ): Single<ResponseStartChallengeDTO>
 
     @GET("/api/courses/complete")
-    fun getCompleteCourseList() : Single<ResponseCompleteCourseDTO>
+    fun getCompleteCourseList(): Single<ResponseCompleteCourseDTO>
 
     @GET("/api/badge")
-    fun putAchieveBadgeList() : Single<ResponseAchieveBadgeDTO>
+    fun putAchieveBadgeList(): Single<ResponseAchieveBadgeDTO>
 
     @GET("/api/message")
-    fun getPushAlarmMessage() : Single<ResponsePushAlarmDTO>
+    fun getPushAlarmMessage(): Single<ResponsePushAlarmDTO>
 
     @PUT("/api/character")
-    fun changeCharacter(@Body requestChangeCharacterDTO: RequestChangeCharacterDTO) : Single<ResponseChangeCharacterDTO>
+    fun changeCharacter(@Body requestChangeCharacterDTO: RequestChangeCharacterDTO): Single<ResponseChangeCharacterDTO>
 
     @GET("/api/character")
-    fun getCharacter(@Header("client") client: String) : Single<ResponseGetCharacterDTO>
+    fun getCharacter(@Header("client") client: String): Single<ResponseGetCharacterDTO>
+
+    @Multipart
+    @POST
+    fun uploadPost(
+        @Header("client") client: String,
+        @Part feed: ArrayList<RequestBody>,
+        @Part image: MultipartBody.Part?
+    ): Single<ResponsePostCommunityDTO>
+
 }
