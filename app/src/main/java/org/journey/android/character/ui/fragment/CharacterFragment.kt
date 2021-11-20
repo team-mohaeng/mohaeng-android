@@ -70,7 +70,11 @@ class CharacterFragment : Fragment() {
 
     private fun fetchCharacterSkin() {
         binding.recyclerviewSkin.run {
-            this.adapter = CharacterSkinAdapter()
+            this.adapter = CharacterSkinAdapter(object : CharacterSkinAdapter.CharacterSkinListener{
+                override fun selectSkin(skin: Int) {
+                    viewModel.changeSelectedSkinType(skin)
+                }
+            })
             viewModel.characterSkin.observe(viewLifecycleOwner){
                 (adapter as CharacterSkinAdapter).skinList = it.toMutableList()
                 (adapter as CharacterSkinAdapter).notifyDataSetChanged()
@@ -82,7 +86,12 @@ class CharacterFragment : Fragment() {
         viewModel.changeSelectedType(1)
         binding.recyclerviewSelectStyle.apply {
             isNestedScrollingEnabled = false
-            this.adapter = CharacterOptionAdapter()
+            this.adapter = CharacterOptionAdapter(object : CharacterOptionAdapter.CharacterOptionListener{
+                override fun selectOption(option: Int) {
+                    viewModel.changeSelectedOptionType(option)
+                }
+
+            })
             viewModel.selectedType.observe(viewLifecycleOwner){ type ->
                 val character = viewModel.characterInfo.value?.characterList?.find { it.type == type }
                 Log.e("character", "${character}")

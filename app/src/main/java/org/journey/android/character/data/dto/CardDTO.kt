@@ -13,6 +13,7 @@ data class CardDTO(
 ){
     fun convertToMohaengCharacterOptionEntity(): MohaengCharacterOptionEntity {
         return MohaengCharacterOptionEntity(
+            id,
             hasCard,
             isNew,
             image

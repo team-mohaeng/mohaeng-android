@@ -36,9 +36,9 @@ class CharacterViewModel @Inject constructor(
     private val _characterInfo = MutableLiveData<CharacterInfoEntity>()
     val characterInfo: LiveData<CharacterInfoEntity>
         get() = _characterInfo
-    
+
     private val _characterSkin = MutableLiveData<List<CharacterSkinEntity>>()
-    val characterSkin : LiveData<List<CharacterSkinEntity>>
+    val characterSkin: LiveData<List<CharacterSkinEntity>>
         get() = _characterSkin
 
     private val _currentUserCharacter = MutableLiveData<CurrentCharacterDTO>()
@@ -50,19 +50,35 @@ class CharacterViewModel @Inject constructor(
         get() = _currentUserSkin
 
     private val _getCharacter = MutableLiveData<CardDTO>()
-    val getCharacter : LiveData<CardDTO>
+    val getCharacter: LiveData<CardDTO>
         get() = _getCharacter
 
     private val _changeCharacter = MutableLiveData<ResponseChangeCharacterDTO>()
-    val changeCharacter : LiveData<ResponseChangeCharacterDTO>
+    val changeCharacter: LiveData<ResponseChangeCharacterDTO>
         get() = _changeCharacter
 
     private val _selectedType = MutableLiveData<Int>()
     val selectedType: LiveData<Int>
         get() = _selectedType
 
+    private val _selectedSkinType = MutableLiveData<Int>()
+    val selectedSkinType: LiveData<Int>
+        get() = _selectedSkinType
+
+    private val _selectedOptionType = MutableLiveData<Int>()
+    val selectedOptionType: LiveData<Int>
+        get() = _selectedOptionType
+
     fun changeSelectedType(type: Int) {
         _selectedType.value = type
+    }
+
+    fun changeSelectedSkinType(skin: Int) {
+        _selectedSkinType.value = skin
+    }
+
+    fun changeSelectedOptionType(option: Int) {
+        _selectedOptionType.value = option
     }
 
     fun loadUserCurrentSkin() {
@@ -78,19 +94,21 @@ class CharacterViewModel @Inject constructor(
         )
     }
 
-    fun changeUserCharacter(){
+    fun changeUserCharacter() {
         addDisposable(
-            characterRepository.changeCharacter(requestChangeCharacterDTO = RequestChangeCharacterDTO(
-                1,1,1
-                 )
+            characterRepository.changeCharacter(
+                requestChangeCharacterDTO = RequestChangeCharacterDTO(
+                    1, 1, 1
+                )
             )
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
                     _changeCharacter.postValue(it)
-                },{
+                }, {
                     it.printStackTrace()
-                }))
+                })
+        )
     }
 
     init {
@@ -147,28 +165,55 @@ class CharacterViewModel @Inject constructor(
         )
         _characterList.value = characterList
     }
-    private fun fetchSkinList(){
+
+    private fun fetchSkinList() {
         val characterSkin = listOf(
             CharacterSkinEntity(
+                6,
                 R.drawable.pre133
             ),
             CharacterSkinEntity(
+                5,
                 R.drawable.pre132
             ),
             CharacterSkinEntity(
+                4,
                 R.drawable.pre131
             ),
             CharacterSkinEntity(
+                3,
                 R.drawable.pre130
             ),
             CharacterSkinEntity(
+                2,
                 R.drawable.pre129
             ),
             CharacterSkinEntity(
+                1,
                 R.drawable.pre128
+            ),
+            CharacterSkinEntity(
+                null,
+                R.drawable.nightlock
+            ),
+            CharacterSkinEntity(
+                null,
+                R.drawable.spreadlock
+            ),
+            CharacterSkinEntity(
+                null,
+                R.drawable.cloudlock
+            ),
+            CharacterSkinEntity(
+                null,
+                R.drawable.fieldlock
+            ),
+            CharacterSkinEntity(
+                null,
+                R.drawable.figurelock
             )
         )
-        _characterSkin.value = characterSkin
+        _characterSkin . value = characterSkin
     }
 
 }

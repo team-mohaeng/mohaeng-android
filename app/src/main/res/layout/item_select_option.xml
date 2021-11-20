@@ -10,7 +10,6 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:paddingBottom="10dp">
-
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imagebutton_option_character"
         android:layout_width="96dp"
@@ -21,6 +20,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/checked_effect"
+        android:layout_width="100dp"
+        android:layout_height="140dp"
+        android:visibility="invisible"
+        android:background="@drawable/checkedbackground"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
