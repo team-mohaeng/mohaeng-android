@@ -1,5 +1,7 @@
 package org.journey.android.signup.ui
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -37,6 +39,7 @@ class ServiceAgreeFragment : Fragment() {
 
         popBackStack()
         setNickName()
+        linkService()
         activateConfirmButton()
     }
     private fun popBackStack(){
@@ -45,6 +48,17 @@ class ServiceAgreeFragment : Fragment() {
     private fun setNickName() {
         binding.buttonAgreeService.setOnClickListener { Navigation.findNavController(binding.root).navigate(R.id.action_serviceAgreeFragment_to_setNickNameFragment) }
     }
+    private fun linkService() {
+        with(binding){
+            textviewServiceAgreement.setOnClickListener {
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(SERVICE_AGREEMENT)))
+            }
+            textviewServicePrivacyAgreement.setOnClickListener {
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(PRIVACY_AGREEMENT)))
+            }
+        }
+
+    }
     private fun activateConfirmButton(){
         viewModel.serviceAgreementList.forEach { service ->
             service.observe(viewLifecycleOwner){
@@ -52,5 +66,9 @@ class ServiceAgreeFragment : Fragment() {
                 binding.buttonAgreeService.isActivated = (viewModel.wholePolicyAllowed.value == true)
             }
         }
+    }
+    companion object{
+        private const val SERVICE_AGREEMENT="https://brawny-pest-02a.notion.site/70443cf71de6456a918e03e7ebdea4ba"
+        private const val PRIVACY_AGREEMENT="https://brawny-pest-02a.notion.site/6fca114a154e49e2b81d1a53ddf56fe1"
     }
 }

@@ -98,10 +98,11 @@ class CharacterViewModel @Inject constructor(
         addDisposable(
             characterRepository.changeCharacter(
                 requestChangeCharacterDTO = RequestChangeCharacterDTO(
-                    1, 1, 1
+                    selectedOptionType.value!!,
+                    selectedSkinType.value!!,
+                    selectedType.value!!
                 )
-            )
-                .subscribeOn(Schedulers.io())
+            ).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
                     _changeCharacter.postValue(it)
