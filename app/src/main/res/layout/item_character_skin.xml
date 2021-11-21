@@ -16,7 +16,7 @@
         android:id="@+id/imageview_skin"
         android:layout_width="28dp"
         android:layout_height="28dp"
-        loadDrawable="@{data.skinImage}"
+        setImageURL="@{data.skinImage}"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

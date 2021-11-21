@@ -8,8 +8,11 @@ import org.journey.android.badge.data.entity.BadgeEntity
 import org.journey.android.databinding.ItemBadgeBinding
 import org.journey.android.util.RecyclerViewItemDecoration
 
-class BadgeAdapter : RecyclerView.Adapter<BadgeAdapter.BadgeViewHolder>() {
+class BadgeAdapter(val listener : BadgeListener) : RecyclerView.Adapter<BadgeAdapter.BadgeViewHolder>() {
     var badgeList = mutableListOf<BadgeEntity>()
+    interface BadgeListener{
+        fun selectBadge(badge: BadgeEntity)
+    }
     class BadgeViewHolder(val binding : ItemBadgeBinding) : RecyclerView.ViewHolder(binding.root)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BadgeViewHolder {
         val binding = ItemBadgeBinding.inflate(LayoutInflater.from(parent.context),parent,false)
@@ -18,6 +21,9 @@ class BadgeAdapter : RecyclerView.Adapter<BadgeAdapter.BadgeViewHolder>() {
     override fun onBindViewHolder(holder: BadgeViewHolder, position: Int) {
         val badge = badgeList[position]
         holder.binding.setVariable(BR.data, badge)
+        holder.binding.imageviewBadge.setOnClickListener {
+            listener.selectBadge(badge)
+        }
     }
     override fun getItemCount() = badgeList.size
 }

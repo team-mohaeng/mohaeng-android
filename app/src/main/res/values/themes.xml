@@ -53,4 +53,25 @@
         <item name="colorControlNormal">@color/mohaeng_yellow11</item>
     </style>
 
+    <style name="BottomSheet" parent="@style/Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/shape_bottom_sheet</item>
+        <item name="behavior_peekHeight">250dp</item>
+    </style>
+
+    <style name="BaseBottomSheetDialog" parent="@style/Theme.Design.Light.BottomSheetDialog">
+        <item name="android:windowIsFloating">true</item>
+        <item name="bottomSheetStyle">@style/BottomSheet</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+    <style name="BottomSheetDialogTheme" parent="BaseBottomSheetDialog" />
+
+    <style name="TransparentBottomSheetDialogFragment" parent="Theme.Design.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/TransparentBottomSheetDialogFragmentChild</item>
+    </style>
+
+    <style name="TransparentBottomSheetDialogFragmentChild" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@color/mohaeng_transparency</item>
+    </style>
+
 </resources>
