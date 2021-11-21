@@ -1,9 +1,7 @@
-package org.journey.android.login.data.response
+package org.journey.android.login.data.response.email
 
-import com.google.gson.annotations.SerializedName
 
 data class ResponseEmailSignInDTO(
-    @SerializedName("status")
     val status: Int,
     val data: TokenDTO?
 ) {

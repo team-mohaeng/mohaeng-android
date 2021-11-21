@@ -18,5 +18,4 @@ class FrameAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
         notifyDataSetChanged()
     }
 
-
 }

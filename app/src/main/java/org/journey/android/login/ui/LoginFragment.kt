@@ -159,7 +159,4 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
         val fadeIn = AnimationUtils.loadAnimation(requireContext(), R.anim.fade_in)
         fadeInFootPrint.startAnimation(fadeIn)
     }
-
-
-
 }
