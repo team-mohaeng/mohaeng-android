@@ -61,12 +61,10 @@ class EmailLoginFragment : Fragment() {
             })
         }
     }
-
     private fun setEmailLogin(){
         binding.buttonLoginComplete.setOnClickListener {
             viewModel.signIn()
         }
-
         viewModel.loginSuccess.observe(viewLifecycleOwner) { successed ->
             if(successed) {
                 startActivity(Intent(requireContext(), MainActivity::class.java))

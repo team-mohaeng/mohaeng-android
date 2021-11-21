@@ -2,7 +2,7 @@ package org.journey.android.pushalarm.data.response
 
 
 import com.google.gson.annotations.SerializedName
-import org.journey.android.pushalarm.data.PushAlarmDataDTO
+import org.journey.android.pushalarm.data.dto.PushAlarmDataDTO
 
 data class ResponsePushAlarmDTO(
     @SerializedName("data")

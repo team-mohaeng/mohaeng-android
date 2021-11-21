@@ -32,8 +32,6 @@ class MainViewModel @Inject constructor(
     val happinessIndex : LiveData<Int>
         get() = _happinessIndex
 
-
-
     fun initMohaengMain(){
         addDisposable(
             homeController.getHome(

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
             name="viewModel"
@@ -73,8 +72,7 @@
         android:fontFamily="@font/spoqahansansneoregular"
         android:textColor="@color/mohaeng_red_ea"
         app:layout_constraintEnd_toEndOf="@id/edittext_set_nickname"
-        app:layout_constraintTop_toBottomOf="@id/edittext_set_nickname"
-        tools:text="@string/not_available_nickname"/>
+        app:layout_constraintTop_toBottomOf="@id/edittext_set_nickname"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_set_nickname"
@@ -93,6 +91,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:enabled="@{viewModel.nickNameStatus == nickNameStatus.IS_NOT_AVAILABLE_NICKNAME ? false : true}"/>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

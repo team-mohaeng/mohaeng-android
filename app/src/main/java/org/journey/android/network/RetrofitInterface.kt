@@ -1,16 +1,13 @@
 package org.journey.android.network
 
-import androidx.lifecycle.MutableLiveData
 import io.reactivex.rxjava3.core.Single
 import okhttp3.MultipartBody
-import okhttp3.RequestBody
 import org.journey.android.badge.data.dto.response.ResponseAchieveBadgeDTO
 import org.journey.android.challenge.data.response.ResponseTodayChallengeDTO
 import org.journey.android.challenge.data.response.ResponseValidateChallengeDTO
 import org.journey.android.character.data.dto.request.RequestChangeCharacterDTO
 import org.journey.android.character.data.dto.response.ResponseChangeCharacterDTO
 import org.journey.android.character.data.dto.response.ResponseGetCharacterDTO
-import org.journey.android.community.data.dto.request.RequestUploadPostDTO
 import org.journey.android.community.data.dto.response.ResponseCommunityFeedDTO
 import org.journey.android.community.data.dto.response.ResponsePostCommunityDTO
 import org.journey.android.course.data.dto.ResponseCourseCatalogDTO
@@ -19,9 +16,9 @@ import org.journey.android.findpw.data.RequestChangePasswordDTO
 import org.journey.android.findpw.data.ResponseChangePasswordDTO
 import org.journey.android.findpw.data.ResponseVerificationCodeDTO
 import org.journey.android.login.data.request.RequestEmailSignInDTO
-import org.journey.android.login.data.response.ResponseEmailSignInDTO
-import org.journey.android.login.data.response.ResponseGoogleSignInDTO
-import org.journey.android.login.data.response.ResponseKakaoSignInDTO
+import org.journey.android.login.data.response.email.ResponseEmailSignInDTO
+import org.journey.android.login.data.response.social.ResponseGoogleSignInDTO
+import org.journey.android.login.data.response.social.ResponseKakaoSignInDTO
 import org.journey.android.main.dto.ResponseHomeDTO
 import org.journey.android.mypage.data.dto.response.ResponseCheckMyPageDTO
 import org.journey.android.mypage.data.dto.response.ResponseCompleteCourseDTO
