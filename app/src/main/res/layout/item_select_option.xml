@@ -28,6 +28,5 @@
         android:background="@drawable/checkedbackground"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
