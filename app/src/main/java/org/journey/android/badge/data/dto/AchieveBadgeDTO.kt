@@ -18,6 +18,7 @@ data class AchieveBadgeDTO(
 ){
     fun convertToAchieveBadgeEntity() : BadgeEntity {
         return BadgeEntity(
+            id,
             image,
             name
         )

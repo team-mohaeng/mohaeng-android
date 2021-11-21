@@ -106,6 +106,7 @@ class CharacterViewModel @Inject constructor(
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
                     _changeCharacter.postValue(it)
+
                 }, {
                     it.printStackTrace()
                 })

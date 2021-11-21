@@ -8,6 +8,6 @@ import javax.inject.Inject
 class BadgeControllerImpl @Inject constructor(
     private val retrofitInterface: RetrofitInterface
 ) : BadgeController{
-    override fun putBadgeList(): Single<ResponseAchieveBadgeDTO> =
+    override fun putBadgeList(id : Int): Single<ResponseAchieveBadgeDTO> =
         retrofitInterface.putAchieveBadgeList()
 }

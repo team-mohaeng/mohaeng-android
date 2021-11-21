@@ -19,13 +19,39 @@ class BadgeViewModel @Inject constructor(
 ) : DisposableViewModel() {
     private val _getBadgeList = MutableLiveData<Boolean>()
 
+    private val _badgeId = MutableLiveData<Int>()
+    val badgeId: LiveData<Int>
+        get() = _badgeId
+
     private val _badgeList = MutableLiveData<List<BadgeEntity>>()
     val badgeList : LiveData<List<BadgeEntity>>
         get() = _badgeList
 
-    fun loadObtainedBadge(){
+    fun changeBadgeId(id: Int) {
+        _badgeId.value = id
+    }
+
+    fun pickPlace() {
+        badgeId.value?.let {
+            addDisposable(
+                badgeController.putBadgeList(
+                    _badgeId.value!!
+                )
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe({
+                    }, {
+                        it.printStackTrace()
+                    })
+            )
+        }
+    }
+
+    fun loadObtainedBadge(id : Int){
        addDisposable(
-           badgeController.putBadgeList()
+           badgeController.putBadgeList(
+                id
+           )
                .observeOn(Schedulers.io())
                .subscribeOn(AndroidSchedulers.mainThread())
                .subscribe({

@@ -245,7 +245,9 @@
         android:id="@+id/badgeFragment"
         android:name="org.journey.android.badge.ui.fragment.BadgeFragment"
         android:label="BadgeFragment"
-        tools:layout="@layout/fragment_badge"/>
+        tools:layout="@layout/fragment_badge">
+
+    </fragment>
     <fragment
         android:id="@+id/editNickNameFragment"
         android:name="org.journey.android.mypage.ui.fragment.EditNickNameFragment"
@@ -297,4 +299,5 @@
         android:name="org.journey.android.mypage.ui.fragment.CompleteCourseFragment"
         android:label="CompleteCourseFragment"
         tools:layout="@layout/fragment_complete_course"/>
+
 </navigation>

@@ -38,6 +38,7 @@
         <entry key="app/src/main/res/drawable/selector_bottom_radius.xml" value="0.3609375" />
         <entry key="app/src/main/res/drawable/selector_index_dialog.xml" value="0.24270833333333333" />
         <entry key="app/src/main/res/drawable/shape_background_progressbar.xml" value="0.33240740740740743" />
+        <entry key="app/src/main/res/drawable/shape_bottom_sheet.xml" value="0.203125" />
         <entry key="app/src/main/res/drawable/shape_progressbar_full.xml" value="0.33240740740740743" />
         <entry key="app/src/main/res/drawable/vertical_progressbar.xml" value="0.21927083333333333" />
         <entry key="app/src/main/res/layout/activity_entry.xml" value="0.3380208333333333" />
@@ -60,6 +61,7 @@
         <entry key="app/src/main/res/layout/diary_compelete_dialog.xml" value="0.18854166666666666" />
         <entry key="app/src/main/res/layout/diary_hashtag_count_dialog.xml" value="0.18854166666666666" />
         <entry key="app/src/main/res/layout/fragment_badge.xml" value="0.2604166666666667" />
+        <entry key="app/src/main/res/layout/fragment_badge_bottom_sheet.xml" value="0.18697916666666667" />
         <entry key="app/src/main/res/layout/fragment_badge_reward.xml" value="0.3380208333333333" />
         <entry key="app/src/main/res/layout/fragment_bottom_sheet.xml" value="0.32395833333333335" />
         <entry key="app/src/main/res/layout/fragment_challenge.xml" value="0.335" />
