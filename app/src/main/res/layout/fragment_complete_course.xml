@@ -2,6 +2,14 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="view"
+            type="android.view.View" />
+        <variable
+            name="viewModel"
+            type="org.journey.android.mypage.viewmodel.MyPageViewModel" />
+    </data>
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -24,12 +32,26 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="36dp"
                 android:fontFamily="@font/spoqahansansneoregular"
-                android:text="챌린지 기록보기"
+                android:text="@string/check_challenge_record"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/view_none_complete_challenge"
+                android:layout_width="match_parent"
+                android:layout_height="600dp"
+                android:fontFamily="@font/spoqahansansneoregular"
+                android:gravity="center"
+                android:text="@string/none_complete_challenge"
+                android:textColor="@color/mohaeng_black2"
+                android:textScaleX="0.98"
+                android:textSize="10sp"
+                android:visibility="@{viewModel.getCompleteCourse.empty ? view.GONE  : view.VISIBLE}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/button_back" />
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerview_complete_course"
                 android:layout_width="match_parent"
@@ -37,6 +59,7 @@
                 android:layout_marginHorizontal="18dp"
                 android:layout_marginTop="36dp"
                 android:orientation="vertical"
+                android:visibility="@{viewModel.getCompleteCourse.empty ? view.VISIBLE  : view.GONE}"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/button_back"

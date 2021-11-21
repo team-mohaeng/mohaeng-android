@@ -121,5 +121,7 @@
     <string name="community_feed_month">%s월</string>
     <string name="community_feed_date">%s일</string>
     <string name="community_head_line">오늘 하루는 어때?\n네 안부가 궁금해!</string>
+    <string name="check_challenge_record">챌린지 기록보기</string>
+    <string name="none_complete_challenge">얼른 코스를 시작하고 챌린지를 수행해줘</string>
 
 </resources>
