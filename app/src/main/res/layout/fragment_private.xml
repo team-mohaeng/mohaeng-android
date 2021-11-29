@@ -29,8 +29,7 @@
             android:fontFamily="@font/spoqahansansneomedium"
             android:text="내 서랍장"
             android:textColor="@color/black"
-            android:textSize="16sp"
-            />
+            android:textSize="16sp" />
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -38,10 +37,10 @@
         android:id="@+id/button_private_time_picker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="19dp"
+        android:layout_marginStart="19dp"
         android:layout_marginTop="28dp"
         android:background="@null"
-        android:drawableRight="@drawable/ic_select_date_down"
+        android:drawableEnd="@drawable/ic_select_date_down"
         android:fontFamily="@font/gmarketsansttfmedium"
         android:text="0000년 00월 안부"
         android:textSize="14sp"

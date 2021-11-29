@@ -48,7 +48,7 @@
     <string name="login_google">Google로 시작하기</string>
 
     <string name="service_agreement"><u>서비스 이용약관(필수)</u></string>
-    <string name="service_privacy_agreement"><u>개인정보 수집 및 이용 동의(필수)</u></string>
+    <string name="service_privacy_agreement"><u>개인정보 처리방침(필수)</u></string>
     <string name="community_count_greeting">오늘은 %d개의\n안부가 남겨졌어요</string>
     <string name="community_user_id">아라아랑</string>
     <string name="community_post_date">8월 15일</string>
@@ -123,5 +123,7 @@
     <string name="community_head_line">오늘 하루는 어때?\n네 안부가 궁금해!</string>
     <string name="check_challenge_record">챌린지 기록보기</string>
     <string name="none_complete_challenge">얼른 코스를 시작하고 챌린지를 수행해줘</string>
+    <string name="entire_agree_ment">전체 동의합니다.</string>
+    <string name="character_style">캐릭터 스타일</string>
 
 </resources>
