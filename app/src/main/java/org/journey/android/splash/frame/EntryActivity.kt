@@ -1,26 +1,18 @@
-package org.journey.android.entry.frame
+package org.journey.android.splash.frame
 
 import android.content.pm.PackageManager
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Base64
 import android.util.Log
-import android.view.WindowInsets
-import androidx.annotation.RequiresApi
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.kakao.sdk.common.util.Utility
 import dagger.hilt.android.AndroidEntryPoint
 import org.journey.android.R
 import org.journey.android.databinding.ActivityEntryBinding
-import org.journey.android.preference.SharedPreferencesManager
 import org.journey.android.util.TedRxKeyboardObserver
 import java.security.MessageDigest
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class EntryActivity : AppCompatActivity() {
