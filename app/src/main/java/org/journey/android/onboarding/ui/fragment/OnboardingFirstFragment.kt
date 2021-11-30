@@ -16,7 +16,7 @@ import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.journey.android.R
 import org.journey.android.databinding.FragmentOnboardingFirstBinding
-import org.journey.android.entry.frame.EntryActivity
+import org.journey.android.splash.frame.EntryActivity
 import org.journey.android.frame.MainActivity
 import org.journey.android.onboarding.viewmodel.OnboardingViewModel
 import org.journey.android.preference.UserPreferenceManager
