@@ -136,7 +136,7 @@
             android:id="@+id/textview_course_progress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="28dp"
             android:fontFamily="@font/spoqahansansneobold"
             android:text="@{viewModel.getLottie.courseProgressDTO.percent != null ? @string/main_underway_progress(viewModel.getLottie.courseProgressDTO.percent) + `%` : @string/main_underway_progress(0) + `%`}"
             android:textColor="@color/mohaeng_yellow2"
@@ -158,6 +158,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textview_course_progress"
             app:layout_constraintTop_toTopOf="@id/textview_course_progress"
-            app:layout_constraintVertical_bias="0.5" />
+            app:layout_constraintVertical_bias="0.4" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

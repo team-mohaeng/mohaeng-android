@@ -58,7 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="18dp"
         android:layout_marginTop="28dp"
-        android:hint="아라아랑아라"
+        android:hint="@string/edit_nickname_hint"
         android:inputType="text"
         android:text="@={viewModel.newNickName}"
         android:gravity="center_horizontal"

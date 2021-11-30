@@ -7,11 +7,9 @@
             name="viewModel"
             type="org.journey.android.mypage.viewmodel.MyPageViewModel" />
     </data>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <View
             android:id="@+id/view_my_page"
             android:layout_width="match_parent"
@@ -19,7 +17,6 @@
             android:background="@drawable/ic_mypageviewbg"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_return_back"
             android:layout_width="44dp"
@@ -29,7 +26,6 @@
             android:background="@drawable/ic_gnbicnback"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_setting"
             android:layout_width="44dp"
@@ -38,7 +34,6 @@
             android:background="@drawable/ic_settingicn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/button_return_back" />
-
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textview_user_nick_name"
             android:layout_width="wrap_content"
@@ -51,7 +46,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_edit_nick_name"
             android:layout_width="16dp"
@@ -61,7 +55,6 @@
             app:layout_constraintBottom_toBottomOf="@id/textview_user_nick_name"
             app:layout_constraintStart_toEndOf="@id/textview_user_nick_name"
             app:layout_constraintTop_toTopOf="@id/textview_user_nick_name" />
-
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textview_user_email"
             android:layout_width="wrap_content"
@@ -237,7 +230,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/imageview_success_course" />
-
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/button_my_page"
             android:layout_width="match_parent"
@@ -274,7 +266,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="19dp"
             android:fontFamily="@font/gmarketsansttfmedium"
-            android:text="챌린지 기록 보기"
+            android:text="@string/look_out_challenge"
             android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@id/button_my_page"

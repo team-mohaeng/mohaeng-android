@@ -85,6 +85,7 @@ class CharacterFragment : Fragment() {
     }
 
     private fun selectCharacterOption(){
+        //Default checked index 1 character, skin, option
         viewModel.changeSelectedType(1)
         binding.recyclerviewSelectStyle.apply {
             isNestedScrollingEnabled = false
