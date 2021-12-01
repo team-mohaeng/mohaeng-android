@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="data"
+            type="org.journey.android.character.data.entity.MohaengCharacterOptionEntity" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingBottom="10dp">
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imagebutton_option_character"
+        android:layout_width="96dp"
+        android:layout_height="130dp"
+        android:scaleType="fitXY"
+        setCharacterImageURL="@{data.imageOption}"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/checked_effect"
+        android:layout_width="100dp"
+        android:layout_height="140dp"
+        android:visibility="invisible"
+        android:background="@drawable/checkedbackground"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

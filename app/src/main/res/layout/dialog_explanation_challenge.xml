@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/journey_transparency">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/challenge_help_dialog"
+        android:paddingBottom="36dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_dialog_close"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="14dp"
+            android:background="@drawable/ic_xbtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_dialog_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="80dp"
+            android:fontFamily="@font/gmarketsansttfmedium"
+            android:gravity="center"
+            android:text="오늘의 챌린지"
+            android:textColor="@color/mohaeng_black"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageview_dialog_image"
+            android:layout_width="290dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="46dp"
+            android:background="@drawable/ic_challenge_help"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textview_dialog_content" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_dialog_how"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="48dp"
+            android:fontFamily="@font/spoqahansansneoregular"
+            android:text="인증 방법"
+            android:textColor="@color/mohaeng_black2"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageview_dialog_image" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_how_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="36dp"
+            android:lineSpacingExtra="4dp"
+            android:fontFamily="@font/spoqahansansneoregular"
+            android:text="@string/challenge_how"
+            android:textColor="@color/mohaeng_gray"
+            android:textSize="11sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textview_dialog_how" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_dialog_update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="26dp"
+            android:fontFamily="@font/spoqahansansneoregular"
+            android:text="챌린지 갱신 주기"
+            android:textColor="@color/mohaeng_black2"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textview_how_content" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_update_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="36dp"
+            android:lineSpacingExtra="4dp"
+            android:fontFamily="@font/spoqahansansneoregular"
+            android:text="@string/challenge_update"
+            android:textColor="@color/mohaeng_gray"
+            android:textSize="11sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textview_dialog_update" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

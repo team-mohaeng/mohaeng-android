@@ -2,90 +2,100 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
-        android:layout_height="208dp"
-        android:layout_marginVertical="6dp"
-        android:layout_marginHorizontal="6dp"
-        android:background="@drawable/item_record_radius">
-
-        <ImageView
-            android:id="@+id/imageview_community_item_background"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+    <data>
+        <variable
+            name="data"
+            type="org.journey.android.community.data.entity.CommunityPostEntity" />
+    </data>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintlayout_community_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="18dp"
+            android:paddingBottom="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:scaleType="fitXY"
-            />
-
-        <TextView
-            android:id="@+id/textview_tags"
-            android:layout_width="156dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="14dp"
-            android:fontFamily="@font/spoqahansansneoregular"
-            android:text="#맥주"
-            android:layout_marginTop="20dp"
-            android:textSize="14sp"
-            android:textColor="@color/white"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/textview_record_content"
-            android:layout_width="156dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="14dp"
-            android:layout_marginTop="15dp"
-            android:fontFamily="@font/spoqahansansneoregular"
-            android:text="@string/community_record_contents"
-            android:textSize="15sp"
-            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textview_tags" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/textview_user_id"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="55dp"
-            android:layout_marginLeft="14dp"
-            android:fontFamily="@font/spoqahansansneoregular"
-            android:text="시원스쿨"
-            android:layout_marginBottom="20dp"
-            android:textSize="10sp"
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textview_record_content" />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageview_post_image"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                setImageURL="@{data.image}"
+                android:background="@drawable/ic_feed_img"
+                android:scaleType="fitXY"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/button_user_prefer"
-            android:layout_width="14dp"
-            android:layout_height="14dp"
-            android:layout_marginLeft="55dp"
-            android:background="@drawable/ic_icnheartfull"
-            app:layout_constraintBottom_toBottomOf="@id/textview_user_id"
-            app:layout_constraintEnd_toStartOf="@+id/textview_count_prefer"
-            app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintStart_toEndOf="@+id/textview_user_id"
-            app:layout_constraintTop_toTopOf="@id/textview_user_id" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textview_post_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="13dp"
+                android:fontFamily="@font/gmarketsansttfmedium"
+                android:text="@{data.challengeName}"
+                android:textColor="@color/mohaeng_orange_a"
+                android:textSize="12sp"
+                android:textScaleX="0.98"
+                app:layout_constraintStart_toEndOf="@+id/imageview_post_image"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/textview_count_prefer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="4dp"
-            android:textSize="10sp"
-            android:text="22"
-            android:textColor="@color/white"
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textview_post_content"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/spoqahansansneoregular"
+                android:maxLines="2"
+                android:text="@{data.postContent}"
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textview_post_title"
+                app:layout_constraintTop_toBottomOf="@id/textview_post_title" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textview_user_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/spoqahansansneoregular"
+                android:text="@{data.id}"
+                android:textColor="@color/mohaeng_gray"
+                android:textSize="10sp"
+                app:layout_constraintStart_toStartOf="@+id/textview_post_content"
+                app:layout_constraintTop_toBottomOf="@+id/textview_post_content" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textview_post_month"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="26dp"
+                android:text="@{@string/community_feed_month(data.month)}"
+                android:textColor="@color/mohaeng_gray"
+                android:textSize="10sp"
+                android:layout_marginEnd="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textview_post_content" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textview_post_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="26dp"
+                android:text="@{@string/community_feed_date(data.date)}"
+                android:textColor="@color/mohaeng_gray"
+                android:textSize="10sp"
+                app:layout_constraintStart_toEndOf="@+id/textview_post_month"
+                app:layout_constraintTop_toBottomOf="@+id/textview_post_content" />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageview_post_seperator"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/mohaeng_gray_a"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/button_user_prefer"
-            app:layout_constraintTop_toTopOf="@id/button_user_prefer"
-            app:layout_constraintBottom_toBottomOf="@id/button_user_prefer"/>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintlayout_community_item" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

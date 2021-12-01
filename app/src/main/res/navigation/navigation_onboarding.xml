@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools = "http://schemas.android.com/tools"
+    android:id="@+id/navigation_onboarding"
+    app:startDestination="@id/splashFragment">
+
+
+    <fragment
+        android:id="@+id/onboardingFirstFragment"
+        android:name="org.journey.android.onboarding.ui.fragment.OnboardingFirstFragment"
+        android:label="OnboardingFirstFragment"
+        tools:layout="@layout/fragment_onboarding_first">
+        <action
+            android:id="@+id/action_onboardingFirstFragment_to_onboardingSecondFragment"
+            app:destination="@id/onboardingSecondFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/onboardingSecondFragment"
+        android:name="org.journey.android.onboarding.ui.fragment.OnboardingSecondFragment"
+        android:label="OnboardingSecondFragment"
+        tools:layout="@layout/fragment_onboarding_second">
+        <action
+            android:id="@+id/action_onboardingSecondFragment_to_onboardingThirdFragment"
+            app:destination="@id/onboardingThirdFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/onboardingThirdFragment"
+        android:name="org.journey.android.onboarding.ui.fragment.OnboardingThirdFragment"
+        android:label="OnboardingThirdFragment"
+        tools:layout="@layout/fragment_onboarding_third">
+        <action
+            android:id="@+id/action_onboardingThirdFragment_to_onboardingFourthFragment"
+            app:destination="@id/onboardingFourthFragment" />
+        <action
+            android:id="@+id/action_onboardingThirdFragment_to_challengeCertifyDialog"
+            app:destination="@id/challengeCertifyDialog" />
+    </fragment>
+    <fragment
+        android:id="@+id/onboardingFourthFragment"
+        android:name="org.journey.android.onboarding.ui.fragment.OnboardingFourthFragment"
+        android:label="OnboardingFourthFragment"
+        tools:layout="@layout/fragment_onboarding_fourth">
+        <action
+            android:id="@+id/action_onboardingFourthFragment_to_onboardingFifthFragment"
+            app:destination="@id/onboardingFifthFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/onboardingFifthFragment"
+        android:name="org.journey.android.onboarding.ui.fragment.OnboardingFifthFragment"
+        android:label="OnboardingFifthFragment"
+        tools:layout="@layout/fragment_onboarding_fifth">
+        <action
+            android:id="@+id/action_onboardingFifthFragment_to_onboardingSixthFragment"
+            app:destination="@id/onboardingSixthFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="org.journey.android.splash.ui.SplashFragment"
+        android:label="SplashFragment"
+        tools:layout="@layout/fragment_splash">
+        <action
+            android:id="@+id/action_splashFragment_to_onboardingFirstFragment"
+            app:destination="@id/onboardingFirstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/challengeCertifyDialog"
+        android:name="org.journey.android.challenge.ui.dialog.ChallengeCertifyDialog"
+        android:label="ChallengeCertifyDialog"
+        tools:layout="@layout/dialog_certify_challenge">
+        <action
+            android:id="@+id/action_challengeCertifyDialog_to_onboardingFourthFragment"
+            app:destination="@id/onboardingFourthFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/onboardingSixthFragment"
+        android:name="org.journey.android.onboarding.ui.fragment.OnboardingSixthFragment"
+        android:label="OnboardingSixthFragment"
+        tools:layout="@layout/fragment_onboarding_sixth"/>
+</navigation>

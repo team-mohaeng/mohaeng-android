@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textview_onboarding_last_ment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="125dp"
+        android:lineSpacingExtra="6dp"
+        android:gravity="center"
+        android:fontFamily="@font/gmarketsansttfmedium"
+        android:textColor="@color/black"
+        android:text="@string/onboarding_last"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie_onboarding"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        app:lottie_rawRes="@raw/onboardingcard"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/button_start_mohaeng"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_start_mohaeng"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
+        android:stateListAnimator="@null"
+        android:text="모행과 행복을 향한 챌린지 시작하기"
+        android:textScaleX="0.98"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:layout_marginHorizontal="18dp"
+        android:fontFamily="@font/spoqahansansneobold"
+        android:background="@drawable/button_onboarding_background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

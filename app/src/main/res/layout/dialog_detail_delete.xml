@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/mohaeng_transparency">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/detail_delete_dialog"
+        android:paddingTop="0dp"
+        android:paddingBottom="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_dialog_close"
+            android:layout_width="118dp"
+            android:layout_height="44dp"
+            android:layout_marginStart="21dp"
+            android:background="@drawable/detail_cancel_btn"
+            android:fontFamily="@font/spoqahansansneoregular"
+            android:text="취소"
+            android:textColor="@color/mohaeng_black2"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/button_dialog_delete" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_dialog_delete"
+            android:layout_width="118dp"
+            android:layout_height="44dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="27dp"
+            android:layout_marginEnd="21dp"
+            android:background="@drawable/detail_delete_btn"
+            android:fontFamily="@font/spoqahansansneoregular"
+            android:text="삭제"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/button_dialog_close"
+            app:layout_constraintTop_toBottomOf="@+id/textview_delete_content" />
+
+        <TextView
+            android:id="@+id/textview_dialog_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="41dp"
+            android:layout_marginEnd="80dp"
+            android:fontFamily="@font/spoqahansansneobold"
+            android:gravity="center"
+            android:text="삭제하기"
+            android:textColor="@color/mohaeng_black"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/textview_delete_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="36dp"
+            android:layout_marginTop="14dp"
+            android:fontFamily="@font/spoqahansansneoregular"
+            android:text="안부를 정말 삭제할 거야?"
+            android:textColor="@color/mohaeng_black"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textview_dialog_delete" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

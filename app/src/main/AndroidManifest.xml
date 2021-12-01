@@ -1,35 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.journey.android">
-
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <application
-        android:usesCleartextTraffic="true"
+        android:name=".application.MohaengApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_journey"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_journey_round"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.JourneyAndroid">
-        <activity android:name=".frame.MainActivity">
+        android:theme="@style/Theme.JourneyAndroid"
+        android:usesCleartextTraffic="true"
+        android:fullBackupContent="false"
+        android:requestLegacyExternalStorage="true"
+        android:windowSoftInputMode="adjustResize">
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/mohaeng_char" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@android:color/holo_orange_light" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/default_notification_channel_id" />
+        <service
+            android:name=".pushalarm.service.MohaengMessagingService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name="org.journey.android.splash.frame.EntryActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".frame.MainActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".onboarding.OnboardingActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service
-            android:name=".pushalarm.JourneyMessagingService"
-            android:enabled="true"
-            android:exported="false">
+        <meta-data
+            android:name="com.kakao.sdk.AppKey"
+            android:value="@string/kakao_app_key" />
+        <activity android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
+            android:exported="true">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="oauth"
+                    android:scheme="kakao76520e61eaf787345929bd73ec5ca3df" />
             </intent-filter>
-        </service>
-
+        </activity>
     </application>
-
 </manifest>

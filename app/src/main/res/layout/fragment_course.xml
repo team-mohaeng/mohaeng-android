@@ -1,111 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<layout
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/journey_gray1"
-    tools:context=".course.view.CourseFragment">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewModel"
+            type="org.journey.android.course.viewmodel.CourseViewModel" />
+    </data>
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/course_title_round"
-        android:paddingBottom="18dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:fillViewport="true">
 
-        <ImageButton
-            android:id="@+id/imagebutton_course_back"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginStart="18dp"
-            android:layout_marginTop="36dp"
-            android:background="@drawable/ic_diary_back_page_button"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/mohaeng_yellow_b">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/view_head_line"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:shadowDx="2"
+            android:background="@drawable/course_head_back_ground"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/textview_course"
+            app:layout_constraintTop_toTopOf="parent"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_course_ing"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="36dp"
+            android:text="@string/ongoing_course"
+            android:textColor="@color/mohaeng_black2"
             android:fontFamily="@font/spoqahansansneoregular"
-            android:text="진행중인 코스"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/imageview_course_image"
-            android:layout_width="54dp"
-            android:layout_height="54dp"
-            android:layout_marginEnd="12dp"
-            android:src="@drawable/course_rose"
-            app:layout_constraintEnd_toStartOf="@+id/textview_course_title"
-            app:layout_constraintTop_toTopOf="@+id/textview_course_current" />
-
-        <TextView
-            android:id="@+id/textview_course_current"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="90dp"
-            android:layout_marginTop="47dp"
-            android:fontFamily="@font/spoqahansansneoregular"
-            android:text="현재 진행중인 코스"
-            android:textColor="@color/black"
             android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textview_course" />
+            android:layout_marginTop="48dp"
+            android:layout_marginStart="18dp"
+            app:layout_constraintStart_toStartOf="@id/view_head_line"
+            app:layout_constraintTop_toTopOf="@id/view_head_line"/>
 
-        <TextView
-            android:id="@+id/textview_course_title"
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_course_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="90dp"
-            android:layout_marginTop="4dp"
-            android:fontFamily="@font/spoqahansansneobold"
-            android:text="뽀득뽀득 세균 퇴치"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/gmarketsansttfmedium"
+            android:text="지구촌 촌장되기"
             android:textColor="@color/black"
             android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textview_course_current" />
+            android:layout_marginBottom="26dp"
+            app:layout_constraintBottom_toBottomOf="@+id/view_head_line"
+            app:layout_constraintStart_toStartOf="@id/view_head_line"
+            app:layout_constraintTop_toBottomOf="@id/textview_course_ing" />
 
-        <TextView
-            android:id="@+id/textview_course_day"
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_course_period"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="18dp"
-            android:layout_marginBottom="18dp"
-            android:background="@drawable/course_round_pink"
-            android:fontFamily="@font/spoqahansansneoregular"
-            android:paddingHorizontal="8dp"
-            android:paddingVertical="6dp"
-            android:text="2일차"
-            android:textColor="@color/black"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textview_course_title" />
+            android:background="@drawable/ic_rect_date4"
+            android:layout_marginStart="12dp"
+            android:text="4일차"
+            android:fontFamily="@font/gmarketsansttfmedium"
+            android:textSize="10sp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            app:layout_constraintStart_toEndOf="@id/textview_course_name"
+            app:layout_constraintTop_toTopOf="@id/textview_course_name"
+            app:layout_constraintBottom_toBottomOf="@id/textview_course_name"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageview_course_head"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_frame4"
+            app:layout_constraintBottom_toBottomOf="@+id/view_head_line"
+            app:layout_constraintEnd_toEndOf="@id/view_head_line" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview_course"
-            android:layout_width="match_parent"
+            android:layout_width="324dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="18dp"
             android:orientation="vertical"
+            app:layout_constraintVertical_bias="0.0"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-            tools:listitem="@layout/item_course_right" />
+            app:layout_constraintTop_toBottomOf="@id/view_head_line"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:listitem="@layout/item_course_situation"
+            tools:itemCount="8"/>
 
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/recyclerview_course_stamp"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_marginHorizontal="54dp"-->
+<!--            android:layout_marginTop="130dp"-->
+<!--            android:orientation="vertical"-->
+<!--            android:nestedScrollingEnabled="false"-->
+<!--            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/view_head_line"-->
+<!--            tools:listitem="@layout/item_course_stamp" />-->
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

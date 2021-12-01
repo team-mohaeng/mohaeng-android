@@ -1,28 +1,29 @@
 <resources>
-    <string name="app_name">쟈니</string>
+    <string name="app_name">모행</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="msg_token_fmt" translatable="false">토큰: %s</string>
     <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
-
-    <string name="main_greeting">안녕,쟈기?\n오늘도 당신의 일상에 지독하게 엮어 보려 해</string>
-
+    <string name="main_greeting">%s, 오늘은 모행?\n챌린지하고 재밌는 하루 보내!</string>
     <string name="happiness_explanation">오늘의 챌린지를 성공하고\n나의 소확행도 공유해보자</string>
     <string name="library_content_dummy">나 쟈니가 인간세계에 처음 도착했을 때 사람들이\n청결에 대해 은근히 무심한 것이 신기했쟈니. 내\n가 사는 별에서는 상상도 할 수 없쟈니.</string>
     <string name="library_dialog">소확행은 오늘의 챌린지를\n성공해야 작성할 수 있어.\n나와 함께 챌린지를 시작해보겠어?</string>
-
-    <string name="total_user_format">오늘은 %d명의 쟈기들이\n행복을 기록했쟈니</string>
-    <string name="community_record_contents">맛있는 피자에 시원한\n맥주 먹고 선선한 날\n씨에 산책했어요.</string>
+    <string name="total_user_format">오늘은 %d개의 안부가 남겨졌어요</string>
+    <string name="community_record_contents">맛있는 피자에 시원한 맥주 먹고 선선한 날씨에 산책했어요.</string>
     <string name="private_record_contents">맛있는 피자에 시원한 맥주 먹고 선선한\n날씨에 산책했어요.</string>
     <string name="delete_record_contents">지금 삭제하면 다시 볼 수 없어.\n그래도 소확행을 삭제하겠어?</string>
-    <string name="private_empty_contents">아직 당신의 소확행을 담아두지 않았군\n챌린지를 성공하고 소확행을 작성해보겠어?</string>
+    <string name="private_empty_contents">얼른 챌린지를 성공하고, 안부를 작성해줘</string>
     <string name="diary_hashtag_count">태그는 최대 5개까지\n입력할 수 있어요!</string>
 
-    <string name="challenge_message_journey">손을 씻는 것은 청결에 있어서 가장 기본적이지만 잊기 쉬운 일이쟈니. 깨끗해진 너의 손으로 쟈니를 섬세하게 다뤄줘.</string>
+    <string name="challenge_message_mohaeng">어제 외운 단어 기억 나지?\n어제 외운 단어로 문장을 만들어봐~ </string>
     <string name="reward_challenge_percent">총 증가시킨\n쟈니와의 애정도</string>
     <string name="reward_challenge_date">챌린지 연속 성공\n최장 일수</string>
-    <string name="challenge_explain">아이콘을 터치해 인증을 모두 완료하세요!\n자정이 넘으면 미션이 끝납니다</string>
-    <string name="challenge_complete">챌린지를 성공해서 소확행을 작성할 수 있어.\n나와 함께 쓰러갈래, 쟈기?</string>
+    <string name="challenge_explain">오늘의 챌린지를 성공하면 <b>해피지수가 </b></string>
+    <string name="challenge_explain2">획득 가능한 뱃지는 </string>
+    <string name="challenge_complete">인증하러 왔구나?\n오늘의 챌린지 다했어?</string>
+    <string name="challenge_how">화면 중앙의 인증하기 버튼을 눌러 인증할 수 있어요\n잠들기 전까지 오늘의 챌린지를 성공해보세요!</string>
+    <string name="challenge_update">매일 오전 4시에 다음 챌린지로 넘어가요\n오늘의 챌린지를 인증하지 않은 경우\n오전 4시가 지나도 다음 챌린지로 넘어가지 않습니다</string>
+
 
     <string name="happiness_popcontent_ver1">소확행은 오늘의 챌린지를\n성공해야 작성할 수 있어.\n나와 함께 챌린지를 시작해보겠어?</string>
     <string name="happiness_popcontent_ver2">소확행은 오늘의 챌린지를\n성공해야 작성할 수 있어.\n나와 함께 챌린지를 수행해보겠어?</string>
@@ -34,8 +35,107 @@
     <string name="signup_password">그대만의 비밀번호를 만들어줘</string>
 
     <string name="findpw_send_message">등록된 이메일로\n인증번호를 보내드렸어요!</string>
-    
+
     <string name="diary_compelete_comment">당신의 행복이 하나 더 늘었군.\n다른 쟈기들과 함께하면 기쁨이 배가 될거야.\n함께 행복을 공유해보겠어?</string>
     <string name="splash_ment">어느날\n내 일상을 긴장시키는\n누군가가 나타났다</string>
     <string name="find_pw_input_email">이런, 길 잃은 나의 아기고양이\n당신의 이메일을 입력해주겠어?</string>
+
+    <string name="dialog_happy_index_explanation">하루 챌린지를 달성할 때,코스를 완료할 때,안부를\n작성했을 때 제공되는 지수입니다.</string>
+    <string name="dialog_level_index_explanation">해피 지수 게이지가 다 차면 레벨이 넘어가게 됩니다.\n레벨이 한 번 오를 때마다 한 가지 캐릭터 스타일을 \n얻을 수 있어요.</string>
+
+    <string name="login_email_account"><u>이메일로 로그인</u></string>
+    <string name="forgotten_password"><u>비밀번호를 잊으셨나요?</u></string>
+    <string name="login_google">Google로 시작하기</string>
+
+    <string name="service_agreement"><u>서비스 이용약관(필수)</u></string>
+    <string name="service_privacy_agreement"><u>개인정보 처리방침(필수)</u></string>
+    <string name="community_count_greeting">오늘은 %d개의\n안부가 남겨졌어요</string>
+    <string name="community_user_id">아라아랑</string>
+    <string name="community_post_date">8월 15일</string>
+    <string name="mypage_user_email">tldnjs102@gmail.com</string>
+    <string name="challenge_content_name">어제 외운 단어로 문장 만들기</string>
+    <string name="challenge_happy_percent">2%</string>
+    <string name="course_catalog_intro">매일매일 똑같은 노래만 듣는건 지겨우니까! 새로운 노래\n를 플레이리스트에 추가해보자</string>
+    <string name="onboarding_text_one">야~ 모행?!</string>
+    <string name="onboarding_answer_text">안녕! 만나서 방가워.\n내 집착을 견딜 준비가 되어있어?\n\n나와 함께 재미있는 챌린지를 수행하며\n하루 행복에 더 가까워지길 바라!</string>
+    <string name="onboarding_skip"><u>이미 계정이 있어! (로그인하기)</u></string>
+    <string name="onboarding_explan_challenge">모행에서는 다양한 종류의\n\n챌린지를 진행할 수 있어.</string>
+    <string name="subtitle_course_explanation">반복되는 일상을 벗어나게 해줄 도전적인 챌린지</string>
+
+    <string name="course_one">꺅 일탈행 코스</string>
+    <string name="course_two">꼭 지켜야행 코스</string>
+    <string name="course_three">날 케어행 코스</string>
+    <string name="course_four">늘 건강행 코스</string>
+    <string name="course_five">호 추억행 코스</string>
+    <string name="course_six">짱 똑똑행 코스</string>
+    <string name="course_seven">쪽 사랑행 코스</string>
+
+    <string name="course_subtitle_one">반복되는 일상을 벗어나게 해줄 도전적인 챌린지</string>
+    <string name="course_subtitle_two">규칙적인 생활 습관을 위한 챌린지</string>
+    <string name="course_subtitle_three">나 스스로를 케어하는 챌린지</string>
+    <string name="course_subtitle_four">건강한 신체와 정신을 위한 챌린지</string>
+    <string name="course_subtitle_five">추억과 관련된 챌린지</string>
+    <string name="course_subtitle_six">교양과 관련된 챌린지</string>
+    <string name="course_subtitle_seven">친구, 가족, 멘토</string>
+    <string name="onboarding_third_subtitle">간단하게 수행한 다음, 동그란 버튼을 눌러\n\n오늘의 챌린지를 인증해봐!</string>
+
+    <string name="kakao_app_key">76520e61eaf787345929bd73ec5ca3df</string>
+    <string name="onboarding_challenge_success_ment">화면을 위로 스크롤 하면\n\n지금 하고있는 코스의 진행상황도 파악할 수 있어</string>
+    <string name="onboarding_last_ment">오늘의 챌린지를 인증하고 나서\n하루에 한 번씩 안부를 작성할 수 있어. \n\n챌린지를 하면서 느꼈던 사소한 것도 괜찮아.\n자유롭게 안부를 남겨봐~</string>
+
+    <string name="not_available_nickname">사용 불가능한 닉네임입니다.</string>
+    <string name="check_nickname_repetition">닉네임 중복 여부를 확인해주세요.</string>
+
+    <string name="giveup_challenge">기존 코스를 포기하면 새로 시작한 코스\n첫날의 해피지수를 받을 수 없어 ㅠㅠ</string>
+    <string name="firebase_app_key">495078612836-gouqa80mog4qg1e4nv9s3qr9s18ugnpt.apps.googleusercontent.com</string>
+    <string name="onboarding_greeting_met">재밌는 챌린지를 골랐네~</string>
+    <string name="onboarding_congratulate">오늘 챌린지 수행 축하해~</string>
+    <string name="onboarding_last">재미있는 챌린지들을 수행해서\n캐릭터들의 레벨을 쌓고\n모행이들의 다양한 모습을 찾아보자.</string>
+    <string name="onboarding_choose_course">꽂히는 코스를 하나 선택해봐~!</string>
+    <string name="change_nickname">닉네임 변경하기</string>
+    <string name="user_index_level">Lv.%d</string>
+    <string name="main_dialog_user_level">Lv.%d</string>
+    <string name="main_dialog_user_index_percent">%d/200 (%d)</string>
+    <string name="main_dialog_level">레벨이란 ?</string>
+    <string name="main_dialog_happy_index">해피 지수란?</string>
+    <string name="main_dialog_happiness">해피 지수</string>
+    <string name="main_underway_progress">코스 진행률 %d</string>
+    <string name="undergoing_challenge_title">의식적으로 양치를 깨끗하게</string>
+    <string name="none_undergoing_challenge">코스 선택 후,챌린지를 시작해봐!</string>
+    <string name="course_start">시작하기</string>
+    <string name="course_total_days">꺅 일탈행 %d일 코스</string>
+    <string name="start_new_course">코스를 완료하면 해피 지수가 와르르!\n마지막 챌린지까지 파이팅이닷</string>
+
+    <string name="deviate_course_period">꺅 일탈행 7일 코스</string>
+    <string name="promise_course_period">꼭 지켜야행 7일 코스</string>
+    <string name="care_course_period">날 케어행 7일 코스</string>
+    <string name="health_course_period">늘 건강행 7일 코스</string>
+    <string name="memory_course_period">호 추억행 3일 코스</string>
+    <string name="smart_course_period">짱 똑똑행 7일 코스</string>
+    <string name="love_course_period">쪽 사랑행 7일 코스</string>
+    <string name="set_nickname_qualification">닉네임은 한글 6자 이내로 입력해주세요.</string>
+    <string name="success_course_count">성공한\n코스</string>
+    <string name="success_course_challenge">성공한\n챌린지</string>
+    <string name="success_written_count">작성한\n안부</string>
+    <string name="success_achieved_badge">획득한\n뱃지</string>
+    <string name="community_feed_month">%s월</string>
+    <string name="community_feed_date">%s일</string>
+    <string name="community_head_line">오늘 하루는 어때?\n네 안부가 궁금해!</string>
+    <string name="check_challenge_record">챌린지 기록보기</string>
+    <string name="none_complete_challenge">얼른 코스를 시작하고 챌린지를 수행해줘</string>
+    <string name="entire_agree_ment">전체 동의합니다.</string>
+    <string name="character_style">캐릭터 스타일</string>
+    <string name="fcm_title">알림</string>
+    <string name="none_alarm_ment">앗,알림이 없어요!</string>
+    <string name="ongoing_course">현재 진행중인 코스</string>
+    <string name="course_catalog">코스 목록</string>
+    <string name="edit_nickname_hint">아라아랑아라</string>
+    <string name="email_login_hint">shattyddka@naver.com</string>
+    <string name="double_check_password">비밀번호 입력</string>
+    <string name="look_out_challenge">챌린지 기록 보기</string>
+
+    <string name="not_available_password">대소문자/숫자를 포함하여 6글자 이상 12글자 이하의 비밀번호를 입력해주세요</string>
+    <string name="doesnt_matched_password_check">비밀번호가 일치하지 않습니다</string>
+    <string name="is_available_password">사용가능한 비밀번호예요</string>
+
 </resources>

@@ -1,95 +1,74 @@
+ #  Release ver. <img src="https://user-images.githubusercontent.com/58849278/130314503-759a2612-4227-4cf4-843c-f85456be1343.png" align=left width=100>
+
+> 잃어버린 당신의 일상을 깨워줄 행복 메이트, 쟈니(Journey)  2021.06.27 ~ 2021.07.17 ➡️
+> 모행(Mohaeng) 2021.7.18 ~ 
 
 
-#  쟈니 <img src="https://user-images.githubusercontent.com/28949235/125798720-ee361799-6821-4460-bd8d-7641254dfb80.png" align=left width=100>
-<br>
-<br>
 
-![쟈니보드흰버전](https://user-images.githubusercontent.com/28949235/125825984-5d6087d6-e8bd-4b4b-8ad8-004736141a6d.png)
-<details>
-	<summary><b>잃어버린 당신의 일상을 깨워줄 행복 메이트, 쟈니(Journey)</b><br></summary>
-	쟈니는 일상에서 중요하지만 잊고 살아가는 것들을 끊임없이 일깨워주는 ‘행복 찾기’ 서비스입니다.  재미있는 콘셉트의 캐릭터가 사용자의 일상에 쉽게 다가감으로써 행복을 찾아내는 습관이 생길 수 있도록 도와줍니다.  푸시 알림으로 일상의 안부 메시지를 받아보고, 하루 단위 랜덤 챌린지를 완수하여 나만의 소확행을 기록하고 공유해보세요 . 
-	</details>
+<p align="center">
+<h2 align="center">Journey, happy mate who will wake up your daily life </h2>
+<p align="center">
+ Journey remind us of things that are important in our daily lives but are forgotten. Journey's unique concept helps users to develop a habit of finding happiness by easily approaching them in their daily life. Users can receive daily greetings via push notifications, and complete random challenges. Also, you can record your own diary and share your small events with other users in Journey's community feed. 
+</p>
 
-## Journey's Workflow 
+## Tech Explanation 
+<p align="center">
+  <img src="https://img.shields.io/badge/Kotlin-1.5.21-yellowgreen?logo=kotlin"/>
+  <img src="https://img.shields.io/badge/Arctic Fox | -2020.3.1-blue?logo=Android+Studio"/>
+  <img src="https://img.shields.io/badge/targetSdk-30-green?logo=Android"/>
+  <img src="https://img.shields.io/badge/minSdk-29-green?logo=Android"/>
+</p>
+<p align="center">
+<h4 align="center">Project Architecture</h4>
+<p align="center">
+AAC를 사용하여 앱의 수명 주기를 관리하기 쉬운 앱을 디자인하는 라이브러리를 사용합니다. MVVM 아키텍쳐를 기본으로 하며 데이터 개체 매핑 라이브러리 Room, Rxjava, Flowable, Livedata Observable,  Coroutine 등을 활용하여 상용구 코드의 작성 및 메모리 누수와 비정상 종료를 줄여주는 Android 권장 사항을 준수합니다. 
+  </p>
+  <h4 align="center">Core Value</h4>
+  <p align="center">
+	1️⃣성장  2️⃣커뮤니케이션  3️⃣책임감  
+  </p>
+</p>
 
-<details>
-	<summary><b>Preview</b><br></summary>
-	<div markdown="1">
-    <img src="https://user-images.githubusercontent.com/28949235/125818953-985f2d8b-442d-41e6-833c-c82aaa95f672.png" alt="image" />
-
-<img src="https://user-images.githubusercontent.com/58849278/126058907-1f14f778-5784-432e-bfa4-1a7c05110391.png" />
-<img src="https://user-images.githubusercontent.com/58849278/126058934-63c29b0c-9521-4465-ba1d-615f9e273e7d.png" />
-<img src="https://user-images.githubusercontent.com/28949235/125819660-29a88675-1b4d-4a72-b358-5917d71b4f6b.png" />
-<img src="https://user-images.githubusercontent.com/58849278/125906281-1427c872-10af-4cad-b791-c9f6722ee39d.png" />
-<img src="https://user-images.githubusercontent.com/28949235/125819715-3f5a355f-5ee7-4465-999d-455550becd82.png" />
-<img src=" https://user-images.githubusercontent.com/58849278/125941121-64159098-e277-465a-a82c-5d1b152a9e1b.png" />
-<img src="https://user-images.githubusercontent.com/58849278/125941262-a64007c8-62d6-4f45-8188-726ad4ace3e0.png" />
-<img src="https://user-images.githubusercontent.com/58849278/125941379-a457ebc3-fbc8-4d84-a4c7-141d117d1ec7.png" />
-  <img src="https://user-images.githubusercontent.com/28949235/125819842-019d3d42-0af6-4775-8b3e-276752416deb.png" />
-  </div>
-	</details>
-	
-## Tech Explanation
-
-<details>
-	<summary><b>Structure</b><br></summary>
-
-🌹Journey
- ┣ 📑application
- ┣ 📑base
- ┣ 📑data
- ┣ 📑di
- ┣ 📑frame
- ┣ 📑challenge
- ┣ 📑community
- ┣ 📑course
- ┣ 📑diary
- ┣ 📑findpw
- ┣ 📑login
- ┣ 📑main
- ┣ 📑pushalarm
- ┣ 📑reward
- ┣ 📑signup
- ┗📑 utils
-	</details>
-
-<details>
-	<summary><b>Open Source Library</b><br></summary>
-	
-| 라이브러리                                                   | 목적                                                    |
+### 📌  Open Source Library 
+ | Library                                                   | Purpose                                                   |
 | ------------------------------------------------------------ | ------------------------------------------------------- |
+| [Jetpack Compose](https://developer.android.com/jetpack/androidx/releases/compose) | 모양과 데이터 종속 항목을 설명하는 UI  |
 | [Activity-KTX](https://developer.android.com/kotlin/ktx/extensions-list) | Activity에서 ViewModel 위임 초기화위해 사용             |
 | [Fragment-KTX](https://developer.android.com/kotlin/ktx/extensions-list) | Fragment에서 Shared ViewModel 위임 초기화 위해 사용     |
-| [Jetpack Navigation](https://developer.android.com/jetpack/androidx/releases/navigation) | Fragment간 화면 전환 용이                               |
-| [LifeCycle](https://github.com/ausichenko/android-lifecycles) | Fragment 생명주기                                |
-| [LiveData](https://github.com/ravi8x/LiveData)                   | LifeCycleOwner 관찰자 등록        |    
+| [Coroutine](https://developer.android.com/kotlin/coroutines) | 동시 실행 설계 패턴  |
+| [Flow](https://developer.android.com/kotlin/flow) | 데이터베이스 실시간 업데이트  |
+| [LifeCycle](https://github.com/ausichenko/android-lifecycles) | 생명주기 관리                              |
+| [LiveData](https://github.com/ravi8x/LiveData)                   | LifeCycleOwner 관찰자 등록        |  
+| [Hilt](https://developer.android.com/jetpack/androidx/releases/hilt) | 의존성 주입                        |  
+| [Room](https://developer.android.com/reference/androidx/room/Room?hl=en)                   | Database Object        |
 | [Retrofit2](https://github.com/square/retrofit)              | 서버 통신                                               |
 | [Gson](https://github.com/google/gson)                       | 서버에서 받아온 Json 객체를 Gson으로 변환               |
 | [OkHttp](https://square.github.io/okhttp/)                   | 서버 통신에서 토큰 Interceptor 등 Util 기능 제작에 활용 |
-| [Firebase](https://firebase.google.com/)                     | 푸쉬 알람 구현에 활용                                             |
-| [Hilt](https://developer.android.com/jetpack/androidx/releases/hilt) | 의존성 주입                        |
-| [Glide](https://github.com/bumptech/glide)                   | URL 형식의 이미지          |
-| [TedImagePicker](https://github.com/ParkSangGwon/TedImagePicker) | 갤러리에서 이미지를 가져오기 위해 사용                  |
+| [Firebase](https://firebase.google.com/)                     | 푸쉬 알람 구현 및 구글 로그인                                             |
+| [Paging](https://developer.android.com/jetpack/androidx/releases/paging)                     | Recyclerview 데이터 로드 방식                                             |
 | [Glide](https://github.com/bumptech/glide)                   | URL 형식의 이미지          |       
-
 </details>
 
+### 🔗 Service Workflow   			 
+[Service Workflow](https://github.com/team-mohaeng/mohaeng-android/wiki/Journey-Workflow)
+### 🔖 Preview  			 
+[Service Preview](https://www.youtube.com/watch?v=3Yg3qSHMRtY) 
 
+### 📕 Code Convention
+[Coding Convention](https://github.com/team-journey/journey-android/wiki/Coding-Convention)
+### 📙 Commit Convention
+[Commit, branch Convention](https://github.com/team-journey/journey-android/wiki/Commit-Message-and-Branch-Convention)
+### 📗 Package Convention
+[Package Convention](https://github.com/team-journey/journey-android/wiki/Package-Convention)
+### 📘 Kanban board
+ [Kanban board](https://www.notion.so/AND-cf17a9d32246486e899e4eb2be8a1396)
 
-<details>
-	<summary><b>Convention</b><br></summary>
-	
-📕  [Journey Coding Convention](https://github.com/team-journey/journey-android/wiki/Coding-Convention)
-
-📙 [Journey Commit, branch Convention](https://github.com/team-journey/journey-android/wiki/Commit-Message-and-Branch-Convention)
-
-📗 [Journey Package Convention](https://github.com/team-journey/journey-android/wiki/Package-Convention)
-
-📘 [Journey Kanban board](https://www.notion.so/AND-cf17a9d32246486e899e4eb2be8a1396)
-
-</details>
-
-## Contributors
+## Contributors 
+<p align="center">
+<h3 align="center">❤️🧡💛💚💙💜</h3>
+<h4 align="center">모행로이드</h4>
+</p>
+<p align="center"><img src="https://user-images.githubusercontent.com/58849278/123736112-7eb28c00-d8db-11eb-86e5-1194b2fbc4f1.jpeg" width = 40%/></p>
 
 <table align="center" style = "table-layout: auto; width: 100%; table-layout: fixed;">
   <colgroup>
@@ -97,33 +76,42 @@
     <col style="width:34%"/>
     <col style="width:33%"/>
   </colgroup>
-  <th align="center">박주예</th>
-  <th align="center">김기현</th>
-  <th align="center">신승민</th>
+  <th align="center">🐰박주예🐰</th>
+  <th align="center">🐹김기현🐹</th>
+  <th align="center">🐶신승민🐶</th>
   <tr>
-    <td align="center"><img src="https://user-images.githubusercontent.com/58849278/125941800-3787c40d-d98b-4201-86f0-e7fe52941679.jpeg?size=10"/></td>
-    <td align="center"><img src="https://user-images.githubusercontent.com/58849278/125941958-5c296c28-9c0a-497a-9fa8-b4851b9e7069.jpeg? size=1000 "/></td>
-    <td align="center"><img src="https://user-images.githubusercontent.com/58849278/125942180-078e2514-6e01-48be-b945-237e12cb1b6d.jpeg? size = 900"/></td>
+    <td align="center"><img src="https://github.com/jooyae.png"/></td>
+    <td align="center"><img src="https://github.com/teagh82.png"/></td>
+    <td align="center"><img src="https://github.com/Seungmin-develop.png"/></td>
   </tr>
   <tr>
-    <td>
-    <br>
-    Login<br>
-    Main<br>
-		Journey Push Alarm<br>
-		Journey Community<br>
+    <td><br>
+    온보딩<br>
+    로그인<br>
+   메인<br>
+		푸쉬알람<br>
+		커뮤니티<br>
+		리워드<br>
     </td>
     <td>
-    Signup<br>
-    Journey Challenge<br>
-	Journey Course<br>
+    챌린지 진행<br>
+    챌린지 달성<br>
+	    코스 진행<br>
+	    코스 완료<br>
+	    다이얼로그<br>
     </td>
     <td>
-    Find Password<br>
-    Journey Diary<br>
+    비밀번호 찾기<br>
+    데이트피커<br>
+    다이어리<br>
+    내서랍장<br>
     </td>
   </tr>
 </table>
+
+<details>
+	<summary><b> 🆕 Release Coming Soon</b></summary>
+</details>
 
 
 

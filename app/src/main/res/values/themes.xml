@@ -1,17 +1,21 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.JourneyAndroid" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.JourneyAndroid" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/journey_transparency</item>
         <item name="colorPrimaryVariant">@color/journey_transparency</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnPrimary">@color/journey_transparency</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="21">@color/journey_transparency</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/journey_transparency</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">false</item>
+
         <!-- Customize your theme here. -->
+        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
     </style>
 
     <style name="HashTagChipStyle" parent="Widget.MaterialComponents.Chip.Entry">
@@ -19,4 +23,55 @@
         <item name="android:textColor">@color/white</item>
         <item name="closeIconTint">@drawable/ic_diary_hash_tag_close</item>
     </style>
+
+    <style name="LikeChipStyle" parent="Widget.MaterialComponents.Chip.Entry">
+        <item name="background">@drawable/chip_background</item>
+        <item name="android:textColor">@color/mohaeng_orange_a</item>
+        <item name="icon">@drawable/ic_diary_hash_tag_close</item>
+    </style>
+
+    <style name="Theme.Transparent" parent="android:Theme">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+    <style name="AppBottomSheetDialogTheme"
+        parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppModalStyle</item>
+    </style>
+
+    <style name="AppModalStyle"
+        parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/detail_report_dialog</item>
+    </style>
+
+    <style name="DefaultNumberPickerTheme">
+        <item name="colorControlNormal">@color/mohaeng_yellow11</item>
+    </style>
+
+    <style name="BottomSheet" parent="@style/Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/shape_bottom_sheet</item>
+        <item name="behavior_peekHeight">250dp</item>
+    </style>
+
+    <style name="BaseBottomSheetDialog" parent="@style/Theme.Design.Light.BottomSheetDialog">
+        <item name="android:windowIsFloating">true</item>
+        <item name="bottomSheetStyle">@style/BottomSheet</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+    <style name="BottomSheetDialogTheme" parent="BaseBottomSheetDialog" />
+
+    <style name="TransparentBottomSheetDialogFragment" parent="Theme.Design.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/TransparentBottomSheetDialogFragmentChild</item>
+    </style>
+
+    <style name="TransparentBottomSheetDialogFragmentChild" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@color/mohaeng_transparency</item>
+    </style>
+
 </resources>

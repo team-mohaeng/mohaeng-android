@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="org.journey.android.character.viewmodel.CharacterViewModel" />
+    </data>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/user_skin"
+                setImageURL="@{viewModel.characterInfo.currentCharacterSkin.image}"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_return_back"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/ic_gnbicnback"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textview_character_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/spoqahansansneoregular"
+                android:text="@string/character_style"
+                android:textColor="@color/mohaeng_black"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/button_return_back"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageview_character"
+                setImageURL="@{viewModel.characterInfo.currentCharacterImage.image}"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                app:layout_constraintBottom_toTopOf="@+id/button_complete_style"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/textview_character_style" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview_skin"
+                android:layout_width="32dp"
+                android:layout_height="220dp"
+                android:layout_marginBottom="14dp"
+                android:background="@drawable/background_skin_recyclerview"
+                android:elevation="2dp"
+                android:orientation="vertical"
+                android:visibility="invisible"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="@id/button_character_skin"
+                app:layout_constraintEnd_toEndOf="@+id/button_character_skin"
+                app:layout_constraintVertical_bias="0.45"
+                app:layout_constraintStart_toStartOf="@+id/button_character_skin"
+                tools:listitem="@layout/item_character_skin" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_character_skin"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:layout_marginStart="4dp"
+                android:background="@drawable/btn"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.45" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_complete_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="18dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/ic_recstyle"
+                android:fontFamily="@font/spoqahansansneobold"
+                android:text="이 스타일로 정했어!"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/button_character_skin" />
+
+            <View
+                android:id="@+id/view_select_character"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bottom_sheet_radius"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/button_complete_style" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview_select_character"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginHorizontal="16dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/view_select_character"
+                tools:listitem="@layout/item_select_character" />
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="@+id/recyclerview_select_style"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/recyclerview_select_style"
+                app:layout_constraintTop_toTopOf="@id/recyclerview_select_style" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview_select_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="18dp"
+                android:layout_marginTop="20dp"
+                android:nestedScrollingEnabled="false"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/recyclerview_select_character"
+                app:spanCount="3"
+                tools:listitem="@layout/item_select_option" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

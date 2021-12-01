@@ -1,20 +1,29 @@
 package org.journey.android.diary.view
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import dagger.hilt.android.AndroidEntryPoint
 import org.journey.android.R
 import org.journey.android.databinding.FragmentDiaryFirstBinding
 import org.journey.android.databinding.FragmentPrivateBinding
+import org.journey.android.diary.viewmodel.PrivateViewModel
 import java.util.*
 
 var moodNum = 0
+
+@AndroidEntryPoint
 class DiaryFirstFragment : Fragment(){
     private lateinit var  binding : FragmentDiaryFirstBinding
+    private val adapter by lazy { DiaryFirstViewPagerAdapter(parentFragmentManager) }
+    private val viewModel by viewModels<PrivateViewModel>()
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View?{
         val privateView = inflater.inflate(R.layout.fragment_diary_first, null)
@@ -28,6 +37,16 @@ class DiaryFirstFragment : Fragment(){
         super.onViewCreated(view, savedInstanceState)
         clickEvent()
         pressedBack()
+
+        binding.buttonCompelete.isSelected = true
+        binding.viewpagerDiaryFirst.adapter = adapter
+        binding.viewpagerDiaryFirst.setCurrentItem(0,true)
+        binding.dotsIndicatorFeel.setViewPager(binding.viewpagerDiaryFirst)
+
+        val user_name = viewModel.getNickname()
+        binding.textviewDiaryText.text = "${user_name}의 오늘은 어땠어?"
+
+
         val firstInstance = Calendar.getInstance()
         val firstNowYear = firstInstance.get(Calendar.YEAR).toString()
         val firstNowMonth = (firstInstance.get(Calendar.MONTH)+1).toString()
@@ -46,72 +65,33 @@ class DiaryFirstFragment : Fragment(){
                 else -> return ""
             }
         }
-        val firstViewToday = firstNowYear + "년 " + firstNowMonth + "월 " + firstNowDate + "일 " + firstNowDayOfWeekToString(firstNowDayOfWeek) +"요일"
+        val firstViewToday = firstNowMonth + "월 " + firstNowDate + "일 "
 
         binding.textviewNowDate.text = firstViewToday
 
-        binding.textviewBadDay.setOnClickListener{
-            binding.textviewBadDay.isSelected=false
+    }
+
+    private fun pressedBack(){
+        binding.imagebuttonDiaryBack.setOnClickListener {
+            findNavController().popBackStack()
         }
 
-        binding.textviewSosoDay.setOnClickListener{
-            binding.textviewSosoDay.isSelected=false
-        }
-
-        binding.textviewGoodDay.setOnClickListener{
-            binding.textviewGoodDay.isSelected=false
-        }
-
-
-        binding.imagebuttonFeelOne.setOnClickListener {
-            if(binding.imagebuttonFeelTwo.isSelected)
-                binding.imagebuttonFeelTwo.isSelected=false
-            if(binding.imagebuttonFeelThree.isSelected)
-                binding.imagebuttonFeelThree.isSelected=false
-            binding.imagebuttonFeelOne.isSelected=true
-            binding.buttonCompelete.isSelected=true
-            binding.textviewBadDay.isSelected=false
-            binding.textviewSosoDay.isSelected=true
-            binding.textviewGoodDay.isSelected=true
-            moodNum=0
-        }
-
-        binding.imagebuttonFeelTwo.setOnClickListener {
-            if(binding.imagebuttonFeelOne.isSelected)
-                binding.imagebuttonFeelOne.isSelected=false
-            if(binding.imagebuttonFeelThree.isSelected)
-                binding.imagebuttonFeelThree.isSelected=false
-            binding.imagebuttonFeelTwo.isSelected=true
-            binding.buttonCompelete.isSelected=true
-            binding.textviewBadDay.isSelected=true
-            binding.textviewSosoDay.isSelected=false
-            binding.textviewGoodDay.isSelected=true
-            moodNum=1
-        }
-
-        binding.imagebuttonFeelThree.setOnClickListener {
-            if(binding.imagebuttonFeelOne.isSelected)
-                binding.imagebuttonFeelOne.isSelected=false
-            if(binding.imagebuttonFeelTwo.isSelected)
-                binding.imagebuttonFeelTwo.isSelected = false
-            binding.imagebuttonFeelThree.isSelected = true
-            binding.buttonCompelete.isSelected = true
-            binding.textviewBadDay.isSelected = true
-            binding.textviewSosoDay.isSelected = true
-            binding.textviewGoodDay.isSelected = false
-            moodNum=2
+        binding.imagebuttonDiaryCancel.setOnClickListener {
+            findNavController().popBackStack()
         }
     }
 
-    fun pressedBack(){
-        binding.imagebuttonCourseBack.setOnClickListener {
-            findNavController().popBackStack()
-    }}
-
-    fun clickEvent() {
+    private fun clickEvent() {
         binding.buttonCompelete.setOnClickListener {
-            if(binding.buttonCompelete.isSelected)
-                findNavController().navigate(R.id.action_diaryFirstFragment_to_diarySecondFragment)
+            var diarySecond = DiarySecondFragment()
+            var bundle = Bundle()
+            bundle.putInt("moodNum",binding.viewpagerDiaryFirst.currentItem)
+            diarySecond.arguments = bundle
+            Log.d("MOOD", "${binding.viewpagerDiaryFirst.currentItem}, ${diarySecond.arguments}")
+
+            moodNum = binding.viewpagerDiaryFirst.currentItem
+
+            findNavController().navigate(R.id.action_diaryFirstFragment_to_diarySecondFragment)
         }
     }
 }

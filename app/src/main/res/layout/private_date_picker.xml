@@ -3,19 +3,31 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingVertical="20dp">
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@color/mohaeng_yellow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <NumberPicker
         android:id="@+id/numberpicker_year"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="72dp"
+        android:layout_marginTop="25dp"
         app:layout_constraintBottom_toTopOf="@id/button_date_picker_select"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/textview_date_picker_year"
-        app:layout_constraintTop_toTopOf="parent"></NumberPicker>
+        app:layout_constraintTop_toBottomOf="@+id/view"
+        android:theme="@style/DefaultNumberPickerTheme"
+        android:selectionDividerHeight="1dp">
+
+    </NumberPicker>
 
     <TextView
         android:id="@+id/textview_date_picker_year"
@@ -37,11 +49,12 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="12dp"
+        app:layout_constraintBottom_toBottomOf="@id/textview_date_picker_year"
         app:layout_constraintLeft_toRightOf="@id/textview_date_picker_year"
         app:layout_constraintRight_toLeftOf="@id/textview_date_picker_month"
         app:layout_constraintTop_toTopOf="@id/textview_date_picker_year"
-        app:layout_constraintBottom_toBottomOf="@id/textview_date_picker_year"
-        >
+        android:theme="@style/DefaultNumberPickerTheme"
+        android:selectionDividerHeight="1dp">
 
     </NumberPicker>
 
@@ -60,19 +73,34 @@
         app:layout_constraintTop_toTopOf="@id/numberpicker_month" />
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_date_picker_cancel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/private_date_picker_select_button"
+        android:fontFamily="@font/spoqahansansneobold"
+        android:stateListAnimator="@null"
+        android:text="취소"
+        android:textSize="14sp"
+        android:textColor="@color/moheang_gray_b"
+        app:layout_constraintEnd_toStartOf="@+id/button_date_picker_select"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/numberpicker_year" />
+
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_date_picker_select"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="48dp"
-        android:background="@drawable/private_date_picker_select_button"
+        android:layout_marginTop="25dp"
+        android:background="@color/mohaeng_yellow8"
         android:fontFamily="@font/spoqahansansneobold"
-        android:paddingVertical="14dp"
         android:stateListAnimator="@null"
-        android:layout_marginTop="16dp"
-        android:text="선택"
+        android:text="확인"
+        android:textSize="14sp"
         android:textColor="@color/white"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button_date_picker_cancel"
         app:layout_constraintTop_toBottomOf="@id/numberpicker_year" />
 
 

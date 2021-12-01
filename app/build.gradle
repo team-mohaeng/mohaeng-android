@@ -5,17 +5,21 @@ plugins {
     id 'dagger.hilt.android.plugin'
     id 'androidx.navigation.safeargs'
     id 'com.google.gms.google-services'
+    id 'com.google.android.gms.oss-licenses-plugin'
 }
 
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
 android {
-    compileSdkVersion 30
+    compileSdkVersion 31
     buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "org.journey.android"
         minSdkVersion 23
-        targetSdkVersion 30
-        versionCode 1
+        targetSdkVersion 31
+        versionCode 4
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -27,7 +31,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
     buildFeatures{
         viewBinding true
         dataBinding true
@@ -37,67 +40,68 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 
 }
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.5.0'
-    implementation 'androidx.appcompat:appcompat:1.3.0'
-    implementation 'com.google.android.material:material:1.3.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    implementation 'com.google.firebase:firebase-messaging:22.0.0'
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.4.0'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
+    implementation 'com.google.firebase:firebase-messaging:23.0.0'
     implementation 'androidx.security:security-crypto:1.0.0'
+    implementation 'com.google.firebase:firebase-auth-ktx:21.0.1'
+    implementation 'com.google.android.gms:play-services-auth:19.2.0'
     testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation 'com.airbnb.android:lottie:3.4.0'
 
     //Jetpack Navigation
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation "androidx.navigation:navigation-fragment-ktx:${Versions.navigation_version}"
-    implementation "androidx.navigation:navigation-ui-ktx:${Versions.navigation_version}"
+    implementation "androidx.navigation:navigation-fragment-ktx:${DependencyVersions.NAVIGATION_VERSION}"
+    implementation "androidx.navigation:navigation-ui-ktx:${DependencyVersions.NAVIGATION_VERSION}"
 
     //Hilt
-    implementation "com.google.dagger:hilt-android:${Versions.dagger_version}"
-    kapt "com.google.dagger:hilt-android-compiler:${Versions.dagger_version}"
+    implementation "com.google.dagger:hilt-android:${DependencyVersions.DAGGER_HILT_VERSION}"
+    kapt "com.google.dagger:hilt-android-compiler:${DependencyVersions.DAGGER_HILT_VERSION}"
 
     //lifecycle
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle_version}"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycle_version}"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:${DependencyVersions.LIFECYCLE_VERSION}"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:${DependencyVersions.LIFECYCLE_VERSION}"
 
     //Fragment-ktx
-    implementation "androidx.fragment:fragment-ktx:${Versions.fragment_ktx_version}"
+    implementation "androidx.fragment:fragment-ktx:${DependencyVersions.FRAGMENT_KTX_VERSION}"
 
     //Activity-ktx
-    implementation "androidx.activity:activity-ktx:${Versions.activity_ktx_version}"
+    implementation "androidx.activity:activity-ktx:${DependencyVersions.ACTIVITY_KTX_VERSION}"
 
     // RxJava
-    implementation "io.reactivex.rxjava2:rxjava:${Versions.rxjava_version}"
-    implementation "io.reactivex.rxjava2:rxandroid:${Versions.rxandroid_version}"
+    implementation "io.reactivex.rxjava3:rxjava:${DependencyVersions.RXJAVA_VERSION}"
+    implementation "io.reactivex.rxjava3:rxandroid:${DependencyVersions.RXANDROID_VERSION}"
 
     //Firebase
-    implementation platform('com.google.firebase:firebase-bom:28.0.1')
+    implementation platform('com.google.firebase:firebase-bom:28.4.2')
     implementation 'com.google.firebase:firebase-messaging-ktx'
     implementation 'com.google.firebase:firebase-analytics-ktx'
-    implementation 'com.google.firebase:firebase-messaging-directboot:22.0.0'
-    implementation 'com.google.firebase:firebase-messaging:22.0.0'
+
 
     //Retrofit
-    implementation "com.squareup.retrofit2:retrofit:${Versions.retrofit_version}"
-    implementation "com.squareup.retrofit2:converter-gson:${Versions.retrofit_version}"
-    implementation "com.squareup.retrofit2:adapter-rxjava2:${Versions.retrofit_version}"
+    implementation "com.squareup.retrofit2:retrofit:${DependencyVersions.RETROFIT_VERSION}"
+    implementation "com.squareup.retrofit2:converter-gson:${DependencyVersions.RETROFIT_VERSION}"
+    implementation "com.squareup.retrofit2:adapter-rxjava3:${DependencyVersions.RETROFIT_VERSION}"
 
     //OkHttp Logging Interceptor
-    implementation "com.squareup.okhttp3:logging-interceptor:${Versions.okhttp_version}"
+    implementation "com.squareup.okhttp3:logging-interceptor:${DependencyVersions.OKHTTP_VERSION}"
 
     //Dot Indicator
     implementation 'com.tbuonomo:dotsindicator:4.2'
 
     //Glide
     implementation 'com.github.bumptech.glide:glide:4.12.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
     implementation 'jp.wasabeef:glide-transformations:4.3.0'
     implementation 'jp.co.cyberagent.android:gpuimage:2.1.0'
 
@@ -109,4 +113,21 @@ dependencies {
     implementation 'jp.wasabeef:glide-transformations:4.3.0'
     implementation 'jp.co.cyberagent.android:gpuimage:2.1.0'
 
+    //Keyboard Observer
+    implementation 'io.github.ParkSangGwon:tedkeyboardobserver:1.0.1'
+
+    //Coil
+    implementation 'io.coil-kt:coil:1.1.1'
+
+    // Indicator
+    implementation 'com.tbuonomo:dotsindicator:4.2'
+
+    //Kakao
+    implementation "com.kakao.sdk:v2-user:2.6.0"
+
+    //encrypted shared preference
+    implementation "androidx.security:security-crypto:${DependencyVersions.CRYPTO_VERSION}"
+
+    //opensource license
+    implementation 'com.google.android.gms:play-services-oss-licenses:17.0.0'
 }

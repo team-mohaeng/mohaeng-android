@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="data"
+            type="org.journey.android.course.data.entity.CourseDateEntity" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/journey_transparency">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_dday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:text="@{data.DDay}"
+            android:fontFamily="@font/gmarketsansttfmedium"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toStartOf="@id/imageview_stamp"
+            app:layout_constraintTop_toTopOf="@id/imageview_stamp"
+            tools:text="2일차"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_course_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/spoqahansansneoregular"
+            android:text="@{data.courseContent}"
+            android:textColor="@color/mohaeng_black2"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageview_stamp"
+            app:layout_constraintEnd_toEndOf="@+id/textview_dday"
+            app:layout_constraintTop_toBottomOf="@id/textview_dday"
+            tools:text="3개국어 인삿말 하기" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageview_stamp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            loadDrawable="@{data.stampImage}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

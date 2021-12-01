@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/journey_transparency">
+
+    <ImageButton
+        android:id="@+id/imagebutton_emoji_close"
+        android:layout_width="39dp"
+        android:layout_height="39dp"
+        android:background="@drawable/ic_emoji_close"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imagebutton_emoji_first"
+        android:layout_width="84dp"
+        android:layout_height="84dp"
+        android:layout_marginEnd="25dp"
+        android:background="@drawable/ic_emoji_tears"
+        app:layout_constraintBottom_toTopOf="@+id/imagebutton_emoji_close"
+        app:layout_constraintEnd_toStartOf="@+id/imagebutton_emoji_second" />
+
+    <ImageButton
+        android:id="@+id/imagebutton_emoji_second"
+        android:layout_width="84dp"
+        android:layout_height="84dp"
+        android:layout_marginBottom="52dp"
+        android:background="@drawable/ic_emoji_cong"
+        app:layout_constraintBottom_toTopOf="@+id/imagebutton_emoji_close"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imagebutton_emoji_third"
+        android:layout_width="84dp"
+        android:layout_height="84dp"
+        android:layout_marginStart="25dp"
+        android:background="@drawable/ic_emoji_medal"
+        app:layout_constraintBottom_toTopOf="@+id/imagebutton_emoji_close"
+        app:layout_constraintStart_toEndOf="@+id/imagebutton_emoji_second" />
+
+    <ImageButton
+        android:id="@+id/imagebutton_emoji_fourth"
+        android:layout_width="84dp"
+        android:layout_height="84dp"
+        android:layout_marginEnd="25dp"
+        android:background="@drawable/ic_emoji_good"
+        app:layout_constraintEnd_toStartOf="@+id/imagebutton_emoji_fifth"
+        app:layout_constraintTop_toBottomOf="@+id/imagebutton_emoji_close" />
+
+    <ImageButton
+        android:id="@+id/imagebutton_emoji_fifth"
+        android:layout_width="84dp"
+        android:layout_height="84dp"
+        android:layout_marginTop="52dp"
+        android:background="@drawable/ic_emoji_twinkle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imagebutton_emoji_close" />
+
+    <ImageButton
+        android:id="@+id/imagebutton_emoji_sixth"
+        android:layout_width="84dp"
+        android:layout_height="84dp"
+        android:layout_marginStart="25dp"
+        android:background="@drawable/ic_emoji_lucky"
+        app:layout_constraintStart_toEndOf="@+id/imagebutton_emoji_fifth"
+        app:layout_constraintTop_toBottomOf="@+id/imagebutton_emoji_close" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

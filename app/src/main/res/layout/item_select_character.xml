@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="data"
+            type="org.journey.android.character.data.entity.MohaengCharacterEntity" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/item_select_character"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/background_touch_effect"
+        android:layout_width="48dp"
+        android:layout_height="28dp"
+        android:foregroundGravity="center"
+        android:background="@drawable/ic_touch_yellow"
+        android:visibility="invisible"
+        android:layout_marginEnd="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imagebutton_mohaeng_character"
+        loadDrawable="@{data.image}"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/journey_transparency">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/challenge_dialog"
+        android:paddingBottom="29dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_dialog_close"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="14dp"
+            android:background="@drawable/ic_xbtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_dialog_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:fontFamily="@font/spoqahansansneomedium"
+            android:text="인증하기"
+            android:textColor="@color/mohaeng_black"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_dialog_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/gmarketsansttflight"
+            android:gravity="center"
+            android:lineSpacingExtra="8dp"
+            android:text="@string/challenge_complete"
+            android:textColor="@color/mohaeng_black"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textview_dialog_title" />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageview_dialog_image"
+            android:layout_width="150dp"
+            android:layout_height="92dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginHorizontal="80dp"
+            android:background="@drawable/grpxokchallenge"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textview_dialog_content" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintlayout_dialog_buttons"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="28dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageview_dialog_image">
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_dialog_a"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/dialog_button_round"
+                android:fontFamily="@font/spoqahansansneobold"
+                android:text="완벽하게 성공 🤗"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_dialog_b"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/dialog_button_change"
+                android:fontFamily="@font/spoqahansansneobold"
+                android:text="살짝 아쉬워 😅"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button_dialog_a" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_dialog_c"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/dialog_button_third"
+                android:fontFamily="@font/spoqahansansneobold"
+                android:text="겨우 해냈다..! 😌"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button_dialog_b" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

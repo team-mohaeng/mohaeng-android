@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_selected="false">
-        <shape>
-            <solid android:color="@color/journey_pink3"/>
-            <corners android:radius="30dp"/>
+    <item android:state_selected="true">
+        <shape
+            android:shape="rectangle">
+            <solid android:color="@color/mohaeng_yellow2"/>
+            <corners
+                android:topLeftRadius="30dp"
+                android:topRightRadius="30dp"/>
         </shape>
     </item>
-    <item android:state_selected="true">
-        <shape>
-            <solid android:color="@color/journey_pink"/>
-            <corners android:radius="30dp"/>
+    <item android:state_selected="false">
+        <shape
+            android:shape="rectangle">
+            <solid android:color="@color/journey_gray4"/>
+            <corners
+                android:topLeftRadius="30dp"
+                android:topRightRadius="30dp"/>
         </shape>
     </item>
 </selector>

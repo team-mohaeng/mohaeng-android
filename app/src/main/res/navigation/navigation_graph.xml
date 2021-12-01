@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_graph"
-    app:startDestination="@id/splashFragment">
+    app:startDestination="@id/frameFragment">
 
     <fragment
         android:id="@+id/frameFragment"
@@ -11,11 +11,8 @@
         android:label="fragment_frame"
         tools:layout="@layout/fragment_frame">
         <action
-            android:id="@+id/action_frameFragment_to_rewardFragment"
-            app:destination="@id/rewardFragment" />
-        <action
             android:id="@+id/action_frameFragment_to_libraryFragment"
-            app:destination="@id/libraryFragment" />
+            app:destination="@id/courseCatalogFragment" />
         <action
             android:id="@+id/action_frameFragment_to_courseFragment"
             app:destination="@id/courseFragment" />
@@ -31,53 +28,56 @@
         <action
             android:id="@+id/action_frameFragment_to_privateFragment"
             app:destination="@+id/privateFragment"/>
-    </fragment>
-    <fragment
-        android:id="@+id/splashFragment"
-        android:name="org.journey.android.splash.SplashFragment"
-        android:label="fragment_splash"
-        tools:layout="@layout/fragment_splash">
         <action
-            android:id="@+id/action_splashFragment_to_loginFragment"
+            android:id="@+id/action_frameFragment_to_chatFragment"
+            app:destination="@id/chatFragment" />
+        <action
+            android:id="@+id/action_frameFragment_to_characterFragment"
+            app:destination="@id/characterFragment" />
+        <action
+            android:id="@+id/action_frameFragment_to_myPageFragment"
+            app:destination="@id/myPageFragment" />
+        <action
+            android:id="@+id/action_frameFragment_to_privateDetailFragment"
+            app:destination="@id/privateDetailFragment" />
+        <action
+            android:id="@+id/action_frameFragment_to_courseCatalogFragment"
+            app:destination="@id/courseCatalogFragment" />
+        <action
+            android:id="@+id/action_frameFragment_to_communityDetailFragment"
+            app:destination="@id/communityDetailFragment" />
+        <action
+            android:id="@+id/action_frameFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
         <action
-            android:id="@+id/action_splashFragment_to_frameFragment"
-            app:destination="@id/frameFragment" />
+            android:id="@+id/action_frameFragment_to_badgeFragment"
+            app:destination="@id/badgeFragment" />
+        <action
+            android:id="@+id/action_frameFragment_to_challengeFragment"
+            app:destination="@id/challengeFragment" />
+        <action
+            android:id="@+id/action_frameFragment_to_finishRewardFragment"
+            app:destination="@id/finishRewardFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/loginFragment"
-        android:name="org.journey.android.login.view.LoginFragment"
-        android:label="fragment_login"
-        tools:layout="@layout/fragment_login">
 
-        <action
-            android:id="@+id/action_loginFragment_to_signupFirstFragment"
-            app:destination="@id/signupFirstFragment" />
-        <action
-            android:id="@+id/action_loginFragment_to_frameFragment"
-            app:destination="@id/frameFragment" />
-        <action
-            android:id="@+id/action_loginFragment_to_findPassWordOneFragment"
-            app:destination="@id/findPassWordOneFragment" />
-        <action
-            android:id="@+id/action_loginFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
-    </fragment>
     <fragment
         android:id="@+id/mainFragment"
-        android:name="org.journey.android.main.view.MainFragment"
+        android:name="org.journey.android.main.view.fragment.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main">
 
-    <action
-            android:id="@+id/action_mainFragment_to_rewardFragment"
-            app:destination="@id/rewardFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_chatFragment"
+            app:destination="@id/chatFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_badgeFragment"
+            app:destination="@id/badgeFragment" />
 
     </fragment>
 
     <fragment
         android:id="@+id/communityFragment"
-        android:name="org.journey.android.community.view.CommunityFragment"
+        android:name="org.journey.android.community.ui.fragment.CommunityFragment"
         android:label="fragment_community"
         tools:layout="@layout/fragment_community">
         <action
@@ -95,7 +95,7 @@
     </fragment>
     <fragment
         android:id="@+id/challengeFragment"
-        android:name="org.journey.android.challenge.view.ChallengeFragment"
+        android:name="org.journey.android.challenge.ui.fragment.ChallengeFragment"
         android:label="ChallengeFragment"
         tools:layout="@layout/fragment_challenge">
         <action
@@ -104,6 +104,12 @@
         <action
             android:id="@+id/action_challengeFragment_to_diaryFirstFragment"
             app:destination="@id/diaryFirstFragment" />
+        <action
+            android:id="@+id/action_challengeFragment_to_finishRewardFragment"
+            app:destination="@id/finishRewardFragment" />
+        <action
+            android:id="@+id/action_challengeFragment_to_courseCatalogFragment"
+            app:destination="@id/courseCatalogFragment" />
     </fragment>
     <fragment
         android:id="@+id/diaryFirstFragment"
@@ -113,6 +119,9 @@
         <action
             android:id="@+id/action_diaryFirstFragment_to_diarySecondFragment"
             app:destination="@id/diarySecondFragment" />
+        <action
+            android:id="@+id/action_diaryFirstFragment_to_diaryFirstFragment"
+            app:destination="@id/diaryFirstFragment" />
     </fragment>
     <fragment
         android:id="@+id/diarySecondFragment"
@@ -128,15 +137,18 @@
         <action
             android:id="@+id/action_diarySecondFragment_to_communityFragment"
             app:destination="@id/communityFragment" />
+        <action
+            android:id="@+id/action_diarySecondFragment_to_diaryEndFragment"
+            app:destination="@id/diaryEndFragment" />
     </fragment>
     <fragment
-        android:id="@+id/rewardFragment"
-        android:name="org.journey.android.reward.view.RewardFragment"
-        android:label="RewardFragment"
-        tools:layout="@layout/fragment_reward">
+        android:id="@+id/diaryEndFragment"
+        android:name="org.journey.android.diary.view.DiaryEndFragment"
+        android:label="DiaryEndFragment"
+        tools:layout="@layout/fragment_diary_end">
         <action
-            android:id="@+id/action_rewardFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
+            android:id="@+id/action_diaryEndFragment_to_communityFragment"
+            app:destination="@id/communityFragment" />
     </fragment>
     <fragment
         android:id="@+id/privateDetailFragment"
@@ -149,72 +161,23 @@
     </fragment>
     <fragment
         android:id="@+id/courseFragment"
-        android:name="org.journey.android.course.view.CourseFragment"
+        android:name="org.journey.android.course.ui.fragment.CourseFragment"
         android:label="fragment_course"
         tools:layout="@layout/fragment_course">
         <action
-            android:id="@+id/action_courseFragment_to_libraryFragment"
-            app:destination="@id/libraryFragment" />
+            android:id="@+id/action_courseFragment_to_courseCatalogFragment"
+            app:destination="@id/courseCatalogFragment" />
     </fragment>
     <fragment
-        android:id="@+id/libraryFragment"
-        android:name="org.journey.android.course.view.LibraryFragment"
+        android:id="@+id/courseCatalogFragment"
+        android:name="org.journey.android.course.ui.fragment.CourseCatalogFragment"
         android:label="fragment_library"
-        tools:layout="@layout/fragment_library" />
-    <fragment
-        android:id="@+id/signupFirstFragment"
-        android:name="org.journey.android.signup.view.SignupFirstFragment"
-        android:label="fragment_signup_first"
-        tools:layout="@layout/fragment_signup_first" >
+        tools:layout="@layout/fragment_course_catalog" >
         <action
-            android:id="@+id/action_signupFirstFragment_to_signupSecondFragment"
-            app:destination="@id/signupSecondFragment" />
+            android:id="@+id/action_courseCatalogFragment_to_challengeFragment"
+            app:destination="@id/challengeFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/signupSecondFragment"
-        android:name="org.journey.android.signup.view.SignupSecondFragment"
-        android:label="fragment_signup_second"
-        tools:layout="@layout/fragment_signup_second" >
-        <action
-            android:id="@+id/action_signupSecondFragment_to_signupThirdFragment"
-            app:destination="@id/signupThirdFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/signupThirdFragment"
-        android:name="org.journey.android.signup.view.SignupThirdFragment"
-        android:label="fragment_signup_third"
-        tools:layout="@layout/fragment_signup_third" >
-        <action
-            android:id="@+id/action_signupThirdFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/findPassWordOneFragment"
-        android:name="org.journey.android.findpw.view.FindPassWordOneFragment"
-        android:label="FindPassWordOneFragment"
-        tools:layout="@layout/fragment_find_password_one">
-        <action
-            android:id="@+id/action_findPassWordOneFragment_to_findPassWordTwoFragment"
-            app:destination="@id/findPassWordTwoFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/findPassWordTwoFragment"
-        android:name="org.journey.android.findpw.view.FindPassWordTwoFragment"
-        android:label="FindPassWordTwoFragment"
-        tools:layout="@layout/fragment_find_password_two">
-        <action
-            android:id="@+id/action_findPassWordTwoFragment_to_findPassWordThreeFragment"
-            app:destination="@id/findPassWordThreeFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/findPassWordThreeFragment"
-        android:name="org.journey.android.findpw.view.FindPassWordThreeFragment"
-        android:label="FindPassWordThreeFragment"
-        tools:layout="@layout/fragment_find_password_three">
-        <action
-            android:id="@+id/action_findPassWordThreeFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
-    </fragment>
+
     <fragment
         android:id="@+id/privateFragment"
         android:name="org.journey.android.diary.view.PrivateFragment"
@@ -231,8 +194,110 @@
 
     <fragment
         android:id="@+id/communityDetailFragment"
-        android:name="org.journey.android.frame.FrameFragment"
+        android:name="org.journey.android.community.ui.fragment.CommunityDetailFragment"
         android:label="CommunityDetailFragment"
         tools:layout="@layout/fragment_community_detail">
     </fragment>
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="org.journey.android.chat.ui.ChatFragment"
+        android:label="ChatFragment"
+        tools:layout="@layout/fragment_chat"/>
+    <fragment
+        android:id="@+id/characterFragment"
+        android:name="org.journey.android.character.ui.fragment.CharacterFragment"
+        android:label="CharacterFragment"
+        tools:layout="@layout/fragment_character"/>
+    <fragment
+        android:id="@+id/myPageFragment"
+        android:name="org.journey.android.mypage.ui.fragment.MyPageFragment"
+        android:label="MyPageFragment"
+        tools:layout="@layout/fragment_my_page">
+        <action
+            android:id="@+id/action_myPageFragment_to_editNickNameFragment"
+            app:destination="@id/editNickNameFragment" />
+        <action
+            android:id="@+id/action_myPageFragment_to_settingFragment"
+            app:destination="@id/settingFragment" />
+        <action
+            android:id="@+id/action_myPageFragment_to_completeCourseFragment"
+            app:destination="@id/completeCourseFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/challengeCertifyDialog"
+        android:name="org.journey.android.challenge.ui.dialog.ChallengeCertifyDialog"
+        android:label="ChallengeCertifyDialog"
+        tools:layout="@layout/dialog_certify_challenge">
+        <action
+            android:id="@+id/action_challengeCertifyDialog_to_finishRewardFragment"
+            app:destination="@id/finishRewardFragment" />
+    </dialog>
+    <fragment
+        android:id="@+id/finishRewardFragment"
+        android:name="org.journey.android.reward.ui.FinishRewardFragment"
+        android:label="FinishRewardFragment"
+        tools:layout="@layout/fragment_finish_reward">
+        <action
+            android:id="@+id/action_finishRewardFragment_to_completeRewardFragment"
+            app:destination="@id/completeRewardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/badgeFragment"
+        android:name="org.journey.android.badge.ui.fragment.BadgeFragment"
+        android:label="BadgeFragment"
+        tools:layout="@layout/fragment_badge">
+
+    </fragment>
+    <fragment
+        android:id="@+id/editNickNameFragment"
+        android:name="org.journey.android.mypage.ui.fragment.EditNickNameFragment"
+        android:label="EditNickNameFragment"
+        tools:layout="@layout/fragment_edit_nick_name">
+        <action
+            android:id="@+id/action_editNickNameFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="org.journey.android.setting.view.SettingFragment"
+        android:label="SettingFragment"
+        tools:layout="@layout/fragment_setting">
+        <action
+            android:id="@+id/action_settingFragment_to_teamFragment"
+            app:destination="@id/teamFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="org.journey.android.login.ui.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login"/>
+    <fragment
+        android:id="@+id/teamFragment"
+        android:name="org.journey.android.setting.view.TeamFragment"
+        android:label="TeamFragment"
+        tools:layout="@layout/fragment_team"/>
+    <fragment
+        android:id="@+id/completeRewardFragment"
+        android:name="org.journey.android.reward.ui.CompleteRewardFragment"
+        android:label="CompleteRewardFragment"
+        tools:layout="@layout/fragment_complete_reward">
+        <action
+            android:id="@+id/action_completeRewardFragment_to_badgeRewardFragment"
+            app:destination="@id/badgeRewardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/badgeRewardFragment"
+        android:name="org.journey.android.reward.ui.BadgeRewardFragment"
+        android:label="BadgeRewardFragment"
+        tools:layout="@layout/fragment_badge_reward">
+        <action
+            android:id="@+id/action_badgeRewardFragment_to_challengeFragment"
+            app:destination="@id/challengeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/completeCourseFragment"
+        android:name="org.journey.android.mypage.ui.fragment.CompleteCourseFragment"
+        android:label="CompleteCourseFragment"
+        tools:layout="@layout/fragment_complete_course"/>
+
 </navigation>

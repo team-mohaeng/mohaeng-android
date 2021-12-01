@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:mohaeng="http://schemas.android.com/apk/res/org.journey.android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textview_onboarding_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="54dp"
+        android:fontFamily="@font/gmarketsansttfmedium"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:textScaleX="0.98"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+    <org.journey.android.customview.SpannableTextView
+        android:id="@+id/textview_onboarding_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/gmarketsansttfmedium"
+        android:text="@string/onboarding_third_subtitle"
+        android:textColor="@color/black"
+        android:textScaleX="0.98"
+        android:textSize="14sp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="@id/textview_onboarding_title"
+        app:layout_constraintTop_toBottomOf="@id/textview_onboarding_title"
+        mohaeng:span_color="@color/moheang_yellow6"
+        mohaeng:span_end="35"
+        mohaeng:span_start="34" />
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageview_onboarding_bear"
+        android:layout_width="154dp"
+        android:layout_height="106dp"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/gpxonboarding4"
+        app:layout_constraintTop_toBottomOf="@id/textview_onboarding_subtitle"
+        app:layout_constraintEnd_toEndOf="parent"/>
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageview_stamp_background"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="18dp"
+        android:background="@drawable/ic_bgchallenge"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageview_onboarding_bear" />
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageview_date_background"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/ic_datebackground"
+        app:layout_constraintTop_toTopOf="@id/imageview_stamp_background"
+        app:layout_constraintStart_toStartOf="@id/imageview_stamp_background"
+        app:layout_constraintEnd_toEndOf="@id/imageview_stamp_background"/>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textview_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/gmarketsansttfmedium"
+        android:text="4일차"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageview_date_background"
+        app:layout_constraintEnd_toEndOf="@+id/imageview_date_background"
+        app:layout_constraintStart_toStartOf="@id/imageview_date_background"
+        app:layout_constraintTop_toTopOf="@id/imageview_date_background" />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textview_course_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/gmarketsansttfmedium"
+        android:text="3개 국어 인삿말 말하기"
+        android:textColor="@color/mohaeng_green"
+        android:textSize="24sp"
+        android:layout_marginTop="24dp"
+        android:textScaleX="0.98"
+        app:layout_constraintEnd_toEndOf="@+id/imageview_stamp_background"
+        app:layout_constraintStart_toStartOf="@id/imageview_stamp_background"
+        app:layout_constraintTop_toBottomOf="@id/textview_date" />
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/button_stamp"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/stamp_onboarding"
+        app:layout_constraintEnd_toEndOf="@+id/imageview_stamp_background"
+        app:layout_constraintStart_toStartOf="@id/imageview_stamp_background"
+        app:layout_constraintTop_toBottomOf="@id/textview_course_title" />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textview_push_stamp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="인증 버튼을 눌러봐!"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/spoqahansansneoregular"
+        android:textSize="12sp"
+        android:textScaleX="0.98"
+        android:textColor="@color/gray_6e"
+        app:layout_constraintEnd_toEndOf="@+id/imageview_stamp_background"
+        app:layout_constraintStart_toStartOf="@id/imageview_stamp_background"
+        app:layout_constraintTop_toBottomOf="@id/button_stamp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

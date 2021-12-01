@@ -4,144 +4,161 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginHorizontal="18dp"
-    android:layout_marginBottom="68dp">
-
+    android:layout_marginBottom="13dp"
+    tools:context=".community.ui.fragment.CommunityDetailFragment">
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button_community_detail_back"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginLeft="12dp"
+        android:id="@+id/button_community_cancel"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="12dp"
         android:background="@drawable/ic_diary_back_page_button"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/toolbar_community_detail_title"
-        />
-
+        app:layout_constraintBottom_toBottomOf="@id/toolbar_community_detail_title" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_community_delete"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_marginEnd="12dp"
+        android:background="@drawable/ic_diary_private_button_delete"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/toolbar_community_detail_title"/>
+    <TextView
+        android:id="@+id/textview_community_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="21dp"
+        android:fontFamily="@font/spoqahansansneomedium"
+        android:text="피드 둘러보기"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_community_detail_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
     </androidx.appcompat.widget.Toolbar>
-
-    <ImageView
-        android:id="@+id/imageview_community_detail_main"
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageview_community_detail_front"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="22dp"
+        android:src="@drawable/ic_mood_good"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_community_detail_title" />
+    <TextView
+        android:id="@+id/textview_community_detail_nickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/spoqahansansneobold"
+        android:text="아라아랑이다"
+        android:textColor="@color/mohaeng_black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/textview_community_detail_date"
+        app:layout_constraintStart_toEndOf="@+id/imageview_community_detail_front" />
+    <TextView
+        android:id="@+id/textview_community_detail_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:fontFamily="@font/spoqahansansneomedium"
+        android:text="8월 15일"
+        android:textColor="@color/mohaeng_black2"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageview_community_detail_front"
+        app:layout_constraintStart_toEndOf="@+id/imageview_community_detail_front"
+        app:layout_constraintStart_toStartOf="@+id/textview_community_detail_nickname" />
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/imagebutton_community_detail_report"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="18dp"
+        android:background="@drawable/ic_btnreport"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_community_detail_title" />
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageview_community_detail_back"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:src="@drawable/ic_button_prefer"
-        app:layout_constraintBottom_toTopOf="@id/bottom_community_detail_layout"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="@id/imageview_community_detail_main"
-        app:layout_constraintTop_toBottomOf="@id/toolbar_community_detail_title"
-        app:layout_constraintVertical_chainStyle="spread"
-        app:layout_constraintVertical_weight="23" />
-
-    <ImageView
-        android:id="@+id/imageview_community_detail_mood"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:src="@drawable/ic_diary_journey_good_face"
-        android:translationZ="2dp"
-        app:layout_constraintBottom_toBottomOf="@id/imageview_community_detail_main"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageview_community_detail_main" />
-
-
+        android:layout_marginTop="18dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/feedplaceholder"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintTop_toBottomOf="@+id/imageview_community_detail_front" />
+    <View
+        android:id="@+id/view_community_detail_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/mohaeng_gray_a"
+        android:layout_marginTop="18dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageview_community_detail_back" />
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/bottom_community_detail_layout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@drawable/private_detail_background"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageview_community_detail_main"
-        app:layout_constraintVertical_chainStyle="spread"
-        app:layout_constraintVertical_weight="30">
-
+        android:id="@+id/bottom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_community_detail_line"
+        android:layout_marginHorizontal="18dp"
+        android:layout_marginTop="24dp">
         <TextView
-            android:id="@+id/textview_community_detail_date"
+            android:id="@+id/textview_community_detail_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="48dp"
-            android:layout_marginBottom="40dp"
-            android:fontFamily="@font/spoqahansansneomedium"
-            android:text="0000.00.00 (월)"
-            android:textColor="@color/white"
-            android:textSize="12sp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_chainStyle="packed" />
-
-        <TextView
-            android:id="@+id/textview_community_detail_nickname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/spoqahansansneobold"
-            android:text="시원스쿨"
-            android:textColor="@color/white"
-            android:textSize="22sp"
-            app:layout_constraintBottom_toTopOf="@+id/textview_community_detail_content"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textview_community_detail_date"
-            app:layout_constraintVertical_chainStyle="packed" />
-
+            android:fontFamily="@font/gmarketsansttfmedium"
+            android:text="뽀득뽀득 세균 퇴치 3일차"
+            android:textColor="@color/mohaeng_orange_a"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
         <TextView
             android:id="@+id/textview_community_detail_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/spoqahansansneomedium"
-            android:text="@string/private_record_contents"
-            android:textColor="@color/white"
-            android:textSize="16sp"
+            android:text="오늘은 맛집을 다녀왔다"
+            android:textColor="@color/mohaeng_black"
+            android:textSize="14sp"
             android:layout_marginTop="12dp"
-            app:layout_constraintBottom_toTopOf="@+id/textview_community_detail_hashtag"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textview_community_detail_nickname" />
-
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textview_community_detail_title" />
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_community_detail_like"
-            android:layout_width="50dp"
-            android:layout_height="20dp"
-            android:paddingLeft="10dp"
-            android:layout_marginBottom="20dp"
-            android:background="@color/journey_transparency"
-            android:text="76"
-            android:textSize="12sp"
-            android:textColor="@color/white"
-            android:drawableLeft="@drawable/ic_diary_private_heart"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent">
-
-        </androidx.appcompat.widget.AppCompatButton>
-
-        <TextView
-            android:id="@+id/textview_community_detail_hashtag"
-            android:layout_width="wrap_content"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/ic_feed_plus_btn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textview_community_detail_content" />
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipgroup_like"
+            style="@style/LikeChipStyle"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:fontFamily="@font/spoqahansansneomedium"
-            android:text="#산책 #맥주 #여름"
-            android:textColor="@color/journey_pink6"
-            android:textSize="14sp"
-            android:visibility="gone"
-            app:layout_constraintBottom_toTopOf="@id/button_community_detail_like"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent" />
-
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="14dp"
+            app:chipSpacing="6dp"
+            app:chipSpacingVertical="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/button_community_detail_like"
+            app:layout_constraintTop_toBottomOf="@+id/textview_community_detail_content">
+        </com.google.android.material.chip.ChipGroup>
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
