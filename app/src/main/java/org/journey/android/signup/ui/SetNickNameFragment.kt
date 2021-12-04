@@ -41,15 +41,19 @@ class SetNickNameFragment : Fragment() {
         initMain()
         checkNickName()
         setButtonVisible()
+        completeSignup()
     }
     private fun popBackStack(){
         binding.buttonNicknameReturn.setOnClickListener { findNavController().popBackStack() }
     }
     private fun initMain() {
         binding.buttonSetNickname.setOnClickListener {
-            viewModel.setNickName()
             if(userPreferenceManager.fetchUserSnsType().isNullOrEmpty()){
                 viewModel.signUpEmail()
+                viewModel.saveEmailSignUpInformation()
+                userPreferenceManager.saveUserEmail(viewModel.getEmail())
+                userPreferenceManager.saveUserPassword(viewModel.getCheckPassword())
+                userPreferenceManager.saveUserSnsType("")
                 viewModel.signUpSuccess.observe(viewLifecycleOwner) { successed ->
                     if(successed) {
                         val intent = Intent(context, MainActivity::class.java)
@@ -60,14 +64,21 @@ class SetNickNameFragment : Fragment() {
                 viewModel.setNickName()
             }
         }
-//        userPreferenceManager.saveUserSnsType("")
+        userPreferenceManager.saveUserEmail(viewModel.getEmail())
+        userPreferenceManager.saveUserPassword(viewModel.getCheckPassword())
+        userPreferenceManager.saveUserSnsType("")
     }
     private fun checkNickName(){
         viewModel.nickname.observe(viewLifecycleOwner){
             viewModel.checkNickNameAvailable()
         }
     }
-
+    private fun completeSignup(){
+        binding.buttonSetNickname.setOnClickListener {
+                val intent = Intent(context, MainActivity::class.java)
+                startActivity(intent)
+        }
+    }
     private fun setButtonVisible(){
         binding.edittextSetNickname.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
