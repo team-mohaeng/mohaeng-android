@@ -17,7 +17,7 @@
         android:layout_width="44dp"
         android:layout_height="44dp"
         android:layout_marginTop="6dp"
-        android:layout_marginLeft="6dp"
+        android:layout_marginStart="6dp"
         android:background="@drawable/ic_gnback"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -68,6 +68,7 @@
         android:layout_marginTop="12dp"
         android:textSize="10sp"
         android:textScaleX="0.98"
+        android:visibility="invisible"
         android:text="@{viewModel.nickNameStatus != null ? context.getString(viewModel.nickNameStatus.alertMessage) : ``}"
         android:fontFamily="@font/spoqahansansneoregular"
         android:textColor="@color/mohaeng_red_ea"
