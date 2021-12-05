@@ -13,7 +13,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import org.journey.android.databinding.FragmentSetNickNameBinding
-import org.journey.android.frame.MainActivity
+import org.journey.android.EntryActivity
 import org.journey.android.preference.UserPreferenceManager
 import org.journey.android.signup.viewmodel.NickNameViewModel
 import org.journey.android.util.AutoClearedValue
@@ -41,7 +41,6 @@ class SetNickNameFragment : Fragment() {
         initMain()
         checkNickName()
         setButtonVisible()
-        completeSignup()
     }
     private fun popBackStack(){
         binding.buttonNicknameReturn.setOnClickListener { findNavController().popBackStack() }
@@ -51,12 +50,10 @@ class SetNickNameFragment : Fragment() {
             if(userPreferenceManager.fetchUserSnsType().isNullOrEmpty()){
                 viewModel.signUpEmail()
                 viewModel.saveEmailSignUpInformation()
-                userPreferenceManager.saveUserEmail(viewModel.getEmail())
-                userPreferenceManager.saveUserPassword(viewModel.getCheckPassword())
                 userPreferenceManager.saveUserSnsType("")
-                viewModel.signUpSuccess.observe(viewLifecycleOwner) { successed ->
+                viewModel.emailSignUpSuccess.observe(viewLifecycleOwner) { successed ->
                     if(successed) {
-                        val intent = Intent(context, MainActivity::class.java)
+                        val intent = Intent(context, EntryActivity::class.java)
                         startActivity(intent)
                     }
                 }
@@ -73,12 +70,6 @@ class SetNickNameFragment : Fragment() {
             viewModel.checkNickNameAvailable()
         }
     }
-    private fun completeSignup(){
-        binding.buttonSetNickname.setOnClickListener {
-                val intent = Intent(context, MainActivity::class.java)
-                startActivity(intent)
-        }
-    }
     private fun setButtonVisible(){
         binding.edittextSetNickname.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
@@ -91,6 +82,4 @@ class SetNickNameFragment : Fragment() {
             override fun afterTextChanged(p0: Editable?) {}
         })
     }
-
-
 }

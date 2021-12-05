@@ -1,6 +1,5 @@
 package org.journey.android.preference
 
-
 class UserPreferenceManager(private val sharedPreferencesManager: SharedPreferencesManager) {
     fun saveUserFcmDeviceToken(token: String?) = sharedPreferencesManager.putSharedPref(FCM_DEVICE_TOKEN, token)
     fun fetchUserFcmDeviceToken(): String = sharedPreferencesManager.getSharedPrefs(FCM_DEVICE_TOKEN, "")
@@ -25,7 +24,6 @@ class UserPreferenceManager(private val sharedPreferencesManager: SharedPreferen
 
     fun saveIsAlreadyLogIn(isAlreadyLogIn: Boolean) = sharedPreferencesManager.putSharedPref(IS_ALREADY_LOGIN, isAlreadyLogIn)
     fun fetchIsAlreadyLogIn(): Boolean = sharedPreferencesManager.getSharedPrefs(IS_ALREADY_LOGIN, false)
-
 
     fun saveCheckEmail(checkEmail: String) { sharedPreferencesManager.putSharedPref(CHECK_EMAIL, checkEmail) }
     fun fetchCheckEmail(): String { return sharedPreferencesManager.getSharedPrefs(CHECK_EMAIL, "") }

@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import dagger.hilt.android.AndroidEntryPoint
 import org.journey.android.R
 import org.journey.android.databinding.FragmentOnboardingSixthBinding
-import org.journey.android.splash.frame.EntryActivity
+import org.journey.android.EntryActivity
 import org.journey.android.util.AutoClearedValue
 
 @AndroidEntryPoint

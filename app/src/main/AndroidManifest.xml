@@ -23,6 +23,7 @@
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@android:color/holo_orange_light" />
+        <!-- Set color used with incoming notification messages (알림 채널 메타 데이터 추가) -->
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_channel_id"
             android:value="@string/default_notification_channel_id" />
@@ -33,9 +34,8 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT"/>
             </intent-filter>
         </service>
-
         <activity
-            android:name="org.journey.android.splash.frame.EntryActivity"
+            android:name="org.journey.android.EntryActivity"
             android:exported="true">
         </activity>
         <activity
