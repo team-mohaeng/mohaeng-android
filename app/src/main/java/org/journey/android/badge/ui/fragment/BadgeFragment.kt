@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import dagger.hilt.android.AndroidEntryPoint
+import org.journey.android.badge.data.entity.BadgeEntity
 import org.journey.android.badge.ui.adapter.BadgeAdapter
 import org.journey.android.badge.viewmodel.BadgeViewModel
 import org.journey.android.databinding.FragmentBadgeBinding
@@ -17,6 +19,7 @@ import org.journey.android.util.AutoClearedValue
 class BadgeFragment : Fragment() {
     private var binding by AutoClearedValue<FragmentBadgeBinding>()
     private val viewModel by viewModels<BadgeViewModel>()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -31,11 +34,20 @@ class BadgeFragment : Fragment() {
         binding.lifecycleOwner = viewLifecycleOwner
         loadBadgeList()
         popBackStack()
-        viewModel.loadObtainedBadge()
+        viewModel.loadObtainedBadge(id)
+
     }
+
     private fun loadBadgeList() {
         binding.recyclerviewObtainedBadge.run {
-            this.adapter = BadgeAdapter()
+            this.adapter = BadgeAdapter(object : BadgeAdapter.BadgeListener{
+                override fun selectBadge(badge: BadgeEntity) {
+                    val bottomSheetFragment = BadgeBottomSheetFragment(badge)
+                    bottomSheetFragment.show(childFragmentManager, "show Badge Bottom Sheet")
+                    badge.badgeId?.let { viewModel.loadObtainedBadge(it) }
+                }
+
+            })
             viewModel.badgeList.observe(viewLifecycleOwner) {
                 (adapter as BadgeAdapter).badgeList = it.toMutableList()
                 (adapter as BadgeAdapter).notifyDataSetChanged()

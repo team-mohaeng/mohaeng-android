@@ -56,7 +56,7 @@
     </fragment>
     <fragment
         android:id="@+id/splashFragment"
-        android:name="org.journey.android.entry.ui.SplashFragment"
+        android:name="org.journey.android.splash.ui.SplashFragment"
         android:label="SplashFragment"
         tools:layout="@layout/fragment_splash">
         <action

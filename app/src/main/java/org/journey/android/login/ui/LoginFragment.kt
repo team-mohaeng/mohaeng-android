@@ -46,6 +46,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
         super.onViewCreated(view, savedInstanceState)
         auth = FirebaseAuth.getInstance()
         viewModel.getFcmDeviceToken()
+
         setAction()
         launchKakaoLogin()
         checkLoginSuccess()
@@ -92,6 +93,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
             try {
                 val task = GoogleSignIn.getSignedInAccountFromIntent(it.data)
                 val account = task.getResult(ApiException::class.java)!!
+
                 firebaseAuthWithGoogle(account.idToken!!)
                 viewModel.saveAccessToken(account.idToken)
 

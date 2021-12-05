@@ -46,7 +46,7 @@
         android:id="@+id/edittext_input_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="shattyddka@naver.com"
+        android:hint="@string/email_login_hint"
         android:inputType="textEmailAddress"
         android:fontFamily="@font/spoqahansansneoregular"
         android:textSize="14sp"

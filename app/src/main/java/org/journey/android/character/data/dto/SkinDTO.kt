@@ -10,4 +10,6 @@ data class SkinDTO(
     val id: Int,
     @SerializedName("image")
     val image: String
-)
+){
+
+}

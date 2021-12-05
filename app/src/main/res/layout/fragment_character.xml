@@ -34,7 +34,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/spoqahansansneoregular"
-                android:text="캐릭터 스타일"
+                android:text="@string/character_style"
                 android:textColor="@color/mohaeng_black"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="@+id/button_return_back"
@@ -105,6 +105,7 @@
                 android:layout_marginHorizontal="16dp"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/view_select_character"
                 tools:listitem="@layout/item_select_character" />

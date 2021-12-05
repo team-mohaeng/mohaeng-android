@@ -11,6 +11,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import org.journey.android.base.DisposableViewModel
 import org.journey.android.login.controller.SignInController
 import org.journey.android.login.data.request.RequestEmailSignInDTO
+import org.journey.android.network.dto.ResponseAuthDTO
 import org.journey.android.preference.UserPreferenceManager
 import javax.inject.Inject
 
@@ -67,7 +68,7 @@ class LoginViewModel @Inject constructor(
                 }, {
                     it.printStackTrace()
                     _loginSuccess.postValue(false)
-                    Log.e("email signin fail","signin email fail")
+                    _isLoginSuccessed.postValue(LOGIN_UNAUTHORIZATION)
                 })
         )
     }
@@ -107,6 +108,7 @@ class LoginViewModel @Inject constructor(
                     _loginSuccess.postValue(true)
                 },{
                     _loginSuccess.postValue(false)
+                    _isLoginSuccessed.postValue(LOGIN_FAIL)
                     it.printStackTrace()
                 })
         )
@@ -128,5 +130,21 @@ class LoginViewModel @Inject constructor(
 
     fun saveAccessToken(token: String) {
         userPreferenceManager.saveUserAccessToken(token)
+    }
+
+    private fun loginSuccess(response : ResponseAuthDTO) {
+        _isLoginSuccessed.postValue(LOGIN_SUCCESS)
+        userPreferenceManager.apply {
+            saveUserAccessToken(response.accessToken)
+            saveUserEmail(response.userEmail)
+            saveUserRefreshToken(response.refreshToken)
+            saveIsAlreadyLogIn(true)
+        }
+    }
+
+    companion object {
+        const val LOGIN_SUCCESS = "SUCCESS"
+        const val LOGIN_UNAUTHORIZATION = "UNAUTHORIZATION"
+        const val LOGIN_FAIL = "FAIL"
     }
 }

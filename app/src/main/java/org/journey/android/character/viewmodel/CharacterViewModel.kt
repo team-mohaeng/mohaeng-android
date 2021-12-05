@@ -1,10 +1,12 @@
 package org.journey.android.character.viewmodel
 
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.withContext
 import org.journey.android.R
 import org.journey.android.base.BaseViewModel
 import org.journey.android.character.controller.CharacterController
@@ -19,6 +21,7 @@ import org.journey.android.character.data.entity.MohaengCharacterEntity
 import org.journey.android.character.data.entity.MohaengCharacterOptionEntity
 import org.journey.android.character.data.repository.CharacterRepository
 import javax.inject.Inject
+import kotlin.coroutines.coroutineContext
 
 @HiltViewModel
 class CharacterViewModel @Inject constructor(
@@ -87,6 +90,8 @@ class CharacterViewModel @Inject constructor(
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
+                    _selectedSkinType.postValue(it.currentCharacterSkin.id)
+                    _selectedType.postValue(it.currentCharacterImage.id)
                     _characterInfo.postValue(it)
                 }, {
                     it.printStackTrace()
@@ -98,23 +103,24 @@ class CharacterViewModel @Inject constructor(
         addDisposable(
             characterRepository.changeCharacter(
                 requestChangeCharacterDTO = RequestChangeCharacterDTO(
-                    selectedOptionType.value!!,
-                    selectedSkinType.value!!,
-                    selectedType.value!!
+                    _selectedOptionType.value?: -1,
+                    _selectedSkinType.value?: -1,
+                    _selectedType.value ?: -1
                 )
             ).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
                     _changeCharacter.postValue(it)
+
                 }, {
                     it.printStackTrace()
+
                 })
         )
     }
 
     init {
         fetchCharacterList()
-        fetchSkinList()
     }
 
     private fun fetchCharacterList() {
@@ -167,54 +173,5 @@ class CharacterViewModel @Inject constructor(
         _characterList.value = characterList
     }
 
-    private fun fetchSkinList() {
-        val characterSkin = listOf(
-            CharacterSkinEntity(
-                6,
-                R.drawable.pre133
-            ),
-            CharacterSkinEntity(
-                5,
-                R.drawable.pre132
-            ),
-            CharacterSkinEntity(
-                4,
-                R.drawable.pre131
-            ),
-            CharacterSkinEntity(
-                3,
-                R.drawable.pre130
-            ),
-            CharacterSkinEntity(
-                2,
-                R.drawable.pre129
-            ),
-            CharacterSkinEntity(
-                1,
-                R.drawable.pre128
-            ),
-            CharacterSkinEntity(
-                null,
-                R.drawable.nightlock
-            ),
-            CharacterSkinEntity(
-                null,
-                R.drawable.spreadlock
-            ),
-            CharacterSkinEntity(
-                null,
-                R.drawable.cloudlock
-            ),
-            CharacterSkinEntity(
-                null,
-                R.drawable.fieldlock
-            ),
-            CharacterSkinEntity(
-                null,
-                R.drawable.figurelock
-            )
-        )
-        _characterSkin . value = characterSkin
-    }
 
 }

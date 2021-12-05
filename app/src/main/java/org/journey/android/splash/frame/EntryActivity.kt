@@ -1,4 +1,4 @@
-
+<<<<<<< HEAD:app/src/main/java/org/journey/android/EntryActivity.kt
 package org.journey.android
 
 import android.content.pm.PackageManager
@@ -6,6 +6,15 @@ import android.os.Bundle
 import android.util.Base64
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+=======
+package org.journey.android.splash.frame
+
+import android.content.pm.PackageManager
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.util.Base64
+import android.util.Log
+>>>>>>> 7e103b846750b8ee2ba7d0b23604c90a767e6421:app/src/main/java/org/journey/android/splash/frame/EntryActivity.kt
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.kakao.sdk.common.util.Utility

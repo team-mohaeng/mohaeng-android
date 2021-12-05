@@ -14,15 +14,14 @@ import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import org.journey.android.EntryActivity
 import org.journey.android.R
 import org.journey.android.databinding.FragmentOnboardingFirstBinding
-import org.journey.android.EntryActivity
 import org.journey.android.frame.MainActivity
 import org.journey.android.onboarding.viewmodel.OnboardingViewModel
 import org.journey.android.preference.UserPreferenceManager
 import org.journey.android.util.AutoClearedValue
 import org.journey.android.util.Extensions.applyVisibilityAnimation
-import java.util.*
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 

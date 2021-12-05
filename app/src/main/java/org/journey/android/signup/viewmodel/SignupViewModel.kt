@@ -22,4 +22,7 @@ class SignupViewModel @Inject constructor() : DisposableViewModel(){
             serviceAllowed.value = this
         }
     }
+    fun checkEveryPolicyAllowed() {
+        wholePolicyAllowed.value = serviceAgreementList.all { it.value == true }
+    }
 }

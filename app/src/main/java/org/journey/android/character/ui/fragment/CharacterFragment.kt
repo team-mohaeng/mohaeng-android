@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
+import org.journey.android.character.data.entity.CharacterSkinEntity
 import org.journey.android.character.viewmodel.CharacterViewModel
 import org.journey.android.character.ui.adapter.CharacterOptionAdapter
 import org.journey.android.character.ui.adapter.CharacterSelectAdapter
@@ -45,6 +46,11 @@ class CharacterFragment : Fragment() {
     private fun observeCharacterOption() {
         viewModel.characterInfo.observe(viewLifecycleOwner) {
             selectCharacterOption()
+            (binding.recyclerviewSkin.adapter as CharacterSkinAdapter).apply {
+                skinList = it.skinList.map { CharacterSkinEntity(it.id, it.image) }.toMutableList()
+                notifyDataSetChanged()
+            }
+
         }
     }
     private fun popBackStack() {
@@ -75,14 +81,11 @@ class CharacterFragment : Fragment() {
                     viewModel.changeSelectedSkinType(skin)
                 }
             })
-            viewModel.characterSkin.observe(viewLifecycleOwner){
-                (adapter as CharacterSkinAdapter).skinList = it.toMutableList()
-                (adapter as CharacterSkinAdapter).notifyDataSetChanged()
-            }
         }
     }
 
     private fun selectCharacterOption(){
+        //Default checked index 1 character, skin, option
         viewModel.changeSelectedType(1)
         binding.recyclerviewSelectStyle.apply {
             isNestedScrollingEnabled = false
@@ -106,6 +109,4 @@ class CharacterFragment : Fragment() {
             Toast.makeText(context, "스타일이 저장되었습니다.",Toast.LENGTH_SHORT).show()
         }
     }
-
-
 }

@@ -9,7 +9,7 @@ import javax.inject.Inject
 class BadgeListRepositoryImpl @Inject constructor(
     private val badgeDataSource: BadgeDataSource
 ) : BadgeListRepository {
-    override fun fetchBadgeList(): Single<List<BadgeEntity>> =
+    override fun fetchBadgeList(id : Int): Single<List<BadgeEntity>> =
         badgeDataSource.fetchAchieveBadgeList().map { response->
             response.dataDTO.achieveBadgeDTOS.map {
                 it.convertToAchieveBadgeEntity()

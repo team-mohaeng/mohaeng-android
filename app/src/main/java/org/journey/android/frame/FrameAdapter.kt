@@ -13,7 +13,7 @@ class FrameAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
             0 -> MainFragment()
             1 -> ChallengeFragment()
             2 -> CommunityFragment()
-            else -> throw RuntimeException("Error")
+            else -> throw RuntimeException("Fragment Load Error")
         }
         notifyDataSetChanged()
     }
