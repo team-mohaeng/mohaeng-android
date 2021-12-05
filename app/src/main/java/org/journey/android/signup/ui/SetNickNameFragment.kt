@@ -13,8 +13,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import org.journey.android.databinding.FragmentSetNickNameBinding
-import org.journey.android.entry.frame.EntryActivity
-import org.journey.android.frame.MainActivity
+import org.journey.android.EntryActivity
 import org.journey.android.preference.UserPreferenceManager
 import org.journey.android.signup.viewmodel.NickNameViewModel
 import org.journey.android.util.AutoClearedValue
@@ -83,6 +82,4 @@ class SetNickNameFragment : Fragment() {
             override fun afterTextChanged(p0: Editable?) {}
         })
     }
-
-
 }

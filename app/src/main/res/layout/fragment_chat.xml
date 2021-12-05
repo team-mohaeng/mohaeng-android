@@ -1,23 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
     <data>
-
         <variable
             name="viewModel"
             type="org.journey.android.chat.viewmodel.ChatViewModel" />
-
         <variable
             name="data"
             type="org.journey.android.pushalarm.data.response.ResponsePushAlarmDTO" />
     </data>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/mohaeng_yellow5">
-
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_pop_back"
             android:layout_width="44dp"
@@ -27,7 +22,6 @@
             android:background="@drawable/ic_gnbicnback"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textview_chat_title"
             android:layout_width="wrap_content"
@@ -40,7 +34,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/button_pop_back" />
-
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textview_chat_empty"
             android:layout_width="wrap_content"
@@ -54,7 +47,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_chat_new_content"
             android:layout_width="match_parent"
@@ -69,29 +61,26 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textview_chat_title" />
-
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageview_chat_character"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="18dp"
+            android:layout_marginStart="18dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/ic_mohaeng_rabbit"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/button_chat_new_content" />
-
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textview_name_mohaeng"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
             android:fontFamily="@font/gmarketsansttfmedium"
             android:text="모행"
             android:textColor="@color/journey_black2"
             android:textSize="12sp"
             app:layout_constraintStart_toEndOf="@id/imageview_chat_character"
             app:layout_constraintTop_toTopOf="@id/imageview_chat_character" />
-
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageview_text_balloon"
             android:layout_width="wrap_content"
@@ -100,7 +89,6 @@
             android:background="@drawable/ic_union"
             app:layout_constraintStart_toStartOf="@id/textview_name_mohaeng"
             app:layout_constraintTop_toBottomOf="@id/textview_name_mohaeng" />
-
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textview_balloon_content"
             android:layout_width="wrap_content"
@@ -112,7 +100,6 @@
             app:layout_constraintEnd_toEndOf="@id/imageview_text_balloon"
             app:layout_constraintStart_toStartOf="@id/imageview_text_balloon"
             app:layout_constraintTop_toTopOf="@id/imageview_text_balloon" />
-
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textview_arrival_time"
             android:layout_width="wrap_content"
