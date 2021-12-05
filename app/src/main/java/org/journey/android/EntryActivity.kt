@@ -1,4 +1,3 @@
-
 package org.journey.android
 
 import android.content.pm.PackageManager
