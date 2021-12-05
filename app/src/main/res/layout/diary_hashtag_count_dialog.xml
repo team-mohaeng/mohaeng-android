@@ -4,10 +4,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-<<<<<<< HEAD
-=======
-
->>>>>>> 7e103b846750b8ee2ba7d0b23604c90a767e6421
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,10 +13,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:background="@drawable/delete_dialog">
-<<<<<<< HEAD
-=======
-
->>>>>>> 7e103b846750b8ee2ba7d0b23604c90a767e6421
         <TextView
             android:id="@+id/textview_hashtag_count_content"
             android:layout_width="wrap_content"
@@ -34,10 +26,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-<<<<<<< HEAD
-=======
-
->>>>>>> 7e103b846750b8ee2ba7d0b23604c90a767e6421
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button_confirm"
                 style="@style/Widget.AppCompat.Button.Borderless"
