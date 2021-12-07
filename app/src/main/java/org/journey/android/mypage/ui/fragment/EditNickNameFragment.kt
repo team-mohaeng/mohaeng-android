@@ -38,6 +38,7 @@ class EditNickNameFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
+        binding.edittextEditNickname.hint = viewModel.getNickName()
         setButtonVisible()
         popBackStack()
         changeNickName()
