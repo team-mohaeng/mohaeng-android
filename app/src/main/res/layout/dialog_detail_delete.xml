@@ -73,6 +73,7 @@
             android:layout_marginTop="14dp"
             android:fontFamily="@font/spoqahansansneoregular"
             android:text="안부를 정말 삭제할 거야?"
+            android:gravity="center"
             android:textColor="@color/mohaeng_black"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
