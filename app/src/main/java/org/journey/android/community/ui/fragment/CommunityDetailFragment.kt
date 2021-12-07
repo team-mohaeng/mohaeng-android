@@ -13,6 +13,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -129,30 +130,65 @@ class CommunityDetailFragment : Fragment() {
                 val reportBtn = view.findViewById<Button>(R.id.button_dialog_report)
 
                 reportBtn.setOnClickListener {
-                    val call: Call<Unit> = FeedRequestToServer.writeService
-                        .reportDiary(
-                            feedDetail.get("id") as Int,
-                            "application/json",
-                            viewModel.getJWT()
-                        )
-                    call.enqueue(object : Callback<Unit> {
-                        override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
-                            if (response.isSuccessful) {
-                                Toast.makeText(requireContext(), "신고했습니다.", Toast.LENGTH_SHORT).show()
-                                reportDialog?.dismiss()
-                            } else {
-                                if(response.code() == 404 || response.code() == 401){
-                                    Toast.makeText(requireContext(), response.message(), Toast.LENGTH_SHORT).show()
-                                }
-//                                Toast.makeText(requireContext(), response.toString(), Toast.LENGTH_SHORT).show()
-                            }
-                        }
-
-                        override fun onFailure(call: Call<Unit>, t: Throwable) {
-                            Log.d("Report Diary NT Error", "Report Error!")
-                        }
-                    })
                     reportDialog?.dismiss()
+
+                    val reportCheckDialog = activity?.let { it1 -> Dialog(it1) }
+                    val reportCheckDialogInflater: LayoutInflater = LayoutInflater.from(activity)
+                    val mView: View =
+                        reportCheckDialogInflater.inflate(R.layout.dialog_detail_delete, null)
+                    val reportBtn: Button = mView.findViewById(R.id.button_dialog_delete)
+                    val closeBtn: Button = mView.findViewById(R.id.button_dialog_close)
+                    val window = reportCheckDialog?.window
+                    window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+                    val reportTitle: TextView = mView.findViewById(R.id.textview_dialog_delete)
+                    val reportContent: TextView = mView.findViewById(R.id. textview_delete_content)
+                    reportTitle.text = "신고하기"
+                    reportContent.text = "10회 이상 신고될 경우 \n게시물이 삭제되고 계정이 차단 조치돼"
+                    reportBtn.text = "신고"
+
+
+                    if (reportCheckDialog != null) {
+                        reportCheckDialog.setContentView(mView)
+                        reportCheckDialog.create()
+                        reportCheckDialog.show()
+                    }
+                    closeBtn.setOnClickListener {
+                        if (reportCheckDialog != null) {
+                            reportCheckDialog.dismiss()
+                            reportCheckDialog.cancel()
+                        }
+                    }
+                    reportBtn.setOnClickListener {
+                        val call: Call<Unit> = FeedRequestToServer.writeService
+                            .reportDiary(
+                                feedDetail.get("id") as Int,
+                                "application/json",
+                                viewModel.getJWT()
+                            )
+                        call.enqueue(object : Callback<Unit> {
+                            override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
+                                if (response.isSuccessful) {
+                                    Toast.makeText(requireContext(), "신고했습니다.", Toast.LENGTH_SHORT)
+                                        .show()
+                                    reportDialog?.dismiss()
+                                } else {
+                                    if (response.code() == 404 || response.code() == 401) {
+                                        Toast.makeText(
+                                            requireContext(),
+                                            "이미 신고한 게시물입니다.",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                    }
+                                }
+                                reportCheckDialog?.dismiss()
+                            }
+
+                            override fun onFailure(call: Call<Unit>, t: Throwable) {
+                                Log.d("Report Diary NT Error", "Report Error!")
+                            }
+                        })
+                    }
                 }
 
                 reportDialog?.setContentView(view)
