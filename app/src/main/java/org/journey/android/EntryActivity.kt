@@ -1,15 +1,14 @@
-package org.journey.android.splash.frame
+package org.journey.android
 
 import android.content.pm.PackageManager
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Base64
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.kakao.sdk.common.util.Utility
 import dagger.hilt.android.AndroidEntryPoint
-import org.journey.android.R
 import org.journey.android.databinding.ActivityEntryBinding
 import org.journey.android.util.TedRxKeyboardObserver
 import java.security.MessageDigest
@@ -52,4 +51,5 @@ class EntryActivity : AppCompatActivity() {
             Log.e("name not found", e.toString())
         }
     }
+
 }

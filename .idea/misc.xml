@@ -4,7 +4,6 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.16302083333333334" />
-        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.26197916666666665" />
         <entry key="app/src/main/res/drawable/background_course_catalog.xml" value="0.27239583333333334" />
         <entry key="app/src/main/res/drawable/background_skin_recyclerview.xml" value="0.20277777777777778" />
         <entry key="app/src/main/res/drawable/bottom_sheet_radius.xml" value="0.3609375" />
@@ -39,7 +38,6 @@
         <entry key="app/src/main/res/drawable/selector_bottom_radius.xml" value="0.3609375" />
         <entry key="app/src/main/res/drawable/selector_index_dialog.xml" value="0.24270833333333333" />
         <entry key="app/src/main/res/drawable/shape_background_progressbar.xml" value="0.33240740740740743" />
-        <entry key="app/src/main/res/drawable/shape_bottom_sheet.xml" value="0.203125" />
         <entry key="app/src/main/res/drawable/shape_progressbar_full.xml" value="0.33240740740740743" />
         <entry key="app/src/main/res/drawable/vertical_progressbar.xml" value="0.21927083333333333" />
         <entry key="app/src/main/res/layout/activity_entry.xml" value="0.3380208333333333" />
@@ -62,13 +60,13 @@
         <entry key="app/src/main/res/layout/diary_compelete_dialog.xml" value="0.18854166666666666" />
         <entry key="app/src/main/res/layout/diary_hashtag_count_dialog.xml" value="0.18854166666666666" />
         <entry key="app/src/main/res/layout/fragment_badge.xml" value="0.2604166666666667" />
-        <entry key="app/src/main/res/layout/fragment_badge_bottom_sheet.xml" value="0.18697916666666667" />
+        <entry key="app/src/main/res/layout/fragment_badge_bottom_sheet.xml" value="0.3380208333333333" />
         <entry key="app/src/main/res/layout/fragment_badge_reward.xml" value="0.3380208333333333" />
         <entry key="app/src/main/res/layout/fragment_bottom_sheet.xml" value="0.32395833333333335" />
         <entry key="app/src/main/res/layout/fragment_challenge.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_character.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_chat.xml" value="0.3655083655083655" />
-        <entry key="app/src/main/res/layout/fragment_community.xml" value="0.24444444444444444" />
+        <entry key="app/src/main/res/layout/fragment_community.xml" value="0.3039134054954205" />
         <entry key="app/src/main/res/layout/fragment_community_detail.xml" value="0.32395833333333335" />
         <entry key="app/src/main/res/layout/fragment_complete_course.xml" value="0.14583333333333334" />
         <entry key="app/src/main/res/layout/fragment_complete_reward.xml" value="0.3380208333333333" />
@@ -106,7 +104,7 @@
         <entry key="app/src/main/res/layout/fragment_private_detail.xml" value="0.34479166666666666" />
         <entry key="app/src/main/res/layout/fragment_reward.xml" value="0.17239583333333333" />
         <entry key="app/src/main/res/layout/fragment_service_agree.xml" value="0.3302083333333333" />
-        <entry key="app/src/main/res/layout/fragment_set_nick_name.xml" value="0.2609375" />
+        <entry key="app/src/main/res/layout/fragment_set_nick_name.xml" value="0.3039134054954205" />
         <entry key="app/src/main/res/layout/fragment_setting.xml" value="0.3380208333333333" />
         <entry key="app/src/main/res/layout/fragment_signup_first.xml" value="0.3515625" />
         <entry key="app/src/main/res/layout/fragment_signup_third.xml" value="0.32395833333333335" />

@@ -23,9 +23,11 @@ import org.journey.android.main.dto.ResponseHomeDTO
 import org.journey.android.mypage.data.dto.response.ResponseCheckMyPageDTO
 import org.journey.android.mypage.data.dto.response.ResponseCompleteCourseDTO
 import org.journey.android.pushalarm.data.response.ResponsePushAlarmDTO
+import org.journey.android.signup.data.request.RequestBlockUserDTO
 import org.journey.android.signup.data.request.RequestChangeNickNameDTO
 import org.journey.android.signup.data.request.RequestSignupDTO
 import org.journey.android.signup.data.request.RequestSocialSignUpDTO
+import org.journey.android.signup.data.response.ResponseBlockUserDTO
 import org.journey.android.signup.data.response.ResponseChangeNickNameDTO
 import org.journey.android.signup.data.response.ResponseSignupDTO
 import org.journey.android.signup.data.response.ResponseSocialSignUpDTO
@@ -123,5 +125,8 @@ interface RetrofitInterface {
         @Part feed: MultipartBody.Part?,
         @Part image: MultipartBody.Part?
     ): Single<ResponsePostCommunityDTO>
+
+    @POST("/api/block")
+    fun blockUser(@Body requestBlockUserDTO: RequestBlockUserDTO) : Single<ResponseBlockUserDTO>
 
 }

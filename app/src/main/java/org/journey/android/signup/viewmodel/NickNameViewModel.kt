@@ -54,6 +54,7 @@ class NickNameViewModel @Inject constructor(
                 _nickNameStatus.value = NickNameStatus.IS_NOT_AVAILABLE_NICKNAME
             } else {
                 _nickNameStatus.value = NickNameStatus.CHECK_NICKNAME_REPETITION
+                userPreferenceManager.saveUserNickName(nickname.value.toString())
             }
         }
     }
@@ -150,5 +151,8 @@ class NickNameViewModel @Inject constructor(
     }
     fun getCheckPassword(): String{
         return userPreferenceManager.fetchCheckDoublePassword()
+    }
+    fun getNickName(): String{
+        return userPreferenceManager.fetchUserNickName()
     }
 }

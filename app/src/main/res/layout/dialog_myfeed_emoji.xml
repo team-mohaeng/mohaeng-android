@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/journey_transparency">
-
     <ImageButton
         android:id="@+id/imagebutton_emoji_close"
         android:layout_width="39dp"
@@ -15,7 +13,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
     <ImageButton
         android:id="@+id/imagebutton_emoji_first"
         android:layout_width="84dp"
@@ -24,7 +21,6 @@
         android:background="@drawable/ic_emoji_tears"
         app:layout_constraintBottom_toTopOf="@+id/imagebutton_emoji_close"
         app:layout_constraintEnd_toStartOf="@+id/imagebutton_emoji_second" />
-
     <ImageButton
         android:id="@+id/imagebutton_emoji_second"
         android:layout_width="84dp"
@@ -34,7 +30,6 @@
         app:layout_constraintBottom_toTopOf="@+id/imagebutton_emoji_close"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
     <ImageButton
         android:id="@+id/imagebutton_emoji_third"
         android:layout_width="84dp"
@@ -43,7 +38,6 @@
         android:background="@drawable/ic_emoji_medal"
         app:layout_constraintBottom_toTopOf="@+id/imagebutton_emoji_close"
         app:layout_constraintStart_toEndOf="@+id/imagebutton_emoji_second" />
-
     <ImageButton
         android:id="@+id/imagebutton_emoji_fourth"
         android:layout_width="84dp"
@@ -52,7 +46,6 @@
         android:background="@drawable/ic_emoji_good"
         app:layout_constraintEnd_toStartOf="@+id/imagebutton_emoji_fifth"
         app:layout_constraintTop_toBottomOf="@+id/imagebutton_emoji_close" />
-
     <ImageButton
         android:id="@+id/imagebutton_emoji_fifth"
         android:layout_width="84dp"
@@ -62,7 +55,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imagebutton_emoji_close" />
-
     <ImageButton
         android:id="@+id/imagebutton_emoji_sixth"
         android:layout_width="84dp"
@@ -71,5 +63,4 @@
         android:background="@drawable/ic_emoji_lucky"
         app:layout_constraintStart_toEndOf="@+id/imagebutton_emoji_fifth"
         app:layout_constraintTop_toBottomOf="@+id/imagebutton_emoji_close" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
