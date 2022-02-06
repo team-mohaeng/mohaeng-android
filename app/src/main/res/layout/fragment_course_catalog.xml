@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="org.journey.android.course.viewmodel.CourseViewModel" />
+            type="org.journey.android.presentation.main.course.viewmodel.CourseViewModel" />
     </data>
 
     <androidx.core.widget.NestedScrollView

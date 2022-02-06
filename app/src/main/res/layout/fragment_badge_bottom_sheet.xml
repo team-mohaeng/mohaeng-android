@@ -5,7 +5,7 @@
     <data>
         <variable
             name="data"
-            type="org.journey.android.badge.data.entity.BadgeEntity" />
+            type="org.journey.android.domain.entity.BadgeEntity" />
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"

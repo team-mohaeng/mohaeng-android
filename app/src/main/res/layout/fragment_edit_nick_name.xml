@@ -4,7 +4,7 @@
     <data>
         <variable
             name="viewModel"
-            type="org.journey.android.signup.viewmodel.NickNameViewModel" />
+            type="org.journey.android.presentation.entry.signup.viewmodel.NickNameViewModel" />
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"

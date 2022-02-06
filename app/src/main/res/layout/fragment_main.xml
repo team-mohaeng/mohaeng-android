@@ -5,17 +5,17 @@
     <data>
         <variable
             name="viewModel"
-            type="org.journey.android.main.viewmodel.MainViewModel" />
+            type="org.journey.android.presentation.main.home.viewmodel.MainViewModel" />
         <variable
             name="data"
-            type="org.journey.android.main.dto.ResponseHomeDTO" />
+            type="org.journey.android.presentation.main.home.dto.ResponseHomeDTO" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_main_skin"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/mohaeng_yellow"
-        tools:context=".main.view.fragment.MainFragment">
+        tools:context=".presentation.main.home.view.fragment.MainFragment">
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageview_skin"
             setImageURL="@{viewModel.getLottie.characterSkin}"

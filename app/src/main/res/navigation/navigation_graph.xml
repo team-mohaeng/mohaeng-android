@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/frameFragment"
-        android:name="org.journey.android.frame.FrameFragment"
+        android:name="org.journey.android.presentation.frame.FrameFragment"
         android:label="fragment_frame"
         tools:layout="@layout/fragment_frame">
         <action
@@ -62,7 +62,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="org.journey.android.main.view.fragment.MainFragment"
+        android:name="org.journey.android.presentation.main.home.view.fragment.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main">
 
@@ -77,7 +77,7 @@
 
     <fragment
         android:id="@+id/communityFragment"
-        android:name="org.journey.android.community.ui.fragment.CommunityFragment"
+        android:name="org.journey.android.presentation.main.community.ui.fragment.CommunityFragment"
         android:label="fragment_community"
         tools:layout="@layout/fragment_community">
         <action
@@ -95,7 +95,7 @@
     </fragment>
     <fragment
         android:id="@+id/challengeFragment"
-        android:name="org.journey.android.challenge.ui.fragment.ChallengeFragment"
+        android:name="org.journey.android.presentation.main.challenge.ui.fragment.ChallengeFragment"
         android:label="ChallengeFragment"
         tools:layout="@layout/fragment_challenge">
         <action
@@ -113,7 +113,7 @@
     </fragment>
     <fragment
         android:id="@+id/diaryFirstFragment"
-        android:name="org.journey.android.diary.view.DiaryFirstFragment"
+        android:name="org.journey.android.presentation.main.diary.view.DiaryFirstFragment"
         android:label="DiaryFirstFragment"
         tools:layout="@layout/fragment_diary_first">
         <action
@@ -125,7 +125,7 @@
     </fragment>
     <fragment
         android:id="@+id/diarySecondFragment"
-        android:name="org.journey.android.diary.view.DiarySecondFragment"
+        android:name="org.journey.android.presentation.main.diary.view.DiarySecondFragment"
         android:label="DiarySecondFragment"
         tools:layout="@layout/fragment_diary_second">
         <action
@@ -143,7 +143,7 @@
     </fragment>
     <fragment
         android:id="@+id/diaryEndFragment"
-        android:name="org.journey.android.diary.view.DiaryEndFragment"
+        android:name="org.journey.android.presentation.main.diary.view.DiaryEndFragment"
         android:label="DiaryEndFragment"
         tools:layout="@layout/fragment_diary_end">
         <action
@@ -152,7 +152,7 @@
     </fragment>
     <fragment
         android:id="@+id/privateDetailFragment"
-        android:name="org.journey.android.diary.view.PrivateDetailFragment"
+        android:name="org.journey.android.presentation.main.diary.view.PrivateDetailFragment"
         android:label="PrivateDetailFragment"
         tools:layout="@layout/fragment_private_detail">
         <action
@@ -161,7 +161,7 @@
     </fragment>
     <fragment
         android:id="@+id/courseFragment"
-        android:name="org.journey.android.course.ui.fragment.CourseFragment"
+        android:name="org.journey.android.presentation.main.course.ui.fragment.CourseFragment"
         android:label="fragment_course"
         tools:layout="@layout/fragment_course">
         <action
@@ -170,7 +170,7 @@
     </fragment>
     <fragment
         android:id="@+id/courseCatalogFragment"
-        android:name="org.journey.android.course.ui.fragment.CourseCatalogFragment"
+        android:name="org.journey.android.presentation.main.course.ui.fragment.CourseCatalogFragment"
         android:label="fragment_library"
         tools:layout="@layout/fragment_course_catalog" >
         <action
@@ -180,7 +180,7 @@
 
     <fragment
         android:id="@+id/privateFragment"
-        android:name="org.journey.android.diary.view.PrivateFragment"
+        android:name="org.journey.android.presentation.main.diary.view.PrivateFragment"
         android:label="PrivateFragment"
         tools:layout="@layout/fragment_private">
         <action
@@ -194,23 +194,23 @@
 
     <fragment
         android:id="@+id/communityDetailFragment"
-        android:name="org.journey.android.community.ui.fragment.CommunityDetailFragment"
+        android:name="org.journey.android.presentation.main.community.ui.fragment.CommunityDetailFragment"
         android:label="CommunityDetailFragment"
         tools:layout="@layout/fragment_community_detail">
     </fragment>
     <fragment
         android:id="@+id/chatFragment"
-        android:name="org.journey.android.chat.ui.ChatFragment"
+        android:name="org.journey.android.presentation.main.chat.ui.ChatFragment"
         android:label="ChatFragment"
         tools:layout="@layout/fragment_chat"/>
     <fragment
         android:id="@+id/characterFragment"
-        android:name="org.journey.android.character.ui.fragment.CharacterFragment"
+        android:name="org.journey.android.presentation.main.character.ui.fragment.CharacterFragment"
         android:label="CharacterFragment"
         tools:layout="@layout/fragment_character"/>
     <fragment
         android:id="@+id/myPageFragment"
-        android:name="org.journey.android.mypage.ui.fragment.MyPageFragment"
+        android:name="org.journey.android.presentation.main.mypage.ui.fragment.MyPageFragment"
         android:label="MyPageFragment"
         tools:layout="@layout/fragment_my_page">
         <action
@@ -225,7 +225,7 @@
     </fragment>
     <dialog
         android:id="@+id/challengeCertifyDialog"
-        android:name="org.journey.android.challenge.ui.dialog.ChallengeCertifyDialog"
+        android:name="org.journey.android.presentation.main.challenge.ui.dialog.ChallengeCertifyDialog"
         android:label="ChallengeCertifyDialog"
         tools:layout="@layout/dialog_certify_challenge">
         <action
@@ -234,7 +234,7 @@
     </dialog>
     <fragment
         android:id="@+id/finishRewardFragment"
-        android:name="org.journey.android.reward.ui.FinishRewardFragment"
+        android:name="org.journey.android.presentation.main.reward.ui.FinishRewardFragment"
         android:label="FinishRewardFragment"
         tools:layout="@layout/fragment_finish_reward">
         <action
@@ -243,14 +243,14 @@
     </fragment>
     <fragment
         android:id="@+id/badgeFragment"
-        android:name="org.journey.android.badge.ui.fragment.BadgeFragment"
+        android:name="org.journey.android.presentation.main.badge.ui.fragment.BadgeFragment"
         android:label="BadgeFragment"
         tools:layout="@layout/fragment_badge">
 
     </fragment>
     <fragment
         android:id="@+id/editNickNameFragment"
-        android:name="org.journey.android.mypage.ui.fragment.EditNickNameFragment"
+        android:name="org.journey.android.presentation.main.mypage.ui.fragment.EditNickNameFragment"
         android:label="EditNickNameFragment"
         tools:layout="@layout/fragment_edit_nick_name">
         <action
@@ -259,7 +259,7 @@
     </fragment>
     <fragment
         android:id="@+id/settingFragment"
-        android:name="org.journey.android.setting.view.SettingFragment"
+        android:name="org.journey.android.presentation.main.setting.view.SettingFragment"
         android:label="SettingFragment"
         tools:layout="@layout/fragment_setting">
         <action
@@ -268,17 +268,17 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="org.journey.android.login.ui.LoginFragment"
+        android:name="org.journey.android.presentation.entry.login.ui.LoginFragment"
         android:label="LoginFragment"
         tools:layout="@layout/fragment_login"/>
     <fragment
         android:id="@+id/teamFragment"
-        android:name="org.journey.android.setting.view.TeamFragment"
+        android:name="org.journey.android.presentation.main.setting.view.TeamFragment"
         android:label="TeamFragment"
         tools:layout="@layout/fragment_team"/>
     <fragment
         android:id="@+id/completeRewardFragment"
-        android:name="org.journey.android.reward.ui.CompleteRewardFragment"
+        android:name="org.journey.android.presentation.main.reward.ui.CompleteRewardFragment"
         android:label="CompleteRewardFragment"
         tools:layout="@layout/fragment_complete_reward">
         <action
@@ -287,7 +287,7 @@
     </fragment>
     <fragment
         android:id="@+id/badgeRewardFragment"
-        android:name="org.journey.android.reward.ui.BadgeRewardFragment"
+        android:name="org.journey.android.presentation.main.reward.ui.BadgeRewardFragment"
         android:label="BadgeRewardFragment"
         tools:layout="@layout/fragment_badge_reward">
         <action
@@ -296,8 +296,7 @@
     </fragment>
     <fragment
         android:id="@+id/completeCourseFragment"
-        android:name="org.journey.android.mypage.ui.fragment.CompleteCourseFragment"
+        android:name="org.journey.android.presentation.main.mypage.ui.fragment.CompleteCourseFragment"
         android:label="CompleteCourseFragment"
         tools:layout="@layout/fragment_complete_course"/>
-
 </navigation>

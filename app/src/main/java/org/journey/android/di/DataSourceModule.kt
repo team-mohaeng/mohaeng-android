@@ -4,16 +4,16 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import org.journey.android.badge.data.source.BadgeDataSource
-import org.journey.android.badge.data.source.BadgeDataSourceImpl
-import org.journey.android.character.data.source.CharacterDataSource
-import org.journey.android.character.data.source.CharacterDataSourceImpl
-import org.journey.android.community.data.source.CommunityFeedDataSource
-import org.journey.android.community.data.source.CommunityFeedDataSourceImpl
-import org.journey.android.course.data.source.CourseCatalogDataSource
-import org.journey.android.course.data.source.CourseCatalogDataSourceImpl
-import org.journey.android.network.RetrofitInterface
-import org.journey.android.qualifier.AuthRetrofitService
+import org.journey.android.presentation.main.badge.data.source.BadgeDataSource
+import org.journey.android.presentation.main.badge.data.source.BadgeDataSourceImpl
+import org.journey.android.presentation.main.character.data.source.CharacterDataSource
+import org.journey.android.presentation.main.character.data.source.CharacterDataSourceImpl
+import org.journey.android.presentation.main.community.data.source.CommunityFeedDataSource
+import org.journey.android.presentation.main.community.data.source.CommunityFeedDataSourceImpl
+import org.journey.android.presentation.main.course.data.source.CourseCatalogDataSource
+import org.journey.android.presentation.main.course.data.source.CourseCatalogDataSourceImpl
+import org.journey.android.data.network.RetrofitInterface
+import org.journey.android.data.network.qualifier.AuthRetrofitService
 import javax.inject.Singleton
 
 @Module

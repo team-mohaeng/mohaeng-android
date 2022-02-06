@@ -4,10 +4,10 @@
     <data>
         <variable
             name="viewModel"
-            type="org.journey.android.challenge.viewmodel.ChallengeViewModel" />
+            type="org.journey.android.presentation.main.challenge.viewmodel.ChallengeViewModel" />
         <variable
             name="data"
-            type="org.journey.android.challenge.data.response.ResponseTodayChallengeDTO" />
+            type="org.journey.android.presentation.main.challenge.data.response.ResponseTodayChallengeDTO" />
     </data>
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"

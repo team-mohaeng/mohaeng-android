@@ -5,12 +5,12 @@
     <data>
         <variable
             name="viewModel"
-            type="org.journey.android.frame.FrameViewModel" />
+            type="org.journey.android.presentation.frame.FrameViewModel" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".frame.FrameFragment">
+        tools:context=".presentation.frame.FrameFragment">
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewpager_main"
             android:layout_width="match_parent"

@@ -20,7 +20,7 @@
                 android:textScaleX="0.98"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"/>
-            <org.journey.android.customview.SpannableTextView
+            <org.journey.android.presentation.customview.SpannableMohaengTextView
                 android:id="@+id/textview_onboarding_subtitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

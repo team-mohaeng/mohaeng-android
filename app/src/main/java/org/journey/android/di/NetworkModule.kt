@@ -7,9 +7,9 @@ import dagger.hilt.components.SingletonComponent
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import org.journey.android.network.RetrofitInterface
-import org.journey.android.preference.UserPreferenceManager
-import org.journey.android.qualifier.*
+import org.journey.android.data.network.RetrofitInterface
+import org.journey.android.presentation.preference.UserPreferenceManager
+import org.journey.android.data.network.qualifier.*
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory

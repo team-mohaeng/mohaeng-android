@@ -5,7 +5,7 @@
     <data>
         <variable
             name="viewModel"
-            type="org.journey.android.main.viewmodel.MainViewModel" />
+            type="org.journey.android.presentation.main.home.viewmodel.MainViewModel" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

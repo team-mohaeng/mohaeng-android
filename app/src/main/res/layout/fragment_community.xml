@@ -5,14 +5,14 @@
     <data>
         <variable
             name="viewModel"
-            type="org.journey.android.community.viewmodel.CommunityPostViewModel" />
+            type="org.journey.android.presentation.main.community.viewmodel.CommunityPostViewModel" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintlayout_frame_community"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/mohaeng_yellow"
-        tools:context=".community.ui.fragment.CommunityFragment">
+        tools:context=".presentation.main.community.ui.fragment.CommunityFragment">
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/textview_diary"
             android:layout_width="70dp"

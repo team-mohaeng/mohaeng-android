@@ -3,7 +3,7 @@
     <data>
         <variable
             name="viewModel"
-            type="org.journey.android.login.viewmodel.LoginViewModel" />
+            type="org.journey.android.presentation.entry.login.viewmodel.LoginViewModel" />
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
