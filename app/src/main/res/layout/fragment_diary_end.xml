@@ -6,7 +6,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".diary.view.DiaryEndFragment">
+        tools:context=".presentation.main.diary.view.DiaryEndFragment">
 
         <TextView
             android:id="@+id/textview_diaryend"

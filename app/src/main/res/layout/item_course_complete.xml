@@ -4,7 +4,7 @@
     <data>
         <variable
             name="viewModel"
-            type="org.journey.android.mypage.viewmodel.MyPageViewModel" />
+            type="org.journey.android.presentation.main.mypage.viewmodel.MyPageViewModel" />
     </data>
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"

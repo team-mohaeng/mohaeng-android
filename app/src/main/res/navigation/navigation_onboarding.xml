@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/onboardingFirstFragment"
-        android:name="org.journey.android.onboarding.ui.fragment.OnboardingFirstFragment"
+        android:name="org.journey.android.presentation.onboarding.ui.fragment.OnboardingFirstFragment"
         android:label="OnboardingFirstFragment"
         tools:layout="@layout/fragment_onboarding_first">
         <action
@@ -17,7 +17,7 @@
     </fragment>
     <fragment
         android:id="@+id/onboardingSecondFragment"
-        android:name="org.journey.android.onboarding.ui.fragment.OnboardingSecondFragment"
+        android:name="org.journey.android.presentation.onboarding.ui.fragment.OnboardingSecondFragment"
         android:label="OnboardingSecondFragment"
         tools:layout="@layout/fragment_onboarding_second">
         <action
@@ -26,7 +26,7 @@
     </fragment>
     <fragment
         android:id="@+id/onboardingThirdFragment"
-        android:name="org.journey.android.onboarding.ui.fragment.OnboardingThirdFragment"
+        android:name="org.journey.android.presentation.onboarding.ui.fragment.OnboardingThirdFragment"
         android:label="OnboardingThirdFragment"
         tools:layout="@layout/fragment_onboarding_third">
         <action
@@ -38,7 +38,7 @@
     </fragment>
     <fragment
         android:id="@+id/onboardingFourthFragment"
-        android:name="org.journey.android.onboarding.ui.fragment.OnboardingFourthFragment"
+        android:name="org.journey.android.presentation.onboarding.ui.fragment.OnboardingFourthFragment"
         android:label="OnboardingFourthFragment"
         tools:layout="@layout/fragment_onboarding_fourth">
         <action
@@ -47,7 +47,7 @@
     </fragment>
     <fragment
         android:id="@+id/onboardingFifthFragment"
-        android:name="org.journey.android.onboarding.ui.fragment.OnboardingFifthFragment"
+        android:name="org.journey.android.presentation.onboarding.ui.fragment.OnboardingFifthFragment"
         android:label="OnboardingFifthFragment"
         tools:layout="@layout/fragment_onboarding_fifth">
         <action
@@ -56,7 +56,7 @@
     </fragment>
     <fragment
         android:id="@+id/splashFragment"
-        android:name="org.journey.android.splash.ui.SplashFragment"
+        android:name="org.journey.android.presentation.entry.splash.SplashFragment"
         android:label="SplashFragment"
         tools:layout="@layout/fragment_splash">
         <action
@@ -65,7 +65,7 @@
     </fragment>
     <fragment
         android:id="@+id/challengeCertifyDialog"
-        android:name="org.journey.android.challenge.ui.dialog.ChallengeCertifyDialog"
+        android:name="org.journey.android.presentation.main.challenge.ui.dialog.ChallengeCertifyDialog"
         android:label="ChallengeCertifyDialog"
         tools:layout="@layout/dialog_certify_challenge">
         <action
@@ -74,7 +74,7 @@
     </fragment>
     <fragment
         android:id="@+id/onboardingSixthFragment"
-        android:name="org.journey.android.onboarding.ui.fragment.OnboardingSixthFragment"
+        android:name="org.journey.android.presentation.onboarding.ui.fragment.OnboardingSixthFragment"
         android:label="OnboardingSixthFragment"
         tools:layout="@layout/fragment_onboarding_sixth"/>
 </navigation>

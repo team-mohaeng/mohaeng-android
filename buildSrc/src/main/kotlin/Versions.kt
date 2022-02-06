@@ -62,6 +62,7 @@ object DependencyVersions {
     const val GLIDE_VERSION = "4.12.0"
     const val HEDGE_HOG_RATING_BAR = "1.1.2"
     const val EMOJI_VERSION = "28.0.0"
+    const val TIMBER = "5.0.1"
 }
 
 object TestVersions {

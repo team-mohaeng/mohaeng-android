@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
             name="data"
-            type="org.journey.android.community.data.entity.CommunityPostEntity" />
+            type="org.journey.android.domain.entity.CommunityPostEntity" />
     </data>
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintlayout_community_item"

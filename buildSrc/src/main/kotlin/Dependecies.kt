@@ -7,6 +7,7 @@ object Plugins {
     const val SAFE_ARGS = "androidx.navigation.safeargs"
     const val PARCELIZE = "kotlin-parcelize"
     const val GMS_GOOGLE_SERVICES = "com.google.gms.google-services"
+    const val OPEN_SOURCE = "com.google.android.gms.oss-licenses-plugin:0.10.4"
 
     const val KOTLIN_GRADLE_PLUGIN = "org.jetbrains.kotlin:kotlin-gradle-plugin:${DependencyVersions.KOTLIN_VERSION}"
     const val DAGGER_HILT_GRADLE_PLUGIN = "com.google.dagger:hilt-android-gradle-plugin:${DependencyVersions.DAGGER_HILT_VERSION}"
@@ -116,5 +117,9 @@ object Hedgehog{
 
 object Emoji{
     const val SUPPORT_EMOJI = "com.android.support:support-emoji-appcompat:${DependencyVersions.EMOJI_VERSION}"
+}
+
+object Timber {
+    const val TIMBER = "com.jakewharton.timber:timber:${DependencyVersions.TIMBER}"
 }
 

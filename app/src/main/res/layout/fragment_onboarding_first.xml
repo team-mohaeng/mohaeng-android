@@ -4,7 +4,7 @@
     <data>
         <variable
             name="viewModel"
-            type="org.journey.android.onboarding.viewmodel.OnboardingViewModel" />
+            type="org.journey.android.presentation.onboarding.viewmodel.OnboardingViewModel" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

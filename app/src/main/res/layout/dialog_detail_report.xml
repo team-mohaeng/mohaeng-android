@@ -13,7 +13,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_dialog_report"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

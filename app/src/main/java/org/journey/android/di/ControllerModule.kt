@@ -4,41 +4,41 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import org.journey.android.badge.controller.BadgeController
-import org.journey.android.badge.controller.BadgeControllerImpl
-import org.journey.android.challenge.controller.ChallengeController
-import org.journey.android.challenge.controller.ChallengeControllerImpl
-import org.journey.android.character.controller.CharacterController
-import org.journey.android.character.controller.CharacterControllerImpl
-import org.journey.android.chat.controller.ChatController
-import org.journey.android.chat.controller.ChatControllerImpl
-import org.journey.android.community.controller.CommunityController
-import org.journey.android.community.controller.CommunityControllerImpl
-import org.journey.android.community.controller.UploadPostController
-import org.journey.android.community.controller.UploadPostControllerImpl
-import org.journey.android.course.controller.catalog.CourseCatalogController
-import org.journey.android.course.controller.catalog.CourseCatalogControllerImpl
-import org.journey.android.course.controller.state.CourseStateController
-import org.journey.android.course.controller.state.CourseStateControllerImpl
-import org.journey.android.findpw.controller.ChangePasswordController
-import org.journey.android.findpw.controller.ChangePasswordControllerImpl
-import org.journey.android.findpw.controller.SendVerificationController
-import org.journey.android.findpw.controller.SendVerificationControllerImpl
-import org.journey.android.login.controller.SignInController
-import org.journey.android.login.controller.SignInControllerImpl
-import org.journey.android.main.controller.HomeController
-import org.journey.android.main.controller.HomeControllerImpl
-import org.journey.android.mypage.controller.course.CompleteCourseController
-import org.journey.android.mypage.controller.course.CompleteCourseControllerImpl
-import org.journey.android.mypage.controller.user.MyPageController
-import org.journey.android.mypage.controller.user.MyPageControllerImpl
-import org.journey.android.network.RetrofitInterface
-import org.journey.android.qualifier.AuthRetrofitService
-import org.journey.android.qualifier.UnAuthRetrofitService
-import org.journey.android.signup.controller.ChangeNickNameController
-import org.journey.android.signup.controller.ChangeNickNameControllerImpl
-import org.journey.android.signup.controller.SignUpController
-import org.journey.android.signup.controller.SignUpControllerImpl
+import org.journey.android.presentation.main.badge.controller.BadgeController
+import org.journey.android.presentation.main.badge.controller.BadgeControllerImpl
+import org.journey.android.presentation.main.challenge.controller.ChallengeController
+import org.journey.android.presentation.main.challenge.controller.ChallengeControllerImpl
+import org.journey.android.presentation.main.character.controller.CharacterController
+import org.journey.android.presentation.main.character.controller.CharacterControllerImpl
+import org.journey.android.presentation.main.chat.controller.ChatController
+import org.journey.android.presentation.main.chat.controller.ChatControllerImpl
+import org.journey.android.presentation.main.community.controller.CommunityController
+import org.journey.android.presentation.main.community.controller.CommunityControllerImpl
+import org.journey.android.presentation.main.community.controller.UploadPostController
+import org.journey.android.presentation.main.community.controller.UploadPostControllerImpl
+import org.journey.android.presentation.main.course.controller.catalog.CourseCatalogController
+import org.journey.android.presentation.main.course.controller.catalog.CourseCatalogControllerImpl
+import org.journey.android.presentation.main.course.controller.state.CourseStateController
+import org.journey.android.presentation.main.course.controller.state.CourseStateControllerImpl
+import org.journey.android.presentation.entry.findpw.controller.modify.ChangePasswordController
+import org.journey.android.presentation.entry.findpw.controller.modify.ChangePasswordControllerImpl
+import org.journey.android.presentation.entry.findpw.controller.verification.SendVerificationController
+import org.journey.android.presentation.entry.findpw.controller.verification.SendVerificationControllerImpl
+import org.journey.android.presentation.entry.login.controller.SignInController
+import org.journey.android.presentation.entry.login.controller.SignInControllerImpl
+import org.journey.android.presentation.main.home.controller.HomeController
+import org.journey.android.presentation.main.home.controller.HomeControllerImpl
+import org.journey.android.presentation.main.mypage.controller.course.CompleteCourseController
+import org.journey.android.presentation.main.mypage.controller.course.CompleteCourseControllerImpl
+import org.journey.android.presentation.main.mypage.controller.user.MyPageController
+import org.journey.android.presentation.main.mypage.controller.user.MyPageControllerImpl
+import org.journey.android.data.network.RetrofitInterface
+import org.journey.android.data.network.qualifier.AuthRetrofitService
+import org.journey.android.data.network.qualifier.UnAuthRetrofitService
+import org.journey.android.presentation.entry.signup.controller.ChangeNickNameController
+import org.journey.android.presentation.entry.signup.controller.ChangeNickNameControllerImpl
+import org.journey.android.presentation.entry.signup.controller.SignUpController
+import org.journey.android.presentation.entry.signup.controller.SignUpControllerImpl
 import javax.inject.Singleton
 
 @Module
@@ -96,7 +96,7 @@ object ControllerModule {
 
     @Provides
     @Singleton
-    fun provideChatController(@AuthRetrofitService retrofitInterface :RetrofitInterface) : ChatController =
+    fun provideChatController(@AuthRetrofitService retrofitInterface : RetrofitInterface) : ChatController =
         ChatControllerImpl(retrofitInterface)
 
     @Provides

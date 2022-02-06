@@ -5,7 +5,7 @@
     <data>
         <variable
             name="viewModel"
-            type="org.journey.android.onboarding.viewmodel.OnboardingViewModel" />
+            type="org.journey.android.presentation.onboarding.viewmodel.OnboardingViewModel" />
     </data>
     <androidx.core.widget.NestedScrollView
         xmlns:mohaeng="http://schemas.android.com/apk/res/org.journey.android"
@@ -35,7 +35,7 @@
                 android:textSize="15sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-            <org.journey.android.customview.SpannableTextView
+            <org.journey.android.presentation.customview.SpannableMohaengTextView
                 android:id="@+id/textview_choose_course"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

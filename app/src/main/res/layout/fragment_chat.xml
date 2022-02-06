@@ -4,10 +4,10 @@
     <data>
         <variable
             name="viewModel"
-            type="org.journey.android.chat.viewmodel.ChatViewModel" />
+            type="org.journey.android.presentation.main.chat.viewmodel.ChatViewModel" />
         <variable
             name="data"
-            type="org.journey.android.pushalarm.data.response.ResponsePushAlarmDTO" />
+            type="org.journey.android.presentation.entry.fcm.data.response.ResponsePushAlarm" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

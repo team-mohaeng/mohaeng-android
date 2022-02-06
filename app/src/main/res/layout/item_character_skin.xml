@@ -3,7 +3,7 @@
     <data>
         <variable
             name="data"
-            type="org.journey.android.character.data.entity.CharacterSkinEntity" />
+            type="org.journey.android.domain.entity.CharacterSkinEntity" />
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"

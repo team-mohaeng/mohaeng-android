@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".diary.view.FeelFirstFragment">
+    tools:context=".presentation.main.diary.view.FeelFirstFragment">
 
     <ImageView
         android:id="@+id/imageview_feel_first"

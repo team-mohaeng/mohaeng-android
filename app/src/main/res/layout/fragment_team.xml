@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/mohaeng_yellow9"
-    tools:context=".setting.view.TeamFragment">
+    tools:context=".presentation.main.setting.view.TeamFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_team_title"

@@ -5,7 +5,7 @@
     <data>
         <variable
             name="viewModel"
-            type="org.journey.android.badge.viewmodel.BadgeViewModel" />
+            type="org.journey.android.presentation.main.badge.viewmodel.BadgeViewModel" />
     </data>
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"

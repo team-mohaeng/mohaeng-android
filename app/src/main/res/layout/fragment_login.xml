@@ -5,12 +5,12 @@
     <data>
         <variable
             name="viewModel"
-            type="org.journey.android.onboarding.viewmodel.OnboardingViewModel" />
+            type="org.journey.android.presentation.onboarding.viewmodel.OnboardingViewModel" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".login.ui.LoginFragment">
+        tools:context=".presentation.entry.login.ui.LoginFragment">
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="match_parent"
             android:layout_height="388dp"

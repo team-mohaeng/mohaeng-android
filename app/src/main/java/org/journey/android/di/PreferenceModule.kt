@@ -9,8 +9,8 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import org.journey.android.preference.SharedPreferencesManager
-import org.journey.android.preference.UserPreferenceManager
+import org.journey.android.presentation.preference.SharedPreferencesManager
+import org.journey.android.presentation.preference.UserPreferenceManager
 import javax.inject.Singleton
 
 @Module

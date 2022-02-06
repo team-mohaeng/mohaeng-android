@@ -5,7 +5,7 @@
     <data>
         <variable
             name="viewModel"
-            type="org.journey.android.diary.viewmodel.PrivateViewModel" />
+            type="org.journey.android.presentation.main.diary.viewmodel.PrivateViewModel" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
