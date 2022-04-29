@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object SignupRequestToServer {
     var retrofit = Retrofit.Builder()
-        .baseUrl("http://54.180.103.98:5000")
+        .baseUrl("http://3.34.194.201:5000")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
     var service: SignupService = retrofit.create(SignupService::class.java)
