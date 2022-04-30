@@ -18,8 +18,8 @@ android {
         applicationId "org.journey.android"
         minSdkVersion 23
         targetSdkVersion 31
-        versionCode 7
-        versionName "1.0"
+        versionCode 9
+        versionName "1.0.2"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
