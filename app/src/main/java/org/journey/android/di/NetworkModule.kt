@@ -63,7 +63,7 @@ object NetworkModule {
     @UnAuthRetrofit
     fun provideAuthRetrofit(@UnAuthOkHttp okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("http://3.34.194.201:5000/")
+            .baseUrl("http://mohaeng.me:5000/")
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
@@ -75,7 +75,7 @@ object NetworkModule {
     @AuthRetrofit
     fun provideRetrofit(@AuthOkHttp okHttpClient: OkHttpClient): Retrofit =
         Retrofit.Builder()
-            .baseUrl("http://3.34.194.201:5000/")
+            .baseUrl("http://mohaeng.me:5000/")
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
